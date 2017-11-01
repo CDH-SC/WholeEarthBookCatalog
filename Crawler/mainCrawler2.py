@@ -22,7 +22,7 @@ NOTES:
     + Then check item i against all the terms after it, up to the n-1th and final item.
 """
 
-import os, datetime, string, urllib2, utilities, webbrowser, sys
+import os, datetime, string, urllib2, utilities, webbrowser, sys, json, time
 
 # we should just take file input
 def get_query_strings(fname):
@@ -35,7 +35,7 @@ def get_OCLC_numbers(q_string):
     pageNumberToTry = 1 # for iterating results pages
 
     for searchString in q_strings:
-        while len(OCLCNumbers) < 25: # tmp fix to limit results for testing purposes
+        while len(OCLCNumbers) < 25:
             # make URL, visit page, capture its HTML
             nextPageOfResultsURL=utilities.makeURLforNextPageOfResults(searchString, pageNumberToTry)
             response = urllib2.urlopen(nextPageOfResultsURL)
@@ -43,73 +43,47 @@ def get_OCLC_numbers(q_string):
 
             # if no error, capture OCLC numbers and iterate
             errorMessage = "Search Error" # this is the only marker in the HTML search results pages I could find that works
-            print "testing whether resulting page is error or has results"
+            print "\ntesting whether resulting page is error or has results"
             if string.find(retrieved_HTML, errorMessage) > -1: # error message is a substring of page
                 # error # page does not work
                 raise(Exception("Encountered an error parsing the html"))
             else: # look at the successful page and extract OCLC numbers
                 print "extracting OCLC numbers from page"
                 utilities.getOCLCNumbers(OCLCNumbers, retrieved_HTML)
-                print "after page(s) of results from this search string, OCLCNumbers list is {}".format(OCLCNumbers)
+                print "after page(s) of results from this search string, OCLCNumbers list is {}\n".format(OCLCNumbers)
                 pageNumberToTry += 1 # increment page number
                 utilities.waitRandomTime()
     return OCLCNumbers
 
-def get_OCLC_data(oclc_number):
-
-    record=utilities.OCLCNumberToRecord(oclc_number)
-    listOfAuthorNames = []
-    # output to console and to log file confirming receipt of input
-    confirmatoryOutput="record: \n"+record
-    f.write(confirmatoryOutput)
-    print(confirmatoryOutput)
-    latestAuthorNamesExtracted = utilities.extractAuthorNames(record)
-    confirmatoryOutput="author names extracted from this record: " + str(latestAuthorNamesExtracted)+"\n\n"
-    f.write(confirmatoryOutput)
-    print(confirmatoryOutput)
-    listOfAuthorNames = listOfAuthorNames + latestAuthorNamesExtracted
-    utilities.waitRandomTime()
-    confirmatoryOutput = str(listOfAuthorNames)
-    f.write(confirmatoryOutput)
-    print(confirmatoryOutput + "\n")
-
 def get_OCLC_ls_data(oclc_list):
-    for oclc_num in oclc_list: # get the actual data associated with each OCLC number
-        get_OCLC_data(oclc_num)
+    d = {}
+    for oclc_num in oclc_list:
+        d[oclc_num] = utilities.OCLCNumberToRecord(oclc_num)
+        utilities.waitRandomTime()
+    return d
 
 if __name__ == '__main__':
 
     #commencement
     print "DHC 2.1"
 
-    # do the stuffs
+    t = "".join(str(time.time()).split("."))
     folderPath = "./output"
+    outpath = "{}/{}.json".format(folderPath,t)
+
+    # make path if necessary
     if not os.path.exists(folderPath):
         os.makedirs(folderPath)
-
-    # open log file for writing; this will stay open until end of session a while from now
-    # alter this piece to just log at the end of the session
-    logFilePath = folderPath + '/logFile.txt'
-    f = open(logFilePath,"w")
-    now = datetime.datetime.today().strftime("Log file created on %m/%d/%Y, %H:%M:%S"+"\n")
-    f.write(now)
-    f.write("Here is the message text." + "\n")
 
     # output to console and to log file confirming receipt of inpu#
     # will make input checking more robust later...
     fname = sys.argv[1]
     q_strings = get_query_strings(fname)
-    confirmatoryOutput ="query list contents: {}\n".format(str(q_strings))
-    f.write(confirmatoryOutput)
-    print(confirmatoryOutput)
-    # the list of search strings is now ready to be sent to WorldCat
-
     oclc_numbers = get_OCLC_numbers(q_strings)
-    get_OCLC_ls_data(oclc_numbers)
+    data = json.dumps(get_OCLC_ls_data(oclc_numbers), indent=4, encoding="iso-8859-1")
+
+    with open(outpath, "w") as f:
+        f.write(data)
 
     # the end
-    print "exit stage right"
-    f.write("\nend\n")
-
-    # don't forget to close the log file at the end'
-    f.close()
+    print "finished"
