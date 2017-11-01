@@ -5,7 +5,7 @@ Notes: These are utility functions for DHC 2.1.
 '''
 
 # arcana imperii
-import datetime, os, pickle, random, re, string, time, urllib2, webbrowser
+import datetime, os, pickle, random, re, string, time, urllib2, webbrowser, requests
 
 ########################
 ###### Miscellany ######
@@ -154,13 +154,13 @@ def getOCLCNumbers(ls, SearchResultsPageAsHTMLString): # extract OCLC number(s) 
         startLoc += 9
     return ls
 
+# use requests for this
 def OCLCNumberToRecord(OCLCNumber): # make target URL, open it on web, and read it into a new string
-    urlPrefix = "http://www.worldcat.org/oclc/"
-    urlSuffix = "?page=endnote&client=worldcat.org-detailed_record"
-    targetUrl = urlPrefix + str(OCLCNumber) + urlSuffix # concatenate prefix, OCLC no., and suffix
-    response = urllib2.urlopen(targetUrl)
-    record = response.read()
-    return record # returns string of record
+    url = "http://www.worldcat.org/oclc/{}?page=endnote&client=worldcat.org-detailed_record".format(OCLCNumber)
+    response = requests.get(url)
+    if response.encoding == "ISO-8859-1":
+        print("OCLC number: {}".format(OCLCNumber))
+        return response.text.encode("iso-8859-1") # returns string of record
 
 def OCLCNumberToCitation(oclcNo): # pretty-print bibliogr. citation (given an OCLC number)
     recordString = OCLCNumberToRecord(oclcNo)
@@ -207,6 +207,3 @@ def extractAuthorNames(oclcRecordString): # extract author name(s) from an OCLC 
         if currentIndex >= len(oclcRecordString):
             break
     return authorNames
-
-# pickling operations
-#pickle.dump(fD,newFileObject)
