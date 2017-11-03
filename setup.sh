@@ -15,7 +15,7 @@ sudo apt update
 sudo apt -t jessie-backports install ca-certificates-java
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt update
-sudo apt install oracle-java8-installer
+sudo apt install -y oracle-java8-installer
 wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
 echo 'deb http://debian.neo4j.org/repo stable/' | sudo tee -a /etc/apt/sources.list.d/neo4j.list
 sudo apt update
@@ -26,4 +26,8 @@ echo "neo4j-enterprise neo4j/license note" | sudo debconf-set-selections
 #install nodejs
 sudo apt update
 sudo apt install -y nodejs 
-sudo apt install npm 
+sudo apt install -y npm 
+
+#install python stuff
+sudo apt install -y python
+sudo apt install -y python-pip
