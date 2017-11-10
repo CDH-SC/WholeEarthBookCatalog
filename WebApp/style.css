@@ -6,6 +6,9 @@ Description: Overarching style sheet for front end of Dirty History Crawler.
 
 */
 
+body {
+	font-family: "Trebuchet MS", Arial, sans-serif;
+}
 
 /*Recurring items*/
 
