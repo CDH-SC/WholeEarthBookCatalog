@@ -1,0 +1,22 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="dhc-help">
+    <style></style>
+    <template>
+        <p>You made it to the help page!</p>
+
+        <!--TODO: Store last visited page for a back button-->
+        <a href="[[rootPath]]">Go back home.</a>
+    </template>
+    <script>
+        class dhcHelp extends Polymer.Element {
+            static get is() {return 'dhc-help'; }
+            static get properties() {
+                return {
+                    rootPath: String,
+                }
+            }
+        }
+        window.customElements.define(dhcHelp.is, dhcHelp);
+    </script>
+</dom-module>
