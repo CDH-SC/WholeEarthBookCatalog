@@ -2,18 +2,21 @@
  * An express server to serve as an API for the web app
  */
 
+"use strict";
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var driver = require("./database_client/driver.js");
+var mongo = require("./database_client/mongoDriver.js");
 var port = process.env.PORT;
 var router = express.Router();
+var neo4j = require("./database_client/neo4jDriver.js");
 
 // get data from the database
 router.get('/get_data/:list_name', function(req, res) {
     var lname = req.params.list_name; // query db for this list
 
-    driver.findDocument({"name": lname}, function(resp) {
+    mongo.findDocument({"name": lname}, function(resp) {
         if (resp.length > 0) {
             console.log(resp[0]);
             res.json(resp);
@@ -34,10 +37,21 @@ router.post('/post_data/', function(req, res) {
     }
     else {
         // add to db
-        driver.insertDocument(data, function(resp) {
+        mongo.insertDocument(data, function(resp) {
             res.json(resp);
         });
     }
+})
+
+router.get("/neo4j/", function(req, res) {
+    // get a neo4j session
+    var session = neo4j.getSession();
+    var r = {session: "Failure"}
+    if (session) {
+        r.session = "Success"
+    }
+
+    res.json(r);
 })
 
 // use bodyParser
@@ -55,4 +69,3 @@ app.use(express.static("scripts"));
 // Start the server instance
 app.listen(port);
 console.log(`Server is listening on port ${port}`);
-console.log(`Neo4j password is ${process.env.NEO4J_PASSWORD}`);
