@@ -1,0 +1,20 @@
+{
+  "name": "capstone_basic_webapp",
+  "version": "1.0.0",
+  "description": "A basic webapp for CSCE 490 at the University of South Carolina",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Jason Drain <jason.bensley.drain@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "ajax": "0.0.4",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.12.1",
+    "os": "^0.1.1"
+  }
+}
