@@ -1,0 +1,67 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="dhc-home">
+  <template>
+    <style>
+      /*For local style to this dom-module*/
+
+      .border-wrapper {
+        margin: auto;
+        width: 50%;
+        margin-top: 20%;
+      }
+
+      #title-center {
+        text-align: center;
+        font-size: 55px;
+        margin: 0;
+      }
+
+      paper-input {
+        max-width: 600px;
+      }
+    </style>
+
+    <!--The actual html goes in here-->
+    <div class="border-wrapper">
+      <h1 id="title-center">DHC</h1>
+
+      <paper-input placeholder="Keywords">
+        <iron-icon icon="arrow-forward" slot="suffix"></iron-icon>
+      </paper-input>
+
+      <div class="book-view">
+        <span class="highlightedBookCarousel"> 
+            Sign In for Recommendations 
+          <span class = "glyphicon glyphicon-arrow-left"> </span>
+        <span class="glyphicon glyphicon-arrow-right"> </span>
+        </span>
+      </div>
+
+      <!--this will be replaced by a small dom-mod-->
+      <div id="footer-wrapper">
+        <!--sets the path in the address bar to domain/help-->
+        <a name="help" href="[[rootPath]]help">Help?</a>
+      </div>
+    </div>
+  </template>
+
+  <script>
+    class dhcHome extends Polymer.Element {
+      static get is() {
+        return 'dhc-home';
+      }
+      static get properties() {
+        return {
+          // This shouldn't be neccessary, but the Analyzer isn't picking up
+          // Polymer.Element#rootPath
+          rootPath: String,
+        };
+      }
+    }
+
+    window.customElements.define(dhcHome.is, dhcHome);
+  </script>
+</dom-module>

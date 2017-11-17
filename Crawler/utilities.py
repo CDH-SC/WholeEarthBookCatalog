@@ -5,7 +5,7 @@ Notes: These are utility functions for DHC 2.1.
 '''
 
 # arcana imperii
-import datetime, os, pickle, random, re, string, time, urllib2, webbrowser
+import datetime, os, pickle, random, re, string, time, urllib2, webbrowser, requests
 
 ########################
 ###### Miscellany ######
@@ -27,27 +27,6 @@ def findCurrentOutputIndex(): # returns the index of the current output folder b
     currentIndex = int(f.readline())
     f.close()
     return currentIndex
-
-def initializeNewOutput(): # increments output index by 1, creates log file for new output, returns folder path of new/next output
-    currentIndex = findCurrentOutputIndex()
-    currentIndex += 1
-    basePath = "./output"
-    indexPath = basePath + "/index.txt"
-    f = open(indexPath, "w")
-    f.write(str(currentIndex))
-    f.close
-    # prep for complementary function to write to this new output
-    newFolder = "output" + str(currentIndex)
-    folderPath = basePath + "/" + newFolder
-    if not os.path.exists(folderPath):
-        os.makedirs(folderPath)
-    logFilePath = folderPath + "/" + "logFile.txt"
-    f = open(logFilePath,"w")
-    now = datetime.datetime.today().strftime("Log file created on %m/%d/%Y, %H:%M:%S")
-    f.write(now)
-    f.write("\nThis is the message log. Could be used for pickling, lists, etc.")
-    f.close()
-    return folderPath
 
 def addStringToLog(aString):
     currentIndex = findCurrentOutputIndex()
@@ -154,14 +133,31 @@ def getOCLCNumbers(ls, SearchResultsPageAsHTMLString): # extract OCLC number(s) 
         startLoc += 9
     return ls
 
+# use requests for this
 def OCLCNumberToRecord(OCLCNumber): # make target URL, open it on web, and read it into a new string
-    urlPrefix = "http://www.worldcat.org/oclc/"
-    urlSuffix = "?page=endnote&client=worldcat.org-detailed_record"
-    targetUrl = urlPrefix + str(OCLCNumber) + urlSuffix # concatenate prefix, OCLC no., and suffix
-    response = urllib2.urlopen(targetUrl)
-    record = response.read()
-    return record # returns string of record
+    print("\nGetting record for OCLC number: {}\n".format(OCLCNumber))
+    url = "http://www.worldcat.org/oclc/{}?page=endnote&client=worldcat.org-detailed_record".format(OCLCNumber)
+    response = requests.get(url)
+    if response.encoding == "ISO-8859-1":
+        print("OCLC number: {}".format(OCLCNumber))
+        record = response.text.encode("iso-8859-1") # returns string of record
+        return parse_OCLC_Record(record)
 
+# parse record
+def parse_OCLC_Record(record):
+    r = {}
+    tmp = record.split("\n")
+    for i in tmp:
+        print("i: {}".format(i))
+        j = i.split("  - ")
+        if len(j) > 1:
+            if j[0] not in r.keys():
+                r[j[0]] = [j[1]]
+            else:
+                r[j[0]].append(j[1])
+    return r
+
+# This will probably not work now that OCLCNumberToRecord returns a dictionary
 def OCLCNumberToCitation(oclcNo): # pretty-print bibliogr. citation (given an OCLC number)
     recordString = OCLCNumberToRecord(oclcNo)
     author = ""; title = ""; date = ""
@@ -207,6 +203,3 @@ def extractAuthorNames(oclcRecordString): # extract author name(s) from an OCLC 
         if currentIndex >= len(oclcRecordString):
             break
     return authorNames
-
-# pickling operations
-#pickle.dump(fD,newFileObject)
