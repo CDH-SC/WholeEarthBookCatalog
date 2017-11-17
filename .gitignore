@@ -1,0 +1,3 @@
+./dockerized_webapp/node_modules/*
+*.pyc
+*.conf

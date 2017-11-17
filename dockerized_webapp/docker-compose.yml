@@ -1,0 +1,41 @@
+# Compose file for the webapp
+#
+# Be sure to set environment variable in app.conf and then run
+# `$ source $PATH/app.conf`
+#
+# To build and run:
+#    docker-compose up
+
+version: "3"
+
+services:
+
+  neo4j:
+    image: neo4j
+    ports:
+      - "7687:7687" # bolt connection
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+    volumes:
+      - "neo4j:/var/lib/neo4j/data"
+
+  node_webapp:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=${SERVER_PORT}
+      - MONGO_URL=mongo
+      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - "mongodb:/var/lib/mongo_data"
+
+volumes:
+
+  mongodb:
+  neo4j:
