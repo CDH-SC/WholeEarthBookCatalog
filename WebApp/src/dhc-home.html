@@ -5,7 +5,6 @@
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 
-
 <head>
 
 <dom-module id="dhc-home">
@@ -79,32 +78,64 @@
   <div id = "search-wrapper">
       <input type = "search" width = 575px>
 
+ </div>
+
+       <div id = "book-view">
+
+    <div id = "carousel-home" class = "carousel-slide" data-ride = "carousel">
+
+      <ol class = "carousel-slides">
+          <li data-target="#carousel-home" data-slide-to="0" class = "active"></li>
+          <li data-target="#carousel-home" data-slide-to="1"></li>
+          <li data-target="#carousel-home" data-slide-to="2"></li>
+
+      </ol>
+         
+    <div class = "carousel-content" role = "listbox">
+     
+     <div class = "carousel-current-item">
+       <!-- include image set here--> 
+     </div>
+
+     <div class = "carousel-item-set">
+         <!-- include image set here--> 
+     </div>
+ 
+     <div class = "carousel-item-set">
+         <!-- include image set here--> 
+
+      </div>
 
     </div>
 
-    <div id = "book-view">
+    <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
+    <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
 
-       <!-- Bootstrap Carousel 
-     - overarching Bootstrap wrapper
-         - need to include carousel indicators 
-                data-target, data-slide-to, + class = active 
+    <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next">
+    <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span>
+    
+    <script>
+       $("#carousel-home").carousel();
 
-               overarching slide wrapper 
+       $(".item-set").click(function() {
+         $("#carousel-home").carousel(1);
+       }); 
 
-             - wrapper per slide 
+       $(".prev").click(function() {
+          $("#carousel-home").carousel("prev");
+       });
 
-           left + right carousel controls 
+       $(".next").click(function() {
+          $("#carousel-home".carousel("next"));
+       });
 
-        --> 
-      <span class = "highlightedBookCarousel"> 
+     </script>
+     
+    </div>
 
 
-      Sign In for Recommendations 
+    Sign In for Recommendations 
 
-        <span class = "glyphicon glyphicon-arrow-left"> </span>
-        <span class = "glyphicon glyphicon-arrow-right"> </span>
-
-      </span>
 
     </div>
 
@@ -114,9 +145,7 @@
 
     </div>
 
-  
-
-</body>
+ </body>
 
 
 
