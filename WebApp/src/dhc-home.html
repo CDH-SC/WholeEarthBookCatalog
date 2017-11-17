@@ -1,6 +1,12 @@
+<!DOCTYPE html>
+<meta charset = 'UTF-8'>
+
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+
+<head>
 
 <dom-module id="dhc-home">
   <template>
@@ -65,3 +71,55 @@
     window.customElements.define(dhcHome.is, dhcHome);
   </script>
 </dom-module>
+
+</head>
+
+<body>
+
+  <div id = "search-wrapper">
+      <input type = "search" width = 575px>
+
+
+    </div>
+
+    <div id = "book-view">
+
+       <!-- Bootstrap Carousel 
+     - overarching Bootstrap wrapper
+         - need to include carousel indicators 
+                data-target, data-slide-to, + class = active 
+
+               overarching slide wrapper 
+
+             - wrapper per slide 
+
+           left + right carousel controls 
+
+        --> 
+      <span class = "highlightedBookCarousel"> 
+
+
+      Sign In for Recommendations 
+
+        <span class = "glyphicon glyphicon-arrow-left"> </span>
+        <span class = "glyphicon glyphicon-arrow-right"> </span>
+
+      </span>
+
+    </div>
+
+    <div id = "footer-wrapper">
+
+      <button type = "button" name = 'homePageHelp' class = "helpButton">  Help? </button>
+
+    </div>
+
+  
+
+</body>
+
+
+
+</html>
+
+
