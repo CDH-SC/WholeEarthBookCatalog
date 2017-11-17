@@ -1,6 +1,6 @@
 {
   "name": "dirty-history-crawler",
-  "version": "^1.0",
+  "version": "1.0.0",
   "dependencies": {
     "express": "^4.16.2",
     "neo4j": "^2.0.0-RC2"
