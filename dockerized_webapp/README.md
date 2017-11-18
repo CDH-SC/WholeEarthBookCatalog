@@ -9,7 +9,7 @@ $ source app.conf
 $ docker-compose up
 ```
 
-<h1> Notes on Docker <h1>
+<h1> Notes on Docker </h1>
 
 Remember that you need to expose whichever ports you want to use. You also need to map the ports on your local machine to the one in the container.
 
