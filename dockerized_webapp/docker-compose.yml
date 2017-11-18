@@ -33,9 +33,9 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - "mongodb:/var/lib/mongo_data"
+      - "data:/data/db"
 
 volumes:
 
-  mongodb:
+  data:
   neo4j:
