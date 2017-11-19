@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<meta charset = 'UTF-8'>
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-
-<head>
 
 <dom-module id="dhc-home">
   <template>
@@ -44,7 +39,6 @@
         <span class="glyphicon glyphicon-arrow-right"> </span>
         </span>
       </div>
-      
     <div id = "search-wrapper">
       <input type = "search" width = 575px>
     </div>
@@ -88,33 +82,8 @@
       static get is() {
         return 'dhc-home';
       }
-      static get properties() {
-        return {
-          // This shouldn't be neccessary, but the Analyzer isn't picking up
-          // Polymer.Element#rootPath
-          rootPath: String,
-        };
-      }
     }
 
     window.customElements.define(dhcHome.is, dhcHome);
   </script>
 </dom-module>
-
-    
-<script>
- $("#carousel-home").carousel();
-
- $(".item-set").click(function() {
-   $("#carousel-home").carousel(1);
- }); 
-
- $(".prev").click(function() {
-    $("#carousel-home").carousel("prev");
- });
-
- $(".next").click(function() {
-    $("#carousel-home".carousel("next"));
- });
-</script>
-
