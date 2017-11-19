@@ -1,0 +1,102 @@
+/*
+Created on: October 26th, 2017
+Description: Overarching style sheet for front end of Dirty History Crawler.
+	- All recurring items to be created first
+	- Specific features requiring IDs to be created after 
+
+*/
+
+body {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+/*Recurring items*/
+.border-wrapper {
+    margin: auto;
+    width: 50%;
+    margin-top: 20%;
+}
+
+.divider-grid {
+
+}
+
+.greeting {
+
+}
+
+.site-title {
+
+}
+
+.body-border{
+
+}
+
+.keyword-search--top {
+
+}
+
+.keyword-search--home {
+
+}
+
+
+/*User Account Features*/
+
+.book-placeholder {
+
+}
+
+.divider-sidebar--horizontal {
+
+}
+
+.divider-sidebar--vertical {
+	
+}
+
+.favorites{
+
+}
+
+.favorites-content {
+
+}
+
+.favorites.is-collapsed {
+
+}
+
+.recently-viewed {
+
+}
+
+.recently-viewed-content {
+
+}
+
+.recently-viewed.is-collapsed {
+
+}
+
+.recently-searched {
+
+}
+
+.recently-searched-content {
+
+}
+
+.recently-search.is-collapsed {
+
+}
+
+
+
+
+
+
+
+
+

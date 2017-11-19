@@ -5,6 +5,11 @@
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 
+<link rel="lazy-import" href="dhc-login.html">
+<link rel="lazy-import" href="dhc-home.html">
+<link rel="lazy-import" href="dhc-404.html">
+<link rel="lazy-import" href="dhc-help.html">
+
 <dom-module id="dhc-main">
     <template>
         <style>
@@ -25,12 +30,14 @@
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
+            fallback-selection="404"
             role="main">
 
            <!--we add the reachable pages in here-->
           <dhc-home name="home"></dhc-home>
           <dhc-help name="help"></dhc-help>
           <dhc-login name="login"></dhc-login>
+          <dhc-404 name="404"></dhc-404>
         </iron-pages>
 
     </template>
@@ -59,12 +66,18 @@
       };
 
       _pageChanged(page) {
+          console.log(page);
           var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
+          console.log(resolvedPageUrl);
           Polymer.importHref(
               resolvedPageUrl,
               null,
-              null,
+              this._showPage404.bind(this),
               true);
+      }
+
+      _showPage404() {
+        this.page = '404'
       }
     }
 
