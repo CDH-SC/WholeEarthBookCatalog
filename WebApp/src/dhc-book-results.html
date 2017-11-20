@@ -1,73 +1,74 @@
 
-<!DOCTYPE html>
-<meta charset = 'UTF-8'>
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 
-<style>
+<dom-module>
 
-
-</style>
-
-<head>
-
-  <title>  Search Results </title>
-
-  <div id = "header-wrapper"> 
-
-    <button type = "button" class = "userAccountButton"> Hi User </button>
-
-     <div class = "logo">
-
-     </div>
-
-     <div id = "search-wrapper">
-      <input type = "search" width = 575px>
-
-      <button type = "button" onclick= "toggle()"> </button>
-
-      <div id = "toggleList"> </div>
-      <div id = "toggleGraph"> </div>
-
-      <script>
-
-         function toggle() {
-            var listElement = document.getElementbyId("toggleList");
-            var graphElement = document.getElementbyId("toggle'");
-
-            if(listElement.style.backgroundColor == "white") {
-              listElement.style.backgroundColor = "blue";
-              gra
-              phElement.style.backgroundColor = "white";
-
-            } else if listElement.style.backgroundColor == "blue" {
-              listElement.style.backgroundColor = "white";
-              graphElement.style.backgroundColor = "blue";
-
-            }
-         }
-         
-      </script>
-
-
-     </div>
-
- </div>
-
-</head>
-
-
-<body>
-
+  <style include="iron-flex iron-flex-alignment">
    
+    .flex-fill {
+        @apply --layout-flex;
+    }
 
-    <div id = "bookSearchResults">
-     
+    .flex-fill-book-gallery {
+        @apply --layout-2;
+    }
 
-    </div>
+    .flex-auto {
+      @apply --layout-auto;
+    }
 
-  
-</body>
+    .flex-none {
+      @apply --layout-none;
+    }
 
+    </style>
 
+    <template>
 
-</html>
+        <head>
+            <title>  Search Results </title>
+
+            <div id = "header-wrapper"> 
+
+                <button type = "button" class = "userAccountButton"> Hi User </button>
+                <div class = "logo"> DHC </div>
+
+                <div id = "search-wrapper">
+                    <input type = "search" width = 575px>
+                    <button type = "button" onclick= "toggle()"> </button>
+
+                    <div id = "toggleList"> </div>
+                    <div id = "toggleGraph"> </div>
+
+                    <script>
+
+                        function toggle() {
+                          var listElement = document.getElementbyId("toggleList");
+                          var graphElement = document.getElementbyId("toggle'");
+
+                          if(listElement.style.backgroundColor == "white") {
+                              listElement.style.backgroundColor = "blue";
+                              graphElement.style.backgroundColor = "white";
+
+                          } else if listElement.style.backgroundColor == "blue" {
+                              listElement.style.backgroundColor = "white";
+                              graphElement.style.backgroundColor = "blue";
+                          }
+                        }
+             
+                    </script>
+
+                </div>
+
+            </div>
+
+        </head>
+
+    </template>
+
+</dom-module>
+

@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="dhc-user-login">
+
+     <style include="iron-flex iron-flex-alignment">
+   
+         .flex-fill {
+             @apply --layout-flex;
+         }
+
+        .flex-fill-book-gallery {
+             @apply --layout-2;
+         }
+
+        .flex-auto {
+             @apply --layout-auto;
+         }
+
+        .flex-none {
+             @apply --layout-none;
+         }
+
+    </style>
+
+    <template></template>
+        <script>
+            class dhcUserAccount extends Polymer.Element {
+                static get is() { return 'dhc-user-account'; }
+                static get properties() {
+                    return {
+                        rootPath: String,
+                    }
+                }
+            }
+            window.customElements.define(dhcUserAccount.is, dhcUserAccount);
+         </script>
+</dom-module>
