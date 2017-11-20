@@ -55,6 +55,7 @@
                 routeData: Object,
                 subroute: String,
                 rootPath: String,
+                session: Object
             };
         }
 
@@ -64,11 +65,15 @@
 
         _routePageChanged(page) {
             this.page = page || 'home';
+
+            if (this.page === 'home') {
+                this.routeData.isHome = true;
+                console.log(this.routeData);
+            }
         };
 
         _pageChanged(page) {
             var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
-            console.log(resolvedPageUrl);
             Polymer.importHref(
                 resolvedPageUrl,
                 null,

@@ -64,10 +64,13 @@ app.use(bodyParser.json());
 app.use('/api', router);
 
 // add directories with the files we need
+// no longer used
 app.use(express.static("public"));
 app.use(express.static("style"));
 app.use(express.static("scripts"));
 
+
+// no longer used
 app.get('*', function(req, res) {
     res.sendFile("public/index.html", { root: '.' });
 });

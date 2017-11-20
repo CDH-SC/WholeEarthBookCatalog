@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="frag-header">
+    <template>
+        <style include="shared-styles">
+            .header-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            paper-button.account-blue {
+                background-color: #2d9cdb;
+                color: #f2f2f2;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            h1 {
+                margin: 0;
+            }
+        </style>
+        <div class="header-row">
+            <template is="dom-if" if="[[routeData.isHome]]">
+                <h1>DHC</h1>
+            </template>
+            <template is="dom-if" if="![[routeData.isHome]]">
+                <span></span>
+            </template>
+
+            <a href="#">
+                <paper-button class="account-blue">Sign in</paper-button>
+            </a>
+        </div>
+    </template>
+
+    <script>
+        class fragHeader extends Polymer.Element {
+            static get is() { return 'frag-header'; }
+        }
+        window.customElements.define(fragHeader.is, fragHeader);
+    </script>
+
+</dom-module>
+
