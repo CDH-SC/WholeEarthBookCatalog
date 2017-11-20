@@ -9,7 +9,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongo = require("./database_client/mongoDriver.js");
-var port = process.env.PORT || 8080;
+var port = process.env.PORT;
 var router = express.Router();
 var neo4j = require("./database_client/neo4jDriver.js");
 

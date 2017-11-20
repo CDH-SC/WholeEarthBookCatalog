@@ -12,7 +12,7 @@
 
 <dom-module id="dhc-main">
     <template>
-        <style>
+        <style include="shared-styles">
         </style>
 
         <app-location
@@ -34,51 +34,51 @@
             role="main">
 
            <!--we add the reachable pages in here-->
-          <dhc-home name="home"></dhc-home>
-          <dhc-help name="help"></dhc-help>
-          <dhc-login name="login"></dhc-login>
-          <dhc-404 name="404"></dhc-404>
+            <dhc-home name="home"></dhc-home>
+            <dhc-help name="help"></dhc-help>
+            <dhc-login name="login"></dhc-login>
+            <dhc-404 name="404"></dhc-404>
         </iron-pages>
 
     </template>
+
     <script>
-    class dhcMain extends Polymer.Element {
-      static get is() { return 'dhc-main'; }
-      static get properties() {
-        return {
-            page: {
-                type: String,
-                reflectToAttribute: true,
-                observer: '_pageChanged',
-            },
-            routeData: Object,
-            subroute: String,
-            rootPath: String,
+      class dhcMain extends Polymer.Element {
+        static get is() { return 'dhc-main'; }
+        static get properties() {
+            return {
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged',
+                },
+                routeData: Object,
+                subroute: String,
+                rootPath: String,
+            };
+        }
+
+        static get observers() {
+            return ['_routePageChanged(routeData.page)'];
         };
-      }
 
-      static get observers() {
-          return ['_routePageChanged(routeData.page)'];
-      };
+        _routePageChanged(page) {
+            this.page = page || 'home';
+        };
 
-      _routePageChanged(page) {
-          this.page = page || 'home';
-      };
+        _pageChanged(page) {
+            var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
+            console.log(resolvedPageUrl);
+            Polymer.importHref(
+                resolvedPageUrl,
+                null,
+                this._showPage404.bind(this),
+                true);
+        }
 
-      _pageChanged(page) {
-          console.log(page);
-          var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
-          console.log(resolvedPageUrl);
-          Polymer.importHref(
-              resolvedPageUrl,
-              null,
-              this._showPage404.bind(this),
-              true);
-      }
-
-      _showPage404() {
-        this.page = '404'
-      }
+        _showPage404() {
+            this.page = '404';
+        }
     }
 
     window.customElements.define(dhcMain.is, dhcMain);
