@@ -7,8 +7,7 @@
 
 <dom-module id="dhc-main">
     <template>
-        <style>
-        </style>
+        <style></style>
 
         <app-location
             route="{{route}}"
@@ -21,7 +20,7 @@
             data="{{routeData}}"
             tail="{{subroute}}">
         </app-route>
-        
+
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -30,6 +29,11 @@
            <!--we add the reachable pages in here-->
           <dhc-home name="home"></dhc-home>
           <dhc-help name="help"></dhc-help>
+          <dhc-login name="login"></dhc-login>
+          <dhc-user-account name="user-account"></dhc-user-account>
+          <dhc-create-account name="dhc-create-account"></dhc-create-account>
+          <dhc-search-results name="dhc-book-results"></dhc-search-results>
+
         </iron-pages>
 
     </template>

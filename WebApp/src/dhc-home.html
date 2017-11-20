@@ -4,13 +4,16 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <head>
 
 <dom-module id="dhc-home">
   <template>
-    <style>
+     <style include="iron-flex iron-flex alignment">
       /*For local style to this dom-module*/
+
+
 
       .border-wrapper {
         margin: auto;
@@ -27,28 +30,67 @@
       paper-input {
         max-width: 600px;
       }
+
+      .flex-fill {
+        @apply --layout-flex;
+
+      }
+
+      .flex-carousel-ratio {
+        @apply --layout-flex-3;
+      }
+
+      .flex-end {
+        @apply --layout-flex-none;
+      }
+
+
     </style>
 
     <!--The actual html goes in here-->
-    <div class="border-wrapper">
+    <div class="layout horizontal wrap border-wrapper">
       <h1 id="title-center">DHC</h1>
 
       <paper-input placeholder="Keywords">
         <iron-icon icon="arrow-forward" slot="suffix"></iron-icon>
       </paper-input>
+      
+    <div id = "search-wrapper" class = "flex-end">
+      <input type = "search" width = 575px>
+    </div>
 
-      <div class="book-view">
-        <span class="highlightedBookCarousel"> 
-            Sign In for Recommendations 
-          <span class = "glyphicon glyphicon-arrow-left"> </span>
-        <span class="glyphicon glyphicon-arrow-right"> </span>
-        </span>
-      </div>
+    <div id = "book-view">
+    <div id = "carousel-home" class = "carousel-slide" data-ride = "carousel">
+      <ol class = "carousel-slides">
+          <li data-target="#carousel-home" data-slide-to="0" class = "active flex-carousel-ratio"></li>
+          <li data-target="#carousel-home" data-slide-to="1" class = "flex-carousel-ratio"></li>
+          <li data-target="#carousel-home" data-slide-to="2" class = "flex-carousel-ratio"></li>
+      </ol>
+    <div class = "carousel-content" role = "listbox">
+     <div class = "carousel-current-item">
+       <!-- include image set here--> 
+     </div>
+     <div class = "carousel-item-set">
+         <!-- include image set here--> 
+     </div>
+     <div class = "carousel-item-set">
+         <!-- include image set here--> 
+     </div>
+    </div>
+
+
+    <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
+    <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
+
+    <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next">
+    <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span>
 
       <!--this will be replaced by a small dom-mod-->
       <div id="footer-wrapper">
         <!--sets the path in the address bar to domain/help-->
         <a name="help" href="[[rootPath]]help">Help?</a>
+        <a name="login" href="[[rootPath]]login">Login</a>
+        <button type = "button" name = 'homePageHelp' class = "helpButton">Help?</button>
       </div>
     </div>
   </template>
@@ -71,84 +113,21 @@
   </script>
 </dom-module>
 
-</head>
-
-<body>
-
-  <div id = "search-wrapper">
-      <input type = "search" width = 575px>
-
- </div>
-
-       <div id = "book-view">
-
-    <div id = "carousel-home" class = "carousel-slide" data-ride = "carousel">
-
-      <ol class = "carousel-slides">
-          <li data-target="#carousel-home" data-slide-to="0" class = "active"></li>
-          <li data-target="#carousel-home" data-slide-to="1"></li>
-          <li data-target="#carousel-home" data-slide-to="2"></li>
-
-      </ol>
-         
-    <div class = "carousel-content" role = "listbox">
-     
-     <div class = "carousel-current-item">
-       <!-- include image set here--> 
-     </div>
-
-     <div class = "carousel-item-set">
-         <!-- include image set here--> 
-     </div>
- 
-     <div class = "carousel-item-set">
-         <!-- include image set here--> 
-
-      </div>
-
-    </div>
-
-    <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
-    <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
-
-    <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next">
-    <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span>
     
-    <script>
-       $("#carousel-home").carousel();
+<script>
+ $("#carousel-home").carousel();
 
-       $(".item-set").click(function() {
-         $("#carousel-home").carousel(1);
-       }); 
+ $(".item-set").click(function() {
+   $("#carousel-home").carousel(1);
+ }); 
 
-       $(".prev").click(function() {
-          $("#carousel-home").carousel("prev");
-       });
+ $(".prev").click(function() {
+    $("#carousel-home").carousel("prev");
+ });
 
-       $(".next").click(function() {
-          $("#carousel-home".carousel("next"));
-       });
+ $(".next").click(function() {
+    $("#carousel-home".carousel("next"));
+ });
 
-     </script>
-     
-    </div>
-
-
-    Sign In for Recommendations 
-
-
-    </div>
-
-    <div id = "footer-wrapper">
-
-      <button type = "button" name = 'homePageHelp' class = "helpButton">  Help? </button>
-
-    </div>
-
- </body>
-
-
-
-</html>
-
+</script>
 

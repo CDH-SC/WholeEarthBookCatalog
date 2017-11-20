@@ -1,53 +1,60 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
-<!DOCTYPE html>
-<meta charset = 'UTF-8'>
+<dom-module id="dhc-login">
+    <style include="iron-flex iron-flex-alignment">
+   
+    .flex-fill {
+      @apply --layout-flex;
+    }
 
+    .flex-auto {
+      @apply --layout-auto;
+    }
 
-<style>
-</style>
+    .flex-none {
+      @apply --layout-none;
+    }
 
-<head>
-</head>
+    </style>
 
+    <template>
+        <div class="border-wrapper">
+            <div class="login-signin-box">
+                <div id="login-box-header">
+                    <p class="logo-small">DHC</p>
 
-<body>
+                    <p style="font-size: 20px;">Sign In</p> <!-- What's that font? -->
+                </div>
 
-  <div class = "login-createAccount-box" >
+                <div class="login-input-fields">
+                    <p style="font-size: 10px; padding-bottom: 5px;">Username</p>
+                    <input type="text" name="username" required>
+                    <p style="font-size: 10px; padding-bottom: 5px;padding-top: 5px;">Password</p>
+                    <input type="text" name="password" required>
+                    <input type="submit">
+                </div>
 
-    <div id = "login-box-header" >
-
-    <p class = "logo-small"> DHC </p>
-
-    <p style = "font-size: 20px;""> Create Account </p> <!-- What's that font? -->
-       
-    </div>
-
-    <div class = "login-submit-input-fields">
-
-      <i></i> style = "font-size: 10px; padding-bottom: 5px;"> Username </p>
-    <input type = "text" name = "username" required>
-
-      <i style = "font-size: 10px; padding-bottom: 5px;padding-top: 5px;"> Password </p>
-      <input type = "text" name = "password" required>
-     
-      <input type = "submit">
-  
-
-    
-      </div>
-
-      <div class = "login-footer">
-
-        <button type = "button" id = "login-submit"> Done </button>
-
-        <!-- include additional buffer of blank space here --> 
-
-      </div>
-
-  
-   </div>
-
- 
-</body>
-
-</html>
+                <div class="login-footer">
+                    <button type="button" style="text-decoration-color: blue;">
+                        <u>Create Account</u>
+                    </button>
+                    <button type="button" id="login-submit">Done</button>
+                    <!-- Include additional buffer of blank space here -->
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        class dhcLogin extends Polymer.Element {
+            static get is() { return 'dhc-login'; }
+            static get properties() {
+                return {
+                    rootPath: String,
+                }
+            }
+        }
+        window.customElements.define(dhcLogin.is, dhcLogin);
+    </script>
+</dom-module>
