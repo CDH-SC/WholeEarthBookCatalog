@@ -1,6 +1,9 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/polymer/lib/elements/dom-if.html">
+
+
 
 <dom-module id="frag-header">
     <template>
@@ -17,12 +20,14 @@
 
             a {
                 text-decoration: none;
+                padding-top: 5px;
             }
 
             h1 {
                 margin: 0;
             }
         </style>
+
         <div class="header-row">
             <template is="dom-if" if="[[routeData.isHome]]">
                 <h1>DHC</h1>
@@ -32,7 +37,7 @@
             </template>
 
             <a href="#">
-                <paper-button class="account-blue">Sign in</paper-button>
+                <paper-button on-click="_test" class="account-blue">Sign in</paper-button>
             </a>
         </div>
     </template>
@@ -40,6 +45,10 @@
     <script>
         class fragHeader extends Polymer.Element {
             static get is() { return 'frag-header'; }
+            static get properties() { return {}; }
+            _test() {
+                console.log(this.routeData.isHome);
+            };
         }
         window.customElements.define(fragHeader.is, fragHeader);
     </script>

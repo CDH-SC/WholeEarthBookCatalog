@@ -13,6 +13,11 @@
 <dom-module id="dhc-main">
     <template>
         <style include="shared-styles">
+            :host {
+                position: fixed;
+                height: 100vh;
+                width: 100vw;
+            }
         </style>
 
         <app-location
@@ -66,19 +71,31 @@
         _routePageChanged(page) {
             this.page = page || 'home';
 
-            if (this.page === 'home') {
-                this.routeData.isHome = true;
-                console.log(this.routeData);
-            }
+            this._setIsHome(page);
         };
 
         _pageChanged(page) {
             var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
+
             Polymer.importHref(
                 resolvedPageUrl,
                 null,
                 this._showPage404.bind(this),
                 true);
+        }
+
+        _setIsHome(page) {
+            if(page === 'home' || page === '') {
+                this.routeData.isHome = true;
+
+                console.log(this.routeData.isHome);
+                console.log("true")
+            }
+            else {
+                this.routeData.isHome = false;
+                console.log(page, "false");
+                console.log(this.routeData.isHome);
+            }
         }
 
         _showPage404() {
