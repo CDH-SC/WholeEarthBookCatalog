@@ -16,7 +16,8 @@ WORKDIR /usr/src/app
 
 EXPOSE 8080
 
-RUN polymer serve --port 8080
-
 ENTRYPOINT ["npm"]
 CMD ["start"]
+
+ENTRYPOINT ["polymer"]
+CMD ["serve --port 8080"]
