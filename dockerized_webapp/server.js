@@ -45,6 +45,23 @@ router.post('/post_data/', function(req, res) {
     }
 })
 
+// add user
+router.post("/add_user/", function(req, res) {
+    var data = req.body;
+    if (data.username === undefined && data.password === undefined) {
+        res.json({"Error": "invalid data format"});
+    } else {
+        // add to db
+        var userdoc = {
+             username: data.username,
+             password: data.password
+        }
+        mongo.insertDocument(userdoc, function(resp) {
+            res.json(resp);
+        });
+    }
+});
+
 router.get("/neo4j/", function(req, res) {
     // get a neo4j session
     var session = neo4j.getSession();
@@ -55,6 +72,23 @@ router.get("/neo4j/", function(req, res) {
 
     res.json(r);
 })
+
+// super insecure, probably want to use some sort of library for this...
+router.post("/login/", function(req, res) {
+
+    // verify user
+    var data = req.body;
+    console.log(`data ${JSON.stringify(data, 2)}`);
+    mongo.findDocument({"username": data.username}, function(resp) {
+
+        if ( resp.length > 0) {
+            console.log("found login doc");
+            // vet the user 
+        } else {
+            res.json({"Error": "could not find user"})
+        }
+    });
+});
 
 // use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
