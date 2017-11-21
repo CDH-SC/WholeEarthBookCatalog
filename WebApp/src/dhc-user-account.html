@@ -30,9 +30,18 @@
              @apply --layout-none;
          }
 
-      .user-account-info {
+      
+
+      /* Large features */
+
+      .user-header {
 
       }
+
+      .header-wrapper {
+
+      }
+
 
       .border-wrapper {
         margin: auto;
@@ -40,11 +49,67 @@
         margin-top: 20%;
       }
 
+      /* Small features */
+
       .logo {
 
       }
 
-      .header-wrapper {
+      .greeting-span {
+
+      }
+
+      .user-account-info {
+
+      }
+
+      #user-username {
+
+      }
+
+      #user-email {
+
+      }
+
+      #user-carousel-favorites {
+
+      }
+
+
+      #user-carousel-recently-viewed {
+
+      }
+
+      #user-carousel-recently-searched {
+
+      }
+
+
+      .carousel-slide {
+
+      }
+
+      .carousel-current-item {
+
+      }
+
+      .carousel-item-set {
+        
+      }
+
+      #rs-items-left {
+
+      }
+
+      #rs-items-right {
+
+      }
+
+      #rs-items-center {
+
+      }
+
+      .footer-wrapper {
 
       }
 
@@ -53,7 +118,6 @@
       }
 
     </style>
-
 
 
     <template>
@@ -67,7 +131,7 @@
 
               <p class = "logo"> DHC </p>
 
-              <span class = "greeting-span"> <p class = "greeting"> Hello, User </p> </span> <!-- add in separate function for feeding in a user's name  --> 
+              <span class = "greeting-span"> <p> Hello, User </p> </span> <!-- add in separate function for feeding in a user's name  --> 
 
         </div>
           <div class = "user-account-info">
@@ -86,7 +150,7 @@
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;">
 
                     <!-- now add polymer carousel OR add in original HTML carousel
-                         fuck it just add in original carousels for now with JS scripts --> 
+                         just add in original carousels for now with JS scripts --> 
 
                     <div id = "user-carousel-favorites" class = "carousel-slide" data-ride = "carousel">
                          <ol class = "carousel-slides-favorites">
@@ -111,6 +175,7 @@
 
                         </div>  
 
+                          <!-- replace with polymer icon iconset --> 
                          <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
                          <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
 
@@ -258,7 +323,7 @@
 
         </div>
 
-         <div id="footer-wrapper">
+         <div class="footer-wrapper">
         <!--sets the path in the address bar to domain/help-->
         <a name="help" href="[[rootPath]]help">Help?</a>
         <a name="login" href="[[rootPath]]login">Login</a>

@@ -4,6 +4,12 @@
 
 <dom-module id="dhc-create">
     <style include="iron-flex iron-flex-alignment">
+
+        /**/
+
+        #dhc-create {
+
+        }
    
        .flex-fill {
            @apply --layout-flex;
@@ -14,43 +20,74 @@
        }
 
        .flex-none {
-           @apply --layout-none;
+            @apply --layout-none;
        }
 
-    </style>
+       /* Large Features */
+
+       .border-wrapper {
+
+       }
+
+       #create-account-box {
+
+       }
+
+       #create-account-box-header {
+
+       }
+
+       #create-account-input-fields {
+
+       }
+
+       .footer-wrapper {
+
+       }
+
+       /* Small Features */
+
+       .logo-small {
+
+       }
+
+       .create-account-submit {
+
+       }
+
+</style>
 
     <template>
         <div class="border-wrapper">
-            <div class="create-account-box">
+            <div id="create-account-box">
                 <div id="create-account-box-header">
                     <p class="logo-small">DHC</p>
 
                     <p style="font-size: 20px;"> Create Your Account Here </p> <!-- What's that font? -->
                 </div>
 
-                <div class="create-account-input-fields">
-                    <p style="font-size: 10px; padding-bottom: 5px;">Username</p>
-                    <input type="text" name="username" required>
+                <div id="create-account-input-fields">
 
-                    <p style = "font-size: 10px; padding-bottom: 5px;padding-top: 5px;"> Email </p>
-                     <input type = "text" name = "email" required>
+                    <!-- add in additional <p> tags? --> 
 
-                    <p style="font-size: 10px; padding-bottom: 5px;padding-top: 5px;">Password</p>
-                    <input type="text" name="password" required>
+                    <paper-input label="username"></paper-input>
 
-                    <p style = "font-size: 10px; padding-bottom: 5px;padding-top: 5px;"> Reenter Password </p>
-                    <input type = "text" name = "reenter-password" required>
+                    <paper-input label="Email"></paper-input>
+                    
+                    <paper-input label="Password" required></paper-input>
 
-                    <input type="submit">
+                    <paper-input label="reenter-password" required></paper-input>
+
                 </div>
 
-                <div class="create-account-footer">
-                    <button type="button" style="text-decoration-color: blue;">
-                        <u>Create Account</u>
-                    </button>
-                    <button type="button" id="login-submit">Done</button>
-                    <!-- Include additional buffer of blank space here -->
-                </div>
+                 <div class="footer-wrapper">
+                    <!--sets the path in the address bar to domain/help-->
+                    <a name="help" href="[[rootPath]]help">Help?</a>
+                    <a name="login" href="[[rootPath]]login">Login</a>
+
+                    <button type = "button" name = 'submitAccountInfo' class = "create-acount-submit"> Submit </button>
+
+              </div>
             </div>
         </div>
     </template>

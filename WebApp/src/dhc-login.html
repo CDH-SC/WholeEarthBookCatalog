@@ -17,18 +17,51 @@
       @apply --layout-none;
     }
 
+   .border-wrapper {
+
+   }
+
+   #login-box {
+
+   }
+
+   #login-box-header {
+
+   }
+
+   #login-input-fields {
+
+   }
+
+   .footer-wrapper {
+
+   }
+
+   /* Smaller features */
+
+   .logo-small {
+
+   }
+
+   .help-button {
+
+   }
+
+    
+       
+
     </style>
 
     <template>
         <div class="border-wrapper">
-            <div class="login-signin-box">
+            <div id="login-box">
                 <div id="login-box-header">
                     <p class="logo-small">DHC</p>
 
                     <p style="font-size: 20px;">Sign In</p> <!-- What's that font? -->
                 </div>
 
-                <div class="login-input-fields">
+                <div id="login-input-fields">
                     <p style="font-size: 10px; padding-bottom: 5px;">Username</p>
                     <input type="text" name="username" required>
                     <p style="font-size: 10px; padding-bottom: 5px;padding-top: 5px;">Password</p>
@@ -36,13 +69,14 @@
                     <input type="submit">
                 </div>
 
-                <div class="login-footer">
-                    <button type="button" style="text-decoration-color: blue;">
-                        <u>Create Account</u>
-                    </button>
-                    <button type="button" id="login-submit">Done</button>
-                    <!-- Include additional buffer of blank space here -->
-                </div>
+                <div id="footer-wrapper">
+                    <!--sets the path in the address bar to domain/help-->
+                    <a name="help" href="[[rootPath]]help">Help?</a>
+                    <a name="login" href="[[rootPath]]login">Login</a>
+
+                    <button type = "button" name = 'homePageHelp' class = "help-button"> Help? </button>
+
+              </div>
             </div>
         </div>
     </template>
