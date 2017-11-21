@@ -9,7 +9,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongo = require("./database_client/mongoDriver.js");
-var port = process.env.PORT;
+var port = 6000;
 var router = express.Router();
 var neo4j = require("./database_client/neo4jDriver.js");
 
@@ -64,16 +64,6 @@ app.use(bodyParser.json());
 app.use('/api', router);
 
 // add directories with the files we need
-// no longer used
-app.use(express.static("public"));
-app.use(express.static("style"));
-app.use(express.static("scripts"));
-
-
-// no longer used
-app.get('*', function(req, res) {
-    res.sendFile("public/index.html", { root: '.' });
-});
 
 // Start the server instance
 app.listen(port);
