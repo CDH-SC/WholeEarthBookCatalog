@@ -4,13 +4,16 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <head>
 
 <dom-module id="dhc-home">
   <template>
-    <style>
+     <style include="iron-flex iron-flex alignment">
       /*For local style to this dom-module*/
+
+
 
       .border-wrapper {
         margin: auto;
@@ -27,33 +30,41 @@
       paper-input {
         max-width: 600px;
       }
+
+      .flex-fill {
+        @apply --layout-flex;
+
+      }
+
+      .flex-carousel-ratio {
+        @apply --layout-flex-3;
+      }
+
+      .flex-end {
+        @apply --layout-flex-none;
+      }
+
+
     </style>
 
     <!--The actual html goes in here-->
-    <div class="border-wrapper">
+    <div class="layout horizontal wrap border-wrapper">
       <h1 id="title-center">DHC</h1>
 
       <paper-input placeholder="Keywords">
         <iron-icon icon="arrow-forward" slot="suffix"></iron-icon>
       </paper-input>
-
-      <div class="book-view">
-        <span class="highlightedBookCarousel"> 
-            Sign In for Recommendations 
-          <span class = "glyphicon glyphicon-arrow-left"> </span>
-        <span class="glyphicon glyphicon-arrow-right"> </span>
-        </span>
-      </div>
       
-    <div id = "search-wrapper">
+    <div id = "search-wrapper" class = "flex-end">
       <input type = "search" width = 575px>
     </div>
+
     <div id = "book-view">
     <div id = "carousel-home" class = "carousel-slide" data-ride = "carousel">
       <ol class = "carousel-slides">
-          <li data-target="#carousel-home" data-slide-to="0" class = "active"></li>
-          <li data-target="#carousel-home" data-slide-to="1"></li>
-          <li data-target="#carousel-home" data-slide-to="2"></li>
+          <li data-target="#carousel-home" data-slide-to="0" class = "active flex-carousel-ratio"></li>
+          <li data-target="#carousel-home" data-slide-to="1" class = "flex-carousel-ratio"></li>
+          <li data-target="#carousel-home" data-slide-to="2" class = "flex-carousel-ratio"></li>
       </ol>
     <div class = "carousel-content" role = "listbox">
      <div class = "carousel-current-item">
@@ -98,11 +109,7 @@
     }
 
     window.customElements.define(dhcHome.is, dhcHome);
-  </script>
-</dom-module>
 
-    
-<script>
  $("#carousel-home").carousel();
 
  $(".item-set").click(function() {
@@ -116,5 +123,9 @@
  $(".next").click(function() {
     $("#carousel-home".carousel("next"));
  });
-</script>
+
+
+  </script>
+</dom-module>
+
 
