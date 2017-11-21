@@ -25,50 +25,101 @@
       @apply --layout-none;
     }
 
+    #toggle-list {
+      padding-right: 10px;
+    }
+
     </style>
 
     <template>
 
-        <head>
-            <title>  Search Results </title>
+          <!-- title frag view / header frag view tracing back to root path --> 
+            
 
-            <div id = "header-wrapper"> 
+            <div id = "header-wrapper-frag-view"> 
+                <title>  Search Results </title>
 
-                <button type = "button" class = "userAccountButton"> Hi User </button>
-                <div class = "logo"> DHC </div>
 
-                <div id = "search-wrapper">
-                    <input type = "search" width = 575px>
+                 <p class = "logo"> DHC </p>
+                 <span class = "greeting "> <p>  Hi User </p> </span>
+
+                 <input type = "search" width = 575px>
+
+
+                 <button type = "button" class = "option-advanced-settings" onclick = "setAdvancedSettings()"> <u> Advanced Settings </u> </button>
+
+                <div class = "toggle-wrapper">
+
+                   <paper-toggle-button checked id = "toggle-list" onclick = "toggle()"> List
+                      </paper-toggle-button>
+
+                   <paper-toggle-button disabled id = "toggle-graph" onclick = "toggle()"> Graph
+                   </paper-toggle-button>
+
+               </div>
+
+              </div>
+
+              <div id = "result-entry-wrapper">
+
+                <div id = "result-item-info">
+
+                  <!-- Contains: 
+                                  image with absolute positioning 
+                                  metadata
+
+
+                  -->
+
+                </div>
+
+                <div id = "result-item-menu">
+
+                  <!-- Contains:
+                                  4 menu options / buttons 
+                                      view full profile 
+                                      request 
+                                      like 
+                                          include heart from iconset 
+                                      share 
+                                          include social media iconset 
+
+
+                  --> 
+
+                </div>
+
+              </div>
+
+
+
+                    <!-- 
                     <button type = "button" onclick= "toggle()"> </button>
 
                     <div id = "toggleList"> </div>
                     <div id = "toggleGraph"> </div>
+                    --> 
+      </template>              
 
                     <script>
-
+                        
                         function toggle() {
-                          var listElement = document.getElementbyId("toggleList");
-                          var graphElement = document.getElementbyId("toggle'");
+                          var listElement = document.getElementbyId("toggle-list");
+                          var graphElement = document.getElementbyId("toggle-graph");
 
-                          if(listElement.style.backgroundColor == "white") {
-                              listElement.style.backgroundColor = "blue";
-                              graphElement.style.backgroundColor = "white";
-
-                          } else if listElement.style.backgroundColor == "blue" {
-                              listElement.style.backgroundColor = "white";
-                              graphElement.style.backgroundColor = "blue";
-                          }
+                          //transfer to list view / transfer to graph view 
+  
                         }
-             
+                          
                     </script>
 
-                </div>
+                
 
-            </div>
+          
 
-        </head>
+        
 
-    </template>
+ 
 
 </dom-module>
 
