@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "dependencies": {
     "express": "^4.16.2",
-    "neo4j": "^2.0.0-RC2"
+    "neo4j": "^2.0.0-alpha5"
   }
 }
