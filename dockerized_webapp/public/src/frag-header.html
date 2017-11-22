@@ -29,10 +29,10 @@
         </style>
 
         <div class="header-row">
-            <template is="dom-if" if="[[routeData.isHome]]">
+            <template is="dom-if" if="[[!_showSearch()]]">
                 <h1>DHC</h1>
             </template>
-            <template is="dom-if" if="![[routeData.isHome]]">
+            <template is="dom-if" if="[[_showSearch()]]">
                 <span></span>
             </template>
 
@@ -46,9 +46,17 @@
         class fragHeader extends Polymer.Element {
             static get is() { return 'frag-header'; }
             static get properties() { return {}; }
+            
+            _showSearch() {
+                var upp = document.querySelector("dhc-main");
+                console.log(upp.routeData.isHome);
+                console.log("hello");
+                return upp.routeData.isHome;
+            }
+
             _test() {
-                console.log(this.routeData.isHome);
-            };
+                console.log("clicked!");
+            }
         }
         window.customElements.define(fragHeader.is, fragHeader);
     </script>
