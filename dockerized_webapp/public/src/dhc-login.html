@@ -1,79 +1,40 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="frag-header.html">
+<link rel="import" href="frag-footer.html">
 
 <dom-module id="dhc-login">
-    <style include="shared-styles iron-flex iron-flex-alignment">
-   
-    .flex-fill {
-      @apply --layout-flex;
-    }
 
-    .flex-auto {
-      @apply --layout-auto;
-    }
-
-    .flex-none {
-      @apply --layout-none;
-    }
-
-   .border-wrapper {
-
-   }
-
-   #login-box {
-
-   }
-
-   #login-box-header {
-
-   }
-
-   #login-input-fields {
-
-   }
-
-   .footer-wrapper {
-
-   }
-
-   /* Smaller features */
-
-   .logo-small {
-
-   }
-
-   .help-button {
-
-   }
-    
     <template>
-        <div class="border-wrapper">
+        <style include="shared-styles iron-flex iron-flex-alignment">
+            .container {
+                @apply --layout-horizontal;
+            }
+
+            #login-box {
+                min-height: 600px;
+                min-width: 500px;
+                box-shadow: 0px 4px 4px  rgba(0, 0, 0, 0.25);
+            }
+
+            #inner-flex {
+                padding: 20px;
+            }
+        </style>
+
+        <div class="container">
             <div id="login-box">
-                <div id="login-box-header">
-                    <p class="logo-small">DHC</p>
-
-                    <p style="font-size: 20px;">Sign In</p> <!-- What's that font? -->
+                <div id="inner-flex">
+                    <h1>DHC</h1>
+                    <h2>Login</h2>
+                    <paper-input placeholder="Username"></paper-input>
+                    <paper-input placeholder="Password" type="password"></paper-input>
+                    <paper-button>Login</paper-button>
                 </div>
-
-                <div id="login-input-fields">
-                    <p style="font-size: 10px; padding-bottom: 5px;">Username</p>
-                    <input type="text" name="username" required>
-                    <p style="font-size: 10px; padding-bottom: 5px;padding-top: 5px;">Password</p>
-                    <input type="text" name="password" required>
-                    <input type="submit">
-                </div>
-
-                <div id="footer-wrapper">
-                    <!--sets the path in the address bar to domain/help-->
-                    <a name="help" href="[[rootPath]]help">Help?</a>
-                    <a name="login" href="[[rootPath]]login">Login</a>
-
-                    <button type = "button" name = 'homePageHelp' class = "help-button"> Help? </button>
-
-              </div>
             </div>
         </div>
+        <frag-footer></frag-footer>
     </template>
     <script>
         class dhcLogin extends Polymer.Element {
