@@ -1,89 +1,143 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="frag-header.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 <dom-module id="dhc-home">
-  <template>
-    <style>
-      /*For local style to this dom-module*/
+<template>
+    <style include="shared-styles">
+        paper-input {
+            margin: 0;
+        }
+        paper-button.advanced-search-button {
+            font-size: 18px;
+            color: #2d9CDB;
+            text-decoration: underline;
+            padding: 0;
+            margin: 0;
+            box-shadow: none;
+            height: 18px;
+        }
 
-      .border-wrapper {
-        margin: auto;
-        width: 50%;
-        margin-top: 20%;
-      }
+        .align-advanced-item {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+        }
 
-      #title-center {
-        text-align: center;
-        font-size: 55px;
-        margin: 0;
-      }
+        h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 96px;
+            font-weight: lighter;
+        }
 
-      paper-input {
-        max-width: 600px;
-      }
+        .book-view {
+            font-size: 36px;
+            font-style: italic;
+            margin-top: 50px;
+            height: 315px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bolder;
+        }
+
+        #recommendations {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width:100%;
+            height: 315px;
+            background-color: rgba(0,0,0, 0.10);
+            z-index: 10;
+        }
+
+        #book-recommends {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 710px;
+            position: absolute;
+            z-index: 1;
+        }
+
+        #book-recommends > iron-icon {
+            height: 50px;
+            width: 50px;
+        }
+
+        .temp {
+            width: 150px;
+            height: 250px;
+            background-color: salmon;
+        }
+
+        paper-button.chev-cir {
+            padding: 0;
+            margin: 0;
+            min-width: unset;
+            height: 50px;
+            width: 50px;
+            border-radius: 100px;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        .chev-button {
+            max-height:50px;
+            max-width: 50px;
+            min-width: 50px;
+            min-height: 50px;
+            border: 3px solid black;
+            border-radius: 30px;
+        }
     </style>
 
-    <!--The actual html goes in here-->
-    <div class="border-wrapper">
-      <h1 id="title-center">DHC</h1>
+<!--The actual html goes in here-->
+    <frag-header></frag-header>
+    <div class="container">
+        <div class="inner-container">
+            <h1 id="title-center">DHC</h1>
 
-      <paper-input placeholder="Keywords">
-        <iron-icon icon="arrow-forward" slot="suffix"></iron-icon>
-      </paper-input>
+            <paper-input class="large-keyword-search" placeholder="Keywords">
+                    <iron-icon icon="arrow-forward" slot="suffix"></iron-icon>
+            </paper-input>
+            <div class="align-advanced-item">
+                <paper-button class="advanced-search-button">Advanced</paper-button>
+            </div>
 
-      <div class="book-view">
-        <span class="highlightedBookCarousel"> 
-            Sign In for Recommendations 
-          <span class = "glyphicon glyphicon-arrow-left"> </span>
-        <span class="glyphicon glyphicon-arrow-right"> </span>
-        </span>
-      </div>
-    <div id = "search-wrapper">
-      <input type = "search" width = 575px>
-    </div>
-    <div id = "book-view">
-    <div id = "carousel-home" class = "carousel-slide" data-ride = "carousel">
-      <ol class = "carousel-slides">
-          <li data-target="#carousel-home" data-slide-to="0" class = "active"></li>
-          <li data-target="#carousel-home" data-slide-to="1"></li>
-          <li data-target="#carousel-home" data-slide-to="2"></li>
-      </ol>
-    <div class = "carousel-content" role = "listbox">
-     <div class = "carousel-current-item">
-       <!-- include image set here--> 
-     </div>
-     <div class = "carousel-item-set">
-         <!-- include image set here--> 
-     </div>
-     <div class = "carousel-item-set">
-         <!-- include image set here--> 
-     </div>
-    </div>
+            <div class="book-view">
+                <template is="dom-if" if="false">
+                    <!-- set to true to show for now -->
+                    <div id="recommendations">
+                        Sign in for Recommendations
+                    </div>
+                </template>
 
-    <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
-    <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
-
-    <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next">
-    <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span>
-
-      <!--this will be replaced by a small dom-mod-->
-      <div id="footer-wrapper">
-        <!--sets the path in the address bar to domain/help-->
-        <a name="help" href="[[rootPath]]help">Help?</a>
-        <a name="login" href="[[rootPath]]login">Login</a>
-        <button type = "button" name = 'homePageHelp' class = "helpButton">Help?</button>
-      </div>
-    </div>
-  </template>
-
-  <script>
+                <div id="book-recommends">
+                    <paper-button class="chev-cir"><iron-icon class="chev-button" icon="chevron-left"></iron-icon></paper-button>
+                      <div class="temp"></div>
+                      <div class="temp"></div>
+                      <div class="temp"></div>
+                    <paper-button class="chev-cir"><iron-icon class="chev-button" icon="chevron-right"></iron-icon></paper-button>
+                </div>
+            </div>
+        </div>
+        <frag-footer></frag-footer>
+        </div>
+    </template>
+    <script>
     class dhcHome extends Polymer.Element {
-      static get is() {
-        return 'dhc-home';
-      }
+        static get is() {
+            return 'dhc-home';
+        }
     }
-
-    window.customElements.define(dhcHome.is, dhcHome);
-  </script>
+        window.customElements.define(dhcHome.is, dhcHome);
+    </script>
 </dom-module>
