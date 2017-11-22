@@ -1,20 +1,62 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="dhc-login">
-    <style include="shared-styles">
-    </style>
+    <style include="shared-styles iron-flex iron-flex-alignment">
+   
+    .flex-fill {
+      @apply --layout-flex;
+    }
 
+    .flex-auto {
+      @apply --layout-auto;
+    }
+
+    .flex-none {
+      @apply --layout-none;
+    }
+
+   .border-wrapper {
+
+   }
+
+   #login-box {
+
+   }
+
+   #login-box-header {
+
+   }
+
+   #login-input-fields {
+
+   }
+
+   .footer-wrapper {
+
+   }
+
+   /* Smaller features */
+
+   .logo-small {
+
+   }
+
+   .help-button {
+
+   }
+    
     <template>
         <div class="border-wrapper">
-            <div class="login-signin-box">
+            <div id="login-box">
                 <div id="login-box-header">
                     <p class="logo-small">DHC</p>
 
                     <p style="font-size: 20px;">Sign In</p> <!-- What's that font? -->
                 </div>
 
-                <div class="login-input-fields">
+                <div id="login-input-fields">
                     <p style="font-size: 10px; padding-bottom: 5px;">Username</p>
                     <input type="text" name="username" required>
                     <p style="font-size: 10px; padding-bottom: 5px;padding-top: 5px;">Password</p>
@@ -22,19 +64,25 @@
                     <input type="submit">
                 </div>
 
-                <div class="login-footer">
-                    <button type="button" style="text-decoration-color: blue;">
-                        <u>Create Account</u>
-                    </button>
-                    <button type="button" id="login-submit">Done</button>
-                    <!-- Include additional buffer of blank space here -->
-                </div>
+                <div id="footer-wrapper">
+                    <!--sets the path in the address bar to domain/help-->
+                    <a name="help" href="[[rootPath]]help">Help?</a>
+                    <a name="login" href="[[rootPath]]login">Login</a>
+
+                    <button type = "button" name = 'homePageHelp' class = "help-button"> Help? </button>
+
+              </div>
             </div>
         </div>
     </template>
     <script>
         class dhcLogin extends Polymer.Element {
             static get is() { return 'dhc-login'; }
+            static get properties() {
+                return {
+                    rootPath: String,
+                }
+            }
         }
         window.customElements.define(dhcLogin.is, dhcLogin);
     </script>

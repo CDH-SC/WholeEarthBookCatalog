@@ -1,0 +1,105 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="dhc-create">
+    <style include="iron-flex iron-flex-alignment">
+
+        /**/
+
+        #dhc-create {
+
+        }
+   
+       .flex-fill {
+           @apply --layout-flex;
+       }
+
+       .flex-auto {
+           @apply --layout-auto;
+       }
+
+       .flex-none {
+            @apply --layout-none;
+       }
+
+       /* Large Features */
+
+       .border-wrapper {
+
+       }
+
+       #create-account-box {
+
+       }
+
+       #create-account-box-header {
+
+       }
+
+       #create-account-input-fields {
+
+       }
+
+       .footer-wrapper {
+
+       }
+
+       /* Small Features */
+
+       .logo-small {
+
+       }
+
+       .create-account-submit {
+
+       }
+
+</style>
+
+    <template>
+        <div class="border-wrapper">
+            <div id="create-account-box">
+                <div id="create-account-box-header">
+                    <p class="logo-small">DHC</p>
+
+                    <p style="font-size: 20px;"> Create Your Account Here </p> <!-- What's that font? -->
+                </div>
+
+                <div id="create-account-input-fields">
+
+                    <!-- add in additional <p> tags? --> 
+
+                    <paper-input label="username"></paper-input>
+
+                    <paper-input label="Email"></paper-input>
+                    
+                    <paper-input label="Password" required></paper-input>
+
+                    <paper-input label="reenter-password" required></paper-input>
+
+                </div>
+
+                 <div class="footer-wrapper">
+                    <!--sets the path in the address bar to domain/help-->
+                    <a name="help" href="[[rootPath]]help">Help?</a>
+                    <a name="login" href="[[rootPath]]login">Login</a>
+
+                    <button type = "button" name = 'submitAccountInfo' class = "create-acount-submit"> Submit </button>
+
+              </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        class dhcCreateAccount extends Polymer.Element {
+            static get is() { return 'dhc-create-account'; }
+            static get properties() {
+                return {
+                    rootPath: String,
+                }
+            }
+        }
+        window.customElements.define(dhcCreateAccount.is, dhcCreateAccount);
+    </script>
+</dom-module>
