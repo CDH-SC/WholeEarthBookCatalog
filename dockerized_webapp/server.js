@@ -62,6 +62,30 @@ router.post("/add_user/", function(req, res) {
     }
 });
 
+// get user
+router.post("/get_user/", function(req, res) {
+    var data = req.body;
+    if (data.username === undefined || data.password === undefined) {
+        res.json( {"Error": "invalid data format"} );
+    } else {
+        // construct query doc 
+        var userdoc = {
+            username: data.username,
+            password: data.password
+        }
+        // query db
+	mongo.findDocument(userdoc, function(resp) {
+	    if (resp.length > 0) {
+		console.log(resp[0]);
+		res.json(resp);
+	    } else {
+		res.json({"Error": `No such user`})
+	    }
+	});
+    }    
+})
+
+// get neo4j session
 router.get("/neo4j/", function(req, res) {
     // get a neo4j session
     var session = neo4j.getSession();
