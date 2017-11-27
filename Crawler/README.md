@@ -10,3 +10,4 @@ Once the system is configured properly, see above, the only command required to 
 ## To Do
 - Finish parsing for common fields for books
 - Add parsing logic for non-book items
+- Add db output
