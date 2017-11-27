@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="dhc-login">
+    <style>
+    </style>
+
+    <template>
+        <div class="border-wrapper">
+            <div class="login-signin-box">
+                <div id="login-box-header">
+                    <p class="logo-small">DHC</p>
+
+                    <p style="font-size: 20px;">Sign In</p> <!-- What's that font? -->
+                </div>
+
+                <div class="login-input-fields">
+                    <p style="font-size: 10px; padding-bottom: 5px;">Username</p>
+                    <input type="text" name="username" required>
+                    <p style="font-size: 10px; padding-bottom: 5px;padding-top: 5px;">Password</p>
+                    <input type="text" name="password" required>
+                    <input type="submit">
+                </div>
+
+                <div class="login-footer">
+                    <button type="button" style="text-decoration-color: blue;">
+                        <u>Create Account</u>
+                    </button>
+                    <button type="button" id="login-submit">Done</button>
+                    <!-- Include additional buffer of blank space here -->
+                </div>
+            </div>
+        </div>
+    </template>
+    <script>
+        class dhcLogin extends Polymer.Element {
+            static get is() { return 'dhc-login'; }
+        }
+        window.customElements.define(dhcLogin.is, dhcLogin);
+    </script>
+</dom-module>
