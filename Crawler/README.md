@@ -5,7 +5,8 @@ The system running this tool needs...
 - .NET Core 2.0 Installed
 
 ## How to run
-Once the system is configured properly, see above, the only command required to execute this tools is `dotnet run`
+From withing this directory execute with:
+- `dotnet run`
 
 ## To Do
 - Finish parsing for common fields for books
