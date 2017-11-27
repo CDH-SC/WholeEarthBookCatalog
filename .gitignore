@@ -1,3 +1,6 @@
 ./dockerized_webapp/node_modules/*
+./dockerized_webapp/public/bower_components/*
 *.pyc
 *.conf
+node_modules
+bower_components

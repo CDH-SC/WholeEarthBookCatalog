@@ -1,9 +1,14 @@
-***Crawler***
+## System Configuration
+The system running this tool needs...
+- At least 3.5 GB Ram
+- Access to the output database and the internet
+- .NET Core 2.0 Installed
 
-This software crawls the web for data on books based on search terms entered by the user.
+## How to run
+From withing this directory execute with:
+- `dotnet run`
 
-***Setup and Execution***
-
-Simply clone the repo and do `python mainCrawler2.py`
-
-The file IO assumes a Unix system. Some editing will be required to run on Windows.
+## To Do
+- Finish parsing for common fields for books
+- Add parsing logic for non-book items
+- Add db output
