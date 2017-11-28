@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "ajax": "0.0.4",
+    "bcrypt": "^1.0.3",
     "express": "^4.16.2",
     "jquery": "^3.2.1",
     "mongodb": "^2.2.31",
