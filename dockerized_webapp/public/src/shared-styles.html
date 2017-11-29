@@ -1,0 +1,138 @@
+/*
+Created on: October 26th, 2017
+Description: Overarching style sheet for front end of Dirty History Crawler.
+    - All recurring items to be created first
+    - Specific features requiring IDs to be created after 
+
+*/
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="shared-styles">
+    <template>
+        <style>
+
+            dhc-main {
+                font-family: "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
+                color: #333333;
+            }
+            /*Recurring items*/
+            frag-footer {
+                position: absolute;
+                bottom: 10px;
+            }
+
+            paper-button {
+                border-radius: 0;
+                text-transform: none;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                color: #333333;
+                font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
+                font-size: 18px;
+                height: 41px;
+            }
+
+            a > paper-button {
+                text-decoration: none;
+            }
+
+            a:visited > paper-button {
+                text-decoration: none;
+            }
+
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+            }
+
+            .container-inner {
+                display: flex;
+                flex-direction: column;
+                justify-content:center;
+                align-items: center;
+            }
+
+            .large-keyword-search {
+                width: 100%;
+                max-width: 800px;
+                /* min-width: 750px; */
+            }
+
+            .divider-grid {
+
+            }
+
+            .greeting {
+
+            }
+
+            .site-title {
+
+            }
+
+            .body-border{
+
+            }
+
+            .keyword-search--top {
+
+            }
+
+            .keyword-search--home {
+
+            }
+
+
+            /*User Account Features*/
+
+            .book-placeholder {
+
+            }
+
+            .divider-sidebar--horizontal {
+
+            }
+
+            .divider-sidebar--vertical {
+            }
+
+            .favorites{
+
+            }
+
+            .favorites-content {
+
+            }
+
+            .favorites.is-collapsed {
+
+            }
+
+            .recently-viewed {
+
+            }
+
+            .recently-viewed-content {
+
+            }
+
+            .recently-viewed.is-collapsed {
+
+            }
+
+            .recently-searched {
+
+            }
+
+            .recently-searched-content {
+
+            }
+
+            .recently-search.is-collapsed {
+
+            }
+        </style>
+    </template>
+</dom-module>

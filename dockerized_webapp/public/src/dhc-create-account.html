@@ -4,8 +4,7 @@
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 
-<dom-module id="dhc-login">
-
+<dom-module id="dhc-create-account">
     <template>
         <style include="shared-styles iron-flex iron-flex-alignment">
             .container {
@@ -30,22 +29,22 @@
                     <h2>Login</h2>
                     <paper-input placeholder="Username"></paper-input>
                     <paper-input placeholder="Password" type="password"></paper-input>
+                    <paper-input placeholder="Confirm Password" type="password">
                     <paper-button>Login</paper-button>
-                    <a href="[[rootPath]]create-account">Create Account</a>
                 </div>
             </div>
         </div>
         <frag-footer></frag-footer>
     </template>
     <script>
-        class dhcLogin extends Polymer.Element {
-            static get is() { return 'dhc-login'; }
+        class dhcCreateAccount extends Polymer.Element {
+            static get is() { return 'dhc-create-account'; }
             static get properties() {
                 return {
                     rootPath: String,
                 }
             }
         }
-        window.customElements.define(dhcLogin.is, dhcLogin);
+        window.customElements.define(dhcCreateAccount.is, dhcCreateAccount);
     </script>
 </dom-module>
