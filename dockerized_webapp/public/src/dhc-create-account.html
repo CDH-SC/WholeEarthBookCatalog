@@ -1,6 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 
@@ -27,10 +29,26 @@
                 <div id="inner-flex">
                     <h1>DHC</h1>
                     <h2>Login</h2>
-                    <paper-input placeholder="Username"></paper-input>
-                    <paper-input placeholder="Password" type="password"></paper-input>
-                    <paper-input placeholder="Confirm Password" type="password">
-                    <paper-button>Login</paper-button>
+
+                    
+                    <paper-input placeholder="Username" value="{{username}}"></paper-input>
+                    <paper-input error-message="invalid" placeholder="Password" type="password" value={{password}}></paper-input>
+                    <paper-input placeholder="Confirm Password" type="password" value="{{password_confirm}}"></paper-input>
+                    <paper-button on-click="_validate">Login</paper-button>
+                    <template is="dom-if" if="[[!valid]]">
+                        <p>Invalid input</p>
+                    </template>
+
+                    <iron-ajax
+                    method="POST"
+                    id="addAj"
+                    url="/api/add_user"
+                    handle-as="json"
+                    on-response="_handleResponse"
+                    content-type="application/json"
+                    debounce-duration="300"></iron-ajax>
+
+                    <iron-ajax></iron-ajax>
                 </div>
             </div>
         </div>
@@ -42,7 +60,51 @@
             static get properties() {
                 return {
                     rootPath: String,
+                    valid: Boolean
                 }
+            }
+
+            _validate() {
+                if (!this.username || this.username == "" || this.username.length <= 3) {
+                    this.valid = false;
+                }
+                else if(!this.password || !this.password_confirm) {
+                    this.valid = false;
+                }
+                else if (this.password.length <= 5) {
+                    this.valid = false;
+                }
+                else if (this.password !== this.password_confirm) {
+                    this.valid = false;
+                }
+                else {
+                    this.valid = true;
+                    this._post_new_user();
+                }
+            }
+
+            _post_new_user() {
+                var user = {
+                    'username': this.username,
+                    'password': this.password
+                }
+
+                this.valid = true;
+                this.$.addAj.body = user;
+                this.$.addAj.generateRequest();
+            }
+
+            _handleResponse(e) {
+                console.log("1");
+                console.log(e);
+                console.log(e.detail.response);
+
+                if(e.detail.response) {
+                    if(!e.detail.response.Error) {
+                        console.log("success");
+                    }
+                }
+                console.log("poop");
             }
         }
         window.customElements.define(dhcCreateAccount.is, dhcCreateAccount);

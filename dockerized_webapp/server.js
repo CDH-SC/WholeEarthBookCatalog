@@ -48,6 +48,7 @@ router.post('/post_data/', function(req, res) {
 // add user
 router.post("/add_user/", function(req, res) {
     var data = req.body;
+    console.log(data);
     if (data.username === undefined && data.password === undefined) {
         res.json({"Error": "invalid data format"});
     } else {

@@ -6,10 +6,13 @@
         "src/dhc-home.html",
         "src/dhc-404.html",
         "src/dhc-login.html",
-        "src/frag-footer.html"
+        "src/frag-footer.html",
+        "src/frag-header.html",
+        "src/dhc-create-account.html"
     ],
     "sources": [
-        "src/**/*"
+        "src/**/*",
+        "images/*"
     ],
     "extraDependencies": [
         "bower_components/webcomponentsjs/*.js"
