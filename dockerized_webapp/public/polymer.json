@@ -4,6 +4,11 @@
     "fragments": [
         "src/dhc-help.html",
         "src/dhc-home.html",
+        "src/dhc-login.html",
+        "src/dhc-create-account.html",
+        "src/dhc-user-account.html",
+        "src/dhc-book-profile.html",
+        "src/dhc-book-results.html",
         "src/dhc-404.html",
         "src/dhc-login.html",
         "src/frag-footer.html",
