@@ -9,7 +9,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongo = require("./database_client/mongoDriver.js");
-var port = 6000;
+var port = process.env.PORT || 8080;
 var router = express.Router();
 var neo4j = require("./database_client/neo4jDriver.js");
 
@@ -96,6 +96,11 @@ app.use(bodyParser.json());
 
 // all endpoints are prepended with '/api'
 app.use('/api', router);
+app.use(express.static("public/build/es6-bundled"));
+
+app.get('*', function(req, res) {
+    res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
+});
 
 // add directories with the files we need
 
