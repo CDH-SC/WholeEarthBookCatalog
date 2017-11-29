@@ -3,11 +3,11 @@
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="../bower-components/social-media-icons/social-media-icons.html">
+<!-- <link rel="import" href="../bower-components/social-media-icons/social-media-icons.html"> -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>-->
 
-<dom-module>
+<dom-module id="dhc-book-results">
 
   <style include="iron-flex iron-flex-alignment">
    
@@ -154,8 +154,8 @@
                   <paper-button raised id = "result-item-share"> 
                     Share  <br> 
                     
-                    <social-media-icons icon = "facebook"> </social-media-icons>
-                    <social-media-icons icon = "twitter"> </social-media-icons>
+                    <!-- <social-media-icons icon = "facebook"> </social-media-icons>
+                    <social-media-icons icon = "twitter"> </social-media-icons> -->
 
                     </paper-button> <!-- iconset --> 
 
@@ -165,16 +165,24 @@
 
         </template>              
 
+        
         <script>
-                        
-          function toggle() {
-            var listElement = document.getElementbyId("toggle-list");
-            var graphElement = document.getElementbyId("toggle-graph");
+            class dhcBookResults extends Polymer.Element {
+              static get is() { return 'dhc-book-results'; }
+              static get properties() {
+                  return {
+                      rootPath: String,
+                  }
+              }
+              toggle() {
+                var listElement = document.getElementbyId("toggle-list");
+                var graphElement = document.getElementbyId("toggle-graph");
 
-            //transfer to list view / transfer to graph view 
-  
-          }
-                          
+                //transfer to list view / transfer to graph view 
+                
+              }
+            }
+          window.customElements.define(dhcBookResults.is, dhcBookResults);
         </script>
 
 </dom-module>

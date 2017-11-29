@@ -7,7 +7,7 @@ Description: Overarching style sheet for front end of Dirty History Crawler.
 */
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 
-<dom-module is="custom-style" id="shared-styles">
+<dom-module id="shared-styles">
     <template>
         <style>
 
@@ -37,7 +37,6 @@ Description: Overarching style sheet for front end of Dirty History Crawler.
 
             a:visited > paper-button {
                 text-decoration: none;
-                color: #333333;
             }
 
             .container {
@@ -56,8 +55,9 @@ Description: Overarching style sheet for front end of Dirty History Crawler.
             }
 
             .large-keyword-search {
+                width: 100%;
                 max-width: 800px;
-                min-width: 750px;
+                /* min-width: 750px; */
             }
 
             .divider-grid {
