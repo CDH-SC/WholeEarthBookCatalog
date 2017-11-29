@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LibraryOfCongressImport.Lookups
 {
-    public static class AttributeMaps
+    public static class LeaderAndControlFieldAttributeMaps
     {
         public static Dictionary<char, string> BibliographicLevelMap = new Dictionary<char, string>()
         {

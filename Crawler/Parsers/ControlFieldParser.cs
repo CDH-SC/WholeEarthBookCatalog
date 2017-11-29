@@ -99,22 +99,22 @@ namespace LibraryOfCongressImport.Parsers
             var type = attributes.Find((attribute) => attribute.Key == AttributeNames.GenericRecordType).Value;
             switch (type)
             {
-                case AttributeMaps.GenericRecordTypes.Book:
+                case LeaderAndControlFieldAttributeMaps.GenericRecordTypes.Book:
                     ParseFixedLengthDataElementOfBook(ref element, ref attributes, ref raw);
                     break;
-                case AttributeMaps.GenericRecordTypes.ComputerFile:
+                case LeaderAndControlFieldAttributeMaps.GenericRecordTypes.ComputerFile:
                     ParseFixedLengthDataElementOfComputerFile(ref element, ref attributes, ref raw);
                     break;
-                case AttributeMaps.GenericRecordTypes.ContinuingResource:
+                case LeaderAndControlFieldAttributeMaps.GenericRecordTypes.ContinuingResource:
                     ParseFixedLengthDataElementOfContinuingResource(ref element, ref attributes, ref raw);
                     break;
-                case AttributeMaps.GenericRecordTypes.VisualMaterials:
+                case LeaderAndControlFieldAttributeMaps.GenericRecordTypes.VisualMaterials:
                     ParseFixedLengthDataElementOfVisualMaterial(ref element, ref attributes, ref raw);
                     break;
-                case AttributeMaps.GenericRecordTypes.Map:
+                case LeaderAndControlFieldAttributeMaps.GenericRecordTypes.Map:
                     ParseFixedLengthDataElementOfMap(ref element, ref attributes, ref raw);
                     break;
-                case AttributeMaps.GenericRecordTypes.MixedMaterials:
+                case LeaderAndControlFieldAttributeMaps.GenericRecordTypes.MixedMaterials:
                     ParseFixedLengthDataElementOfMixedMaterial(ref element, ref attributes, ref raw);
                     break;
                 default:
@@ -137,7 +137,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.TypeOfDateOrPublicationStatus,
                 index: 6,
-                map: ref AttributeMaps.TypeOfDateOrPublicationStatusMap);
+                map: ref LeaderAndControlFieldAttributeMaps.TypeOfDateOrPublicationStatusMap);
 
         private static void ParsePlaceOfPublication(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLength(
@@ -161,7 +161,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.ModifiedRecord,
                 index: 38,
-                map: ref AttributeMaps.ModifiedRecordTypeMap);
+                map: ref LeaderAndControlFieldAttributeMaps.ModifiedRecordTypeMap);
 
         private static void ParseCatalgoingSource(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -169,7 +169,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.CatalogingSource,
                 index: 39,
-                map: ref AttributeMaps.CatalogingSourceMap);
+                map: ref LeaderAndControlFieldAttributeMaps.CatalogingSourceMap);
 
         #region Book Specific Parsing Logic
         private static void ParseFixedLengthDataElementOfBook(ref XElement element, ref List<ItemAttribute> attributes, ref char[] raw)
@@ -193,7 +193,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributeKey: AttributeNames.Illustrations,
                 start: 18,
                 end: 21,
-                map: ref AttributeMaps.IllustrationsMap);
+                map: ref LeaderAndControlFieldAttributeMaps.IllustrationsMap);
 
         private static void ParseTargetAudienceOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -201,7 +201,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.TargetAudience,
                 index: 22,
-                map: ref AttributeMaps.TargetAudienceMap);
+                map: ref LeaderAndControlFieldAttributeMaps.TargetAudienceMap);
 
         private static void ParseFormOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -209,7 +209,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.FormOfItem,
                 index: 23,
-                map: ref AttributeMaps.FormOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.FormOfBookMap);
 
         private static void ParseNatureOfContentsOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseMultipleFixedLengthWithMap(
@@ -218,7 +218,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributeKey: AttributeNames.NatureOfContents,
                 start: 24,
                 end: 27,
-                map: ref AttributeMaps.NatureOfContentsOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.NatureOfContentsOfBookMap);
 
         private static void ParseGovernmentPublicationOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -226,7 +226,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.GovernmentPublication,
                 index: 28,
-                map: ref AttributeMaps.GovernmentPublicationOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.GovernmentPublicationOfBookMap);
 
         private static void ParseConferencePublicationOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -234,7 +234,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.ConferencePublication,
                 index: 29,
-                map: ref AttributeMaps.ConferencePublicationOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.ConferencePublicationOfBookMap);
 
         private static void ParseFestschriftOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -242,7 +242,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.Festschrift,
                 index: 30,
-                map: ref AttributeMaps.FestschriftOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.FestschriftOfBookMap);
 
         private static void ParseIndexOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -250,7 +250,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.Index,
                 index: 31,
-                map: ref AttributeMaps.IndexOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.IndexOfBookMap);
 
         private static void ParseLiteraryFormOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -258,7 +258,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.LiteraryForm,
                 index: 33,
-                map: ref AttributeMaps.LiteraryFormOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.LiteraryFormOfBookMap);
 
         private static void ParseBiographyOfBook(ref List<ItemAttribute> attributes, ref char[] raw)
            => ItemAttribute.ParseFixedLengthWithMap(
@@ -266,7 +266,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.Biography,
                 index: 34,
-                map: ref AttributeMaps.BiographyOfBookMap);
+                map: ref LeaderAndControlFieldAttributeMaps.BiographyOfBookMap);
 
         #endregion
 
