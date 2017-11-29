@@ -13,7 +13,7 @@ namespace LibraryOfCongressImport
         /// <summary>
         /// The connection to the database
         /// </summary>
-        private const string Neo4jConnectionString = "";
+        public const string Neo4jUrl = "bolt://localhost:7687";
 
         /// <summary>
         /// The page containing the list of items
