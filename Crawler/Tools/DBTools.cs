@@ -16,17 +16,36 @@ namespace LibraryOfCongressImport.Tools
 
         public static void PushItemToDatabase(ref Item item)
         {
+            var script = BuildScript(ref item);
+            ExecuteScript(script);
+        }
+
+        public static string BuildScript(ref Item item)
+        {
+            var script = new StringBuilder();
+            var itemID = GetItemIdentifier(item);
+            var count = 0;
+            var attributeValueDict = new Dictionary<string, string>();
+            script.Append($"MERGE (i:Item{{Name: '{itemID}'}}) ");
             foreach(var attribute in item.Attributes)
             {
-                var itemID = GetItemIdentifier(item);
-                var script = 
-                    $"MERGE (i:Item{{Name: '{itemID}'}}) " +
-                    $"MERGE (at:AttributeType{{Name:'{attribute.Key}'}}) " +
-                    $"MERGE (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) " +
-                    $"MERGE (i) -[:has]-> (av) -[:is]-> (at) " +
-                    $"RETURN 'SUCCESS';";
-                ExecuteScript(script);
+                if(attributeValueDict.ContainsKey(attribute.Key))
+                {
+                    var at = attributeValueDict[attribute.Key];
+                    script.Append($"MERGE (av{count}:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) ");
+                    script.Append($"MERGE (i) -[:has]-> (av{count}) -[:is]-> ({at}) ");
+                }
+                else
+                {
+                    attributeValueDict.Add(attribute.Key, $"at{count}");
+                    script.Append($"MERGE (at{count}:AttributeType{{Name:'{attribute.Key}'}}) ");
+                    script.Append($"MERGE (av{count}:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) ");
+                    script.Append($"MERGE (i) -[:has]-> (av{count}) -[:is]-> (at{count}) ");
+                }
+                count++;
             }
+            script.Append($"RETURN 'SUCCESS';");
+            return script.ToString();
         }
 
         private static string GetItemIdentifier(Item item)
@@ -36,29 +55,27 @@ namespace LibraryOfCongressImport.Tools
             return controlNumberIdentifier + ":" + controlNumber;
         }
 
-        private static string ExecuteScript(string script)
+        private static string ExecuteScript(string script, int trialNumber = 0, int maxTrialNumber = 3)
         {
-            try
+            using (var session = _driver.Session())
             {
-                using (var session = _driver.Session(AccessMode.Write))
+                var value = session.WriteTransaction(tx =>
                 {
-                    var value = session.WriteTransaction(tx =>
+                    // transaction here
+                    try
                     {
-                        // transaction here
                         var result = tx.Run(script);
-                        return result.Single()[0].As<string>();
-                    });
-                    return value;
-                }
-            }
-            catch (InvalidOperationException)
-            {
-                // This occurs when response splits, bad, but I can focus on fixing later
-                return "SUCCESS?";
-            }
-            catch (Exception)
-            {
-                return "FAIL";
+                        return result.First()[0].As<string>();
+                    }
+                    catch (Exception)
+                    {
+                        if (trialNumber <= maxTrialNumber)
+                            return ExecuteScript(script, trialNumber + 1, maxTrialNumber);
+                        else
+                            throw;
+                    }
+                });
+                return value;
             }
         }
     }
