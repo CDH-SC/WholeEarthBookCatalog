@@ -20,7 +20,7 @@ namespace LibraryOfCongressImport.Tools
             ExecuteScript(script);
         }
 
-        public static string BuildScript(ref Item item)
+        public static string BuildGracefulScript(ref Item item)
         {
             var script = new StringBuilder();
             var itemID = GetItemIdentifier(item);
@@ -41,6 +41,34 @@ namespace LibraryOfCongressImport.Tools
                     script.Append($"MERGE (at{count}:AttributeType{{Name:'{attribute.Key}'}}) ");
                     script.Append($"MERGE (av{count}:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) ");
                     script.Append($"MERGE (i) -[:has]-> (av{count}) -[:is]-> (at{count}) ");
+                }
+                count++;
+            }
+            script.Append($"RETURN 'SUCCESS';");
+            return script.ToString();
+        }
+
+        public static string BuildScript(ref Item item)
+        {
+            var script = new StringBuilder();
+            var itemID = GetItemIdentifier(item);
+            var count = 0;
+            var attributeValueDict = new Dictionary<string, string>();
+            script.Append($"CREATE (i:Item{{Name: '{itemID}'}}) ");
+            foreach (var attribute in item.Attributes)
+            {
+                if (attributeValueDict.ContainsKey(attribute.Key))
+                {
+                    var at = attributeValueDict[attribute.Key];
+                    script.Append($"CREATE (av{count}:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) ");
+                    script.Append($"CREATE (i) -[:has]-> (av{count}) -[:is]-> ({at}) ");
+                }
+                else
+                {
+                    attributeValueDict.Add(attribute.Key, $"at{count}");
+                    script.Append($"MERGE (at{count}:AttributeType{{Name:'{attribute.Key}'}}) ");
+                    script.Append($"CREATE (av{count}:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) ");
+                    script.Append($"CREATE (i) -[:has]-> (av{count}) -[:is]-> (at{count}) ");
                 }
                 count++;
             }
