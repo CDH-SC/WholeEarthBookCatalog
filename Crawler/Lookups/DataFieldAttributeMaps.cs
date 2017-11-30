@@ -144,7 +144,39 @@ namespace LibraryOfCongressImport.Lookups
             {"3", "General Note Materials Specified" }
         };
 
-        public static Dictionary<string, string> SubjectAddedEntryTopicalTermMap = new Dictionary<string, string>()
+         public static Dictionary<string, string> SubjectAddedEntryCorporateNameMap = new Dictionary<string, string>()
+        {
+            {"a", "Corporate name or jurisdiction name entry element"}, 
+            {"b", "Subordinate unit"},
+            {"c", "Location of meeting"}, 
+            {"d", "Date of meeting or treaty signing"}, 
+            {"e", "Relator term"}, 
+            {"f", "Date of a work"},
+            {"g", "Miscellaneous Information"},
+            {"h", "Medium"},
+            {"k", "Form subheading"},
+            {"l", "Language of a work"}, 
+            {"m", "Medium of performance for music"}, 
+            {"n", "Number of part/section/meeting"}, 
+            {"o", "Arranged statement for music"}, 
+            {"p", "Name of part/section of a work"}, 
+            {"r", "Key for music"}, 
+            {"s", "Version"},
+            {"t", "Title of a work"},
+            {"u", "Affiliation"},
+            {"v", "Form subdivision"},
+            {"x", "General subdivision"},
+            {"y", "Chronological subdivision"},
+            {"z", "Geographical subdivision"},
+            {"0", "Authority record control number or standard number"},
+            {"2", "Source of heading or term"},
+            {"3", "Materials specified"},
+            {"4", "Relationship"},
+            {"6", "Linkage"},
+            {"8", "Field link and sequence number"}
+        };
+
+         public static Dictionary<string, string> SubjectAddedEntryTopicalTermMap = new Dictionary<string, string>()
         {
             { "a", "Topical term or geographic name entry element" },
             { "b", "Topical term following geographic name entry element" },
