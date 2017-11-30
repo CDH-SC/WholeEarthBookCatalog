@@ -13,7 +13,7 @@ namespace LibraryOfCongressImport
         /// <summary>
         /// The connection to the database
         /// </summary>
-        private const string Neo4jConnectionString = "";
+        public const string Neo4jUrl = "bolt://localhost:7687";
 
         /// <summary>
         /// The page containing the list of items
@@ -71,10 +71,14 @@ namespace LibraryOfCongressImport
 
         private static void AddFileDataToDatabase(ref XDocument xml)
         {
-            foreach (var entry in xml.Root.Elements())
+            Parallel.ForEach(xml.Root.Elements(), (entry) => 
             {
                 AddRecord(entry);
-            }
+            });
+            //foreach (var entry in xml.Root.Elements())
+            //{
+            //    AddRecord(entry);
+            //}
         }
 
         private static void AddRecord(XElement record)

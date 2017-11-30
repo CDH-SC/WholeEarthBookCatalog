@@ -112,12 +112,16 @@ namespace LibraryOfCongressImport.Parsers
             switch (tag)
             {
                 case TagNumbers.LibraryofCongressControlNumber:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.LibraryOfCongressControlNumberMap);
                     break;
                 case TagNumbers.PatentControlInformation:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.PatentControlInformationMap);
                     break;
                 case TagNumbers.NationalBibliographyNumber:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.NationalBibliographyNumber);
                     break;
                 case TagNumbers.NationalBibliographicAgencyControlNumber:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.NationalBibliographicAgencyControlNumberMap);
                     break;
                 case TagNumbers.CopyrightorLegalDepositNumber:
                     break;
@@ -148,6 +152,7 @@ namespace LibraryOfCongressImport.Parsers
                 case TagNumbers.CodedCartographicMathematicalData:
                     break;
                 case TagNumbers.SystemControlNumber:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.SystemControlNumberMap);
                     break;
                 case TagNumbers.OriginalStudyNumberforComputerDataFiles:
                     break;
@@ -156,12 +161,15 @@ namespace LibraryOfCongressImport.Parsers
                 case TagNumbers.RecordContentLicensor:
                     break;
                 case TagNumbers.CatalogingSource:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.CatalogingSourceMap);
                     break;
                 case TagNumbers.LanguageCode:
                     break;
                 case TagNumbers.AuthenticationCode:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.AuthenticationCodeMap);
                     break;
                 case TagNumbers.GeographicAreaCode:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.GeographicAreaCodeMap);
                     break;
                 case TagNumbers.CountryofPublishingProducingEntityCode:
                     break;
@@ -174,6 +182,7 @@ namespace LibraryOfCongressImport.Parsers
                 case TagNumbers.NumberofMusicalInstrumentsorVoicesCodes:
                     break;
                 case TagNumbers.LibraryofCongressCallNumber:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.LibraryOfCongressCallNumberMap);
                     break;
                 case TagNumbers.LibraryofCongressCopyIssueOrOffprintStatement:
                     break;
@@ -221,6 +230,7 @@ namespace LibraryOfCongressImport.Parsers
             switch (tag)
             {
                 case TagNumbers.PersonalNameMainEntry:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.PersonalNameMainEntry);
                     break;
                 case TagNumbers.CorporateNameMainEntry:
                     break;
@@ -250,6 +260,7 @@ namespace LibraryOfCongressImport.Parsers
                 case TagNumbers.CollectiveUniformTitle:
                     break;
                 case TagNumbers.TitleStatement:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.TitleStatementMap);
                     break;
                 case TagNumbers.VaryingFormOfTitle:
                     break;
@@ -279,6 +290,7 @@ namespace LibraryOfCongressImport.Parsers
                 case TagNumbers.PhilatelicIssueData:
                     break;
                 case TagNumbers.PublicationDistribution:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.PublicationDistributionMap);
                     break;
                 case TagNumbers.ProjectedPublicationDate:
                     break;
@@ -298,6 +310,7 @@ namespace LibraryOfCongressImport.Parsers
             switch (tag)
             {
                 case TagNumbers.PhysicalDescription:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.PhysicalDescriptionMap);
                     break;
                 case TagNumbers.PlayingTime:
                     break;
@@ -377,6 +390,7 @@ namespace LibraryOfCongressImport.Parsers
             switch (tag)
             {
                 case TagNumbers.SeriesStatement:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.SeriesStatementMap);
                     break;
                 default:
                     break;
@@ -390,6 +404,7 @@ namespace LibraryOfCongressImport.Parsers
             switch (tag)
             {
                 case TagNumbers.GeneralNote:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.GeneralNoteMap);
                     break;
                 case TagNumbers.WithNote:
                     break;
@@ -513,6 +528,7 @@ namespace LibraryOfCongressImport.Parsers
                 case TagNumbers.SubjectAddedEntryChronologicalTerm:
                     break;
                 case TagNumbers.SubjectAddedEntryTopicalTerm:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.SubjectAddedEntryTopicalTermMap);
                     break;
                 case TagNumbers.SubjectAddedEntryGeographicName:
                     break;
@@ -542,6 +558,7 @@ namespace LibraryOfCongressImport.Parsers
             switch (tag)
             {
                 case TagNumbers.AddedEntryPersonalName:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.AddedEntryPersonalName);
                     break;
                 case TagNumbers.AddedEntryCorporateName:
                     break;
@@ -653,6 +670,7 @@ namespace LibraryOfCongressImport.Parsers
                 case TagNumbers.CaptionsandPatternIndexes:
                     break;
                 case TagNumbers.ElectronicLocationandAccess:
+                    ItemAttribute.ParseDirectWithSubFields(ref element, ref attributes, ref DataFieldAttributeMaps.ElectronicLocationAndAccessMap);
                     break;
                 case TagNumbers.EnumerationandChronologyBasicBibliographicUnit:
                     break;

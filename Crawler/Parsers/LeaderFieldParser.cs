@@ -31,7 +31,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.RecordStatus,
                 index: 5,
-                map: ref AttributeMaps.RecordStatusTypeMap);
+                map: ref LeaderAndControlFieldAttributeMaps.RecordStatusTypeMap);
 
         private static void ParseSpecificRecordType(ref List<ItemAttribute> attributes, ref char[] raw) 
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -39,7 +39,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.SpecificRecordType,
                 index: 6,
-                map: ref AttributeMaps.SpecificRecordTypeMap);
+                map: ref LeaderAndControlFieldAttributeMaps.SpecificRecordTypeMap);
 
         private static void ParseGenericRecordType(ref List<ItemAttribute> attributes, ref char[] raw) 
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -47,7 +47,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.GenericRecordType,
                 index: 6,
-                map: ref AttributeMaps.GenericRecordTypeMap);
+                map: ref LeaderAndControlFieldAttributeMaps.GenericRecordTypeMap);
 
         private static void ParseBibliographicLevel(ref List<ItemAttribute> attributes, ref char[] raw) 
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -55,7 +55,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.BibliographicLevel,
                 index: 7,
-                map: ref AttributeMaps.BibliographicLevelMap);
+                map: ref LeaderAndControlFieldAttributeMaps.BibliographicLevelMap);
 
         private static void ParseControlType(ref List<ItemAttribute> attributes, ref char[] raw) 
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -63,7 +63,7 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.ControlType,
                 index: 8,
-                map: ref AttributeMaps.ControlTypeMap);
+                map: ref LeaderAndControlFieldAttributeMaps.ControlTypeMap);
 
         private static void ParseMultipartRecordLevel(ref List<ItemAttribute> attributes, ref char[] raw) 
             => ItemAttribute.ParseFixedLengthWithMap(
@@ -71,6 +71,6 @@ namespace LibraryOfCongressImport.Parsers
                 attributes: ref attributes,
                 attributeKey: AttributeNames.MultipartResourceRecordLevel,
                 index: 19,
-                map: ref AttributeMaps.MultipartResourceRecordLevelMap);
+                map: ref LeaderAndControlFieldAttributeMaps.MultipartResourceRecordLevelMap);
     }
 }

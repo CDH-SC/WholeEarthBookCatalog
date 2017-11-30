@@ -38,9 +38,16 @@ namespace LibraryOfCongressImport
         {
             if (!String.IsNullOrWhiteSpace(attribute.Value))
             {
+                SanitizeItemAttribute(ref attribute);
                 attributes.Add(attribute);
-                LogTools.LogNewAttribute("SaveAttribute", attribute);
+                LogTools.LogNewAttribute("AddAttribute", attribute);
             }
+        }
+
+        private static void SanitizeItemAttribute(ref ItemAttribute attribute)
+        {
+            attribute.Key = attribute.Key.Replace("'", "\\'");
+            attribute.Value = attribute.Value.Replace("'", "\\'");
         }
 
         public static void ParseDirect(ref XElement element, ref List<ItemAttribute> attributes, string attributeKey)
@@ -83,6 +90,23 @@ namespace LibraryOfCongressImport
             {
                 attribute.Value = map[" "];
                 AddAttribute(ref attribute, ref attributes);
+            }
+        }
+
+        public static void ParseDirectWithSubFields(ref XElement element, ref List<ItemAttribute> attributes, ref Dictionary<string, string> map)
+        {
+            foreach (var subfield in element.Elements())
+            {
+                var code = subfield.Attribute("code").Value;
+                if(map.ContainsKey(code))
+                {
+                    var attribute = new ItemAttribute()
+                    {
+                        Key = map[code],
+                        Value = subfield.Value.Trim()
+                    };
+                    AddAttribute(ref attribute, ref attributes);
+                }
             }
         }
 
