@@ -71,10 +71,14 @@ namespace LibraryOfCongressImport
 
         private static void AddFileDataToDatabase(ref XDocument xml)
         {
-            foreach (var entry in xml.Root.Elements())
+            Parallel.ForEach(xml.Root.Elements(), (entry) => 
             {
                 AddRecord(entry);
-            }
+            });
+            //foreach (var entry in xml.Root.Elements())
+            //{
+            //    AddRecord(entry);
+            //}
         }
 
         private static void AddRecord(XElement record)
