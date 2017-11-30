@@ -2,7 +2,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/polymer/lib/elements/dom-if.html">
-
+<link rel="import" href="../bower_components/app-layout/app-layout.html">
 
 
 <dom-module id="frag-header">
@@ -12,8 +12,10 @@
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+                width: 100%;
             }
             paper-button.account-blue {
+                /*margin-right: 5px;*/
                 background-color: #2d9cdb;
                 color: #f2f2f2;
             }
@@ -21,25 +23,39 @@
             a {
                 text-decoration: none;
                 padding-top: 5px;
+                color: #f2f2f2;
+            }
+
+            a:visited {
+                text-decoration: none;
+                color: #f2f2f2;
             }
 
             h1 {
                 margin: 0;
+                padding-left: 5px;
+                font-size: 45px;
+            }
+
+            app-toolbar {
+                padding-left:5px;
+                padding-right: 5px;
             }
         </style>
+            <app-toolbar>
+                <div class="header-row">
+                    <template is="dom-if" if="[[!_showSearch()]]">
+                        <h1>DHC</h1>
+                    </template>
+                    <template is="dom-if" if="[[_showSearch()]]">
+                        <span></span>
+                    </template>
 
-        <div class="header-row">
-            <template is="dom-if" if="[[!_showSearch()]]">
-                <h1>DHC</h1>
-            </template>
-            <template is="dom-if" if="[[_showSearch()]]">
-                <span></span>
-            </template>
-
-            <a href="#">
-                <paper-button on-click="_test" class="account-blue">Sign in</paper-button>
-            </a>
-        </div>
+                    <a href="[[rootPath]]login">
+                        <paper-button on-click="_test" class="account-blue">Sign in</paper-button>
+                    </a>
+                </div>
+            </app-toolbar>
     </template>
 
     <script>
