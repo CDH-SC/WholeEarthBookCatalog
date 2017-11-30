@@ -38,9 +38,16 @@ namespace LibraryOfCongressImport
         {
             if (!String.IsNullOrWhiteSpace(attribute.Value))
             {
+                SanitizeItemAttribute(ref attribute);
                 attributes.Add(attribute);
                 LogTools.LogNewAttribute("AddAttribute", attribute);
             }
+        }
+
+        private static void SanitizeItemAttribute(ref ItemAttribute attribute)
+        {
+            attribute.Key = attribute.Key.Replace("'", "\\'");
+            attribute.Value = attribute.Value.Replace("'", "\\'");
         }
 
         public static void ParseDirect(ref XElement element, ref List<ItemAttribute> attributes, string attributeKey)

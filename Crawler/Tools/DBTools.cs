@@ -5,34 +5,60 @@ using Neo4j;
 using Neo4j.Driver;
 using Neo4j.Driver.V1;
 using System.Linq;
+using LibraryOfCongressImport.Lookups;
+using System.Threading;
 
 namespace LibraryOfCongressImport.Tools
 {
     public static class DBTools
     {
+        private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl);
+
         public static void PushItemToDatabase(ref Item item)
         {
-            using (var session = GraphDatabase.Driver(Program.Neo4jUrl).Session())
+            foreach(var attribute in item.Attributes)
             {
-                // create/locate item based on some identifying feature
-                // get id
+                var itemID = GetItemIdentifier(item);
+                var script = 
+                    $"MERGE (i:Item{{Name: '{itemID}'}}) " +
+                    $"MERGE (at:AttributeType{{Name:'{attribute.Key}'}}) " +
+                    $"MERGE (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) " +
+                    $"MERGE (i) -[:has]-> (av) -[:is]-> (at) " +
+                    $"RETURN 'SUCCESS';";
+                ExecuteScript(script);
+            }
+        }
 
-                var id = session.WriteTransaction(tx =>
+        private static string GetItemIdentifier(Item item)
+        {
+            var controlNumber = item.Attributes.Find((a) => a.Key == AttributeNames.ControlNumber).Value;
+            var controlNumberIdentifier = item.Attributes.Find((a) => a.Key == AttributeNames.ControlNumberIdentifier).Value;
+            return controlNumberIdentifier + ":" + controlNumber;
+        }
+
+        private static string ExecuteScript(string script)
+        {
+            try
+            {
+                using (var session = _driver.Session(AccessMode.Write))
                 {
-                    // transaction here
-                    var result = tx.Run("", "");
-                    return result.Single()[0].As<string>();
-                });
-                
-                foreach (var attribute in item.Attributes)
-                {
-                    // create/locate new attributes in db as they appear
-                    // get attribute id
-                    // cache
-                    // create/locate attribute value for item
-                    // cache
-                    // connect the two in db
+                    var value = session.WriteTransaction(tx =>
+                    {
+                        // transaction here
+                        var result = tx.Run(script);
+                        return result.Single()[0].As<string>();
+                    });
+                    return value;
                 }
+            }
+            catch (InvalidOperationException)
+            {
+                // This occurs when response splits, bad, but I can focus on fixing later
+                return "SUCCESS?";
+            }
+            catch (Exception)
+            {
+                return "FAIL";
             }
         }
     }
