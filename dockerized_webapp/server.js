@@ -15,6 +15,7 @@ var neo4j = require("./database_client/neo4jDriver.js");
 var utils = require("./utils");
 
 // get data from the database
+// don't really need this endpoint...
 router.get('/get_data/:list_name', function(req, res) {
     var lname = req.params.list_name; // query db for this list
 
@@ -29,6 +30,7 @@ router.get('/get_data/:list_name', function(req, res) {
 });
 
 // post data to the database
+// don't really need this endpoint...
 router.post('/post_data/', function(req, res) {
     var data = req.body;
     console.log(req.body);
@@ -102,6 +104,28 @@ router.post("/get_user/", function(req, res) {
              }
         })
     }
+})
+
+// query neo4j
+router.post("/neo4j/", function(req, res) {
+    var data = req.body;
+    var statement = data.statement;
+    var params = {}
+
+    // construct params object
+    Object.keys(data).forEach(function(element, key, _array) {
+        params[element] = data[element]
+        console.log(`elem: ${element}, key: ${key}\n, data ${element}: ${data[element]}`);
+    })
+
+    console.log(`params: ${JSON.stringify(params, null, 2)}`);
+    console.log(`data: ${JSON.stringify(data, null, 2)}`);
+    var record = {}
+    neo4j.query(statement, params, record)
+        .then(function(resp) {
+            console.log(`record: ${JSON.stringify(resp, null, 2)}`);
+            res.json(resp)
+        });
 })
 
 // get neo4j session
