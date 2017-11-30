@@ -139,15 +139,13 @@ app.use(bodyParser.json());
 
 // all endpoints are prepended with '/api'
 app.use('/api', router);
-
-// add directories with the files we need
-app.use(express.static("public"));
-app.use(express.static("style"));
-app.use(express.static("scripts"));
+app.use(express.static("public/build/es6-bundled"));
 
 app.get('*', function(req, res) {
-    res.sendFile("public/index.html", { root: '.' });
+    res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
 });
+
+// add directories with the files we need
 
 // Start the server instance
 app.listen(port);

@@ -1,89 +1,305 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="frag-header.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 <dom-module id="dhc-home">
-  <template>
-    <style>
-      /*For local style to this dom-module*/
+    <template>
+        <style include="shared-styles">
+            paper-input {
+                margin: 0;
+            }
+            paper-button.advanced-search-button {
+                font-size: 18px;
+                color: #2d9CDB;
+                text-decoration: underline;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+                height: 18px;
+            }
 
-      .border-wrapper {
-        margin: auto;
-        width: 50%;
-        margin-top: 20%;
-      }
+            .align-advanced-item {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
 
-      #title-center {
-        text-align: center;
-        font-size: 55px;
-        margin: 0;
-      }
+            h1 {
+                margin: 0;
+                text-align: center;
+                font-size: 96px;
+                font-weight: lighter;
+            }
 
-      paper-input {
-        max-width: 600px;
-      }
-    </style>
+            .book-view {
+                font-size: 36px;
+                font-style: italic;
+                margin-top: 50px;
+                height: 315px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bolder;
+                width: 100%;
+            }
 
-    <!--The actual html goes in here-->
-    <div class="border-wrapper">
-      <h1 id="title-center">DHC</h1>
+            #recommendations {
+                display: flex;
+                flex-basis: auto;
+                flex-grow: 1;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                max-width: 800px;
+                height: 315px;
+                background-color: rgba(0,0,0, 0.6);
+                z-index: 10;
+                color: whitesmoke;
+            }
 
-      <paper-input placeholder="Keywords">
-        <iron-icon icon="arrow-forward" slot="suffix"></iron-icon>
-      </paper-input>
+            @media screen and (max-width: 1050px) {
+            
+            }
 
-      <div class="book-view">
-        <span class="highlightedBookCarousel"> 
-            Sign In for Recommendations 
-          <span class = "glyphicon glyphicon-arrow-left"> </span>
-        <span class="glyphicon glyphicon-arrow-right"> </span>
-        </span>
-      </div>
-    <div id = "search-wrapper">
-      <input type = "search" width = 575px>
-    </div>
-    <div id = "book-view">
-    <div id = "carousel-home" class = "carousel-slide" data-ride = "carousel">
-      <ol class = "carousel-slides">
-          <li data-target="#carousel-home" data-slide-to="0" class = "active"></li>
-          <li data-target="#carousel-home" data-slide-to="1"></li>
-          <li data-target="#carousel-home" data-slide-to="2"></li>
-      </ol>
-    <div class = "carousel-content" role = "listbox">
-     <div class = "carousel-current-item">
-       <!-- include image set here--> 
-     </div>
-     <div class = "carousel-item-set">
-         <!-- include image set here--> 
-     </div>
-     <div class = "carousel-item-set">
-         <!-- include image set here--> 
-     </div>
-    </div>
+            @media screen and (max-width: 550px) {
+                .book-view {
+                    display: none;
+                }
+            }
 
-    <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
-    <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
+            @media screen and (max-height: 550px) {
+                .book-view {
+                    display: none;
+                }
+            }
 
-    <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next">
-    <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span>
+            #book-recommends {
+                display: flex;
+                flex-basis: auto;
+                flex-grow: 1;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                max-width: 800px;
+                position: absolute;
+                z-index: 1;
+            }
 
-      <!--this will be replaced by a small dom-mod-->
-      <div id="footer-wrapper">
-        <!--sets the path in the address bar to domain/help-->
-        <a name="help" href="[[rootPath]]help">Help?</a>
-        <a name="login" href="[[rootPath]]login">Login</a>
-        <button type = "button" name = 'homePageHelp' class = "helpButton">Help?</button>
-      </div>
-    </div>
-  </template>
+            #book-recommends > iron-icon {
+                height: 50px;
+                width: 50px;
+            }
 
-  <script>
+            .book-rec {
+                width: 150px;
+                height: 250px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .book-rec > img {
+                width: 150px; 
+                height: 100%;
+            }
+
+            paper-button.chev-cir {
+                padding: 0;
+                margin: 0;
+                min-width: unset;
+                height: 50px;
+                width: 50px;
+                border-radius: 100px;
+                font-size: 18px;
+                box-sizing: border-box;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+            
+            a > paper-button {
+                color: #333333;
+            }
+
+            a:visited > paper-button {
+                color: #333333;
+            }
+
+            .chev-button {
+                max-height:50px;
+                max-width: 50px;
+                min-width: 50px;
+                min-height: 50px;
+                border: 3px solid black;
+                border-radius: 30px;
+            }
+
+            .inner-container {
+                width: 60%;
+                max-width: 800px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+        </style>
+
+<!--The actual html goes in here-->
+        <app-header>
+            <frag-header></frag-header>
+            <div class="container">
+                <div class="inner-container">
+                    <h1 id="title-center">DHC</h1>
+                    <paper-input class="large-keyword-search" placeholder="Keywords">
+                            <iron-icon icon="arrow-forward" slot="suffix"></iron-icon>
+                    </paper-input>
+                    <div class="align-advanced-item">
+                        <paper-button class="advanced-search-button">Advanced</paper-button>
+                    </div>
+
+                    <div class="book-view">
+                        <template is="dom-if" if="false">
+                            <!-- set to true to show for now -->
+                            <div id="recommendations">
+                                Sign in for Recommendations
+                            </div>
+                        </template>
+
+                        <div id="book-recommends">
+                            <!-- placeholders -->
+                            <paper-button on-click="_set_image_b" class="chev-cir"><iron-icon class="chev-button" icon="chevron-left"></iron-icon></paper-button>
+                            <template is="dom-repeat" items=[[current_display]]>
+                                <div class="book-rec">
+                                    <img width="150px" src="{{item}}"></img>
+                               </div>
+                            </template>
+                            <paper-button on-click="_set_image_f" class="chev-cir"><iron-icon class="chev-button" icon="chevron-right"></iron-icon></paper-button>
+                        </div>
+                    </div>
+                </div>
+                <frag-footer></frag-footer>
+            </div>
+        </app-header>
+    
+    </template>
+    <script>
     class dhcHome extends Polymer.Element {
-      static get is() {
-        return 'dhc-home';
-      }
-    }
+        static get is() {
+            return 'dhc-home';
+        }
 
-    window.customElements.define(dhcHome.is, dhcHome);
-  </script>
+        static get properties() {
+            return {
+                // Temporary kind of 
+                book_rec_covers: {
+                    type: Array,
+                    value: ['../images/clockwork_small.jpg', '../images/animators-cover.jpg', '../images/creative_bookcover.png', '../images/im-cover-150px.jpg'],
+                },
+
+            
+                book_rec_size: {
+                    type: Number,
+                    value: 3,
+                    observer: '_book_rec_size_changed'
+                },
+
+                current_display: {
+                    type: Array
+                }
+            };
+        }
+
+
+        constructor() {
+            super();
+            this._windowResize = this._resize.bind(this);
+          }
+
+        ready() {
+            // needs more complexity
+            super.ready();
+            this._resize();
+            this.current_display = [];
+            console.log("REC", this.book_rec_size);
+            for (var i = 0; i < this.book_rec_size; i++) {
+                this.push('current_display', this.book_rec_covers[i]);
+            }
+            // this.set('current_display', this.book_rec_covers);
+            // this.current_display = this.book_rec_covers;
+            console.log(this.current_display);
+        }
+
+        connectedCallback() {
+            super.connectedCallback();
+            window.addEventListener('resize', this._windowResize);
+        }
+
+        _book_rec_size_changed(oldVal, newVal) {
+            if(oldVal !== newVal && this.current_display) {
+                if(oldVal < newVal) {
+                    console.log(oldVal, newVal);
+                    this.pop('current_display');
+                    console.log("POP", this.current_display);
+
+                }
+                else {
+                    console.log("COVERS", this.book_rec_covers);
+                    console.log("CURR", this.current_display);
+                    var add_index = this.book_rec_covers.indexOf(this.current_display[this.current_display.length - 1]) + 1;
+                    console.log("ADD", add_index, "BOOK", this.book_rec_covers.length);
+                    if(add_index > this.book_rec_covers.length) {
+                        console.log("greater");
+                        add_index = 0;
+                    }
+                    this.push('current_display', this.book_rec_covers[add_index]);
+                    console.log("PUSH", this.current_display);
+                }
+            }
+        }
+
+        _set_image_f() {
+            var ind = this.book_rec_covers.indexOf(this.current_display[this.current_display.length - 1]) + 1;
+
+            if (ind >= this.book_rec_covers.length) {
+                ind = 0;
+            }
+
+            console.log("IND", ind);
+
+            this.push('current_display', this.book_rec_covers[ind]);
+            this.shift('current_display');
+        }
+
+        _set_image_b() {
+            var ind = this.book_rec_covers.indexOf(this.current_display[0]) - 1;
+
+            if (ind < 0) {
+                ind = this.book_rec_covers.length - 1;
+            }
+
+            this.pop('current_display');
+            this.unshift('current_display', this.book_rec_covers[ind]);
+        }
+
+        _resize() {
+            if (window.innerWidth < 1050) {
+                this.book_rec_size = 1;
+            }
+
+            else if(window.innerWidth <= 1300) {
+                this.book_rec_size = 2;
+            }
+            else if(window.innerWidth > 1300) {
+                this.book_rec_size = 3;
+            }
+            else {
+                this.book_rec_size = 0;
+            }
+        }
+    }
+        window.customElements.define(dhcHome.is, dhcHome);
+    </script>
 </dom-module>

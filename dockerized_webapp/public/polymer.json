@@ -1,0 +1,25 @@
+{
+    "entrypoint": "index.html",
+    "shell": "src/dhc-main.html",
+    "fragments": [
+        "src/dhc-help.html",
+        "src/dhc-home.html",
+        "src/dhc-404.html",
+        "src/dhc-login.html",
+        "src/frag-footer.html"
+    ],
+    "sources": [
+        "src/**/*"
+    ],
+    "extraDependencies": [
+        "bower_components/webcomponentsjs/*.js"
+    ],
+    "builds": [
+        {
+            "preset": "es5-bundled"
+        },
+        {
+            "preset": "es6-bundled"
+        }
+    ]
+}
