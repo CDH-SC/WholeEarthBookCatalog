@@ -55,6 +55,14 @@ BEGIN
 	SELECT `id`, `name` FROM `attribute_types`;
 END
 
+DROP procedure IF EXISTS `create_attribute_type`;
+CREATE PROCEDURE `create_attribute_type` (IN `name` VARCHAR(50), OUT `id` INT)
+BEGIN
+	INSERT INTO `attribute_types` (`name`) VALUES (@name);
+    SELECT LAST_INSERT_ID() INTO @id;
+END
+
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
