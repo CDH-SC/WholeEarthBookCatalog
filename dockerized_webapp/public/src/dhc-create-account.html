@@ -3,6 +3,8 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 
@@ -44,9 +46,16 @@
                     id="addAj"
                     url="/api/add_user"
                     handle-as="json"
+                    last-response="{{mySession}}"
                     on-response="_handleResponse"
                     content-type="application/json"
                     debounce-duration="300"></iron-ajax>
+
+                    <app-indexeddb-mirror
+                        key="user"
+                        data="{{mySession}}"
+                        persisted-data="{{persistedSession}}">
+                    </app-indexeddb-mirror>
 
                 </div>
             </div>
@@ -69,10 +78,19 @@
                     valid: Boolean,
                     errorMessage: String,
                     mySession: {
-                        type: String,
+                        type: Object,
                         notify: true
+                    },
+                    persistedSession: {
+                        type: Object,
+                        notify: true,
+                        observer: "_changed"
                     }
                 }
+            }
+
+            _changed() {
+                this.set("mySession", this.persistedSession);
             }
 
             _validate() {
@@ -118,7 +136,7 @@
                         var main = document.querySelector("dhc-main");
 
                         this.valid = true;
-                        this.mySession = e.detail.response.insertedIds[0];
+                        // this.mySession = e.detail.response;
                        
                         // go back home after login (surprised this works...)
                         this.set("route.path", "/home");
