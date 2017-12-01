@@ -1,0 +1,4 @@
+LOCFiles/*
+*.pyc
+obj/
+bin/
