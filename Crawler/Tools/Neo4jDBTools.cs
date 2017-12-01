@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LibraryOfCongressImport.Tools
 {
-    public static class Neo4jDBTools : IDBTools
+    public static class Neo4jDBTools
     {
         private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl);
 
