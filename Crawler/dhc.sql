@@ -10,6 +10,7 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 CREATE DATABASE `dhc` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `dhc`;
 
 DROP TABLE IF EXISTS `attribute_types`;
 CREATE TABLE `attribute_types` (
@@ -48,6 +49,11 @@ CREATE TABLE `item_attributes` (
   CONSTRAINT `item_attribute_attribute_value` FOREIGN KEY (`attribute_value_id`) REFERENCES `attribute_values` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+DROP procedure IF EXISTS `get_all_attribute_types`;
+CREATE PROCEDURE `get_all_attribute_types` ()
+BEGIN
+	SELECT `id`, `name` FROM `attribute_types`;
+END
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
