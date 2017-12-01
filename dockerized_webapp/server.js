@@ -140,7 +140,7 @@ app.use(bodyParser.json());
 
 // all endpoints are prepended with '/api'
 app.use('/api', router);
-app.use(express.static("public/build/es6-bundled"));
+    app.use(express.static("public/build/es6-bundled"));
 
 app.get('*', function(req, res) {
     res.sendFile("public/build/es6-bundled/index.html", { root: '.' });

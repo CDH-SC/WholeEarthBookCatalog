@@ -149,7 +149,7 @@
 
 <!--The actual html goes in here-->
         <app-header>
-            <frag-header></frag-header>
+            <frag-header my-session="{{mySession}}"></frag-header>
             <div class="container">
                 <div class="inner-container">
                     <h1 id="title-center">DHC</h1>
@@ -193,13 +193,16 @@
 
         static get properties() {
             return {
+                mySession: {
+                    type: String,
+                    notify: true,
+                    observer: "_testo"
+                },
                 // Temporary kind of 
                 book_rec_covers: {
                     type: Array,
                     value: ['../images/clockwork_small.jpg', '../images/animators-cover.jpg', '../images/creative_bookcover.png', '../images/im-cover-150px.jpg'],
                 },
-
-            
                 book_rec_size: {
                     type: Number,
                     value: 3,
@@ -230,7 +233,7 @@
             // this.set('current_display', this.book_rec_covers);
             // this.current_display = this.book_rec_covers;
             console.log(this.current_display);
-        }
+         }
 
         connectedCallback() {
             super.connectedCallback();
@@ -285,10 +288,11 @@
         }
 
         _resize() {
-            if (window.innerWidth < 1050) {
+            if (window.innerWidth < 1050 && window.innerWidth >= 800) {
                 this.book_rec_size = 1;
+                console.log("1 book");
             }
-            else if(window.innerWidth <= 1300) {
+            else if(window.innerWidth >= 1050 && window.innerWidth <= 1300) {
                 this.book_rec_size = 2;
             }
             else if(window.innerWidth > 1300) {
