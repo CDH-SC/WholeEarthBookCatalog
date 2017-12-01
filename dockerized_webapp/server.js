@@ -17,6 +17,7 @@ var utils = require("./utils");
 // add user
 router.post("/add_user/", function(req, res) {
     var data = req.body;
+    console.log(data);
     if (data.username === undefined && data.password === undefined) {
         res.json({"Error": "invalid data format"});
     } else {
@@ -97,7 +98,7 @@ app.use(bodyParser.json());
 
 // all endpoints are prepended with '/api'
 app.use('/api', router);
-app.use(express.static("public/build/es6-bundled"));
+    app.use(express.static("public/build/es6-bundled"));
 
 app.get('*', function(req, res) {
     res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
