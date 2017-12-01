@@ -77,7 +77,14 @@ namespace LibraryOfCongressImport
             //});
             foreach (var entry in xml.Root.Elements())
             {
-                AddRecord(entry);
+                try
+                {
+                    AddRecord(entry);
+                }
+                catch (Exception)
+                {
+                    // invalid character or other nonsense
+                }
             }
         }
 
