@@ -24,7 +24,14 @@ namespace LibraryOfCongressImport.Tools
             //var script = BuildScript(ref item);
             //ExecuteScript(script);
             var scripts = BuildScripts(ref item);
-            ExecuteScripts(scripts);
+            try
+            {
+                ExecuteScripts(scripts);
+            }
+            catch(Exception)
+            {
+                ExecuteScripts(scripts);
+            }
         }
 
         public static List<string> BuildScripts(ref Item item)
