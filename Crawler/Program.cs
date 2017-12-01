@@ -92,7 +92,8 @@ namespace LibraryOfCongressImport
         {
             LogTools.Log("AddRecord", "New Record");
             var item = new Item(ref record);
-            DBTools.PushItemToDatabase(ref item);
+            Neo4jDBTools.PushItemToDatabase(ref item);
+            MongoDBTools.PushItemToDatabase(ref item);
         }
     }
 }
