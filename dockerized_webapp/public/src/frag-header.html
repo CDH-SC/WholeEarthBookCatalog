@@ -51,9 +51,15 @@
                         <span></span>
                     </template>
 
-                    <a href="[[rootPath]]login">
-                        <paper-button on-click="_test" class="account-blue">Sign in</paper-button>
-                    </a>
+
+                    <template is="dom-if" if="[[inSession]]">
+                        <paper-button class="account-blue">Hi, User</paper-button>
+                    </template>
+                    <template is="dom-if" if="[[!inSession]]"> 
+                        <a href="[[rootPath]]login">
+                            <paper-button class="account-blue">Sign in</paper-button>
+                        </a>
+                    </template>
                 </div>
             </app-toolbar>
     </template>
@@ -61,17 +67,44 @@
     <script>
         class fragHeader extends Polymer.Element {
             static get is() { return 'frag-header'; }
-            static get properties() { return {}; }
+            static get properties() { 
+                return {
+                    inSession: {
+                        type: Boolean
+                    },
+                    mySession: {
+                        type: String,
+                        notify: true,
+                        observer: "_session_changed"
+                    }
+                };
+            }
             
+            ready() {
+                super.ready();
+                console.log("SESSION", this.mySession);
+                if (this.mySession) {
+                    this.inSession = true;
+                }
+                else {
+                    this.inSession = false;
+                }
+            }
+            
+            _session_changed() {
+                if (this.mySession) {
+                    this.inSession = true;
+                }
+                else {
+                    this.inSession = false;
+                }
+            }
+
             _showSearch() {
                 var upp = document.querySelector("dhc-main");
                 console.log(upp.routeData.isHome);
                 console.log("hello");
                 return upp.routeData.isHome;
-            }
-
-            _test() {
-                console.log("clicked!");
             }
         }
         window.customElements.define(fragHeader.is, fragHeader);

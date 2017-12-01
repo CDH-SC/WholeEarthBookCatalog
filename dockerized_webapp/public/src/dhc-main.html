@@ -40,10 +40,12 @@
             role="main">
 
            <!--we add the reachable pages in here-->
-            <dhc-home name="home"></dhc-home>
+            <!-- // can pass user object here maybe -->
+            <dhc-home my-session="{{session}}" name="home"></dhc-home>
             <dhc-help name="help"></dhc-help>
-            <dhc-login name="login"></dhc-login>
+            <dhc-login my-session="{{session}}" name="login"></dhc-login>
             <dhc-404 name="404"></dhc-404>
+            <dhc-create-account my-session="{{session}}" route="{{route}}" page="{{page}}" name="create-account"></dhc-create-account>
             <dhc-book-results name="book-results"></dhc-book-results>
         </iron-pages>
 
@@ -62,8 +64,16 @@
                 routeData: Object,
                 subroute: String,
                 rootPath: String,
-                session: Object
+                // This might want to be an object with the obj data?
+                session: {
+                    type: Object,
+                } 
             };
+        }
+
+        ready() {
+            super.ready();
+            console.log(this.persistedSession);
         }
 
         static get observers() {
