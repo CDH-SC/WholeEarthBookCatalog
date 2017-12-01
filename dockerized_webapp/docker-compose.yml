@@ -28,6 +28,9 @@ services:
       - MONGO_URL=mongo
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
 
+  data_acquisition:
+    build: ./data-acquisition
+    
   mongo:
     image: mongo
     ports:
