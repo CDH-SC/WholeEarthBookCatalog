@@ -14,37 +14,6 @@ var router = express.Router();
 var neo4j = require("./database_client/neo4jDriver.js");
 var utils = require("./utils");
 
-// get data from the database
-router.get('/get_data/:list_name', function(req, res) {
-    var lname = req.params.list_name; // query db for this list
-
-    mongo.findDocument({"name": lname}, function(resp) {
-        if (resp.length > 0) {
-            console.log(resp[0]);
-            res.json(resp);
-        } else {
-            res.json({"Error": `No list found with name: ${lname}`})
-        }
-    });
-});
-
-// post data to the database
-router.post('/post_data/', function(req, res) {
-    var data = req.body;
-    console.log(req.body);
-
-    // error handle
-    if (data.name === undefined) {
-        res.json({"Error": "invalid data format"});
-    }
-    else {
-        // add to db
-        mongo.insertDocument(data, function(resp) {
-            res.json(resp);
-        });
-    }
-})
-
 // add user
 router.post("/add_user/", function(req, res) {
     var data = req.body;
@@ -104,34 +73,23 @@ router.post("/get_user/", function(req, res) {
     }
 })
 
-// get neo4j session
-router.get("/neo4j/", function(req, res) {
-    // get a neo4j session
-    var session = neo4j.getSession();
-    var r = {session: "Failure"}
-    if (session) {
-        r.session = "Success"
-    }
-
-    res.json(r);
-})
-
-// super insecure, probably want to use some sort of library for this...
-router.post("/login/", function(req, res) {
-
-    // verify user
+// query neo4j
+router.post("/neo4j/", function(req, res) {
     var data = req.body;
-    console.log(`data ${JSON.stringify(data, 2)}`);
-    mongo.findDocument({"username": data.username}, function(resp) {
+    var statement = data.statement;
+    var params = {}
 
-        if ( resp.length > 0) {
-            console.log("found login doc");
-            // vet the user 
-        } else {
-            res.json({"Error": "could not find user"})
-        }
-    });
-});
+    // construct params object
+    Object.keys(data).forEach(function(element, key, _array) {
+        params[element] = data[element]
+        console.log(`elem: ${element}, key: ${key}\n, data ${element}: ${data[element]}`);
+    })
+
+    neo4j.query(statement, params)
+        .then(function(resp) {
+            res.json(resp)
+        });
+})
 
 // use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
