@@ -16,6 +16,8 @@ namespace LibraryOfCongressImport
         /// </summary
         public const string Neo4jUrl = "bolt://neo4j";
 
+        public static string Neo4jPassword = Environment.GetEnvironmentVariable("NEO4J_PASSWORD");
+        
         /// <summary>
         /// The connection to the database
         /// </summary>
@@ -48,6 +50,7 @@ namespace LibraryOfCongressImport
         /// </summary>
         static void Main()
         {
+            LogTools.Log("Main", Neo4jPassword);
             LogTools.Log("Main", "Importing Library of Congress");
             Parallel.ForEach(FileUrls(), new ParallelOptions() { MaxDegreeOfParallelism = MaxImportParallelism }, (fileUrl) =>
             {
