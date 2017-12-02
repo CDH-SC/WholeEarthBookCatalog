@@ -1,0 +1,5 @@
+LOCFiles/*
+*.pyc
+.suo
+obj/
+bin/
