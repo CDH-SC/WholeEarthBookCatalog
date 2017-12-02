@@ -18,7 +18,7 @@ services:
     environment:
       - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
     volumes:
-      - "/var/lib/neo4j:/data/neo4j"
+      - "neo4j:/var/lib/neo4j/data"
 
   node_webapp:
     build: .
@@ -39,9 +39,9 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - "/data/db:/data/mongodb"
+      - "data:/data/db"
 
 volumes:
 
-  data:
-  neo4j:
+  data: /data/mongodb
+  neo4j: /data/neo4j
