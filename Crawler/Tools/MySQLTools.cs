@@ -4,6 +4,7 @@ using System.Text;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Threading;
 
 namespace LibraryOfCongressImport.Tools
 {
@@ -11,80 +12,205 @@ namespace LibraryOfCongressImport.Tools
     {
         private static Dictionary<string, int> _existingAttributeTypes = null;
 
-        private static Dictionary<string, int> GetAllAttributeTypes(ref MySqlConnection connection, bool refresh = false)
+        private static readonly ReaderWriterLockSlim lockSlim = new ReaderWriterLockSlim();
+
+        private static Dictionary<string, int> ExistingAttributeTypes
         {
-            if (_existingAttributeTypes == null)
+            get
+            {
+                if (_existingAttributeTypes == null)
+                {
+                    ExistingAttributeTypes = GetAllAttributeTypes();
+                }
+                lockSlim.EnterReadLock();
+                var dict = _existingAttributeTypes;
+                lockSlim.ExitReadLock();
+                return dict;
+            }
+
+            set
+            {
+                lockSlim.EnterWriteLock();
+                _existingAttributeTypes = value;
+                lockSlim.ExitWriteLock();
+            }
+        }
+        
+        private static Dictionary<string, int> GetAllAttributeTypes()
+        {
+            using (var connection = new MySqlConnection(Program.MySQLConnectionString))
             {
                 var command = new MySqlCommand();
                 command.CommandType = System.Data.CommandType.StoredProcedure;
 
                 command.CommandText = "get_all_attribute_types";
+
+                connection.Open();
                 command.Connection = connection;
 
-                var response = command.ExecuteReader();
-                var dt = new DataTable();
-                dt.Load(response);
+                command.CommandTimeout = 120;
 
-                _existingAttributeTypes = new Dictionary<string, int>();
-                foreach(DataRow row in dt.Rows)
+                var dictionary = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+
+                try
                 {
-                    int attributeID = int.Parse(row["id"].ToString());
-                    string attributeName = row["name"].ToString();
-                    _existingAttributeTypes.Add(attributeName, attributeID);
+                    var response = command.ExecuteReader();
+                    while (response.Read())
+                    {
+                        int attributeID = int.Parse(response["id"].ToString());
+                        string attributeName = response["name"].ToString();
+                        dictionary.Add(attributeName, attributeID);
+                    }
                 }
+                catch (Exception)
+                {
+                    // no types pre-existing
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return dictionary;
             }
-            return _existingAttributeTypes;
+
         }
 
-        private static int AddAttributeType(string attributeType, ref MySqlConnection connection)
+        private static void AddAttributeType(string attributeType)
         {
-            //todo: add to db
-            //todo: add to dictionary
-            return 0;
+            using (var connection = new MySqlConnection(Program.MySQLConnectionString))
+            {
+                var command = new MySqlCommand();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.CommandText = "create_attribute_type";
+
+                connection.Open();
+                command.Connection = connection;
+
+                command.CommandTimeout = 120;
+
+                command.Parameters.Add("name", MySqlDbType.VarChar);
+                command.Parameters["name"].Value = attributeType;
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+                ExistingAttributeTypes = null;
+            }
         }
 
-        private static int GetOrCreateAttributeType(string attributeType, ref MySqlConnection connection, bool refresh = false)
+        private static int GetOrCreateAttributeType(string attributeType, bool refresh = false)
         {
-            int attributeTypeID;
-            var hasAttributeType = GetAllAttributeTypes(ref connection).TryGetValue(attributeType, out attributeTypeID);
-
+            bool hasAttributeType = false;
+            var dict = ExistingAttributeTypes;
+            hasAttributeType = dict.ContainsKey(attributeType);
             if (!hasAttributeType)
             {
-                attributeTypeID = AddAttributeType(attributeType, ref connection);
+                AddAttributeType(attributeType);
             }
-
-            return attributeTypeID;
+            return ExistingAttributeTypes[attributeType];
         }
 
-        private static int GetOrCreateItem(string itemControlNumber, ref MySqlConnection connection)
+
+        private static int GetOrCreateItem(string itemControlNumber)
         {
-            //todo: add to db or get from db
-            return 0;
+            using (var connection = new MySqlConnection(Program.MySQLConnectionString))
+            {
+                var command = new MySqlCommand();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.CommandText = "create_item";
+
+                connection.Open();
+                command.Connection = connection;
+
+                command.CommandTimeout = 120;
+
+                command.Parameters.Add("control_number", MySqlDbType.VarChar);
+                command.Parameters["control_number"].Value = itemControlNumber;
+
+                int itemID = 0;
+
+                try
+                {
+                    itemID = (int)command.ExecuteScalar();
+                }
+                catch (Exception)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+                return itemID;
+            }
         }
 
-        private static void AddAttributeValueToItem(int item, int attributeType, string value, ref MySqlConnection connection)
+        private static void AddAttributeValueToItem(int itemID, int attributeTypeID, string value)
         {
-            //todo: add to or get from db
+            using (var connection = new MySqlConnection(Program.MySQLConnectionString))
+            {
+                var command = new MySqlCommand();
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.CommandText = "create_item_attribute_value";
+
+                connection.Open();
+                command.Connection = connection;
+
+                command.CommandTimeout = 120;
+
+                command.Parameters.Add("item", MySqlDbType.Int32);
+                command.Parameters["item"].Value = itemID;
+
+                command.Parameters.Add("attribute_type", MySqlDbType.Int32);
+                command.Parameters["attribute_type"].Value = attributeTypeID;
+
+                command.Parameters.Add("attribute_value", MySqlDbType.Text);
+                command.Parameters["attribute_value"].Value = value;
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
         }
 
         public static void PushItemToDatabase(ref Item item)
         {
-            var connection = new MySqlConnection(Program.MySQLConnectionString);
-            connection.Open();
             try
             {
-                var itemID = GetOrCreateItem(item.GetItemIdentifier(), ref connection);
+                var itemID = GetOrCreateItem(item.GetItemIdentifier());
                 foreach (var itemAttribute in item.Attributes)
                 {
-                    var attributeID = GetOrCreateAttributeType(itemAttribute.Key, ref connection);
-                    AddAttributeValueToItem(itemID, attributeID, itemAttribute.Value, ref connection);
+                    var attributeID = GetOrCreateAttributeType(itemAttribute.Key);
+                    AddAttributeValueToItem(itemID, attributeID, itemAttribute.Value);
                 }
             }
             catch (Exception)
             {
                 // bad....
             }
-            connection.Close();
         }
     }
 }

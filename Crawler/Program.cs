@@ -76,7 +76,7 @@ namespace LibraryOfCongressImport
 
         private static void AddFileDataToDatabase(ref XDocument xml)
         {
-            //Parallel.ForEach(xml.Root.Elements(), (entry) => 
+            //Parallel.ForEach(xml.Root.Elements(), (entry) =>
             //{
             //    AddRecord(entry);
             //});
@@ -97,8 +97,8 @@ namespace LibraryOfCongressImport
         {
             LogTools.Log("AddRecord", "New Record");
             var item = new Item(ref record);
-            //Neo4jDBTools.PushItemToDatabase(ref item);
-            MySQLTools.PushItemToDatabase(ref item);
+            Neo4jDBTools.PushItemToDatabase(ref item);
+            //MySQLTools.PushItemToDatabase(ref item);
         }
     }
 }
