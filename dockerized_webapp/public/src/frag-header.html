@@ -3,7 +3,11 @@
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/polymer/lib/elements/dom-if.html">
 <link rel="import" href="../bower_components/app-layout/app-layout.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
 
+<link rel="import" href="../bower_components/neon-animation/web-animations.html">
 
 <dom-module id="frag-header">
     <template>
@@ -41,6 +45,10 @@
                 padding-left:5px;
                 padding-right: 5px;
             }
+
+            paper-listbox {
+                z-index: 10;
+            }
         </style>
             <app-toolbar>
                 <div class="header-row">
@@ -53,7 +61,15 @@
 
 
                     <template is="dom-if" if="[[inSession]]">
-                        <paper-button class="account-blue">Hi, User</paper-button>
+                        <paper-menu-button>
+                            <paper-button slot="dropdown-trigger" class="account-blue">Hi, User</paper-button>
+                            <paper-listbox slot="dropdown-content">
+                                <paper-item>Account</paper-item>
+                                <paper-item>Favorites</paper-item>
+                                <paper-item on-click="_sign_out">Sign out</paper-item>
+                            </paper-listbox>
+                        </paper-menu-button>
+
                     </template>
                     <template is="dom-if" if="[[!inSession]]"> 
                         <a href="[[rootPath]]login">
@@ -72,27 +88,26 @@
                     inSession: {
                         type: Boolean
                     },
-                    mySession: {
-                        type: String,
-                        notify: true,
-                        observer: "_session_changed"
+                    user: {
+                        type: Object,
+                        notify: true
                     }
                 };
             }
-            
+            static get observers() {
+                return ['_session_changed(user)'];
+            };
             ready() {
                 super.ready();
-                console.log("SESSION", this.mySession);
-                if (this.mySession) {
-                    this.inSession = true;
-                }
-                else {
-                    this.inSession = false;
-                }
+                this._session_changed();
             }
-            
+
+            _sign_out() {
+                this.set('user', undefined);
+            }
+
             _session_changed() {
-                if (this.mySession) {
+                if (this.user) {
                     this.inSession = true;
                 }
                 else {
@@ -102,8 +117,6 @@
 
             _showSearch() {
                 var upp = document.querySelector("dhc-main");
-                console.log(upp.routeData.isHome);
-                console.log("hello");
                 return upp.routeData.isHome;
             }
         }

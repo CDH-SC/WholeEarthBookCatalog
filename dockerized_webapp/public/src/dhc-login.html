@@ -1,6 +1,11 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 
@@ -22,7 +27,8 @@
                 padding: 20px;
             }
         </style>
-
+    
+    <app-location route="{{route}}"></app-location>
         <div class="container">
             <div id="login-box">
                 <div id="inner-flex">
@@ -35,17 +41,18 @@
                 </div>
 
                 <template is="dom-if" if="[[!valid]]">
-                    <p>Didn't recognize username/password.</p>
+                    <p>{{errorMessage}}</p>
                 </template>
 
                 <iron-ajax
                 method="POST"
-                id="login-ajax"
-                url="/api/add_user"
+                id="addj"
+                url="/api/get_user"
                 handle-as="json"
                 on-response="_handle_response"
                 content-type="application/json"
-                debounce-duration="300"></iron-ajax>
+                debounce-duration="300">
+            </iron-ajax>
             </div>
         </div>
         <frag-footer></frag-footer>
@@ -56,29 +63,46 @@
             static get properties() {
                 return {
                     rootPath: String,
-                    mySession: String
+                    errorMessage: String,
+                    user: {
+                        type: Object,
+                        value: {},
+                        notify: true
+                    }
                 }
             }
 
             _user_login() {
-                var user = {
+                var userObj = {
                     'username': this.username,
                     'password': this.password
                 }
 
-                this.$.loginAjax.body = user;
-                this.$.loginAjax.generateRequest();
+                this.$.addj.body = userObj;
+                this.$.addj.generateRequest();
             }
 
             _handle_response(e) {
-                console.log(e.detail);
-                // if(e.detail.response) {
-                //     if(e.detail.response.)
-                //     else if(e.detail.response["Invalid Password"]) {
 
-                //     }
-                //     else if (e.det)
-                // }
+                if(e.detail.response) {
+                    if(e.detail.response["Error"]) {
+                        this.set('errorMessage', e.detail.response["Error"]);
+                    }
+                    else if(e.detail.response["Invalid Password"]){
+                        this.set('errorMessage', e.detail.response["Invalid Password"]);
+                    }
+                    else {
+
+                        this.dispatchEvent(new CustomEvent('update-user', {
+                            bubbles: true, composed: true, detail: {
+                                user: e.detail.response,
+                        }}));
+                        this.set("route.path", "/home");
+                    }
+                }
+                else {
+                    this.set('errorMessage', 'Something went wrong...Sorry!');
+                }
             }
         }
         window.customElements.define(dhcLogin.is, dhcLogin);
