@@ -18,7 +18,7 @@ services:
     environment:
       - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
     volumes:
-      - "$HOME/neo4j/data:/data:/data/neo4j"
+      - "/var/lib/neo4j:/data/neo4j"
 
   node_webapp:
     build: .
