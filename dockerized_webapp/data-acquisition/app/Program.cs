@@ -16,6 +16,11 @@ namespace LibraryOfCongressImport
         public const string Neo4jUrl = "bolt://localhost:7687";
 
         /// <summary>
+        /// The connection to the database
+        /// </summary>
+        public const string MySQLConnectionString = "Server=localhost;Database=dhc;Uid=myUsername;Pwd=myPassword;";
+
+        /// <summary>
         /// The page containing the list of items
         /// </summary>
         private const string ListSourceURL = "http://www.loc.gov/cds/products/MDSConnect-books_all.html";
@@ -71,7 +76,7 @@ namespace LibraryOfCongressImport
 
         private static void AddFileDataToDatabase(ref XDocument xml)
         {
-            //Parallel.ForEach(xml.Root.Elements(), (entry) => 
+            //Parallel.ForEach(xml.Root.Elements(), (entry) =>
             //{
             //    AddRecord(entry);
             //});
@@ -92,7 +97,8 @@ namespace LibraryOfCongressImport
         {
             LogTools.Log("AddRecord", "New Record");
             var item = new Item(ref record);
-            DBTools.PushItemToDatabase(ref item);
+            Neo4jDBTools.PushItemToDatabase(ref item);
+            //MySQLTools.PushItemToDatabase(ref item);
         }
     }
 }
