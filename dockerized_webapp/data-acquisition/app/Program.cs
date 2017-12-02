@@ -14,9 +14,9 @@ namespace LibraryOfCongressImport
         /// <summary>
         /// The connection to the database
         /// </summary
-        public const string Neo4jUrl = "bolt://neo4j";
+        public const string Neo4jUrl = "bolt://caindevl.com:7687";
 
-        public static string Neo4jPassword = Environment.GetEnvironmentVariable("NEO4J_PASSWORD");
+        public static string Neo4jPassword = "KillTheMarmouset";
         
         /// <summary>
         /// The connection to the database
