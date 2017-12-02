@@ -16,7 +16,6 @@ namespace LibraryOfCongressImport.Tools
 
         private static List<string> _existingItems = new List<string>();
         private static List<string> _existingAttributeTypes = new List<string>();
-        private static List<Tuple<string, string>> _existingAttributeTypeValues = new List<Tuple<string, string>>();
 
         public static void PushItemToDatabase(ref Item item)
         {
@@ -58,15 +57,7 @@ namespace LibraryOfCongressImport.Tools
                 {
 
                 }
-                if (!_existingAttributeTypeValues.Contains(Tuple.Create(attribute.Key, attribute.Value)))
-                {
-                    scripts.Add($"CREATE (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) RETURN '';");
-                    _existingAttributeTypeValues.Add(Tuple.Create(attribute.Key, attribute.Value));
-                }
-                else
-                {
-
-                }
+                scripts.Add($"MATCH (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) RETURN '';");
                 scripts.Add($"MATCH (i:Item{{Name: '{itemID}'}}), (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}), (at:AttributeType{{Type: '{attribute.Key}'}}) MERGE (i) -[:has]-> (av) -[:is]-> (at) RETURN '';");
             }
             return scripts;
