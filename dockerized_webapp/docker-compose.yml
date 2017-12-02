@@ -14,10 +14,11 @@ services:
     image: neo4j
     ports:
       - "7687:7687" # bolt connection
+      - "7474:7474" # bolt web admin
     environment:
       - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
     volumes:
-      - "neo4j:/var/lib/neo4j/data"
+      - "neo4j:/data/neo4j"
 
   node_webapp:
     build: .
@@ -30,13 +31,15 @@ services:
 
   data_acquisition:
     build: ./data-acquisition
+    depends_on:
+      - "neo4j"
     
   mongo:
     image: mongo
     ports:
       - "27017:27017"
     volumes:
-      - "data:/data/db"
+      - "data:/data/mongodb"
 
 volumes:
 

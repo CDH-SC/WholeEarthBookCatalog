@@ -1,4 +1,5 @@
-﻿using LibraryOfCongressImport.Tools;
+
+using LibraryOfCongressImport.Tools;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -12,7 +13,7 @@ namespace LibraryOfCongressImport
         #region Configuration
         /// <summary>
         /// The connection to the database
-        /// </summary>
+        /// </summary
         public const string Neo4jUrl = "bolt://neo4j";
 
         /// <summary>
