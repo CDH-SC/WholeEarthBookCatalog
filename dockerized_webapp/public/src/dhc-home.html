@@ -5,6 +5,8 @@
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+
 
 <dom-module id="dhc-home">
     <template>
@@ -149,7 +151,7 @@
 
 <!--The actual html goes in here-->
         <app-header>
-            <frag-header my-session="{{mySession}}"></frag-header>
+            <frag-header user="{{user}}"></frag-header>
             <div class="container">
                 <div class="inner-container">
                     <h1 id="title-center">DHC</h1>
@@ -161,7 +163,7 @@
                     </div>
 
                     <div class="book-view">
-                        <template is="dom-if" if="false">
+                        <template is="dom-if" if="{{!inSession}}">
                             <!-- set to true to show for now -->
                             <div id="recommendations">
                                 Sign in for Recommendations
@@ -193,10 +195,10 @@
 
         static get properties() {
             return {
-                mySession: {
-                    type: String,
+                user: {
+                    type: Object,
                     notify: true,
-                    observer: "_testo"
+                    observer: "_update_dom_session"
                 },
                 // Temporary kind of 
                 book_rec_covers: {
@@ -208,9 +210,11 @@
                     value: 3,
                     observer: '_book_rec_size_changed'
                 },
-
                 current_display: {
                     type: Array
+                },
+                inSession: {
+                    type: Boolean
                 }
             };
         }
@@ -230,9 +234,8 @@
             for (var i = 0; i < this.book_rec_size; i++) {
                 this.push('current_display', this.book_rec_covers[i]);
             }
-            // this.set('current_display', this.book_rec_covers);
-            // this.current_display = this.book_rec_covers;
-            console.log(this.current_display);
+
+            this._update_dom_session();
          }
 
         connectedCallback() {
@@ -240,25 +243,27 @@
             window.addEventListener('resize', this._windowResize);
         }
 
+        _update_dom_session() {
+            if(this.user === null || this.user === undefined || this.user === {}) {
+                this.inSession = false;
+            }
+            else {
+                console.log("WHAT", this.user);
+                this.inSession = true;
+            }
+        }
+
         _book_rec_size_changed(oldVal, newVal) {
             if(oldVal !== newVal && this.current_display) {
                 if(oldVal < newVal) {
-                    console.log(oldVal, newVal);
                     this.pop('current_display');
-                    console.log("POP", this.current_display);
-
                 }
                 else {
-                    console.log("COVERS", this.book_rec_covers);
-                    console.log("CURR", this.current_display);
                     var add_index = this.book_rec_covers.indexOf(this.current_display[this.current_display.length - 1]) + 1;
-                    console.log("ADD", add_index, "BOOK", this.book_rec_covers.length);
-                    if(add_index > this.book_rec_covers.length) {
-                        console.log("greater");
+                    if(add_index >= this.book_rec_covers.length) {
                         add_index = 0;
                     }
                     this.push('current_display', this.book_rec_covers[add_index]);
-                    console.log("PUSH", this.current_display);
                 }
             }
         }
@@ -269,8 +274,6 @@
             if (ind >= this.book_rec_covers.length) {
                 ind = 0;
             }
-
-            console.log("IND", ind);
 
             this.push('current_display', this.book_rec_covers[ind]);
             this.shift('current_display');
@@ -290,7 +293,6 @@
         _resize() {
             if (window.innerWidth < 1050 && window.innerWidth >= 800) {
                 this.book_rec_size = 1;
-                console.log("1 book");
             }
             else if(window.innerWidth >= 1050 && window.innerWidth <= 1300) {
                 this.book_rec_size = 2;

@@ -22,7 +22,8 @@
     "app-layout": "^2.0.4",
     "iron-resizable-behavior": "^2.0.1",
     "app-storage": "^2.0.2",
-    "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0"
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0",
+    "paper-menu-button": "^2.0.0"
   },
   "resolutions": {
     "polymer": "^2.0.0",
