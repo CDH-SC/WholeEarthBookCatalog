@@ -16,7 +16,8 @@ DROP TABLE IF EXISTS `attribute_types`;
 CREATE TABLE `attribute_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `items`;
@@ -54,6 +55,14 @@ CREATE PROCEDURE `get_all_attribute_types` ()
 BEGIN
 	SELECT `id`, `name` FROM `attribute_types`;
 END
+
+DROP procedure IF EXISTS `create_attribute_type`;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `create_attribute_type`(IN `name` VARCHAR(50))
+BEGIN
+ INSERT INTO `attribute_types` (`name`) VALUES (@name);
+ SELECT LAST_INSERT_ID();
+END
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
