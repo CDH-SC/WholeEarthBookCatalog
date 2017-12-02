@@ -230,7 +230,6 @@
             super.ready();
             this._resize();
             this.current_display = [];
-            console.log("REC", this.book_rec_size);
             for (var i = 0; i < this.book_rec_size; i++) {
                 this.push('current_display', this.book_rec_covers[i]);
             }
@@ -248,7 +247,6 @@
                 this.inSession = false;
             }
             else {
-                console.log("WHAT", this.user);
                 this.inSession = true;
             }
         }

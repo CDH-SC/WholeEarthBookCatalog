@@ -83,7 +83,6 @@
             }
 
             _handle_response(e) {
-                console.log(e.detail);
 
                 if(e.detail.response) {
                     if(e.detail.response["Error"]) {
@@ -94,7 +93,6 @@
                     }
                     else {
 
-                        console.log("dispatch event");
                         this.dispatchEvent(new CustomEvent('update-user', {
                             bubbles: true, composed: true, detail: {
                                 user: e.detail.response,

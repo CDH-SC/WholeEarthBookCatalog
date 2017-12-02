@@ -100,13 +100,10 @@
             ready() {
                 super.ready();
                 this._session_changed();
-                console.log("SESSION", this.user);
             }
 
             _sign_out() {
-                console.log(this.user);
                 this.set('user', undefined);
-                console.log("Tried to sign out");
             }
 
             _session_changed() {
@@ -120,8 +117,6 @@
 
             _showSearch() {
                 var upp = document.querySelector("dhc-main");
-                console.log(upp.routeData.isHome);
-                console.log("hello");
                 return upp.routeData.isHome;
             }
         }
