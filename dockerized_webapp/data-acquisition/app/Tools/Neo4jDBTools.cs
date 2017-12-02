@@ -12,7 +12,7 @@ namespace LibraryOfCongressImport.Tools
 {
     public static class Neo4jDBTools
     {
-        private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl);
+        private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl, AuthTokens.Basic("neo4j", Environment.GetEnvironmentVariable("NEO4J_PASSWORD")));
 
         private static List<string> _existingItems = new List<string>();
         private static List<string> _existingAttributeTypes = new List<string>();
