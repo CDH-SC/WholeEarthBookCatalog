@@ -4,103 +4,13 @@ l
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<<<<<<< Updated upstream
-<link rel="import" href="../bower-components/social-media-icons/social-media-icons.html"> 
-<link rel="import" href="frag-header.html">
-<link rel="import" href="frag-footer.html">
-<link rel="stylesheet" href="shared-styles.css">
-=======
-<link rel="import" href="social-media-icons/social-media-icons.html">
+<link rel="import" href="../bower_components/social-media-icons/social-media-icons.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
-<!-- <link rel="import" href="../bower-components/social-media-icons/social-media-icons.html"> -->
->>>>>>> Stashed changes
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
 
 <dom-module id="dhc-book-results">
-<<<<<<< Updated upstream
-  <template>
-
-    <style include=" shared-styles iron-flex iron-flex-alignment">
-     
-        .flex-fill {
-            @apply --layout-flex;
-        }
-
-        .container {
-          @apply --layout-horizontal;
-        }
-
-        #result-entry-wrapper {
-          width: 100%;
-          height: 75%;
-          top: 400px; /*make more responsive*/
-
-        }
-
-        #result-item-info {
-          width: 100%;
-          height: 53%;
-          top: 400px; /*relate to container element*/
-
-        }
-
-        #result-item-image {
-          height: 48%;
-          padding-bottom: 5%;
-          padding-top: 1%;
-          padding-left: 5%;
-          position: absolute; /* better alternative */
-        }
-
-        #result-item-menu {
-          width: 20%;
-          height: 40%;
-          right: 0px;
-          top: 105px;  /*get max height*/ 
-          background-color: blue;
-          position: absolute;
-        }
-
-        #result-item-view-profile {
-          width: 100%;
-          height: 55%;
-          right: 0px;
-          position: absolute;
-          top: 0px;
-          bottom: 152px;
-
-        }
-
-        #result-item-request {
-          top: 95px;
-          width:50%;
-          position: absolute;
-          height: 28%;
-        }
-
-        #result-item-like {
-          top: 95px;
-          width: 50%;
-          position: absolute;
-          height: 28%;
-        }
-
-        #result-item-share {
-          top: 160px;
-          position: absolute;
-          width: 100%;
-          height: 36%;
-          bottom: 0px;
-        }
-
-      </style>
-
-    <template>
-
-      <title>  Search Results </title>
-=======
 
   <style include="iron-flex iron-flex-alignment">
    
@@ -199,7 +109,6 @@ l
                  <paper-input placeholder = "Keywords">
                     <iron-icon icon = "arrow-forward" slot = "suffix"></iron-icon>
                  </paper-input>
->>>>>>> Stashed changes
 
         <frag-header> </frag-header>
 
@@ -218,11 +127,7 @@ l
 
                   </paper-dialog>
 
-<<<<<<< Updated upstream
-               </div>
-=======
                   </div>
->>>>>>> Stashed changes
 
                 <div id = "result-item-menu">
 
@@ -231,16 +136,10 @@ l
 
                   <paper-icon-button raised icon = "favorite" title = "heart" id = "result-item-like">  </paper-icon-button> 
 
-<<<<<<< Updated upstream
-                  <paper-button raised id = "result-item-share"> Share
-                     
-                    <social-media-icons icon = "facebook" id = "facebook-icon"> </social-media-icons>
-=======
                   <paper-button raised id = "result-item-share"> 
                     Share  <br> 
                     
                      <social-media-icons icon = "facebook" id = "facebook-icon"> </social-media-icons>
->>>>>>> Stashed changes
                     <social-media-icons icon = "twitter" id = "twitter-icon"> </social-media-icons> 
 
                     <!-- icon styles need to go under shared styles --> 
@@ -250,11 +149,7 @@ l
 
               </div>
 
-<<<<<<< Updated upstream
-              <frag-footer> </frag-footer>
-=======
            <frag-footer> </frag-footer>
->>>>>>> Stashed changes
 
         </template>              
 
