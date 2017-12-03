@@ -3,15 +3,16 @@
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="social-media-icons/social-media-icons.html">
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="frag-header.html">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
 
+<dom-module id = "dhc-book-profile">
 
-<dom-module>
+	<style include = "shared-styles">
 
-	<style>
-
-	/* Polymer-base changes */
+	/* Polymer-base changes i.e. the responsive elements */
 
 	/* Large elements */
 
@@ -90,7 +91,7 @@
 
 		<div class  ="border-wrapper">
 
-			<div class = search-header> </div>
+			<frag-header></frag-header>
 
 			<div id = "profile-metadata">
 
@@ -175,6 +176,8 @@
 				</table>
 
 			</div>
+
+			<frag-footer> </frag-footer>
 
 	    </div>
 

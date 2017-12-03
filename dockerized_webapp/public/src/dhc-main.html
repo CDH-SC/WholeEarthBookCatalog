@@ -12,6 +12,8 @@
 <link rel="lazy-import" href="dhc-404.html">
 <link rel="lazy-import" href="dhc-help.html">
 <link rel="lazy-import" href="dhc-book-results.html">
+<link rel="lazy-import" href="dhc-user-account.html">
+<link rel="lazy-import" href="dhc-book-profile">
 
 <dom-module id="dhc-main">
     <template>
@@ -45,12 +47,15 @@
 
            <!--we add the reachable pages in here-->
             <!-- // can pass user object here maybe -->
+
             <dhc-home name="home" user="{{user}}"></dhc-home>
             <dhc-help name="help" user="[[user]]"></dhc-help>
             <dhc-login name="login" user="{{user}}"></dhc-login>
+            
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
             <dhc-book-results name="book-results"></dhc-book-results>
+            <dhc-book-profile name="book-profile"> </dhc-book-profile>
         </iron-pages>
     </template>
 
