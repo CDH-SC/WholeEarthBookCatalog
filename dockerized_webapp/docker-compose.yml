@@ -43,5 +43,5 @@ services:
 
 volumes:
 
-  data: /data/mongodb
-  neo4j: /data/neo4j
+  data:
+  neo4j:
