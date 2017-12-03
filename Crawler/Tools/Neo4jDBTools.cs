@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace LibraryOfCongressImport.Tools
 {
-    public static class DBTools
+    public static class Neo4jDBTools
     {
-        private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl);
+        private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl, AuthTokens.Basic("neo4j", Environment.GetEnvironmentVariable("NEO4J_PASSWORD")));
 
         private static List<string> _existingItems = new List<string>();
         private static List<string> _existingAttributeTypes = new List<string>();
@@ -34,7 +34,7 @@ namespace LibraryOfCongressImport.Tools
             }
         }
 
-        public static List<string> BuildScripts(ref Item item)
+        private static List<string> BuildScripts(ref Item item)
         {
             var scripts = new List<string>();
             var itemID = GetItemIdentifier(item);
@@ -72,7 +72,7 @@ namespace LibraryOfCongressImport.Tools
             return scripts;
         }
 
-        public static string BuildScript(ref Item item)
+        private static string BuildScript(ref Item item)
         {
             var script = new StringBuilder();
             var itemID = GetItemIdentifier(item);
@@ -131,7 +131,7 @@ namespace LibraryOfCongressImport.Tools
             }
         }
 
-        private static void ExecuteScripts(List<string> scripts, int trialNumber = 0, int maxTrialNumber = 3)
+        public static void ExecuteScripts(List<string> scripts, int trialNumber = 0, int maxTrialNumber = 3)
         {
             using (var session = _driver.Session())
             {

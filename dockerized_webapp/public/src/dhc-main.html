@@ -4,6 +4,8 @@
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="dhc-login-data.html">
+
 
 <link rel="lazy-import" href="dhc-login.html">
 <link rel="lazy-import" href="dhc-home.html">
@@ -20,6 +22,8 @@
                 width: 100vw;
             }
         </style>
+
+        <dhc-login-data id="please" user="{{user}}"></dhc-login-data>
 
         <app-location
             route="{{route}}"
@@ -41,14 +45,13 @@
 
            <!--we add the reachable pages in here-->
             <!-- // can pass user object here maybe -->
-            <dhc-home my-session="{{session}}" name="home"></dhc-home>
-            <dhc-help name="help"></dhc-help>
-            <dhc-login my-session="{{session}}" name="login"></dhc-login>
+            <dhc-home name="home" user="{{user}}"></dhc-home>
+            <dhc-help name="help" user="[[user]]"></dhc-help>
+            <dhc-login name="login" user="{{user}}"></dhc-login>
             <dhc-404 name="404"></dhc-404>
-            <dhc-create-account my-session="{{session}}" route="{{route}}" page="{{page}}" name="create-account"></dhc-create-account>
+            <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
             <dhc-book-results name="book-results"></dhc-book-results>
         </iron-pages>
-
     </template>
 
     <script>
@@ -65,15 +68,12 @@
                 subroute: String,
                 rootPath: String,
                 // This might want to be an object with the obj data?
-                session: {
-                    type: Object,
-                } 
             };
         }
 
         ready() {
             super.ready();
-            console.log(this.persistedSession);
+            this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
         }
 
         static get observers() {
@@ -108,6 +108,10 @@
 
         _showPage404() {
             this.page = '404';
+        }
+
+        _onUpdateUserData(event) {
+            this.$.please.updateUser(event.detail);
         }
     }
 

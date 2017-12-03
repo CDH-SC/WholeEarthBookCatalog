@@ -10,13 +10,12 @@ using System.Threading.Tasks;
 
 namespace LibraryOfCongressImport.Tools
 {
-    public static class DBTools
+    public static class Neo4jDBTools
     {
-        private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl);
+        private static IDriver _driver = GraphDatabase.Driver(Program.Neo4jUrl, AuthTokens.Basic("neo4j", Program.Neo4jPassword));
 
         private static List<string> _existingItems = new List<string>();
         private static List<string> _existingAttributeTypes = new List<string>();
-        private static List<Tuple<string, string>> _existingAttributeTypeValues = new List<Tuple<string, string>>();
 
         public static void PushItemToDatabase(ref Item item)
         {
@@ -34,7 +33,7 @@ namespace LibraryOfCongressImport.Tools
             }
         }
 
-        public static List<string> BuildScripts(ref Item item)
+        private static List<string> BuildScripts(ref Item item)
         {
             var scripts = new List<string>();
             var itemID = GetItemIdentifier(item);
@@ -58,21 +57,13 @@ namespace LibraryOfCongressImport.Tools
                 {
 
                 }
-                if (!_existingAttributeTypeValues.Contains(Tuple.Create(attribute.Key, attribute.Value)))
-                {
-                    scripts.Add($"CREATE (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) RETURN '';");
-                    _existingAttributeTypeValues.Add(Tuple.Create(attribute.Key, attribute.Value));
-                }
-                else
-                {
-
-                }
+                scripts.Add($"MATCH (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}) RETURN '';");
                 scripts.Add($"MATCH (i:Item{{Name: '{itemID}'}}), (av:AttributeValue{{Type:'{attribute.Key}', Value:'{attribute.Value}'}}), (at:AttributeType{{Type: '{attribute.Key}'}}) MERGE (i) -[:has]-> (av) -[:is]-> (at) RETURN '';");
             }
             return scripts;
         }
 
-        public static string BuildScript(ref Item item)
+        private static string BuildScript(ref Item item)
         {
             var script = new StringBuilder();
             var itemID = GetItemIdentifier(item);
@@ -131,7 +122,7 @@ namespace LibraryOfCongressImport.Tools
             }
         }
 
-        private static void ExecuteScripts(List<string> scripts, int trialNumber = 0, int maxTrialNumber = 3)
+        public static void ExecuteScripts(List<string> scripts, int trialNumber = 0, int maxTrialNumber = 3)
         {
             using (var session = _driver.Session())
             {

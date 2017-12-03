@@ -1,4 +1,5 @@
-﻿using LibraryOfCongressImport.Tools;
+
+using LibraryOfCongressImport.Tools;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -12,8 +13,15 @@ namespace LibraryOfCongressImport
         #region Configuration
         /// <summary>
         /// The connection to the database
+        /// </summary
+        public const string Neo4jUrl = "bolt://caindevl.com:7687";
+
+        public static string Neo4jPassword = "KillTheMarmouset";
+        
+        /// <summary>
+        /// The connection to the database
         /// </summary>
-        public const string Neo4jUrl = "bolt://localhost:7687";
+        public const string MySQLConnectionString = "Server=localhost;Database=dhc;Uid=myUsername;Pwd=myPassword;";
 
         /// <summary>
         /// The page containing the list of items
@@ -42,6 +50,7 @@ namespace LibraryOfCongressImport
         /// </summary>
         static void Main()
         {
+            LogTools.Log("Main", Neo4jPassword);
             LogTools.Log("Main", "Importing Library of Congress");
             Parallel.ForEach(FileUrls(), new ParallelOptions() { MaxDegreeOfParallelism = MaxImportParallelism }, (fileUrl) =>
             {
@@ -71,7 +80,7 @@ namespace LibraryOfCongressImport
 
         private static void AddFileDataToDatabase(ref XDocument xml)
         {
-            //Parallel.ForEach(xml.Root.Elements(), (entry) => 
+            //Parallel.ForEach(xml.Root.Elements(), (entry) =>
             //{
             //    AddRecord(entry);
             //});
@@ -92,7 +101,8 @@ namespace LibraryOfCongressImport
         {
             LogTools.Log("AddRecord", "New Record");
             var item = new Item(ref record);
-            DBTools.PushItemToDatabase(ref item);
+            Neo4jDBTools.PushItemToDatabase(ref item);
+            //MySQLTools.PushItemToDatabase(ref item);
         }
     }
 }

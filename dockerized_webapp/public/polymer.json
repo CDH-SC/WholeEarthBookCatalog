@@ -13,7 +13,8 @@
         "src/dhc-login.html",
         "src/frag-footer.html",
         "src/frag-header.html",
-        "src/dhc-create-account.html"
+        "src/dhc-create-account.html",
+        "src/dhc-login-data.html"
     ],
     "sources": [
         "src/**/*",
