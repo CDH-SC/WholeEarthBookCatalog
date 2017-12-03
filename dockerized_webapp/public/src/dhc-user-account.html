@@ -184,14 +184,10 @@
 
                         <div class = "carousel-content" role = "listbox">
                              <div class = "carousel-current-item">
-<<<<<<< Updated upstream
-                            include image set here--> 
-=======
 
 
                             <!-- include image set here
                                   where can this data be fed from? --> 
->>>>>>> Stashed changes
 
                              <!-- </div>
                              <div class = "carousel-item-set"> -->
@@ -280,14 +276,7 @@
           <div id = "recent-search"> 
 
              <paper-dropdown-menu label = "Recently Searched"> 
-<<<<<<< Updated upstream
-                <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;"> <!-- added in off-white color for background of each drop-down menu -->
-
-                  <iron-meta id = "meta-seached"> </iron-meta>
-
-=======
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;"> 
->>>>>>> Stashed changes
                     <!-- actually dont need a carousel for this section  --> 
 
                   <ul id = "recently-searched-items">
@@ -388,7 +377,7 @@
                         type: Array,
                       },
 
-                      recently_viewed_book_covers{
+                      recently_viewed_book_covers: {
                         type: Array,
                         value: ['../images/clockwork_small.jpg','../images-animators-cover.jpg','../images/creative_bookcover.png','../images/girl-with-dragon-tattoo-medium.jpg','im-cover-150px.jpg'],
                       },
@@ -468,14 +457,12 @@
                   }
                 }
 
+
+                _importRecentSearchData() {
+
+                }
+
               }
-
-              _importRecentSearchData() {
-
-            }
-
-
-            }
             window.customElements.define(dhcUserAccount.is, dhcUserAccount);
 
          </script>
