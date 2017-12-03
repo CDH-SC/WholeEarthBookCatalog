@@ -4,6 +4,7 @@
 <link rel="import" href="../bower/components/iron-meta/iron-meta.html">
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<<<<<<< Updated upstream
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 
 <link rel="stylesheet" href="shared-styles.html">
@@ -12,6 +13,19 @@
   <template>
 
      <style is = "custom-style" include="iron-flex iron-flex-alignment shared-styles">
+=======
+<link rel="import" href="social-media-icons/social-media-icons.html">
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="frag-header.html">
+
+<dom-module id="dhc-user-account">
+
+  <!-- implement user session within page - feed in user data -->
+
+    <template>
+
+      <style is = "custom-style" include="iron-flex iron-flex-alignment" include = "shared-styles"> 
+>>>>>>> Stashed changes
 
       /* iron flex style properties */
 
@@ -34,8 +48,15 @@
 
       }
 
+<<<<<<< Updated upstream
       .header-wrapper {
 
+=======
+      .border-wrapper {
+        margin: auto;
+        width: 50%;
+        margin-top: 20%;
+>>>>>>> Stashed changes
       }
 
       /* Small features */
@@ -47,12 +68,15 @@
         font-size: 30px;
       }
 
+<<<<<<< Updated upstream
       .greeting-span {
         top: 10px;
         right: 8px;
         color
 
       }
+=======
+>>>>>>> Stashed changes
 
       .user-info-container {
 
@@ -79,6 +103,7 @@
         color: #4069ff;
       }
 
+<<<<<<< Updated upstream
       #user-carousel-favorites {
 
       }
@@ -91,6 +116,8 @@
 
       }
 
+=======
+>>>>>>> Stashed changes
       .carousel-slide {
 
       }
@@ -119,15 +146,20 @@
 
       }
 
+<<<<<<< Updated upstream
       #rs-items-right {
         text-align: right;
         right: 20px;
         position: absolute;
         top: 72px;
+=======
+      paper-input {
+>>>>>>> Stashed changes
 
       }
 
     </style>
+<<<<<<< Updated upstream
 
     <app-header> 
       <div class = "container">
@@ -143,10 +175,19 @@
         </div>
           <div class = "user-info-container">
          
+=======
+      <frag-header></frag-header>
+      <div class = "horizontal-wrapper">
+        
+          <div class = "user-account-info">
+
+>>>>>>> Stashed changes
                 <p id = "user-username"> <i> <strong> Username </strong> </i> </p>
                 <p id = "user-email"> Email: username@email.com </p> 
 
                 <button type = "button" onclick = changePassword()> <u> Change Password </u> </button>
+
+          </div>
 
             <paper-dropdown-menu label = "Favorites"> 
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;">
@@ -177,7 +218,14 @@
 
                         <div class = "carousel-content" role = "listbox">
                              <div class = "carousel-current-item">
+<<<<<<< Updated upstream
                             include image set here--> 
+=======
+
+
+                            <!-- include image set here
+                                  where can this data be fed from? --> 
+>>>>>>> Stashed changes
 
                              <!-- </div>
                              <div class = "carousel-item-set"> -->
@@ -205,10 +253,6 @@
 
         </div>
         <div> 
-         <!-- 
-
-            Dropdown menu for favorites, enclosing a carousel for favorite books 
-           --> 
 
             <paper-dropdown-menu label = "Recently Viewed"> 
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;">
@@ -267,18 +311,17 @@
 
 
           </div> <!-- dd -->
-          <div> 
-
-           <!-- 
-
-            Dropdown menu for favorites, enclosing a carousel for favorite books 
-           -->
+          <div id = "recent-search"> 
 
              <paper-dropdown-menu label = "Recently Searched"> 
+<<<<<<< Updated upstream
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;"> <!-- added in off-white color for background of each drop-down menu -->
 
                   <iron-meta id = "meta-seached"> </iron-meta>
 
+=======
+                <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;"> 
+>>>>>>> Stashed changes
                     <!-- actually dont need a carousel for this section  --> 
 
                   <ul id = "recently-searched-items">
@@ -336,28 +379,19 @@
                   </ul>
 
 
-
-
-
                 </paper-listbox>
              </paper-dropdown-menu>  
 
-
-
           </div> <!-- dd -->
-          <div> 
+          <!-- dd -->
 
-             <!-- 
-
-            Dropdown menu for favorites, enclosing a carousel for favorite books 
-           -->
-
-          </div> <!-- dd -->
+          <frag-footer></frag-footer>
 
         </div>
       </app-header>
 
        </template>
+
         <script>
 
             class dhcUserAccount extends Polymer.Element {
