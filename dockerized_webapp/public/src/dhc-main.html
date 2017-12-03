@@ -10,6 +10,8 @@
 <link rel="lazy-import" href="dhc-404.html">
 <link rel="lazy-import" href="dhc-help.html">
 <link rel="lazy-import" href="dhc-book-results.html">
+<link rel="lazy-import" href="dhc-user-account.html">
+<link rel="lazy-import" href="dhc-book-profile">
 
 <dom-module id="dhc-main">
     <template>
@@ -44,9 +46,11 @@
             <dhc-home my-session="{{session}}" name="home"></dhc-home>
             <dhc-help name="help"></dhc-help>
             <dhc-login my-session="{{session}}" name="login"></dhc-login>
+            <dhc-user-account my-session="{{session}}" name="user-account"> </dhc-user-account>
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account my-session="{{session}}" route="{{route}}" page="{{page}}" name="create-account"></dhc-create-account>
             <dhc-book-results name="book-results"></dhc-book-results>
+            <dhc-book-profile name="book-profile"> </dhc-book-profile>
         </iron-pages>
 
     </template>
