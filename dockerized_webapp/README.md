@@ -1,7 +1,7 @@
 <h1> Setup </h1>
 
-If you have not already, clone the repo to get the source code `git clone https://github.com/SCCapstone/DirtyHistoryCrawler.git`
-Enter this directory `cd dockerized_webapp`
+If you have not already, clone the repo to get the source code `git clone https://github.com/SCCapstone/DirtyHistoryCrawler.git`  
+Enter this directory `cd dockerized_webapp`  
 
 <h1> Dependencies </h1>
 
@@ -13,8 +13,7 @@ This app uses:
   + MongoDB
   + Neo4j
 
-To make our lives and the lives of those who wish to run this software easier, we have chosen to deploy our app inside docker containers.  
-Both databases are also dockerized so one only needs docker to run this app.
+To make our lives and the lives of those who wish to run this software easier, we have chosen to deploy our app inside docker containers. Both databases are also dockerized so one only needs docker to run this app.
 
   + [Mac](https://docs.docker.com/docker-for-mac/install/)
   + [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
