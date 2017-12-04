@@ -42,8 +42,13 @@ $ source app.conf
 $ docker-compose up
 ```
 
-The above example assumes you are running `bash`. If you have a different shell, it might not use the `source` command  
-to handle environment variables.
+The app will be deployed on port `8080` of your local machine.
+
+***Notes:***
+
+  + The above example assumes you are running `bash`. If you have a different shell, it might not use the `source` command to handle environment variables.
+  + You can change the second command to `docker-compose up -d` so that docker runs the processes in the background.
+  + Check on the status of your containers with `docker logs <container_id>`. The id can be found by running `docker ps`.
 
 <h1> Potential Problems </h1>
 
