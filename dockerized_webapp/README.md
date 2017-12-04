@@ -52,8 +52,7 @@ The app will be deployed on port `8080` of your local machine.
 
 <h1> Potential Problems </h1>
 
-If you have MongoDB installed locally on your machine, it may be running in the background. If so, it is likely running on the port that   
-the dockerized instance of MongoDB from this app is intended to run on. If you run into this problem, there are two quick fixes:
+If you have MongoDB installed locally on your machine, it may be running in the background. If so, it is likely running on the port that the dockerized instance of MongoDB from this app is intended to run on. If you run into this problem, there are two quick fixes:
 
   + You can stop your local mongo instance. I do this on ubuntu with `systemctl stop mongod`.
   + You can go into the `docker-compose.yml` file and change the port mapping for mongo to a different port.
