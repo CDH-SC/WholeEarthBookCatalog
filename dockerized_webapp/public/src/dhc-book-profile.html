@@ -4,186 +4,168 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 
 <dom-module id = "dhc-book-profile">
-
-	<style include = "shared-styles">
-
-	/* Polymer-base changes i.e. the responsive elements */
-
-	/* Large elements */
-
-	.search-header {
-
-	}
-
-	#profile-metadata {
-
-	}
-
-	#profile-description {
-
-	}
-
-	#profile-image {
-
-	}
-
-	#profile-related {
-
-	}
-
-	#profile-menu {
-
-	}
-
-	/* Small elements */
-
-	#profile-description-paragraph {
-		
-	}
-
-	#profile-related table {
-		border: 1px solid black;
-		border-collapse: collapse;
-
-	}
-
-	#profile-related th {
-		border: none;
-
-	}
-
-	#profile-menu table {
-		border: 1px solid black;
-		border-collapse: collapse;
-
-	}
-
-	#profile-menu th {
-		border: 1px solid #d3d3d3;
-
-	}
-
-	#menu-favorites {
-
-	}
-
-	#menu-generate-citation {
-
-	}
-
-	#menu-request {
-
-	}
-
-	#menu-share {
-
-	}
-
-
- </style>
-
-	<template>
-
-		<div class  ="border-wrapper">
-
-			<frag-header></frag-header>
-
-			<div id = "profile-metadata">
-
-				<p class = "metadata-fields"> 
-
-				<!-- Feed in data here -->  
-					The Snow Child <br>
-					<i> Author: </i> Eowyn Ivey <br>
-					<i> Publisher: </i> Random House <br>
-					<i> Location Published: </i> New York, NY <br> 
-					<i> ISBN: </i> 02395234562 <br> 
-
-				</p>
-
-			</div>
-
-			<div id = "profile-description">
-
-				<i> Summary: </i> <br> 
-
-				<p id = "profile-description-paragraph">
-					Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
-
-				 </p>
-
-			</div>
-
-			<div id = "profile-image">
-
-				<img src = "https://images.gr-assets.com/books/1328346473l/11804125.jpg" alt = "Snow Child">
-
-			</div>
-			<div id = "profile-related"> 
-
-				<table> <!-- Feed in data here --> 
-					<tr> 
-						<th> <p>  Some related book by some person </p></th>
-						<th> <p>  Some related book by some person </p></th>
-					</tr>
-					<tr> 
-						<th> <p>  Some related book by some person </p></th>
-						<th> <p>  Some related book by some person </p></th>
-					</tr>
-					<tr>
-						<th> <p>  Some related book by some person </p></th>
-						<th> <p>  Some related book by some person </p></th>
-					</tr>
-				</table>
-					
-			</div>
-			<div id = "profile-menu"> 
-
-				<table>
-
-					<tr> 
-						<th> <button id = menu-favorites>
-							<paper-icon-button icon="favorite" title = "heart"> <p> Add to Favorites </p> </paper-icon-button>
-					    </button> </th>
-
-					</tr>
-						<th> <button id = menu-generate-citation> 
-							<p style = "text-align:center;"> Generate Citation </p>
-						</button> </th>
-					<tr> 
-						<th> <button id = menu-request> 
-							<p style = "text-align: center;"> Request from Library </p>
-						</button> </th>
-					</tr>
-
-					<tr> 
-						<th> <button id = menu-share>
-
-							<p style = "text-align: left;"> Share </p>
-
-							<!--
-							<social-media-icons icon = "facebook" size = "75"> 
-							</social-media-icons>
-							<social-media-icons icon = "twitter" size = "75">
-						    </social-media-icons> 
-						-->
-
-						</button> </th>
-					</tr>
-
-				</table>
-
-			</div>
-
-			<frag-footer> </frag-footer>
-
-	    </div>
-
-	</template>
-
-
+    <template>
+        <style include = "shared-styles">
+            /* Polymer-base changes i.e. the responsive elements */
+        
+            /* Large elements */
+        
+            .search-header {
+        
+            }
+        
+            #profile-metadata {
+        
+            }
+        
+            #profile-description {
+        
+            }
+        
+            #profile-image {
+        
+            }
+        
+            #profile-related {
+        
+            }
+        
+            #profile-menu {
+        
+            }
+        
+            /* Small elements */
+        
+            #profile-description-paragraph {
+                
+            }
+        
+            #profile-related table {
+                border: 1px solid black;
+                border-collapse: collapse;
+        
+            }
+        
+            #profile-related th {
+                border: none;
+        
+            }
+        
+            #profile-menu table {
+                border: 1px solid black;
+                border-collapse: collapse;
+        
+            }
+        
+            #profile-menu th {
+                border: 1px solid #d3d3d3;
+        
+            }
+        
+            #menu-favorites {
+        
+            }
+        
+            #menu-generate-citation {
+        
+            }
+        
+            #menu-request {
+        
+            }
+        
+            #menu-share {
+        
+            }
+        </style>
+        <div class  ="border-wrapper">
+            <frag-header></frag-header>
+
+            <div id = "profile-metadata">
+                <p class = "metadata-fields"> 
+                <!-- Feed in data here -->  
+                    The Snow Child <br>
+                    <i> Author: </i> Eowyn Ivey <br>
+                    <i> Publisher: </i> Random House <br>
+                    <i> Location Published: </i> New York, NY <br> 
+                    <i> ISBN: </i> 02395234562 <br> 
+                </p>
+            </div>
+
+            <div id = "profile-description">
+                <i> Summary: </i> <br> 
+                <p id = "profile-description-paragraph">
+                    Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
+                </p>
+            </div>
+
+            <div id = "profile-image">
+                <img src = "https://images.gr-assets.com/books/1328346473l/11804125.jpg" alt = "Snow Child">
+            </div>
+            <div id = "profile-related"> 
+                <table> <!-- Feed in data here --> 
+                    <tr> 
+                        <th> <p>  Some related book by some person </p></th>
+                        <th> <p>  Some related book by some person </p></th>
+                    </tr>
+                    <tr> 
+                        <th> <p>  Some related book by some person </p></th>
+                        <th> <p>  Some related book by some person </p></th>
+                    </tr>
+                    <tr>
+                        <th> <p>  Some related book by some person </p></th>
+                        <th> <p>  Some related book by some person </p></th>
+                    </tr>
+                </table>
+            </div>
+            <div id = "profile-menu"> 
+                <table>
+                    <tr> 
+                        <th> <button id = menu-favorites>
+                            <paper-icon-button icon="favorite" title = "heart"> <p> Add to Favorites </p> </paper-icon-button>
+                        </button> </th>
+                    </tr>
+                        <th> <button id = menu-generate-citation> 
+                            <p style = "text-align:center;"> Generate Citation </p>
+                        </button> </th>
+                    <tr> 
+                        <th> <button id = menu-request> 
+                            <p style = "text-align: center;"> Request from Library </p>
+                        </button> </th>
+                    </tr>
+
+                    <tr> 
+                        <th> <button id = menu-share>
+
+                            <p style = "text-align: left;"> Share </p>
+
+                            <!--
+                            <social-media-icons icon = "facebook" size = "75"> 
+                            </social-media-icons>
+                            <social-media-icons icon = "twitter" size = "75">
+                            </social-media-icons> 
+                        -->
+
+                        </button> </th>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <frag-footer> </frag-footer>
+
+        </div>
+
+    </template>
+    <script>
+        class dhcBookProfile extends Polymer.Element {
+            static get is() { return 'dhc-book-profile'; }
+        }
+        window.customElements.define(dhcBookProfile.is, dhcBookProfile);
+    </script>
 </dom-module>

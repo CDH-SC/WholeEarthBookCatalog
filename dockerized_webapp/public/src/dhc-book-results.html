@@ -1,154 +1,136 @@
-l
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
-<link rel="stylesheet" href="shared-styles.css">
+<link rel="import" href="shared-styles.html">
 
 
 <dom-module id="dhc-book-results">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
-
-  <template>
-
-    <style include=" shared-styles iron-flex iron-flex-alignment">
-     
-        .flex-fill {
-            @apply --layout-flex;
-        }
-
-        .container {
-          @apply --layout-horizontal;
-        }
-
-        #result-entry-wrapper {
-          width: 100%;
-          height: 75%;
-          top: 400px; /*make more responsive*/
-
-        }
-
-        #result-item-info {
-          width: 100%;
-          height: 53%;
-          top: 400px; /*relate to container element*/
-
-        }
-
-        #result-item-image {
-          height: 48%;
-          padding-bottom: 5%;
-          padding-top: 1%;
-          padding-left: 5%;
-          position: absolute; /* better alternative */
-        }
-
-        #result-item-menu {
-          width: 20%;
-          height: 40%;
-          right: 0px;
-          top: 105px;  /*get max height*/ 
-          background-color: blue;
-          position: absolute;
-        }
-
-        #result-item-view-profile {
-          width: 100%;
-          height: 55%;
-          right: 0px;
-          position: absolute;
-          top: 0px;
-          bottom: 152px;
-
-        }
-
-        #result-item-request {
-          top: 95px;
-          width:50%;
-          position: absolute;
-          height: 28%;
-        }
-
-        #result-item-like {
-          top: 95px;
-          width: 50%;
-          position: absolute;
-          height: 28%;
-        }
-
-        #result-item-share {
-          top: 160px;
-          position: absolute;
-          width: 100%;
-          height: 36%;
-          bottom: 0px;
-        }
-
-   </style>
-
     <template>
+        <style include="shared-styles iron-flex iron-flex-alignment">
+            .flex-fill {
+                    @apply --layout-flex;
+            }
 
+            .container {
+                @apply --layout-horizontal;
+            }
+
+            #result-entry-wrapper {
+                width: 100%;
+                height: 75%;
+                top: 400px; /*make more responsive*/
+
+            }
+
+            #result-item-info {
+                width: 100%;
+                height: 53%;
+                top: 400px; /*relate to container element*/
+
+            }
+
+            #result-item-image {
+                height: 48%;
+                padding-bottom: 5%;
+                padding-top: 1%;
+                padding-left: 5%;
+                position: absolute; /* better alternative */
+            }
+
+            #result-item-menu {
+                width: 20%;
+                height: 40%;
+                right: 0px;
+                top: 105px;  /*get max height*/ 
+                background-color: blue;
+                position: absolute;
+            }
+
+            #result-item-view-profile {
+                width: 100%;
+                height: 55%;
+                right: 0px;
+                position: absolute;
+                top: 0px;
+                bottom: 152px;
+
+            }
+
+            #result-item-request {
+                top: 95px;
+                width:50%;
+                position: absolute;
+                height: 28%;
+            }
+
+            #result-item-like {
+                top: 95px;
+                width: 50%;
+                position: absolute;
+                height: 28%;
+            }
+
+            #result-item-share {
+                top: 160px;
+                position: absolute;
+                width: 100%;
+                height: 36%;
+                bottom: 0px;
+            }
+        </style>
         <frag-header> </frag-header>
 
-           <div id = "result-entry-wrapper">
+        <div id = "result-entry-wrapper">
+            <div id = "result-item-info">
+                <iron-image src= "https://images.gr-assets.com/books/1327098624l/11250053.jpg" preload sizing="cover" id = "result-item-image"></iron-image>
 
-                <div id = "result-item-info">
-
-                  <iron-image src= "https://images.gr-assets.com/books/1327098624l/11250053.jpg" preload sizing="cover" id = "result-item-image"></iron-image>
-
-                  <paper-dialog style = "left: 275px; position: relative;">
+                <paper-dialog style = "left: 275px; position: relative;">
                     <h2 style = "padding-top: 2%;">The Snow Child </h2> <br>
                     <h4> Eowyn Ivey </h4> <br> 
                     <h4> Genres: Fantasy, Historical Fiction, Fairy Tale </h4> <br>
                     <h4> Publisher: Reagan Arthur Books </h4> <br> 
                     <h4> Originally Published: 1942 </h4>
+                </paper-dialog>
+            </div>
 
-                  </paper-dialog>
+            <div id = "result-item-menu">
+                <paper-button raised id = "result-item-view-profile"> View Profile </paper-button> 
+                <paper-button raised id = "result-item-request"> Request </paper-button>
+                <paper-icon-button raised icon = "favorite" title = "heart" id = "result-item-like">  </paper-icon-button> 
 
-               </div>
-              
-               <div id = "result-item-menu">
-
-                  <paper-button raised id = "result-item-view-profile"> View Profile </paper-button> 
-                  <paper-button raised id = "result-item-request"> Request </paper-button>
-
-                  <paper-icon-button raised icon = "favorite" title = "heart" id = "result-item-like">  </paper-icon-button> 
-
-                  <paper-button raised id = "result-item-share"> 
+                <paper-button raised id = "result-item-share"> 
                     Share  <br> 
-                   
-                  </paper-button>
+                </paper-button>
+            </div>
+        </div>
 
-                </div>
+    <frag-footer> </frag-footer>
 
-              </div>
+    </template>
+    <script>
+        class dhcBookResults extends Polymer.Element {
+            static get is() { return 'dhc-book-results'; }
+            static get properties() {
+                    return {
+                            rootPath: String,
+                    }
+            }
 
-           <frag-footer> </frag-footer>
-
-        </template>              
-
-        
-        <script>
-            class dhcBookResults extends Polymer.Element {
-              static get is() { return 'dhc-book-results'; }
-              static get properties() {
-                  return {
-                      rootPath: String,
-                  }
-              }
-              toggle() {
+            toggle() {
                 var listElement = document.getElementbyId("toggle-list");
                 var graphElement = document.getElementbyId("toggle-graph");
 
                 //transfer to list view / transfer to graph view 
-                
-              }
             }
-          window.customElements.define(dhcBookResults.is, dhcBookResults);
-        </script>
-
+        }
+        window.customElements.define(dhcBookResults.is, dhcBookResults);
+    </script>
 </dom-module>
 
