@@ -79,6 +79,7 @@
         ready() {
             super.ready();
             this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
+            console.log("USER", this.user);
         }
 
         static get observers() {
@@ -116,6 +117,8 @@
         }
 
         _onUpdateUserData(event) {
+            console.log("Event triggered");
+            console.log(this.$.please);
             this.$.please.updateUser(event.detail);
         }
     }

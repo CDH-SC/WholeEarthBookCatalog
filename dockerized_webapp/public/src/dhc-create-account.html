@@ -109,6 +109,9 @@
             }
 
             _handleResponse(e) {
+                console.log(e);
+                console.log(e.detail.response);
+
                 if(e.detail.response) {
                     if(e.detail.response.insertedIds) {
                         this.dispatchEvent(new CustomEvent('update-user', {
