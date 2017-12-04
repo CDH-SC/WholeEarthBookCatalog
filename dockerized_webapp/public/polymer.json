@@ -4,11 +4,15 @@
     "fragments": [
         "src/dhc-help.html",
         "src/dhc-home.html",
-        "src/dhc-404.html",
         "src/dhc-login.html",
+        "src/dhc-create-account.html",
+        "src/dhc-user-account.html",
+        "src/dhc-book-profile.html",
+        "src/dhc-book-results.html",
+        "src/dhc-404.html",
         "src/frag-footer.html",
         "src/frag-header.html",
-        "src/dhc-create-account.html"
+        "src/dhc-login-data.html"
     ],
     "sources": [
         "src/**/*",
@@ -17,12 +21,17 @@
     "extraDependencies": [
         "bower_components/webcomponentsjs/*.js"
     ],
+    "lint": {
+        "rules": ["polymer-2-hybrid"]
+    },
     "builds": [
         {
             "preset": "es5-bundled"
         },
         {
             "preset": "es6-bundled"
-        }
+        },
+        {   "preset": "es6-unbundled"}
+        
     ]
 }

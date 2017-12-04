@@ -3,10 +3,11 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
-
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="dhc-create-account">
     <template>
@@ -26,12 +27,12 @@
             }
         </style>
 
+        <app-location route="{{route}}"></app-location>
         <div class="container">
             <div id="login-box">
                 <div id="inner-flex">
                     <h1>DHC</h1>
                     <h2>Login</h2>
-
                     
                     <paper-input placeholder="Username" value="{{username}}"></paper-input>
                     <paper-input error-message="invalid" placeholder="Password" type="password" value={{password}}></paper-input>
@@ -50,12 +51,6 @@
                     on-response="_handleResponse"
                     content-type="application/json"
                     debounce-duration="300"></iron-ajax>
-
-                    <app-indexeddb-mirror
-                        key="user"
-                        data="{{mySession}}"
-                        persisted-data="{{persistedSession}}">
-                    </app-indexeddb-mirror>
 
                 </div>
             </div>
@@ -77,20 +72,7 @@
                     },
                     valid: Boolean,
                     errorMessage: String,
-                    mySession: {
-                        type: Object,
-                        notify: true
-                    },
-                    persistedSession: {
-                        type: Object,
-                        notify: true,
-                        observer: "_changed"
-                    }
                 }
-            }
-
-            _changed() {
-                this.set("mySession", this.persistedSession);
             }
 
             _validate() {
@@ -109,7 +91,6 @@
                 }
                 else if (this.password !== this.password_confirm) {
                     this.set("errorMessage", "passwords don't match");
-
                     this.valid = false;
                 }
                 else {
@@ -133,14 +114,12 @@
 
                 if(e.detail.response) {
                     if(e.detail.response.insertedIds) {
-                        var main = document.querySelector("dhc-main");
-
+                        this.dispatchEvent(new CustomEvent('update-user', {
+                            bubbles: true, composed: true, detail: {
+                                user: e.detail.response,
+                        }}));
                         this.valid = true;
-                        // this.mySession = e.detail.response;
-                       
-                        // go back home after login (surprised this works...)
                         this.set("route.path", "/home");
-                        this.page = "home";
                     } 
                     else if (e.detail.response.Error) {
                         if (e.detail.response.Error === "invaild data format") {

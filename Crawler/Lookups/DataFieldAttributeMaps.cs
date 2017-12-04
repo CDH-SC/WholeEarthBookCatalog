@@ -44,6 +44,27 @@ namespace LibraryOfCongressImport.Lookups
             { "8", "National Bibliographic Agency Control Number Field Link/Sequence Number" }
         };
 
+        public static Dictionary<string, string> OtherStandardIdentifierMap = new Dictionary<string, string>()
+        {
+            {"a", "Standard number or code"},
+            {"c", "Terms of availability"},
+            {"d", "Additional codes following the standard code"},
+            {"q", "Qualifying information"},
+            {"z", "Canceled/invalid standard code"},
+            {"2", "Source of number or code"},
+            {"6", "Linkage"},
+            {"8", "Field link and sequence number"}
+        };
+
+        public static Dictionary<string, string> PublisherOrDistributorNumberMap = new Dictionary<string, string>()
+        {
+            {"a", "Publisher or disctributor number"},
+            {"b", "Source"},
+            {"q", "Qualifying information"},
+            {"6", "Linkage"},
+            {"8", "Field link and sequence number"}
+        };
+
         public static Dictionary<string, string> SystemControlNumberMap = new Dictionary<string, string>()
         {
             { "a", "System Control Number" },
@@ -96,6 +117,27 @@ namespace LibraryOfCongressImport.Lookups
             { "8", "Personal name Field link and sequence number" }
         };
 
+        public static Dictionary<string, string> CorporateNameMainEntry = new Dictionary<string, string>()
+        {
+            {"a", "Corporate name or jurisdiction name entry element"}, 
+            {"b", "Subordinate unit"},
+            {"c", "Location of meeting"}, 
+            {"d", "Date of meeting or treaty signing"}, 
+            {"e", "Relator term"}, 
+            {"f", "Date of a work"},
+            {"g", "Miscellaneous Information"},
+            {"k", "Form subheading"},
+            {"l", "Language of a work"}, 
+            {"n", "Number of part/section/meeting"}, 
+            {"p", "Name of part/section of a work"}, 
+            {"t", "Title of a work"},
+            {"u", "Affiliation"},
+            {"0", "Authority record control number or standard number"},
+            {"4", "Relationship"},
+            {"6", "Linkage"},
+            {"8", "Field link and sequence number"}
+        };
+
         public static Dictionary<string, string> TitleStatementMap = new Dictionary<string, string>()
         {
             { "a", "Title" },
@@ -144,7 +186,39 @@ namespace LibraryOfCongressImport.Lookups
             {"3", "General Note Materials Specified" }
         };
 
-        public static Dictionary<string, string> SubjectAddedEntryTopicalTermMap = new Dictionary<string, string>()
+         public static Dictionary<string, string> SubjectAddedEntryCorporateNameMap = new Dictionary<string, string>()
+        {
+            {"a", "Corporate name or jurisdiction name entry element"}, 
+            {"b", "Subordinate unit"},
+            {"c", "Location of meeting"}, 
+            {"d", "Date of meeting or treaty signing"}, 
+            {"e", "Relator term"}, 
+            {"f", "Date of a work"},
+            {"g", "Miscellaneous Information"},
+            {"h", "Medium"},
+            {"k", "Form subheading"},
+            {"l", "Language of a work"}, 
+            {"m", "Medium of performance for music"}, 
+            {"n", "Number of part/section/meeting"}, 
+            {"o", "Arranged statement for music"}, 
+            {"p", "Name of part/section of a work"}, 
+            {"r", "Key for music"}, 
+            {"s", "Version"},
+            {"t", "Title of a work"},
+            {"u", "Affiliation"},
+            {"v", "Form subdivision"},
+            {"x", "General subdivision"},
+            {"y", "Chronological subdivision"},
+            {"z", "Geographical subdivision"},
+            {"0", "Authority record control number or standard number"},
+            {"2", "Source of heading or term"},
+            {"3", "Materials specified"},
+            {"4", "Relationship"},
+            {"6", "Linkage"},
+            {"8", "Field link and sequence number"}
+        };
+
+         public static Dictionary<string, string> SubjectAddedEntryTopicalTermMap = new Dictionary<string, string>()
         {
             { "a", "Topical term or geographic name entry element" },
             { "b", "Topical term following geographic name entry element" },
@@ -221,6 +295,39 @@ namespace LibraryOfCongressImport.Lookups
             { "3", "Materials specified" },
             { "6", "Linkage" },
             { "8", "Field link and sequence number" }
+        };
+
+        public static Dictionary<string, string> AddedEntryCorporateName = new Dictionary<string, string>()
+        {
+            {"a", "Corporate name of jurisdiction name as entry element"},
+            {"b", "Subordinate unit"},
+            {"c", "Location of meeting"},
+            {"d", "Date of meeting or treaty signing"},
+            {"e", "Relator term"},
+            {"f", "Date of a work"},
+            {"g", "Miscellaneous information"},
+            {"h", "Medium"},
+            {"k", "Form subheading"},
+            {"l", "Language of a work"},
+            {"m", "Medium of performance for music"},
+            {"n", "Number of part/section/meeting"},
+            {"o", "Arranged statement for music"},
+            {"p", "Name of part/section of a work"},
+            {"r", "Key for music"},
+            {"s", "Version"},
+            {"t", "Title of a work"},
+            {"u", "Affiliation"},
+            {"v", "Form subdivision"},
+            {"x", "General subdivision"},
+            {"y", "Chronological subdivision"},
+            {"z", "Geographical subdivision"},
+            {"0", "Authority record control number or standard number"},
+            {"2", "Source of heading or term"},
+            {"3", "Materials specified"},
+            {"4", "Relationship"},
+            {"6", "Linkage"},
+            {"8", "Field link and sequence number"},
+            {"9", "Special entry"}
         };
 
         public static Dictionary<string, string> AddedEntryPersonalName = new Dictionary<string, string>()
