@@ -6,7 +6,6 @@
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
-
 <link rel="import" href="../bower_components/neon-animation/web-animations.html">
 
 <dom-module id="frag-header">
@@ -55,10 +54,10 @@
                     <template is="dom-if" if="[[!_showSearch()]]">
                         <h1>DHC</h1>
                     </template>
+                    <template is="dom-if" if="[[!_showSearch()]]"></template>
                     <template is="dom-if" if="[[_showSearch()]]">
                         <span></span>
                     </template>
-
 
                     <template is="dom-if" if="[[inSession]]">
                         <paper-menu-button>
@@ -100,7 +99,6 @@
             ready() {
                 super.ready();
                 this._session_changed();
-                console.log("SESSION", this.user);
             }
 
             _sign_out() {
