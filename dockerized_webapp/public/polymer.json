@@ -4,7 +4,6 @@
     "fragments": [
         "src/dhc-help.html",
         "src/dhc-home.html",
-        "src/dhc-login.html",
         "src/dhc-create-account.html",
         "src/dhc-user-account.html",
         "src/dhc-book-profile.html",
@@ -13,7 +12,6 @@
         "src/dhc-login.html",
         "src/frag-footer.html",
         "src/frag-header.html",
-        "src/dhc-create-account.html",
         "src/dhc-login-data.html"
     ],
     "sources": [
