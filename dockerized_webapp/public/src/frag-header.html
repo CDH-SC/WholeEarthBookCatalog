@@ -56,11 +56,18 @@
             #goto-user-account:visited {
                 color: #333333;
             }
+
+            #home-button {
+                box-shadow: none;
+            }
         </style>
+        <app-location route="{{route}}"></app-location>
             <app-toolbar>
                 <div class="header-row">
                     <template is="dom-if" if="[[!_showSearch()]]">
-                        <h1>DHC</h1>
+                        <paper-button id="home-button" noink on-click="_go_home">
+                            <h1>DHC</h1>
+                        </paper-button>
                     </template>
                     <template is="dom-if" if="[[!_showSearch()]]"></template>
                     <template is="dom-if" if="[[_showSearch()]]">
@@ -95,10 +102,10 @@
                     inSession: {
                         type: Boolean
                     },
-                    user: {
-                        type: Object,
-                        notify: true
-                    }
+                    // user: {
+                    //     type: Object,
+                    //     notify: true
+                    // }
                 };
             }
             static get observers() {
@@ -110,21 +117,37 @@
             }
 
             _sign_out() {
-                this.set('user', undefined);
+                this.dispatchEvent(new CustomEvent('update-user', {
+                    bubbles: true, composed: true, detail: {
+                    user: undefined,
+                }}));
+
+                if (this.route.path === "/user-account") {
+                    this.set("route.path", "/home");
+                }
             }
 
             _session_changed() {
-                if (this.user) {
-                    this.inSession = true;
+                if (this.user === undefined || this.user === null) {
+                    this.inSession = false;
+                }
+                else if (Object.keys(this.user).length === 0) {
+                    console.log(this.user);
+                    this.inSession = false;
                 }
                 else {
-                    this.inSession = false;
+                    console.log(this.user);
+                    this.inSession = true;
                 }
             }
 
             _showSearch() {
                 var upp = document.querySelector("dhc-main");
                 return upp.routeData.isHome;
+            }
+
+            _go_home() {
+                this.set("route.path", "/home");
             }
         }
         window.customElements.define(fragHeader.is, fragHeader);
