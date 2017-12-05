@@ -8,194 +8,136 @@
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="dhc-book-results">
-  <template>
+    <template>
+        <style include=" shared-styles iron-flex iron-flex-alignment">
+            .container {
+                @apply --layout-horizontal;
+            }
 
-    <style include=" shared-styles iron-flex iron-flex-alignment">
+            #result-entry-wrapper {
+                width: 100%;
+                height: 75%;
+                /*make more responsive*/
+            }
 
-        .container {
-          @apply --layout-horizontal;
-        }
+            #result-item-info {
+                height: 60%;
+                display: flex;/*relate to container element*/
+                border: 1px solid grey;
+            }
 
-        #result-entry-wrapper {
-          width: 100%;
-          height: 75%;
-          /*make more responsive*/
+            #result-item-image {
+                margin-left: 50px;
+                margin-top: 20px;
+                width: 140px;
+                height: 200px;
+            }
 
-        }
+            #result-item-menu {
+                width: 20%;
+                height: 100%;
+                border: 1px solid grey;
+                display: flex;
+                flex-direction: column;
+                border-top:none;
+                border-bottom:none;
+            }
 
-        #result-item-info {
-         
-          height: 60%;
-          display: flex;/*relate to container element*/
-          border: 1px solid grey;
+            #result-item-view-profile {
+                width: 100%;
+                height: 33.3%;
+                padding:0px;
+                border-top: none;
+            }
 
+            #result-item-request {
+                padding:0px;
+                width: 50%;
+                height: 33.3%;
+            }
 
-        }
+            #result-paired-buttons {
+                display: flex;
+            }
 
-        #result-item-image {
-          margin-left: 50px;
-          margin-top: 20px;
-          width: 140px;
-          height: 200px;
+            #result-item-like {
+                padding: 0px;
+                width: 50%;
+                height: 33.3%;
+            }
 
+            #result-item-share {
+                width: 100%;
+                height: 34%;
+                border-top: none;
+            }
 
-          
-           /* better alternative */
-        }
+            .paper-metadata {
+                flex-grow: 1;
+                margin-left: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
 
+                .paper-metadata > h2{
+                margin: 0px;
+            }
 
+            .paper-metadata > h4{
+                margin: 0px;
+            }
 
-        #result-item-menu {
-          width: 20%;
-          height: 100%;
-          border: 1px solid grey;
-          display: flex;
-          flex-direction: column;
-          border-top:none;
-          border-bottom:none;
-      
-        
-           /*get max height*/ 
-        }
-
-        #result-item-view-profile {
-          width: 100%;
-          height: 33.3%;
-           padding:0px;
-          border-top: none;
-          
-         
-        
-          
-       
-        }
-
-        #result-item-request {
-           padding:0px;
-          width: 50%;
-          height: 33.3%;
-        
-          
-        }
-
-        #result-paired-buttons {
-            display: flex;
-        }
-
-        #result-item-like {
-          padding: 0px;
-          width: 50%;
-          height: 33.3%;
-         
-          
-        }
-
-        #result-item-share {
-
-         
-         width: 100%;
-         height: 34%;
-         border-top: none;
-         
-         
-        }
-
-        .paper-metadata {
-            flex-grow: 1;
-            margin-left: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-        }
-
-         .paper-metadata > h2{
-            margin: 0px;
-        }
-
-        .paper-metadata > h4{
-            margin: 0px;
-        }
-
-        paper-button {
-            margin: 0px;
-            box-shadow: none;
-            border: 1px solid grey;
-        }
-
-
-
-   </style>
-
- 
-
+            paper-button {
+                margin: 0px;
+                box-shadow: none;
+                border: 1px solid grey;
+            }
+        </style>
         <frag-header> </frag-header>
+        <div id = "result-entry-wrapper">
+            <div id = "result-item-info">
+                <image id = "result-item-image" src= "../images/clockwork_small.jpg"></image>
 
-           <div id = "result-entry-wrapper">
-
-                <div id = "result-item-info">
-
-                  <image id = "result-item-image" src= "../images/clockwork_small.jpg"></image>
-
-                  <paper-dialog class = "paper-metadata">
+                <paper-dialog class = "paper-metadata">
                     <h2>The Snow Child </h2> 
                     <h4> Eowyn Ivey </h4> 
                     <h4> Genres: Fantasy, Historical Fiction, Fairy Tale </h4>
                     <h4> Publisher: Reagan Arthur Books </h4> 
                     <h4> Originally Published: 1942 </h4>
+                </paper-dialog>
 
-                  </paper-dialog>
+                <div id = "result-item-menu">
+                    <paper-button id = "result-item-view-profile"> View Profile </paper-button> 
+                        <div id = "result-paired-buttons"> 
+                            <paper-button id = "result-item-request"> Request </paper-button>
+                            <paper-button id = "result-item-like" title = "heart" id = "result-item-like"> Like </paper-button> 
+                        </div>
 
-                  <div id = "result-item-menu">
-
-                      <paper-button id = "result-item-view-profile"> View Profile </paper-button> 
-
-                      <div id = "result-paired-buttons"> 
-                          <paper-button id = "result-item-request"> Request </paper-button>
-
-                          <paper-button id = "result-item-like" title = "heart" id = "result-item-like"> Like </paper-button> 
-
-                     </div>
-
-                      <paper-button id = "result-item-share"> 
-                        Share  <br> 
-                       
-                      </paper-button>
-                  </div>  
-
-               </div>
-              
-              
-
-                  
-
-               
-
-              </div>
-
-           <frag-footer> </frag-footer>
-
-        </template>              
-
-        
-        <script>
-            class dhcBookResults extends Polymer.Element {
-              static get is() { return 'dhc-book-results'; }
-              static get properties() {
-                  return {
-                      rootPath: String,
-                  }
-              }
-              toggle() {
+                        <paper-button id = "result-item-share"> 
+                            Share
+                        </paper-button>
+                </div>
+            </div>
+        </div>
+        <frag-footer> </frag-footer>
+    </template>
+    <script>
+        class dhcBookResults extends Polymer.Element {
+            static get is() { return 'dhc-book-results'; }
+            static get properties() {
+                return {
+                        rootPath: String,
+                }
+            }
+            toggle() {
                 var listElement = document.getElementbyId("toggle-list");
                 var graphElement = document.getElementbyId("toggle-graph");
 
                 //transfer to list view / transfer to graph view 
-                
-              }
             }
-          window.customElements.define(dhcBookResults.is, dhcBookResults);
-        </script>
-
+        }
+        window.customElements.define(dhcBookResults.is, dhcBookResults);
+    </script>
 </dom-module>
 

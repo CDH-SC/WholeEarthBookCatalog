@@ -4,6 +4,7 @@
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
+<link rel="import" href="dhc-book-rotation.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 
@@ -43,11 +44,13 @@
                 font-style: italic;
                 margin-top: 50px;
                 height: 315px;
+                max-height: 315px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-weight: bolder;
                 width: 100%;
+                position: relative;
             }
 
             #recommendations {
@@ -64,10 +67,6 @@
                 color: whitesmoke;
             }
 
-            @media screen and (max-width: 1050px) {
-            
-            }
-
             @media screen and (max-width: 800px) {
                 .book-view {
                     display: none;
@@ -80,63 +79,12 @@
                 }
             }
 
-            #book-recommends {
-                display: flex;
-                flex-basis: auto;
-                flex-grow: 1;
-                flex-direction: row;
-                align-items: center;
-                justify-content: center;
-                max-width: 800px;
-                position: absolute;
-                z-index: 1;
-            }
-
-            #book-recommends > iron-icon {
-                height: 50px;
-                width: 50px;
-            }
-
-            .book-rec {
-                width: 150px;
-                height: 250px;
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-
-            .book-rec > img {
-                width: 150px; 
-                height: 100%;
-            }
-
-            paper-button.chev-cir {
-                padding: 0;
-                margin: 0;
-                min-width: unset;
-                height: 50px;
-                width: 50px;
-                border-radius: 100px;
-                font-size: 18px;
-                box-sizing: border-box;
-                margin-right: 10px;
-                margin-left: 10px;
-            }
-            
             a > paper-button {
                 color: #333333;
             }
 
             a:visited > paper-button {
                 color: #333333;
-            }
-
-            .chev-button {
-                max-height:50px;
-                max-width: 50px;
-                min-width: 50px;
-                min-height: 50px;
-                border: 3px solid black;
-                border-radius: 30px;
             }
 
             .inner-container {
@@ -147,9 +95,16 @@
                 align-items: center;
             }
 
+            dhc-book-rotation {
+                z-index: 1;
+            }
+
+            .absol {
+                position: absolute;
+            }
+
         </style>
 
-<!--The actual html goes in here-->
         <app-header>
             <frag-header user="{{user}}"></frag-header>
             <div class="container">
@@ -169,16 +124,8 @@
                                 Sign in for Recommendations
                             </div>
                         </template>
-
-                        <div id="book-recommends">
-                            <!-- placeholders -->
-                            <paper-button on-click="_set_image_b" class="chev-cir"><iron-icon class="chev-button" icon="chevron-left"></iron-icon></paper-button>
-                            <template is="dom-repeat" items=[[current_display]]>
-                                <div class="book-rec">
-                                    <img width="150px" src="{{item}}"></img>
-                               </div>
-                            </template>
-                            <paper-button on-click="_set_image_f" class="chev-cir"><iron-icon class="chev-button" icon="chevron-right"></iron-icon></paper-button>
+                        <div class="absol">
+                            <dhc-book-rotation></dhc-book-rotation>
                         </div>
                     </div>
                 </div>
@@ -200,111 +147,31 @@
                     notify: true,
                     observer: "_update_dom_session"
                 },
-                // Temporary kind of 
-                book_rec_covers: {
-                    type: Array,
-                    value: ['../images/clockwork_small.jpg', '../images/animators-cover.jpg', '../images/creative_bookcover.png', '../images/im-cover-150px.jpg'],
-                },
-                book_rec_size: {
-                    type: Number,
-                    value: 3,
-                    observer: '_book_rec_size_changed'
-                },
-                current_display: {
-                    type: Array
-                },
                 inSession: {
                     type: Boolean
                 }
             };
         }
 
-
         constructor() {
             super();
-            this._windowResize = this._resize.bind(this);
-          }
+        }
 
         ready() {
             // needs more complexity
             super.ready();
-            this._resize();
-            this.current_display = [];
-            console.log("REC", this.book_rec_size);
-            for (var i = 0; i < this.book_rec_size; i++) {
-                this.push('current_display', this.book_rec_covers[i]);
-            }
-
             this._update_dom_session();
          }
-
-        connectedCallback() {
-            super.connectedCallback();
-            window.addEventListener('resize', this._windowResize);
-        }
 
         _update_dom_session() {
             if(this.user === null || this.user === undefined || this.user === {}) {
                 this.inSession = false;
             }
             else {
-                console.log("WHAT", this.user);
                 this.inSession = true;
             }
         }
-
-        _book_rec_size_changed(oldVal, newVal) {
-            if(oldVal !== newVal && this.current_display) {
-                if(oldVal < newVal) {
-                    this.pop('current_display');
-                }
-                else {
-                    var add_index = this.book_rec_covers.indexOf(this.current_display[this.current_display.length - 1]) + 1;
-                    if(add_index >= this.book_rec_covers.length) {
-                        add_index = 0;
-                    }
-                    this.push('current_display', this.book_rec_covers[add_index]);
-                }
-            }
-        }
-
-        _set_image_f() {
-            var ind = this.book_rec_covers.indexOf(this.current_display[this.current_display.length - 1]) + 1;
-
-            if (ind >= this.book_rec_covers.length) {
-                ind = 0;
-            }
-
-            this.push('current_display', this.book_rec_covers[ind]);
-            this.shift('current_display');
-        }
-
-        _set_image_b() {
-            var ind = this.book_rec_covers.indexOf(this.current_display[0]) - 1;
-
-            if (ind < 0) {
-                ind = this.book_rec_covers.length - 1;
-            }
-
-            this.pop('current_display');
-            this.unshift('current_display', this.book_rec_covers[ind]);
-        }
-
-        _resize() {
-            if (window.innerWidth < 1050 && window.innerWidth >= 800) {
-                this.book_rec_size = 1;
-            }
-            else if(window.innerWidth >= 1050 && window.innerWidth <= 1300) {
-                this.book_rec_size = 2;
-            }
-            else if(window.innerWidth > 1300) {
-                this.book_rec_size = 3;
-            }
-            else {
-                this.book_rec_size = 0;
-            }
-        }
     }
-        window.customElements.define(dhcHome.is, dhcHome);
+    window.customElements.define(dhcHome.is, dhcHome);
     </script>
 </dom-module>

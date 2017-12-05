@@ -48,6 +48,14 @@
             paper-listbox {
                 z-index: 10;
             }
+
+            #goto-user-account {
+                color: #333333;
+            }
+
+            #goto-user-account:visited {
+                color: #333333;
+            }
         </style>
             <app-toolbar>
                 <div class="header-row">
@@ -63,7 +71,7 @@
                         <paper-menu-button>
                             <paper-button slot="dropdown-trigger" class="account-blue">Hi, User</paper-button>
                             <paper-listbox slot="dropdown-content">
-                                <paper-item>Account</paper-item>
+                                <a id="goto-user-account" user="{{user}}" href="[[rootPath]]user-account"><paper-item>Account</paper-item></a>
                                 <paper-item>Favorites</paper-item>
                                 <paper-item on-click="_sign_out">Sign out</paper-item>
                             </paper-listbox>
@@ -102,9 +110,7 @@
             }
 
             _sign_out() {
-                console.log(this.user);
                 this.set('user', undefined);
-                console.log("Tried to sign out");
             }
 
             _session_changed() {
@@ -118,8 +124,6 @@
 
             _showSearch() {
                 var upp = document.querySelector("dhc-main");
-                console.log(upp.routeData.isHome);
-                console.log("hello");
                 return upp.routeData.isHome;
             }
         }
