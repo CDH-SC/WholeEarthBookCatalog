@@ -61,7 +61,6 @@
 
             #profile-description-div i {
                 font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif; 
-                overflow-y:scroll;
             }
         
             #profile-image-div {
@@ -69,7 +68,6 @@
               margin-left:10px;
               border: 1px solid grey;
               margin-right:95px;
-              overflow-y:scroll;
             }
 
             #profile-related-div {
@@ -119,7 +117,7 @@
                 overflow-y:scroll;
                 justify-content: center;
                 align-items: center;
-                margin-right: 90px;
+                margin-right: 25%;
             }
         
             #profile-description-paragraph {
@@ -131,22 +129,17 @@
                 border-collapse: collapse;
                 overflow-y:scroll;
             }
-
-            #menu-buttons {
-                display: flex;
-                flex-direction: column;
-            }
         
             #menu-favorites {
                 display:flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                margin-left: 8px;
-                padding-left: 112px;
-                padding-right: 115px;
-                padding-top: 10px;
-                padding-bottom: 10px;
+                margin-left: 4%;
+                padding-left: 42%;
+                padding-right: 42%;
+                padding-top: 15%;
+                padding-bottom: 10%;
                 box-shadow: none;
                 border: 1px solid grey;
             }
@@ -156,11 +149,11 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                margin-left: 7px;
-                padding-left: 95px;
-                padding-right: 51px;
-                padding-top: 15px;
-                padding-bottom: 15px;
+                margin-left: 4%;
+                padding-left: 28%;
+                padding-right: 24%;
+                padding-top: 12%;
+                padding-bottom: 12%;
                 font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
                 font-size: 14px; 
                 box-shadow: none;
@@ -169,28 +162,30 @@
         
             #menu-request {
                display: flex;
-                flex-direction: column;
+                display-direction: row;
                 justify-content: center;
                 align-items: center;
-                margin-left: 7px;
-                padding-left: 86px;
-                padding-right: 44px;
-                padding-top: 20px;
-                padding-bottom: 15px;
+                margin-left: 4%;
+
+                padding-left: 34%;
+                padding-right: 34%;
+                padding-top: 18%;
+                padding-bottom: 18%;
                 font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
                 font-size: 14px; 
                 box-shadow: none;
                 border: 1px solid grey;
+                border-right: 1px solid grey;
             }
         
             #menu-share {
                 display: flex;
                 flex-direction: column;
-                margin-left: 7px;
-                padding-left: 105px;
-                padding-right: 116px;
-                padding-top: 15px;
-                padding-bottom: 15px;
+                margin-left: 4%;
+                padding-left: 40%;
+                padding-right: 40%;
+                padding-top: 12%;
+                padding-bottom: 12%;
                 font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
                 font-size: 14px; 
                 box-shadow: none;
@@ -205,20 +200,20 @@
                         
 
                        <paper-dialog class = "metadata-fields">  
-                                <iron-meta key = "book_title"><h2> <!-- {{titleValue}} -->The Snow Child </h2></iron-meta>
-                                <iron-meta key = "book_author"><h4> <!-- {{authorValue}} -->Author: Eowyn Ivey </h4></iron-meta>
-                                <iron-meta key = "book_publisher"><h4> <!-- {{publisherValue}} -->Publisher: Random House  </h4></iron-meta>
-                                <iron-meta key = "book_location_published"><h4> <!-- {{pubLocationValue} -->Location Published: New York, NY  </h4> </iron-meta>
-                                <iron-meta key = "book_ISBN"><h4> <!-- {ISBNValue} --> ISBN: 02395234562  </h4>
-                        </paper-dialog></iron-meta>
+                                <h2> The Snow Child </h2>
+                                <h4> Author: Eowyn Ivey </h4>
+                                <h4> Publisher: Random House  </h4>
+                                <h4> Location Published: New York, NY  </h4> 
+                                <h4> ISBN: 02395234562  </h4>
+                        </paper-dialog>
                        
                     </div>
 
                     <div id = "profile-description-div">
                         <h3><i> Summary: </i></h3>
-                        <iron-meta key ="book-desc"><paper-dialog id = "profile-description-paragraph">
+                        <paper-dialog id = "profile-description-paragraph">
                           <!-- {{descValue}} -->Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
-                        </paper-dialog> </iron-meta>
+                        </paper-dialog> 
 
                     </div>
 
@@ -229,11 +224,12 @@
 
                             <table>  
                                 <tr> 
-                                   <iron-meta key = "related-row-1-1"> <th> <p>  <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+                                    <th> <p>  <!--{{rowValue}} --> Some related book by some person </p></th> 
 
-                                    <iron-meta key = "related-row-1-2"> <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+                                    <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> 
 
-                                    <iron-meta key = "related-row-1-3"> <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+                                    <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> 
+
                                 </tr>
                             </table>
 
@@ -242,11 +238,11 @@
                         <div id = "table-div-row-2">
                             <table>
                                  <tr> 
-                                    <iron-meta key = "related-row-2-1"><th> <p> <!--{{rowValue}} -->Some related book by some person </p></th> </iron-meta>
+                                    <th> <p> <!--{{rowValue}} -->Some related book by some person </p></th> 
 
-                                    <iron-meta key = "related-row-2-2"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+                                    <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> 
 
-                                    <iron-meta key = "related-row-2-3"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+                                    <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th>
 
                                 </tr>
                             </table>
@@ -255,11 +251,12 @@
                         <div id = "table-div-row-3">
                             <table>
                                 <tr>
-                                    <iron-meta key = "related-row-3-1"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+                                    <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> 
 
-                                    <iron-meta key = "related-row-3-2"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+                                    <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> 
 
-                                    <iron-meta key = "related-row-3-3"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th></iron-meta> 
+                                    <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th>
+
                                 </tr>
                             </table>
                         </div>
@@ -271,7 +268,7 @@
                     <div id="book-information-right">
 
                         <div id = "profile-image-div">
-                             <iron-meta key = "book_cover"> <!-- src = {{coverValue}}--> <img id = "profile-image" src = "https://images.gr-assets.com/books/1328346473l/11804125.jpg" alt = "Snow Child"> </iron-meta>
+                           <img id = "profile-image" src = "https://images.gr-assets.com/books/1328346473l/11804125.jpg" alt = "Snow Child"> 
 
                         </div>
 
