@@ -3,6 +3,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
 
@@ -94,6 +95,11 @@
             }
         </style>
 
+        <app-route
+            route="{{route}}"
+            pattern="/:search"
+            data="{{routeData}}">
+        </app-route>
         
         <div id = "result-entry-wrapper" class="border-color">
             <template is="dom-repeat" items="[[testData]]">

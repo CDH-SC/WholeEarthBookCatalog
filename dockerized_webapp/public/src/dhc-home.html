@@ -6,7 +6,9 @@
 <link rel="import" href="frag-header.html">
 <link rel="import" href="dhc-book-rotation.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
 
 <dom-module id="dhc-home">
     <template>
@@ -112,6 +114,18 @@
             }
         </style>
 
+        <iron-ajax
+            method="POST"
+            id="neoPost"
+            url="/api/neo4j"
+            handle-as="json"
+            on-response="_handleResponse"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <app-location route="{{route}}"></app-location>
+
         <div class="container">
             <div class="inner-container">
                 <h1 id="title-center">DHC</h1>
@@ -158,6 +172,9 @@
                 },
                 search: {
                     type: String
+                },
+                result: {
+                    type: Object
                 }
             };
         }
@@ -185,13 +202,26 @@
         }
 
         _goto_search() {
-            // this.set("route.path", "/book-results");
+            console.log("hello");
+            this.$.neoPost.body = {
+                "statement": "MATCH (m) WHERE m.title CONTAINS { keyword } RETURN DISTINCT m LIMIT 10",
+                "keyword": this.search
+            }
+            this.$.neoPost.generateRequest();
         }
 
         _enter_check(e) {
+            console.log("enter checl");
             if (e.keyCode === 13) {
+                console.log("going to goto");
                 this._goto_search();
             }
+        }
+
+        _handleResponse(e) {
+            console.log("handled");
+            console.log(e.detail.response);
+            this.set("route.path", "/book-results/" + this.search);
         }
     }
     window.customElements.define(dhcHome.is, dhcHome);
