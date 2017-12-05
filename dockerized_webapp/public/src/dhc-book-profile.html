@@ -206,20 +206,20 @@
                     <div id = "profile-metadata-div">
 
                        <paper-dialog class = "metadata-fields">  
-                                <h2> The Snow Child </h2>
-                                <h4> Author: Eowyn Ivey </h4>
-                                <h4> Publisher: Random House  </h4>
-                                <h4> Location Published: New York, NY  </h4>
-                                <h4> ISBN: 02395234562  </h4>
-                        </paper-dialog>
+                                <iron-meta key = "book_title"><h2> <!-- {{titleValue}} -->The Snow Child </h2></iron-meta>
+                                <iron-meta key = "book_author"><h4> <!-- {{authorValue}} -->Author: Eowyn Ivey </h4></iron-meta>
+                                <iron-meta key = "book_publisher"><h4> <!-- {{publisherValue}} -->Publisher: Random House  </h4></iron-meta>
+                                <iron-meta key = "book_location_published"><h4> <!-- {{pubLocationValue} -->Location Published: New York, NY  </h4> </iron-meta>
+                                <iron-meta key = "book_ISBN"><h4> <!-- {ISBNValue} --> ISBN: 02395234562  </h4>
+                        </paper-dialog></iron-meta>
                        
                     </div>
 
                     <div id = "profile-description-div">
                         <h3><i> Summary: </i></h3>
-                        <paper-dialog id = "profile-description-paragraph">
-                            Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
-                        </paper-dialog>
+                        <iron-meta key ="book-desc"><paper-dialog id = "profile-description-paragraph">
+                          <!-- {{descValue}} -->Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
+                        </paper-dialog> </iron-meta>
 
                     </div>
 
@@ -230,9 +230,11 @@
 
                             <table>  
                                 <tr> 
-                                    <th> <p>  Some related book by some person </p></th>
-                                    <th> <p>  Some related book by some person </p></th>
-                                    <th> <p>  Some related book by some person </p></th>
+                                   <iron-meta key = "related-row-1-1"> <th> <p>  <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+
+                                    <iron-meta key = "related-row-1-2"> <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+
+                                    <iron-meta key = "related-row-1-3"> <th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
                                 </tr>
                             </table>
 
@@ -241,9 +243,12 @@
                         <div id = "table-div-row-2">
                             <table>
                                  <tr> 
-                                    <th> <p>  Some related book by some person </p></th>
-                                    <th> <p>  Some related book by some person </p></th>
-                                    <th> <p>  Some related book by some person </p></th>
+                                    <iron-meta key = "related-row-2-1"><th> <p> <!--{{rowValue}} -->Some related book by some person </p></th> </iron-meta>
+
+                                    <iron-meta key = "related-row-2-2"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+
+                                    <iron-meta key = "related-row-2-3"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+
                                 </tr>
                             </table>
                         </div>
@@ -251,9 +256,11 @@
                         <div id = "table-div-row-3">
                             <table>
                                 <tr>
-                                    <th> <p>  Some related book by some person </p></th>
-                                    <th> <p>  Some related book by some person </p></th>
-                                    <th> <p>  Some related book by some person </p></th>
+                                    <iron-meta key = "related-row-3-1"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+
+                                    <iron-meta key = "related-row-3-2"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th> </iron-meta>
+
+                                    <iron-meta key = "related-row-3-3"><th> <p> <!--{{rowValue}} --> Some related book by some person </p></th></iron-meta> 
                                 </tr>
                             </table>
                         </div>
@@ -265,7 +272,7 @@
                     <div id="book-information-right">
 
                         <div id = "profile-image-div">
-                             <img id = "profile-image" src = "https://images.gr-assets.com/books/1328346473l/11804125.jpg" alt = "Snow Child">
+                             <iron-meta key = "book_cover"> <!-- src = {{coverValue}}--> <img id = "profile-image" src = "https://images.gr-assets.com/books/1328346473l/11804125.jpg" alt = "Snow Child"> </iron-meta>
 
                         </div>
 
@@ -297,6 +304,8 @@
     <script>
         class dhcBookProfile extends Polymer.Element {
             static get is() { return 'dhc-book-profile'; }
+
+
         }
         window.customElements.define(dhcBookProfile.is, dhcBookProfile);
     </script>
