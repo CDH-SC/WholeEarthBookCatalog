@@ -14,6 +14,7 @@
 <link rel="lazy-import" href="dhc-book-results.html">
 <link rel="import" href="dhc-user-account.html">
 <link rel="lazy-import" href="dhc-book-profile.html">
+<link rel="import" href="frag-header.html">
 
 <dom-module id="dhc-main">
     <template>
@@ -22,6 +23,10 @@
                 position: fixed;
                 height: 100vh;
                 width: 100vw;
+            }
+
+            app-header {
+                height: 60px;
             }
         </style>
 
@@ -39,6 +44,9 @@
             tail="{{subroute}}">
         </app-route>
 
+        <app-header>
+            <frag-header user="[[user]]"></frag-header>
+        </app-header>
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -117,8 +125,6 @@
         }
 
         _onUpdateUserData(event) {
-            console.log("Event triggered");
-            console.log(this.$.please);
             this.$.please.updateUser(event.detail);
         }
     }

@@ -3,7 +3,6 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
 
@@ -16,13 +15,13 @@
 
             #result-entry-wrapper {
                 width: 100%;
-                height: 75%;
-                /*make more responsive*/
+                height: calc(100% - 60px);
+                overflow:scroll;
             }
 
-            #result-item-info {
-                height: 60%;
-                display: flex;/*relate to container element*/
+            .result-item-info {
+                height: 250px;
+                display: flex; /*relate to container element*/
                 border: 1px solid grey;
             }
 
@@ -80,7 +79,7 @@
                 justify-content: center;
             }
 
-                .paper-metadata > h2{
+            .paper-metadata > h2{
                 margin: 0px;
             }
 
@@ -94,31 +93,38 @@
                 border: 1px solid grey;
             }
         </style>
-        <frag-header> </frag-header>
-        <div id = "result-entry-wrapper">
-            <div id = "result-item-info">
-                <image id = "result-item-image" src= "../images/clockwork_small.jpg"></image>
 
-                <paper-dialog class = "paper-metadata">
-                    <h2>The Snow Child </h2> 
-                    <h4> Eowyn Ivey </h4> 
-                    <h4> Genres: Fantasy, Historical Fiction, Fairy Tale </h4>
-                    <h4> Publisher: Reagan Arthur Books </h4> 
-                    <h4> Originally Published: 1942 </h4>
-                </paper-dialog>
-
-                <div id = "result-item-menu">
-                    <paper-button id = "result-item-view-profile"> View Profile </paper-button> 
+        
+        <div id = "result-entry-wrapper" class="border-color">
+            <template is="dom-repeat" items="[[testData]]">
+                <div class="result-item-info border-color">
+                    <image id = "result-item-image" class="border-color" src= "../images/clockwork_small.jpg"></image>
+    
+                    <paper-dialog class = "paper-metadata border-color">
+                        <h2>{{item.title}}</h2> 
+                        <h4>{{item.author}}</h4> 
+                        <h4> Genres: 
+                            <template is="dom-repeat" items="[[item.genres]]" as="genre">
+                                {{genre}}
+                            </template>
+                        </h4>
+                        <h4> Publisher: {{item.publisher}}</h4> 
+                        <h4> Originally Published: {{item.year}} </h4>
+                    </paper-dialog>
+    
+                    <div id = "result-item-menu" class="border-color">
+                        <paper-button on-click="" id = "result-item-view-profile" class="border-color"> View Profile </paper-button> 
                         <div id = "result-paired-buttons"> 
-                            <paper-button id = "result-item-request"> Request </paper-button>
-                            <paper-button id = "result-item-like" title = "heart" id = "result-item-like"> Like </paper-button> 
+                            <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
+                            <paper-button id = "result-item-like" title = "heart" id = "result-item-like" class="border-color"> Like </paper-button> 
                         </div>
-
-                        <paper-button id = "result-item-share"> 
+    
+                        <paper-button id = "result-item-share" class="border-color"> 
                             Share
                         </paper-button>
+                    </div>
                 </div>
-            </div>
+            </template>
         </div>
         <frag-footer> </frag-footer>
     </template>
@@ -127,14 +133,50 @@
             static get is() { return 'dhc-book-results'; }
             static get properties() {
                 return {
-                        rootPath: String,
+                    rootPath: String,
+                    search: {
+                        type: String,
+                        value: "HI"
+                    },
+                    testData: {
+                        type: Array,
+                        value: [{
+                            title: "A Clockwork Orange0",
+                            author: "Guy",
+                            publisher: "Guy house",
+                            Genres: ["good","book","genre"],
+                            year: "1987"
+                        },
+                        {
+                            title: "A Clockwork Orange1",
+                            author: "Guy",
+                            publisher: "Guy house",
+                            genres: ["good","book","genre"],
+                            year: "1987"
+                        },
+                        {
+                            title: "A Clockwork Orange2",
+                            author: "Guy",
+                            publisher: "Guy house",
+                            Genres: ["good","book","genre"],
+                            year: "1987"
+                        },
+                        {
+                            title: "A Clockwork Orange3",
+                            author: "Guy",
+                            publisher: "Guy house",
+                            Genres: ["good","book","genre"],
+                            year: "1987"
+                        },
+                        {
+                            title: "A Clockwork Orange4",
+                            author: "Guy",
+                            publisher: "Guy house",
+                            Genres: ["good","book","genre"],
+                            year: "1987"
+                        }]
+                    }
                 }
-            }
-            toggle() {
-                var listElement = document.getElementbyId("toggle-list");
-                var graphElement = document.getElementbyId("toggle-graph");
-
-                //transfer to list view / transfer to graph view 
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);

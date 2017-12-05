@@ -95,8 +95,6 @@
                         this.set('errorMessage', e.detail.response["Invalid Password"]);
                     }
                     else {
-
-                        console.log("dispatch event");
                         this.dispatchEvent(new CustomEvent('update-user', {
                             bubbles: true, composed: true, detail: {
                                 user: e.detail.response,
