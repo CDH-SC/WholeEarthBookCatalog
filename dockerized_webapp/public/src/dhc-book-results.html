@@ -1,4 +1,3 @@
-l
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
@@ -6,19 +5,12 @@ l
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
-<link rel="stylesheet" href="shared-styles.css">
-
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="dhc-book-results">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.7/webcomponents-lite.min.js"></script>
-
   <template>
 
     <style include=" shared-styles iron-flex iron-flex-alignment">
-     
-        .flex-fill {
-            @apply --layout-flex;
-        }
 
         .container {
           @apply --layout-horizontal;
@@ -27,69 +19,115 @@ l
         #result-entry-wrapper {
           width: 100%;
           height: 75%;
-          top: 400px; /*make more responsive*/
+          /*make more responsive*/
 
         }
 
         #result-item-info {
-          width: 100%;
-          height: 53%;
-          top: 400px; /*relate to container element*/
+         
+          height: 60%;
+          display: flex;/*relate to container element*/
+          border: 1px solid grey;
+
 
         }
 
         #result-item-image {
-          height: 48%;
-          padding-bottom: 5%;
-          padding-top: 1%;
-          padding-left: 5%;
-          position: absolute; /* better alternative */
+          margin-left: 50px;
+          margin-top: 20px;
+          width: 140px;
+          height: 200px;
+
+
+          
+           /* better alternative */
         }
+
+
 
         #result-item-menu {
           width: 20%;
-          height: 40%;
-          right: 0px;
-          top: 105px;  /*get max height*/ 
-          background-color: blue;
-          position: absolute;
+          height: 100%;
+          border: 1px solid grey;
+          display: flex;
+          flex-direction: column;
+          border-top:none;
+          border-bottom:none;
+      
+        
+           /*get max height*/ 
         }
 
         #result-item-view-profile {
           width: 100%;
-          height: 55%;
-          right: 0px;
-          position: absolute;
-          top: 0px;
-          bottom: 152px;
-
+          height: 33.3%;
+           padding:0px;
+          border-top: none;
+          
+         
+        
+          
+       
         }
 
         #result-item-request {
-          top: 95px;
-          width:50%;
-          position: absolute;
-          height: 28%;
+           padding:0px;
+          width: 50%;
+          height: 33.3%;
+        
+          
+        }
+
+        #result-paired-buttons {
+            display: flex;
         }
 
         #result-item-like {
-          top: 95px;
+          padding: 0px;
           width: 50%;
-          position: absolute;
-          height: 28%;
+          height: 33.3%;
+         
+          
         }
 
         #result-item-share {
-          top: 160px;
-          position: absolute;
-          width: 100%;
-          height: 36%;
-          bottom: 0px;
+
+         
+         width: 100%;
+         height: 34%;
+         border-top: none;
+         
+         
         }
+
+        .paper-metadata {
+            flex-grow: 1;
+            margin-left: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+         .paper-metadata > h2{
+            margin: 0px;
+        }
+
+        .paper-metadata > h4{
+            margin: 0px;
+        }
+
+        paper-button {
+            margin: 0px;
+            box-shadow: none;
+            border: 1px solid grey;
+        }
+
+
 
    </style>
 
-    <template>
+ 
 
         <frag-header> </frag-header>
 
@@ -97,32 +135,41 @@ l
 
                 <div id = "result-item-info">
 
-                  <iron-image src= "https://images.gr-assets.com/books/1327098624l/11250053.jpg" preload sizing="cover" id = "result-item-image"></iron-image>
+                  <image id = "result-item-image" src= "../images/clockwork_small.jpg"></image>
 
-                  <paper-dialog style = "left: 275px; position: relative;">
-                    <h2 style = "padding-top: 2%;">The Snow Child </h2> <br>
-                    <h4> Eowyn Ivey </h4> <br> 
-                    <h4> Genres: Fantasy, Historical Fiction, Fairy Tale </h4> <br>
-                    <h4> Publisher: Reagan Arthur Books </h4> <br> 
+                  <paper-dialog class = "paper-metadata">
+                    <h2>The Snow Child </h2> 
+                    <h4> Eowyn Ivey </h4> 
+                    <h4> Genres: Fantasy, Historical Fiction, Fairy Tale </h4>
+                    <h4> Publisher: Reagan Arthur Books </h4> 
                     <h4> Originally Published: 1942 </h4>
 
                   </paper-dialog>
 
+                  <div id = "result-item-menu">
+
+                      <paper-button id = "result-item-view-profile"> View Profile </paper-button> 
+
+                      <div id = "result-paired-buttons"> 
+                          <paper-button id = "result-item-request"> Request </paper-button>
+
+                          <paper-button id = "result-item-like" title = "heart" id = "result-item-like"> Like </paper-button> 
+
+                     </div>
+
+                      <paper-button id = "result-item-share"> 
+                        Share  <br> 
+                       
+                      </paper-button>
+                  </div>  
+
                </div>
               
-               <div id = "result-item-menu">
+              
 
-                  <paper-button raised id = "result-item-view-profile"> View Profile </paper-button> 
-                  <paper-button raised id = "result-item-request"> Request </paper-button>
+                  
 
-                  <paper-icon-button raised icon = "favorite" title = "heart" id = "result-item-like">  </paper-icon-button> 
-
-                  <paper-button raised id = "result-item-share"> 
-                    Share  <br> 
-                   
-                  </paper-button>
-
-                </div>
+               
 
               </div>
 

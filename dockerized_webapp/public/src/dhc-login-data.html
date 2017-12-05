@@ -15,6 +15,7 @@
                     user: {
                         type: Object,
                         notify: true,
+                        observer: "_user_changed"
                     },
 
                     updateUser: {
@@ -24,7 +25,12 @@
             }
 
             updateUser(data) {
+                console.log("update user");
                 this.set('user', data);
+                console.log(this.user);
+            }
+            _user_changed() {
+                console.log("user set to: ", this.user);
             }
         }
         window.customElements.define(dhcLoginData.is, dhcLoginData);

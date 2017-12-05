@@ -5,459 +5,255 @@
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="frag-header.html">
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="shared-styles.html">
 
-<link rel="stylesheet" href="shared-styles.html">
+<dom-module id="dhc-user-account">
+    <template>
+        <style include="iron-flex iron-flex-alignment shared-styles">
 
-<dom-module id="dhc-user-login">
-  <template>
+            /* iron flex style properties */
 
-     <style is = "custom-style" include="iron-flex iron-flex-alignment shared-styles">
+            .horizontal-wrapper {
+                    @apply --layout-horizontal;
+                    @apply --layout-wrap;
+            }
+    
+                .flex-fill {
+                        @apply --layout-flex;
+                }
 
-      /* iron flex style properties */
+            .flex-fill-book-gallery {
+                        @apply --layout-2;
+                }
 
-        .horizontal-wrapper {
-            @apply --layout-horizontal;
-            @apply --layout-wrap;
-        }
-   
-         .flex-fill {
-             @apply --layout-flex;
-         }
+         /* Large features */
 
-        .flex-fill-book-gallery {
-             @apply --layout-2;
-         }
+            .user-header {
 
-     /* Large features */
+            }
 
-      .user-header {
+            .header-wrapper {
+                margin: auto;
+                width: 50%;
+                margin-top: 20%;
 
-      }
+            }
 
-      .header-wrapper {
-        margin: auto;
-        width: 50%;
-        margin-top: 20%;
+            /* Small features */
 
-      }
+            .logo {
+                font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
+                left: 10px;
+                position: relative;
+                font-size: 30px;
+            }
 
-      /* Small features */
+            .user-info-container {
 
-      .logo {
-        font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
-        left: 10px;
-        position: relative;
-        font-size: 30px;
-      }
+            }
 
-      .user-info-container {
+            #user-username {
+                 left: 5px; 
+                 top: 15px; 
+                 position: relative; 
+                 font-family:  Tw Cent MT, Trebuchet MS, Arial, sans-serif;
+            }
 
-      }
+            #user-email {
+                left: 5px;
+                top: 25px;
+                position: relative;
+                font-family:  Tw Cent MT, Trebuchet MS, Arial, sans-serif;
+            }
 
-      #user-username {
-         left: 5px; 
-         top: 15px; 
-         position: relative; 
-         font-family:  Tw Cent MT, Trebuchet MS, Arial, sans-serif;
-      }
+            #user-change-password {
+                right: 0px;
+                font-size: 14px;
+                font-family:  Tw Cent MT, Trebuchet MS, Arial, sans-serif;
+                color: #4069ff;
+            }
 
-      #user-email {
-        left: 5px;
-        top: 25px;
-        position: relative;
-        font-family:  Tw Cent MT, Trebuchet MS, Arial, sans-serif;"
-      }
+            #user-carousel-favorites {
 
-      #user-change-password{
-        right: 0px;
-        font-size: 14px;
-        font-family:  Tw Cent MT, Trebuchet MS, Arial, sans-serif;"
-        color: #4069ff;
-      }
+            }
 
-      #user-carousel-favorites {
+            #user-carousel-recently-viewed {
 
-      }
+            }
 
-      #user-carousel-recently-viewed {
+            #user-carousel-recently-searched {
 
-      }
+            }
 
-      #user-carousel-recently-searched {
+            .carousel-slide {
 
-      }
+            }
 
-      .carousel-slide {
+            .carousel-current-item {
 
-      }
+            }
 
-      .carousel-current-item {
+            .carousel-item-set {
+                
+            }
 
-      }
+            #rs-items-left {
+                text-align: left;
+                top: 50px;
+                position: relative;
+                left: 0px;
 
-      .carousel-item-set {
-        
-      }
+            }
 
-      #rs-items-left {
-        text-align: left;
-        top: 50px;
-        position: relative;
-        left: 0px;
+            #rs-items-center {
+                text-align: center;
+                bottom: 60px;
+                position: relative;
+                right: 15px;
 
-      }
+            }
 
-      #rs-items-center {
-        text-align: center;
-        bottom: 60px;
-        position: relative;
-        right: 15px;
+            #rs-items-right {
+                text-align: right;
+                right: 20px;
+                position: absolute;
+                top: 72px;
+            }
 
-      }
+            paper-input {}
 
-      #rs-items-right {
-        text-align: right;
-        right: 20px;
-        position: absolute;
-        top: 72px;
-      }
+        </style>
 
-      paper-input {}
+        <frag-header></frag-header>
 
-    </style>
-
-
-    <app-header> 
-      <div class = "container">
-        <div class = "user-header">
-            <!-- contains:
-                  one logo
-                  one colored span w/ <p> Hi User </p>  --> 
-
-              <p class = "logo"> DHC </p>
-
-              <span class = "greeting-span"> <p> Hello, User </p> </span> <!-- add in separate function for feeding in a user's name  --> 
-
-        </div>
-          <div class = "user-info-container">
-
+        <div class = "container">
+            <div class = "user-header">
+                <p class = "logo"> DHC </p>
+                <span class = "greeting-span"> <p> Hello, User </p> </span> <!-- add in separate function for feeding in a user's name  --> 
+            </div>
+            <div class = "user-info-container">
                 <p id = "user-username"> <i> <strong> Username </strong> </i> </p>
                 <p id = "user-email"> Email: username@email.com </p> 
-
                 <button type = "button" onclick = changePassword()> <u> Change Password </u> </button>
-
-          </div>
+            </div>
 
             <paper-dropdown-menu label = "Favorites"> 
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;">
+                    <iron-meta id = "meta-favorites"> </iron-meta>
 
-                  <iron-meta id = "meta-favorites"> </iron-meta>
+                    <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev"></a>
+                    <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
+                    <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next"></a>
+                    <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span> 
 
-                  <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
-                         <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
+                    <paper-item id = "favorites-carousel">
 
-                        <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next">
-                        <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span> 
-
-                  <paper-item id = "favorites-carousel">
-
-                  </paper-item>
-
-                    <!-- now add polymer carousel OR add in original HTML carousel
-                         just add in original carousels for now with JS scripts --> 
-
-
-
-                    <!-- <div id = "user-carousel-favorites" class = "carousel-slide" data-ride = "carousel">
-                         <ol class = "carousel-slides-favorites">
-                           <li data-target="#carousel-home" data-slide-to="0" class = "active flex-carousel-ratio"></li>
-                           <li data-target="#carousel-home" data-slide-to="1" class = "flex-carousel-ratio"></li>
-                           <li data-target="#carousel-home" data-slide-to="2" class = "flex-carousel-ratio"></li>
-                         </ol>
-
-                        <div class = "carousel-content" role = "listbox">
-                             <div class = "carousel-current-item">
-
-
-                            <!-- include image set here
-                                  where can this data be fed from? --> 
-
-                             <!-- </div>
-                             <div class = "carousel-item-set"> -->
-                            <!-- include image set here--> 
-
-                             <!-- </div>
-                             <div class = "carousel-item-set">
-
-                            -->
-                            <!-- include image set here--> 
-
-                             <!-- </div>
-
-                        </div>  -->
-
-                          
-
-                          <!-- replace with polymer icon iconset --> 
-                         
-
-                    </div>
-
+                    </paper-item>
                 </paper-listbox>
-             </paper-dropdown-menu>  
-
-        </div>
-        <div> 
+            </paper-dropdown-menu>  
 
             <paper-dropdown-menu label = "Recently Viewed"> 
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;">
-
-                    <!-- now add polymer carousel OR add in original HTML carousel
-                         fuck it just add in original carousels for now with JS scripts --> 
-
                     <paper-item id = "recently-viewed-carousel">
-                      <iron-meta id = "meta-viewed"> </iron-meta>
-
+                        <iron-meta id = "meta-viewed"> </iron-meta>
                     </paper-item>
 
+                    <ol class = "carousel-slides-recently-viewed">
+                        <li data-target="#carousel-home" data-slide-to="0" class = "active flex-carousel-ratio"></li>
+                        <li data-target="#carousel-home" data-slide-to="1" class = "flex-carousel-ratio"></li>
+                        <li data-target="#carousel-home" data-slide-to="2" class = "flex-carousel-ratio"></li>
+                    </ol>
 
+                    <div class = "carousel-content" role = "listbox">
+                        <div class = "carousel-current-item">
+                    <!-- include image set here--> 
 
-              
-                         <ol class = "carousel-slides-recently-viewed">
-                           <li data-target="#carousel-home" data-slide-to="0" class = "active flex-carousel-ratio"></li>
-                           <li data-target="#carousel-home" data-slide-to="1" class = "flex-carousel-ratio"></li>
-                           <li data-target="#carousel-home" data-slide-to="2" class = "flex-carousel-ratio"></li>
-                         </ol>
+                        </div>
+                        <div class = "carousel-item-set">
+                    <!-- include image set here--> 
 
-                        <div class = "carousel-content" role = "listbox">
-                             <div class = "carousel-current-item">
-                            <!-- include image set here--> 
+                        </div>
+                        <div class = "carousel-item-set">
+                    <!-- include image set here--> 
+                        </div>
+                    </div>  
 
-                             </div>
-                             <div class = "carousel-item-set">
-                            <!-- include image set here--> 
+                    <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev"></a>
+                    <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
 
-                             </div>
-                             <div class = "carousel-item-set">
-                            <!-- include image set here--> 
+                    <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next"></a>
+                    <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span> 
 
-                             </div>
-                        </div>  
-
-                         <a class = "left-carousel-control" href="#carousel-home" role = "button" data-slide ="prev">
-                         <span class = "glyphicon glyphicon-arrow-left" aria-hidden = "true"> </span>
-
-                        <a class = "right-carousel-control" href="#carousel-home" role = "button" data-slide ="next">
-                        <span class = "glyphicon glyphicon-arrow-right" aria-hidden = "true"> </span> 
-                        
-                    </div>
-
-
-                      <paper-button on-click="_set_carousel_b" class = "chev-cir"> <iron-icon class="chev-button" icon="chevron-left"> </iron-icon> </paper-button>
-
-
-
-
-                      <paper-button on-click="_set_carousel_f" class="chev-cir"><<iron-icon class = "chev-button" icon="chevron-right"></iron-icon> </paper-button>
+                    <paper-button on-click="_set_carousel_b" class = "chev-cir"> <iron-icon class="chev-button" icon="chevron-left"> </iron-icon> </paper-button>
+                    <paper-button on-click="_set_carousel_f" class="chev-cir"><<iron-icon class = "chev-button" icon="chevron-right"></iron-icon> </paper-button>
 
                 </paper-listbox>
-             </paper-dropdown-menu>  
-
-
-
-          </div> <!-- dd -->
-          <div id = "recent-search"> 
-
-             <paper-dropdown-menu label = "Recently Searched"> 
+            </paper-dropdown-menu>  
+        </div> <!-- dd -->
+        <div id = "recent-search"> 
+            <paper-dropdown-menu label = "Recently Searched"> 
                 <paper-listbox slot= "dropdown-content" style = "background-color: #faebd7;"> 
                     <!-- actually dont need a carousel for this section  --> 
+                    <ul id = "recently-searched-items">
+                        <ul id = "rs-items-left"> <!-- implement script for recently searched items here -->
 
-                  <ul id = "recently-searched-items">
+                            <paper-item>
+                                <iron-meta key = "searched-1"><span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}}</p> </span> </iron-meta>
+                            </paper-item>
 
-                    <ul id = "rs-items-left"> <!-- implement script for recently searched items here -->
+                            <paper-item>
+                                <iron-meta key = "searched-2"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}}</p> </span> </iron-meta>
+                            </paper-item>
 
-                       <paper-item>
-                         <iron-meta key = "searched-1"><span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}}</p> </span> </iron-meta>
-                       </paper-item>
+                            <paper-item>
+                                <iron-meta key = "searched-3"><span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}}</p> </span> </iron-meta>
+                            </paper-item>
+                        </ul>
 
-                       <paper-item>
-                        <iron-meta key = "searched-2"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}}</p> </span> </iron-meta>
-                       </paper-item>
+                        <ul id = "rs-items-center">
+                            <paper-item>
+                                <iron-meta key = "searched-4"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
+                            </paper-item>
 
-                       <paper-item>
-                         <iron-meta key = "searched-3"><span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}}</p> </span> </iron-meta>
-                       </paper-item>
+                            <paper-item>
+                                <iron-meta key = "searched-5"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
+                            </paper-item>
 
+                            <paper-item>
+                                <iron-meta key = "searched-6"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
+                            </paper-item>
 
+                        </ul>
+
+                        <ul id = "rs-items-right">
+                            <paper-item>
+                                <iron-meta key = "searched-7"><span style = "background-color: blue"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
+                            </paper-item>
+
+                            <paper-item>
+                                <iron-meta key = "searched-8"><span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
+                            </paper-item>
+
+                            <paper-item>
+                                <iron-meta key = "searched-9"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
+                            </paper-item>
+
+                        </ul>
                     </ul>
-
-                     <ul id = "rs-items-center">
-
-                       <paper-item>
-                         <iron-meta key = "searched-4"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
-                       </paper-item>
-
-                       <paper-item>
-
-                        <iron-meta key = "searched-5"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
-                       </paper-item>
-
-                       <paper-item>
-                         <iron-meta key = "searched-6"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
-                       </paper-item>
-
-                    </ul>
-
-                      <ul id = "rs-items-right">
-
-                       <paper-item>
-                         <iron-meta key = "searched-7"><span style = "background-color: blue"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
-                       </paper-item>
-
-                       <paper-item>
-                         <iron-meta key = "searched-8"><span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
-                       </paper-item>
-
-                       <paper-item>
-                        <iron-meta key = "searched-9"> <span style = "background-color:blue;"> <p> The Snow Child by Eowyn Ivey {{metaVal}} </p> </span> </iron-meta>
-                       </paper-item>
-
-                    </ul>
-
-                  </ul>
-
-
                 </paper-listbox>
-             </paper-dropdown-menu>  
-
-          </div> <!-- dd -->
-          <!-- dd -->
-
-          <frag-footer></frag-footer>
-
-        </div>
-      </app-header>
-
-       </template>
-
-        <script>
-
-            class dhcUserAccount extends Polymer.Element {
-                static get is() { return 'dhc-user-account'; }
-                static get properties() {
-                    return {
-                      rootPath: String,
-                      mySession: {
-                        type: String,
-                        notify: true,
-                        observer: "_testo" /* ? */
-                      },
-
-                      
-                      book_rec_size: {
-                        type: Number,
-                        value: 5,
-                        observer: "book_rec_size_changed"
-                      },
-
-                      favorite_book_covers: {
-                        type: Array,
-                        value: ['../images/clockwork_small.jpg','../images-animators-cover.jpg','../images/creative_bookcover.png','../images/girl-with-dragon-tattoo-medium.jpg','im-cover-150px.jpg'],
-
-                      },
-
-                      favorite_book_display: {
-                        type: Array,
-                      },
-
-                      recently_viewed_book_covers: {
-                        type: Array,
-                        value: ['../images/clockwork_small.jpg','../images-animators-cover.jpg','../images/creative_bookcover.png','../images/girl-with-dragon-tattoo-medium.jpg','im-cover-150px.jpg'],
-                      },
-
-                      recently_viewed_book_display: {
-                        type: Array
-                      }
-                    };
-                }
-
-                constructor() {
-                  super();
-                  this._windowsResize = this._resize.bind(this);
-                }
-
-                ready() {
-                  super.ready();
-                  this._resize();
-                  this.favorite_book_display = [];
-                  this.recently_viewed_book_display = [];
-
-                  console.log("REC", this.book_rec_size);
-
-                  for(var i = 0; i < this.book_rec_size; i++) {
-                    this.push('favorite-book-display', this.favorite_book_covers[i]);
-                  }
-
-                  for(var i = 0; i < this.book_rec_size; i++) {
-                    this.push('recently_viewed_book_display', this.recently_viewed_book_covers[i]);
-                  }
-
-                  console.log(this.favorite_book_display);
-                  console.log(this.recently_viewed_book_display);
-
-                }
-
-                connectedCallback() {
-                  super.connectedCallback();
-
-                  window.addEventListener('resize', this._windowsResize);
-                }
-
-
-
-                _book_rec_size_changed(oldSize, newSize){
-
-
-                }
-                  /* must incorporate both carousels */
-                _set_image_f() {
-
-                  var coverIndexViewed = this.recently_viewed_book_covers.indexOf(this.recently_viewed_book_display[this.recently_viewed_book_display.length-1]) + 1;
-
-                  var coverIndexFav = this.favorite_book_covers.indexOf(this.favorite_book_display[this.favorite_book_display.length-1]) + 1;
-
-                  if(coverIndexFav >= this.favorite_book_covers.length) {
-                      coverIndexFav = 0;
-                  }
-
-                  if(coverIndexViewed >= this.recently_viewed_book_covers.length) {
-                    coverIndexViewed = 0;
-                  }
-                }
-
-                _set_image_b() {
-
-                  var coverIndexViewed = this.recently_viewed_book_covers.indexOf(this.recently_viewed_book_display[this.recently_viewed_book_display.length-1]) + 1;
-
-                  var coverIndexFav = this.favorite_book_covers.indexOf(this.favorite_book_display[this.favorite_book_display.length-1]) + 1;
-
-                  if(coverIndexFav >= this.favorite_book_covers.length) {
-                      coverIndexFav = 0;
-                  }
-
-                  if(coverIndexViewed >= this.recently_viewed_book_covers.length) {
-                    coverIndexViewed = 0;
-                  }
-                }
-
-
-                _importRecentSearchData() {
-
-                }
-
-              }
-            window.customElements.define(dhcUserAccount.is, dhcUserAccount);
-
-         </script>
-    
+            </paper-dropdown-menu>  
+        </div> <!-- dd -->
+        <frag-footer></frag-footer>
+    </template>
+    <script>
+        class dhcUserAccount extends Polymer.Element {
+            static get is() { return 'dhc-user-account'; }
+        }
+        window.customElements.define(dhcUserAccount.is, dhcUserAccount);
+    </script>
 </dom-module>

@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-meta/iron-meta.htm">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
@@ -10,12 +11,11 @@
 <dom-module id = "dhc-book-profile">
     <template>
         <style include = "shared-styles">
-
+          
             .container-profile{
                 display:flex;
                 flex-direction: row;
                 flex-grow:1;
-
                 overflow-y:scroll;
             }
 
@@ -66,7 +66,6 @@
         
             #profile-image-div {
               display:flex;
-
               margin-left:10px;
               border: 1px solid grey;
               margin-right:95px;
@@ -77,7 +76,6 @@
                 display: flex;
                 flex-direction: column;
                 margin-left: 30px;
-
                 border: 1px solid grey;
                 padding top: 20px;
                 padding-left: 20px;
@@ -114,8 +112,7 @@
                 padding-right:30px;
                 overflow-y:scroll;
             }
-
-        
+            
             #profile-menu-div {
                 display: flex;
                 flex-direction: column;
@@ -150,7 +147,6 @@
                 padding-right: 115px;
                 padding-top: 10px;
                 padding-bottom: 10px;
-
                 box-shadow: none;
                 border: 1px solid grey;
             }
@@ -160,16 +156,13 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-
                 margin-left: 7px;
                 padding-left: 95px;
                 padding-right: 51px;
                 padding-top: 15px;
                 padding-bottom: 15px;
-
                 font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
                 font-size: 14px; 
-
                 box-shadow: none;
                 border: 1px solid grey;
             }
@@ -179,16 +172,13 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-
                 margin-left: 7px;
                 padding-left: 86px;
                 padding-right: 44px;
                 padding-top: 20px;
                 padding-bottom: 15px;
-
                 font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
                 font-size: 14px; 
-
                 box-shadow: none;
                 border: 1px solid grey;
             }
@@ -196,16 +186,13 @@
             #menu-share {
                 display: flex;
                 flex-direction: column;
-                
                 margin-left: 7px;
                 padding-left: 105px;
                 padding-right: 116px;
                 padding-top: 15px;
                 padding-bottom: 15px;
-
                 font-family:  "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
                 font-size: 14px; 
-
                 box-shadow: none;
                 border: 1px solid grey;
             }
@@ -306,7 +293,6 @@
             </div>
            
             <frag-footer> </frag-footer>
-
     </template>
     <script>
         class dhcBookProfile extends Polymer.Element {

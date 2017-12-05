@@ -19,7 +19,9 @@ router.post("/add_user/", function(req, res) {
     var data = req.body;
     console.log(data);
     if (data.username === undefined && data.password === undefined) {
-        res.json({"Error": "invalid data format"});
+	var err = {"Error": "invalid data format"} 
+        console.log(err)
+	res.json(err);
     } else {
 
         // construct userdoc
@@ -30,13 +32,16 @@ router.post("/add_user/", function(req, res) {
         // check for existing user
         mongo.findDocument(userdoc, function(resp) {
             if (resp.length > 0) {
-                res.json( {"Error": "This username already exists"} );
+		var err = {"Error": "This username already exists"}; 
+                console.log(err);
+		res.json(err);
             } else {
                 // encrypt password
                 utils.hashPassword(data.password, 5, function(hashed) {
                     userdoc.password = hashed;
                     mongo.insertDocument(userdoc, function(resp) {
-                        res.json(resp)
+			console.log(`JSON.stringify(resp, null, 2)`);
+                        res.json(resp);
                     }) 
                 })
             }
@@ -48,7 +53,9 @@ router.post("/add_user/", function(req, res) {
 router.post("/get_user/", function(req, res) {
     var data = req.body;
     if (data.username === undefined || data.password === undefined) {
-        res.json( {"Error": "invalid data format"} );
+        var err =  {"Error": "invalid data format"}; 
+	console.log(err);
+        res.json(err);
     } else {
 
        // construct query doc 
@@ -61,9 +68,12 @@ router.post("/get_user/", function(req, res) {
                 utils.hashPassword(data.password, 5, function(hashed) {
                     utils.compareHash(data.password, resp[0].password, function(resp1) {
                         if (resp1 == true) {
+			    console.log(`JSON.stringify(resp[0], null, 2)`);
                             res.json(resp[0]);
                         } else {
-                            res.json({ "Invalid Password": "User found, but the password is invalid"});
+		            var err = { "Invalid Password": "User found, but the password is invalid"};
+		            console.log(err);
+                            res.json(err);
                         }
                     })
                 })
