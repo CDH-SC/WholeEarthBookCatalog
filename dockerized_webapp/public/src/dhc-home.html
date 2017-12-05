@@ -121,6 +121,7 @@
             handle-as="json"
             on-response="_handleResponse"
             content-type="application/json"
+	    last-response="{{dummy_data}}"
             debounce-duration="300">
         </iron-ajax>
 
@@ -175,6 +176,10 @@
                 },
                 result: {
                     type: Object
+                },
+		dummy_data: {
+                    type: Object,
+		    observer: "dumb"
                 }
             };
         }
@@ -188,6 +193,8 @@
             super.ready();
             this._update_dom_session();
          }
+
+	dumb() { console.log(this.dummy_data); }
 
         _update_dom_session() {
             if(this.user === null || this.user === undefined) {
