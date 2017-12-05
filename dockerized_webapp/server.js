@@ -1,4 +1,5 @@
 /**
+ *
  * An express server to serve as an API for the web app
  */
 
@@ -13,6 +14,7 @@ var port = process.env.PORT || 8080;
 var router = express.Router();
 var neo4j = require("./database_client/neo4jDriver.js");
 var utils = require("./utils");
+var qstrings = require("./database_client/querystrings.js");
 
 // add user
 router.post("/add_user/", function(req, res) {
@@ -102,13 +104,44 @@ router.post("/neo4j/", function(req, res) {
         });
 })
 
+/** keyword query for neo4j
+ *
+ *  The request body should have the form:
+ *  
+ *  {
+ *    "type":    "<type>",
+ *    "keyword": "<keyword>",
+ *    "limit":   "<limit>"
+ *  }
+ *
+ */
+router.post("/neo4j/keyword/", function(req, res) {
+
+    var data = req.body;
+    var statement = qstrings.simpleKeywordSearch;
+    var params = {};
+
+    // construct params object
+    Object.keys(data).forEach(function(element, key, _array) {
+        params[element] = data[element]
+    })
+     
+    // add logic to sanitize the input here...
+
+    neo4j.query(statement, params)
+        .then(function(resp) {
+            res.json(resp)
+        });
+});
+
 // use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // all endpoints are prepended with '/api'
 app.use('/api', router);
-    app.use(express.static("public/build/es6-bundled"));
+
+app.use(express.static("public/build/es6-bundled"));
 
 app.get('*', function(req, res) {
     res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
