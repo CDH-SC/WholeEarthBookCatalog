@@ -33,7 +33,7 @@ To make our lives and the lives of those who wish to run this software easier, w
 You need a configuration file which defines the port the webapp will be served on, as well as the neo4j password.  
 We have provided an example file to model what this should look like.
 
-Before deployment, be sure to edit the `app.conf.example` file to include the correct info and rename as `app.conf`.
+Before deployment, be sure to edit the `app.conf.example` and rename as `app.conf`. The password for neo4j can be set to whichever value you please, and we're using the port `8080`, but any open port should do.
 
 ***Run:***
 
@@ -42,7 +42,7 @@ $ source app.conf
 $ docker-compose up
 ```
 
-The app will be deployed on port `8080` of your local machine.
+The app will be deployed on `localhost:$SERVER_PORT`.
 
 ***Notes:***
 
