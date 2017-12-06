@@ -6,6 +6,7 @@
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="dhc-search-data.html">
 
 <dom-module id="dhc-book-results">
     <template>
@@ -101,6 +102,8 @@
             data="{{routeData}}">
         </app-route>
         
+        <dhc-search-data data="{{searchData}}"></dhc-search-data>
+
         <div id = "result-entry-wrapper" class="border-color">
             <template is="dom-repeat" items="[[testData]]">
                 <div class="result-item-info border-color">
@@ -144,6 +147,10 @@
                         type: String,
                         value: "HI"
                     },
+                    searchData: {
+                        type: Object,
+                        observer: "_hello"
+                    },
                     testData: {
                         type: Array,
                         value: [{
@@ -183,6 +190,11 @@
                         }]
                     }
                 }
+            }
+
+            _hello() {
+                console.log(this.searchData);
+                console.log("in here");
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);
