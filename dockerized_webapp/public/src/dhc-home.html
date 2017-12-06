@@ -8,7 +8,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-
+<link rel="import" href="dhc-search-data.html">
 
 <dom-module id="dhc-home">
     <template>
@@ -177,9 +177,9 @@
                 result: {
                     type: Object
                 },
-		dummy_data: {
+                dummy_data: {
                     type: Object,
-		    observer: "dumb"
+                    observer: "dumb"
                 }
             };
         }
@@ -194,7 +194,7 @@
             this._update_dom_session();
          }
 
-	dumb() { console.log(this.dummy_data); }
+        dumb() { console.log(this.dummy_data); }
 
         _update_dom_session() {
             if(this.user === null || this.user === undefined) {
@@ -226,8 +226,15 @@
         }
 
         _handleResponse(e) {
-            console.log("handled");
+            console.log("handled search");
             console.log(e.detail.response);
+
+            this.dispatchEvent(new CustomEvent('update-search', {
+                bubbles: true, composed: true, detail: {
+                    search: this.search,
+                    data: e.detail.response
+            }}));
+
             this.set("route.path", "/book-results/" + this.search);
         }
     }

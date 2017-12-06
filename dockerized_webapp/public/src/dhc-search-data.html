@@ -1,0 +1,36 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+
+<dom-module id="dhc-search-data">
+    <template>
+        <app-localstorage-document key="dhc-search-data" data="{{searchData}}"></app-localstorage-document>
+    </template>
+
+    <script>
+        class dhcSearchData extends Polymer.Element {
+            static get is() { return 'dhc-search-data' };
+
+            static get properties() {
+                return {
+                    searchData: {
+                        type: Object,
+                        notify: true,
+                        value: {
+                            data: null,
+                            searchStr: null,
+                        }
+                    },
+                    updateSearch: {
+                        type: Function
+                    }
+                }
+            }
+
+            updateSearch(str, data) {
+                console.log("Updating");
+                this.set("searchData.searchStr", str);
+                this.set("searchData.data", data);
+            }
+        }
+    </script>
+</dom-module>

@@ -31,7 +31,8 @@
         </style>
 
         <dhc-login-data id="please" user="{{user}}"></dhc-login-data>
-
+        <dhc-search-data id="searchdata" data="{{searchData}}"></dhc-search-data>
+        
         <app-location
             route="{{route}}"
             url-space-regex="^[[rootPath]]">
@@ -86,7 +87,10 @@
 
         ready() {
             super.ready();
+
             this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
+            this.addEventListener('update-search', (e)=>this._onUpdateSearchData(e));
+
             console.log("USER", this.user);
         }
 
@@ -113,7 +117,6 @@
         _setIsHome(page) {
             if(page === 'home' || page === '') {
                 this.routeData.isHome = true;
-
             }
             else {
                 this.routeData.isHome = false;
@@ -126,6 +129,10 @@
 
         _onUpdateUserData(event) {
             this.$.please.updateUser(event.detail);
+        }
+
+        _onUpdateSearchData(event) {
+            this.$.searchData.updateSearch(event.detail.search, event.detail.data);
         }
     }
 

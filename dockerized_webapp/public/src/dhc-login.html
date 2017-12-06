@@ -66,6 +66,7 @@
                 return {
                     rootPath: String,
                     errorMessage: String,
+                    valid: Boolean,
                     user: {
                         type: Object,
                         value: {},
@@ -90,19 +91,26 @@
                 if(e.detail.response) {
                     if(e.detail.response["Error"]) {
                         this.set('errorMessage', e.detail.response["Error"]);
+                        this.valid = false;
                     }
                     else if(e.detail.response["Invalid Password"]){
                         this.set('errorMessage', e.detail.response["Invalid Password"]);
+                        this.valid = false;
+
                     }
                     else {
                         this.dispatchEvent(new CustomEvent('update-user', {
                             bubbles: true, composed: true, detail: {
                                 user: e.detail.response,
                         }}));
+
+
                         this.set("route.path", "/home");
                     }
                 }
                 else {
+                    this.valid = false;
+
                     this.set('errorMessage', 'Something went wrong...Sorry!');
                 }
             }
