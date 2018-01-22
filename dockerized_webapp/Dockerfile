@@ -1,13 +1,10 @@
-FROM node:boron
+FROM polymer-cli:latest
 
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
 
 COPY . .
-
-RUN npm install --global polymer-cli
-RUN npm install --global bower
 
 WORKDIR /usr/src/app/public
 RUN bower install --allow-root

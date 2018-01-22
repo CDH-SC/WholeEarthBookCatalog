@@ -28,12 +28,7 @@ services:
       - PORT=${SERVER_PORT}
       - MONGO_URL=mongo
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-
-  data_acquisition:
-    build: ./data-acquisition
-    depends_on:
-      - "neo4j"
-    
+   
   mongo:
     image: mongo
     ports:
