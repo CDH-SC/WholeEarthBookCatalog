@@ -1,4 +1,4 @@
-FROM polymer-cli:latest
+FROM jbdrain/polymer-cli:latest
 
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
