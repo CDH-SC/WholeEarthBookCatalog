@@ -109,7 +109,6 @@ router.post("/neo4j/", function(req, res) {
  *  The request body should have the form:
  *  
  *  {
- *    "type":    "<type>",
  *    "keyword": "<keyword>",
  *    "limit":   "<limit>"
  *  }
@@ -118,7 +117,7 @@ router.post("/neo4j/", function(req, res) {
 router.post("/neo4j/keyword/", function(req, res) {
 
     var data = req.body;
-    var statement = qstrings.simpleKeywordSearch;
+    var statement = qstrings.keywordSearch;
     var params = {};
 
     // construct params object
