@@ -5,3 +5,4 @@ dockerized_webapp/public/build/
 *.conf
 node_modules
 bower_components
+/.vs
