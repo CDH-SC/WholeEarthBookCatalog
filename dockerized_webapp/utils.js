@@ -10,18 +10,18 @@ var bcrypt = require("bcrypt");
 var utils = {};
 
 // hash passwords
-utils.hashPassword = function(password, saltRounds, callback) {
+utils.hashPassword = function (password, saltRounds, callback) {
     bcrypt.hash(password, saltRounds)
-        .then( callback )
-        .catch(function (err) { console.log(`ERR: ${err}`) });
-}
+        .then(callback)
+        .catch(function (err) { console.log(`ERR: ${err}`); });
+};
 
 // compare hashes
 utils.compareHash = function(password, hash, callback) {
     console.log(`hash: ${hash}`);
     bcrypt.compare(password, hash)
         .then( callback )
-        .catch(function (err) { console.log(`ERR: ${err}`) });
+        .catch(function (err) { console.log(`ERR: ${err}`); });
 };
 
 module.exports = utils;

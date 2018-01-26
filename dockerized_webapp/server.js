@@ -17,92 +17,92 @@ var utils = require("./utils");
 var qstrings = require("./database_client/querystrings.js");
 
 // add user
-router.post("/add_user/", function(req, res) {
+router.post("/add_user/", function (req, res) {
     var data = req.body;
     console.log(data);
     if (data.username === undefined && data.password === undefined) {
-	var err = {"Error": "invalid data format"} 
-        console.log(err)
-	res.json(err);
+        var err = { "Error": "invalid data format" };
+        console.log(err);
+        res.json(err);
     } else {
 
         // construct userdoc
         var userdoc = {
             username: data.username
-        }
-        
+        };
+
         // check for existing user
-        mongo.findDocument(userdoc, function(resp) {
+        mongo.findDocument(userdoc, function (resp) {
             if (resp.length > 0) {
-		var err = {"Error": "This username already exists"}; 
+                var err = { "Error": "This username already exists" };
                 console.log(err);
-		res.json(err);
+                res.json(err);
             } else {
                 // encrypt password
-                utils.hashPassword(data.password, 5, function(hashed) {
+                utils.hashPassword(data.password, 5, function (hashed) {
                     userdoc.password = hashed;
-                    mongo.insertDocument(userdoc, function(resp) {
-			console.log(`JSON.stringify(resp, null, 2)`);
+                    mongo.insertDocument(userdoc, function (resp) {
+                        console.log(`JSON.stringify(resp, null, 2)`);
                         res.json(resp);
-                    }) 
-                })
+                    });
+                });
             }
-        })
+        });
     }
 });
 
 // get user
-router.post("/get_user/", function(req, res) {
+router.post("/get_user/", function (req, res) {
     var data = req.body;
     if (data.username === undefined || data.password === undefined) {
-        var err =  {"Error": "invalid data format"}; 
-	console.log(err);
+        var err = { "Error": "invalid data format" };
+        console.log(err);
         res.json(err);
     } else {
 
-       // construct query doc 
-       var userdoc = {
-           username: data.username
-       }
+        // construct query doc 
+        var userdoc = {
+            username: data.username
+        };
 
-       mongo.findDocument(userdoc, function(resp) {
+        mongo.findDocument(userdoc, function (resp) {
             if (resp.length > 0) {
-                utils.hashPassword(data.password, 5, function(hashed) {
-                    utils.compareHash(data.password, resp[0].password, function(resp1) {
-                        if (resp1 == true) {
-			    console.log(`JSON.stringify(resp[0], null, 2)`);
+                utils.hashPassword(data.password, 5, function (hashed) {
+                    utils.compareHash(data.password, resp[0].password, function (resp1) {
+                        if (resp1 === true) {
+                            console.log(`JSON.stringify(resp[0], null, 2)`);
                             res.json(resp[0]);
                         } else {
-		            var err = { "Invalid Password": "User found, but the password is invalid"};
-		            console.log(err);
+                            var err = { "Invalid Password": "User found, but the password is invalid" };
+                            console.log(err);
                             res.json(err);
                         }
-                    })
-                })
-             } else {
-                 res.json({"Error": "No such user"})
-             }
-        })
+                    });
+                });
+            } else {
+                res.json({ "Error": "No such user" });
+            }
+        });
     }
-})
+});
 
 // query neo4j
-router.post("/neo4j/", function(req, res) {
+router.post("/neo4j/", function (req, res) {
     var data = req.body;
     var statement = data.statement;
-    var params = {}
+    var params = {};
 
     // construct params object
-    Object.keys(data).forEach(function(element, key, _array) {
-        params[element] = data[element]
+    Object.keys(data).forEach(function (element, key, _array) {
+        params[element] = data[element];
         console.log(`elem: ${element}, key: ${key}\n, data ${element}: ${data[element]}`);
-    })
+    });
 
     neo4j.query(statement, params)
-        .then(function(resp) {
-            res.json(resp)
+        .then(function (resp) {
+            res.json(resp);
         });
-})
+});
 
 /** keyword query for neo4j
  *
@@ -114,22 +114,22 @@ router.post("/neo4j/", function(req, res) {
  *  }
  *
  */
-router.post("/neo4j/keyword/", function(req, res) {
+router.post("/neo4j/keyword/", function (req, res) {
 
     var data = req.body;
     var statement = qstrings.keywordSearch;
     var params = {};
 
     // construct params object
-    Object.keys(data).forEach(function(element, key, _array) {
-        params[element] = data[element]
-    })
-     
+    Object.keys(data).forEach(function (element, key, _array) {
+        params[element] = data[element];
+    });
+
     // add logic to sanitize the input here...
 
     neo4j.query(statement, params)
-        .then(function(resp) {
-            res.json(resp)
+        .then(function (resp) {
+            res.json(resp);
         });
 });
 
@@ -142,7 +142,7 @@ app.use('/api', router);
 
 app.use(express.static("public/build/es6-bundled"));
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
     res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
 });
 
