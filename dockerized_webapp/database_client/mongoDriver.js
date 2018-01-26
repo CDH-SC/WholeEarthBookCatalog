@@ -43,5 +43,7 @@ driver.insertDocument = function(doc, callback) {
     });
 }
 
+// update a document
+
 // export the driver
 module.exports = driver;
