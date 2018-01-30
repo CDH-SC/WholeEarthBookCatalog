@@ -1,4 +1,4 @@
-/**
+ /**
  *
  * An express server to serve as an API for the web app
  */
@@ -60,7 +60,7 @@ router.post("/get_user/", function (req, res) {
         res.json(err);
     } else {
 
-        // construct query doc 
+        // construct query doc
         var userdoc = {
             username: data.username
         };
@@ -86,6 +86,46 @@ router.post("/get_user/", function (req, res) {
     }
 });
 
+/* used for testing
+// update password
+router.post("/update_password/", function (req, res) {
+    console.log("update password endpoint");
+    var data = req.body;
+
+    if (data.username === undefined || data.password === undefined) {
+        var err = { "Error": "invalid data format" };
+        console.log(err);
+        res.json(err);
+    } else {
+         console.log("hit the else statement");
+        // construct query doc
+        var userdoc = {
+            username: data.username
+        };
+
+        // check for existing user
+        mongo.findDocument(userdoc, function (resp) {
+            console.log("hit the mongo driver");
+            if (resp.length > 0) {
+                // encrypt password
+                utils.hashPassword(data.password, 5, function (hashed) {
+                    userdoc.password = hashed;
+                    mongo.updateDocument(resp[0], userdoc, function (resp1) {
+                        console.log(resp1);
+                        res.json(resp1);
+                    });
+                });
+
+            } else {
+                var err = { "Error": "This user doesn't exist" };
+                console.log(err);
+                res.json(err);
+            }
+      });
+    }
+});
+*/
+
 // query neo4j
 router.post("/neo4j/", function (req, res) {
     var data = req.body;
@@ -107,7 +147,7 @@ router.post("/neo4j/", function (req, res) {
 /** keyword query for neo4j
  *
  *  The request body should have the form:
- *  
+ *
  *  {
  *    "keyword": "<keyword>",
  *    "limit":   "<limit>"
