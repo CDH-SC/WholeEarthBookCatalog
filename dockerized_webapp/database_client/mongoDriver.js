@@ -44,6 +44,23 @@ driver.insertDocument = function(doc, callback) {
 }
 
 // update a document
+driver.updateDocument = function(doc, updatedoc, callback) {
+
+    MongoClient.connect(url, function(err, db) {
+        assert.equal(err, null);
+        var collection = db.collection("documents");
+
+
+        // update document
+        collection.updateOne(doc, updatedoc, function (err, result) {
+            assert.equal(err, null);
+            callback(result);
+        });
+        db.close();
+    });
+}
+
+
 
 // export the driver
 module.exports = driver;
