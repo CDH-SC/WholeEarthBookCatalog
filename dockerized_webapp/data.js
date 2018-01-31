@@ -40,6 +40,13 @@ var worldcat = require('./utils/worldCatDriver');
 log.debug("worldcat driver loaded");
 
 /**
+ * importing library of congress driver
+ */
+log.debug("loading library of congress driver");
+var libraryofcongress = require('./utils/libraryOfCongressDriver');
+log.debug("library of congress driver loaded");
+
+/**
  * importing exdefs
  */
 log.debug("loading exdefs");
