@@ -4,6 +4,7 @@
  * import tool to pull from world cat into mongodb and neo4j
  */
 
+ //#region setup
 /**
  * importing log utility
  * this may be modified later to log to database or file
@@ -52,9 +53,11 @@ log.debug("library of congress driver loaded");
 log.debug("loading exdefs");
 var exdefs = require('./utils/exdefs');
 log.debug(exdefs);
-exdefs[0].extractor();
 log.debug("exdefs loaded");
+//#endregion
 
 log.info("beginning import");
+//#region import logic
 
+//#endregion
 log.info("import complete");
