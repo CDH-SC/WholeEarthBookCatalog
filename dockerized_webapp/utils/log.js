@@ -1,6 +1,11 @@
+/**
+ * log.js
+ * -----------------------------------------------------------------------------
+ * a utility for use in keeping track of runtime events
+ */
 class LogTool {
     /**
-     * Create a new LogTool
+     * create a new LogTool
      */
     constructor(level = 2) {
         this.level = level;
@@ -26,7 +31,7 @@ class LogTool {
     }
 
     /**
-     * Information pertaining to passed parameters
+     * information pertaining to passed parameters
      * @param {any} message the message to log
      */
     debug(message) {
@@ -36,17 +41,17 @@ class LogTool {
     }
 
     /**
-     * Information pertaining to runtime events
+     * information pertaining to runtime events
      * @param {any} message the message to log
      */
     info(message) {
         if (this.level >= 3) {
-            this.printer("info", message);
+            this.printer("info ", message);
         }
     }
 
     /**
-     * Information pertaining to failures and exceptions
+     * information pertaining to failures and exceptions
      * @param {any} message the message to log
      */
     error(message) {
@@ -56,7 +61,7 @@ class LogTool {
     }
 
     /**
-     * Major events causing the failure of the entire system
+     * major events causing the failure of the entire system
      * @param {any} message the message to log
      */
     fatal(message) {
@@ -66,4 +71,6 @@ class LogTool {
     }
 }
 
-module.exports = LogTool;
+var log = new LogTool();
+
+module.exports = log;
