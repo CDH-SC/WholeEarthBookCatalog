@@ -9,12 +9,12 @@ var path = require("path");
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-var mongo = require("./database_client/mongoDriver.js");
+var mongo = require("./utils/mongoDriver.js");
 var port = process.env.PORT || 8080;
 var router = express.Router();
-var neo4j = require("./database_client/neo4jDriver.js");
+var neo4j = require("./utils/neo4jDriver.js");
 var utils = require("./utils");
-var qstrings = require("./database_client/querystrings.js");
+var qstrings = require("./utils/querystrings.js");
 
 // add user
 router.post("/add_user/", function (req, res) {

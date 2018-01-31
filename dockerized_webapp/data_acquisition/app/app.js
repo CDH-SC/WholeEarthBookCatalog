@@ -1,14 +1,19 @@
-var LogTool = require("./utils/log");
-var Log = new LogTool(4);
+var log = new (require("./utils/log"))(4);
 
-Log.info("Beginning Import");
+log.info("preparing for import");
+
+// make mongodb connector
+log.debug("load mongo driver");
+var mongodb = require('../../database_client/mongoDriver');
+
+// make neo4j connector
+log.debug("load neo4j driver");
+var neo4j = require('../../database_client/neo4jDriver');
 
 // make world cat connector
 
 
-// make neo4j connector
-
-
+log.info("beginning import");
 // import
 
-Log.info("Import Complete");
+log.info("import complete");
