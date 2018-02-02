@@ -32,6 +32,7 @@
  * value: the value of the node
  * exdefSource: the exdefName that produced the field
  */
+
 module.exports = [
     {
         exdefName: "e_author",
@@ -40,6 +41,42 @@ module.exports = [
         extractor: function(item) {
             return "William Shakespeare";
         }
+    }, 
+
+    {
+    	exdefNAme: "e_genre", 
+    	fieldName: "Genre", 
+    	nodeName: "Genre", 
+    	extractor: function(item) {
+    		//retrieve substring
+    		return "Historical Fiction";
+    	}
+
+    },
+
+    {
+
+    	exdefNAme: "e_title", 
+    	fieldName: "Title", 
+    	nodeName: "Title", 
+    	extractor: function(item) {
+    		//retrieve substring
+    		return "The Great Gatsby";
+
+
+    }, 
+
+    {
+
+    	exdefNAme: "e_publisher", 
+    	fieldName: "Publisher", 
+    	nodeName: "Publisher", 
+    	extractor: function(item) {
+    		//retrieve substring
+    		return "Random House";
+
     }
 ];
+
+
 
