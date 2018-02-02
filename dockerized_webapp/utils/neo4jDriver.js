@@ -12,15 +12,15 @@ var neo4jDriver = {}
 var neo4j = require("neo4j-driver").v1
 const NEO4J_PASSWORD = process.env.NEO4J_PASSWORD
 
-// get driver 
-var getDriver = function() {
-  return neo4j.driver("bolt://neo4j", neo4j.auth.basic("neo4j", NEO4J_PASSWORD));
+// get session
+var getSession = function() {
+    var driver = neo4j.driver("bolt://neo4j", neo4j.auth.basic("neo4j", NEO4J_PASSWORD));
+    return driver.session();
 }
 
 // run commands
 neo4jDriver.query = function(statement, params) {
-    var driver  = getDriver();
-    var session = driver.session();
+    var session = getSession();
 
     var txRes = session.readTransaction(function (transaction) {
         // used transaction will be committed automatically, no need for explicit commit/rollback
@@ -48,12 +48,6 @@ neo4jDriver.query = function(statement, params) {
             console.log(`ERR: ${JSON.stringify(err, null, 2)}`);
         })
     */
-}
-
-// get session
-neo4jDriver.getSession = function() {
-    var driver = getDriver();
-    return driver.session();
 }
 
 module.exports = neo4jDriver;
