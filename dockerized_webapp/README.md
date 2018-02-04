@@ -50,6 +50,28 @@ The app will be deployed on `localhost:$SERVER_PORT`.
   + You can change the second command to `docker-compose up -d` so that docker runs the processes in the background.
   + Check on the status of your containers with `docker logs <container_id>`. The id can be found by running `docker ps`.
 
+<h1>Testing</h1>
+
+***For BDD:***
+
+  Tests must be ran locally.  
+  
+  cd into ```dockerized_webapp\public\```  
+  Ensure _npm and bower_ are installed globally then, install polymer and the needed bower components using:  
+  ```
+  $ npm install -g polymer-cli
+  $ bower install
+  $ polymer test
+  ```
+  
+  Finally to run the test run:  
+  `$ polymer test`  
+  
+  You may need to use `sudo` if you run into permission issues.
+  If you run into any issues with the polymer-cli email me at vmcqiunn@email.sc.edu
+  
+  Currently, we don't have a browser set up with docker to run the tests with selenium hence testing locally.
+
 <h1> Potential Problems </h1>
 
 If you have MongoDB installed locally on your machine, it may be running in the background. If so, it is likely running on the port that the dockerized instance of MongoDB from this app is intended to run on. If you run into this problem, there are two quick fixes:
