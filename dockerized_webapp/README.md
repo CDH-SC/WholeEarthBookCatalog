@@ -61,13 +61,16 @@ The app will be deployed on `localhost:$SERVER_PORT`.
   ```
   $ npm install -g polymer-cli
   $ bower install
-  $ polymer test
   ```
   
   Finally to run the test run:  
   `$ polymer test`  
   
-  You may need to use `sudo` if you run into permission issues.
+  `polymer test` only logs if a test fails by default, to show a log for each test ran use: 
+  
+  `$ polymer test --expanded`
+  
+  You may need to use `sudo` before each command if you run into permission issues.
   If you run into any issues with the polymer-cli email me at vmcqiunn@email.sc.edu
   
   Currently, we don't have a browser set up with docker to run the tests with selenium hence testing locally.
