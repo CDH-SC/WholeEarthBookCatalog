@@ -1,6 +1,6 @@
 /**
  *
- * Unit tests 
+ * Unit tests
  * 
  */
 
@@ -16,7 +16,7 @@ describe( "qstrings", function() {
     // check for simpleKeywordSearch string
     describe( "simpleKeywordSearch", function() {
         it( "Should return true if this string exists", function() {
-	    const exists = ( qstrings.simpleKeywordSearch !== null );
+        const exists = ( qstrings.simpleKeywordSearch !== null );
 	    assert.equal( exists, true );
 	});
     });

@@ -1,10 +1,10 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="frag-header.html">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
 <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+
 <dom-module id="dhc-help">
     <style>
       
@@ -67,13 +67,12 @@
             </p>
             
             <div id = "help-footer">
-                <div class = contact-info>
+                <div class = "contact-info">
                     <p style = "font-size: 16px;">
                         Still need help?
                     </p>
-                    <p style = "font-size: 14px;"> 
-                        Send us an email
-                        dhc@fakeemail.com
+                    <p id="email-inf" style = "font-size: 14px;"> 
+                        Send us an email {{email}}
                     </p>
                 </div>
             </div>
@@ -85,7 +84,10 @@
             static get is() { return 'dhc-help'; }
             static get properties() {
                 return {
-                    rootPath: String,
+                    email: {
+                        type: String,
+                        value: 'dhc@fakeemail.com'
+                    }
                 }
             }
         }
