@@ -75,10 +75,10 @@ The app will be deployed on `localhost:$SERVER_PORT`.
   
   Currently, we don't have a browser set up with docker to run the tests with selenium hence testing locally.
   
-  ***For Unit Test:***
+  ***For Unit Test:***  
   Install mocha globally with:  
-  `$ npm -g mocha`
-  Then run:  
+  `$ npm -g mocha` 
+  Then run:   
   `$ mocha`
 
 <h1> Potential Problems </h1>
