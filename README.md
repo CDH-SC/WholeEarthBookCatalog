@@ -1,3 +1,5 @@
+***DHC***
+
 <h1> Setup </h1>
 
 If you have not already, clone the repo to get the source code. 
@@ -87,3 +89,4 @@ If you have MongoDB installed locally on your machine, it may be running in the 
 
   + You can stop your local mongo instance. I do this on ubuntu with `systemctl stop mongod`.
   + You can go into the `docker-compose.yml` file and change the port mapping for mongo to a different port.
+

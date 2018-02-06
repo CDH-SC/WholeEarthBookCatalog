@@ -37,21 +37,21 @@ log.debug("neo4j driver loaded");
  * importing worldcat driver
  */
 log.debug("loading worldcat driver");
-var worldcat = require('./utils/worldCatDriver');
+var worldcat = require('./data_acquisition/apis/worldCatDriver');
 log.debug("worldcat driver loaded");
 
 /**
  * importing library of congress driver
  */
 log.debug("loading library of congress driver");
-var libraryofcongress = require('./utils/libraryOfCongressDriver');
+var libraryofcongress = require('./data_acquisition/apis/libraryOfCongressDriver');
 log.debug("library of congress driver loaded");
 
 /**
  * importing exdefs
  */
 log.debug("loading exdefs");
-var exdefs = require('./utils/exdefs');
+var exdefs = require('./data_acquisition/exdefs');
 log.debug(exdefs);
 log.debug("exdefs loaded");
 //#endregion
