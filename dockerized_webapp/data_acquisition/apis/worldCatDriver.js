@@ -1,27 +1,35 @@
 /*
-* Example script of initial execution of search queries through WorldCat Search 
-*
-*/
+ * Example script of initial execution of search queries through WorldCat Search 
+ *
+ */
 
 
 
 var server = require("./server.js");
 
 var assert = require("assert");
-var url = "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=APIs&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu"
+
+const MAX_SEARCHES = 50000;
+//need to continually monitor the searches being done
+
+//deduct them from this number
+var numSearches = MAX_SEARCHES;
+
+//Possibility: continually keep a 24-hour clock running (on Eastern Standard Time)
+
+var url = "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=APIs&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu";
+
+var urlComplete = "http://worldcat.org/webservices/catalog/search/opensearch?q=[query]&format=[atom|rss]&start=[stiart position]&count=500&cformat=mla&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu";
+
 
 var worldCatDriver = {};
 
-//key required, insert here
-//url required, insert here 
-
-//includes one or more of a set of terms
 
 var makeRequest = function() {
-	//retrieve url 
-	//make request with that 
+    //retrieve url 
+    //make request with that 
 
-	//include error clauses - dont forget!!!!!
+    //include error clauses 
 
 }
 
@@ -34,8 +42,13 @@ worldCatDriver.didFinishLoading = function(data) {
 
 }
 
-worldCatDriver.basicSearch = function(query, callback) {
-	//include assert
+worldCatDriver.monitorNumSearches = function(numSearches) {
+
+    //once numSearches == 0
+    //halt processes until clock resets 
+
+    //Constant for individual searches 
+    //Best method of stretching the limit for now 
 
 }
 
