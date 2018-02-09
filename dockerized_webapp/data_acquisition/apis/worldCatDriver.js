@@ -8,6 +8,7 @@
 var server = require("./server.js");
 
 var assert = require("assert");
+var url = "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=APIs&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu"
 
 var worldCatDriver = {};
 
@@ -21,6 +22,15 @@ var makeRequest = function() {
 	//make request with that 
 
 	//include error clauses - dont forget!!!!!
+
+}
+
+//This method is the actual OpenSearch method represented in the WordCat Search API page
+worldCatDriver.openSearch = function(url, didFinishLoading) {
+
+}
+
+worldCatDriver.didFinishLoading = function(data) {
 
 }
 
