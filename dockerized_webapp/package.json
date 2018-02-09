@@ -12,7 +12,6 @@
   "dependencies": {
     "ajax": "0.0.4",
     "bcrypt": "^1.0.3",
-    "casperjs": "^1.1.4",
     "chai": "^4.1.2",
     "chair": "0.0.0",
     "express": "^4.16.2",
@@ -24,7 +23,6 @@
     "neo4j-driver": "^1.5.0",
     "os": "^0.1.1",
     "path": "^0.12.7",
-    "phantomjs-prebuilt": "^2.1.16",
     "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }

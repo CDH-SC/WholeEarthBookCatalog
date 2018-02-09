@@ -2,11 +2,8 @@
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="dhc-search-data.html">
 
 <dom-module id="dhc-book-results">
     <template>
@@ -102,15 +99,18 @@
             data="{{routeData}}">
         </app-route>
         
-        <dhc-search-data data="{{searchData}}"></dhc-search-data>
-
-        <div id = "result-entry-wrapper" class="border-color">
-            <template is="dom-repeat" items="[[testData]]">
+        <template is="dom-if" if="{{!searchDataLoaded}}">
+            Loading...
+        </template>
+        
+        <template is="dom-if" if="{{searchDataLoaded}}">
+                    <div id = "result-entry-wrapper" class="border-color">
+            <template is="dom-repeat" items="[[searchdata.data.records]]">
                 <div class="result-item-info border-color">
                     <image id = "result-item-image" class="border-color" src= "../images/clockwork_small.jpg"></image>
     
                     <paper-dialog class = "paper-metadata border-color">
-                        <h2>{{item.title}}</h2> 
+                        <h2>{{item.name}}</h2> 
                         <h4>{{item.author}}</h4> 
                         <h4> Genres: 
                             <template is="dom-repeat" items="[[item.genres]]" as="genre">
@@ -122,7 +122,9 @@
                     </paper-dialog>
     
                     <div id = "result-item-menu" class="border-color">
-                        <paper-button on-click="" id = "result-item-view-profile" class="border-color"> View Profile </paper-button> 
+                        <a href="/book-profile/{{item.name}}">
+                            <paper-button on-click="" id = "result-item-view-profile" class="border-color"> View Profile </paper-button> 
+                        </a>
                         <div id = "result-paired-buttons"> 
                             <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
                             <paper-button id = "result-item-like" title = "heart" id = "result-item-like" class="border-color"> Like </paper-button> 
@@ -135,11 +137,18 @@
                 </div>
             </template>
         </div>
+    </template>
+
         <frag-footer> </frag-footer>
     </template>
     <script>
         class dhcBookResults extends Polymer.Element {
             static get is() { return 'dhc-book-results'; }
+            static get ready() {
+                console.log("Getting read");
+
+                console.log(this.searchData);
+            }
             static get properties() {
                 return {
                     rootPath: String,
@@ -147,54 +156,21 @@
                         type: String,
                         value: "HI"
                     },
-                    searchData: {
+                    searchdata: {
                         type: Object,
-                        observer: "_hello"
+                        observer: "_searchDataObserver"
                     },
-                    testData: {
-                        type: Array,
-                        value: [{
-                            title: "A Clockwork Orange0",
-                            author: "Guy",
-                            publisher: "Guy house",
-                            Genres: ["good","book","genre"],
-                            year: "1987"
-                        },
-                        {
-                            title: "A Clockwork Orange1",
-                            author: "Guy",
-                            publisher: "Guy house",
-                            genres: ["good","book","genre"],
-                            year: "1987"
-                        },
-                        {
-                            title: "A Clockwork Orange2",
-                            author: "Guy",
-                            publisher: "Guy house",
-                            Genres: ["good","book","genre"],
-                            year: "1987"
-                        },
-                        {
-                            title: "A Clockwork Orange3",
-                            author: "Guy",
-                            publisher: "Guy house",
-                            Genres: ["good","book","genre"],
-                            year: "1987"
-                        },
-                        {
-                            title: "A Clockwork Orange4",
-                            author: "Guy",
-                            publisher: "Guy house",
-                            Genres: ["good","book","genre"],
-                            year: "1987"
-                        }]
+                    searchDataLoaded: {
+                        type: Boolean,
+                        value: false
                     }
                 }
             }
 
-            _hello() {
-                console.log(this.searchData);
+            _searchDataObserver() {
+                console.log(this.searchdata);
                 console.log("in here");
+                this.set('searchDataLoaded', true);
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);
