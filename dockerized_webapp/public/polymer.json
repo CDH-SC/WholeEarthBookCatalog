@@ -11,7 +11,8 @@
         "src/dhc-404.html",
         "src/frag-footer.html",
         "src/frag-header.html",
-        "src/dhc-login-data.html"
+        "src/dhc-login-data.html",
+        "src/dhc-search-data.html"
     ],
     "sources": [
         "src/**/*",

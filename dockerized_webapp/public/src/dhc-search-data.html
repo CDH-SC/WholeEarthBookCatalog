@@ -3,7 +3,7 @@
 
 <dom-module id="dhc-search-data">
     <template>
-        <app-localstorage-document key="dhc-search-data" data="{{searchData}}"></app-localstorage-document>
+        <app-localstorage-document key="dhc-search-data" data="{{searchdata}}"></app-localstorage-document>
     </template>
 
     <script>
@@ -12,7 +12,7 @@
 
             static get properties() {
                 return {
-                    searchData: {
+                    searchdata: {
                         type: Object,
                         notify: true,
                         value: {
@@ -28,9 +28,11 @@
 
             updateSearch(str, data) {
                 console.log("Updating");
-                this.set("searchData.searchStr", str);
-                this.set("searchData.data", data);
+                this.set("searchdata.searchStr", str);
+                this.set("searchdata.data", data);
+                console.log(this.searchdata);
             }
         }
+        window.customElements.define(dhcSearchData.is, dhcSearchData);
     </script>
 </dom-module>

@@ -14,7 +14,9 @@
 <link rel="lazy-import" href="dhc-book-results.html">
 <link rel="import" href="dhc-user-account.html">
 <link rel="lazy-import" href="dhc-book-profile.html">
+<link rel="import" href="dhc-search-data.html">
 <link rel="import" href="frag-header.html">
+
 
 <dom-module id="dhc-main">
     <template>
@@ -31,7 +33,7 @@
         </style>
 
         <dhc-login-data id="please" user="{{user}}"></dhc-login-data>
-        <dhc-search-data id="searchdata" data="{{searchData}}"></dhc-search-data>
+        <dhc-search-data id="searchdatacomp" searchdata="{{searchdata}}"></dhc-search-data>
         
         <app-location
             route="{{route}}"
@@ -63,8 +65,8 @@
             <dhc-user-account name="user-account"></dhc-user-account> 
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
-            <dhc-book-results name="book-results" route="{{subroute}}"></dhc-book-results>
-            <dhc-book-profile name="book-profile"> </dhc-book-profile>
+            <dhc-book-results name="book-results" route="{{subroute}}" searchdata="[[searchdata]]"></dhc-book-results>
+            <dhc-book-profile name="book-profile" route="{{subroute}}"> </dhc-book-profile>
         </iron-pages>
     </template>
 
@@ -132,7 +134,9 @@
         }
 
         _onUpdateSearchData(event) {
-            this.$.searchData.updateSearch(event.detail.search, event.detail.data);
+            console.log(this.$);
+            console.log(this.$.seachdatacomp);
+            this.$.searchdatacomp.updateSearch(event.detail.search, event.detail.data);
         }
     }
 
