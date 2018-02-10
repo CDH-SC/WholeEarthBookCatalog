@@ -12,26 +12,34 @@ var assert = require("assert");
 const MAX_SEARCHES = 50000;
 //need to continually monitor the searches being done
 
-//deduct them from this number
-var numSearches = MAX_SEARCHES;
-
 //Possibility: continually keep a 24-hour clock running (on Eastern Standard Time)
 
-var url = "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=APIs&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu";
-
-var urlComplete = "http://worldcat.org/webservices/catalog/search/opensearch?q=[query]&format=[atom|rss]&start=[stiart position]&count=500&cformat=mla&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu";
-
-
-var worldCatDriver = {};
-
-
 var makeRequest = function() {
-    //retrieve url 
-    //make request with that 
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=APIs&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu",
+            type: 'GET',
+            dataType: 'xml',
+            data: { "q=": queryString, "&format=": format, "&start=": startPosition, "&count=": count },
+            ifModified: false,
+            processData: false,
+            success: function(data) {
+                $("#results-container").html(data);
+                $("#results-container").modal('show');
+            },
+            error: function() {
+                alert("error");
+            },
 
-    //include error clauses 
+            complete: function(xhr, status) {
 
+            }
+        });
+
+    });
 }
+
+setTimeout(makeRequest, 5000);
 
 //This method is the actual OpenSearch method represented in the WordCat Search API page
 worldCatDriver.openSearch = function(url, didFinishLoading) {
