@@ -5,7 +5,7 @@
 
 
 
-var server = require("./server.js");
+//var server = require("./server.js");
 
 var assert = require("assert");
 

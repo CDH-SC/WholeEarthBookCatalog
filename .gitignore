@@ -11,3 +11,7 @@ dockerized_webapp/test_data.json
 dockerized_webapp/test_server.js
 dockerized_webapp/package.json.tm
 dockerized_webapp/t_dev_switch.sh
+
+dockerized_webapp/data_acquisition/loc
+*.xml
+*.xml.gz
