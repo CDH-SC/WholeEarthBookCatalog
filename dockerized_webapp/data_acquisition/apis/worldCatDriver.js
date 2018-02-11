@@ -8,10 +8,38 @@
 //var server = require("./server.js");
 
 var assert = require("assert");
+var $ = require("jquery");
+var http = require("http");
+var neo4j = require("neo4j-driver").v1;
+var exdefs = require("../exdefs");
+var fs = require("fs");
 
 const MAX_SEARCHES = 50000;
 //need to continually monitor the searches being done
 //Keep a 24 hour clock to monitor search limits? 
+
+
+//required for jquery
+var options = {
+    host: 'jquery.com',
+    port: 80,
+    path: '/'
+};
+
+var html = '';
+
+http.get(options, function(res) {
+    res.on('data', function(data) {
+        html += data;
+
+    }).on('end', function() {
+        var dataContainer = $(html).find('ISBN').text();
+
+
+    });
+
+});
+
 
 var makeRequest = function() {
     $(document).ready(function() {
@@ -23,10 +51,14 @@ var makeRequest = function() {
             ifModified: false,
             processData: false,
             success: function(data) {
-                var tempStorage = data;
-                alert(data);
-                $("#results-container").html(data);
-                $("#results-container").modal('show');
+                var itemURL = URL.createObjectURL(data);
+                var $a = $('<a/>', {
+                    'href': url,
+                    'download': 'document.docx',
+                    'text': click,
+                }).hide().appendTo("body")[0].click();
+
+                //possible strategy for downloading 
             },
             error: function() {
                 alert("Error: Data not retrieved correctly");
@@ -43,15 +75,15 @@ var makeRequest = function() {
 setTimeout(makeRequest, 5000);
 
 //This method is the actual OpenSearch method represented in the WordCat Search API page
-worldCatDriver.retrieveQuery = function(query) {
+var retrieveQuery = function(query) {
 
 }
 
-worldCatDriver.didFinishLoading = function(data) {
+var didFinishLoading = function(data) {
 
 }
 
-worldCatDriver.setAcceptableSearchLimits = function(numSearches) {
+var setAcceptableSearchLimits = function(numSearches) {
 
     //once numSearches == 0
     //halt processes until clock resets 
@@ -61,19 +93,15 @@ worldCatDriver.setAcceptableSearchLimits = function(numSearches) {
 
 }
 
-worldCatDriver.getStartPosition = function(query, startPosition) {
+var getStartPosition = function(query, startPosition) {
     //or we could just set this as a constant for now..?
 }
 
 //how many terms designates this as an advanced search?
-worldCatDriver.advancedSearch = function(query, callback) {
+var advancedSearch = function(query, callback) {
 
 }
 
-worldCatDriver.updateSearch = function(query, updateQuery, callback) {
+var updateSearch = function(query, updateQuery, callback) {
 
 }
-
-
-
-module.exports = worldCatDriver;
