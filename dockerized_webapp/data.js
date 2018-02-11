@@ -44,7 +44,7 @@ log.debug("worldcat driver loaded");
  * importing library of congress driver
  */
 log.debug("loading library of congress driver");
-var libraryofcongress = require('./data_acquisition/apis/libraryOfCongressDriver');
+var libraryofcongressimport = require('./data_acquisition/apis/libraryOfCongressDriver');
 log.debug("library of congress driver loaded");
 
 /**
@@ -58,6 +58,7 @@ log.debug("exdefs loaded");
 
 log.info("beginning import");
 //#region import logic
+libraryofcongressimport(log);
 
 //#endregion
 log.info("import complete");

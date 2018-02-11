@@ -62,7 +62,7 @@ module.exports = [
     	extractor: function(item) {
     		//retrieve substring
     		return "The Great Gatsby";
-
+		}
 
     }, 
 
@@ -74,7 +74,7 @@ module.exports = [
     	extractor: function(item) {
     		//retrieve substring
     		return "Random House";
-
+		}
     }
 ];
 
