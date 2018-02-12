@@ -28,7 +28,7 @@
     "paper-menu-button": "^2.0.0",
     "iron-collapse": "^2.0.0",
     "iron-image": "^2.1.2",
-    "paper-dialog": "^2.0.0"
+    "crypto-js": "^3.1.9"
   },
   "resolutions": {
     "polymer": "^2.0.0",

@@ -59,6 +59,8 @@
         </div>
         <frag-footer></frag-footer>
     </template>
+
+
     <script>
         class dhcLogin extends Polymer.Element {
             static get is() { return 'dhc-login'; }
@@ -76,9 +78,13 @@
             }
 
             _user_login() {
+                // Adding in SHA.
                 var userObj = {
                     'username': this.username,
-                    'password': this.password
+                    'password': CryptoJS.SHA256(
+                        CryptoJS.SHA256(this.password).toString() +
+                        CryptoJS.SHA256(this.username).toString()
+                    ).toString()
                 }
 
                 this.$.addj.body = userObj;
