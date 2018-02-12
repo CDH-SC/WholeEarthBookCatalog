@@ -8,11 +8,15 @@
 //var server = require("./server.js");
 
 var assert = require("assert");
-var $ = require("jquery");
 var http = require("http");
 var neo4j = require("neo4j-driver").v1;
 var exdefs = require("../exdefs");
 var fs = require("fs");
+var request = require('sync-request');
+
+var jsdom = require("jsdom");
+var $ = require('jquery')(jsdom.jsdom().parentWindow);
+
 
 const MAX_SEARCHES = 50000;
 //need to continually monitor the searches being done
@@ -23,7 +27,10 @@ const MAX_SEARCHES = 50000;
 var options = {
     host: 'jquery.com',
     port: 80,
-    path: '/'
+    path: '/',
+
+    downloadsDir: "data_acquisition/worldCatData",
+    completionTag: ".complete"
 };
 
 var html = '';
@@ -54,9 +61,11 @@ var makeRequest = function() {
                 var itemURL = URL.createObjectURL(data);
                 var $a = $('<a/>', {
                     'href': url,
-                    'download': 'document.docx',
                     'text': click,
                 }).hide().appendTo("body")[0].click();
+
+
+                importIntoNeo4j(logger);
 
                 //possible strategy for downloading 
             },
@@ -76,6 +85,12 @@ setTimeout(makeRequest, 5000);
 
 //This method is the actual OpenSearch method represented in the WordCat Search API page
 var retrieveQuery = function(query) {
+
+}
+
+var importIntoNeo4j = function(logger) {
+
+
 
 }
 
