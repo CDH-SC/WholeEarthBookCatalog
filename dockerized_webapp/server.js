@@ -41,6 +41,7 @@ router.post("/add_user/", function (req, res) {
                 // encrypt password
                 utils.hashPassword(data.password, 5, function (hashed) {
                     userdoc.password = hashed;
+                    //userdoc.recent =
                     mongo.insertDocument(userdoc, function (resp) {
                         console.log(`JSON.stringify(resp, null, 2)`);
                         res.json(resp);
@@ -86,12 +87,48 @@ router.post("/get_user/", function (req, res) {
     }
 });
 
-/* used for testing
+// recent searches
+router.post("/recent_search/", function(req,res) {
+    var data = req.body;
+    if (data.username === undefined || data.recent === undefined) {
+      var err = { "Error": "invalid data format" };
+      console.log(err);
+      res.json(err);
+    } else {
+
+      // construct query doc
+      var userdoc = {
+          username: data.username
+      };
+
+      mongo.findDocument(userdoc, function (resp) {
+          if (resp.length > 0) {
+
+            var updoc = resp[0];
+
+            console.log(updoc.recent);
+            mongo.updateRecent(userdoc, data.recent, function(resp1) {
+                console.log(resp1);
+                res.json(resp1);
+            });
+
+
+          } else {
+            var err = { "Error": "This user doesn't exist" };
+            console.log(err);
+            res.json(err);
+          }
+      });
+    }
+});
+
+/*
 // update password
 router.post("/update_password/", function (req, res) {
     console.log("update password endpoint");
     var data = req.body;
 
+    console.log(" CAN YOU SEE THIS");
     if (data.username === undefined || data.password === undefined) {
         var err = { "Error": "invalid data format" };
         console.log(err);
