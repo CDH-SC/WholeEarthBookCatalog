@@ -28,7 +28,8 @@ services:
       - PORT=${SERVER_PORT}
       - MONGO_URL=mongo
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-   
+      - NEO4J_URL=neo4j
+  
   mongo:
     image: mongo
     ports:
