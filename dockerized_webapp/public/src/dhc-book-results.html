@@ -110,7 +110,12 @@
                     <image id = "result-item-image" class="border-color" src= "../images/clockwork_small.jpg"></image>
     
                     <paper-dialog class = "paper-metadata border-color">
-                        <h2>{{item.name}}</h2> 
+                        <template is="dom-repeat" items="{{item._fields}}" as="field">
+                            <h1>
+                                Title: {{field.properties.title}}
+                            </h1>
+                        </template>
+                      <!-- <h2>{{item.name}}</h2> 
                         <h4>{{item.author}}</h4> 
                         <h4> Genres: 
                             <template is="dom-repeat" items="[[item.genres]]" as="genre">
@@ -118,7 +123,7 @@
                             </template>
                         </h4>
                         <h4> Publisher: {{item.publisher}}</h4> 
-                        <h4> Originally Published: {{item.year}} </h4>
+                        <h4> Originally Published: {{item.year}} </h4> -->
                     </paper-dialog>
     
                     <div id = "result-item-menu" class="border-color">
@@ -171,6 +176,7 @@
                 console.log(this.searchdata);
                 console.log("in here");
                 this.set('searchDataLoaded', true);
+                console.log(this.searchdata.data.records[0]._fields[0].properties);
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);

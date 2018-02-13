@@ -5,6 +5,10 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
+
+<!-- I hope this is the right way to handle crypto! -->
+
+
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
@@ -57,6 +61,10 @@
         </div>
         <frag-footer></frag-footer>
     </template>
+
+
+    <script src="../bower_components/crypto-js/sha256.js"></script>
+
     <script>
         class dhcCreateAccount extends Polymer.Element {
             static get is() { return 'dhc-create-account'; }
@@ -101,9 +109,12 @@
             _post_new_user() {
                 var user = {
                     'username': this.username,
-                    'password': this.password
+                    'password': CryptoJS.SHA256(
+                        CryptoJS.SHA256(this.password).toString() +
+                        CryptoJS.SHA256(this.username).toString()
+                    ).toString() 
                 }
-
+                
                 this.$.addAj.body = user;
                 this.$.addAj.generateRequest();
             }
