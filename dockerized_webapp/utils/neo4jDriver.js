@@ -11,10 +11,11 @@ var neo4jDriver = {}
 // env
 var neo4j = require("neo4j-driver").v1
 const NEO4J_PASSWORD = process.env.NEO4J_PASSWORD
+const NEO4J_URL = process.env.NEO4J_URL
 
 // get session
 var getSession = function() {
-    var driver = neo4j.driver("bolt://neo4j", neo4j.auth.basic("neo4j", NEO4J_PASSWORD));
+    var driver = neo4j.driver(`bolt://${NEO4J_URL}`, neo4j.auth.basic("neo4j", NEO4J_PASSWORD));
     return driver.session();
 }
 

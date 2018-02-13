@@ -6,7 +6,7 @@
 
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
-var url = `mongodb://${process.env.MONGO_URL}`;
+var url = process.env.MONGO_URL;
 
 // module
 var driver = {};
