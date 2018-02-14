@@ -15,6 +15,7 @@ var router = express.Router();
 var neo4j = require("./utils/neo4jDriver.js");
 var utils = require("./utils");
 var qstrings = require("./utils/querystrings.js");
+var ObjectId = require("mongodb").ObjectId;
 
 // add user
 router.post("/add_user/", function (req, res) {
@@ -83,6 +84,54 @@ router.post("/get_user/", function (req, res) {
             } else {
                 res.json({ "Error": "No such user" });
             }
+        });
+    }
+});
+
+/**
+ *  Saved searches
+ * 
+ *  This is mainly a POC for the function.
+ *  For now, just append the search to save as `search` to the user object.
+ *  
+ *  ex:
+ *  {
+ *    username: "<username>",
+ *    password: "<password hash>",
+ *    .
+ *    .
+ *    .
+ *    search: "<search string>"
+ *  }
+ * 
+ */
+router.post("/update_saved_search/", function(req, res) {
+
+    var data = req.body;
+
+    if (data.username === undefined || data.search === undefined) {
+        var err = {"Error": "invalid data format"};
+        console.log(err);
+        res.json(err);
+    } else {
+        var search = data.search;
+        if ( data.savedSearches === undefined ) {
+            // need to add a new array
+            console.log("Adding saved searches array");
+            var updoc = { $set: { savedSearches: [ search ] } };
+        } else {
+            // add to existing array
+            console.log("Updating saved searches array");
+            var updoc = { $addToSet: { savedSearches: search } };
+        }
+        
+        // update the doc
+        var userdoc = { _id: ObjectId(data._id) };
+
+        // push to mongo 
+        mongo.updateDocument(userdoc, updoc, function( resp ) {
+            console.log(`Result from updating ${JSON.stringify(resp, null, 2)}`);
+            res.json(resp);
         });
     }
 });

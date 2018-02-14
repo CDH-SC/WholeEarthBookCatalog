@@ -50,9 +50,8 @@ driver.updateDocument = function(doc, updatedoc, callback) {
         assert.equal(err, null);
         var collection = db.collection("documents");
 
-
         // update document
-        collection.updateOne(doc, updatedoc, function (err, result) {
+        collection.update(doc, updatedoc, function (err, result) {
             assert.equal(err, null);
             callback(result);
         });
