@@ -106,20 +106,17 @@
             static get properties() { 
                 return {
                     inSession: {
-                        type: Boolean
+                        type: Boolean,
                     },
-                    // user: {
-                    //     type: Object,
-                    //     notify: true
-                    // }
+                    user: {
+                        type: Object,
+                        observer: '_userDataObserver'
+                    }
                 };
             }
-            static get observers() {
-                return ['_session_changed(user)'];
-            };
+
             ready() {
                 super.ready();
-                this._session_changed();
             }
 
             _sign_out() {
@@ -133,20 +130,6 @@
                 }
             }
 
-            _session_changed() {
-                if (this.user === undefined || this.user === null) {
-                    this.inSession = false;
-                }
-                else if (Object.keys(this.user).length === 0) {
-                    console.log(this.user);
-                    this.inSession = false;
-                }
-                else {
-                    console.log(this.user);
-                    this.inSession = true;
-                }
-            }
-
             _showSearch() {
                 var upp = document.querySelector("dhc-main");
                 return upp.routeData.isHome;
@@ -155,9 +138,19 @@
             _go_home() {
                 this.set("route.path", "/home");
             }
+
+            _userDataObserver() {
+                console.log(this.user);
+                if (this.user.userData === null) {
+                    this.inSession = false;
+                }
+                else {
+                    console.log(this.user);
+                    this.inSession = true;
+                }
+            }
         }
         window.customElements.define(fragHeader.is, fragHeader);
     </script>
 
 </dom-module>
-

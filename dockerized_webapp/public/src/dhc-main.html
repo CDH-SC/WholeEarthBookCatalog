@@ -4,7 +4,7 @@
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="dhc-login-data.html">
+<link rel="import" href="data-login.html">
 
 
 <link rel="lazy-import" href="dhc-login.html">
@@ -14,7 +14,7 @@
 <link rel="lazy-import" href="dhc-book-results.html">
 <link rel="import" href="dhc-user-account.html">
 <link rel="lazy-import" href="dhc-book-profile.html">
-<link rel="import" href="dhc-search-data.html">
+<link rel="import" href="data-search.html">
 <link rel="import" href="frag-header.html">
 
 
@@ -32,8 +32,8 @@
             }
         </style>
 
-        <dhc-login-data id="please" user="{{user}}"></dhc-login-data>
-        <dhc-search-data id="searchdatacomp" searchdata="{{searchdata}}"></dhc-search-data>
+        <data-login id="userData" user="{{user}}"></data-login>
+        <data-search id="searchdatacomp" searchdata="{{searchdata}}"></data-search>
         
         <app-location
             route="{{route}}"
@@ -93,7 +93,6 @@
             this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
             this.addEventListener('update-search', (e)=>this._onUpdateSearchData(e));
 
-            console.log("USER", this.user);
         }
 
         static get observers() {
@@ -130,12 +129,10 @@
         }
 
         _onUpdateUserData(event) {
-            this.$.please.updateUser(event.detail);
+            this.$.userData.updateUser(event.detail);
         }
 
         _onUpdateSearchData(event) {
-            console.log(this.$);
-            console.log(this.$.seachdatacomp);
             this.$.searchdatacomp.updateSearch(event.detail.search, event.detail.data);
         }
     }

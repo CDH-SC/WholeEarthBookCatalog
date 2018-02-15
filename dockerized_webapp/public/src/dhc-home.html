@@ -4,11 +4,11 @@
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
-<link rel="import" href="dhc-book-rotation.html">
+<link rel="import" href="frag-rotation.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="dhc-search-data.html">
+<link rel="import" href="data-search.html">
 
 <dom-module id="dhc-home">
     <template>
@@ -96,7 +96,7 @@
                 align-items: center;
             }
 
-            dhc-book-rotation {
+            frag-rotation {
                 z-index: 1;
             }
 
@@ -146,7 +146,7 @@
                         </div>
                     </template>
                     <div class="absol">
-                        <dhc-book-rotation></dhc-book-rotation>
+                        <frag-rotation></frag-rotation>
                     </div>
                 </div>
             </div>
@@ -196,7 +196,7 @@
         dumb() { console.log(this.dummy_data); }
 
         _update_dom_session() {
-            if(this.user === null || this.user === undefined) {
+            if(this.user.userData === null) {
                 this.inSession = false;
             }
             else if (Object.keys(this.user).length === 0) {

@@ -1,20 +1,23 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 
-<dom-module id="dhc-login-data">
+<dom-module id="data-login">
     <template>
-        <app-localstorage-document key="dhc-login-data" data="{{user}}"></app-localstorage-document>
+        <app-localstorage-document key="data-login" data="{{user}}"></app-localstorage-document>
     </template>
 
     <script>
-        class dhcLoginData extends Polymer.Element {
-            static get is() { return 'dhc-login-data'; }
+        class dataLogin extends Polymer.Element {
+            static get is() { return 'data-login' }
 
             static get properties() {
                 return {
                     user: {
                         type: Object,
                         notify: true,
+                        value: {
+                            userData: null
+                        }
                     },
 
                     updateUser: {
@@ -24,11 +27,9 @@
             }
 
             updateUser(data) {
-                console.log("update user");
                 this.set('user', data.user);
-                console.log(this.user);
             }
         }
-        window.customElements.define(dhcLoginData.is, dhcLoginData);
+        window.customElements.define(dataLogin.is, dataLogin);
     </script>
 </dom-module>

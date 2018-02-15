@@ -1,14 +1,18 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 
-<dom-module id="dhc-search-data">
+
+<!-- This needs to be changed to only hold query data on a refresh. So we get the data from the db again -->
+
+
+<dom-module id="data-search">
     <template>
-        <app-localstorage-document key="dhc-search-data" data="{{searchdata}}"></app-localstorage-document>
+        <app-localstorage-document key="data-search" data="{{searchdata}}"></app-localstorage-document>
     </template>
 
     <script>
-        class dhcSearchData extends Polymer.Element {
-            static get is() { return 'dhc-search-data' };
+        class dataSearch extends Polymer.Element {
+            static get is() { return 'data-search' };
 
             static get properties() {
                 return {
@@ -27,12 +31,10 @@
             }
 
             updateSearch(str, data) {
-                console.log("Updating");
                 this.set("searchdata.searchStr", str);
                 this.set("searchdata.data", data);
-                console.log(this.searchdata);
             }
         }
-        window.customElements.define(dhcSearchData.is, dhcSearchData);
+        window.customElements.define(dataSearch.is, dataSearch);
     </script>
 </dom-module>

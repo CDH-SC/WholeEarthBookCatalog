@@ -102,6 +102,10 @@
         <template is="dom-if" if="{{!searchDataLoaded}}">
             Loading...
         </template>
+
+        <template is="dom-if" if="{{noResults}}">
+            NO RESULTS FOUND
+        </template>
         
         <template is="dom-if" if="{{searchDataLoaded}}">
                     <div id = "result-entry-wrapper" class="border-color">
@@ -168,6 +172,10 @@
                     searchDataLoaded: {
                         type: Boolean,
                         value: false
+                    },
+                    noResults: {
+                        type: Boolean,
+                        value: false
                     }
                 }
             }
@@ -175,8 +183,15 @@
             _searchDataObserver() {
                 console.log(this.searchdata);
                 console.log("in here");
+
                 this.set('searchDataLoaded', true);
-                console.log(this.searchdata.data.records[0]._fields[0].properties);
+
+                if(this.searchdata.data.records.length > 0) {
+                    console.log(this.searchdata.data.records[0]._fields[0].properties);
+                }
+                else {
+                    this.noResults = true;
+                }
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);
