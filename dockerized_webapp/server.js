@@ -130,8 +130,18 @@ router.post("/update_saved_search/", function(req, res) {
 
         // push to mongo 
         mongo.updateDocument(userdoc, updoc, function( resp ) {
-            console.log(`Result from updating ${JSON.stringify(resp, null, 2)}`);
-            res.json(resp);
+            var resStr = JSON.stringify(resp, null, 2);
+            var resp = JSON.parse(resStr);
+            console.log(`Result from updating ${resStr}`);
+            if (resp.nModified == 0) {
+                console.log( `nModified: ${resp.nModified}` );
+                console.log( "This string is already in the array" );
+                res.json({ result: "This search has already been saved" });
+            } else {
+                console.log( `nModified: ${resp.nModified}` );
+                console.log( "Search saved" );
+                res.json({ result: "Search string saved" });
+            }
         });
     }
 });
