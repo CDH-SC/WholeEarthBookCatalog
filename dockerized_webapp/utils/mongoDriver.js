@@ -53,26 +53,5 @@ driver.updateDocument = function(doc, updatedoc, callback) {
     });
 }
 
-driver.updateRecent = function(doc, rec, callback) {
-    MongoClient.connect(url, function (err, db) {
-        assert.equal(err, null);
-        var collection = db.collection("documents");
-
-        collection.update(doc, {$addToSet: {recent: rec}}, function(err, result) {
-            assert.equal(err, null);
-            var length = collection.findOne(doc).length;
-            if (length > 6) {
-              collection.update(doc, { $pop: { recent : -1 }});
-            }
-
-
-            callback(result);
-        });
-
-
-        db.close();
-    });
-
-}
 
 module.exports = driver;
