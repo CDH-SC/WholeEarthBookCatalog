@@ -31,17 +31,14 @@ function importFiles(logger) {
     try {
         if (fs.existsSync(options.downloadsDir).valueOf() == false)
             fs.mkdirSync(options.downloadsDir);
-    } catch (ex) {/*swallow*/ }
+    } catch (ex) { /*swallow*/ }
     // request catalog of files
     let catalog = getHttp(options.sourceURL).getBody('utf8');
     let matches = catalog.match(options.sourceFormat)
     let listOfFiles = null
-    if(matches != null)
-    {
+    if (matches != null) {
         listOfFiles = matches.map((e) => options.sourceRequestFormat + e);
-    }
-    else
-    {
+    } else {
         logger.error("failed to get catalog, falling back to cached files");
         listOfFiles = getAllFiles(options.downloadsDir);
     }
@@ -63,25 +60,21 @@ function importFiles(logger) {
             // file exists
             if (match.endsWith("gz")) {
                 extractFile(fileName, logger);
-            }
-            else if (match.endsWith("xml")) {
+            } else if (match.endsWith("xml")) {
                 convertFile(fileName, logger);
-            }
-            else if (match.endsWith(options.completionTag)) {
+            } else if (match.endsWith(options.completionTag)) {
                 // nothing, it's in there already
-            }
-            else {
+            } else {
                 // I will ignore it, for now
             }
-        }
-        else {
+        } else {
             logger.debug("download file: " + file);
             // file doesn't exist
             let fileName = options.downloadsDir + partNumber + ".xml.gz";
 
             let downloadFile = fs.createWriteStream(fileName);
 
-            let downloadRequest = http.get(file, function (response) {
+            let downloadRequest = http.get(file, function(response) {
                 response.pipe(downloadFile).on('finish', () => { extractFile(fileName, logger); });
             });
         }
@@ -106,7 +99,7 @@ function convertFile(file, logger) {
     let convertedFile = file.slice(0, -4) + ".json";
 
     let replace = require('stream-replace');
-    let parser = marc4js.parse({format: 'marcxml'});
+    let parser = marc4js.parse({ format: 'marcxml' });
     let transformer = marc4js.transform({ format: "json" });
     fs.createReadStream(file)
         .pipe(parser)
@@ -120,7 +113,7 @@ function importRecord(marc21, logger) {
     let record = {
         marc21: marc21,
         exdefs: [
-            
+
         ]
     };
     let driver = neo4j.driver("bolt://localhost:7687");
@@ -132,15 +125,15 @@ function importRecord(marc21, logger) {
     // then run
     // then hold stream until promise resolves?
     // maybe push all objects into a sub folder then take them synchronously later......
-    let resultPromise = session.run('CREATE (a:Item {marc21: $marc}) RETURN a', {marc: JSON.stringify(marc21)});;
+    let resultPromise = session.run('CREATE (a:Item {marc21: $marc}) RETURN a', { marc: JSON.stringify(marc21) });;
 
     resultPromise.then((result) => {
         session.close();
         logger.debug(result);
         driver.close();
     });
-        // rename file to add completion tag
-        // for server, maybe clear file too
+    // rename file to add completion tag
+    // for server, maybe clear file too
 }
 
 module.exports = importFiles;
