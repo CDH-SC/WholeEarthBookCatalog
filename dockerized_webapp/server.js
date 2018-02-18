@@ -1,6 +1,7 @@
  /**
  *
  * An express server to serve as an API for the web app
+ *
  */
 
 "use strict";
@@ -21,8 +22,9 @@ var ObjectId = require("mongodb").ObjectId;
 router.post("/add_user/", function (req, res) {
     var data = req.body;
     console.log(data);
-    if (data.username === undefined && data.password === undefined) {
-        var err = { "Error": "invalid data format" };
+
+    if (data.username === undefined || data.password === undefined) {
+        var err = { "Error": "invalid data format. Users must have both a username and password" };
         console.log(err);
         res.json(err);
     } else {
@@ -89,138 +91,91 @@ router.post("/get_user/", function (req, res) {
 });
 
 /**
- *  Saved searches
- * 
- *  This is mainly a POC for the function.
- *  For now, just append the search to save as `search` to the user object.
- *  
- *  ex:
+ *  Saved content
+ *
+ *  Pass data in this format:
+ *
  *  {
- *    username: "<username>",
- *    password: "<password hash>",
- *    .
- *    .
- *    .
- *    search: "<search string>"
+ *      "_id": <idstr>,
+ *      "keyword": <keyword>,
+ *      "content": <content>
  *  }
- * 
+ *
  */
-router.post("/update_saved_search/", function(req, res) {
+router.post("/update_saved_content/", function(req, res) {
 
     var data = req.body;
+    var errStr = "Got error attempting to update saved content";
+    var err;
 
-    if (data.username === undefined || data.search === undefined) {
-        var err = {"Error": "invalid data format"};
-        console.log(err);
-        res.json(err);
-    } else {
-        var search = data.search;
-        if ( data.savedSearches === undefined ) {
-            // need to add a new array
-            console.log("Adding saved searches array");
-            var updoc = { $set: { savedSearches: [ search ] } };
-        } else {
-            // add to existing array
-            console.log("Updating saved searches array");
-            var updoc = { $addToSet: { savedSearches: search } };
-        }
-        
-        // update the doc
-        var userdoc = { _id: ObjectId(data._id) };
+    // error handling
+    if ( data._id === undefined || data.keyword === undefined || data.content === undefined ) {
+        err = { "Error": "invalid data format" };
+        console.log( `${errStr}:\n${err}` );
+        res.json( err );
+        return;
+    }
 
-        // push to mongo 
-        mongo.updateDocument(userdoc, updoc, function( resp ) {
-            var resStr = JSON.stringify(resp, null, 2);
-            var resp = JSON.parse(resStr);
-            console.log(`Result from updating ${resStr}`);
-            if (resp.nModified == 0) {
-                console.log( `nModified: ${resp.nModified}` );
-                console.log( "This string is already in the array" );
-                res.json({ result: "This search has already been saved" });
-            } else {
-                console.log( `nModified: ${resp.nModified}` );
-                console.log( "Search saved" );
-                res.json({ result: "Search string saved" });
+    // create the update document
+    var updoc;
+    if ( data.keyword == "saved_searches" ) {
+        updoc = {
+            $addToSet: {
+                savedSearches: data.content
             }
-        });
-    }
-});
-
-// recent searches
-router.post("/recent_search/", function(req,res) {
-    var data = req.body;
-    if (data.username === undefined || data.recent === undefined) {
-      var err = { "Error": "invalid data format" };
-      console.log(err);
-      res.json(err);
-    } else {
-
-      // construct query doc
-      var userdoc = {
-          username: data.username
-      };
-
-      mongo.findDocument(userdoc, function (resp) {
-          if (resp.length > 0) {
-
-            var updoc = resp[0];
-
-            console.log(updoc.recent);
-            mongo.updateRecent(userdoc, data.recent, function(resp1) {
-                console.log(resp1);
-                res.json(resp1);
-            });
-
-
-          } else {
-            var err = { "Error": "This user doesn't exist" };
-            console.log(err);
-            res.json(err);
-          }
-      });
-    }
-});
-
-/*
-// update password
-router.post("/update_password/", function (req, res) {
-    console.log("update password endpoint");
-    var data = req.body;
-
-    console.log(" CAN YOU SEE THIS");
-    if (data.username === undefined || data.password === undefined) {
-        var err = { "Error": "invalid data format" };
-        console.log(err);
-        res.json(err);
-    } else {
-         console.log("hit the else statement");
-        // construct query doc
-        var userdoc = {
-            username: data.username
         };
-
-        // check for existing user
-        mongo.findDocument(userdoc, function (resp) {
-            console.log("hit the mongo driver");
-            if (resp.length > 0) {
-                // encrypt password
-                utils.hashPassword(data.password, 5, function (hashed) {
-                    userdoc.password = hashed;
-                    mongo.updateDocument(resp[0], userdoc, function (resp1) {
-                        console.log(resp1);
-                        res.json(resp1);
-                    });
-                });
-
-            } else {
-                var err = { "Error": "This user doesn't exist" };
-                console.log(err);
-                res.json(err);
+    } else if ( data.keyword == "recent_searches" ) {
+        updoc = {
+            $addToSet: {
+                recentSearches: data.content
             }
-      });
+        };
+    } else if ( data.keyword == "favorites" ) {
+        updoc = {
+            $addToSet: {
+                favorites: data.content
+            }
+        };
+    } else if ( data.keyword == "update_password") {
+        utils.hashPassword(data.content, 5, function (hashed) {
+            updoc.password = hashed;
+        });
+    } else {
+        err = { "Error": "invalid data format. keyword is not recognized" };
+        console.log( `${errStr}:\n${JSON.stringify( err, null, 2 )}` );
+        res.json(err);
+        return;
     }
+
+    // create the query doc
+    var querydoc = {
+        _id: ObjectId(data._id)
+    };
+
+    // push to mongo
+    mongo.updateDocument( querydoc, updoc, function( resp ) {
+        var resStr = JSON.stringify( resp, null, 2 );
+        var resp = JSON.parse(resStr);
+
+        if ( resp.lastErrorObject.updatedExisting == true ) {
+            var obj = {
+                keyword: data.keyword,
+                doc: data._id
+            };
+            console.log(`Successfully updated:\n${ JSON.stringify( obj, null, 2 ) }`)
+            res.json({
+                result: resp.value
+            });
+        } else {
+            console.log( `Could not update document ${data._id}` );
+            res.json({
+                result: resp.lastErrorObject
+            });
+        }
+    });
+
 });
-*/
+
 
 // query neo4j
 router.post("/neo4j/", function (req, res) {

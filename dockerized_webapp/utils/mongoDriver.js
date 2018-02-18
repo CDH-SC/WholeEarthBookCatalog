@@ -11,14 +11,12 @@ var url = `mongodb://${process.env.MONGO_URL}`;
 // module
 var driver = {};
 
-// Get the documents collection
 driver.findDocument = function(query, callback) {
 
     MongoClient.connect(url, function(err, db) {
         assert.equal(err, null);
         var collection = db.collection("documents");
 
-        // find a document
         collection.find(query).toArray(function(err, doc) {
             assert.equal(err, null);
             callback(doc);
@@ -27,14 +25,12 @@ driver.findDocument = function(query, callback) {
     });
 }
 
-// insert some docs
 driver.insertDocument = function(doc, callback) {
 
     MongoClient.connect(url, function(err, db) {
         assert.equal(err, null);
         var collection = db.collection("documents");
 
-        // insert a document
         collection.insert(doc, function(err, result) {
              assert.equal(err, null);
              callback(result);
@@ -43,15 +39,13 @@ driver.insertDocument = function(doc, callback) {
     });
 }
 
-// update a document
 driver.updateDocument = function(doc, updatedoc, callback) {
 
     MongoClient.connect(url, function(err, db) {
         assert.equal(err, null);
         var collection = db.collection("documents");
 
-        // update document
-        collection.update(doc, updatedoc, function (err, result) {
+        collection.findOneAndUpdate(doc, updatedoc, { returnOriginal: false }, function (err, result) {
             assert.equal(err, null);
             callback(result);
         });
@@ -59,29 +53,5 @@ driver.updateDocument = function(doc, updatedoc, callback) {
     });
 }
 
-driver.updateRecent = function(doc, rec, callback) {
-    MongoClient.connect(url, function (err, db) {
-        assert.equal(err, null);
-        var collection = db.collection("documents");
 
-        collection.update(doc, {$addToSet: {recent: rec}}, function(err, result) {
-            assert.equal(err, null);
-            var length = collection.findOne(doc).length;
-            if (length > 6) {
-              collection.update(doc, { $pop: { recent : -1 }});
-            }
-
-
-            callback(result);
-        });
-
-
-        db.close();
-    });
-
-}
-
-
-
-// export the driver
 module.exports = driver;
