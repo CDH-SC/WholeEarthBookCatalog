@@ -32,23 +32,10 @@ neo4jDriver.query = function(statement, params) {
         return result;
     });
 
-    console.log(`txRes: ${txRes}`);
     return txRes
     session.close()
     driver.close()
-
-    /**
-    session.run(statement, params)
-        .then(function(res) {
-            console.log(`Query: ${JSON.stringify(statement, null, 2)}\n${JSON.stringify(params, null, 2)}\nResponse: ${JSON.stringify(res, null, 2)}`);
-            recordObj = res;
-            driver.close();
-            session.close();
-        })
-        .catch(function(err) {
-            console.log(`ERR: ${JSON.stringify(err, null, 2)}`);
-        })
-    */
+    
 }
 
 module.exports = neo4jDriver;
