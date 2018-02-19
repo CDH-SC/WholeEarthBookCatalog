@@ -177,6 +177,16 @@ router.post("/update_saved_content/", function(req, res) {
 });
 
 
+
+/*
+// Testing function for clock in mongoDriver
+router.post("/test_clock/", function(req, res) {
+    console.log("Test clock endpoint");
+    mongo.setUpClock();
+});
+*/
+
+
 // query neo4j
 router.post("/neo4j/", function (req, res) {
     var data = req.body;
