@@ -2,6 +2,8 @@
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
 
@@ -98,6 +100,16 @@
             pattern="/:search"
             data="{{routeData}}">
         </app-route>
+
+        <iron-ajax
+            method="POST"
+            id="neoPost"
+            url="/api/neo4j/keyword"
+            handle-as="json"
+            on-response="_handleResponse"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
         
         <template is="dom-if" if="{{!searchDataLoaded}}">
             Loading...
@@ -119,26 +131,18 @@
                                 Title: {{field.properties.title}}
                             </h1>
                         </template>
-                      <!-- <h2>{{item.name}}</h2> 
-                        <h4>{{item.author}}</h4> 
-                        <h4> Genres: 
-                            <template is="dom-repeat" items="[[item.genres]]" as="genre">
-                                {{genre}}
-                            </template>
-                        </h4>
-                        <h4> Publisher: {{item.publisher}}</h4> 
-                        <h4> Originally Published: {{item.year}} </h4> -->
                     </paper-dialog>
     
                     <div id = "result-item-menu" class="border-color">
                         <a href="/book-profile/{{item.name}}">
                             <paper-button on-click="" id = "result-item-view-profile" class="border-color"> View Profile </paper-button> 
                         </a>
+
                         <div id = "result-paired-buttons"> 
                             <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
                             <paper-button id = "result-item-like" title = "heart" id = "result-item-like" class="border-color"> Like </paper-button> 
                         </div>
-    
+
                         <paper-button id = "result-item-share" class="border-color"> 
                             Share
                         </paper-button>
@@ -153,21 +157,15 @@
     <script>
         class dhcBookResults extends Polymer.Element {
             static get is() { return 'dhc-book-results'; }
-            static get ready() {
-                console.log("Getting read");
 
-                console.log(this.searchData);
-            }
             static get properties() {
                 return {
                     rootPath: String,
-                    search: {
+                    searchParams: {
                         type: String,
-                        value: "HI"
                     },
-                    searchdata: {
+                    searchData: {
                         type: Object,
-                        observer: "_searchDataObserver"
                     },
                     searchDataLoaded: {
                         type: Boolean,
@@ -180,14 +178,32 @@
                 }
             }
 
-            _searchDataObserver() {
-                console.log(this.searchdata);
-                console.log("in here");
+            ready() {
+                console.log("readying up");
+                super.ready();
+                this._fireSearchPost();
+                console.log("Finished");
+            }
 
-                this.set('searchDataLoaded', true);
+            _fireSearchPost() {
+                console.log(this.searchParams);
+                this.$.neoPost.body = {
+                    keyword: this.searchParams.keyword,
+                    limit: 10
+                }
 
-                if(this.searchdata.data.records.length > 0) {
-                    console.log(this.searchdata.data.records[0]._fields[0].properties);
+                this.$.neoPost.generateRequest();
+            }
+
+            _handleResponse(e) {
+                console.log("handled search");
+                console.log(e.detail.response);
+                this.set("searchdata", this.detail.response);
+
+                his.set('searchDataLoaded', true);
+
+                if(this.searchData.records.length > 0) {
+                    console.log(this.searchData.records[0]._fields[0].properties);
                 }
                 else {
                     this.noResults = true;
