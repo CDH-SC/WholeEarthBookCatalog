@@ -121,13 +121,14 @@ var makeRequest = function() {
 */
 setTimeout(makeRequest, 5000);
 
-function makeFetch(query, startPosition, searchLimit) {
+function makeFetch() {
     var retrieveQuery = function(query) {
-        limit = setAcceptableSearchLimits();
-        pos = getStartPosition();
-        fetchQuery = retrieveQuery();
-    }
-    var urlFetch = "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=" + retrieveQuery() + "&format=atom&start=" + pos + "&count=" + limit + "&cformat=mla&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu",
+            //   limit = setAcceptableSearchLimits();
+            // pos = getStartPosition();
+            // fetchQuery = retrieveQuery();
+        }
+        // var urlFetch = "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=" + retrieveQuery() + "&format=atom&start=" + pos + "&count=" + limit + "&cformat=mla&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu",
+    var urlFetch = "http://www.worldcat.org/webservices/catalog/search/worldcat/opensearch?q=Robert%20Sheckley&format=atom&start=4&count=20&cformat=mla&wskey=J4W8SNzajOA70WQBGDQ4PJwIREEFV4zPIT7cApskXcag34uGDwTb9p2hUfGJg8LOAPuEvScdeADVA4bu",
         var importIntoNeo4j = function(logger) {
             var req = new Request(urlFetch, { method: 'GET', cache: 'default' });
 
