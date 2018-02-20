@@ -17,6 +17,7 @@ var neo4j = require("./utils/neo4jDriver.js");
 var utils = require("./utils");
 var qstrings = require("./utils/querystrings.js");
 var ObjectId = require("mongodb").ObjectId;
+var clock = require("./utils/clock.js");
 
 // add user
 router.post("/add_user/", function (req, res) {
@@ -182,7 +183,7 @@ router.post("/update_saved_content/", function(req, res) {
 // Testing function for clock in mongoDriver
 router.post("/test_clock/", function(req, res) {
     console.log("Test clock endpoint");
-    mongo.setUpClock();
+    clock.setUpClock();
 });
 */
 
@@ -237,7 +238,7 @@ router.post("/neo4j/keyword/", function (req, res) {
             res.json(resp);
         })
         .catch(function (err) {
-            var errstr = "This process was rejected. Please double check that your input follows the correct form"; 
+            var errstr = "This process was rejected. Please double check that your input follows the correct form";
             console.log(errstr)
             res.json({
                 "Message": errstr,
