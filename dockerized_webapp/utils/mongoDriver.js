@@ -33,8 +33,8 @@ driver.insertDocument = function(doc, callback) {
         var collection = db.collection("documents");
 
         collection.insert(doc, function(err, result) {
-             assert.equal(err, null);
-             callback(result);
+            assert.equal(err, null);
+            callback(result);
         });
         db.close();
     });
@@ -46,7 +46,7 @@ driver.updateDocument = function(doc, updatedoc, callback) {
         assert.equal(err, null);
         var collection = db.collection("documents");
 
-        collection.findOneAndUpdate(doc, updatedoc, { returnOriginal: false }, function (err, result) {
+        collection.findOneAndUpdate(doc, updatedoc, { returnOriginal: false }, function(err, result) {
             assert.equal(err, null);
             callback(result);
         });
@@ -55,6 +55,7 @@ driver.updateDocument = function(doc, updatedoc, callback) {
 }
 
 
+<<<<<<< Updated upstream
 // Values for clock to monitor number of searches
 var midnight = "23:59:59";
 var deductible;
@@ -99,3 +100,6 @@ driver.setUpClock = function() {
 
 
 module.exports = driver;
+=======
+module.exports = driver;
+>>>>>>> Stashed changes
