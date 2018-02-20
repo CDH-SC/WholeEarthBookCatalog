@@ -177,6 +177,16 @@ router.post("/update_saved_content/", function(req, res) {
 });
 
 
+
+/*
+// Testing function for clock in mongoDriver
+router.post("/test_clock/", function(req, res) {
+    console.log("Test clock endpoint");
+    mongo.setUpClock();
+});
+*/
+
+
 // query neo4j
 router.post("/neo4j/", function (req, res) {
     var data = req.body;
@@ -213,7 +223,11 @@ router.post("/neo4j/keyword/", function (req, res) {
 
     // construct params object
     Object.keys(data).forEach(function (element, key, _array) {
-        params[element] = data[element];
+        if ( element == "keyword" ) {
+            params["regex"] = `(?i).*${data[element]}.*`
+        } else {
+            params[element] = data[element];
+        }
     });
 
     // add logic to sanitize the input here...
@@ -221,6 +235,14 @@ router.post("/neo4j/keyword/", function (req, res) {
     neo4j.query(statement, params)
         .then(function (resp) {
             res.json(resp);
+        })
+        .catch(function (err) {
+            var errstr = "This process was rejected. Please double check that your input follows the correct form"; 
+            console.log(errstr)
+            res.json({
+                "Message": errstr,
+                "Error": err
+            });
         });
 });
 
