@@ -54,8 +54,6 @@ driver.updateDocument = function(doc, updatedoc, callback) {
     });
 }
 
-
-<<<<<<< Updated upstream
 // Values for clock to monitor number of searches
 var midnight = "23:59:59";
 var deductible;
@@ -100,6 +98,3 @@ driver.setUpClock = function() {
 
 
 module.exports = driver;
-=======
-module.exports = driver;
->>>>>>> Stashed changes
