@@ -247,6 +247,52 @@ router.post("/neo4j/keyword/", function (req, res) {
         });
 });
 
+router.post("/neo4j/get_graph/", function (req, res) {
+    var statement = qstrings.getGraphJSON;
+
+    neo4j.query(statement, {})
+        .then(function (resp) {
+
+            // process response
+            // var resStr = JSON.stringify( resp, null, 2 );
+            // var resp = JSON.parse(resStr);
+
+            var fields = resp.records[0]._fields
+            var nodes = new Array();
+            var edges = new Array();
+            
+            console.log("checking in");
+
+            for (var i = 0; i < fields[0].length; i++) {
+                console.log("loop one");
+                nodes.push({
+                    caption: ( fields[0][i].properties.title || fields[0][i].properties.name ),
+                    type: fields[0][i].labels[0],
+                    id: fields[0][i].identity.low
+                });
+            }
+
+            for (var i = 0; i < fields[1].length; i++) {
+                console.log("loop two");
+                edges.push({
+                    source: fields[1][i].start.low,
+                    target: fields[1][i].end.low,
+                    caption: fields[1][i].type
+                })
+            }
+
+            var graphJSON = {
+                nodes: nodes,
+                edges: edges
+            }
+
+            res.json(graphJSON);
+        })
+        .catch(function (err) {
+            res.json({"Error": `${JSON.stringify(err)}`});
+        });
+});
+
 // use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
