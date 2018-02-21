@@ -50,7 +50,7 @@
             <paper-dialog-scrollable>
                 <template is="dom-repeat" items="[[numFieldsArray]]">
                     <div class="col-inputs">
-                        <paper-input class="input-adv" id="searchField_{{item}}"></paper-input>
+                        <paper-input class="input-adv" label="Search Criteria" value="{{item.value}}" placeholder="search criteria" id="searchField_{{item}}"></paper-input>
                         <paper-dropdown-menu label="search type" on-value-changed="_update_available" data-args="{{item}}">
                             <paper-listbox slot="dropdown-content">
                                 <template is="dom-repeat" items="[[avaliableChoices]]" as="choice">
@@ -60,12 +60,12 @@
                                 </template>
                             </paper-listbox>
                         </paper-dropdown-menu>
-                        <paper-button class="remove" on-click="">
+                        <paper-button class="remove" on-click="_remove" remove-item="{{item}}" disabled="{{item.first}}">
                             Remove
                         </paper-button>
                     </div>
                 </template>
-                <paper-button class="add" on-click="_increment_num_fields">Add Field</paper-button>
+                <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
                 <paper-button class="search-submit">Search</paper-button>
             </paper-dialog-scrollable>
         </paper-dialog>
@@ -81,9 +81,10 @@
                 // Startout with 3 fields, Keyword, author, title
                 return {
                     numInputs: Number,
+                    addMoreDisabled: Boolean,
                     numFieldsArray: {
                         type: Array,
-                        value: [{index: 0, value: "", searchType: ""},
+                        value: [{index: 0, value: "", searchType: "", first: true },
                         {index: 1, value: "", searchType: ""},
                         {index: 2, value: "", searchType: ""},
                     ]
@@ -107,7 +108,10 @@
             }
 
             _increment_num_fields() {
-                this.push("numFieldsArray", this.numfieldsArray[this.numfieldsArray.length - 1] + 1);
+                this.push("numFieldsArray", {index:this.numFieldsArray[this.numFieldsArray.length - 1] + 1, value: "", searchType: ""});
+                if (this.numFieldsArray.length >= this.avaliableChoices.length) {
+                    this.set("addMoreDisabled", true);
+                }
             }
 
             _update_available(event) {
@@ -116,9 +120,6 @@
                 // search type.
 
                 var itemObj = event.path[0].dataArgs;
-                console.log("FIRE");
-                console.log(event);
-                console.log(itemObj);
 
                 for (var i = 0; i < this.avaliableChoices.length; i++) {
                     if (this.avaliableChoices[i].value === itemObj.searchType) {
@@ -131,8 +132,25 @@
                         this.set("numFieldsArray." + itemObj.index + "searchType", event.detail.value);                       
                     }
                 }
-                console.log(this.avaliableChoices);
-                console.log(this.numFieldsArray);
+            }
+            _remove(event) {
+                this.splice("numFieldsArray", event.path[0].removeItem, 1);
+
+                if(this.numFieldsArray.length < this.avaliableChoices.length) {
+                    this.set("addMoreDisabled", false);
+                }
+            }
+
+            _goto_search() {
+                this.dispatchEvent(new CustomEvent('update-search', {
+                    bubbles: true, composed: true, detail: {
+                    search: { data: this.numFieldsArray },
+                }}));
+
+                console.log(this.search);
+
+                console.log("going");
+                this.set("route.path", "/book-results/" + this.search.keyword);
             }
 
         } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);
