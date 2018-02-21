@@ -117,7 +117,7 @@
         <iron-ajax
             method="POST"
             id="neoPost"
-            url="/api/neo4j"
+            url="/api/neo4j/keyword"
             handle-as="json"
             on-response="_handleResponse"
             content-type="application/json"
@@ -210,8 +210,8 @@
         _goto_search() {
             console.log("hello");
             this.$.neoPost.body = {
-                "statement": "MATCH (m) WHERE m.title CONTAINS { keyword } RETURN DISTINCT m LIMIT 10",
-                "keyword": this.search
+                "keyword": this.search,
+                "limit": 25
             }
             this.$.neoPost.generateRequest();
         }
