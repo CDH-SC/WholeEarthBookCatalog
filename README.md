@@ -52,6 +52,24 @@ The app will be deployed on `localhost:$SERVER_PORT`.
   + You can change the second command to `docker-compose up -d` so that docker runs the processes in the background.
   + Check on the status of your containers with `docker logs <container_id>`. The id can be found by running `docker ps`.
 
+***Development:***
+
+If you do not wish to build the whole project to test your code, there is an included `start-dev.sh` script. This will work best if you have already built the project with `docker-compose`, as it uses the docker volumes created in that process. You must also write a small configuration file, as detailed in the comments of the script.  
+
+If you are doing dev with the polymer code:  
+
+```
+$ cd public  
+$ polymer build  
+$ cd .. 
+```
+
+To run:  
+  
+``` 
+$ ./start-dev.sh
+```
+
 <h1>Testing</h1>
 
 ***For Behvaioral Tests:***
