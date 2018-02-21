@@ -10,7 +10,6 @@
     "author": "Jason Drain <jason.bensley.drain@gmail.com>",
     "license": "ISC",
     "dependencies": {
-        "alchemy": "^0.3.1",
         "ajax": "0.0.4",
         "bcrypt": "^1.0.3",
         "chai": "^4.1.2",
