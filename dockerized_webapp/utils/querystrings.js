@@ -45,8 +45,18 @@ qstrings.keywordSearch = `OPTIONAL MATCH (m:Movie)-[*..2]-(m1:Movie)
  * 
  * 
  */
-qstrings.advancedSearchPerson = `OPTIONAL MATCH (p:Person)-[:WROTE|:EDITTED|:CONTRIBUTED-TO|:TRANSLATED]-(e:Edition)
-                                 WHERE p.lname `
+qstrings.advancedSearchPerson = `OPTIONAL MATCH
+                                 (p:Person)-[:WROTE|:EDITTED|:CONTRIBUTED-TO|:TRANSLATED]->(x:Edition)-[*..{ degrees }]-(e:Edition)
+                                 WHERE 
+                                 p.lname =~ { lname_re } 
+                                 OR p.fname =~ { fname_re } 
+                                 OR p.death =~ { death_re } 
+                                 OR p.birth =~ { birth_re }
+                                 WITH collect(x)+collect(e) as c1`;
+
+qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "Tom"
+                         WITH collect(r) as edges, collect(p)+collect(m) as nodes
+                         RETURN nodes, edges`;
 
 // exports
 module.exports = qstrings;

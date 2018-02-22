@@ -1,12 +1,10 @@
 <!--Theses are all the necessary imports for polymer to work here-->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+
 <link rel="import" href="data-login.html">
-
-
 <link rel="lazy-import" href="dhc-login.html">
 <link rel="lazy-import" href="dhc-home.html">
 <link rel="lazy-import" href="dhc-404.html">
@@ -33,8 +31,7 @@
         </style>
 
         <data-login id="userData" user="{{user}}"></data-login>
-        <data-search id="searchdatacomp" searchdata="{{searchdata}}"></data-search>
-        
+        <data-search id="searchdatacomp" searchparams="{{searchparams}}"></data-search>
         <app-location
             route="{{route}}"
             url-space-regex="^[[rootPath]]">
@@ -65,7 +62,7 @@
             <dhc-user-account name="user-account"></dhc-user-account> 
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
-            <dhc-book-results name="book-results" route="{{subroute}}" searchParams="[[searchParams]]"></dhc-book-results>
+            <dhc-book-results name="book-results" route="{{subroute}}" searchparams="{{searchparams}}"></dhc-book-results>
             <dhc-book-profile name="book-profile" route="{{subroute}}"> </dhc-book-profile>
         </iron-pages>
     </template>
@@ -89,10 +86,8 @@
 
         ready() {
             super.ready();
-
             this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
             this.addEventListener('update-search', (e)=>this._onUpdateSearchData(e));
-
         }
 
         static get observers() {
@@ -101,7 +96,6 @@
 
         _routePageChanged(page) {
             this.page = page || 'home';
-
             this._setIsHome(page);
         };
 

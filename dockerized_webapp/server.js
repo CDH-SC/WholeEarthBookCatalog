@@ -17,6 +17,7 @@ var neo4j = require("./utils/neo4jDriver.js");
 var utils = require("./utils");
 var qstrings = require("./utils/querystrings.js");
 var ObjectId = require("mongodb").ObjectId;
+var clock = require("./utils/clock.js");
 
 // add user
 router.post("/add_user/", function (req, res) {
@@ -182,7 +183,7 @@ router.post("/update_saved_content/", function(req, res) {
 // Testing function for clock in mongoDriver
 router.post("/test_clock/", function(req, res) {
     console.log("Test clock endpoint");
-    mongo.setUpClock();
+    clock.setUpClock();
 });
 */
 
@@ -237,12 +238,58 @@ router.post("/neo4j/keyword/", function (req, res) {
             res.json(resp);
         })
         .catch(function (err) {
-            var errstr = "This process was rejected. Please double check that your input follows the correct form"; 
+            var errstr = "This process was rejected. Please double check that your input follows the correct form";
             console.log(errstr)
             res.json({
                 "Message": errstr,
                 "Error": err
             });
+        });
+});
+
+router.post("/neo4j/get_graph/", function (req, res) {
+    var statement = qstrings.getGraphJSON;
+
+    neo4j.query(statement, {})
+        .then(function (resp) {
+
+            // process response
+            // var resStr = JSON.stringify( resp, null, 2 );
+            // var resp = JSON.parse(resStr);
+
+            var fields = resp.records[0]._fields
+            var nodes = new Array();
+            var edges = new Array();
+            
+            console.log("checking in");
+
+            for (var i = 0; i < fields[0].length; i++) {
+                console.log("loop one");
+                nodes.push({
+                    caption: ( fields[0][i].properties.title || fields[0][i].properties.name ),
+                    type: fields[0][i].labels[0],
+                    id: fields[0][i].identity.low
+                });
+            }
+
+            for (var i = 0; i < fields[1].length; i++) {
+                console.log("loop two");
+                edges.push({
+                    source: fields[1][i].start.low,
+                    target: fields[1][i].end.low,
+                    caption: fields[1][i].type
+                })
+            }
+
+            var graphJSON = {
+                nodes: nodes,
+                edges: edges
+            }
+
+            res.json(graphJSON);
+        })
+        .catch(function (err) {
+            res.json({"Error": `${JSON.stringify(err)}`});
         });
 });
 

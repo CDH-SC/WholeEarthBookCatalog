@@ -103,7 +103,7 @@
 
         <iron-ajax
             method="POST"
-            id="neoPost"
+            id="npost"
             url="/api/neo4j/keyword"
             handle-as="json"
             on-response="_handleResponse"
@@ -121,17 +121,14 @@
         
         <template is="dom-if" if="{{searchDataLoaded}}">
                     <div id = "result-entry-wrapper" class="border-color">
-            <template is="dom-repeat" items="[[searchdata.data.records]]">
+            <template is="dom-repeat" items="[[searchData.records]]">
                 <div class="result-item-info border-color">
                     <image id = "result-item-image" class="border-color" src= "../images/clockwork_small.jpg"></image>
-    
-                    <paper-dialog class = "paper-metadata border-color">
-                        <template is="dom-repeat" items="{{item._fields}}" as="field">
-                            <h1>
-                                Title: {{field.properties.title}}
-                            </h1>
-                        </template>
-                    </paper-dialog>
+                    <template is="dom-repeat" items="{{item._fields}}" as="field">
+                        <h1>
+                            Title: {{field.properties.title}}
+                        </h1>
+                    </template>
     
                     <div id = "result-item-menu" class="border-color">
                         <a href="/book-profile/{{item.name}}">
@@ -161,8 +158,9 @@
             static get properties() {
                 return {
                     rootPath: String,
-                    searchParams: {
-                        type: String,
+                    searchparams: {
+                        type: Object,
+                        notify: true
                     },
                     searchData: {
                         type: Object,
@@ -179,34 +177,51 @@
             }
 
             ready() {
-                console.log("readying up");
                 super.ready();
+                console.log(this);
+                console.log(this.$);
+
                 this._fireSearchPost();
+                console.log("readying up");
                 console.log("Finished");
             }
 
+            _wait_on_value() {
+                console.log("butt");
+                console.log(this.searchparams);
+                if(this.searchparams !== undefined) {
+                    this._fireSearchPost();
+
+                    console.log("Hello " + this.searchparams);
+                    return;
+                }
+            }
+
             _fireSearchPost() {
-                console.log(this.searchParams);
-                this.$.neoPost.body = {
-                    keyword: this.searchParams.keyword,
-                    limit: 10
+                console.log("PARAMS: " + this.searchparams);
+                console.log(this.searchData);
+                this.$.npost.body = {
+                    keyword: this.searchparams.keyword,
+                    limit: 25
                 }
 
-                this.$.neoPost.generateRequest();
+                this.$.npost.generateRequest();
             }
 
             _handleResponse(e) {
                 console.log("handled search");
                 console.log(e.detail.response);
-                this.set("searchdata", this.detail.response);
+                this.set("searchData", e.detail.response);
+                this.set('searchDataLoaded', true);
 
-                his.set('searchDataLoaded', true);
+                console.log("searchData", this.searchData);
 
                 if(this.searchData.records.length > 0) {
                     console.log(this.searchData.records[0]._fields[0].properties);
+                    this.set("noResults", false);
                 }
                 else {
-                    this.noResults = true;
+                    this.set("noResults", true);
                 }
             }
         }

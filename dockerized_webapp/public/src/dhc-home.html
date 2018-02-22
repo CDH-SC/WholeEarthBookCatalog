@@ -130,7 +130,7 @@
                     <paper-button class="advanced-search-button" on-click="_open_advanced">Advanced</paper-button>
                 </div>
 
-                <frag-advanced-search id="advancedSearch"></frag-advanced-search>
+                <frag-advanced-search id="advancedSearch" route="{{route}}"></frag-advanced-search>
 
                 <div class="book-view">
                     <template is="dom-if" if="{{!inSession}}">
@@ -191,11 +191,10 @@
                     this.inSession = true;
                 }
             }
-            _enter_check(e) {
-                console.log("enter checl");
-                if (e.keyCode === 13) {
-                    console.log("going to goto");
-                    this._goto_search();
+
+            _enter_check(event) {
+                if(event.keycode === 13) {
+                    _goto_search();
                 }
             }
 
@@ -205,7 +204,7 @@
                     search: this.search,
                 }}));
 
-                console.log(this.search);
+                console.log("The search is: " + this.search);
 
                 console.log("going");
                 this.set("route.path", "/book-results/" + this.search.keyword);

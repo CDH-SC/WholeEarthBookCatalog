@@ -66,7 +66,7 @@
                     </div>
                 </template>
                 <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
-                <paper-button class="search-submit">Search</paper-button>
+                <paper-button class="search-submit" on-click="_goto_search">Search</paper-button>
             </paper-dialog-scrollable>
         </paper-dialog>
         
@@ -150,7 +150,9 @@
                 console.log(this.search);
 
                 console.log("going");
-                this.set("route.path", "/book-results/" + this.search.keyword);
+                
+                // TODO: this needs to be updated to include more information. Ok for now.
+                this.set("route.path", "/book-results/" + this.numFieldsArray[0].value);
             }
 
         } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);

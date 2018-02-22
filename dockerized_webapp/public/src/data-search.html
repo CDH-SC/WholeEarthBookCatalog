@@ -7,7 +7,7 @@
 
 <dom-module id="data-search">
     <template>
-        <app-localstorage-document key="data-search" data="{{searchParams}}"></app-localstorage-document>
+        <app-localstorage-document key="data-search" data="{{searchparams}}"></app-localstorage-document>
     </template>
 
     <script>
@@ -16,10 +16,9 @@
 
             static get properties() {
                 return {
-                    searchParams: {
+                    searchparams: {
                         type: Object,
-                        notify: true,
-                        value: null
+                        notify: true
                     },
                     updateSearch: {
                         type: Function
@@ -28,7 +27,18 @@
             }
 
             updateSearch(str, data) {
-                this.set("searchParams", str);
+                console.log(str, data);
+                console.log("Hello world");
+                if (str.keyword) {
+                    this.searchparams.keyword = str.keyword;
+                    this.set("searchparams.keyword", str.keyword);
+                    console.log("updating search" + this.searchparams.keyword);
+                }
+                else {
+                    this.searchparams.keyword = str.data[0].value;
+                    this.set("searchparams.keyword", str.data[0].value);
+                }
+                
             }
         }
         window.customElements.define(dataSearch.is, dataSearch);
