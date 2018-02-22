@@ -302,7 +302,7 @@ app.use('/api', router);
 
 app.use(express.static("public/build/es6-bundled"));
 
-app.get('*', function (req, res) {
+app.get('dhc-*', function (req, res) {
     res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
 });
 
