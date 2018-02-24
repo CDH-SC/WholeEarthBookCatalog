@@ -51,8 +51,9 @@
                 <template is="dom-repeat" items="[[numFieldsArray]]">
                     <div class="col-inputs">
                         <paper-input class="input-adv" label="Search Criteria" value="{{item.value}}" placeholder="search criteria" id="searchField_{{item}}"></paper-input>
-                        <paper-dropdown-menu label="search type" on-value-changed="_update_available" data-args="{{item}}">
-                            <paper-listbox slot="dropdown-content">
+                        <paper-dropdown-menu label="search type" on-value-changed="_update_num_fields" data-args="{{item}}">
+                            <paper-listbox slot="dropdown-content" selected="{{item.searchTypeID}}">
+                                <paper-item></paper-item>
                                 <template is="dom-repeat" items="[[avaliableChoices]]" as="choice">
                                     <paper-item disabled="[[choice.selected]]">
                                         {{choice.value}}
@@ -65,6 +66,11 @@
                         </paper-button>
                     </div>
                 </template>
+
+                <template is="dom-if" if="{{_invalidSearch}}">
+                    <p>Your search was invalid. Check over your fields and make sure everything has a title and author</p>
+                </template>
+
                 <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
                 <paper-button class="search-submit" on-click="_goto_search">Search</paper-button>
             </paper-dialog-scrollable>
@@ -84,9 +90,9 @@
                     addMoreDisabled: Boolean,
                     numFieldsArray: {
                         type: Array,
-                        value: [{index: 0, value: "", searchType: "", first: true },
-                        {index: 1, value: "", searchType: ""},
-                        {index: 2, value: "", searchType: ""},
+                        value: [{id: 0, value: "", searchTypeID: -1, searchType: "", first: true },
+                        {id: 1, value: "", searchTypeID: -1, searchType: ""},
+                        {id: 2, value: "", searchTypeID: -1, searchType: ""},
                     ]
                     },
                     avaliableChoices: {
@@ -97,8 +103,10 @@
                         { value: "publisher", selected: false},
                         { value: "year", selected: false} ]
                     },
-                    currentlyUsedChoices: {
-                        type: Array,
+                    _highestIDUsed: Number,
+                    _invalidSearch: {
+                        type: Boolean,
+                        value: false
                     }
                 }
             }
@@ -107,52 +115,128 @@
                 super();
             }
 
+            ready() {
+                super.ready();
+                this._highestIDUsed = 2;
+            }
+
+
             _increment_num_fields() {
-                this.push("numFieldsArray", {index:this.numFieldsArray[this.numFieldsArray.length - 1] + 1, value: "", searchType: ""});
+                this._highestIDUsed += 1;
+                this.push("numFieldsArray", {id: this._highestIDUsed, value: "", searchTypeID: -1, searchType: ""});
                 if (this.numFieldsArray.length >= this.avaliableChoices.length) {
                     this.set("addMoreDisabled", true);
                 }
             }
 
-            _update_available(event) {
+            _update_available(oldVal, newVal) {
                 // we want to get the last searchType value at the index, set that value in selected choices to
                 // false. Update the new value in avliable choices to true, set searchType value at index to new
                 // search type.
 
-                var itemObj = event.path[0].dataArgs;
+
+                // Just remove this function if this is functionallity that we do not want. Also remove addMoreDisabled
 
                 for (var i = 0; i < this.avaliableChoices.length; i++) {
-                    if (this.avaliableChoices[i].value === itemObj.searchType) {
-                        this.set("avaliableChoices."+ i +".selected",false);
+                    if (this.avaliableChoices[i].value === oldVal) {
+                        this.set("avaliableChoices."+ i +".selected", false);
                     }
 
-                    if (this.avaliableChoices[i].value === event.detail.value) {
-                        this.avaliableChoices[i].selected = true;
-                        this.set("avaliableChoices." + i, {value: event.detail.value, selected: true});
-                        this.set("numFieldsArray." + itemObj.index + "searchType", event.detail.value);                       
+                    if (newVal !== undefined && this.avaliableChoices[i].value === newVal) {
+                        this.set("avaliableChoices." + i +".selected", true);
                     }
                 }
             }
+
+            _update_num_fields(event) {
+                var itemObj = event.path[0].dataArgs;
+                this._update_available(itemObj.searchType, event.detail.value);
+
+                var pos = this.numFieldsArray.map(function(p) { return p.id; }).indexOf(itemObj.id);
+
+                this.set("numFieldsArray." + pos + ".searchType", event.detail.value);                       
+            }
+
             _remove(event) {
-                this.splice("numFieldsArray", event.path[0].removeItem, 1);
+                var pos = this.numFieldsArray.map(function(p) { return p.id; }).indexOf(event.path[0].removeItem.id);
+                
+                this.splice("numFieldsArray", pos, 1);
+                this._update_available(event.path[0].removeItem.searchType, undefined);
 
                 if(this.numFieldsArray.length < this.avaliableChoices.length) {
                     this.set("addMoreDisabled", false);
                 }
+                console.log("Removed");
+                console.log(this.numFieldsArray);
             }
 
-            _goto_search() {
-                this.dispatchEvent(new CustomEvent('update-search', {
-                    bubbles: true, composed: true, detail: {
-                    search: { data: this.numFieldsArray },
-                }}));
-
-                console.log(this.search);
-
-                console.log("going");
+            _validate() {
+                if (this.numFieldsArray.length <= 0) {
+                    console.log("length smol");
+                    this.set("_invalidSearch", true);
+                    this._bindTimeout();
+                }
                 
-                // TODO: this needs to be updated to include more information. Ok for now.
-                this.set("route.path", "/book-results/" + this.numFieldsArray[0].value);
+                else if (this.numFieldsArray.length > 0) {
+                    var oneNonEmpty;
+                    for (var i = 0; i < this.numFieldsArray.length; i++) {
+                        // If we have a value we need a search type. All other combos we ignore in body
+                        console.log(this.numFieldsArray[i].searchType);
+                        if(this.numFieldsArray[i].searchType === "" && this.numFieldsArray[i].value !== "") {
+                            console.log("found invalid param");
+                            this.set("_invalidSearch", true);
+                            this._bindTimeout();
+                        }
+                        if(this.numFieldsArray[i].searchType !== "" && this.numFieldsArray[i].value !== "") {
+                            oneNonEmpty = true;
+                        }
+                    }
+                    if(!oneNonEmpty) {
+                        this.set("_invalidSearch", true);
+                        this._bindTimeout();
+                    }
+                    else {
+                        this.set("_invalidSearch", false);
+                    }
+                }
+
+                else {
+                    this.set("_invalidSearch", false);
+                }
+                console.log("Completed valiadation");
+            
+            
+            }
+
+            _bindTimeout() {
+                setTimeout(function() {
+                    this.set('_invalidSearch', false);
+                }.bind(this), 5000);                
+            }
+
+            _unsetInvalid() {
+                this.set("_invalidSearch", false);
+            }
+
+
+            _goto_search() {
+
+                this._validate();
+                console.log(this._invalidSearch);
+
+                if(!this._invalidSearch) {
+                    this.dispatchEvent(new CustomEvent('update-search', {
+                        bubbles: true, composed: true, detail: {
+                        search: { data: this.numFieldsArray },
+                    }}));
+
+                  console.log(this.search);
+
+                    console.log("going");
+                
+                    // TODO: this needs to be updated to include more information. Ok for now.
+                    this.set("route.path", "/book-results/" + this.numFieldsArray[0].value);
+                }
             }
 
         } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);

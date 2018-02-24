@@ -10,7 +10,7 @@
 <link rel="lazy-import" href="dhc-404.html">
 <link rel="lazy-import" href="dhc-help.html">
 <link rel="lazy-import" href="dhc-book-results.html">
-<link rel="import" href="dhc-user-account.html">
+<link rel="lazy-import" href="dhc-user-account.html">
 <link rel="lazy-import" href="dhc-book-profile.html">
 <link rel="import" href="data-search.html">
 <link rel="import" href="frag-header.html">
@@ -99,14 +99,20 @@
             this._setIsHome(page);
         };
 
-        _pageChanged(page) {
+        _pageChanged(page,old) {
+            console.log("FIREFIRE");
+            console.log(old);
             var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
 
             Polymer.importHref(
                 resolvedPageUrl,
                 null,
                 this._showPage404.bind(this),
-                true);
+                true
+            );
+
+            // var list = document.querySelector("dhc-" + old);
+            // document.body.removeChild(list);
         }
 
         _setIsHome(page) {
