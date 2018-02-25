@@ -101,6 +101,9 @@
             data="{{routeData}}">
         </app-route>
 
+        <app-location route="{{route}}"></app-location>
+
+
         <iron-ajax
             method="POST"
             id="npost"
@@ -157,7 +160,10 @@
 
             static get properties() {
                 return {
-                    rootPath: String,
+                    route: {
+                        type: Object,
+                        observer: "_resultPageChanged"
+                    },
                     searchparams: {
                         type: Object,
                         notify: true
@@ -178,21 +184,25 @@
 
             ready() {
                 super.ready();
-                console.log(this);
-                console.log(this.$);
 
-                this._fireSearchPost();
-                console.log("readying up");
-                console.log("Finished");
+                // this._fireSearchPost();
+            }
+
+            _resultPageChanged() {
+                console.log(this.route.path);
+                if (this.route.path.includes("/book-results/")) {
+                    this.set("noResults", false);
+                    this.set("searchData", {});
+                    this.set("searchDataLoaded", false);
+
+                    console.log("firing search");
+                    this._fireSearchPost();
+                }
             }
 
             _wait_on_value() {
-                console.log("butt");
-                console.log(this.searchparams);
                 if(this.searchparams !== undefined) {
                     this._fireSearchPost();
-
-                    console.log("Hello " + this.searchparams);
                     return;
                 }
             }
