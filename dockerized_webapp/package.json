@@ -17,6 +17,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "geckodriver": "^1.10.0",
+    "goodreads-api-node": "0.0.5",
     "gunzip-file": "^0.1.1",
     "jquery": "^3.3.1",
     "json-array-streams": "^1.0.1",
