@@ -193,9 +193,9 @@
             }
 
             _enter_check(event) {
-                console.log(event);
-                if(event.keycode === 13) {
-                    _goto_search();
+                
+                if(event.keyCode === 13) {
+                    this._goto_search();
                 }
             }
 
@@ -205,14 +205,14 @@
                     search: this.search,
                 }}));
 
-                console.log("The search is: " + this.search);
+                
 
-                console.log("going");
+                
                 this.set("route.path", "/book-results/" + this.search.keyword);
             }
 
             _open_advanced() {
-                console.log(this.$.advancedSearch);
+                
                 this.$.advancedSearch.$.dialog.open();
             }
         } window.customElements.define(dhcHome.is, dhcHome);

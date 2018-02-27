@@ -9,7 +9,9 @@
 <!-- app route -->
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
-
+<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../bower_components/vaadin-date-picker/vaadin-date-picker.html">
+<link rel="import" href="../bower_components/vaadin-valo-theme/vaadin-date-picker.html">
 <!-- Inserts/removes paper input fields -->
 
 <dom-module id="frag-advanced-search">
@@ -43,6 +45,15 @@
                 background-color: blue;
                 color: white;
             }
+
+            paper-dialog paper-dialog-scrollable {
+                --paper-dialog-scrollable: {
+                    box-sizing: border-box;
+                    width: 80%;
+                    height: 640px;
+                }
+            }
+  
         </style>
 
         <paper-dialog id="dialog">
@@ -50,13 +61,12 @@
             <paper-dialog-scrollable>
                 <template is="dom-repeat" items="[[numFieldsArray]]">
                     <div class="col-inputs">
-                        <paper-input class="input-adv" label="Search Criteria" value="{{item.value}}" placeholder="search criteria" id="searchField_{{item}}"></paper-input>
                         <paper-dropdown-menu label="search type" on-value-changed="_update_num_fields" data-args="{{item}}">
                             <paper-listbox slot="dropdown-content" selected="{{item.searchTypeID}}">
                                 <paper-item></paper-item>
                                 <template is="dom-repeat" items="[[avaliableChoices]]" as="choice">
-                                    <paper-item disabled="[[choice.selected]]">
-                                        {{choice.value}}
+                                    <paper-item>
+                                        {{choice.field}}
                                     </paper-item>
                                 </template>
                             </paper-listbox>
@@ -65,6 +75,39 @@
                             Remove
                         </paper-button>
                     </div>
+                    <!-- change to check if author -->
+                    <template is="dom-if" if="{{_isAuthor(item.searchType)}}">
+                        <paper-input label="first name" value="{{item.value.fname}}"></paper-input>
+                        <paper-input label="last name" value="{{item.value.lname}}"></paper-input>
+                    </template>
+
+                    <template is="dom-if" if="{{_isPub(item.searchType)}}">
+                        <paper-input label="name" value="{{item.value.name}}"></paper-input>
+                    </template>
+
+                    <template is="dom-if" if="{{_isEdition(item.searchType)}}">
+                        <paper-input label="name" value="{{item.value.name}}"></paper-input>
+                        <paper-input label="year" value="{{item.value.year}}"></paper-input>
+                    </template>
+
+                    <template is="dom-if" if="{{_isLocation(item.searchType)}}">
+                        <paper-input label="Location" placeholder="Location" value="{{item.value.place}}"></paper-input>
+                    </template>
+
+                    <template is="dom-if" if="{{_isDegree(item.searchType)}}">
+                        <paper-dropdown-menu label="search type">
+                            <paper-listbox slot="dropdown-content" selected="{{item.value.degree}}">
+                                <paper-item></paper-item>
+                                <paper-item>1</paper-item>
+                                <paper-item>2</paper-item>
+                                <paper-item>3</paper-item>
+                                <paper-item>4</paper-item>
+                                <paper-item>5</paper-item>
+                                <paper-item>6</paper-item>
+                                <paper-item>7</paper-item>
+                            </paper-listbox>
+                        </paper-dropdown-menu>
+                    </template>
                 </template>
 
                 <template is="dom-if" if="{{_invalidSearch}}">
@@ -88,25 +131,40 @@
                 return {
                     numInputs: Number,
                     addMoreDisabled: Boolean,
+                    
+                    /*
+                     * Model:
+                     * [ 
+                     *  { id, searchTypeID, searchType, Value }
+                     * ]
+                     */
                     numFieldsArray: {
                         type: Array,
-                        value: [{id: 0, value: "", searchTypeID: -1, searchType: "", first: true },
-                        {id: 1, value: "", searchTypeID: -1, searchType: ""},
-                        {id: 2, value: "", searchTypeID: -1, searchType: ""},
-                    ]
+                        value: [ {id: 0, searchTypeID: -1, searchType: "", value: {}} ]
                     },
                     avaliableChoices: {
                         type: Array,
-                        value: [ { value: "keyword", selected: false},
-                        { value: "author", selected: false},
-                        { value: "title", selected: false},
-                        { value: "publisher", selected: false},
-                        { value: "year", selected: false} ]
+                        value: [{ field: "author", subFields: [ { value:"first name", type: "String" }, { value:"last name", type:"String" }]}, 
+                                { field: "publisher", subFields: [{ value: "name", type: "String" }]}, 
+                                { field: "edition", subFields: [{value: "title", type: "String"},{value: "year", type: "Number"}]}, 
+                                { field: "location", subFields: [{value: "name", type: "String"}]}, 
+                                { field: "degree", subFields: [{value: "degree", type: "Dropdown"}]}]
                     },
-                    _highestIDUsed: Number,
-                    _invalidSearch: {
+                    _highestIDUsed: {
+                        type: Number,
+                        value: 0
+                    },
+                    _invalidSearch: { 
                         type: Boolean,
                         value: false
+                    },
+                    _degreeLimit: {
+                        type: Number,
+                        value: 7
+                    },
+                    _inputLimit: {
+                        type: Number,
+                        value: 10
                     }
                 }
             }
@@ -117,62 +175,79 @@
 
             ready() {
                 super.ready();
-                this._highestIDUsed = 2;
             }
 
+            _getItems(item) {
+                // To accomdate for the blank
+                var index = item.searchTypeID - 1;
+                
+                
+                return this.avaliableChoices[index].subFields;
+            }
 
-            _increment_num_fields() {
-                this._highestIDUsed += 1;
-                this.push("numFieldsArray", {id: this._highestIDUsed, value: "", searchTypeID: -1, searchType: ""});
-                if (this.numFieldsArray.length >= this.avaliableChoices.length) {
-                    this.set("addMoreDisabled", true);
+            _isAuthor(type) {
+                return type === "author";
+            }
+
+            _isDegree(type) {
+                return type === "degree";
+            }
+
+            _isLocation(type) {
+                return type === "location";
+            }
+
+            _isPub(type) {
+                return type === "publisher";
+            }
+
+            _isEdition(type) {
+                return type === "edition";
+            }
+
+            _checkSearchType(item) {
+                if(item === "author") {
+                    return true;
+                }
+                else {
+                    return false;
                 }
             }
 
-            _update_available(oldVal, newVal) {
-                // we want to get the last searchType value at the index, set that value in selected choices to
-                // false. Update the new value in avliable choices to true, set searchType value at index to new
-                // search type.
-
-
-                // Just remove this function if this is functionallity that we do not want. Also remove addMoreDisabled
-
-                for (var i = 0; i < this.avaliableChoices.length; i++) {
-                    if (this.avaliableChoices[i].value === oldVal) {
-                        this.set("avaliableChoices."+ i +".selected", false);
-                    }
-
-                    if (newVal !== undefined && this.avaliableChoices[i].value === newVal) {
-                        this.set("avaliableChoices." + i +".selected", true);
-                    }
+            _increment_num_fields() {
+                this._highestIDUsed += 1;
+                this.push("numFieldsArray", {id: this._highestIDUsed, value: "", searchTypeID: -1, searchType: "", value: {}});
+                if (this.numFieldsArray.length >= this._inputLimit) {
+                    this.set("addMoreDisabled", true);
                 }
             }
 
             _update_num_fields(event) {
                 var itemObj = event.path[0].dataArgs;
-                this._update_available(itemObj.searchType, event.detail.value);
-
-                var pos = this.numFieldsArray.map(function(p) { return p.id; }).indexOf(itemObj.id);
-
-                this.set("numFieldsArray." + pos + ".searchType", event.detail.value);                       
+                this.numFieldsArray.some(function(item, ind) {
+                    if(item.id === itemObj.id) {
+                        this.set("numFieldsArray." + ind + ".searchType", event.detail.value);                       
+                        return;
+                    }
+                }.bind(this))
             }
 
             _remove(event) {
-                var pos = this.numFieldsArray.map(function(p) { return p.id; }).indexOf(event.path[0].removeItem.id);
+                this.numFieldsArray.some(function(item, ind) {
+                    if(item.id === event.path[0].removeItem.id) {
+                        this.splice("numFieldsArray", ind, 1);
+                        return;
+                    }
+                }.bind(this))
                 
-                this.splice("numFieldsArray", pos, 1);
-                this._update_available(event.path[0].removeItem.searchType, undefined);
-
-                if(this.numFieldsArray.length < this.avaliableChoices.length) {
+                if(this.numFieldsArray.length < this._inputLimit) {
                     this.set("addMoreDisabled", false);
                 }
-                console.log("Removed");
-                console.log(this.numFieldsArray);
             }
 
             _validate() {
                 if (this.numFieldsArray.length <= 0) {
-                    console.log("length smol");
+                    
                     this.set("_invalidSearch", true);
                     this._bindTimeout();
                 }
@@ -181,9 +256,9 @@
                     var oneNonEmpty;
                     for (var i = 0; i < this.numFieldsArray.length; i++) {
                         // If we have a value we need a search type. All other combos we ignore in body
-                        console.log(this.numFieldsArray[i].searchType);
+                        
                         if(this.numFieldsArray[i].searchType === "" && this.numFieldsArray[i].value !== "") {
-                            console.log("found invalid param");
+                            
                             this.set("_invalidSearch", true);
                             this._bindTimeout();
                         }
@@ -203,7 +278,7 @@
                 else {
                     this.set("_invalidSearch", false);
                 }
-                console.log("Completed valiadation");
+                
             
             
             }
@@ -220,19 +295,15 @@
 
 
             _goto_search() {
-
+                console.log(this.numFieldsArray);
                 this._validate();
-                console.log(this._invalidSearch);
+                
 
                 if(!this._invalidSearch) {
                     this.dispatchEvent(new CustomEvent('update-search', {
                         bubbles: true, composed: true, detail: {
                         search: { data: this.numFieldsArray },
                     }}));
-
-                  console.log(this.search);
-
-                    console.log("going");
                 
                     // TODO: this needs to be updated to include more information. Ok for now.
                     this.set("route.path", "/book-results/" + this.numFieldsArray[0].value);
@@ -240,5 +311,9 @@
             }
 
         } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);
+    </script>
+
+    <script>
+    
     </script>
 </dom-module>

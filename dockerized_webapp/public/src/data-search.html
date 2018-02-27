@@ -30,18 +30,18 @@
             }
 
             updateSearch(str, data) {
-                console.log(str, data);
-                console.log("Hello world");
+                
+                
                 if (str.keyword) {
-                    console.log("HERE");
+                    
                     this.searchparams.keyword = str.keyword;
                     this.set("searchparams.keyword", str.keyword);
-                    console.log("updating search" + this.searchparams.keyword);
+                    
                 }
                 else {
-                    console.log("THERE");
+                    
 
-                    console.log(str.data[0]);
+                    
                     this.searchparams.keyword = str.data[0].value;
                     this.set("searchparams.keyword", str.data[0].value);
                 }
