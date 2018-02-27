@@ -14,8 +14,8 @@ var goodreadsDriver = {};
 
 
 const myCredentials = {
-    key: 'T5TELUdyDpvtt1OxtekM0g',
-    secret: '8rfSb8oX0KAfdKcAhslUmhMP6w6VnrhN4aBif6V7CY'
+    key: 'MY_KEY',
+    secret: 'MY_SECRET'
 };
 
 const gr = goodreads(myCredentials);
@@ -50,7 +50,7 @@ goodreadsDriver.goodReadSearch = function(search, callback) {
       assert.equal(error, null);
 
       console.log("xml: " + body);
-      
+
       var xmlDoc = libxmljs.parseXmlString(body);
       var products = xmlDoc.find('//work');
       var jsonObs = [];
