@@ -1,14 +1,16 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="shared-styles.html">
-<link rel="import" href="frag-footer.html">
-<link rel="import" href="frag-header.html">
-<link rel="import" href="dhc-book-rotation.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-<link rel="import" href="dhc-search-data.html">
+
+<link rel="import" href="data-search.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="frag-header.html">
+<link rel="import" href="frag-rotation.html">
+<link rel="import" href="frag-advanced-search.html">
 
 <dom-module id="dhc-home">
     <template>
@@ -96,7 +98,7 @@
                 align-items: center;
             }
 
-            dhc-book-rotation {
+            frag-rotation {
                 z-index: 1;
             }
 
@@ -114,29 +116,21 @@
             }
         </style>
 
-        <iron-ajax
-            method="POST"
-            id="neoPost"
-            url="/api/neo4j/keyword"
-            handle-as="json"
-            on-response="_handleResponse"
-            content-type="application/json"
-           debounce-duration="300">
-        </iron-ajax>
-
         <app-location route="{{route}}"></app-location>
 
         <div class="container">
             <div class="inner-container">
                 <h1 id="title-center">DHC</h1>
 
-                <paper-input id="keywordSearch" class="large-keyword-search" on-keydown="_enter_check" placeholder="Keywords" value="{{search}}">
+                <paper-input id="keywordSearch" class="large-keyword-search" on-keydown="_enter_check" placeholder="Keywords" value="{{search.keyword}}">
                     <paper-button noink on-click="_goto_search" id="sendSearchButton" slot="suffix"><iron-icon icon="arrow-forward"></iron-icon></paper-button>
                 </paper-input>
 
                 <div class="align-advanced-item">
-                    <paper-button class="advanced-search-button">Advanced</paper-button>
+                    <paper-button class="advanced-search-button" on-click="_open_advanced">Advanced</paper-button>
                 </div>
+
+                <frag-advanced-search id="advancedSearch" route="{{route}}"></frag-advanced-search>
 
                 <div class="book-view">
                     <template is="dom-if" if="{{!inSession}}">
@@ -146,7 +140,7 @@
                         </div>
                     </template>
                     <div class="absol">
-                        <dhc-book-rotation></dhc-book-rotation>
+                        <frag-rotation></frag-rotation>
                     </div>
                 </div>
             </div>
@@ -155,88 +149,72 @@
     
     </template>
     <script>
-    class dhcHome extends Polymer.Element {
-        static get is() {
-            return 'dhc-home';
-        }
+        class dhcHome extends Polymer.Element {
+            static get is() {
+                return 'dhc-home';
+            }
 
-        static get properties() {
-            return {
-                user: {
-                    type: Object,
-                    notify: true,
-                    observer: "_update_dom_session"
-                },
-                inSession: {
-                    type: Boolean
-                },
-                search: {
-                    type: String
-                },
-                result: {
-                    type: Object
-                },
-                dummy_data: {
-                    type: Object,
-                    observer: "dumb"
+            static get properties() {
+                return {
+                    user: {
+                        type: Object,
+                        notify: true,
+                        observer: "_update_dom_session"
+                    },
+                    inSession: {
+                        type: Boolean
+                    },
+                    search: {
+                        type: Object,
+                        value: {
+                            keyword: null
+                        }
+                    }
+                };
+            }
+
+            constructor() {
+                super();
+            }
+
+            ready() {
+                // needs more complexity
+                super.ready();
+                this._update_dom_session();
+            }
+
+            _update_dom_session() {
+                if(this.user.userData === null) {
+                    this.inSession = false;
                 }
-            };
-        }
-
-        constructor() {
-            super();
-        }
-
-        ready() {
-            // needs more complexity
-            super.ready();
-            this._update_dom_session();
-         }
-
-        dumb() { console.log(this.dummy_data); }
-
-        _update_dom_session() {
-            if(this.user === null || this.user === undefined) {
-                this.inSession = false;
+                else {
+                    this.inSession = true;
+                }
             }
-            else if (Object.keys(this.user).length === 0) {
-                this.inSession = false;
-            }
-            else {
-                this.inSession = true;
-            }
-        }
 
-        _goto_search() {
-            console.log("hello");
-            this.$.neoPost.body = {
-                "keyword": this.search,
-                "limit": 25
+            _enter_check(event) {
+                console.log(event);
+                if(event.keycode === 13) {
+                    _goto_search();
+                }
             }
-            this.$.neoPost.generateRequest();
-        }
 
-        _enter_check(e) {
-            console.log("enter checl");
-            if (e.keyCode === 13) {
-                console.log("going to goto");
-                this._goto_search();
-            }
-        }
-
-        _handleResponse(e) {
-            console.log("handled search");
-            console.log(e.detail.response);
-
-            this.dispatchEvent(new CustomEvent('update-search', {
-                bubbles: true, composed: true, detail: {
+            _goto_search() {
+                this.dispatchEvent(new CustomEvent('update-search', {
+                    bubbles: true, composed: true, detail: {
                     search: this.search,
-                    data: e.detail.response
-            }}));
+                }}));
 
-            this.set("route.path", "/book-results/" + this.search);
-        }
-    }
-    window.customElements.define(dhcHome.is, dhcHome);
+                console.log("The search is: " + this.search);
+
+                console.log("going");
+                this.set("route.path", "/book-results/" + this.search.keyword);
+            }
+
+            _open_advanced() {
+                console.log(this.$.advancedSearch);
+                this.$.advancedSearch.$.dialog.open();
+            }
+        } window.customElements.define(dhcHome.is, dhcHome);
     </script>
 </dom-module>

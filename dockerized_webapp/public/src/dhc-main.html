@@ -1,20 +1,18 @@
 <!--Theses are all the necessary imports for polymer to work here-->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
-<link rel="import" href="dhc-login-data.html">
 
-
+<link rel="import" href="data-login.html">
 <link rel="lazy-import" href="dhc-login.html">
 <link rel="lazy-import" href="dhc-home.html">
 <link rel="lazy-import" href="dhc-404.html">
 <link rel="lazy-import" href="dhc-help.html">
 <link rel="lazy-import" href="dhc-book-results.html">
-<link rel="import" href="dhc-user-account.html">
+<link rel="lazy-import" href="dhc-user-account.html">
 <link rel="lazy-import" href="dhc-book-profile.html">
-<link rel="import" href="dhc-search-data.html">
+<link rel="import" href="data-search.html">
 <link rel="import" href="frag-header.html">
 
 
@@ -32,9 +30,8 @@
             }
         </style>
 
-        <dhc-login-data id="please" user="{{user}}"></dhc-login-data>
-        <dhc-search-data id="searchdatacomp" searchdata="{{searchdata}}"></dhc-search-data>
-        
+        <data-login id="userData" user="{{user}}"></data-login>
+        <data-search id="searchdatacomp" searchparams="{{searchparams}}"></data-search>
         <app-location
             route="{{route}}"
             url-space-regex="^[[rootPath]]">
@@ -65,7 +62,7 @@
             <dhc-user-account name="user-account"></dhc-user-account> 
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
-            <dhc-book-results name="book-results" route="{{subroute}}" searchdata="[[searchdata]]"></dhc-book-results>
+            <dhc-book-results name="book-results" route="{{subroute}}" searchparams="{{searchparams}}"></dhc-book-results>
             <dhc-book-profile name="book-profile" route="{{subroute}}"> </dhc-book-profile>
         </iron-pages>
     </template>
@@ -89,11 +86,8 @@
 
         ready() {
             super.ready();
-
             this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
             this.addEventListener('update-search', (e)=>this._onUpdateSearchData(e));
-
-            console.log("USER", this.user);
         }
 
         static get observers() {
@@ -102,18 +96,23 @@
 
         _routePageChanged(page) {
             this.page = page || 'home';
-
             this._setIsHome(page);
         };
 
-        _pageChanged(page) {
+        _pageChanged(page,old) {
+            console.log("FIREFIRE");
+            console.log(old);
             var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
 
             Polymer.importHref(
                 resolvedPageUrl,
                 null,
                 this._showPage404.bind(this),
-                true);
+                true
+            );
+
+            // var list = document.querySelector("dhc-" + old);
+            // document.body.removeChild(list);
         }
 
         _setIsHome(page) {
@@ -130,12 +129,10 @@
         }
 
         _onUpdateUserData(event) {
-            this.$.please.updateUser(event.detail);
+            this.$.userData.updateUser(event.detail);
         }
 
         _onUpdateSearchData(event) {
-            console.log(this.$);
-            console.log(this.$.seachdatacomp);
             this.$.searchdatacomp.updateSearch(event.detail.search, event.detail.data);
         }
     }

@@ -5,7 +5,7 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
-
+<link rel="import" href="crypto-import.html">
 <!-- I hope this is the right way to handle crypto! -->
 
 
@@ -47,23 +47,21 @@
                     </template>
 
                     <iron-ajax
-                    method="POST"
-                    id="addAj"
-                    url="/api/add_user"
-                    handle-as="json"
-                    last-response="{{mySession}}"
-                    on-response="_handleResponse"
-                    content-type="application/json"
-                    debounce-duration="300"></iron-ajax>
+                        method="POST"
+                        id="addAj"
+                        url="/api/add_user"
+                        handle-as="json"
+                        last-response="{{mySession}}"
+                        on-response="_handleResponse"
+                        content-type="application/json"
+                        debounce-duration="300">
+                    </iron-ajax>
 
                 </div>
             </div>
         </div>
         <frag-footer></frag-footer>
     </template>
-
-
-    <script src="../bower_components/crypto-js/sha256.js"></script>
 
     <script>
         class dhcCreateAccount extends Polymer.Element {
