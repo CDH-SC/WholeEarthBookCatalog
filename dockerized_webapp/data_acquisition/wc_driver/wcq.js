@@ -46,7 +46,16 @@ wcq.parseResp = function(res) {
  * 
  */
 var parseData = function(data) {
-    var obj = {};
+    
+    var obj = {
+        "Edition": {
+            ISBN: Array(),
+        },
+        "Places": Array(),
+        "Publishers": Array(),
+        "People": Array()
+    };
+
     for ( var i = 0; i < data.length; i++ ) {
         var tag = data[i]._attributes.tag;
         if ( tags[tag] !== undefined ) {
@@ -90,14 +99,49 @@ var parseSubfield = function(code, val, tag, tags, obj) {
             var m = val.match(re_filter);
             
             // debug
-            console.log(`match group:\n${JSON.stringify(m, null, 2)}`);
-
             for ( var key in mgroup ) {
-                console.log(`elem: ${mgroup[key]}\nkey: ${key}\n`);
-                if (obj[key] !== undefined ) {
-                    obj[key].push( m[mgroup[key]] );
-                } else {
-                    obj[key] = Array( m[mgroup[key]] );
+                if ( key == "Author lname" ) {
+                    if ( obj.People.length == 0 ) {
+                        obj.People.push({});
+                    }
+                    if ( obj.People[obj.People.length - 1].lname === undefined ) {
+                        obj.People[obj.People.length - 1].lname = m[ mgroup[key] ];
+                    } else {
+                        obj.People.push({
+                            lname: m[ mgroup[key] ]
+                        });
+                    }
+                }
+                if ( key == "Author fname" ) {
+                    if ( obj.People.length == 0 ) {
+                        obj.People.push({});
+                    }
+                    if ( obj.People[obj.People.length - 1].fname === undefined ) {
+                        obj.People[obj.People.length - 1].fname = m[ mgroup[key] ];
+                    } else {
+                        obj.People.push({
+                            fname: m[ mgroup[key] ]
+                        });
+                    }
+                }
+                if ( key == "ISBN" ) {
+                    obj.Edition.ISBN.push( m[ mgroup[key] ] );
+                }
+                if ( key == "Title" ) {
+                    obj.Edition.Title = m[mgroup[key]];
+                }
+                if (key == "Place" ) {
+                    obj.Places.push({
+                        placename: m[ mgroup[key] ]
+                    });
+                }
+                if ( key == "Publisher" ) {
+                    obj.Publishers.push({
+                        pubname: m[ mgroup[key] ]
+                    });
+                }
+                if (key == "Date" ) {
+                    obj.Edition.Date = m[ mgroup[key] ];
                 }
             }
         }

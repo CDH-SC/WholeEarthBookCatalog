@@ -6,14 +6,13 @@
 
 "use strict";
 
-var general_filter = /^\[?(.*?)\]?\s?(\/|,|\.|:)?$/i
-var name_filter = /^\[?(.*?)(,\s(.*?),?)?\]?$/i //\s?(\/|,|\.|:)?$/i
+var general_filter = /^\[?(.*?)\]?\s?(\/|,|\.|:|;)?$/i
+var name_filter = /^\[?(.*?)(,\s(.*?),?)?\]?$/i
 
 // tag to field mappings
 var tags = {
     "020": {
         "a": {
-            "field": "ISBN",
             "unknown_keys": [],
             "re_filter": /^\[?(.*?)\]?.*$/i,
             "mgroup": {
@@ -23,7 +22,6 @@ var tags = {
     },
     "100": {
         "a": {
-            "field": "Author",
             "unknown_keys": [],
             "re_filter": name_filter,
             "mgroup": {
@@ -34,7 +32,6 @@ var tags = {
     },
     "245": {
         "a": {
-            "field": "Title",
             "unknown_keys": [],
             "re_filter": general_filter,
             "mgroup": {
@@ -44,7 +41,6 @@ var tags = {
     },
     "260": {
         "a": {
-            "field": "Place",
             "unknown_keys": [
                 "[S.l.] :",
                 "[Place of publication not identified] :"
@@ -55,7 +51,6 @@ var tags = {
             }
         },
         "b": {
-            "field": "Publisher",
             "unknown_keys": [
                 "[s.n.] :"
             ],
@@ -65,7 +60,6 @@ var tags = {
             }
         },
         "c": {
-            "field": "Date",
             "unknown_keys": [],
             "re_filter": /[0-9]{4}/,
             "mgroup": {
