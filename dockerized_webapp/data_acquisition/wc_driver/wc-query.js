@@ -28,9 +28,10 @@ rp(options)
             compact: true,
             spaces: 4,
         });
-        console.log(JSON.stringify(json, null, 2));
+        // console.log(JSON.stringify(json, null, 2));
         var data = wcq.parseResp(json);
         console.log(JSON.stringify(data, null, 2));
+        wcq.constructQuery(data);
     })
     .catch( function(err) {
         console.log(`got error during API call:\n${JSON.stringify(err, null, 2)}`);
