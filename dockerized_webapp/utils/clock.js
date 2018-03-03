@@ -23,7 +23,7 @@ My_Clock.prototype.run = function() {
 My_Clock.prototype.update = function() {
 
     this.currTime = moment().format("HH:mm:ss");
-    console.log(moment().format("HH:mm:ss"));
+    
     // var testMidnight = moment().endOf('day').format("HH:mm:ss");
 
     // Reset deductible at midnight
@@ -35,7 +35,7 @@ My_Clock.prototype.update = function() {
 
 // Resetting deductible to 50,000 searches
 My_Clock.prototype.resetDeductible = function() {
-    console.log("Reset deductible");
+    
     deductible = 50000;
 }
 
@@ -43,7 +43,7 @@ My_Clock.prototype.resetDeductible = function() {
 // Set deductible and run clock
 clock.setUpClock = function() {
     deductible = 50000;
-    console.log("Setting up clock");
+    
     var clock = new My_Clock();
     clock.run();
 }
