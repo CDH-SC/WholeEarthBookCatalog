@@ -116,6 +116,15 @@
             }
         </style>
 
+        
+        <iron-ajax
+             id="savebasicq"
+             url="/api/update_saved_content"
+             handle-as="json"
+             on-response="handleResponse"
+             content-type="application/json"
+             debounce-duration="300"></iron-ajax>
+        
         <app-location route="{{route}}"></app-location>
 
         <div class="container">
@@ -130,7 +139,7 @@
                     <paper-button class="advanced-search-button" on-click="_open_advanced">Advanced</paper-button>
                 </div>
 
-                <frag-advanced-search id="advancedSearch" route="{{route}}"></frag-advanced-search>
+                <frag-advanced-search id="advancedSearch" route="{{route}}" user="{{user}}"></frag-advanced-search>
 
                 <div class="book-view">
                     <template is="dom-if" if="{{!inSession}}">
@@ -140,7 +149,7 @@
                         </div>
                     </template>
                     <div class="absol">
-                        <frag-rotation></frag-rotation>
+                        <frag-rotation ></frag-rotation>
                     </div>
                 </div>
             </div>
@@ -193,26 +202,32 @@
             }
 
             _enter_check(event) {
-                console.log(event);
-                if(event.keycode === 13) {
-                    _goto_search();
+                
+                if(event.keyCode === 13) {
+                    this._goto_search();
                 }
             }
 
             _goto_search() {
+                this.$.savebasicq.body = {
+                    _id: this.user.id,
+                    keyword: "recent_searches",
+                    content: this.search
+                }
+
                 this.dispatchEvent(new CustomEvent('update-search', {
                     bubbles: true, composed: true, detail: {
                     search: this.search,
                 }}));
 
-                console.log("The search is: " + this.search);
+                
 
-                console.log("going");
+                
                 this.set("route.path", "/book-results/" + this.search.keyword);
             }
 
             _open_advanced() {
-                console.log(this.$.advancedSearch);
+                
                 this.$.advancedSearch.$.dialog.open();
             }
         } window.customElements.define(dhcHome.is, dhcHome);
