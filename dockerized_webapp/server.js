@@ -18,6 +18,10 @@ var utils = require("./utils");
 var qstrings = require("./utils/querystrings.js");
 var ObjectId = require("mongodb").ObjectId;
 var clock = require("./utils/clock.js");
+var goodreadsDriver = require("./utils/goodreadsDriver.js");
+
+
+
 
 // add user
 router.post("/add_user/", function (req, res) {
@@ -178,14 +182,28 @@ router.post("/update_saved_content/", function(req, res) {
 });
 
 
+// GoodReads search endpoint
+router.post("/goodreads/", function(req,res) {
+    var data = req.body;
+    if ( data.search === undefined) {
+        err = { "Error": "invalid data format" };
+        console.log( `${errStr}:\n${err}` );
+        res.json( err );
+        return;
+    }
 
-/*
-// Testing function for clock in mongoDriver
-router.post("/test_clock/", function(req, res) {
-    
-    clock.setUpClock();
+    console.log("Post: " + data);
+
+    goodreadsDriver.goodReadSearch(data.search, function(jsArr) {
+        var i = 1;
+        jsArr.forEach(function(value) {
+            console.log("\nSearch " + i + " \n" +JSON.stringify(value));
+            i++;
+        });
+
+    });
+    //goodreadsDriver.getBooks();
 });
-*/
 
 
 // query neo4j
