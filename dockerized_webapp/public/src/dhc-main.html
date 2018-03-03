@@ -30,6 +30,16 @@
             }
         </style>
 
+        <iron-ajax
+            method="POST"
+            id="updateinfo"
+            url="/api/update_saved_content/"
+            handle-as="json"
+            on-response="_handleResponse"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
         <data-login id="userData" user="{{user}}"></data-login>
         <data-search id="searchdatacomp" searchparams="{{searchparams}}"></data-search>
         <app-location
@@ -72,6 +82,8 @@
         static get is() { return 'dhc-main'; }
         static get properties() {
             return {
+
+                //TODO: save selected book here and search results
                 page: {
                     type: String,
                     reflectToAttribute: true,
@@ -88,11 +100,21 @@
             super.ready();
             this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
             this.addEventListener('update-search', (e)=>this._onUpdateSearchData(e));
+            this.addEventListener('send-user-data', (e)=>this._onSendUserData(e));
         }
 
         static get observers() {
             return ['_routePageChanged(routeData.page)'];
         };
+
+        _onSendUserData(e) {
+            this.$.updateinfo.body = e.detail;
+            this.$.updateinfo.generateRequest();
+
+            // TODO: Update user now that sent userdata.
+            // Now we need to update the user.
+            // this.$._onUpdateupdate-userUserData
+        }
 
         _routePageChanged(page) {
             this.page = page || 'home';

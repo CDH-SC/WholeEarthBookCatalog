@@ -56,6 +56,16 @@
   
         </style>
 
+        <iron-ajax
+            method="POST"
+            id="saveq"
+            url="/api/update_saved_content"
+            handle-as="json"
+            on-response="_handleRecentSearch"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
         <paper-dialog id="dialog">
             <h2>Advanced Search</h2>
             <paper-dialog-scrollable>
@@ -129,6 +139,10 @@
             static get properties() {
                 // Startout with 3 fields, Keyword, author, title
                 return {
+                    user:  {
+                        type: Object,
+                        notify: true
+                    },
                     numInputs: Number,
                     addMoreDisabled: Boolean,
                     
@@ -278,9 +292,6 @@
                 else {
                     this.set("_invalidSearch", false);
                 }
-                
-            
-            
             }
 
             _bindTimeout() {
@@ -297,9 +308,17 @@
             _goto_search() {
                 console.log(this.numFieldsArray);
                 this._validate();
-                
 
                 if(!this._invalidSearch) {
+                    console.log(this.user);
+                    this.$.saveq.body = {
+                        _id: this.user.id,
+                        keyword:"recent_searches",
+                        content: this.numFieldsArray
+                    }
+
+                    this.$.saveq.generateRequest();
+
                     this.dispatchEvent(new CustomEvent('update-search', {
                         bubbles: true, composed: true, detail: {
                         search: { data: this.numFieldsArray },
@@ -310,10 +329,10 @@
                 }
             }
 
-        } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);
-    </script>
+            _handleRecentSearch() {
+                console.log("successfull");
+            }
 
-    <script>
-    
+        } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);
     </script>
 </dom-module>

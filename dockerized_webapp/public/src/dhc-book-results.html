@@ -104,17 +104,27 @@
 
         <app-location route="{{route}}"></app-location>
 
-
         <iron-ajax
             method="POST"
             id="npost"
-            url="/api/neo4j/keyword"
+            url="/api/neo4j/"
             handle-as="json"
             on-response="_handleResponse"
             content-type="application/json"
             debounce-duration="300">
         </iron-ajax>
 
+        <iron-ajax
+            method="POST"
+            id="addlike"
+            url="/api/update_saved_content/"
+            handle-as="json"
+            on-response="_handleResponse"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <paper-button on-click="_addSavedQuery">Save Query</paper-button>
         <paper-button on-click="_showList">List</paper-button>
         <paper-button on-click="_showGraph">Graph</paper-button>
 
@@ -153,7 +163,7 @@
         
                                 <div id = "result-paired-buttons"> 
                                     <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
-                                    <paper-button id = "result-item-like" title = "heart" id = "result-item-like" class="border-color"> Like </paper-button> 
+                                    <paper-button id = "result-item-like" title = "heart" id = "result-item-like" on-click="_addFavBook" book="{{item}}" class="border-color">Add To Favorites</paper-button> 
                                 </div>
         
                                 <paper-button id = "result-item-share" class="border-color"> 
@@ -242,9 +252,29 @@
                 this.set("isList", true);
             }
 
+            // Creates a custom event listened for by the app wrapper.
+            // Passes the favorite book, and the type of update. Need to add
+            // the user id at the app wrapper level.
+            _addFavBook(e) {
+                console.log(e);
+                this.dispatchEvent(new CustomEvent('send-user-data', {
+                    bubbles: true, composed: true, detail: {
+                        keyword: "favorites",
+                        content: e.path[0].book
+                    }
+                }));
+            }
+
+            _addSavedQuery() {
+                this.dispatchEvent(new CustomEvent('send-user-data', {
+                    bubbles: true, composed: true, detail: {
+                        keyword: "saved_searches",
+                        content: this.searchparams
+                    }
+                }));
+            }
+
             _fireSearchPost() {
-                
-                
                 this.$.npost.body = {
                     keyword: this.searchparams.keyword,
                     limit: 25
