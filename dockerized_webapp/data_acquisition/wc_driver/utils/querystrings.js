@@ -58,5 +58,30 @@ qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "T
                          WITH collect(r) as edges, collect(p)+collect(m) as nodes
                          RETURN nodes, edges`;
 
+qstrings.createEdition = `MERGE ({var_id}:Edition {
+                                              title: "{Title}",
+                                              date: {Date},
+                                              isbn: {ISBN}
+                                                  })`;
+
+qstrings.createEdition = `MERGE ({var_id}:Person {
+                                                fname: "{fname}",
+                                                lname: "{lname}",
+                                                        })`;
+
+qstrings.createPlace = `MERGE ({var_id}:Place {
+                                             name: "{placename}"
+                                                        })`
+
+qstrings.createPublisher = `MERGE ({var_id}:Publisher {
+                                             name: "{pubname}"
+                                                      })`
+        
+qstrings.createWroteRelation = `MERGE ({author})-[:WROTE]->({book})`;
+        
+qstrings.createPublishedRelation = `MERGE ({pubname})-[:PUBLISHED]->({book})`;
+        
+qstrings.createPublishesInRelation = `MERGE ({pubname})-[:PUBLISHES-IN]->({place})\n`
+
 // exports
 module.exports = qstrings;
