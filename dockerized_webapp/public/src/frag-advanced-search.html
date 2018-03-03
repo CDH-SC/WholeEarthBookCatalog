@@ -1,0 +1,244 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<!-- iron ajax -->
+<!-- app route -->
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+
+<!-- Inserts/removes paper input fields -->
+
+<dom-module id="frag-advanced-search">
+    <template>
+        <style>
+            #dialog {
+                width: 60%;
+            }
+
+            .col-inputs {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .input-adv {
+                width: 50rem;
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
+
+            .remove {
+                background-color: red;
+                color: white;
+            }
+            .add {
+                background-color: green;
+                color: white;
+            }
+            .search-submit {
+                background-color: blue;
+                color: white;
+            }
+        </style>
+
+        <paper-dialog id="dialog">
+            <h2>Advanced Search</h2>
+            <paper-dialog-scrollable>
+                <template is="dom-repeat" items="[[numFieldsArray]]">
+                    <div class="col-inputs">
+                        <paper-input class="input-adv" label="Search Criteria" value="{{item.value}}" placeholder="search criteria" id="searchField_{{item}}"></paper-input>
+                        <paper-dropdown-menu label="search type" on-value-changed="_update_num_fields" data-args="{{item}}">
+                            <paper-listbox slot="dropdown-content" selected="{{item.searchTypeID}}">
+                                <paper-item></paper-item>
+                                <template is="dom-repeat" items="[[avaliableChoices]]" as="choice">
+                                    <paper-item disabled="[[choice.selected]]">
+                                        {{choice.value}}
+                                    </paper-item>
+                                </template>
+                            </paper-listbox>
+                        </paper-dropdown-menu>
+                        <paper-button class="remove" on-click="_remove" remove-item="{{item}}" disabled="{{item.first}}">
+                            Remove
+                        </paper-button>
+                    </div>
+                </template>
+
+                <template is="dom-if" if="{{_invalidSearch}}">
+                    <p>Your search was invalid. Check over your fields and make sure everything has a title and author</p>
+                </template>
+
+                <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
+                <paper-button class="search-submit" on-click="_goto_search">Search</paper-button>
+            </paper-dialog-scrollable>
+        </paper-dialog>
+        
+    </template>
+
+    <script>
+        class fragAdvancedSearch extends Polymer.Element {
+            static get is() {
+                return 'frag-advanced-search'; 
+            }
+            static get properties() {
+                // Startout with 3 fields, Keyword, author, title
+                return {
+                    numInputs: Number,
+                    addMoreDisabled: Boolean,
+                    numFieldsArray: {
+                        type: Array,
+                        value: [{id: 0, value: "", searchTypeID: -1, searchType: "", first: true },
+                        {id: 1, value: "", searchTypeID: -1, searchType: ""},
+                        {id: 2, value: "", searchTypeID: -1, searchType: ""},
+                    ]
+                    },
+                    avaliableChoices: {
+                        type: Array,
+                        value: [ { value: "keyword", selected: false},
+                        { value: "author", selected: false},
+                        { value: "title", selected: false},
+                        { value: "publisher", selected: false},
+                        { value: "year", selected: false} ]
+                    },
+                    _highestIDUsed: Number,
+                    _invalidSearch: {
+                        type: Boolean,
+                        value: false
+                    }
+                }
+            }
+
+            constructor() {
+                super();
+            }
+
+            ready() {
+                super.ready();
+                this._highestIDUsed = 2;
+            }
+
+
+            _increment_num_fields() {
+                this._highestIDUsed += 1;
+                this.push("numFieldsArray", {id: this._highestIDUsed, value: "", searchTypeID: -1, searchType: ""});
+                if (this.numFieldsArray.length >= this.avaliableChoices.length) {
+                    this.set("addMoreDisabled", true);
+                }
+            }
+
+            _update_available(oldVal, newVal) {
+                // we want to get the last searchType value at the index, set that value in selected choices to
+                // false. Update the new value in avliable choices to true, set searchType value at index to new
+                // search type.
+
+
+                // Just remove this function if this is functionallity that we do not want. Also remove addMoreDisabled
+
+                for (var i = 0; i < this.avaliableChoices.length; i++) {
+                    if (this.avaliableChoices[i].value === oldVal) {
+                        this.set("avaliableChoices."+ i +".selected", false);
+                    }
+
+                    if (newVal !== undefined && this.avaliableChoices[i].value === newVal) {
+                        this.set("avaliableChoices." + i +".selected", true);
+                    }
+                }
+            }
+
+            _update_num_fields(event) {
+                var itemObj = event.path[0].dataArgs;
+                this._update_available(itemObj.searchType, event.detail.value);
+
+                var pos = this.numFieldsArray.map(function(p) { return p.id; }).indexOf(itemObj.id);
+
+                this.set("numFieldsArray." + pos + ".searchType", event.detail.value);                       
+            }
+
+            _remove(event) {
+                var pos = this.numFieldsArray.map(function(p) { return p.id; }).indexOf(event.path[0].removeItem.id);
+                
+                this.splice("numFieldsArray", pos, 1);
+                this._update_available(event.path[0].removeItem.searchType, undefined);
+
+                if(this.numFieldsArray.length < this.avaliableChoices.length) {
+                    this.set("addMoreDisabled", false);
+                }
+                console.log("Removed");
+                console.log(this.numFieldsArray);
+            }
+
+            _validate() {
+                if (this.numFieldsArray.length <= 0) {
+                    console.log("length smol");
+                    this.set("_invalidSearch", true);
+                    this._bindTimeout();
+                }
+                
+                else if (this.numFieldsArray.length > 0) {
+                    var oneNonEmpty;
+                    for (var i = 0; i < this.numFieldsArray.length; i++) {
+                        // If we have a value we need a search type. All other combos we ignore in body
+                        console.log(this.numFieldsArray[i].searchType);
+                        if(this.numFieldsArray[i].searchType === "" && this.numFieldsArray[i].value !== "") {
+                            console.log("found invalid param");
+                            this.set("_invalidSearch", true);
+                            this._bindTimeout();
+                        }
+                        if(this.numFieldsArray[i].searchType !== "" && this.numFieldsArray[i].value !== "") {
+                            oneNonEmpty = true;
+                        }
+                    }
+                    if(!oneNonEmpty) {
+                        this.set("_invalidSearch", true);
+                        this._bindTimeout();
+                    }
+                    else {
+                        this.set("_invalidSearch", false);
+                    }
+                }
+
+                else {
+                    this.set("_invalidSearch", false);
+                }
+                console.log("Completed valiadation");
+            
+            
+            }
+
+            _bindTimeout() {
+                setTimeout(function() {
+                    this.set('_invalidSearch', false);
+                }.bind(this), 5000);                
+            }
+
+            _unsetInvalid() {
+                this.set("_invalidSearch", false);
+            }
+
+
+            _goto_search() {
+
+                this._validate();
+                console.log(this._invalidSearch);
+
+                if(!this._invalidSearch) {
+                    this.dispatchEvent(new CustomEvent('update-search', {
+                        bubbles: true, composed: true, detail: {
+                        search: { data: this.numFieldsArray },
+                    }}));
+
+                  console.log(this.search);
+
+                    console.log("going");
+                
+                    // TODO: this needs to be updated to include more information. Ok for now.
+                    this.set("route.path", "/book-results/" + this.numFieldsArray[0].value);
+                }
+            }
+
+        } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);
+    </script>
+</dom-module>

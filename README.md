@@ -91,7 +91,7 @@ $ ./start-dev.sh
   `$ polymer test --expanded`
   
   You may need to use `sudo` before each command if you run into permission issues.
-  If you run into any issues with the polymer-cli email me at vmcqiunn@email.sc.edu
+  If you run into any issues with the polymer-cli email me at vmcquinn@email.sc.edu
   
   Currently, we don't have a browser set up with docker to run the tests with selenium hence testing locally.
   
