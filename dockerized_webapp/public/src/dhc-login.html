@@ -69,12 +69,7 @@
                 return {
                     rootPath: String,
                     errorMessage: String,
-                    valid: Boolean,
-                    user: {
-                        type: Object,
-                        value: {},
-                        notify: true
-                    }
+                    valid: Boolean
                 }
             }
 
@@ -93,7 +88,7 @@
             }
 
             _handle_response(e) {
-                console.log(e.detail);
+                
 
                 if(e.detail.response) {
                     if(e.detail.response["Error"]) {
@@ -111,7 +106,7 @@
                                 user: e.detail.response,
                         }}));
 
-
+                        console.log(this.route.path);
                         this.set("route.path", "/home");
                     }
                 }
