@@ -14,8 +14,6 @@
 <link rel="lazy-import" href="dhc-book-profile.html">
 <link rel="import" href="data-search.html">
 <link rel="import" href="frag-header.html">
-<link rel="import" href="frag-graph.html">
-<link rel="import" href="dhc-popoto-graphic.html">
 
 
 <dom-module id="dhc-main">
@@ -81,97 +79,92 @@
     </template>
 
     <script>
-        class dhcMain extends Polymer.Element {
-                static get is() {
-                    return 'dhc-main';
-                }
-                static get properties() {
-                        return {
-                            //TODO: save selected book here and search results
-                            page: {
-                                type: String,
-                                reflectToAttribute: true,
-                                observer: '_pageChanged',
-                            },
-                            routeData: Object,
-                            subroute: String,
-                            rootPath: String,
-                            // This might want to be an object with the obj data?
-                        };
+      class dhcMain extends Polymer.Element {
+        static get is() { return 'dhc-main'; }
+        static get properties() {
+            return {
+                //TODO: save selected book here and search results
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged',
+                },
+                routeData: Object,
+                subroute: String,
+                rootPath: String,
+                // This might want to be an object with the obj data?
+            };
+        }
 
-                        ready() {
-                            super.ready();
-                            this.addEventListener('update-user', (e) => this._onUpdateUserData(e));
-                            this.addEventListener('update-search', (e) => this._onUpdateSearchData(e));
-                            this.addEventListener('send-user-data', (e) => this._onSendUserData(e));
-                            this.addEventListener('set-selected-book', (e) => this._onSetSelectedBook(e));
-                        }
+        ready() {
+            super.ready();
+            this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
+            this.addEventListener('update-search', (e)=>this._onUpdateSearchData(e));
+            this.addEventListener('send-user-data', (e)=>this._onSendUserData(e));
+            this.addEventListener('set-selected-book', (e)=>this._onSetSelectedBook(e));
+        }
 
-                        static get observers() {
-                            return ['_routePageChanged(routeData.page)'];
-                        };
+        static get observers() {
+            return ['_routePageChanged(routeData.page)'];
+        };
 
-                        _onSetSelectedBook(e) {
-                            this.$.selectedbook.updateSelectedBook(e.detail);
-                        }
+        _onSetSelectedBook(e) {
+            this.$.selectedbook.updateSelectedBook(e.detail);
+        }
 
-                        _onSendUserData(e) {
-                            this.$.updateinfo.body = e.detail;
-                            this.$.updateinfo.generateRequest();
+        _onSendUserData(e) {
+            this.$.updateinfo.body = e.detail;
+            this.$.updateinfo.generateRequest();
 
-                            // TODO: Update user now that sent userdata.
-                            // Now we need to update the user.
+            // TODO: Update user now that sent userdata.
+            // Now we need to update the user.
 
-                            // this.$._onUpdateupdate-userUserData
-                        }
+            // this.$._onUpdateupdate-userUserData
+        }
 
-                        _handleResponse(res) {
-                            console.log(res + "Got it");
-                        }
+        _handleResponse(res) {
+            console.log(res + "Got it");
+        }
 
-                        _routePageChanged(page) {
-                            this.page = page || 'home';
-                            this._setIsHome(page);
-                        };
+        _routePageChanged(page) {
+            this.page = page || 'home';
+            this._setIsHome(page);
+        };
 
-                        _pageChanged(page, old) {
-                            var resolvedPageUrl = this.resolveUrl('dhc-' + page + '.html');
-                            Polymer.importHref(
-                                resolvedPageUrl,
-                                null,
-                                this._showPage404.bind(this),
-                                true
-                            );
-                        }
+        _pageChanged(page,old) {
+            var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
+            Polymer.importHref(
+                resolvedPageUrl,
+                null,
+                this._showPage404.bind(this),
+                true
+            );
+        }
 
-                        _setIsHome(page) {
-                            if (page === 'home' || page === '') {
-                                this.routeData.isHome = true
-                                console.log("helo");
-                                this.route.path = "/home";
-                            }
+        _setIsHome(page) {
+            if(page === 'home' || page === '') {
+                this.routeData.isHome = true
+                console.log("helo");
+                this.route.path = "/home";
+            }
+            else {
+                this.routeData.isHome = false;
+            }
+        }
 
-                            _setIsHome(page) {
-                                if (page === 'home' || page === '') {
-                                    this.routeData.isHome = true;
-                                } else {
-                                    this.routeData.isHome = false;
-                                }
-                            }
+        _showPage404() {
+            this.page = '404';
+        }
 
-                            _showPage404() {
-                                this.page = '404';
-                            }
+        _onUpdateUserData(event) {
+            this.$.userData.updateUser(event.detail);
+        }
 
-                            _onUpdateUserData(event) {
-                                this.$.userData.updateUser(event.detail);
-                            }
+        _onUpdateSearchData(event) {
+            this.$.searchdatacomp.updateSearch(event.detail.search, event.detail.data);
+        }
+    }
 
-                            _onUpdateSearchData(event) {
-                                this.$.searchdatacomp.updateSearch(event.detail.search, event.detail.data);
-                            }
-                        }
-
-                        window.customElements.define(dhcMain.is, dhcMain);
-    </script>
+    window.customElements.define(dhcMain.is, dhcMain);
+  </script>
 </dom-module>
