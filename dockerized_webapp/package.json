@@ -31,6 +31,7 @@
     "node-xml-stream": "^1.0.2",
     "os": "^0.1.1",
     "path": "^0.12.7",
+    "popoto": "^1.1.4",
     "postman": "^0.2.0",
     "selenium-webdriver": "^4.0.0-alpha.1",
     "stream-replace": "^1.0.0",

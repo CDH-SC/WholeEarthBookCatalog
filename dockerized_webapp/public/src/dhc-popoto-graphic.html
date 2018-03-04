@@ -1,0 +1,231 @@
+<meta charset="UTF-8" http-equiv="Content-Type" content="text/html">
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="frag-header.html">
+<link rel="import" href="shared-styles.html">
+
+<link rel="stylesheet" href="popoto.min.css">
+
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alchemyjs/0.4.2/scripts/vendor.js"></script>
+
+
+<!-- Used to access Neo4j REST API to execute queries -->
+
+<dom-module id="dhc-alchemy-graphic">
+    <template>
+        <style include=" shared-styles iron-flex iron-flex-alignment">
+            .container {
+                @apply --layout-horizontal;
+            }
+
+            #result-entry-wrapper {
+                width: 100%;
+                height: calc(100% - 60px);
+                overflow:scroll;
+            }
+
+            .result-item-info {
+                height: 250px;
+                display: flex; /*relate to container element*/
+                border: 1px solid grey;
+            }
+
+            #result-item-image {
+                margin-left: 50px;
+                margin-top: 20px;
+                width: 140px;
+                height: 200px;
+            }
+
+            #result-item-menu {
+                width: 20%;
+                height: 100%;
+                border: 1px solid grey;
+                display: flex;
+                flex-direction: column;
+                border-top:none;
+                border-bottom:none;
+            }
+
+            #result-item-view-profile {
+                width: 100%;
+                height: 33.3%;
+                padding:0px;
+                border-top: none;
+            }
+
+            #result-item-request {
+                padding:0px;
+                width: 50%;
+                height: 33.3%;
+            }
+
+            #result-paired-buttons {
+                display: flex;
+            }
+
+            #result-item-like {
+                padding: 0px;
+                width: 50%;
+                height: 33.3%;
+            }
+
+            #result-item-share {
+                width: 100%;
+                height: 34%;
+                border-top: none;
+            }
+
+            .paper-metadata {
+                flex-grow: 1;
+                margin-left: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .paper-metadata > h2{
+                margin: 0px;
+            }
+
+            .paper-metadata > h4{
+                margin: 0px;
+            }
+
+            paper-button {
+                margin: 0px;
+                box-shadow: none;
+                border: 1px solid grey;
+            }
+        </style>
+
+        <app-route
+            route="{{route}}"
+            pattern="/:search"
+            data="{{routeData}}">
+        </app-route>
+
+        <app-location route="{{route}}"></app-location>
+
+        
+
+
+        <iron-ajax
+            method="POST"
+            id="npost"
+            url="/api/neo4j/keyword"
+            handle-as="json"
+            on-response="_handleResponse"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+        
+        <template is="dom-if" if="{{!searchDataLoaded}}">
+            Loading...
+        </template>
+
+    <template is="dom-if" if="{{noResults}}">
+            NO RESULTS FOUND
+        </template>
+
+    <template is="dom-if" if="{{searchDataLoaded}}">
+            <div id = "popoto-graphic-wrapper" class="border-color">
+          
+            </div>
+        </template>
+
+    <frag-footer> </frag-footer>
+    </template>
+    <script>
+        popoto.rest.CYPHER_URL = "http://localhost:7474/db/data/transaction/commit";
+
+        popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:    "); //neo4j:password
+
+        popoto.provider.nodeProviders = {
+            "Edition": {
+                "returnAttributes": ["ISBN", "title", "year"],
+                "constraintAttribute": "ISBN",
+                "autoExpandRelations": true
+
+            },
+            "Person": {
+                "returnAttributes": ["fname", "lname"],
+                "constraintAttribute": "lname",
+                "autoExpandRelations": true
+
+            },
+            "Place": {
+                "returnAttributes": ["name"],
+                "constraintAttribute": "name",
+                "autoExpandRelations": true
+
+            },
+            "Publisher": {
+                "returnAttributes": ["name"],
+                "constraintAttribute": "name",
+                "autoExpandRelations": true
+
+            }
+        };
+
+        popoto.result.onTotalResultCount(function(count) {
+            document.getElementById("result-total-count").innerHTML = "(" + count + ")";
+        });
+
+        popoto.start("Edition");
+
+
+
+        class dhcPopotoGraphic extends Polymer.Element {
+            static get is() {
+                return 'dhc-popoto-graphic';
+            }
+
+            static get properties() {
+                return {
+                    route: {
+                        type: Object,
+                        observer: "_pageChanged"
+                    },
+                    searchparams: {
+                        type: Object,
+                        notify: true
+                    },
+                    searchData: {
+                        type: Object,
+                    },
+                    searchDataLoaded: {
+                        type: Boolean,
+                        value: false
+                    },
+                    noResults: {
+                        type: Boolean,
+                        value: false
+                    }
+                }
+            }
+
+            ready() {
+                super.ready();
+
+                // this._fireSearchPost();
+            }
+
+
+
+
+
+
+
+
+        }
+        window.customElements.define(dhcBookResults.is, dhcBookResults);
+    </script>
+</dom-module>
