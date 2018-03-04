@@ -27,6 +27,10 @@
                 /*margin-right: 5px;*/
                 background-color: #2d9cdb;
                 color: #f2f2f2;
+                font-size: 24px;
+                line-height: 26px;
+                width: 96px;
+                height: 48px;
             }
 
             a {
@@ -43,7 +47,10 @@
             h1 {
                 margin: 0;
                 padding-left: 5px;
-                font-size: 45px;
+                font-size: 72px;
+                line-height: 78px;
+                padding-top: 25px;
+                font-weight: 100;
             }
 
             app-toolbar {
@@ -52,7 +59,11 @@
             }
 
             paper-listbox {
-                z-index: 10;
+                z-index: 100;
+            }
+
+            .strecher {
+                width: 10%;
             }
 
             #goto-user-account {
@@ -66,24 +77,29 @@
             #home-button {
                 box-shadow: none;
             }
+
+            .user-listbox {
+                width: 162px;
+                font-size: 24px;
+            }
         </style>
         <app-location route="{{route}}"></app-location>
             <app-toolbar>
                 <div class="header-row">
-                    <template is="dom-if" if="[[!_showSearch()]]">
+                    <template is="dom-if" if="[[_showSearch()]]">
                         <paper-button id="home-button" noink on-click="_go_home">
                             <h1>DHC</h1>
                         </paper-button>
                     </template>
-                    <template is="dom-if" if="[[!_showSearch()]]"></template>
-                    <template is="dom-if" if="[[_showSearch()]]">
-                        <span></span>
+                    <template is="dom-if" if="[[_showSearch()]]"></template>
+                    <template is="dom-if" if="[[!_showSearch()]]">
+                        <span class="stretcher"></span>
                     </template>
 
                     <template is="dom-if" if="[[inSession]]">
-                        <paper-menu-button>
+                        <paper-menu-button vertical-offset="60" horizontal-align="right">
                             <paper-button slot="dropdown-trigger" class="account-blue">Hi, User</paper-button>
-                            <paper-listbox slot="dropdown-content">
+                            <paper-listbox class="user-listbox" slot="dropdown-content">
                                 <a id="goto-user-account" user="{{user}}" href="[[rootPath]]user-account"><paper-item>Account</paper-item></a>
                                 <paper-item>Favorites</paper-item>
                                 <paper-item on-click="_sign_out">Sign out</paper-item>
@@ -111,7 +127,8 @@
                     user: {
                         type: Object,
                         observer: '_userDataObserver'
-                    }
+                    },
+                    route: Object
                 };
             }
 
@@ -131,14 +148,17 @@
                     } ,
                 }}));
 
+                
                 if (this.route.path === "/user-account") {
+                    console.log("Hmm");
                     this.set("route.path", "/home");
                 }
             }
 
             _showSearch() {
-                var upp = document.querySelector("dhc-main");
-                return upp.routeData.isHome;
+                var test = this.get("route");
+                console.log(test);
+                return true;
             }
 
             _go_home() {
@@ -146,14 +166,12 @@
             }
 
             _userDataObserver() {
-                console.log(this.user);
+                
                 if (this.user.authenticated) {
-                    console.log("NOT IN SESSION" + this.user);
-                    console.log(this.user);
                     this.inSession = true;
                 }
                 else {
-                    console.log(this.user);
+                   
                     this.inSession = false;
                 }
             }

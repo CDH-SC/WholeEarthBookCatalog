@@ -16,7 +16,7 @@ var options = {
     uri: "http://www.worldcat.org/webservices/catalog/search/sru",
     qs: {
         wskey: wskey,
-        query: "Tolstoy",
+        query: "\"J.K. Rowling\"",
         json: false,
         maximumRecords: 20
     }
@@ -28,7 +28,7 @@ rp(options)
             compact: true,
             spaces: 4,
         });
-        // console.log(JSON.stringify(json, null, 2));
+        console.log(JSON.stringify(json, null, 2));
         var data = wcq.parseResp(json);
         console.log(JSON.stringify(data, null, 2));
     })

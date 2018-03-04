@@ -13,15 +13,15 @@ var utils = {};
 utils.hashPassword = function (password, saltRounds, callback) {
     bcrypt.hash(password, saltRounds)
         .then(callback)
-        .catch(function (err) { console.log(`ERR: ${err}`); });
+        .catch(function (err) { });
 };
 
 // compare hashes
 utils.compareHash = function(password, hash, callback) {
-    console.log(`hash: ${hash}`);
+    
     bcrypt.compare(password, hash)
         .then( callback )
-        .catch(function (err) { console.log(`ERR: ${err}`); });
+        .catch(function (err) { });
 };
 
 module.exports = utils;
