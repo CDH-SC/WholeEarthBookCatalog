@@ -25,7 +25,7 @@ qstrings.simpleKeywordSearch = `MATCH (n:Movie)
  *   - limit <number>
  *
  */
-qstrings.keywordSearch = `OPTIONAL MATCH (m:Movie)-[*..2]-(m1:Movie) 
+qstrings.keywordSearchExample = `OPTIONAL MATCH (m:Movie)-[*..2]-(m1:Movie)
 	                  WHERE m.title =~ { regex }
                           WITH collect(m)+collect(m1) as c1
 
@@ -58,6 +58,7 @@ qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "T
                          WITH collect(r) as edges, collect(p)+collect(m) as nodes
                          RETURN nodes, edges`;
 
+/**
 qstrings.createEdition = `MERGE (${title}:Edition { Title: ${title}, Date: ${date}, ISBN: ${isbn} })\n`;
 
 qstrings.createPerson = `MERGE (${name}:Person { fname: ${fname}, lname: ${lname} })\n`;
@@ -71,6 +72,7 @@ qstrings.createWroteRelation = `MERGE (${name})-[:WROTE]->(${title})\n`;
 qstrings.createPublishedRelation = `MERGE (${pubname})-[:PUBLISHED]->(${title})\n`;
 
 qstrings.createPublishesInRelation = `MERGE (${pubname})-[:PUBLISHES-IN]->(${place})\n`;
+*/
 
 // exports
 module.exports = qstrings;
