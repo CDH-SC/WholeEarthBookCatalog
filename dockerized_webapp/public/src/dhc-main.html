@@ -122,10 +122,6 @@
             // this.$._onUpdateupdate-userUserData
         }
 
-        _handleResponse(res) {
-            console.log(res + "Got it");
-        }
-
         _routePageChanged(page) {
             this.page = page || 'home';
             this._setIsHome(page);
@@ -143,9 +139,7 @@
 
         _setIsHome(page) {
             if(page === 'home' || page === '') {
-                this.routeData.isHome = true
-                console.log("helo");
-                this.route.path = "/home";
+                this.routeData.isHome = true;
             }
             else {
                 this.routeData.isHome = false;
@@ -161,7 +155,7 @@
         }
 
         _onUpdateSearchData(event) {
-            this.$.searchdatacomp.updateSearch(event.detail.search, event.detail.data);
+            this.$.searchdatacomp.updateSearch(event.detail);
         }
     }
 

@@ -19,9 +19,7 @@
                     searchparams: {
                         type: Object,
                         notify: true,
-                        value: {
-                            keyword: ""
-                        }
+                        value: {}
                     },
                     updateSearch: {
                         type: Function
@@ -33,15 +31,8 @@
                 }
             }
 
-            updateSearch(str, data) {
-                if (str.keyword) {
-                    this.searchparams.keyword = str.keyword;
-                    this.set("searchparams.keyword", str.keyword);
-                }
-                else {
-                    this.searchparams.keyword = str.data[0].value;
-                    this.set("searchparams.keyword", str.data[0].value);
-                }
+            updateSearch(search) {
+                this.set("searchparams", search);
             }
 
             updateSelectedBook(data) {

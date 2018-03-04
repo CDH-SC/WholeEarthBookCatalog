@@ -206,9 +206,6 @@
 
         <template is="dom-if" if="{{!isList}}">
             Showing alchemy JS
-            <div>
-                <div class="alchemy" id="alchemy"></div>
-            </div>
         </template>
 
 
@@ -367,10 +364,7 @@
             }
 
             _fireSearchPost() {
-                this.$.npost.body = {
-                    keyword: this.searchparams.keyword,
-                    limit: 25
-                }
+                this.$.npost.body = this.searchparams;
 
                 this.$.npost.generateRequest();
             }

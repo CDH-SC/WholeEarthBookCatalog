@@ -217,15 +217,18 @@
                     content: this.search
                 }
 
+                var obj ={ 
+                        advanced: false,
+                        basic_query: this.search.keyword,
+                        terms: {},
+                        limit: 25
+                }
+
                 this.dispatchEvent(new CustomEvent('update-search', {
-                    bubbles: true, composed: true, detail: {
-                    search: this.search,
-                }}));
-
+                    bubbles: true, composed: true, detail: obj
+                }));
                 
-
-                
-                this.set("route.path", "/book-results/" + this.search.keyword);
+                this.set("route.path", "/book-results/" + obj.basic_query);
             }
 
             _open_advanced() {

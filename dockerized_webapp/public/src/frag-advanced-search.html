@@ -308,19 +308,24 @@
                 this._validate();
 
                 if(!this._invalidSearch) {
-                    console.log(this.user);
+                    var sObj = { 
+                            advanced: true,
+                            basic_query: "",
+                            terms: this.numFieldsArray,
+                            limit: 25
+                    };
+
                     this.$.saveq.body = {
                         _id: this.user.id,
                         keyword:"recent_searches",
-                        content: this.numFieldsArray
+                        content: sObj
                     }
 
                     this.$.saveq.generateRequest();
 
                     this.dispatchEvent(new CustomEvent('update-search', {
-                        bubbles: true, composed: true, detail: {
-                        search: { data: this.numFieldsArray },
-                    }}));
+                        bubbles: true, composed: true, detail: sObj
+                    }));
                 
                     // TODO: this needs to be updated to include more information. Ok for now.
                     this.set("route.path", "/book-results/" + this.numFieldsArray[0].value);
