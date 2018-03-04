@@ -25,27 +25,27 @@
                     },
                     updateSearch: {
                         type: Function
+                    },
+                    selectedbook: {
+                        type: Object,
+                        notify: true
                     }
                 }
             }
 
             updateSearch(str, data) {
-                
-                
                 if (str.keyword) {
-                    
                     this.searchparams.keyword = str.keyword;
                     this.set("searchparams.keyword", str.keyword);
-                    
                 }
                 else {
-                    
-
-                    
                     this.searchparams.keyword = str.data[0].value;
                     this.set("searchparams.keyword", str.data[0].value);
                 }
-                
+            }
+
+            updateSelectedBook(data) {
+                this.set("selectedbook", data);
             }
         }
         window.customElements.define(dataSearch.is, dataSearch);

@@ -21,11 +21,7 @@
                 width: 50px;
             }
 
-            .book-rec {
-                height: 95%;
-                padding-left: 15px;
-                padding-right: 15px;
-            }
+
 
             paper-button.chev-cir {
                 padding: 0;
@@ -38,14 +34,16 @@
                 box-sizing: border-box;
                 margin-right: 10px;
                 margin-left: 10px;
+                color: #333333;
             }
 
             .chev-button {
-                max-height:50px;
-                max-width: 50px;
-                min-width: 50px;
-                min-height: 50px;
-                border: 3px solid black;
+                max-height:40px;
+                max-width: 40px;
+                min-width: 40px;
+                min-height: 40px;
+                border: 3px solid #333333;
+                box-shadow: 0px 5px 5px rgba(0,0,0,0.25);
                 border-radius: 30px;
             }
 
@@ -55,10 +53,19 @@
                 align-items: center;
             }
 
+            .rec-book {
+                box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+            }
+
+            .book-rec {
+                height: 95%;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
             img {
                 width: auto;
                 max-width: 150px;
-                height: 85%;
             }
         </style>
 
@@ -67,7 +74,7 @@
             <div class="book-wrapper">
                 <template is="dom-repeat" items="[[current_display]]">
                     <div class="book-rec">
-                        <img width="150px" src="{{item}}"></img>
+                        <img class="rec-book" src="{{item}}"></img>
                     </div>
                 </template>
             </div>
@@ -84,7 +91,7 @@
                 return {
                     book_rec_covers: {
                         type: Array,
-                        value: ['../images/clockwork_small.jpg', '../images/animators-cover.jpg', '../images/creative_bookcover.png', '../images/im-cover-150px.jpg'],
+                        value: ['../images/no_cover_150_248.png', '../images/no_cover_150_248.png', '../images/no_cover_150_248.png', '../images/no_cover_150_248.png'],
                     },
                     book_rec_size: {
                         type: Number,

@@ -21,8 +21,6 @@ var clock = require("./utils/clock.js");
 var goodreadsDriver = require("./utils/goodreadsDriver.js");
 
 
-
-
 // add user
 router.post("/add_user/", function (req, res) {
     var data = req.body;

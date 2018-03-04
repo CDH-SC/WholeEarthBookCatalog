@@ -41,7 +41,8 @@
         </iron-ajax>
 
         <data-login id="userData" user="{{user}}"></data-login>
-        <data-search id="searchdatacomp" searchparams="{{searchparams}}"></data-search>
+        <data-search id="searchdatacomp" selectedbook="{{selectedbook}}" searchparams="{{searchparams}}"></data-search>
+
         <app-location
             route="{{route}}"
             url-space-regex="^[[rootPath]]">
@@ -73,7 +74,7 @@
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
             <dhc-book-results name="book-results" route="{{subroute}}" searchparams="{{searchparams}}"></dhc-book-results>
-            <dhc-book-profile name="book-profile" route="{{subroute}}"> </dhc-book-profile>
+            <dhc-book-profile name="book-profile" selectedbook="{{selectedbook}}" route="{{subroute}}"> </dhc-book-profile>
         </iron-pages>
     </template>
 
@@ -82,7 +83,6 @@
         static get is() { return 'dhc-main'; }
         static get properties() {
             return {
-
                 //TODO: save selected book here and search results
                 page: {
                     type: String,
@@ -101,11 +101,16 @@
             this.addEventListener('update-user', (e)=>this._onUpdateUserData(e));
             this.addEventListener('update-search', (e)=>this._onUpdateSearchData(e));
             this.addEventListener('send-user-data', (e)=>this._onSendUserData(e));
+            this.addEventListener('set-selected-book', (e)=>this._onSetSelectedBook(e));
         }
 
         static get observers() {
             return ['_routePageChanged(routeData.page)'];
         };
+
+        _onSetSelectedBook(e) {
+            this.$.selectedbook.updateSelectedBook(e.detail);
+        }
 
         _onSendUserData(e) {
             this.$.updateinfo.body = e.detail;
@@ -113,7 +118,12 @@
 
             // TODO: Update user now that sent userdata.
             // Now we need to update the user.
+
             // this.$._onUpdateupdate-userUserData
+        }
+
+        _handleResponse(res) {
+            console.log(res + "Got it");
         }
 
         _routePageChanged(page) {
@@ -122,24 +132,20 @@
         };
 
         _pageChanged(page,old) {
-            
-            
             var resolvedPageUrl = this.resolveUrl('dhc-'+ page + '.html');
-
             Polymer.importHref(
                 resolvedPageUrl,
                 null,
                 this._showPage404.bind(this),
                 true
             );
-
-            // var list = document.querySelector("dhc-" + old);
-            // document.body.removeChild(list);
         }
 
         _setIsHome(page) {
             if(page === 'home' || page === '') {
-                this.routeData.isHome = true;
+                this.routeData.isHome = true
+                console.log("helo");
+                this.route.path = "/home";
             }
             else {
                 this.routeData.isHome = false;

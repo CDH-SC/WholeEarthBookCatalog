@@ -3,6 +3,8 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+
 <link rel="import" href="alchemy-import.html">
 
 <link rel="import" href="frag-footer.html">
@@ -11,6 +13,9 @@
 <dom-module id="dhc-book-results">
     <template>
         <style include=" shared-styles iron-flex iron-flex-alignment">
+            :host {
+                --paper-button-color: #E0E0E0;
+            }
             .container {
                 @apply --layout-horizontal;
             }
@@ -18,26 +23,49 @@
             #result-entry-wrapper {
                 width: 100%;
                 height: calc(100% - 60px);
-                overflow:scroll;
             }
 
             .result-item-info {
-                height: 250px;
+                height: 280px;
                 display: flex; /*relate to container element*/
-                border: 1px solid grey;
+                flex-direction: row;
+                justify-content: space-between;
+                border: 1px solid #E0E0E0;
+                align-items: center;
             }
 
             #result-item-image {
-                margin-left: 50px;
-                margin-top: 20px;
-                width: 140px;
-                height: 200px;
+                /* margin-left: 50px;
+                margin-top: 20px; */
+                /* width: 100%; */
+                box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+            }
+
+            .book-info-text {
+                padding-left: 60px;
+            }
+
+            .image-wrapper {
+                padding-left: 57px;
+            }
+
+            .book-info {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+            } 
+
+            .heart-icon {
+                height: 45px;
+                width: 45px;
+                color:rgb(223, 80, 80)
             }
 
             #result-item-menu {
-                width: 20%;
+                width: 280px;
                 height: 100%;
-                border: 1px solid grey;
+                font-size: 24px;
+                border: 1px solid #E0E0E0;
                 display: flex;
                 flex-direction: column;
                 border-top:none;
@@ -89,10 +117,54 @@
                 margin: 0px;
             }
 
+            h1 {
+                margin-bottom: 5px;
+            }
+
+            h2 {
+                margin-bottom: 5px;
+            }
+
             paper-button {
                 margin: 0px;
                 box-shadow: none;
                 border: 1px solid grey;
+            }
+
+            paper-button[focused].btn-attached {
+                background: #2D9CDB;
+                color: whitesmoke;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .toggler {
+                margin-left: 15%;
+            }
+
+            .btn-attached {
+                margin: 0;
+                padding: 0;
+                box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+                color: #333333;
+                width: 93px;
+                height: 30px;
+                border: none;
+                background-color: #E0E0E0;
+            }
+
+            .q-btn {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 0;
+                box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+                color: #333333;
+                width: 100px;
+                height: 30px;
+                border: none;
+                background-color: #E0E0E0;
             }
         </style>
 
@@ -124,9 +196,13 @@
             debounce-duration="300">
         </iron-ajax>
 
-        <paper-button on-click="_addSavedQuery">Save Query</paper-button>
-        <paper-button on-click="_showList">List</paper-button>
-        <paper-button on-click="_showGraph">Graph</paper-button>
+        <div class="btn-wrapper">
+            <div class="toggler">
+                <paper-button class="btn-attached" id="list-btn" on-click="_showList">List</paper-button>
+                <paper-button class="btn-attached" id="graph-btn" on-click="_showGraph">Graph</paper-button>
+                <paper-button class="q-btn" on-click="_addSavedQuery">Save Query</paper-button>
+            </div>
+        </div>
 
         <template is="dom-if" if="{{!isList}}">
             Showing alchemy JS
@@ -149,21 +225,37 @@
                 <div id = "result-entry-wrapper" class="border-color">
                     <template is="dom-repeat" items="[[searchData.records]]">
                         <div class="result-item-info border-color">
-                            <image id = "result-item-image" class="border-color" src= "../images/clockwork_small.jpg"></image>
-                            <template is="dom-repeat" items="{{item._fields}}" as="field">
-                                <h1>
-                                    Title: {{field.properties.title}}
-                                </h1>
-                            </template>
-            
+                            <div class="book-info">
+                                <div class="image-wrapper">
+                                    <image id="result-item-image" class="border-color" src= "../images/no_cover_150_248.png"></image>
+                                </div>
+                                <template is="dom-repeat" items="{{item._fields}}" as="field">
+                                    <div class="book-info-text">
+                                        <h1>
+                                            {{field.properties.title}}
+                                        </h1>
+                                        <h2>
+                                            {{field.properties.author}}
+                                        </h2>
+                                        <h2>
+                                            Publisher: {{field.properties.publisher}}
+                                        </h2>
+                                        <h2>
+                                            Originally Published: {{field.properties.year}}
+                                        </h2>
+                                    </div>
+                                </template>
+                            </div>
+                        
                             <div id = "result-item-menu" class="border-color">
                                 <a href="/book-profile/{{item.name}}">
-                                    <paper-button on-click="" id = "result-item-view-profile" class="border-color"> View Profile </paper-button> 
+                                    <paper-button on-click="" id = "result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
                                 </a>
         
                                 <div id = "result-paired-buttons"> 
                                     <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
-                                    <paper-button id = "result-item-like" title = "heart" id = "result-item-like" on-click="_addFavBook" book="{{item}}" class="border-color">Add To Favorites</paper-button> 
+                                    <paper-button id = "result-item-like" title = "heart" id = "result-item-like" on-click="_addFavBook" book="{{item}}" class="border-color">
+                                        <iron-icon class="heart-icon" icon="favorite"></iron-icon></paper-button> 
                                 </div>
         
                                 <paper-button id = "result-item-share" class="border-color"> 
@@ -248,8 +340,7 @@
             }
 
             _showList() {
-                
-                this.set("isList", true);
+                this.set("isList", true);                
             }
 
             // Creates a custom event listened for by the app wrapper.
@@ -283,16 +374,17 @@
                 this.$.npost.generateRequest();
             }
 
-            _handleResponse(e) {
-                
-                
+            _fireSaveSelected(e) {
+                this.dispatchEvent(new CustomEvent('send-user-data', {
+                    bubbles: true, composed: true, detail: e.path[0].selbook
+                }));
+            }
+
+            _handleResponse(e) { 
                 this.set("searchData", e.detail.response);
                 this.set('searchDataLoaded', true);
 
-                
-
                 if(this.searchData.records.length > 0) {
-                    
                     this.set("noResults", false);
                 }
                 else {
