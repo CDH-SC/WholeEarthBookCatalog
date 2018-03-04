@@ -210,17 +210,17 @@
                 <div class="alchemy" id="alchemy"></div>
             </div>
         </template>
-        
+
 
         <template is="dom-if" if="{{isList}}">
             <template is="dom-if" if="{{!searchDataLoaded}}">
                     Loading...
             </template>
-        
+
             <template is="dom-if" if="{{noResults}}">
                 NO RESULTS FOUND
             </template>
-            
+
             <template is="dom-if" if="{{searchDataLoaded}}">
                 <div id = "result-entry-wrapper" class="border-color">
                     <template is="dom-repeat" items="[[searchData.records]]">
@@ -251,14 +251,15 @@
                                 <a href="/book-profile/{{item.name}}">
                                     <paper-button on-click="" id = "result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
                                 </a>
-        
-                                <div id = "result-paired-buttons"> 
+
+                                <div id = "result-paired-buttons">
                                     <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
                                     <paper-button id = "result-item-like" title = "heart" id = "result-item-like" on-click="_addFavBook" book="{{item}}" class="border-color">
                                         <iron-icon class="heart-icon" icon="favorite"></iron-icon></paper-button> 
+
                                 </div>
-        
-                                <paper-button id = "result-item-share" class="border-color"> 
+
+                                <paper-button id = "result-item-share" class="border-color">
                                     Share
                                 </paper-button>
                             </div>
@@ -266,11 +267,11 @@
                     </template>
                 </div>
             </template>
-            
+
         </template>
         <frag-footer> </frag-footer>
     </template>
-       
+
     <script>
         class dhcBookResults extends Polymer.Element {
             static get is() { return 'dhc-book-results'; }
@@ -309,14 +310,14 @@
             }
 
             _resultPageChanged() {
-                
+
                 if (this.route.path.includes("/book-results/")) {
                     this.set("noResults", false);
                     this.set("searchData", {});
                     this.set("searchDataLoaded", false);
                     this.set("isList", true);
 
-                    
+
                     this._fireSearchPost();
                 }
             }
@@ -330,7 +331,7 @@
 
             _showGraph() {
                 // add in some color
-                
+
                 var config = {
                     dataSource: '../data/charlize.json',
                 };
@@ -385,6 +386,7 @@
                 this.set('searchDataLoaded', true);
 
                 if(this.searchData.records.length > 0) {
+
                     this.set("noResults", false);
                 }
                 else {
@@ -395,4 +397,3 @@
         window.customElements.define(dhcBookResults.is, dhcBookResults);
     </script>
 </dom-module>
-

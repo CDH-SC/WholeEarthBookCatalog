@@ -8,14 +8,14 @@
 var qstrings = {};
 
 /**
- * Params: 
- *   
+ * Params:
+ *
  *   - regex <string>
  *   - limit <number>
  *
- */    
-qstrings.simpleKeywordSearch = `MATCH (n:Movie) 
-	                        WHERE n.title =~ { regex } 
+ */
+qstrings.simpleKeywordSearch = `MATCH (n:Movie)
+	                        WHERE n.title =~ { regex }
 				RETURN DISTINCT n LIMIT { limit }`;
 
 /**
@@ -25,15 +25,15 @@ qstrings.simpleKeywordSearch = `MATCH (n:Movie)
  *   - limit <number>
  *
  */
-qstrings.keywordSearch = `OPTIONAL MATCH (m:Movie)-[*..2]-(m1:Movie) 
+qstrings.keywordSearch = `OPTIONAL MATCH (m:Movie)-[*..2]-(m1:Movie)
 	                  WHERE m.title =~ { regex }
                           WITH collect(m)+collect(m1) as c1
 
-                          OPTIONAL MATCH (g:Genre)--(m2:Movie) 
+                          OPTIONAL MATCH (g:Genre)--(m2:Movie)
 	                  WHERE g.name =~ { regex }
                           WITH collect(m2)+c1 as c2
 
-                          OPTIONAL MATCH (n:Person)-[:ACTED_IN|:DIRECTED]->(m3:Movie) 
+                          OPTIONAL MATCH (n:Person)-[:ACTED_IN|:DIRECTED]->(m3:Movie)
 	                  WHERE n.name =~ { regex }
                           WITH collect(m3)+c2 as c3
 
@@ -41,18 +41,51 @@ qstrings.keywordSearch = `OPTIONAL MATCH (m:Movie)-[*..2]-(m1:Movie)
                           RETURN DISTINCT x
                           LIMIT { limit }`;
 
+/*
+ * Have to do something special with IBSN
+ *
+*/
+qstrings.keywordSearch = `OPTIONAL MATCH (e:Edition)-[:IS-A-VERSION-OF]-[*..6]-(e1:Edition)
+													WHERE
+													e.IBSN =~ { regex }
+													OR e.title =~ { regex }
+													OR e.year =~ { regex }
+													WITH collect(e)+collect(e1) as c1
+
+													OPTIONAL MATCH
+													(p:Person)-[:WROTE|:EDITTED|:CONTRIBUTED-TO|:TRANSLATED]->(x:Edition)-[*..6]-(e:Edition)
+													WHERE
+													p.lname =~ { lname_re }
+													OR p.fname =~ { fname_re }
+													OR p.death =~ { death_re }
+													OR p.birth =~ { birth_re }
+													WITH collect(c1)+collect(p)+collect(e)+collect(x) as c2
+
+													OPTIONAL MATCH (p:Publisher)-[:PUBLISHED-IN|:PUBLISHED]->
+
+													`;
+
+
+
 /**
- * 
- * 
+ *
+ *
  */
 qstrings.advancedSearchPerson = `OPTIONAL MATCH
                                  (p:Person)-[:WROTE|:EDITTED|:CONTRIBUTED-TO|:TRANSLATED]->(x:Edition)-[*..{ degrees }]-(e:Edition)
-                                 WHERE 
-                                 p.lname =~ { lname_re } 
-                                 OR p.fname =~ { fname_re } 
-                                 OR p.death =~ { death_re } 
+                                 WHERE
+                                 p.lname =~ { lname_re }
+                                 OR p.fname =~ { fname_re }
+                                 OR p.death =~ { death_re }
                                  OR p.birth =~ { birth_re }
                                  WITH collect(x)+collect(e) as c1`;
+
+qstrings.advancedSearchEdition = `OPTIONAL MATCH
+																	(e:Edition)-[:IS-A-VERSION-OF|:PUBLISHED-IN]->(x:Edition)-[*..{ degrees }]-(e1:Edition)
+																	WHERE
+																	e.IBSN =~ { IBSN_re }
+																	OR e.title =~ { title_re }
+																	`;
 
 qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "Tom"
                          WITH collect(r) as edges, collect(p)+collect(m) as nodes
