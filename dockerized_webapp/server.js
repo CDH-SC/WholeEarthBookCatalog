@@ -204,6 +204,7 @@ router.post("/goodreads/", function(req,res) {
 });
 
 
+/**
 // query neo4j
 router.post("/neo4j/", function (req, res) {
     var data = req.body;
@@ -221,6 +222,7 @@ router.post("/neo4j/", function (req, res) {
             res.json(resp);
         });
 });
+*/
 
 /** keyword query for neo4j
  *
@@ -235,7 +237,9 @@ router.post("/neo4j/", function (req, res) {
 router.post("/neo4j/keyword/", function (req, res) {
 
     var data = req.body;
-    var statement = qstrings.keywordSearch;
+    console.log(`request:\n${JSON.stringify(data, null, 2)}`);
+
+    var statement = qstrings.keywordSearchExample;
     var params = {};
 
     // construct params object
@@ -248,6 +252,9 @@ router.post("/neo4j/keyword/", function (req, res) {
     });
 
     // add logic to sanitize the input here...
+
+    console.log(`statement:\n${JSON.stringify(statement, null, 2)}\n
+		 params:\n${JSON.stringify(params, null, 2)}\n`);
 
     neo4j.query(statement, params)
         .then(function (resp) {
