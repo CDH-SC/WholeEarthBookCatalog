@@ -324,11 +324,11 @@
                     this.$.saveq.generateRequest();
 
                     this.dispatchEvent(new CustomEvent('update-search', {
-                        bubbles: true, composed: true, detail: sObj
+                        bubbles: true, composed: true, detail: "Bach"
                     }));
                 
                     // TODO: this needs to be updated to include more information. Ok for now.
-                    this.set("route.path", "/book-results/" + this.numFieldsArray[0].value);
+                    this.set("route.path", "/book-results/" + "Bach");
                 }
             }
 
