@@ -206,6 +206,7 @@ router.post("/goodreads/", function(req,res) {
 });
 
 
+/**
 // query neo4j
 router.post("/neo4j/", function (req, res) {
     var data = req.body;
@@ -223,6 +224,7 @@ router.post("/neo4j/", function (req, res) {
             res.json(resp);
         });
 });
+*/
 
 /** keyword query for neo4j
  *
