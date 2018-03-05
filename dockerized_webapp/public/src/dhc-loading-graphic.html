@@ -54,28 +54,55 @@
              <div class="loading-graph-header">
                     <span class="loading-graph-header-span">Graph</span> search
                 </div>
+
+                <!-- -->
         
-                <div class="graph-container">
+                <div class="ppt-container-graph">
+                    <nav id = "popoto-taxonomy" class = ppt-taxo-nav> </nav>
                     
-                    <div id="loading-graph" class="loading-graph">
+                    <div id="popoto-graph" class="ppt-div-graph">
                         <!-- Graph will be generated here-->
                         <!-- just want the graph to be integrated into the project, no other viewers -->
                         <span id = "loading-graph-desc"></span>
         
                     </div>
                 </div>
-        
-                <div id="graph-ppt-cypher">
-                    <!-- parse in input values here -->
-
-                </div>
+            </div>
             
     </template>
 
     <script>
-        popoto.rest.CYPHER_URL = "http://localhost:7474/db/data/transaction/commit";
+    </script>
 
-        popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:");
+    <script>
+        popoto.rest.CYPHER_URL = "http://localhost:7474/db/data/transaction/commit"; //transactional endpoint
+
+        // popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:");
+
+
+        const driver = neo4j.driver(popoto.rest.CYPHER_URL, neo4j.auth.basic(user, password));
+        const session = driver.session();
+
+        const transactionPromise = session.writeTransaction(tx => tx.run(
+            CREATE(a: Edition) SET a.title = $title RETURN a.title + ", from node " + id(a), {
+                title: "A Tale of Two Cities"
+            }));
+
+        transactionPromise.then(result => {
+            session.close();
+
+            const singleRecord = result.records[0];
+            const title = singleRecord.get(0);
+
+            console.log(title);
+
+            driver.close();
+        })
+
+
+
+
+
 
         popoto.provider.nodeProviders = {
             "Edition": {
@@ -128,7 +155,7 @@
             }
             // window.customElements.define(loadingGraphic.is, loadingGraphic);
 
-        popoto.start("loading-graph");
+        popoto.start("Edition");
     </script>
 
 
