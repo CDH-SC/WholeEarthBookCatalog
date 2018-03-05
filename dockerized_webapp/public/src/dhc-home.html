@@ -226,7 +226,7 @@
 
                 // needs to be changed back to obj
                 this.dispatchEvent(new CustomEvent('update-search', {
-                    bubbles: true, composed: true, detail: this.search.keyword
+                    bubbles: true, composed: true, detail: obj
                 }));
                 
                 this.set("route.path", "/book-results/" + this.search.keyword);
