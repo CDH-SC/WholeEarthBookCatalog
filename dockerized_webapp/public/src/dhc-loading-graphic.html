@@ -85,7 +85,7 @@
 
         const transactionPromise = session.writeTransaction(tx => tx.run(
             CREATE(a: Edition) SET a.title = $title RETURN a.title + ", from node " + id(a), {
-                title: "A Tale of Two Cities"
+                title: ""
             }));
 
         transactionPromise.then(result => {
