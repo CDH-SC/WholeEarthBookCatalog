@@ -3,8 +3,6 @@ var fs = require("fs");
 var http = require("http");
 var marc4js = require("marc4js");
 var exdefs = require("../exdefs");
-var neo4j = require("neo4j-driver").v1;
-
 
 var options = {
     sourceURL: "http://www.loc.gov/cds/products/MDSConnect-books_all.html",
@@ -15,7 +13,9 @@ var options = {
     compressedFileFormat: "BooksAll\.\d{0,4}\.part.{0,2}\.xml\.gz",
     decompressedFileFormat: "part{0}.xml",
 
+    //downloadsDir: "D:\\Documents\\DirtyHistoryCrawler\\DirtyHistoryCrawler\\dockerized_webapp\\data_acquisition\\loc\\",
     downloadsDir: "data_acquisition/loc/",
+    processedFilesDir: "data_acquisition/processed/",
     completionTag: ".complete"
 };
 
@@ -38,6 +38,7 @@ function importFiles(logger) {
     let listOfFiles = null
     if (matches != null) {
         listOfFiles = matches.map((e) => options.sourceRequestFormat + e);
+
     } else {
         logger.error("failed to get catalog, falling back to cached files");
         listOfFiles = getAllFiles(options.downloadsDir);
@@ -90,7 +91,7 @@ function extractFile(file, logger) {
 
     gzFile(file, extractedFile, () => {
         fs.unlinkSync(file); // delete the old file
-        convertFile(extractedFile, logger);
+        //convertFile(extractedFile, logger);
     });
 }
 
@@ -101,39 +102,32 @@ function convertFile(file, logger) {
     let replace = require('stream-replace');
     let parser = marc4js.parse({ format: 'marcxml' });
     let transformer = marc4js.transform({ format: "json" });
+    let newFile = fs.createWriteStream(convertedFile);
     fs.createReadStream(file)
         .pipe(parser)
+        .pipe(newFile);
         //.pipe(transformer)
-        .on('data', (record) => {
-            importRecord(record, logger);
-        });
+        // .on('data', (record) => {
+        //     importRecord(record, logger);
+        // });
 }
 
 function importRecord(marc21, logger) {
-    let record = {
-        marc21: marc21,
-        exdefs: [
-
-        ]
+    var record = {
+        Marc21: JSON.stringify(marc21
     };
-    let driver = neo4j.driver("bolt://localhost:7687");
-    let session = driver.session();
 
-    // MUTEX ABOVE, somewhere
+    for (let i = 0; i < exdefs.length; i++) {
+        try{
+            let extractedValue = exdefs[i].extractor(marc21);
+            if (extractedValue != null)
+            {
+                record[exdefs[i].fieldName] = extractedValue;
+            }
+        } catch (e) {}
+    }
 
-    // wait for session
-    // then run
-    // then hold stream until promise resolves?
-    // maybe push all objects into a sub folder then take them synchronously later......
-    let resultPromise = session.run('CREATE (a:Item {marc21: $marc}) RETURN a', { marc: JSON.stringify(marc21) });;
-
-    resultPromise.then((result) => {
-        session.close();
-        logger.debug(result);
-        driver.close();
-    });
-    // rename file to add completion tag
-    // for server, maybe clear file too
+    //let createString = buildCreateString(record, logger);
 }
 
 module.exports = importFiles;
