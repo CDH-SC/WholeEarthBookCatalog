@@ -10,13 +10,14 @@ var wcq = require("./wcq");
 var xmljs = require("xml-js");
 var rp = require("request-promise");
 var wskey = process.env.WSKEY;
+var neo4j = require("./utils/neo4jDriver");
 
 // main script
 var options = {
     uri: "http://www.worldcat.org/webservices/catalog/search/sru",
     qs: {
         wskey: wskey,
-        query: "\"J.K. Rowling\"",
+        query: "\"Tolkien\"",
         json: false,
         maximumRecords: 20
     }
@@ -30,8 +31,14 @@ rp(options)
         });
         // console.log(JSON.stringify(json, null, 2));
         var data = wcq.parseResp(json);
-        console.log(JSON.stringify(data, null, 2));
-        wcq.constructQuery(data);
+        var qstring = wcq.constructQuery(data);
+        neo4j.query(qstring)
+	.then(function(res) {
+	    console.log(`${JSON.stringify(res, null, 2)}`);
+	})
+	.catch(function(err) {
+            console.log(`$JSON.stringify(err, null, 2)}`);
+	});
     })
     .catch( function(err) {
         console.log(`got error during API call:\n${JSON.stringify(err, null, 2)}`);
