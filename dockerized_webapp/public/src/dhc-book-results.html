@@ -179,7 +179,7 @@
         <iron-ajax
             method="POST"
             id="npost"
-            url="/api/neo4j/"
+            url="/api/neo4j/keyword/"
             handle-as="json"
             on-response="_handleResponse"
             content-type="application/json"
@@ -364,7 +364,13 @@
             }
 
             _fireSearchPost() {
-                this.$.npost.body = this.searchparams;
+                console.log(this.searchparams.keyword);
+                this.$.npost.body = {
+                    keyword: this.searchparams.keyword,
+                    limit: 25
+                };
+
+                console.log(this.$.npost.body);
 
                 this.$.npost.generateRequest();
             }
@@ -377,10 +383,10 @@
 
             _handleResponse(e) { 
                 this.set("searchData", e.detail.response);
+                console.log(e.detail.response);
                 this.set('searchDataLoaded', true);
 
-                if(this.searchData.records.length > 0) {
-
+                if(this.searchData.records && this.searchData.records.length > 0) {
                     this.set("noResults", false);
                 }
                 else {

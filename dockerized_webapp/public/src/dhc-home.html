@@ -194,7 +194,7 @@
             }
 
             _update_dom_session() {
-                if(this.user !== null && this.user.authenticated) {
+                if(this.user !== undefined && this.user.authenticated) {
                     console.log(this.user);
                     this.inSession = true;
                 }
@@ -211,12 +211,6 @@
             }
 
             _goto_search() {
-                this.$.savebasicq.body = {
-                    _id: this.user.id,
-                    keyword: "recent_searches",
-                    content: this.search
-                }
-
                 var obj ={ 
                         advanced: false,
                         basic_query: this.search.keyword,
@@ -224,11 +218,18 @@
                         limit: 25
                 }
 
+                this.$.savebasicq.body = {
+                    _id: this.user.id,
+                    keyword: "recent_searches",
+                    content: obj
+                }
+
+                // needs to be changed back to obj
                 this.dispatchEvent(new CustomEvent('update-search', {
-                    bubbles: true, composed: true, detail: obj
+                    bubbles: true, composed: true, detail: this.search.keyword
                 }));
                 
-                this.set("route.path", "/book-results/" + obj.basic_query);
+                this.set("route.path", "/book-results/" + this.search.keyword);
             }
 
             _open_advanced() {
