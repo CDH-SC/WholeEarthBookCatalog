@@ -77,6 +77,7 @@ var parseData = function(data) {
             }
         }
     }
+
     return obj;
 }
 
@@ -155,14 +156,13 @@ var parseSubfield = function(code, val, tag, tags, obj) {
 wcq.constructQuery = function(data) {
     var qstring = "";
     var records = data.records;
-    var tmpstr = "";
+    var q_obj = "";
     var tmpstr1 = "";
     for ( var i = 0; i < records.length; i++ ) {
-        tmpstr = construct_qstring(records[i]);
-        tmpstr1 = `${qstring}${tmpstr}\n\n`;
-        qstring = `${tmpstr1}`;
+        qstring = `${qstring}${construct_qstring(records[i])}\n`;
     }
-    console.log(`qstring:\n\n${qstring}`);
+    console.log(`final string:\n${qstring}`);
+    return qstring;
 }
 
 var construct_qstring = function(query_obj) {
@@ -179,6 +179,7 @@ var construct_qstring = function(query_obj) {
         place: "",
         publishers: "",
         people: "",
+	relationships: ""
     }
 
     var querystring = "";
@@ -186,6 +187,9 @@ var construct_qstring = function(query_obj) {
     var personStr = qstrings.createPerson;
     var editionStr = qstrings.createEdition;
     var publisherStr = qstrings.createPublisher;
+    var pubsInRelStr = qstrings.createPublishesInRelation;
+    var pubRelStr = qstrings.createPublishedRelation;
+    var wroteStr = qstrings.createWroteRelation;
 
     Object.keys(query_obj).forEach( function(element, key, _array) {
         if ( element == "Edition" ) {
@@ -193,7 +197,7 @@ var construct_qstring = function(query_obj) {
             ed.var_id = crypto.randomBytes(32).toString("hex").replace(/[0-9]/g, "");
             ids.ed = ed.var_id;
             ed.ISBN = JSON.stringify(ed.ISBN);
-            strs.ed = `${strs.ed}${format( editionStr, ed )}`;
+            strs.ed = format( editionStr, ed );
         } else if ( element == "Places" ) {
             var places = query_obj[element];
             for ( var i = 0; i < places.length; i++ ) {
@@ -212,7 +216,7 @@ var construct_qstring = function(query_obj) {
             }
         } else if ( element == "People" ) {
             var people = query_obj[element];
-            for ( var i = 0; i < people[i]; i++ ) {
+            for ( var i = 0; i < people.length; i++ ) {
                 var person = people[i];
                 person.var_id = crypto.randomBytes(32).toString("hex").replace(/[0-9]/g, "");
                 ids.people.push(person.var_id);
@@ -221,7 +225,25 @@ var construct_qstring = function(query_obj) {
         }
     })
 
-    return editionStr;
+    for ( var i = 0; i < ids.people.length; i++ ) {
+        var wroteRel = { author: ids.people[i], book: ids.ed }
+	strs.relationships = `${strs.relationships}${format( wroteStr, wroteRel )}\n`;
+    }
+
+    for (var i = 0; i < ids.places.length; i++ ) {
+        for (var j = 0; j < ids.publishers.length; j++ ) {
+            var pubsInRel = { pubname: ids.publishers[j], place: ids.places[i] }
+	    var pubRel = { pubname: ids.publishers[j], book: ids.ed }
+	    strs.relationships = `${strs.relationships}\n${format( pubsInRelStr, pubsInRel )}\n${format( pubRelStr, pubRel )}\n`
+        }
+    }
+
+    var str = ""
+    Object.keys(strs).forEach( function(key, ind, _array) {
+        str = `${str}${strs[key]}\n`
+    });
+
+    return str
 }
 
 module.exports = wcq;

@@ -203,7 +203,6 @@ router.post("/goodreads/", function(req,res) {
     //goodreadsDriver.getBooks();
 });
 
-
 /**
 // query neo4j
 router.post("/neo4j/", function (req, res) {
