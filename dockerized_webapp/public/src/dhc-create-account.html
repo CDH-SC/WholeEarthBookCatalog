@@ -118,11 +118,9 @@
             }
 
             _handleResponse(e) {
-                console.log(e);
-                console.log(e.detail.response);
-
                 if(e.detail.response) {
-                    if(e.detail.response.insertedIds) {
+                    if(e.detail.response.insertedIds){ 
+                        console.log(e.detail.response);
                         this.dispatchEvent(new CustomEvent('update-user', {
                             bubbles: true, composed: true, detail: {
                                 user: e.detail.response,

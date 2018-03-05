@@ -27,9 +27,10 @@
     "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0",
     "paper-menu-button": "^2.0.0",
     "iron-collapse": "^2.0.0",
-    "iron-image": "^2.1.2",
+    "iron-image": "^2.2.0",
     "crypto-js": "^3.1.9",
-    "alchemyjs": "^0.4.2"
+    "alchemyjs": "^0.4.2",
+    "paper-dialog-scrollable": "^2.2.0"
   },
   "resolutions": {
     "polymer": "^2.0.0",

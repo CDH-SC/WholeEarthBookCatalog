@@ -16,7 +16,6 @@
                         type: Object,
                         notify: true,
                         value: {
-                            userData: null
                         }
                     },
 
@@ -27,7 +26,15 @@
             }
 
             updateUser(data) {
+                console.log(data._id);
+                if (data.user._id !== undefined && data.user._id !== "") {
+                    data.user.authenticated = true;
+                }
+                else {
+                    data.user.authenticated = false;
+                }
                 this.set('user', data.user);
+
             }
         }
         window.customElements.define(dataLogin.is, dataLogin);
