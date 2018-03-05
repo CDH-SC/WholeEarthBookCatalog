@@ -26,17 +26,18 @@ qstrings.simpleKeywordSearch = `MATCH (n:Movie)
  *
  */
 
-qstrings.keywordSearchExample = `OPTIONAL MATCH (m:Movie)-[*..2]-(m1:Movie)
-	                  WHERE m.title =~ { regex }
-                          WITH collect(m)+collect(m1) as c1
+qstrings.keywordSearchExample = `OPTIONAL MATCH (p:Person)-[*..4]-(b:Edition)
+	                  WHERE p.lname =~ { regex }
+			  OR p.fname =~ { regex }
+                          WITH collect(b) as c1
 
-                          OPTIONAL MATCH (g:Genre)--(m2:Movie)
-	                  WHERE g.name =~ { regex }
-                          WITH collect(m2)+c1 as c2
+                          OPTIONAL MATCH (e:Edition)-[*..4]-(b:Edition)
+	                  WHERE e.title =~ { regex }
+                          WITH collect(e)+collect(b)+c1 as c2
 
-                          OPTIONAL MATCH (n:Person)-[:ACTED_IN|:DIRECTED]->(m3:Movie)
+                          OPTIONAL MATCH (n:Publisher)-[:PUBLISHES_IN|:DIRECTED]->(c:Place)-[*..4]-(b:Edition)
 	                  WHERE n.name =~ { regex }
-                          WITH collect(m3)+c2 as c3
+                          WITH collect(b)+c2 as c3
 
                           UNWIND c3 as x
                           RETURN DISTINCT x
