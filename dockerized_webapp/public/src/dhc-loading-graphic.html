@@ -23,7 +23,7 @@
 
         <app-local-storage-document key="data-search" data="{{searchparams}}"></app-local-storage-document>
 
-            <!-- need to parse data -->
+            
 
             <div class="graphic-header">
                     <span class="graphic-header-span">Graph</span> search
@@ -43,17 +43,13 @@
                     <!-- parse in input values here -->
 
                 </div>
-        
-                <!-- do not need any kind of result count--> 
-                
-            
             
     </template>
 
     <script>
         popoto.rest.CYPHER_URL = "http://localhost:7474/db/data/transaction/commit";
 
-        popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:password");
+        popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:");
 
         popoto.provider.nodeProviders = {
             "Edition": {
