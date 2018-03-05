@@ -72,6 +72,10 @@
     </template>
 
     <script>
+        popoto.rest.CYPHER_URL = "http://localhost:7474/db/data/transaction/commit";
+
+        popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:password");
+
         popoto.provider.nodeProviders = {
             "Edition": {
                 "returnAttributes": ["ISBN", "title", "year"],
@@ -104,9 +108,9 @@
         });
 
 
-        class loadingGraphic extends Polymer.Element {
+        class dhcGraph extends Polymer.Element { /*may not even need this*/
             static get is() {
-                return 'loading-graphic'
+                return 'loadingGraph'
             };
 
             static get properties() {
@@ -122,6 +126,8 @@
 
         }
         window.customElements.define(loadingGraphic.is, loadingGraphic);
+
+        popoto.start("dhc-graph");
     </script>
 
 
@@ -135,9 +141,6 @@
 <!-- Jquery is only used in popoto.js to send ajax POST request on Neo4j REST API -->
 <!-- This dependency will probably be rem -->
 
-<script src="js/d3.v3.min.js" charset="utf-8"></script>
-<script src="js/popoto.min.js" charset="utf-8"></script>
-
 <script>
     /**
      * URL used to access Neo4j REST API to execute queries.
@@ -145,7 +148,6 @@
      *
      * For more information on Neo4J REST API the documentation is available here: http://neo4j.com/docs/stable/rest-api-cypher.html
      */
-    popoto.rest.CYPHER_URL = "http://localhost:7474/db/data/transaction/commit";
 
     /**
      * Add this authorization property if your Neo4j server uses basic HTTP authentication.
@@ -155,8 +157,6 @@
      *
      *  For example Base64 encoded value of "neo4j:password" is "bmVvNGo6cGFzc3dvcmQ="
      */
-    popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:password");
-
     /**
      * Define the Label provider you need for your application.
      * This configuration is mandatory and should contain at least all the labels you could find in your graph model.
@@ -173,9 +173,7 @@
      * Here a listener is used to retrieve the total results count and update the page accordingly.
      * This listener will be called on every graph modification.
      */
-    popoto.result.onTotalResultCount(function(count) {
-        document.getElementById("result-total-count").innerHTML = "(" + count + ")";
-    });
+
 
     /**
      * The number of results returned can be changed with the following parameter.
@@ -199,7 +197,6 @@
      * Start popoto.js generation.
      * The function requires the label to use as root element in the graph.
      */
-    popoto.start("Person");
 </script>
 </body>
 
