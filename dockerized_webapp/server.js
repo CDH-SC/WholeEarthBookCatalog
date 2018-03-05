@@ -234,7 +234,7 @@ router.post("/neo4j/", function (req, res) {
  *  }
  *
  */
-router.post("/neo4j/keyword/", function (req, res) {
+router.post("/neo4j/", function (req, res) {
 
     var data = req.body;
     console.log(`request:\n${JSON.stringify(data, null, 2)}`);
@@ -242,14 +242,21 @@ router.post("/neo4j/keyword/", function (req, res) {
     var statement = qstrings.keywordSearchExample;
     var params = {};
 
+    if ( data.advanced == false ) {
+        params.regex = `(?i).*${data.basic_query}.*`;
+        params.limit = data.limit;
+    }
+
+    /**
     // construct params object
     Object.keys(data).forEach(function (element, key, _array) {
         if ( element == "keyword" ) {
             params["regex"] = `(?i).*${data[element]}.*`
-        } else {
-            params[element] = data[element];
+        } else if ( element == "limit" ){
+            params["limit"] = data[element];
         }
     });
+    */
 
     // add logic to sanitize the input here...
 
