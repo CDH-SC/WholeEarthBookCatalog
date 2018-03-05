@@ -82,21 +82,26 @@
 
         const driver = neo4j.driver(popoto.rest.CYPHER_URL, neo4j.auth.basic(user, password));
         const session = driver.session();
-
+        /*
         const transactionPromise = session.writeTransaction(tx => tx.run(
             CREATE(a: Edition) SET a.title = $title RETURN a.title + ", from node " + id(a), {
                 title: ""
             }));
+            */
+        /*
+                   const transactionPromise;
 
-        transactionPromise.then(result => {
-            session.close();
+                transactionPromise.then(result => {
+                    session.close();
+                    */
 
-            const singleRecord = result.records[0];
-            const title = singleRecord.get(0);
+        const singleRecord = result.records[0];
+        const title = singleRecord.get(0);
 
-            console.log(title);
+        console.log(title);
+        session.close();
 
-            driver.close();
+        driver.close();
         })
 
 
