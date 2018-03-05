@@ -111,7 +111,7 @@ qstrings.advancedSearchEdition = `OPTIONAL MATCH
  																  RETURN DISTINCT x
  																  LIMIT { limit }`;
 
-qstring.advancedSearchPlace = `OPTIONAL MATCH (p:Place)<-[*..{ degrees }]-(x)
+qstrings.advancedSearchPlace = `OPTIONAL MATCH (p:Place)<-[*..{ degrees }]-(x)
 															 WHERE
 															 p.name =~ { name_re }
 															 WITH collect(p)+collect(x) as c1
@@ -120,7 +120,7 @@ qstring.advancedSearchPlace = `OPTIONAL MATCH (p:Place)<-[*..{ degrees }]-(x)
 															 RETURN DISTINCT x
 															 LIMIT { limit }`;
 
-qstring.advancedSearchPublisher = `OPTIONAL MATCH (p:Publisher)-[:PUBLISHED]->(e:Edition)-[*..{ degrees }]-(e1:Edition)
+qstrings.advancedSearchPublisher = `OPTIONAL MATCH (p:Publisher)-[:PUBLISHED]->(e:Edition)-[*..{ degrees }]-(e1:Edition)
 																	 WHERE
 																	 p.name =~ { name_re }
 																	 WITH collect(p)+collect(e)+collect(e1) as c1

@@ -6,7 +6,7 @@
 
 <link rel="import" href="data-login.html">
 <link rel="lazy-import" href="dhc-login.html">
-<link rel="lazy-import" href="dhc-home.html">
+<link rel="import" href="dhc-home.html">
 <link rel="lazy-import" href="dhc-404.html">
 <link rel="lazy-import" href="dhc-help.html">
 <link rel="lazy-import" href="dhc-loading-graphic.html">
@@ -80,6 +80,7 @@
     </template>
 
     <script>
+<<<<<<< HEAD
         class dhcMain extends Polymer.Element {
             static get is() {
                 return 'dhc-main';
@@ -98,6 +99,24 @@
                     // This might want to be an object with the obj data?
                 };
             }
+=======
+      class dhcMain extends Polymer.Element {
+        static get is() { return 'dhc-main'; }
+        static get properties() {
+            return {
+                //TODO: save selected book here and search results
+                page: {
+                    type: String,
+                    reflectToAttribute: true,
+                    observer: '_pageChanged',
+                },
+                routeData: Object,
+                subroute: String,
+                rootPath: String
+                // This might want to be an object with the obj data?
+            };
+        }
+>>>>>>> 89ca139976e7d9c9feaf8b679a03bc34b35b96fb
 
             ready() {
                 super.ready();
