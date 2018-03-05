@@ -15,16 +15,16 @@ class LogTool {
             switch (typeof logItem) {
                 case "string":
                     if (logItem.includes('\n')) {
-                        console.log(logItemHeader + "] \n" + logItem);
+                        
                     } else {
-                        console.log(logItemHeader + "] > " + logItem);
+                        
                     }
                     break;
                 case "object":
-                    console.log(logItemHeader + "] \n" + JSON.stringify(logItem, null, 2));
+                    
                     break;
                 default:
-                    console.log(logItemHeader + "] \n" + logItem);
+                    
                     break;
             }
         };

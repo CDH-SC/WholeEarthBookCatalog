@@ -21,16 +21,14 @@ var clock = require("./utils/clock.js");
 var goodreadsDriver = require("./utils/goodreadsDriver.js");
 
 
-
-
 // add user
 router.post("/add_user/", function (req, res) {
     var data = req.body;
-    console.log(data);
+    
 
     if (data.username === undefined || data.password === undefined) {
         var err = { "Error": "invalid data format. Users must have both a username and password" };
-        console.log(err);
+        
         res.json(err);
     } else {
 
@@ -43,7 +41,7 @@ router.post("/add_user/", function (req, res) {
         mongo.findDocument(userdoc, function (resp) {
             if (resp.length > 0) {
                 var err = { "Error": "This username already exists" };
-                console.log(err);
+                
                 res.json(err);
             } else {
                 // encrypt password
@@ -51,7 +49,7 @@ router.post("/add_user/", function (req, res) {
                     userdoc.password = hashed;
                     //userdoc.recent =
                     mongo.insertDocument(userdoc, function (resp) {
-                        console.log(`JSON.stringify(resp, null, 2)`);
+                        
                         res.json(resp);
                     });
                 });
@@ -65,7 +63,7 @@ router.post("/get_user/", function (req, res) {
     var data = req.body;
     if (data.username === undefined || data.password === undefined) {
         var err = { "Error": "invalid data format" };
-        console.log(err);
+        
         res.json(err);
     } else {
 
@@ -79,11 +77,11 @@ router.post("/get_user/", function (req, res) {
                 utils.hashPassword(data.password, 5, function (hashed) {
                     utils.compareHash(data.password, resp[0].password, function (resp1) {
                         if (resp1 === true) {
-                            console.log(`JSON.stringify(resp[0], null, 2)`);
+                            
                             res.json(resp[0]);
                         } else {
                             var err = { "Invalid Password": "User found, but the password is invalid" };
-                            console.log(err);
+                            
                             res.json(err);
                         }
                     });
@@ -116,7 +114,7 @@ router.post("/update_saved_content/", function(req, res) {
     // error handling
     if ( data._id === undefined || data.keyword === undefined || data.content === undefined ) {
         err = { "Error": "invalid data format" };
-        console.log( `${errStr}:\n${err}` );
+        
         res.json( err );
         return;
     }
@@ -147,7 +145,7 @@ router.post("/update_saved_content/", function(req, res) {
         });
     } else {
         err = { "Error": "invalid data format. keyword is not recognized" };
-        console.log( `${errStr}:\n${JSON.stringify( err, null, 2 )}` );
+        
         res.json(err);
         return;
     }
@@ -172,7 +170,7 @@ router.post("/update_saved_content/", function(req, res) {
                 result: resp.value
             });
         } else {
-            console.log( `Could not update document ${data._id}` );
+            
             res.json({
                 result: resp.lastErrorObject
             });
@@ -216,7 +214,7 @@ router.post("/neo4j/", function (req, res) {
     // construct params object
     Object.keys(data).forEach(function (element, key, _array) {
         params[element] = data[element];
-        console.log(`elem: ${element}, key: ${key}\n, data ${element}: ${data[element]}`);
+        
     });
 
     neo4j.query(statement, params)
@@ -293,10 +291,10 @@ router.post("/neo4j/get_graph/", function (req, res) {
             var nodes = new Array();
             var edges = new Array();
             
-            console.log("checking in");
+            
 
             for (var i = 0; i < fields[0].length; i++) {
-                console.log("loop one");
+                
                 nodes.push({
                     caption: ( fields[0][i].properties.title || fields[0][i].properties.name ),
                     type: fields[0][i].labels[0],
@@ -305,7 +303,7 @@ router.post("/neo4j/get_graph/", function (req, res) {
             }
 
             for (var i = 0; i < fields[1].length; i++) {
-                console.log("loop two");
+                
                 edges.push({
                     source: fields[1][i].start.low,
                     target: fields[1][i].end.low,
@@ -343,4 +341,4 @@ app.get('dhc-*', function (req, res) {
 // Start the server instance
 app.listen(port);
 
-console.log(`Server is listening on port ${port}`);
+
