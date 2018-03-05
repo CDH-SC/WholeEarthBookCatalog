@@ -364,13 +364,10 @@
             }
 
             _fireSearchPost() {
-                console.log(this.searchparams.keyword);
-                this.$.npost.body = {
-                    keyword: this.searchparams.keyword,
-                    limit: 25
-                };
+                console.log("Search params", this.searchparams);
+                this.$.npost.body = this.searchparams;
 
-                console.log(this.$.npost.body);
+                console.log("Neopost", this.$.npost.body);
 
                 this.$.npost.generateRequest();
             }

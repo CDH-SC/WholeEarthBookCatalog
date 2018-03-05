@@ -19,9 +19,7 @@
                     searchparams: {
                         type: Object,
                         notify: true,
-                        value: {
-                            keyword: ""
-                        }
+                        value: {}
                     },
                     updateSearch: {
                         type: Function
@@ -34,7 +32,7 @@
             }
 
             updateSearch(search) {
-                this.set("searchparams.keyword", search);
+                this.set("searchparams", search);
             }
 
             updateSelectedBook(data) {
