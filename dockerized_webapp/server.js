@@ -262,8 +262,8 @@ router.post("/neo4j/", function (req, res) {
     console.log(`statement:\n${JSON.stringify(statement, null, 2)}\n
 		 params:\n${JSON.stringify(params, null, 2)}\n`);
 
-    neo4j.query(statement, params)
-        .then(function (resp) {
+    var q = neo4j.query(statement, params);
+    q.response.then(function (resp) {
             res.json(resp);
         })
         .catch(function (err) {
@@ -274,6 +274,8 @@ router.post("/neo4j/", function (req, res) {
                 "Error": err
             });
         });
+    q.driver.close();
+    q.session.close();
 });
 
 router.post("/neo4j/get_graph/", function (req, res) {

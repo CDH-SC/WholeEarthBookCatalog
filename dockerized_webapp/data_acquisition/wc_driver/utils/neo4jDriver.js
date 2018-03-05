@@ -22,20 +22,23 @@ var getSession = function() {
 // run commands
 neo4jDriver.query = function(statement, params) {
     var session = getSession();
+    var result;
 
     var txRes = session.readTransaction(function (transaction) {
         // used transaction will be committed automatically, no need for explicit commit/rollback
 
-        var result = transaction.run(statement, params);
-        // at this point it is possible to either return the result or process it and return the
-        // result of processing it is also possible to run more statements in the same transaction
+        transaction.run(statement, params)
+		.then(function(res) {
+                    result = res;
+		})
+	        .catch(function(err) {
+		    result = err;
+		})
         return result;
     });
-
-    return txRes
     session.close()
     driver.close()
-    
+    return txRes
 }
 
 module.exports = neo4jDriver;
