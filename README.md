@@ -1,5 +1,9 @@
 ***DHC***
 
+<h1> Searching </h1>
+
+Since there is not a wide swath of data in the database currently, I would recommend searching for something like "Harry Potter", or "Tolkien."
+
 <h1> Setup </h1>
 
 If you have not already, clone the repo to get the source code. 
