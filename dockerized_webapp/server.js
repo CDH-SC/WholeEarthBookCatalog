@@ -203,32 +203,14 @@ router.post("/goodreads/", function(req,res) {
     //goodreadsDriver.getBooks();
 });
 
-/**
-// query neo4j
-router.post("/neo4j/", function (req, res) {
-    var data = req.body;
-    var statement = data.statement;
-    var params = {};
-
-    // construct params object
-    Object.keys(data).forEach(function (element, key, _array) {
-        params[element] = data[element];
-        
-    });
-
-    neo4j.query(statement, params)
-        .then(function (resp) {
-            res.json(resp);
-        });
-});
-*/
-
 /** keyword query for neo4j
  *
  *  The request body should have the form:
  *
  *  {
- *    "keyword": "<keyword>",
+ *    "advanced": "<bool>",
+ *    "basic_query": "<string>",
+ *    "terms": "<object>",
  *    "limit":   "<limit>"
  *  }
  *
