@@ -45,6 +45,10 @@ rp(options)
 	.catch(function(err) {
             console.log(`${JSON.stringify(err, null, 2)}`);
 	});
+
+	// close driver and session
+	qr.session.close();
+	qr.driver.close();
     })
     .catch( function(err) {
         console.log(`got error during API call:\n${JSON.stringify(err, null, 2)}`);

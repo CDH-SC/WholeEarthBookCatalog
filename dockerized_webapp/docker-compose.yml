@@ -13,8 +13,9 @@ services:
   neo4j:
     image: neo4j
     ports:
-      - "7687:7687" # bolt connection
       - "7474:7474" # bolt web admin
+    expose:
+      - "7687" # bolt connection
     environment:
       - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
     volumes:
@@ -32,8 +33,8 @@ services:
   
   mongo:
     image: mongo
-    ports:
-      - "27017:27017"
+    expose:
+      - "27017"
     volumes:
       - "data:/data/db"
 
