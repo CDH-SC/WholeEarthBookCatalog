@@ -246,24 +246,8 @@ function MassageMarc(marc21) {
     return newObject;
 }
 
-function CreateScript(obj) {
-    var script = "CREATE (a:Item {";
-    var propertyStatements = [];
-    for (var propertyName in obj) {
-        propertyStatements.push(propertyName + ": $" + propertyName);
-    }
-    script += propertyStatements.join(", ");
-    script += "}) RETURN a";
-    return script;
-}
-
 module.exports = () => through.obj(function (object, enc, cb) {
     var obj = MassageMarc(object);
-    var script = CreateScript(obj);
-    var item = {
-        "script": script,
-        "params": obj
-    };
-    this.push(item);
+    this.push(obj);
     cb();
 });
