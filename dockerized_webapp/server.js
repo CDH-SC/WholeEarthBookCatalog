@@ -1,27 +1,35 @@
  /**
- *
- * An express server to serve as an API for the web app
- *
- */
+  *
+  * An express server to serve as an API for the web app
+  *
+  */
 
 "use strict";
 
 var path = require("path");
 var express = require("express");
-var app = express();
+var bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
 var mongo = require("./utils/mongoDriver.js");
-var port = process.env.PORT || 8080;
-var router = express.Router();
 var neo4j = require("./utils/neo4jDriver.js");
-var utils = require("./utils");
 var qstrings = require("./utils/querystrings.js");
 var ObjectId = require("mongodb").ObjectId;
 var clock = require("./utils/clock.js");
 var goodreadsDriver = require("./utils/goodreadsDriver.js");
 
+var port = process.env.PORT || 8080;
+var app = express();
+var router = express.Router();
 
-// add user
+/**
+ * request format:
+ * 
+ * {
+ *      "username": <string>,
+ *      "password": <string>  
+ * }
+ * 
+ */
 router.post("/add_user/", function (req, res) {
     var data = req.body;
     
@@ -41,53 +49,72 @@ router.post("/add_user/", function (req, res) {
         mongo.findDocument(userdoc, function (resp) {
             if (resp.length > 0) {
                 var err = { "Error": "This username already exists" };
-                
                 res.json(err);
             } else {
                 // encrypt password
-                utils.hashPassword(data.password, 5, function (hashed) {
-                    userdoc.password = hashed;
-                    //userdoc.recent =
-                    mongo.insertDocument(userdoc, function (resp) {
-                        
-                        res.json(resp);
+                bcrypt.hash(data.password, 5)
+                    .then(function (hashed) {
+                        userdoc.password = hashed;
+                        //userdoc.recent =
+                        mongo.insertDocument(userdoc, function (resp) {
+                            res.json(resp);
+                        });
+                    })
+                    .catch(function(err) {
+                        res.json(err);
                     });
-                });
             }
         });
     }
 });
 
-// get user
+/**
+ * request format:
+ * 
+ * {
+ *      "username": <string>,
+ *      "password": <string>  
+ * }
+ * 
+ */
 router.post("/get_user/", function (req, res) {
+    
     var data = req.body;
+    var userErr = { "Error": "Password or user is incorrect" };
+
     if (data.username === undefined || data.password === undefined) {
         var err = { "Error": "invalid data format" };
-        
         res.json(err);
-    } else {
+    } else { 
+    // add another conditional here to limit password/username length
 
         // construct query doc
         var userdoc = {
             username: data.username
         };
-
+        
+        // look for the user
         mongo.findDocument(userdoc, function (resp) {
             if (resp.length > 0) {
-                utils.hashPassword(data.password, 5, function (hashed) {
-                    utils.compareHash(data.password, resp[0].password, function (resp1) {
-                        if (resp1 === true) {
-                            
-                            res.json(resp[0]);
-                        } else {
-                            var err = { "Invalid Password": "User found, but the password is invalid" };
-                            
-                            res.json(err);
-                        }
-                    });
+                bcrypt.hash(data.password, 5)
+                    .then(function (hashed) {
+                        bcrypt.compare(data.password, resp[0].password)
+                            .then(function (resp1) {
+                                if (resp1 === true) {
+                                    res.json(resp[0]);
+                                } else {
+                                    res.json(userErr);
+                                }
+                            })
+                            .catch(function(err) {
+                                res.json(err);
+                            })
+                    .catch(function (err) {
+                        res.json(err);
+                    })
                 });
             } else {
-                res.json({ "Error": "No such user" });
+                res.json(userErr);
             }
         });
     }
@@ -96,7 +123,7 @@ router.post("/get_user/", function (req, res) {
 /**
  *  Saved content
  *
- *  Pass data in this format:
+ *  request format:
  *
  *  {
  *      "_id": <idstr>,
@@ -140,12 +167,17 @@ router.post("/update_saved_content/", function(req, res) {
             }
         };
     } else if ( data.keyword == "update_password") {
-        utils.hashPassword(data.content, 5, function (hashed) {
-            updoc.password = hashed;
-        });
+        bcrypt.hash(data.content, 5)
+            .then(function (hashed) {
+                updoc.password = hashed;
+            })
+            .catch(function (err) {
+                res.json(err);
+                return;
+            })
+
     } else {
         err = { "Error": "invalid data format. keyword is not recognized" };
-        
         res.json(err);
         return;
     }
@@ -170,7 +202,6 @@ router.post("/update_saved_content/", function(req, res) {
                 result: resp.value
             });
         } else {
-            
             res.json({
                 result: resp.lastErrorObject
             });
@@ -180,7 +211,13 @@ router.post("/update_saved_content/", function(req, res) {
 });
 
 
-// GoodReads search endpoint
+/**
+ * GoodReads search endpoint
+ * 
+ * TODO:
+ *   + Add comment detailing how the request should be passed
+ * 
+ */
 router.post("/goodreads/", function(req,res) {
     var data = req.body;
     if ( data.search === undefined) {
@@ -228,18 +265,8 @@ router.post("/neo4j/", function (req, res) {
         params.limit = data.limit;
     }
 
-    /**
-    // construct params object
-    Object.keys(data).forEach(function (element, key, _array) {
-        if ( element == "keyword" ) {
-            params["regex"] = `(?i).*${data[element]}.*`
-        } else if ( element == "limit" ){
-            params["limit"] = data[element];
-        }
-    });
-    */
-
     // add logic to sanitize the input here...
+    // don't allow special characters
 
     console.log(`statement:\n${JSON.stringify(statement, null, 2)}\n
 		 params:\n${JSON.stringify(params, null, 2)}\n`);
@@ -260,24 +287,23 @@ router.post("/neo4j/", function (req, res) {
     q.session.close();
 });
 
+/**
+ * 
+ * Not production ready, just useful for playing with GraphJSON right now.
+ * May not ever be necessary...
+ * 
+ */
 router.post("/neo4j/get_graph/", function (req, res) {
     var statement = qstrings.getGraphJSON;
 
     neo4j.query(statement, {})
         .then(function (resp) {
 
-            // process response
-            // var resStr = JSON.stringify( resp, null, 2 );
-            // var resp = JSON.parse(resStr);
-
             var fields = resp.records[0]._fields
             var nodes = new Array();
             var edges = new Array();
-            
-            
 
             for (var i = 0; i < fields[0].length; i++) {
-                
                 nodes.push({
                     caption: ( fields[0][i].properties.title || fields[0][i].properties.name ),
                     type: fields[0][i].labels[0],
@@ -286,7 +312,6 @@ router.post("/neo4j/get_graph/", function (req, res) {
             }
 
             for (var i = 0; i < fields[1].length; i++) {
-                
                 edges.push({
                     source: fields[1][i].start.low,
                     target: fields[1][i].end.low,
@@ -323,5 +348,3 @@ app.get('dhc-*', function (req, res) {
 
 // Start the server instance
 app.listen(port);
-
-
