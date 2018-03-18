@@ -1,0 +1,14 @@
+FROM jbdrain/polymer-cli:latest
+
+WORKDIR /usr/src/app
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY . .
+
+WORKDIR /usr/src/app/public
+
+WORKDIR /usr/src/app
+
+RUN chmod +x ./data.sh
+RUN ./data.sh&

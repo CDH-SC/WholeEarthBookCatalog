@@ -27,13 +27,11 @@ neo4jDriver.query = function(statement, params) {
 
     var txRes = session.readTransaction(function (transaction) {
         // used transaction will be committed automatically, no need for explicit commit/rollback
-
         var res = transaction.run(statement, params);
 	return res;
      })
      
      return { response: txRes, driver: driver, session: session };  
-
 }
 
 module.exports = neo4jDriver;

@@ -3,7 +3,7 @@
  */
 var fs = require('fs');
 var marc4js = require('marc4js');
-var massage = require('./marcMassager');
+var parse = require('../marc21_parsers/parser');
 var stringify = require('json-array-streams');
 
 var logger = require('../../utils/log');
@@ -27,25 +27,26 @@ function getXMLFiles(directory) {
 var files = getXMLFiles(downloadsDir);
 
 var items = [];
-var batchSize = 100;
+var batchSize = 100000;
 var fileNumber = 0;
 
 function ConvertFile(file, logger) {
     logger.debug("Converting " + file);
     fs.createReadStream(file)
         .pipe(marc4js.parse({ format: 'marcxml' }))
-        .pipe(massage())
+        .pipe(parse.streamParse())
         //.pipe(stringify.stringify())
         .on("data", (data) => {
-            var script = data.script;
-            var params = data.params;
-            var item = { "script": script, "params": params };
-            items.push(item);
+            items.push(data);
             if (items.length >= batchSize) {
                 fs.writeFileSync(downloadsDir + "batch" + fileNumber + ".json", JSON.stringify(items));
                 fileNumber++;
                 items = [];
             }
+        }).on("finish", () => {
+            fs.writeFileSync(downloadsDir + "batch" + fileNumber + ".json", JSON.stringify(items));
+            fileNumber++;
+            items = [];
         });
 }
 

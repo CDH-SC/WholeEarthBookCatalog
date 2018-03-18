@@ -40,9 +40,37 @@ function GetNext() {
     return dataset.pop();
 }
 
+function CreateScript(obj) {
+    // if author, get author add "WROTE" relationship
+    var author = obj.Author;
+    var script = "";
+    if (author != undefined && author != null) {
+        script += "MERGE (a:Person {Name:$Author}) ";
+    }
+    script += "CREATE (b:Item { ";
+    var propertyStatements = [];
+    for (var propertyName in obj) {
+        propertyStatements.push(propertyName + ": $" + propertyName);
+    }
+    script += propertyStatements.join(", ");
+    script += "}) ";
+    if (author != undefined && author != null) {
+        script += "MERGE (a) -[r:WROTE]-> (b) ";
+    }
+    script += "RETURN b";
+    return script;
+}
+
 function Import() {
     var data = GetNext();
-    neo4j.query(data.script, data.params).then(() => { Import(); });
+    var script = CreateScript(data);
+    // neo4j.query(script, data).then(() => { Import(); });
+    var queryResponse = neo4j.query(script, data);
+    queryResponse.response.then(() => { 
+        queryResponse.session.close();
+        queryResponse.driver.close();
+        Import(); 
+    });
 }
 
 Import();
