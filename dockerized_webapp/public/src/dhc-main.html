@@ -71,7 +71,7 @@
             <dhc-home name="home" user="{{user}}"></dhc-home>
             <dhc-help name="help" user="[[user]]"></dhc-help>
             <dhc-login name="login" user="{{user}}"></dhc-login>
-            <dhc-user-account name="user-account"></dhc-user-account> 
+            <dhc-user-account name="user-account" user="{{user}}" route="{{subroute}}"></dhc-user-account> 
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
             <dhc-book-results name="book-results" route="{{subroute}}" searchparams="{{searchparams}}"></dhc-book-results>
@@ -116,6 +116,10 @@
             }
 
             _onSendUserData(e) {
+
+                console.log(e.detail);
+                e.detail._id = this.user._id;
+                console.log(e.detail);
                 this.$.updateinfo.body = e.detail;
                 this.$.updateinfo.generateRequest();
 
@@ -158,6 +162,11 @@
 
             _onUpdateSearchData(event) {
                 this.$.searchdatacomp.updateSearch(event.detail);
+            }
+
+            _handleResponse(e) {
+                console.log(e.detail.response);
+                console.log("handled");
             }
         }
 

@@ -120,6 +120,43 @@ router.post("/get_user/", function (req, res) {
     }
 });
 
+router.post("/get_saved_content/", function(req, res) {
+    var data = req.body;
+    var errStr = "Error - could not retreive content";
+    var err;
+
+    if (data._id === undefined || !data.authenticated) {
+
+        if(!data.authenticated) {
+            err = { "Error": "unauthorized get request" }
+        }
+        else {
+            err = { "Error": "invalid data format" };
+        }
+
+        res.json(err);
+        return;
+    }
+
+    var retDoc;
+    var usrDoc;
+
+    usrDoc = {
+        _id: ObjectId(data._id)
+    }
+    
+    mongo.findDocument(usrDoc, function(resp) {
+        if (resp.length > 0) {
+            console.log(resp[0])
+            res.json(resp[0]);
+        }
+        else {
+            err = { "Error": "Could not find user with given ID" }
+            res.json(err);
+        }
+    })
+});
+
 /**
  *  Saved content
  *

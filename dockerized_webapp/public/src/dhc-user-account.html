@@ -8,6 +8,9 @@
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+
 <link rel="import" href="frag-rotation.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
@@ -58,7 +61,18 @@
                 justify-content: center;
             }
         </style>
-
+        
+        <app-location route="{{route}}"></app-location>
+        
+        <iron-ajax
+             id="userData"
+             method="POST"
+             handle-as="json"
+             content-type="application/json"
+             url="/api/get_saved_content/"
+             handle-as="json"
+             on-response="handleResponse"></iron-ajax>
+        
         <div class = "container">
             <div class = "user-info-container">
                 <p id = "user-username">Username</p>
@@ -122,6 +136,10 @@
             static get is() { return 'dhc-user-account'; }
             static get properties() {
                 return {
+                    route: {
+                        type: Object,
+                        observer: "_resultPageChanged"
+                    },
                     recent_search_show: {
                         type: Boolean,
                         value: true
@@ -133,7 +151,70 @@
                     favorite_books_show: {
                         type: Boolean,
                         value: true
+                    },
+                    savedSearches: {
+                        type: Array
+                    },
+                    savedBooks: {
+                        type: Array
+                    },
+                    recentSearches: {
+                        type: Array
                     }
+                }
+            }
+
+            ready() {
+                console.log("test");
+                super.ready();
+                // this._getInfo();
+            }
+
+            _resultPageChanged() {
+                console.log("hello");
+                console.log(this.route.path);
+                if (this.route.path.includes("/user-account")) {
+                    console.log("Getting info");
+                    this._getInfo();
+                }
+            }
+
+            _getInfo() {
+                console.log(this.user);
+                console.log(this.$);
+                this.$.userData.body = {
+                    _id: this.user._id,
+                    authenticated: this.user.authenticated
+                }
+                this.$.userData.generateRequest();
+            }
+
+            handleResponse(e) {
+                console.log("Got response");
+                console.log(e.detail.response);
+                var saveSearch = e.detail.response.savedSearches;
+                var saveBooks = e.detail.response.savedBooks;
+                var recentSearch = e.detail.response.recentSearches;
+
+                if(saveSearch === undefined) {
+                    this.savedSearches = [];
+                }
+                else {
+                    this.savedSearches = saveSearch;
+                }
+
+                if (saveBooks === undefined) {
+                    this.savedBooks = [];
+                }
+                else {
+                    this.savedBooks = saveBooks;
+                }
+
+                if(recentSearch === undefined) {
+                    this.recentSearches = [];
+                }
+                else {
+                    this.recentSearches = recentSearch;
                 }
             }
 
