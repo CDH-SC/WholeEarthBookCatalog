@@ -141,21 +141,30 @@ qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "T
                          				RETURN nodes, edges`;
 
 
-/**
-qstrings.createEdition = `MERGE (${title}:Edition { Title: ${title}, Date: ${date}, ISBN: ${isbn} })\n`;
+										 qstrings.createEdition = `MERGE ({var_id}:Edition {
+											title: "{Title}",
+											date: {Date},
+											isbn: {ISBN}
+												})`;
 
-qstrings.createPerson = `MERGE (${name}:Person { fname: ${fname}, lname: ${lname} })\n`;
+qstrings.createPerson = `MERGE ({var_id}:Person {
+											  fname: "{fname}",
+											  lname: "{lname}"
+													  })`;
 
-qstrings.createPublisher = `MERGE (${pubname}:Publisher { name: ${pubname} })\n`;
+qstrings.createPlace = `MERGE ({var_id}:Place {
+										   name: "{placename}"
+													  })`
 
-qstrings.createPlace = `MERGE (${place}:Place { name: ${placename} })\n`;
-
-qstrings.createWroteRelation = `MERGE (${name})-[:WROTE]->(${title})\n`;
-
-qstrings.createPublishedRelation = `MERGE (${pubname})-[:PUBLISHED]->(${title})\n`;
-
-qstrings.createPublishesInRelation = `MERGE (${pubname})-[:PUBLISHES-IN]->(${place})\n`;
-*/
+qstrings.createPublisher = `MERGE ({var_id}:Publisher {
+										   name: "{pubname}"
+													})`
+	  
+qstrings.createWroteRelation = `MERGE ({author})-[:WROTE]->({book})`;
+	  
+qstrings.createPublishedRelation = `MERGE ({pubname})-[:PUBLISHED]->({book})`;
+	  
+qstrings.createPublishesInRelation = `MERGE ({pubname})-[:PUBLISHES_IN]->({place})\n`
 
 // exports
 module.exports = qstrings;
