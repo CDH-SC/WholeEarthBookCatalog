@@ -25,14 +25,15 @@ services:
   app:
     build: ./app/
     ports:
-      - "8080:8080"
+      - "80:80"
     environment:
       - PORT=${SERVER_PORT}
       - MONGO_URL=mongo
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
       - NEO4J_URL=neo4j
 
-
+# uncomment for data_acquisition
+#
 #  data_acquisition:
 #    build:
 #      context: .
@@ -42,7 +43,7 @@ services:
 #      - MONGO_URL=mongo
 #      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
 #      - NEO4J_URL=neo4j
-  
+ 
   mongo:
     image: mongo
     expose:
