@@ -1,0 +1,44 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+
+
+<!-- This needs to be changed to only hold query data on a refresh. So we get the data from the db again -->
+
+
+<dom-module id="data-search">
+    <template>
+        <app-localstorage-document key="data-search" data="{{searchparams}}"></app-localstorage-document>
+    </template>
+
+    <script>
+        class dataSearch extends Polymer.Element {
+            static get is() { return 'data-search' };
+
+            static get properties() {
+                return {
+                    searchparams: {
+                        type: Object,
+                        notify: true,
+                        value: {}
+                    },
+                    updateSearch: {
+                        type: Function
+                    },
+                    selectedbook: {
+                        type: Object,
+                        notify: true
+                    }
+                }
+            }
+
+            updateSearch(search) {
+                this.set("searchparams", search);
+            }
+
+            updateSelectedBook(data) {
+                this.set("selectedbook", data);
+            }
+        }
+        window.customElements.define(dataSearch.is, dataSearch);
+    </script>
+</dom-module>

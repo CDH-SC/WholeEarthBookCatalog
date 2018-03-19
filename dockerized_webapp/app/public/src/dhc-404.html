@@ -1,0 +1,14 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="dhc-404">
+    <template>
+        <a href="[[rootPath]]">Go back home.</a>
+    </template>
+    <script>
+        class dhc404 extends Polymer.Element {
+            static get is() { return 'dhc-404'; }
+        }
+        window.customElements.define(dhc404.is, dhc404);
+    </script>
+</dom-module>
+

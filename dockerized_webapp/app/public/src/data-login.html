@@ -1,0 +1,42 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+
+<dom-module id="data-login">
+    <template>
+        <app-localstorage-document key="data-login" data="{{user}}"></app-localstorage-document>
+    </template>
+
+    <script>
+        class dataLogin extends Polymer.Element {
+            static get is() { return 'data-login' }
+
+            static get properties() {
+                return {
+                    user: {
+                        type: Object,
+                        notify: true,
+                        value: {
+                        }
+                    },
+
+                    updateUser: {
+                        type: Function
+                    }
+                }
+            }
+
+            updateUser(data) {
+                console.log(data._id);
+                if (data.user._id !== undefined && data.user._id !== "") {
+                    data.user.authenticated = true;
+                }
+                else {
+                    data.user.authenticated = false;
+                }
+                this.set('user', data.user);
+
+            }
+        }
+        window.customElements.define(dataLogin.is, dataLogin);
+    </script>
+</dom-module>
