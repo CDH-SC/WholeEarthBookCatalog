@@ -8,6 +8,7 @@
 
 var wcq = require("./wcq");
 var xmljs = require("xml-js");
+var fs = require("fs");
 var rp = require("request-promise");
 var wskey = process.env.WSKEY;
 var neo4j = require("../../utils/neo4jDriver");
@@ -27,7 +28,7 @@ var options = {
 console.log(`query: ${options.qs.query}\n`);
 
 rp(options)
-    .then( function(res) {
+    .then(function(res) {
         var json = xmljs.xml2js(res, {
             compact: true,
             spaces: 4,
@@ -36,20 +37,24 @@ rp(options)
         var data = wcq.parseResp(json);
         var qstring = wcq.constructQuery(data);
 
-	console.log(`qstring:\n${JSON.stringify(qstring, null, 2)}`);
+        var jsonQstring = JSON.parse(qstring);
+        fs.writeFile("d3Query.json", jsonQstring, 'utf8', callback);
+
+        console.log(`qstring:\n${JSON.stringify(qstring, null, 2)}`);
 
         var qr = neo4j.query(qstring)
-	qr.response.then(function(resp) {
-	    console.log(`${JSON.stringify(resp, null, 2)}`);
-	})
-	.catch(function(err) {
-            console.log(`${JSON.stringify(err, null, 2)}`);
-	});
+        qr.response.then(function(resp) {
+                console.log(`${JSON.stringify(resp, null, 2)}`);
+            })
+            .catch(function(err) {
+                console.log(`${JSON.stringify(err, null, 2)}`);
+            });
 
-	// close driver and session
-	qr.session.close();
-	qr.driver.close();
+        //can either work with the
+        // close driver and session
+        qr.session.close();
+        qr.driver.close();
     })
-    .catch( function(err) {
+    .catch(function(err) {
         console.log(`got error during API call:\n${JSON.stringify(err, null, 2)}`);
     })
