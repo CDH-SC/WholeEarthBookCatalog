@@ -1,15 +1,18 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 
-<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<!-- may need 'type = "text/javascript"' -->
 
 <dom-module id="loading-graphic">
     <template>
         <style include = "shared-styles.html"> /* add to shared styles*/
 
-         #d3-graph:fullscreen {
-
-        }
+            /*include standard div measures in shared styles
+                Style Elements to use from shst
+            
+            
+            */
 
         #d3-graph:-webkit-full-screen {
 
@@ -35,20 +38,64 @@
             
         }
 
+        .links line {
+
+        }
+
+        .nodes circle {
+
+        }
+
+        /* what else to style? */ 
+
      </style>
-        
+     <svg width = "" height = ""></svg> 
 
-        
     <script>
+
+        var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height");
+
+        var colorScheme = d3.scaleOrdinal(d3.schemeCategory20b);
+
+        var simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(function(d) {
+                return d.id;
+            }))
+            .force("generalForce", d3.forceManyBody())
+            .force("center", d3.forceCenter(width/2, height/2));
+
+        d3.json("wcImport", function(error, graph) {
+            if(error) throw error;
+
+            var edge = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter().append("line")
+                .attr("stroke-width", function(d) {
+                    return Math.sqrt(d.value);
+                })
+
+            var node = svg.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(graph.nodes)
+                .enter().append("circle")
+                .attr("r", 5)
+                .attr("fill", function(d) {
+                    return color(d.group);
+                })
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended)
+                );
+        })
         
 
-        //parse the JSON data into nodes
-
-       d3.json("d3-query-data.json", function(data) {
-           console.log(data[0]);
-
-       });
-
+       
         
 
         
@@ -59,7 +106,7 @@
         /*Event Listener*/
 
        
-
+// dont need 
         class dhcGraph extends Polymer.Element { /*may not even need this*/
                 static get is() {
                     return 'loadingGraph'
