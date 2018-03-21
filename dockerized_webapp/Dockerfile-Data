@@ -11,4 +11,4 @@ WORKDIR /usr/src/app/public
 WORKDIR /usr/src/app
 
 RUN chmod +x ./data.sh
-RUN ./data.sh&
+ENTRYPOINT exec ./data.sh
