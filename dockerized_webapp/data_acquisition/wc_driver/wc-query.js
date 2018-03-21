@@ -9,6 +9,7 @@
 var wcq = require("./wcq");
 var xmljs = require("xml-js");
 var fs = require("fs");
+var path = require("path");
 var rp = require("request-promise");
 var wskey = process.env.WSKEY;
 var neo4j = require("../../utils/neo4jDriver");
@@ -37,8 +38,12 @@ rp(options)
         var data = wcq.parseResp(json);
         var qstring = wcq.constructQuery(data);
 
-        var jsonQstring = JSON.parse(qstring);
-        fs.writeFile("d3Query.json", jsonQstring, 'utf8', callback);
+        try {
+            var jsonQstring = JSON.parse(qstring);
+            fs.writeFile("../../public/data/d3Query.json", jsonQstring, 'utf8', callback);
+        } catch (error) {
+            console.log("could not write to file");
+        }
 
         console.log(`qstring:\n${JSON.stringify(qstring, null, 2)}`);
 
