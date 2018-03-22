@@ -21,45 +21,6 @@ var agenda = new Agenda({
     }
 });
 
-/** Add a job string to mongo
- * 
- * @param {string} jobStr
- * @param {obj} client
- *  
- */
-var addJobsToMongo = function(jobArray) {
-    // if a doc with this string does not exist, add it
-    MongoClient.connect(mongoUrl, function(err, db) {
-       var worldcatJobs = db.collection("worldcatJobs");
-       worldcatJobs.insertMany(jobArray, (result, err) => {
-           console.log(JSON.stringify(result, null, 2));
-       }) 
-    })
-
-    /**
-    var worldcatJobs = db.collection("worldcatJobs");
-    worldcatJobs.find({
-        "jobString": jobStr
-    }).toArray( function(err, results) {
-        assert.equal(err, null);
-        results.forEach( job => {
-            console.log(`job:\n${JSON.stringify(job, null, 2)}`);
-        });
-        if ( results.length == 0 ) {
-            
-            // create the doc
-
-            worldcatJobs.insertMany(jobArray, (result, err) => {
-                console.log(JSON.stringify(result, null, 2));
-            });
-            console.log(`Added new job for job string ${jobStr}`);
-        } else {
-            console.log(`Job is already scheduled or has been completed for job string ${jobStr}`);
-        }
-    });
-    */
-}
-
 /**
  * 
  * Need an init function that will:
@@ -142,6 +103,7 @@ agenda.define("query worldcat", function(job) {
 
 
 agenda.on("ready", function() {
+    setTimeout(function() {}, 60000);
     init();
     agenda.every("15 seconds", "query worldcat");
     agenda.start();
