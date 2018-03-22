@@ -3,16 +3,14 @@
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 
 <link rel="import" href="data-login.html">
-<link rel="lazy-import" href="dhc-login.html">
+<link rel="import" href="dhc-login.html">
 <link rel="import" href="dhc-home.html">
-<link rel="lazy-import" href="dhc-404.html">
-<link rel="lazy-import" href="dhc-help.html">
-<link rel="lazy-import" href="dhc-book-results.html">
-<link rel="lazy-import" href="dhc-user-account.html">
-<link rel="lazy-import" href="dhc-book-profile.html">
-<link rel="lazy-import" href="dhc-loading-graphic.html">
+<link rel="import" href="dhc-404.html">
+<link rel="import" href="dhc-help.html">
+
 <link rel="import" href="data-search.html">
 <link rel="import" href="frag-header.html">
 
@@ -45,13 +43,12 @@
         <data-search id="searchdatacomp" selectedbook="{{selectedbook}}" searchparams="{{searchparams}}"></data-search>
 
         <app-location
-            route="{{route}}"
-            url-space-regex="^[[rootPath]]">
+            route="{{route}}">
         </app-location>
 
         <app-route
             route="{{route}}"
-            pattern="[[rootPath]]:page"
+            pattern="/:page"
             data="{{routeData}}"
             tail="{{subroute}}">
         </app-route>
@@ -59,6 +56,10 @@
         <app-header>
             <frag-header user="[[user]]"></frag-header>
         </app-header>
+
+        <paper-toast id="signInToast" text="Successfully Logged In!"></paper-toast>
+        <paper-toast id="signOutToast" text="Successfully Logged Out!"></paper-toast>
+
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -71,7 +72,7 @@
             <dhc-home name="home" user="{{user}}"></dhc-home>
             <dhc-help name="help" user="[[user]]"></dhc-help>
             <dhc-login name="login" user="{{user}}"></dhc-login>
-            <dhc-user-account name="user-account"></dhc-user-account> 
+            <dhc-user-account name="user-account" user="{{user}}" route="{{subroute}}"></dhc-user-account> 
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
             <dhc-book-results name="book-results" route="{{subroute}}" searchparams="{{searchparams}}"></dhc-book-results>
@@ -94,7 +95,8 @@
                     },
                     routeData: Object,
                     subroute: String,
-                    rootPath: String
+                    rootPath: String,
+                    loadComplete: Boolean
                         // This might want to be an object with the obj data?
                 };
             }
@@ -107,8 +109,15 @@
                 this.addEventListener('set-selected-book', (e) => this._onSetSelectedBook(e));
             }
 
+            connectedCallback() {
+                super.connectedCallback();
+                this.isAttached = true;
+
+                console.log("This is attached: " + this.isAttached);
+            }
+
             static get observers() {
-                return ['_routePageChanged(routeData.page)'];
+                return ['_routePageChanged(routeData.page, isAttached)'];
             };
 
             _onSetSelectedBook(e) {
@@ -116,6 +125,9 @@
             }
 
             _onSendUserData(e) {
+                console.log(e.detail);
+                e.detail._id = this.user._id;
+                console.log(e.detail);
                 this.$.updateinfo.body = e.detail;
                 this.$.updateinfo.generateRequest();
 
@@ -125,39 +137,104 @@
                 // this.$._onUpdateupdate-userUserData
             }
 
-            _routePageChanged(page) {
-                this.page = page || 'home';
-                this._setIsHome(page);
+            _routePageChanged(page, isAttached) {
+                console.log("in routePageChanged");
+                console.log("Am i attached? " + isAttached);
+                console.log(page);
+                if(!isAttached) {
+                    return;
+                }
+
+                console.log("in route page chagned" + page);
+
+                if (!page || page === "") {
+                    this.set('route.path', 'home');
+                    return;
+                }
+
+                this.page = page;
+
+                Polymer.AppLayout.scroll( {top:0, behavior: 'silent'});
+                // this.page = page || 'home';
+                // this._setIsHome(page);
             };
 
             _pageChanged(page, old) {
-                var resolvedPageUrl = this.resolveUrl('dhc-' + page + '.html');
+                console.log("in page changed " + page);
+                let href;
+                switch(page) {
+                    case 'home':
+                        href = 'dhc-home.html';
+                        break;
+                    case 'help':
+                        href = 'dhc-help.html';
+                        break;
+                    case 'user-account':
+                        href = 'dhc-user-account.html';
+                        break;
+                    case '404':
+                        href = 'dhc-404.html';
+                        break;
+                    case 'create-account':
+                        href = 'dhc-create-account.html';
+                        break;
+                    case 'book-results':
+                        href = 'dhc-book-results.html';
+                        break;
+                    case 'book-profile':
+                        href = 'dhc-book-results.html';
+                        break;
+                    default:
+                        href = 'dhc-404.html';
+                        break;
+                }
+
+                let cb = this._pageLoaded.bind(this, Boolean(old));
+
                 Polymer.importHref(
-                    resolvedPageUrl,
-                    null,
-                    this._showPage404.bind(this),
-                    true
-                );
+                    this.resolveUrl(href),
+                    cb,
+                    cb,
+                    true);
             }
 
-            _setIsHome(page) {
-                if (page === 'home' || page === '') {
-                    this.routeData.isHome = true;
-                } else {
-                    this.routeData.isHome = false;
+            _pageLoaded(resetLayout) {
+                this._ensureLazyLoaded();
+            }
+
+            _ensureLazyLoaded() {
+                if(!this.loadComplete) {
+                    Polymer.RenderStatus.afterNextRender(this, () => {
+                        Polymer.importHref(this.resolveUrl('lazy-resources.html'), () => {
+                            this.loadComplete = true;
+                        })
+
+                        if ('serviceWorker' in navigator) {
+                            navigator.serviceWorker.register('service-worker.js', {scope: '/'});
+                        }
+                    })
                 }
             }
 
-            _showPage404() {
-                this.page = '404';
-            }
-
             _onUpdateUserData(event) {
-                this.$.userData.updateUser(event.detail);
+                console.log("On update user data");
+                if (event.detail.action === "sign-in") {
+                    this.$.signInToast.open();
+                }
+                else if ( event.detail.action === "sign-out") {
+                    this.$.signOutToast.open();
+                }
+                
+                this.$.userData.updateUser(event.detail.user);
             }
 
             _onUpdateSearchData(event) {
                 this.$.searchdatacomp.updateSearch(event.detail);
+            }
+
+            _handleResponse(e) {
+                console.log(e.detail.response);
+                console.log("handled");
             }
         }
 

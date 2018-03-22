@@ -16,3 +16,5 @@ dockerized_webapp/data_acquisition/loc
 
 dockerized_webapp/*/utils
 dockerized_webapp/*/node_modules
+
+dockerized_webapp/app/public/build/

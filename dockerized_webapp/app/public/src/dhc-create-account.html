@@ -32,6 +32,7 @@
         </style>
 
         <app-location route="{{route}}"></app-location>
+
         <div class="container">
             <div id="login-box">
                 <div id="inner-flex">
@@ -51,7 +52,6 @@
                         id="addAj"
                         url="/api/add_user"
                         handle-as="json"
-                        last-response="{{mySession}}"
                         on-response="_handleResponse"
                         content-type="application/json"
                         debounce-duration="300">
@@ -118,15 +118,22 @@
             }
 
             _handleResponse(e) {
+                console.log("EVENT " + e);
                 if(e.detail.response) {
                     if(e.detail.response.insertedIds){ 
-                        console.log(e.detail.response);
-                        this.dispatchEvent(new CustomEvent('update-user', {
-                            bubbles: true, composed: true, detail: {
-                                user: e.detail.response,
+                        if (e.detail.response.ops && e.detail.response.ops[0]._id
+                            && e.detail.response.ops[0]._id !== undefined) {
+                                this.dispatchEvent(new CustomEvent('update-user', {
+                                    bubbles: true, composed: true, detail: {
+                                    user: e.detail.response.ops[0],
+                                    action: 'sign-in'
                         }}));
                         this.valid = true;
-                        this.set("route.path", "/home");
+                            }
+                        
+
+                        console.log("movin");
+                        this.set("route.path", "home");
                     } 
                     else if (e.detail.response.Error) {
                         if (e.detail.response.Error === "invaild data format") {
