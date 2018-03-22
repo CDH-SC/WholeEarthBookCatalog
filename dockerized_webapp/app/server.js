@@ -255,6 +255,9 @@ router.post("/goodreads/", function(req,res) {
 router.post("/neo4j/", function (req, res) {
 
     var data = req.body;
+    
+    // if data.basic_query is not a string with regular characters don't accept it
+
     console.log(`request:\n${JSON.stringify(data, null, 2)}`);
 
     var statement = qstrings.keywordSearchExample;
@@ -264,9 +267,6 @@ router.post("/neo4j/", function (req, res) {
         params.regex = `(?i).*${data.basic_query}.*`;
         params.limit = data.limit;
     }
-
-    // add logic to sanitize the input here...
-    // don't allow special characters
 
     console.log(`statement:\n${JSON.stringify(statement, null, 2)}\n
 		 params:\n${JSON.stringify(params, null, 2)}\n`);

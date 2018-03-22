@@ -12,7 +12,9 @@ var neo4j = require("./utils/neo4jDriver");
 var format = require("string-format");
 var rp = require("request-promise");
 var xmljs = require("xml-js");
+var crypto = require("crypto");
 var wskey = process.env.WSKEY;
+var MongoClient = require("mongodb").MongoClient;
 
 // module
 var wcq = {};
@@ -36,6 +38,8 @@ wcq.query = function(query) {
     }
 
     // query worldcat
+    console.log(`query options:\n${JSON.stringify(options, null, 2)}`);
+    
     rp(options)
         .then( function(res) {
             var json = xmljs.xml2js(res, {
@@ -53,12 +57,15 @@ wcq.query = function(query) {
                 console.log(`${JSON.stringify(resp, null, 2)}`);
             })
             .catch(function(err) {
-                    console.log(`${JSON.stringify(err, null, 2)}`);
+                console.log(`${JSON.stringify(err, null, 2)}`);
             });
         
             // close neo4j driver and session
             qr.session.close();
             qr.driver.close();
+        })
+        .catch( function(err) {
+            console.log(JSON.stringify(err, null, 2));
         })
 }
 

@@ -49,6 +49,14 @@ services:
     volumes:
       - "data:/data/db"
 
+  worldcat_driver:
+    build: ./worldcat_data_acquisition
+    environment:
+      - MONGO_URL=mongo
+      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
+      - NEO4J_URL=neo4j
+      - WSKEY=${WSKEY}
+
 volumes:
   data:
   neo4j:
