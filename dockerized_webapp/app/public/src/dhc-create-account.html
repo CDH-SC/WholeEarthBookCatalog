@@ -121,8 +121,7 @@
                 console.log("EVENT " + e);
                 if(e.detail.response) {
                     if(e.detail.response.insertedIds){ 
-                        console.log(e.detail.response);
-                        if (e.detail.repons.ops && e.detail.response.ops[0]._id
+                        if (e.detail.response.ops && e.detail.response.ops[0]._id
                             && e.detail.response.ops[0]._id !== undefined) {
                                 this.dispatchEvent(new CustomEvent('update-user', {
                                     bubbles: true, composed: true, detail: {

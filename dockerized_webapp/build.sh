@@ -6,5 +6,10 @@
 
 cp -r utils app/
 cp -r utils worldcat_data_acquisition/
+cp -r utils loc_data_acquisition/
+
 source app.conf
 docker-compose build --no-cache
+
+# For quick builds
+# docker-compose build

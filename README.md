@@ -41,9 +41,14 @@ We have provided an example file to model what this should look like.
 
 Before deployment, be sure to edit the `app.conf.example` and rename as `app.conf`. The password for neo4j can be set to whichever value you please, and we're using the port `8080`, but any open port should do.
 
+***Data Acquisition:***
+
+If you want to run the worldcat miner, you need a [wskey](https://www.oclc.org/developer/develop/authentication/what-is-a-wskey.en.html) from worldcat. Once you have one, set the `WSKEY` environment variable in `app.conf`.
+
 ***Run:***
 
 ```
+$ ./build.sh
 $ source app.conf
 $ docker-compose up
 ```

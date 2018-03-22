@@ -10,12 +10,12 @@ var path = require("path");
 var express = require("express");
 var bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
-var mongo = require("../utils/mongoDriver.js");
-var neo4j = require("../utils/neo4jDriver.js");
-var qstrings = require("../utils/querystrings.js");
+var mongo = require("./utils/mongoDriver.js");
+var neo4j = require("./utils/neo4jDriver.js");
+var qstrings = require("./utils/querystrings.js");
 var ObjectId = require("mongodb").ObjectId;
-var clock = require("../utils/clock.js");
-var goodreadsDriver = require("../utils/goodreadsDriver.js");
+var clock = require("./utils/clock.js");
+var goodreadsDriver = require("./utils/goodreadsDriver.js");
 
 var port = process.env.PORT || 8080;
 var app = express();

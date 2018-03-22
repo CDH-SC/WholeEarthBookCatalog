@@ -14,13 +14,21 @@ services:
     image: neo4j
     ports:
       - "7474:7474" # bolt web admin
-      - "7687:7687"
+    # only uncomment for development builds
+    #  - "7687:7687" 
     expose:
       - "7687" # bolt connection
     environment:
       - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
     volumes:
       - "neo4j:/var/lib/neo4j/data"
+
+  mongo:
+    image: mongo
+    expose:
+      - "27017"
+    volumes:
+      - "data:/data/db"
 
   node_webapp:
     build: ./app
@@ -32,25 +40,15 @@ services:
       - NEO4J_PASSWORD=${NEO4J_PASSWORD}
       - NEO4J_URL=neo4j
 
-# uncomment for data data_acquisition
-#  data_acquisition:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile-Data
-#    environment:
-#      - PORT=${SERVER_PORT}
-#      - MONGO_URL=mongo
-#      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-#      - NEO4J_URL=neo4j
+  loc_data_miner:
+    build: ./loc_data_acquisition
+    environment:
+      - PORT=${SERVER_PORT}
+      - MONGO_URL=mongo
+      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
+      - NEO4J_URL=neo4j
   
-  mongo:
-    image: mongo
-    expose:
-      - "27017"
-    volumes:
-      - "data:/data/db"
-
-  worldcat_driver:
+  worldcat_data_miner:
     build: ./worldcat_data_acquisition
     environment:
       - MONGO_URL=mongo
