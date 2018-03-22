@@ -12,7 +12,7 @@ var neo4j = require('../utils/neo4jDriver');
 var logger = require('../utils/log');
 logger.level = 4;
 
-var downloadsDirectory = 'data_acquisition/loc/';
+var downloadsDirectory = '../loc/';
 
 function GetJSONFiles(directory) {
     let allFiles = fs.readdirSync(directory);

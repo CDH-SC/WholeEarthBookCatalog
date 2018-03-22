@@ -9,7 +9,7 @@ var stringify = require('json-array-streams');
 var logger = require('../utils/log');
 logger.level = 4;
 
-var downloadsDir = "data_acquisition/loc/";
+var downloadsDir = "../loc/";
 
 var count = 0;
 

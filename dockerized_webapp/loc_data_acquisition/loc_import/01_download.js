@@ -11,7 +11,7 @@ logger.level = 4;
 var sourceURL = "http://www.loc.gov/cds/products/MDSConnect-books_all.html";
 var sourceFormat = /\/cds\/downloads\/MDSConnect\/BooksAll\.\d{0,4}\.part.{0,2}\.xml\.gz/g;
 var sourceRequestFormat = "http://www.loc.gov";
-var downloadsDir = "data_acquisition/loc/";
+var downloadsDir = "../loc/";
 
 function getAllFiles(dir) {
     return fs.readdirSync(dir);

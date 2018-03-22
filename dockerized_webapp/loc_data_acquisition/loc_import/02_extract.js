@@ -7,7 +7,7 @@ var fs = require('fs');
 var logger = require('../utils/log');
 logger.level = 4;
 
-var downloadsDir = "data_acquisition/loc/";
+var downloadsDir = "../loc/";
 
 function getAllGzFiles(directory) {
     let allFiles = fs.readdirSync(directory);
