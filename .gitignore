@@ -15,3 +15,6 @@ dockerized_webapp/t_dev_switch.sh
 dockerized_webapp/data_acquisition/loc
 *.xml
 *.xml.gz
+
+dockerized_webapp/*/utils
+dockerized_webapp/*/node_modules
