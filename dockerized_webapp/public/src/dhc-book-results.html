@@ -245,7 +245,7 @@
                             </div>
                         
                             <div id = "result-item-menu" class="border-color">
-                                <a href="/book-profile/{{item.name}}">
+                                <a href="book-profile/test">
                                     <paper-button on-click="" id = "result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
                                 </a>
 
@@ -308,7 +308,7 @@
 
             _resultPageChanged() {
 
-                if (this.route.path.includes("/book-results/")) {
+                if (this.route.path.includes("book-results/")) {
                     this.set("noResults", false);
                     this.set("searchData", {});
                     this.set("searchDataLoaded", false);

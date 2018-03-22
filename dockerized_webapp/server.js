@@ -120,13 +120,13 @@ router.post("/get_user/", function (req, res) {
     }
 });
 
+// WIP :p
 router.post("/get_saved_content/", function(req, res) {
     var data = req.body;
     var errStr = "Error - could not retreive content";
     var err;
 
     if (data._id === undefined || !data.authenticated) {
-
         if(!data.authenticated) {
             err = { "Error": "unauthorized get request" }
         }
@@ -140,14 +140,12 @@ router.post("/get_saved_content/", function(req, res) {
 
     var retDoc;
     var usrDoc;
-
     usrDoc = {
         _id: ObjectId(data._id)
     }
     
     mongo.findDocument(usrDoc, function(resp) {
         if (resp.length > 0) {
-            console.log(resp[0])
             res.json(resp[0]);
         }
         else {
@@ -310,6 +308,7 @@ router.post("/neo4j/", function (req, res) {
 
     var q = neo4j.query(statement, params);
     q.response.then(function (resp) {
+            console.log(JSON.stringify(resp));
             res.json(resp);
         })
         .catch(function (err) {
@@ -323,6 +322,11 @@ router.post("/neo4j/", function (req, res) {
     q.driver.close();
     q.session.close();
 });
+
+// WIP
+// router.post("/neo4j/get_single_record", function(req, res) {
+//     var statement = qstrings.
+// })
 
 /**
  * 
@@ -377,7 +381,7 @@ app.use('/api', router);
 
 app.use(express.static("public/build/es6-bundled"));
 
-app.get('dhc-*', function (req, res) {
+app.get('*', function (req, res) {
     res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
 });
 

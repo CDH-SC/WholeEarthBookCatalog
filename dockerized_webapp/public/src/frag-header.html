@@ -82,6 +82,14 @@
                 width: 162px;
                 font-size: 24px;
             }
+
+            .ellipsis {
+                text-overflow: ellipsis;
+
+                /* Required for text-overflow to do anything */
+                white-space: nowrap;
+                overflow: hidden;
+            }
         </style>
         <app-location route="{{route}}"></app-location>
             <app-toolbar>
@@ -98,9 +106,9 @@
 
                     <template is="dom-if" if="[[inSession]]">
                         <paper-menu-button vertical-offset="60" horizontal-align="right">
-                            <paper-button slot="dropdown-trigger" class="account-blue">Hi, User</paper-button>
+                            <paper-button slot="dropdown-trigger" class="account-blue ellipsis">{{user.username}}</paper-button>
                             <paper-listbox class="user-listbox" slot="dropdown-content">
-                                <a id="goto-user-account" user="{{user}}" href="[[rootPath]]user-account"><paper-item>Account</paper-item></a>
+                                <a id="goto-user-account" user="{{user}}" href="/user-account/{{user._id}}"><paper-item>Account</paper-item></a>
                                 <paper-item>Favorites</paper-item>
                                 <paper-item on-click="_sign_out">Sign out</paper-item>
                             </paper-listbox>
@@ -108,7 +116,7 @@
 
                     </template>
                     <template is="dom-if" if="[[!inSession]]"> 
-                        <a href="[[rootPath]]login">
+                        <a href="/login">
                             <paper-button class="account-blue">Sign in</paper-button>
                         </a>
                     </template>
@@ -140,18 +148,16 @@
                 this.dispatchEvent(new CustomEvent('update-user', {
                     bubbles: true, composed: true, detail: {
                     user: {
+                        _id: "",
                         username: "",
-                        authenticated: false,
-                        favorites: [],
-                        recent_searches: [],
-                        saved_queries: []
+                        authenticated: false
                     } ,
+                    action: 'sign-out'
                 }}));
 
                 
-                if (this.route.path === "/user-account") {
-                    console.log("Hmm");
-                    this.set("route.path", "/home");
+                if (this.route.path.includes("user-account")) {
+                    this.set("route.path", "home");
                 }
             }
 
@@ -162,11 +168,10 @@
             }
 
             _go_home() {
-                this.set("route.path", "/home");
+                this.set("route.path", "home");
             }
 
             _userDataObserver() {
-                console.log('user chagned', this.user); 
                 if (this.user.authenticated) {
                     this.inSession = true;
                 }

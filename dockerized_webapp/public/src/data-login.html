@@ -27,14 +27,13 @@
 
             updateUser(data) {
                 console.log(data._id);
-                if (data.user._id !== undefined && data.user._id !== "") {
-                    data.user.authenticated = true;
+                if (data._id !== undefined && data._id !== "") {
+                    data.authenticated = true;
                 }
                 else {
-                    data.user.authenticated = false;
+                    data.authenticated = false;
                 }
-                this.set('user', data.user);
-
+                this.set('user', data);
             }
         }
         window.customElements.define(dataLogin.is, dataLogin);
