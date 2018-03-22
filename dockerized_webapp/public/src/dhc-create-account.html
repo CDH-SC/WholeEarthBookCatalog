@@ -122,12 +122,16 @@
                 if(e.detail.response) {
                     if(e.detail.response.insertedIds){ 
                         console.log(e.detail.response);
-                        this.dispatchEvent(new CustomEvent('update-user', {
-                            bubbles: true, composed: true, detail: {
-                                user: e.detail.response.ops[0],
-                                action: 'sign-in'
+                        if (e.detail.repons.ops && e.detail.response.ops[0]._id
+                            && e.detail.response.ops[0]._id !== undefined) {
+                                this.dispatchEvent(new CustomEvent('update-user', {
+                                    bubbles: true, composed: true, detail: {
+                                    user: e.detail.response.ops[0],
+                                    action: 'sign-in'
                         }}));
                         this.valid = true;
+                            }
+                        
 
                         console.log("movin");
                         this.set("route.path", "home");
