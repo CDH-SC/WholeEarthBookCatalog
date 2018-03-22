@@ -7,6 +7,6 @@
 cp -r utils app/
 cp -r utils worldcat_data_acquisition/
 cp -r utils loc_data_acquisition/
-mkdir loc_data_acquisition/loc
+
 source app.conf
 docker-compose build --no-cache
