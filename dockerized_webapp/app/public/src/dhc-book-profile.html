@@ -8,7 +8,7 @@
 <link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="dhc-book-profile">
+<dom-module id = "dhc-book-profile">
     <template>
         <style include = "shared-styles">
           
@@ -193,9 +193,7 @@
     </template>
     <script>
         class dhcBookProfile extends Polymer.Element {
-            static get is() {
-                return 'dhc-book-profile';
-            }
+            static get is() { return 'dhc-book-profile'; }
             static get properties() {
                 return {
                     selectedbook: {
