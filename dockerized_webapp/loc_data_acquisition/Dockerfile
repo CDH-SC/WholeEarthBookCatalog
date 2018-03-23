@@ -6,9 +6,5 @@ RUN npm install
 
 COPY . .
 
-WORKDIR /usr/src/app/public
 
-WORKDIR /usr/src/app
-
-RUN chmod +x ./data.sh
 ENTRYPOINT exec ./data.sh

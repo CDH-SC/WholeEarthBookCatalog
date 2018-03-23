@@ -1,0 +1,187 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/polymer/lib/elements/dom-if.html">
+<link rel="import" href="../bower_components/app-layout/app-layout.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
+<link rel="import" href="../bower_components/neon-animation/web-animations.html">
+
+<meta name = "viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<dom-module id="frag-header">
+    <template>
+        <style include="shared-styles">
+            .header-row {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+            }
+            paper-button.account-blue {
+                /*margin-right: 5px;*/
+                background-color: #2d9cdb;
+                color: #f2f2f2;
+                font-size: 24px;
+                line-height: 26px;
+                width: 96px;
+                height: 48px;
+            }
+
+            a {
+                text-decoration: none;
+                padding-top: 5px;
+                color: #f2f2f2;
+            }
+
+            a:visited {
+                text-decoration: none;
+                color: #f2f2f2;
+            }
+
+            h1 {
+                margin: 0;
+                padding-left: 5px;
+                font-size: 72px;
+                line-height: 78px;
+                padding-top: 25px;
+                font-weight: 100;
+            }
+
+            app-toolbar {
+                padding-left:5px;
+                padding-right: 5px;
+            }
+
+            paper-listbox {
+                z-index: 100;
+            }
+
+            .strecher {
+                width: 10%;
+            }
+
+            #goto-user-account {
+                color: #333333;
+            }
+
+            #goto-user-account:visited {
+                color: #333333;
+            }
+
+            #home-button {
+                box-shadow: none;
+            }
+
+            .user-listbox {
+                width: 162px;
+                font-size: 24px;
+            }
+
+            .ellipsis {
+                text-overflow: ellipsis;
+
+                /* Required for text-overflow to do anything */
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        </style>
+        <app-location route="{{route}}"></app-location>
+            <app-toolbar>
+                <div class="header-row">
+                    <template is="dom-if" if="[[_showSearch()]]">
+                        <paper-button id="home-button" noink on-click="_go_home">
+                            <h1>DHC</h1>
+                        </paper-button>
+                    </template>
+                    <template is="dom-if" if="[[_showSearch()]]"></template>
+                    <template is="dom-if" if="[[!_showSearch()]]">
+                        <span class="stretcher"></span>
+                    </template>
+
+                    <template is="dom-if" if="[[inSession]]">
+                        <paper-menu-button vertical-offset="60" horizontal-align="right">
+                            <paper-button slot="dropdown-trigger" class="account-blue ellipsis">{{user.username}}</paper-button>
+                            <paper-listbox class="user-listbox" slot="dropdown-content">
+                                <a id="goto-user-account" user="{{user}}" href="/user-account/{{user._id}}"><paper-item>Account</paper-item></a>
+                                <paper-item>Favorites</paper-item>
+                                <paper-item on-click="_sign_out">Sign out</paper-item>
+                            </paper-listbox>
+                        </paper-menu-button>
+
+                    </template>
+                    <template is="dom-if" if="[[!inSession]]"> 
+                        <a href="/login">
+                            <paper-button class="account-blue">Sign in</paper-button>
+                        </a>
+                    </template>
+                </div>
+            </app-toolbar>
+    </template>
+
+    <script>
+        class fragHeader extends Polymer.Element {
+            static get is() { return 'frag-header'; }
+            static get properties() { 
+                return {
+                    inSession: {
+                        type: Boolean,
+                    },
+                    user: {
+                        type: Object,
+                        observer: '_userDataObserver'
+                    },
+                    route: Object
+                };
+            }
+
+            ready() {
+                super.ready();
+            }
+
+            _sign_out() {
+                this.dispatchEvent(new CustomEvent('update-user', {
+                    bubbles: true, composed: true, detail: {
+                    user: {
+                        _id: "",
+                        username: "",
+                        authenticated: false
+                    } ,
+                    action: 'sign-out'
+                }}));
+
+                
+                if (this.route.path.includes("user-account")) {
+                    this.set("route.path", "home");
+                }
+            }
+
+            _showSearch() {
+                var test = this.get("route");
+                console.log(test);
+                return true;
+            }
+
+            _go_home() {
+                this.set("route.path", "home");
+            }
+
+            _userDataObserver() {
+                if (this.user.authenticated) {
+                    this.inSession = true;
+                }
+                else {
+                   
+                    this.inSession = false;
+                }
+            }
+        }
+        window.customElements.define(fragHeader.is, fragHeader);
+    </script>
+
+</dom-module>

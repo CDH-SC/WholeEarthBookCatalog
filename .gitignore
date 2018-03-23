@@ -1,7 +1,5 @@
-dockerized_webapp/node_modules/*
-dockerized_webapp/public/bower_components/
-dockerized_webapp/public/build/
-*.pyc
+dockerized_webapp/app/public/bower_components/
+dockerized_webapp/app/public/build/
 *.conf
 node_modules
 bower_components
@@ -15,3 +13,8 @@ dockerized_webapp/t_dev_switch.sh
 dockerized_webapp/data_acquisition/loc
 *.xml
 *.xml.gz
+
+dockerized_webapp/*/utils
+dockerized_webapp/*/node_modules
+
+dockerized_webapp/app/public/build/

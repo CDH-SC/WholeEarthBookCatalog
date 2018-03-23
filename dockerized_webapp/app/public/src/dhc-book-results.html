@@ -1,0 +1,396 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="alchemy-import.html">
+
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="dhc-book-results">
+    <template>
+        <style include=" shared-styles iron-flex iron-flex-alignment">
+            :host {
+                --paper-button-color: #E0E0E0;
+            }
+            .container {
+                @apply --layout-horizontal;
+            }
+
+            #result-entry-wrapper {
+                width: 100%;
+                height: calc(100% - 60px);
+                overflow-y: auto;
+            }
+
+            .result-item-info {
+                height: 280px;
+                display: flex; /*relate to container element*/
+                flex-direction: row;
+                justify-content: space-between;
+                border: 1px solid #E0E0E0;
+                align-items: center;
+            }
+
+            #result-item-image {
+                /* margin-left: 50px;
+                margin-top: 20px; */
+                /* width: 100%; */
+                box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+            }
+
+            .book-info-text {
+                padding-left: 60px;
+            }
+
+            .image-wrapper {
+                padding-left: 57px;
+            }
+
+            .book-info {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+            } 
+
+            .heart-icon {
+                height: 45px;
+                width: 45px;
+                color:rgb(223, 80, 80)
+            }
+
+            #result-item-menu {
+                width: 280px;
+                height: 100%;
+                font-size: 24px;
+                border: 1px solid #E0E0E0;
+                display: flex;
+                flex-direction: column;
+                border-top:none;
+                border-bottom:none;
+            }
+
+            #result-item-view-profile {
+                width: 100%;
+                height: 33.3%;
+                padding:0px;
+                border-top: none;
+            }
+
+            #result-item-request {
+                padding:0px;
+                width: 50%;
+                height: 33.3%;
+            }
+
+            #result-paired-buttons {
+                display: flex;
+            }
+
+            #result-item-like {
+                padding: 0px;
+                width: 50%;
+                height: 33.3%;
+            }
+
+            #result-item-share {
+                width: 100%;
+                height: 34%;
+                border-top: none;
+            }
+
+            .paper-metadata {
+                flex-grow: 1;
+                margin-left: 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .paper-metadata > h2{
+                margin: 0px;
+            }
+
+            .paper-metadata > h4{
+                margin: 0px;
+            }
+
+            h1 {
+                margin-bottom: 5px;
+            }
+
+            h2 {
+                margin-bottom: 5px;
+            }
+
+            paper-button {
+                margin: 0px;
+                box-shadow: none;
+                border: 1px solid grey;
+            }
+
+            paper-button[focused].btn-attached {
+                background: #2D9CDB;
+                color: whitesmoke;
+            }
+
+            a {
+                text-decoration: none;
+            }
+
+            .toggler {
+                margin-left: 15%;
+            }
+
+            .btn-attached {
+                margin: 0;
+                padding: 0;
+                box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+                color: #333333;
+                width: 93px;
+                height: 30px;
+                border: none;
+                background-color: #E0E0E0;
+            }
+
+            .q-btn {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding: 0;
+                box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+                color: #333333;
+                width: 100px;
+                height: 30px;
+                border: none;
+                background-color: #E0E0E0;
+            }
+        </style>
+
+        <app-route
+            route="{{route}}"
+            pattern="/:search"
+            data="{{routeData}}">
+        </app-route>
+
+        <app-location route="{{route}}"></app-location>
+
+        <iron-ajax
+            method="POST"
+            id="npost"
+            url="/api/neo4j/"
+            handle-as="json"
+            on-response="_handleResponse"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <iron-ajax
+            method="POST"
+            id="addlike"
+            url="/api/update_saved_content/"
+            handle-as="json"
+            on-response="_handleResponse"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <div class="btn-wrapper">
+            <div class="toggler">
+                <paper-button class="btn-attached" id="list-btn" on-click="_showList">List</paper-button>
+                <paper-button class="btn-attached" id="graph-btn" on-click="_showGraph">Graph</paper-button>
+                <paper-button class="q-btn" on-click="_addSavedQuery">Save Query</paper-button>
+            </div>
+        </div>
+
+        <template is="dom-if" if="{{!isList}}">
+            Showing alchemy JS
+        </template>
+
+
+        <template is="dom-if" if="{{isList}}">
+            <template is="dom-if" if="{{!searchDataLoaded}}">
+                    Loading...
+            </template>
+
+            <template is="dom-if" if="{{noResults}}">
+                NO RESULTS FOUND
+            </template>
+
+            <template is="dom-if" if="{{searchDataLoaded}}">
+                <div id = "result-entry-wrapper" class="border-color">
+                    <template is="dom-repeat" items="[[searchData.records]]">
+                        <div class="result-item-info border-color">
+                            <div class="book-info">
+                                <div class="image-wrapper">
+                                    <image id="result-item-image" class="border-color" src= "../images/no_cover_150_248.png"></image>
+                                </div>
+                                <template is="dom-repeat" items="{{item._fields}}" as="field">
+                                    <div class="book-info-text">
+                                        <h1>
+                                            {{field.properties.title}}
+                                        </h1>
+                                        <h2>
+                                            {{field.properties.author}}
+                                        </h2>
+                                        <h2>
+                                            Publisher: {{field.properties.publisher}}
+                                        </h2>
+                                        <h2>
+                                            Originally Published: {{field.properties.year}}
+                                        </h2>
+                                    </div>
+                                </template>
+                            </div>
+                        
+                            <div id = "result-item-menu" class="border-color">
+                                <a href="book-profile/test">
+                                    <paper-button on-click="" id = "result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
+                                </a>
+
+                                <div id = "result-paired-buttons">
+                                    <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
+                                    <paper-button id = "result-item-like" title = "heart" id = "result-item-like" on-click="_addFavBook" book="{{item}}" class="border-color">
+                                        <iron-icon class="heart-icon" icon="favorite"></iron-icon></paper-button> 
+
+                                </div>
+
+                                <paper-button id = "result-item-share" class="border-color">
+                                    Share
+                                </paper-button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+        </template>
+        <frag-footer> </frag-footer>
+    </template>
+
+    <script>
+        class dhcBookResults extends Polymer.Element {
+            static get is() { return 'dhc-book-results'; }
+
+            static get properties() {
+                return {
+                    route: {
+                        type: Object,
+                        observer: "_resultPageChanged"
+                    },
+                    searchparams: {
+                        type: Object,
+                        notify: true
+                    },
+                    searchData: {
+                        type: Object,
+                    },
+                    searchDataLoaded: {
+                        type: Boolean,
+                        value: false
+                    },
+                    noResults: {
+                        type: Boolean,
+                        value: false
+                    },
+                    isList: {
+                        type: Boolean,
+                        value: true
+                    }
+                }
+            }
+
+            ready() {
+                super.ready();
+                // this._fireSearchPost();
+            }
+
+            _resultPageChanged() {
+
+                if (this.route.path.includes("book-results/")) {
+                    this.set("noResults", false);
+                    this.set("searchData", {});
+                    this.set("searchDataLoaded", false);
+                    this.set("isList", true);
+
+
+                    this._fireSearchPost();
+                }
+            }
+
+            _wait_on_value() {
+                if(this.searchparams !== undefined) {
+                    this._fireSearchPost();
+                    return;
+                }
+            }
+
+            _showGraph() {
+                // add in some color
+
+                var config = {
+                    dataSource: '../data/charlize.json',
+                };
+
+                alchemy = new Alchemy(config);
+                this.set("isList", false);
+            }
+
+            _showList() {
+                this.set("isList", true);                
+            }
+
+            // Creates a custom event listened for by the app wrapper.
+            // Passes the favorite book, and the type of update. Need to add
+            // the user id at the app wrapper level.
+            _addFavBook(e) {
+                console.log(e);
+                this.dispatchEvent(new CustomEvent('send-user-data', {
+                    bubbles: true, composed: true, detail: {
+                        keyword: "favorites",
+                        content: e.path[0].book
+                    }
+                }));
+            }
+
+            _addSavedQuery() {
+                this.dispatchEvent(new CustomEvent('send-user-data', {
+                    bubbles: true, composed: true, detail: {
+                        keyword: "saved_searches",
+                        content: this.searchparams
+                    }
+                }));
+            }
+
+            _fireSearchPost() {
+                console.log("Search params", this.searchparams);
+                this.$.npost.body = this.searchparams;
+
+                console.log("Neopost", this.$.npost.body);
+
+                this.$.npost.generateRequest();
+            }
+
+            _fireSaveSelected(e) {
+                this.dispatchEvent(new CustomEvent('send-user-data', {
+                    bubbles: true, composed: true, detail: e.path[0].selbook
+                }));
+            }
+
+            _handleResponse(e) { 
+                this.set("searchData", e.detail.response);
+                console.log(e.detail.response);
+                this.set('searchDataLoaded', true);
+
+                if(this.searchData.records && this.searchData.records.length > 0) {
+                    this.set("noResults", false);
+                }
+                else {
+                    this.set("noResults", true);
+                }
+            }
+        }
+        window.customElements.define(dhcBookResults.is, dhcBookResults);
+    </script>
+</dom-module>
