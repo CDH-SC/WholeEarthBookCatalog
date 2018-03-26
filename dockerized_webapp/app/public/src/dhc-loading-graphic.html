@@ -31,19 +31,8 @@
             
         }
 
-        #widget {
-            position: relative;
-            height: auto;
-            
-        }
+        .nodes circle {
 
-        #widget.hidden {
-            display: none;
-        }
-
-        #widget p {
-            margin:0;
-            line-height: 20px;
         }
 
          
@@ -86,47 +75,19 @@
                 .attr("r", 5)
                 .attr("fill", function(d) {
                     return color(d.group);
-                }) 
-
-                node.append("title")
-                    .text(function(d) {
-                        return d.title;
-                    });
-                
-                /*
+                }) /*
                 .call(d3.drag()
                     .on("start", dragstarted)
                     .on("drag", dragged)
                     .on("end", dragended)
                 );   */
 
-            simulation 
-                .nodes(graph.nodes)
-                .on("tick", iter)
-                .on("mouseover", function(d) {
-                    var xpos = d3.select(this).attr("cx");
-                    var ypos = d3.select(this).attr("cy");
+                simulation.force("node") 
+                   .nodes(graph.nodes);
 
-                    d3.select("#widget")
-                        .select("#value")
-                        .text(d);
-                });
+        })
 
-            simulation.force("node") 
-                .nodes(graph.nodes);
-
-            function iter() {
-                node 
-                    .attr("cx", function(d) {
-                        return d.x;
-                    })
-                    .attr("cy", function(d) {
-                        return d.y;
-                    });
-                }
-        });
-
- </script>
+    </script>
 
 
 </dom-module>
