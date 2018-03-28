@@ -13,19 +13,39 @@
 
 <link rel="import" href="data-search.html">
 <link rel="import" href="frag-header.html">
+<link rel="import" href="frag-footer.html">
 
 
 <dom-module id="dhc-main">
     <template>
         <style include="shared-styles">
             :host {
-                position: fixed;
-                height: 100vh;
+                /* position: fixed; */
+                /* height: 100vh; */
+                /* min-height: 100vh;
                 width: 100vw;
+                overflow-y: auto; */
+
+                display: block;
+                position: relative;
+                min-height: 100vh;
+                padding-bottom: 64px;
+            }
+
+            iron-pages {
+                margin: 0 auto;
             }
 
             app-header {
                 height: 60px;
+            }
+
+            footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding-bottom: 24px;
+                text-align: center;
             }
         </style>
 
@@ -54,7 +74,7 @@
         </app-route>
 
         <app-header>
-            <frag-header user="[[user]]"></frag-header>
+            <frag-header showhead="{{showHead}}" user="[[user]]"></frag-header>
         </app-header>
 
         <paper-toast id="signInToast" text="Successfully Logged In!"></paper-toast>
@@ -78,6 +98,10 @@
             <dhc-book-results name="book-results" route="{{subroute}}" searchparams="{{searchparams}}"></dhc-book-results>
             <dhc-book-profile name="book-profile" selectedbook="{{selectedbook}}" route="{{subroute}}"> </dhc-book-profile>
         </iron-pages>
+
+        <footer>
+            <frag-footer> </frag-footer>
+        </footer>
     </template>
 
     <script>
@@ -96,7 +120,11 @@
                     routeData: Object,
                     subroute: String,
                     rootPath: String,
-                    loadComplete: Boolean
+                    loadComplete: Boolean,
+                    showHead: {
+                        type: Boolean,
+                        value: false
+                    }
                         // This might want to be an object with the obj data?
                 };
             }
@@ -161,10 +189,13 @@
 
             _pageChanged(page, old) {
                 console.log("in page changed " + page);
+                this.showHead = true;
+
                 let href;
                 switch(page) {
                     case 'home':
                         href = 'dhc-home.html';
+                        this.showHead = false;
                         break;
                     case 'help':
                         href = 'dhc-help.html';
