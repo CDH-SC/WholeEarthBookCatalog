@@ -1,5 +1,7 @@
 /**
- * Controller to manage jobs
+ * 
+ * Controller to manage worldcat import jobs
+ * 
  */
 
 "use strict";
@@ -10,10 +12,10 @@ var wcq = require("./wcq");
 var assert = require("assert");
 var util = require("util");
 var fs = require("fs");
+var async = require("async");
+var MONGO_URL = process.env.MONGO_URL;
 
-var mongoUrl = "mongodb://mongo/agenda";
-
-console.log(mongoUrl);
+var mongoUrl = `mongodb://${MONGO_URL}/agenda`;
 
 var agenda = new Agenda({
     db: { 
@@ -29,44 +31,60 @@ var agenda = new Agenda({
  * 
  */
 var init = function() {
-    console.log("Initializing job controller...");
-    var jobArray = new Array();
-
-    console.log("Connecting to MongoDB...")
+    var jobsArr = new Array();
     fs.readdir("./jobs", (err, files) => {
-            
-        console.log("Reading job files...");
+        assert.equal(err, null);
         files.forEach(file => {
             fs.readFile(`./jobs/${file}`, "utf-8", (err, data) => {
+                assert.equal(err, null);
                 var obj = JSON.parse(data);
-                console.log(`Read object:\n${JSON.stringify(obj, null, 2)}\nFrom file:\n${file}`);
-                obj.jobs.forEach(job => {
-                    MongoClient.connect(mongoUrl, function(err, db) {
-                        var worldcatJobs = db.collection("worldcatJobs");
-                        worldcatJobs.findOne({
-                            "jobString": job
-                        }, function(result) {
-                            if ( result == null) {
-                                var date = new Date().toISOString();
-                                date = new Date(date);
-                                worldcatJobs.insertOne({
-                                    "jobString": job,
-                                    "completed": false,
-                                    "date_added": date
-                                }, (err, result) => {
-                                    assert.equal(err, null);
-                                    db.close();
-                                    console.log(JSON.stringify(result, null, 2));
-                                })
-                            }
-                        })
-                    })
-                });
+                var jobs = obj.jobs;
+                jobsArr = getJobsArray( jobs );
+                addJobs( jobsArr )
             })
         })
     })
-    
+}
 
+/**
+ * Construct an array of job documents that can directly be added to mongo
+ * 
+ * @param {array} jobs 
+ */
+var getJobsArray = function(jobs) {
+    var jobsArr = new Array();
+    jobs.forEach((job) => {
+        console.log(job);                    
+        var date = new Date().toISOString();
+        date = new Date(date);
+        var doc = {
+            "jobString": job,
+            "completed": false,
+            "date_added": date
+        }
+        jobsArr.push(doc)
+    })
+    return jobsArr;
+}
+
+/**
+ * Add the array of job documents to mongo
+ * 
+ * @param {array} jobs 
+ */
+var addJobs = function( jobs ) {
+    // create collection if it does not exist
+    MongoClient.connect(mongoUrl, (err, db) => {
+        assert.equal(err, null)
+        // create collection if it does not exist
+        db.createCollection( "worldcatJobs")
+        var worldcatJobs = db.collection("worldcatJobs")
+        worldcatJobs.createIndex( { "jobString": 1 }, { unique: true } )
+        worldcatJobs.insertMany(jobs, { ordered: false }, (err, res) => {
+            console.log(`inserted ${JSON.stringify(res.nInserted, null, 2)} new jobs`)
+            db.close();
+        })
+    })
 }
 
 agenda.define("query worldcat", function(job) {
@@ -96,15 +114,22 @@ agenda.define("query worldcat", function(job) {
             } else {
                 console.log("No jobs scheduled currently...")
                 db.close();
+                setTimeout(function() {}, 30000)
+                process.exit(0);
             }
         })
     })
 })
 
+// initialize and run the process
 
 agenda.on("ready", function() {
-    setTimeout(function() {}, 60000);
+
+    setTimeout(function() {}, 30000); // timeout to ensure mongo gets up and running
     init();
-    agenda.every("15 seconds", "query worldcat");
+
+    setTimeout(function() {}, 60000); // timeout to allow init to complete
+
+    agenda.every("30 seconds", "query worldcat");
     agenda.start();
 })

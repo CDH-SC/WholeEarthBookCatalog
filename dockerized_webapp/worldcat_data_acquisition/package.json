@@ -20,6 +20,7 @@
   "dependencies": {
     "agenda": "^1.0.3",
     "assert": "^1.4.1",
+    "async": "^2.6.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "moment": "^2.21.0",
