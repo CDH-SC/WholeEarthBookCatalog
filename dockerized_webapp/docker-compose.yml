@@ -15,7 +15,7 @@ services:
     ports:
       - "7474:7474" # bolt web admin
     # only uncomment for development builds
-    #  - "7687:7687" 
+      # - "7687:7687" 
     expose:
       - "7687" # bolt connection
     environment:
