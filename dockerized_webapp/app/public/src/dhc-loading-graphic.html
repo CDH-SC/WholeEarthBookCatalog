@@ -35,9 +35,8 @@
 
         }
 
-         
 
-     </style>
+    </style>
      <svg width = "" height = ""></svg> 
 
     <script>
@@ -77,15 +76,53 @@
                     return color(d.group);
                 }) /*
                 .call(d3.drag()
-                    .on("start", dragstarted)
-                    .on("drag", dragged)
-                    .on("end", dragended)
+                    .on("start", startDrag)
+                    .on("drag", drag)
+                    .on("end", endDrag)
                 );   */
+
+                node.append("title")
+                    .text(function(d) {
+                        return d.title;
+                    });
+
+                simulation 
+                    .nodes(graph.nodes)
+                    .on("motion", motionIter);
 
                 simulation.force("node") 
                    .nodes(graph.nodes);
 
+                function motionIter() {
+                    node
+                        .attr("cx", function(d) {
+                            return d.x;
+                        })
+                        .attr("cy", function(d) {
+                            return d.y;
+                        });
+                }
         })
+
+        
+
+        function startDrag() {
+            if(!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d.dx = d.x;
+            d.fy = d.y;
+        }
+
+        function drag() {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+         }
+
+        function endDrag() {
+            if(!d3.event.active) simulation.alphaTarget(0.01);
+            d.fx = null;
+            d.fy = null;
+
+        }
 
     </script>
 
