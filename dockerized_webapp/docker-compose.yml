@@ -33,7 +33,7 @@ services:
   node_webapp:
     build: ./app
     ports:
-      - "8080:8080"
+      - "80:80"
     environment:
       - PORT=${SERVER_PORT}
       - MONGO_URL=mongo

@@ -17,11 +17,8 @@ var MONGO_URL = process.env.MONGO_URL;
 
 var mongoUrl = `mongodb://${MONGO_URL}/agenda`;
 
-var agenda = new Agenda({
-    db: { 
-        address: mongoUrl
-    }
-});
+console.log("defined globals/imports");
+console.log(`mongoUrl: ${mongoUrl}`);
 
 /**
  * 
@@ -31,6 +28,7 @@ var agenda = new Agenda({
  * 
  */
 var init = function() {
+    console.log("init");
     var jobsArr = new Array();
     fs.readdir("./jobs", (err, files) => {
         assert.equal(err, null);
@@ -52,6 +50,7 @@ var init = function() {
  * @param {array} jobs 
  */
 var getJobsArray = function(jobs) {
+    console.log("getJobsArray");
     var jobsArr = new Array();
     jobs.forEach((job) => {
         console.log(job);                    
@@ -73,6 +72,7 @@ var getJobsArray = function(jobs) {
  * @param {array} jobs 
  */
 var addJobs = function( jobs ) {
+    console.log("addJobs");
     // create collection if it does not exist
     MongoClient.connect(mongoUrl, (err, db) => {
         assert.equal(err, null)
@@ -87,49 +87,57 @@ var addJobs = function( jobs ) {
     })
 }
 
-agenda.define("query worldcat", function(job) {
-    MongoClient.connect(mongoUrl, function(err, db) {
-        console.log("connecting...")
-        
-        assert.equal(err, null);
-        var jobs = db.collection("worldcatJobs");
+// initialize and run the process
+setTimeout(function() {
+    
+    var agenda = new Agenda({
+        db: { 
+            address: mongoUrl
+        }
+    });
 
-        // get next job from the database
-        jobs.findOne({
-            "completed": false
-        }, function(err, result) {
+
+    agenda.define("query worldcat", function(job) {
+        console.log("define query worldcat");
+        MongoClient.connect(mongoUrl, function(err, db) {
+            console.log("connecting...")
+            
             assert.equal(err, null);
-            if ( result != null ) {
-                console.log(JSON.stringify(result, null, 2));
-                wcq.query(result.jobString);
-                
-                // mark as completed
-                jobs.findOneAndUpdate({ "jobString": result.jobString },
-                                      { $set: { completed: true } },
-                                      { returnOriginal: false }, function(err, result) {
-                    assert.equal(err, null);
-                    console.log(JSON.stringify(result, null, 2))
+            var jobs = db.collection("worldcatJobs");
+
+            // get next job from the database
+            jobs.findOne({
+                "completed": false
+            }, function(err, result) {
+                assert.equal(err, null);
+                if ( result != null ) {
+                    console.log(JSON.stringify(result, null, 2));
+                    wcq.query(result.jobString);
+                    
+                    // mark as completed
+                    jobs.findOneAndUpdate({ "jobString": result.jobString },
+                                        { $set: { completed: true } },
+                                        { returnOriginal: false }, function(err, result) {
+                        assert.equal(err, null);
+                        console.log(JSON.stringify(result, null, 2))
+                        db.close();
+                    })
+                } else {
+                    console.log("No jobs scheduled currently...")
                     db.close();
-                })
-            } else {
-                console.log("No jobs scheduled currently...")
-                db.close();
-                setTimeout(function() {}, 30000)
-                process.exit(0);
-            }
+                    setTimeout(function() {}, 30000)
+                    process.exit(0);
+                }
+            })
         })
     })
-})
 
-// initialize and run the process
+	agenda.on("ready", function() {
+	    init();
+	    setTimeout(function() {
+            agenda.every("30 seconds", "query worldcat");
+            agenda.start();
+        }, 30000); // timeout to allow init to complete
+    })
 
-agenda.on("ready", function() {
-
-    setTimeout(function() {}, 30000); // timeout to ensure mongo gets up and running
-    init();
-
-    setTimeout(function() {}, 60000); // timeout to allow init to complete
-
-    agenda.every("30 seconds", "query worldcat");
-    agenda.start();
-})
+}, 30000);
