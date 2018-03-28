@@ -49,6 +49,7 @@ wcq.query = function(query) {
             
             // construct the querystring and send it to neo4j
             var data = wcq.parseResp(json);
+            console.log(JSON.stringify(data, null, 2))
             var qstring = wcq.constructQuery(data);
             var qr = neo4j.query(qstring)
 
@@ -69,33 +70,110 @@ wcq.query = function(query) {
         })
 }
 
+/**
+ * 
+ * Check to see if the record has quality to add to the database
+ * 
+ */
+var evaluateRecord = function(record) {
+
+    var edition = record.Edition
+    var places = record.Places
+    var publishers = record.Publishers
+    var people = record.People
+    var re = /.*[\[\]\{\}].*/
+    
+    if ( edition.ISBN === undefined || edition.ISBN.length == 0 ) {
+        return false;
+    }
+
+    if ( edition.Title == "<TITLE_NOT_FOUND>" || edition.Title.match(re) != undefined ) {
+        console.log(edition.Title.match(re))
+        console.log("unformatted title")
+        return false;
+    } else if ( edition.Date == -9999 ) {
+        return false;
+    }
+    
+    if ( places === undefined || places.length == 0 ) {
+        return false;
+    } else {
+        places.forEach( (place)=> {
+            if ( place.placename.match(re) != undefined ) {
+                console.log("unformatted place")
+                return false;
+            }
+        })
+    }
+    
+    if ( publishers === undefined || publishers.length == 0 ) {
+        return false;
+    } else {
+        publishers.forEach( (publisher) => {
+            if (publisher.pubname.match(re) != undefined ) {
+                console.log("unformatted pubname")
+                return false;
+            }
+        })
+    }
+
+    if ( people === undefined || people.length == 0 ) {
+        return false;
+    } else {
+        people.forEach( (person) => {
+            if ( person.lname.match(re) != undefined || person.fname.match(re) != undefined ) {
+                console.log("unformatted person")
+                return false;
+            }
+        })
+    }
+    return true;
+}
+
 /** 
  * 
  * parse the xml response to a WorldCat query
  * 
  */
-wcq.parseResp = function(res) {
-    
+wcq.parseResp = function(res, obj) {
+
     var obj = {
         records: Array()
     };
-
+ 
     var records = res.searchRetrieveResponse.records.record;
     if ( Array.isArray(records) ) {
         for ( var i = 0; i < records.length; i++ ) {
-            var record = records[i].recordData.record;
-            var data = record.datafield;
-            var pd = parseData(data);
-            obj.records.push(pd);
+            var data = records[i].recordData.record.datafield;
+            try {
+                var pd = parseData(data);
+                if ( pd !== undefined && evaluateRecord(pd) ) {
+                    obj.records.push(pd);
+                } else {
+                    console.log(`record:\n${JSON.stringify(pd, null, 2)}\nwas rejected`)
+                }
+            } catch(error) {
+                // throw away
+                console.log(`${JSON.stringify(error, null, 2)}`)
+            }
         }
     } else {
         var records = records.recordData.record;
         var data = record.datafield;
-        var pd = parseData(data);
-        obj.records.push(pd);
-    }
+        try {
+            var pd = parseData(data);
+            if ( pd !== undefined && evaluateRecord(pd) ) {
+                obj.records.push(pd);
+            } else {
+                console.log(`record:\n${JSON.stringify(pd, null, 2)}\nwas rejected`)
+            }
+        } catch(error) {
+            // throw away
+            console.log(`${JSON.stringify(error, null, 2)}`)
+        }
+   }
 
-    return obj;
+   return obj;
 }
 
 /** 
@@ -142,7 +220,7 @@ var parseData = function(data) {
  * 
  */
 var parseSubfield = function(code, val, tag, tags, obj) {
-    
+    if ( code === undefined || val === undefined || tag === undefined || tags === undefined || obj === undefined ) { return }
     if (tags[tag][code] !== undefined ) {
         var unknown_keys = tags[tag][code].unknown_keys;
         var mgroup = tags[tag][code].mgroup;
