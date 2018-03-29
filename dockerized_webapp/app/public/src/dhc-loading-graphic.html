@@ -1,9 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="d3-import.html">
 
-<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
-
-<dom-module id="loading-graphic">
+<dom-module id="dhc-loading-graphic">
     <template>
         <style include = "shared-styles.html"> 
 
@@ -38,10 +37,11 @@
          
 
      </style>
-     <svg width = "" height = ""></svg> 
+     <template>
+        <svg width = "" height = ""></svg> 
+     </template>
 
     <script>
-
         var svg = d3.select("svg"),
             width = +svg.attr("width"),
             height = +svg.attr("height");
@@ -88,6 +88,4 @@
         })
 
     </script>
-
-
 </dom-module>
