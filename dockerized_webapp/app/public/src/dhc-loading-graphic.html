@@ -1,9 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="d3-import.html">
 
-<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
-
-<dom-module id="loading-graphic">
+<dom-module id="dhc-loading-graphic">
     <template>
         <style include = "shared-styles.html"> 
 
@@ -31,16 +30,25 @@
             
         }
 
+<<<<<<< Updated upstream
         .nodes circle {
 
         }
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
     </style>
      <svg width = "" height = ""></svg> 
+=======
+     </style>
+     <template>
+        <svg width = "" height = ""></svg> 
+     </template>
+>>>>>>> 5d8f5bae612d3c1fee9254483cc7bc6fadcefd0b
 
     <script>
-
         var svg = d3.select("svg"),
             width = +svg.attr("width"),
             height = +svg.attr("height");
@@ -48,23 +56,12 @@
         var colorScheme = d3.scaleOrdinal(d3.schemeCategory20b);
 
         var simulation = d3.forceSimulation()
-            /*.force("link", d3.forceLink().id(function(d) {
-                return d.id;
-            })) */
+            
             .force("generalForce", d3.forceManyBody())
             .force("center", d3.forceCenter(width/2, height/2));
 
         d3.json("wcImport", function(error, graph) {
             if(error) throw error;
-
-           /* var edge = svg.append("g")
-                .attr("class", "links")
-                .selectAll("line")
-                .data(graph.links)
-                .enter().append("line")
-                .attr("stroke-width", function(d) {
-                    return Math.sqrt(d.value);
-                }) */
 
             var node = svg.append("g")
                 .attr("class", "nodes")
@@ -74,12 +71,11 @@
                 .attr("r", 5)
                 .attr("fill", function(d) {
                     return color(d.group);
-                }) /*
-                .call(d3.drag()
-                    .on("start", startDrag)
-                    .on("drag", drag)
-                    .on("end", endDrag)
-                );   */
+                }) 
+                .on("onmouseover").enter().append("text")
+                    .attr("text", function(d) {
+                        return d;
+                    });
 
                 node.append("title")
                     .text(function(d) {
@@ -104,9 +100,7 @@
                 }
         })
 
-        
-
-        function startDrag() {
+         function startDrag() {
             if(!d3.event.active) simulation.alphaTarget(0.3).restart();
             d.dx = d.x;
             d.fy = d.y;
@@ -125,6 +119,4 @@
         }
 
     </script>
-
-
 </dom-module>

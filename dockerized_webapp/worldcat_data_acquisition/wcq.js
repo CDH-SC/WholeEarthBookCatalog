@@ -139,25 +139,13 @@ var evaluateRecord = function(record) {
  * parse the xml response to a WorldCat query
  * 
  */
-<<<<<<< HEAD
-wcq.parseResp = function(res) {
-=======
 wcq.parseResp = function(res, obj) {
->>>>>>> 54e95183c3c388dbe4287c3b29809094d8a89514
 
     var obj = {
         records: Array()
     };
  
     var records = res.searchRetrieveResponse.records.record;
-<<<<<<< HEAD
-    if (Array.isArray(records)) {
-        for (var i = 0; i < records.length; i++) {
-            var record = records[i].recordData.record;
-            var data = record.datafield;
-            var pd = parseData(data);
-            obj.records.push(pd);
-=======
     if ( Array.isArray(records) ) {
         for ( var i = 0; i < records.length; i++ ) {
             var data = records[i].recordData.record.datafield;
@@ -172,7 +160,6 @@ wcq.parseResp = function(res, obj) {
                 // throw away
                 console.log(`${JSON.stringify(error, null, 2)}`)
             }
->>>>>>> 54e95183c3c388dbe4287c3b29809094d8a89514
         }
     } else {
         var records = records.recordData.record;
@@ -237,13 +224,8 @@ var parseData = function(data) {
  * 
  */
 var parseSubfield = function(code, val, tag, tags, obj) {
-<<<<<<< HEAD
-
-    if (tags[tag][code] !== undefined) {
-=======
     if ( code === undefined || val === undefined || tag === undefined || tags === undefined || obj === undefined ) { return }
     if (tags[tag][code] !== undefined ) {
->>>>>>> 54e95183c3c388dbe4287c3b29809094d8a89514
         var unknown_keys = tags[tag][code].unknown_keys;
         var mgroup = tags[tag][code].mgroup;
         var re_filter = tags[tag][code].re_filter;
