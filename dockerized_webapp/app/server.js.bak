@@ -398,10 +398,10 @@ app.use(bodyParser.json());
 // all endpoints are prepended with '/api'
 app.use('/api', router);
 
-app.use(express.static("public/build/es6-bundled"));
+app.use(express.static("public/"));
 
 app.get('*', function (req, res) {
-    res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
+    res.sendFile("public/index.html", { root: '.' });
 });
 
 // add directories with the files we need
