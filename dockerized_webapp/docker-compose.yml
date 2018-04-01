@@ -16,7 +16,7 @@ services:
     ports:
       - "7474:7474" # bolt web admin
     # only uncomment for development builds
-    #  - "7687:7687" 
+      # - "7687:7687" 
     expose:
       - "7687" # bolt connection
     environment:
@@ -38,33 +38,18 @@ services:
       dockerfile: ./Dockerfile.app
     ports:
       - "${PORT}:${PORT}"
-#    environment:
-#      - PORT=${PORT}
-#      - MONGO_URL=mongo
-#      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-#      - NEO4J_URL=neo4j
 
   loc_data_miner:
     env_file: .env
     build: 
       context: ./
       dockerfile: ./Dockerfile.loc
-#    environment:
-#      - PORT=${PORT}
-#      - MONGO_URL=mongo
-#      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-#      - NEO4J_URL=neo4j
   
   worldcat_data_miner:
     env_file: .env
     build: 
       context: ./
       dockerfile: ./Dockerfile.worldcat
-#    environment:
-#      - MONGO_URL=mongo
-#      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-#      - NEO4J_URL=neo4j
-#      - WSKEY=${WSKEY}
 
 volumes:
   data:

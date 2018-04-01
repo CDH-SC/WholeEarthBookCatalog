@@ -5,10 +5,10 @@ node_modules
 bower_components
 /.vs
 
-dockerized_webapp/test_data/
-dockerized_webapp/test_server.js
-dockerized_webapp/package.json.tm
-dockerized_webapp/t_dev_switch.sh
+dockerized_webapp/app/test_data/
+dockerized_webapp/app/test_server.js
+dockerized_webapp/app/package.json.tm
+dockerized_webapp/app/t_dev_switch.sh
 
 dockerized_webapp/data_acquisition/loc
 *.xml
@@ -16,3 +16,5 @@ dockerized_webapp/data_acquisition/loc
 
 dockerized_webapp/*/utils
 dockerized_webapp/*/node_modules
+
+dockerized_webapp/app/public/build/

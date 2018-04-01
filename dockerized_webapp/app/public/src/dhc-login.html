@@ -58,7 +58,6 @@
             </iron-ajax>
             </div>
         </div>
-        <frag-footer></frag-footer>
     </template>
 
 
@@ -104,15 +103,15 @@
                         this.dispatchEvent(new CustomEvent('update-user', {
                             bubbles: true, composed: true, detail: {
                                 user: e.detail.response,
+                                action: 'sign-in'
                         }}));
 
                         console.log(this.route.path);
-                        this.set("route.path", "/home");
+                        this.set("route.path", "home");
                     }
                 }
                 else {
                     this.valid = false;
-
                     this.set('errorMessage', 'Something went wrong...Sorry!');
                 }
             }

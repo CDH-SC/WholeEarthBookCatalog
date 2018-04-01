@@ -1,157 +1,92 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
 
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+
 <dom-module id="loading-graphic">
     <template>
-        <style include = "shared-styles.html"> /* add to shared styles*/
+        <style include = "shared-styles.html"> 
 
-         #loading-graph:fullscreen {
-
-        }
-
-        #loading-graph:-webkit-full-screen {
+        #d3-graph:-webkit-full-screen {
 
         }
 
-        #loading-graph:-moz-full-screen {
+        #d3-graph:-moz-full-screen {
 
         }
 
-        #loading-graph:-ms-full-screen {
+        #d3-graph:-ms-full-screen {
             
         }
 
-        #loading-graph-container {
+        #d3-graph-container {
 
         }
 
-        #loading-graph-header {
+        #d3-graph-header {
 
         }
 
-        #loading-graph-header-span {
+        #d3-graph-header-span {
             
         }
 
-        /*
-            Terms by which to style nodes:
+        .nodes circle {
 
-            popoto.graph.node.CountBox
-            PAGE_SIZE
-            TEXT_Y
-            BACK_CIRCLE
-            NODE_MAX_CHARS
-            ELLIPSE_RX, ELLIPSE_RY
+        }
 
-        NEED TO WORK OUT HOW TO DRAW IN THE WORLDCAT RECORDS!!!! 
-        CAN ACCESS DATABASE BUT WHERE EXACTLY ARE RECORDS HELD???
-*/
+         
+
      </style>
-
-
-        <app-local-storage-document key="data-search" data="{{searchparams}}"></app-local-storage-document>
-
-             <div class="loading-graph-header">
-                    <span class="loading-graph-header-span">Graph</span> search
-                </div>
-
-                <!-- -->
-        
-                <div class="ppt-container-graph">
-                    <nav id = "popoto-taxonomy" class = ppt-taxo-nav> </nav>
-                    
-                    <div id="popoto-graph" class="ppt-div-graph">
-                        <!-- Graph will be generated here-->
-                        <!-- just want the graph to be integrated into the project, no other viewers -->
-                        <span id = "loading-graph-desc"></span>
-        
-                    </div>
-                </div>
-            </div>
-            
-    </template>
+     <svg width = "" height = ""></svg> 
 
     <script>
-    </script>
 
-    <script>
-        popoto.rest.CYPHER_URL = "http://localhost:7474/db/data/transaction/commit"; //transactional endpoint
+        var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height");
 
-        // popoto.rest.AUTHORIZATION = "Basic " + btoa("neo4j:");
+        var colorScheme = d3.scaleOrdinal(d3.schemeCategory20b);
 
+        var simulation = d3.forceSimulation()
+            /*.force("link", d3.forceLink().id(function(d) {
+                return d.id;
+            })) */
+            .force("generalForce", d3.forceManyBody())
+            .force("center", d3.forceCenter(width/2, height/2));
 
-        const driver = neo4j.driver(popoto.rest.CYPHER_URL, neo4j.auth.basic(user, password));
-        const session = driver.session();
+        d3.json("wcImport", function(error, graph) {
+            if(error) throw error;
 
-        const searchPromise = session.writeTransaction(tx => tx.run(
-            'CREATE(a:Edition) SET a:title = $title RETURN a.title + ", from node" + id(a)', {
-                title: 'Harry Potter and the Prisoner of Azkaban'
-            }
-        ));
+           /* var edge = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter().append("line")
+                .attr("stroke-width", function(d) {
+                    return Math.sqrt(d.value);
+                }) */
 
-        searchPromise.then(result => {
-            session.close();
-        });
+            var node = svg.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(graph.nodes)
+                .enter().append("circle")
+                .attr("r", 5)
+                .attr("fill", function(d) {
+                    return color(d.group);
+                }) /*
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended)
+                );   */
 
-        const singleRecord = result.records[0];
-        const title = singleRecord.get(0);
+                simulation.force("node") 
+                   .nodes(graph.nodes);
 
-        console.log(title);
+        })
 
-        driver.close();
-
-        popoto.provider.nodeProviders = {
-            "Edition": {
-                "returnAttributes": ["ISBN", "title", "year"],
-                "constraintAttributes": "ISBN",
-                "autoExpandRelations": true
-
-            },
-            "Person": {
-                "returnAttributes": ["fname", "lname"],
-                "constraintAttribute": "lname",
-                "autoExpandRelations": true // if set to true Person nodes will be automatically expanded in graph
-            },
-            "Place": {
-                "returnAttributes": ["name"],
-                "constraintAttribute": "title",
-                "autoExpandRelations": true
-            },
-
-            "Publisher": {
-                "returnAttributes": ["name"],
-                "constraintAttribute": "name",
-                "autoExpandRelations": true
-            }
-        };
-
-        /*Event Listener*/
-
-        popoto.result.onTotalResultCount(function(count) {
-            document.getElementById("dhc-graph").innerHTML = "(" + count + ")";
-        });
-
-
-        class dhcGraph extends Polymer.Element { /*may not even need this*/
-                static get is() {
-                    return 'loadingGraph'
-                };
-
-                static get properties() {
-                    return {
-                        searchParams: {
-                            type: Object,
-                            notify: true,
-                            value: {}
-                        }
-
-                    }
-                }
-
-            }
-            // window.customElements.define(loadingGraphic.is, loadingGraphic);
-
-        popoto.start("Edition");
     </script>
 
 

@@ -1,22 +1,19 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="../bower_components/polymer/lib/elements/dom-if.html">
 <link rel="import" href="../bower_components/app-layout/app-layout.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
 <link rel="import" href="../bower_components/neon-animation/web-animations.html">
-
-<meta name = "viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="import" href="../bower_components/app-route/app-location.html">
 
 <dom-module id="frag-header">
     <template>
         <style include="shared-styles">
+            :host {
+                z-index: 10;
+            }
             .header-row {
                 display: flex;
                 flex-direction: row;
@@ -82,25 +79,34 @@
                 width: 162px;
                 font-size: 24px;
             }
+
+            .ellipsis {
+                text-overflow: ellipsis;
+
+                /* Required for text-overflow to do anything */
+                white-space: nowrap;
+                overflow: hidden;
+            }
         </style>
-        <app-location route="{{route}}"></app-location>
+            <app-location route="{{route}}"></app-location>
+            
             <app-toolbar>
                 <div class="header-row">
-                    <template is="dom-if" if="[[_showSearch()]]">
+                    <template is="dom-if" if="[[showhead]]">
                         <paper-button id="home-button" noink on-click="_go_home">
                             <h1>DHC</h1>
                         </paper-button>
                     </template>
-                    <template is="dom-if" if="[[_showSearch()]]"></template>
-                    <template is="dom-if" if="[[!_showSearch()]]">
+                    <template is="dom-if" if="[[showhead]]"></template>
+                    <template is="dom-if" if="[[!showhead]]">
                         <span class="stretcher"></span>
                     </template>
 
                     <template is="dom-if" if="[[inSession]]">
                         <paper-menu-button vertical-offset="60" horizontal-align="right">
-                            <paper-button slot="dropdown-trigger" class="account-blue">Hi, User</paper-button>
+                            <paper-button slot="dropdown-trigger" class="account-blue ellipsis">{{user.username}}</paper-button>
                             <paper-listbox class="user-listbox" slot="dropdown-content">
-                                <a id="goto-user-account" user="{{user}}" href="[[rootPath]]user-account"><paper-item>Account</paper-item></a>
+                                <a id="goto-user-account" user="{{user}}" href="/user-account/{{user._id}}"><paper-item>Account</paper-item></a>
                                 <paper-item>Favorites</paper-item>
                                 <paper-item on-click="_sign_out">Sign out</paper-item>
                             </paper-listbox>
@@ -108,7 +114,7 @@
 
                     </template>
                     <template is="dom-if" if="[[!inSession]]"> 
-                        <a href="[[rootPath]]login">
+                        <a href="/login">
                             <paper-button class="account-blue">Sign in</paper-button>
                         </a>
                     </template>
@@ -128,7 +134,10 @@
                         type: Object,
                         observer: '_userDataObserver'
                     },
-                    route: Object
+                    showhead: {
+                        type: Boolean,
+                        notify: true
+                    }
                 };
             }
 
@@ -140,33 +149,36 @@
                 this.dispatchEvent(new CustomEvent('update-user', {
                     bubbles: true, composed: true, detail: {
                     user: {
+                        _id: "",
                         username: "",
-                        authenticated: false,
-                        favorites: [],
-                        recent_searches: [],
-                        saved_queries: []
+                        authenticated: false
                     } ,
+                    action: 'sign-out'
                 }}));
 
                 
-                if (this.route.path === "/user-account") {
-                    console.log("Hmm");
-                    this.set("route.path", "/home");
+                if (this.route.path.includes("user-account")) {
+                    this.set("route.path", "home");
                 }
             }
 
             _showSearch() {
-                var test = this.get("route");
-                console.log(test);
+                console.log("PATH: ", this.route);
+                // if(this.route.path.includes("home")) {
+                //     return false;
+                // }
+
+                // else {
+                //     return true;
+                // }
                 return true;
             }
 
             _go_home() {
-                this.set("route.path", "/home");
+                this.set("route.path", "home");
             }
 
             _userDataObserver() {
-                console.log('user chagned', this.user); 
                 if (this.user.authenticated) {
                     this.inSession = true;
                 }

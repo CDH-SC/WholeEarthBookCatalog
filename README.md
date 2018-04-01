@@ -39,13 +39,28 @@ To make our lives and the lives of those who wish to run this software easier, w
 You need a configuration file which defines the port the webapp will be served on, as well as the neo4j password.  
 We have provided an example file to model what this should look like.
 
-Before deployment, be sure to edit the `app.conf.example` and rename as `app.conf`. The password for neo4j can be set to whichever value you please, and we're using the port `8080`, but any open port should do.
+Before deployment, be sure to edit the `app.conf.example` and rename as `app.conf`. The password for neo4j can be set to whichever value you please.
 
-***Run:***
+***Data Acquisition:***
+
+If you want to run the worldcat miner, you need a [wskey](https://www.oclc.org/developer/develop/authentication/what-is-a-wskey.en.html) from worldcat. Once you have one, set the `WSKEY` environment variable in `app.conf`.
+
+***Building:***
 
 ```
-$ source app.conf
-$ docker-compose up
+$ ./build.sh
+```
+
+***Running:***
+
+```
+$ ./run.sh
+```
+
+***Build And Run:***
+
+```
+$ ./build-and-run.sh
 ```
 
 The app will be deployed on `localhost:$SERVER_PORT`.
@@ -53,6 +68,7 @@ The app will be deployed on `localhost:$SERVER_PORT`.
 ***Notes:***
 
   + The above example assumes you are running `bash`. If you have a different shell, it might not use the `source` command to handle environment variables.
+  + The scripts may have trouble sourcing the environment variables when invoked in the style above. If this is an issue, running the script as `$ source <script.sh>` should hopefully solve the problem.
   + You can change the second command to `docker-compose up -d` so that docker runs the processes in the background.
   + Check on the status of your containers with `docker logs <container_id>`. The id can be found by running `docker ps`.
 

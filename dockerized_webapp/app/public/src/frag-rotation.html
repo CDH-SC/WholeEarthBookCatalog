@@ -6,7 +6,7 @@
     <template>
         <style>
 
-            #book-recommends {
+            #bookRecommends {
                 display: flex;
                 flex-basis: auto;
                 flex-grow: 1;
@@ -16,12 +16,10 @@
                 max-width: 800px;
             }
 
-            #book-recommends > iron-icon {
+            #bookRecommends > iron-icon {
                 height: 50px;
                 width: 50px;
             }
-
-
 
             paper-button.chev-cir {
                 padding: 0;
@@ -47,7 +45,7 @@
                 border-radius: 30px;
             }
 
-            .book-wrapper {
+            #bookHolder {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -66,12 +64,19 @@
             img {
                 width: auto;
                 max-width: 150px;
+                height: inherit;
+                max-height: 248px;
+            }
+
+            p {
+                font-size: 1.2rem;
+                text-align: center;
             }
         </style>
 
-        <div id="book-recommends">
+        <div id="bookRecommends">
             <paper-button on-click="_set_image_b" class="chev-cir"><iron-icon class="chev-button" icon="chevron-left"></iron-icon></paper-button>
-            <div class="book-wrapper">
+            <div id="bookHolder" class="book-wrapper">
                 <template is="dom-repeat" items="[[current_display]]">
                     <div class="book-rec">
                         <img class="rec-book" src="{{item}}"></img>
@@ -158,6 +163,13 @@
 
                 this.pop('current_display');
                 this.unshift('current_display', this.book_rec_covers[ind]);
+                // this._bindTimeoutBounce()
+            }
+
+            _bindTimeoutBounce() {
+                setTimeout(function() {
+                    this.$.bookHolder.setAttribute("class", "animated bounce")
+                }.bind(this), 1000);                
             }
 
             _resize() {

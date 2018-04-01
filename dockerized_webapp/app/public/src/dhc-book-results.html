@@ -21,17 +21,23 @@
 
             #result-entry-wrapper {
                 width: 100%;
-                height: calc(100% - 60px);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 60px;
                 overflow-y: auto;
             }
 
             .result-item-info {
-                height: 280px;
+                height: 400px;
+                width: 300px;
                 display: flex; /*relate to container element*/
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: space-between;
                 border: 1px solid #E0E0E0;
                 align-items: center;
+                padding-left: 20px;
+                padding-right: 20px;
             }
 
             #result-item-image {
@@ -41,18 +47,12 @@
                 box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
             }
 
-            .book-info-text {
-                padding-left: 60px;
-            }
-
-            .image-wrapper {
-                padding-left: 57px;
-            }
-
             .book-info {
                 width: 100%;
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             } 
 
             .heart-icon {
@@ -72,35 +72,6 @@
                 border-bottom:none;
             }
 
-            #result-item-view-profile {
-                width: 100%;
-                height: 33.3%;
-                padding:0px;
-                border-top: none;
-            }
-
-            #result-item-request {
-                padding:0px;
-                width: 50%;
-                height: 33.3%;
-            }
-
-            #result-paired-buttons {
-                display: flex;
-            }
-
-            #result-item-like {
-                padding: 0px;
-                width: 50%;
-                height: 33.3%;
-            }
-
-            #result-item-share {
-                width: 100%;
-                height: 34%;
-                border-top: none;
-            }
-
             .paper-metadata {
                 flex-grow: 1;
                 margin-left: 50px;
@@ -118,17 +89,20 @@
             }
 
             h1 {
+                font-size: 2rem;
                 margin-bottom: 5px;
             }
 
             h2 {
+                text-align: center;
+                font-size: 1.5rem;
                 margin-bottom: 5px;
             }
 
             paper-button {
                 margin: 0px;
-                box-shadow: none;
-                border: 1px solid grey;
+                background-color: #2d9cdb;
+                color: whitesmoke;
             }
 
             paper-button[focused].btn-attached {
@@ -166,6 +140,25 @@
                 border: none;
                 background-color: #E0E0E0;
             }
+
+
+            .ellipsis {
+                text-overflow: ellipsis;
+                width: 100%;
+                text-align: center;
+                /* Required for text-overflow to do anything */
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            .image-wrapper {
+                /* bad :( */
+                margin-top: 20px;
+            }
+
+            .book-info-text {
+                width: 100%;
+            }
         </style>
 
         <app-route
@@ -195,6 +188,8 @@
             content-type="application/json"
             debounce-duration="300">
         </iron-ajax>
+
+        <div>
 
         <div class="btn-wrapper">
             <div class="toggler">
@@ -228,37 +223,17 @@
                                 </div>
                                 <template is="dom-repeat" items="{{item._fields}}" as="field">
                                     <div class="book-info-text">
-                                        <h1>
+                                        <h1 class="ellipsis">
                                             {{field.properties.title}}
                                         </h1>
-                                        <h2>
+                                        <h2 class="ellipsis">
                                             {{field.properties.author}}
-                                        </h2>
-                                        <h2>
-                                            Publisher: {{field.properties.publisher}}
-                                        </h2>
-                                        <h2>
-                                            Originally Published: {{field.properties.year}}
                                         </h2>
                                     </div>
                                 </template>
-                            </div>
-                        
-                            <div id = "result-item-menu" class="border-color">
-                                <a href="/book-profile/{{item.name}}">
+                                <a href="book-profile/test">
                                     <paper-button on-click="" id = "result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
                                 </a>
-
-                                <div id = "result-paired-buttons">
-                                    <paper-button id = "result-item-request" class="border-color"> Request </paper-button>
-                                    <paper-button id = "result-item-like" title = "heart" id = "result-item-like" on-click="_addFavBook" book="{{item}}" class="border-color">
-                                        <iron-icon class="heart-icon" icon="favorite"></iron-icon></paper-button> 
-
-                                </div>
-
-                                <paper-button id = "result-item-share" class="border-color">
-                                    Share
-                                </paper-button>
                             </div>
                         </div>
                     </template>
@@ -266,7 +241,7 @@
             </template>
 
         </template>
-        <frag-footer> </frag-footer>
+    </div>
     </template>
 
     <script>
@@ -308,7 +283,7 @@
 
             _resultPageChanged() {
 
-                if (this.route.path.includes("/book-results/")) {
+                if (this.route.path.includes("book-results/")) {
                     this.set("noResults", false);
                     this.set("searchData", {});
                     this.set("searchDataLoaded", false);
