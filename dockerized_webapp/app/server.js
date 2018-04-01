@@ -39,7 +39,6 @@ router.post("/add_user/", function (req, res) {
         
         res.json(err);
     } else {
-
         // construct userdoc
         var userdoc = {
             username: data.username
@@ -275,6 +274,29 @@ router.post("/goodreads/", function(req,res) {
     //goodreadsDriver.getBooks();
 });
 
+
+/*
+* Request body should only contain an id
+*/
+router.post("/neo4j/single_node/", function(req, res) {
+    var data = req.body;
+
+    var statement = qstrings.singleNode;
+    var params = {};
+
+    if (data.id !== undefined) {
+        params.id = data.id;
+    }
+
+    var q = neo4j.query(statement, params);
+    q.response.then(function(resp) {
+        res.json(resp);
+    })
+    .catch(function (err) {
+        res.json({error: "There was an error retrieving the id"});
+    })
+})
+
 /** keyword query for neo4j
  *
  *  The request body should have the form:
@@ -324,10 +346,6 @@ router.post("/neo4j/", function (req, res) {
     q.session.close();
 });
 
-// WIP
-// router.post("/neo4j/get_single_record", function(req, res) {
-//     var statement = qstrings.
-// })
 
 /**
  * 

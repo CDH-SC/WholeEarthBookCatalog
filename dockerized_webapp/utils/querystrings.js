@@ -82,7 +82,7 @@ qstrings.keywordSearch = `OPTIONAL MATCH (e:Edition)-[:IS-A-VERSION-OF]->(e1:Edi
 													LIMIT { limit }`;
 
 
-
+qstrings.singleNode = `MATCH (s) WHERE ID(s) = { val } RETURN s`;
 /**
  *
  *

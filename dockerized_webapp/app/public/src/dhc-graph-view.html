@@ -83,6 +83,11 @@
                     .enter().append("circle")
                         .attr("r", 10)
                         .attr("fill", "red")
+                        .on ('mouseover', function(d) {
+                            console.log(d);
+                            console.log("Moused OVer");
+                        })
+
             
                 console.log(nodeElements);
 
@@ -96,7 +101,7 @@
                         .attr('font-size', 15)
                         .attr('dx', 15)
                         .attr('dy', 4)
-
+                        
                 simulation.nodes(nodesInScope).on('tick', () => {
                     nodeElements
                         .attr("cx", node => node.x)
