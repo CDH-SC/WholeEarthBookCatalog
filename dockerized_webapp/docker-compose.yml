@@ -11,7 +11,7 @@ version: "3"
 services:
 
   neo4j:
-    env_file: app.env
+    env_file: .env
     image: neo4j
     ports:
       - "7474:7474" # bolt web admin
