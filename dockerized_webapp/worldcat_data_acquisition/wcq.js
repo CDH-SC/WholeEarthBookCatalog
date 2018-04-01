@@ -83,10 +83,6 @@ var evaluateRecord = function(record) {
     var people = record.People
     var re = /.*[\[\]\{\}].*/
     
-    if ( edition.ISBN === undefined || edition.ISBN.length == 0 ) {
-        return false;
-    }
-
     if ( edition.Title == "<TITLE_NOT_FOUND>" || edition.Title.match(re) != undefined ) {
         console.log(edition.Title.match(re))
         console.log("unformatted title")
@@ -106,9 +102,7 @@ var evaluateRecord = function(record) {
         })
     }
     
-    if ( publishers === undefined || publishers.length == 0 ) {
-        return false;
-    } else {
+    if ( publishers.length != 0 ) {
         publishers.forEach( (publisher) => {
             if (publisher.pubname.match(re) != undefined ) {
                 console.log("unformatted pubname")

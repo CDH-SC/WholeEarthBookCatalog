@@ -1,22 +1,19 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="../bower_components/polymer/lib/elements/dom-if.html">
 <link rel="import" href="../bower_components/app-layout/app-layout.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-menu-button/paper-menu-button.html">
 <link rel="import" href="../bower_components/neon-animation/web-animations.html">
-
-<meta name = "viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<link rel="import" href="../bower_components/app-route/app-location.html">
 
 <dom-module id="frag-header">
     <template>
         <style include="shared-styles">
+            :host {
+                z-index: 10;
+            }
             .header-row {
                 display: flex;
                 flex-direction: row;
@@ -91,16 +88,17 @@
                 overflow: hidden;
             }
         </style>
-        <app-location route="{{route}}"></app-location>
+            <app-location route="{{route}}"></app-location>
+            
             <app-toolbar>
                 <div class="header-row">
-                    <template is="dom-if" if="[[_showSearch()]]">
+                    <template is="dom-if" if="[[showhead]]">
                         <paper-button id="home-button" noink on-click="_go_home">
                             <h1>DHC</h1>
                         </paper-button>
                     </template>
-                    <template is="dom-if" if="[[_showSearch()]]"></template>
-                    <template is="dom-if" if="[[!_showSearch()]]">
+                    <template is="dom-if" if="[[showhead]]"></template>
+                    <template is="dom-if" if="[[!showhead]]">
                         <span class="stretcher"></span>
                     </template>
 
@@ -136,7 +134,10 @@
                         type: Object,
                         observer: '_userDataObserver'
                     },
-                    route: Object
+                    showhead: {
+                        type: Boolean,
+                        notify: true
+                    }
                 };
             }
 
@@ -162,8 +163,14 @@
             }
 
             _showSearch() {
-                var test = this.get("route");
-                console.log(test);
+                console.log("PATH: ", this.route);
+                // if(this.route.path.includes("home")) {
+                //     return false;
+                // }
+
+                // else {
+                //     return true;
+                // }
                 return true;
             }
 
