@@ -108,7 +108,6 @@
                             <paper-button slot="dropdown-trigger" class="account-blue ellipsis">{{user.username}}</paper-button>
                             <paper-listbox slot="dropdown-content">
                                 <a id="goto-user-account" user="{{user}}" href="/user-account/{{user._id}}"><paper-item>Account</paper-item></a>
-                                <paper-item>Favorites</paper-item>
                                 <paper-item on-click="_sign_out">Sign out</paper-item>
                             </paper-listbox>
                         </paper-menu-button>
