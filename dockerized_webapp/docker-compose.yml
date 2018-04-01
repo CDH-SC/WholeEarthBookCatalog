@@ -39,7 +39,7 @@ services:
     ports:
       - "${PORT}:${PORT}"
 
-      loc_data_miner:
+  loc_data_miner:
     env_file: .env
     build: 
       context: ./
