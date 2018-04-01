@@ -92,40 +92,40 @@ var evaluateRecord = function(record) {
     var publishers = record.Publishers
     var people = record.People
     var re = /.*[\[\]\{\}].*/
-    
-    if ( edition.Title == "<TITLE_NOT_FOUND>" || edition.Title.match(re) != undefined ) {
+
+    if (edition.Title == "<TITLE_NOT_FOUND>" || edition.Title.match(re) != undefined) {
         console.log(edition.Title.match(re))
         console.log("unformatted title")
         return false;
-    } else if ( edition.Date == -9999 ) {
+    } else if (edition.Date == -9999) {
         return false;
     }
-    
-    if ( places === undefined || places.length == 0 ) {
+
+    if (places === undefined || places.length == 0) {
         return false;
     } else {
-        places.forEach( (place)=> {
-            if ( place.placename.match(re) != undefined ) {
+        places.forEach((place) => {
+            if (place.placename.match(re) != undefined) {
                 console.log("unformatted place")
                 return false;
             }
         })
     }
-    
-    if ( publishers.length != 0 ) {
-        publishers.forEach( (publisher) => {
-            if (publisher.pubname.match(re) != undefined ) {
+
+    if (publishers.length != 0) {
+        publishers.forEach((publisher) => {
+            if (publisher.pubname.match(re) != undefined) {
                 console.log("unformatted pubname")
                 return false;
             }
         })
     }
 
-    if ( people === undefined || people.length == 0 ) {
+    if (people === undefined || people.length == 0) {
         return false;
     } else {
-        people.forEach( (person) => {
-            if ( person.lname.match(re) != undefined || person.fname.match(re) != undefined ) {
+        people.forEach((person) => {
+            if (person.lname.match(re) != undefined || person.fname.match(re) != undefined) {
                 console.log("unformatted person")
                 return false;
             }
@@ -144,19 +144,19 @@ wcq.parseResp = function(res, obj) {
     var obj = {
         records: Array()
     };
- 
+
     var records = res.searchRetrieveResponse.records.record;
-    if ( Array.isArray(records) ) {
-        for ( var i = 0; i < records.length; i++ ) {
+    if (Array.isArray(records)) {
+        for (var i = 0; i < records.length; i++) {
             var data = records[i].recordData.record.datafield;
             try {
                 var pd = parseData(data);
-                if ( pd !== undefined && evaluateRecord(pd) ) {
+                if (pd !== undefined && evaluateRecord(pd)) {
                     obj.records.push(pd);
                 } else {
                     console.log(`record:\n${JSON.stringify(pd, null, 2)}\nwas rejected`)
                 }
-            } catch(error) {
+            } catch (error) {
                 // throw away
                 console.log(`${JSON.stringify(error, null, 2)}`)
             }
@@ -166,18 +166,18 @@ wcq.parseResp = function(res, obj) {
         var data = record.datafield;
         try {
             var pd = parseData(data);
-            if ( pd !== undefined && evaluateRecord(pd) ) {
+            if (pd !== undefined && evaluateRecord(pd)) {
                 obj.records.push(pd);
             } else {
                 console.log(`record:\n${JSON.stringify(pd, null, 2)}\nwas rejected`)
             }
-        } catch(error) {
+        } catch (error) {
             // throw away
             console.log(`${JSON.stringify(error, null, 2)}`)
         }
-   }
+    }
 
-   return obj;
+    return obj;
 }
 
 /** 
@@ -224,8 +224,8 @@ var parseData = function(data) {
  * 
  */
 var parseSubfield = function(code, val, tag, tags, obj) {
-    if ( code === undefined || val === undefined || tag === undefined || tags === undefined || obj === undefined ) { return }
-    if (tags[tag][code] !== undefined ) {
+    if (code === undefined || val === undefined || tag === undefined || tags === undefined || obj === undefined) { return }
+    if (tags[tag][code] !== undefined) {
         var unknown_keys = tags[tag][code].unknown_keys;
         var mgroup = tags[tag][code].mgroup;
         var re_filter = tags[tag][code].re_filter;
