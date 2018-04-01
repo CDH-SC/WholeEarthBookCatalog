@@ -261,9 +261,7 @@
 
             _onUpdateSearchData(event) {
                 this.$.searchdatacomp.updateSearch(event.detail);
-                console.log(e.detail);
                 e.detail._id = this.user._id;
-                console.log(e.detail);
                 this.$.updateinfo.body = e.detail;
                 this.$.updateinfo.generateRequest();
             }

@@ -3,8 +3,18 @@
 <dom-module id="dhc-graph-view">
     <template>
         <style>
+            .selection-display {
+                padding-left: 50px;
+            }
         </style>
         
+        <template is="dom-if" if="{{isSelection}}">
+           <div class="selection-display"><h2>Node Name : {{selectedNode.name}}</h2></div> 
+        </template>
+
+        <template is="dom-if" if="{{!isSelection}}">
+            <div><p>Nothing selected!</p></div>
+        </template>
         <svg id="container"></svg>
     </template>
 
@@ -32,7 +42,16 @@
                     nodes: {
                         type: Array,
                         value: []
-                    }
+                    },
+
+                    selectedNode: {
+                        type: Object,
+                        value: {
+                            name: ""
+                        }
+                    },
+
+                    isSelection: Boolean
                 }
             }
 
@@ -50,6 +69,11 @@
                     var currRecord = this.records[i];
                     this.push('nodes', {id: i, group: 1, label: currRecord._fields[0].properties.title, level: 1});
                 }
+            }
+
+            _setSelections(d) {
+                this.set("isSelection", true);
+                this.set("selectedNode.name", d.label);
             }
 
             _genGraph() {
@@ -76,6 +100,7 @@
                 console.log(simulation);
 
                 // this might break...
+
                 const nodeElements = svg.append('g')
                     .attr("class", "nodes")
                     .selectAll("circle")
@@ -83,10 +108,10 @@
                     .enter().append("circle")
                         .attr("r", 10)
                         .attr("fill", "red")
-                        .on ('mouseover', function(d) {
-                            console.log(d);
-                            console.log("Moused OVer");
-                        })
+                        .on("click", function(d) {		
+                            this._setSelections(d);
+                        }.bind(this));
+
 
             
                 console.log(nodeElements);
