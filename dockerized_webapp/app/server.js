@@ -259,7 +259,7 @@ router.post("/neo4j/", function (req, res) {
     // if data.basic_query is not a string with regular characters don't accept it
 
     console.log(`request:\n${JSON.stringify(data, null, 2)}`);
-
+    
     var statement = qstrings.keywordSearchExample;
     var params = {};
 
