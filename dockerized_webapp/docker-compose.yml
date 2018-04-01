@@ -11,6 +11,7 @@ version: "3"
 services:
 
   neo4j:
+    env_file: .env
     image: neo4j
     ports:
       - "7474:7474" # bolt web admin
@@ -31,30 +32,24 @@ services:
       - "data:/data/db"
 
   node_webapp:
-    build: ./app
+    env_file: .env
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.app
     ports:
-      - "8080:8080"
-    environment:
-      - PORT=${SERVER_PORT}
-      - MONGO_URL=mongo
-      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-      - NEO4J_URL=neo4j
+      - "${PORT}:${PORT}"
 
   loc_data_miner:
-    build: ./loc_data_acquisition
-    environment:
-      - PORT=${SERVER_PORT}
-      - MONGO_URL=mongo
-      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-      - NEO4J_URL=neo4j
+    env_file: .env
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile.loc
   
   worldcat_data_miner:
-    build: ./worldcat_data_acquisition
-    environment:
-      - MONGO_URL=mongo
-      - NEO4J_PASSWORD=${NEO4J_PASSWORD}
-      - NEO4J_URL=neo4j
-      - WSKEY=${WSKEY}
+    env_file: .env
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile.worldcat
 
 volumes:
   data:

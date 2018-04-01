@@ -1,4 +1,0 @@
-# configuration for the app
-
-export SERVER_PORT=<port>
-export NEO4J_PASSWORD=<password>
