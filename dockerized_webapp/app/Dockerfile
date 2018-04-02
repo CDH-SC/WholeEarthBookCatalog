@@ -8,7 +8,7 @@ COPY . .
 
 WORKDIR /usr/src/app/public
 RUN bower install --allow-root
-RUN polymer build
+# RUN polymer build
 
 WORKDIR /usr/src/app
 

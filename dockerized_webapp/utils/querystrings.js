@@ -83,9 +83,7 @@ qstrings.keywordSearch = `OPTIONAL MATCH (e:Edition)-[:IS-A-VERSION-OF]->(e1:Edi
 
 
 
-/** Person
- *
- */
+
 qstrings.advancedSearchPerson = `OPTIONAL MATCH
                                 (p:Person)-[*..{ degrees }]-(e:Edition),
                                 (p1:Person)-[:WROTE]->(e),
@@ -96,8 +94,8 @@ qstrings.advancedSearchPerson = `OPTIONAL MATCH
                                 OR p.fname =~ { fname_re }
                                 WITH collect( { title: e.title, name: p1.fname + " " + p1.lname, publisher: x.name, place: y.name } ) as c1
 
-								 UNWIND c1 as x
-								 RETURN DISTINCT x
+								                UNWIND c1 as x
+								                RETURN DISTINCT x
                                  LIMIT { limit }`;
 
 /* Edition
