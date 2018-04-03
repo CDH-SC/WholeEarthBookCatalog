@@ -79,7 +79,7 @@
 
         <paper-toast id="signInToast" text="Successfully Logged In!"></paper-toast>
         <paper-toast id="signOutToast" text="Successfully Logged Out!"></paper-toast>
-
+        <paper-toast id="faveQuery" text="Query Saved!"></paper-toast>
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -261,9 +261,15 @@
 
             _onUpdateSearchData(event) {
                 this.$.searchdatacomp.updateSearch(event.detail);
+                e.detail._id = this.user._id;
+                this.$.updateinfo.body = e.detail;
+                this.$.updateinfo.generateRequest();
             }
 
             _handleResponse(e) {
+                console.log(e);
+                // console.log(e.detail.request);
+                this.$.faveQuery.open();
                 console.log(e.detail.response);
                 console.log("handled");
             }
