@@ -59,10 +59,10 @@ function CreateScript(obj) {
     script += propertyStatements.join(", ");
     script += "}) ";
     if (author != undefined && author != null) {
-        script += "MERGE (a) -[r:WROTE]-> (i) ";
+        script += "MERGE (a) -[ra:WROTE]-> (i) ";
     }
     if (publisher != undefined && publisher != null) {
-        script += "MERGE (b) -[r:PUBLISHED]-> (i) ";
+        script += "MERGE (b) -[rb:PUBLISHED]-> (i) ";
     }
     script += "RETURN i";
     return script;
