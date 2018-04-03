@@ -19,29 +19,118 @@ qstrings.simpleKeywordSearch = `MATCH (n:Movie)
 				RETURN DISTINCT n LIMIT { limit }`;
 
 /**
+ * 
+ * work in progress
+ * 
+qstrings.keywordSearchExample = `
+    OPTIONAL MATCH
+	(p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
+
+	WHERE
+	b.title =~ { regex } OR
+	p.lname =~ { regex } OR
+	p.fname =~ { regex } OR
+	pub.name =~ { regex } OR
+	plc.name =~ { regex }
+	
+	WITH
+	collect( { title: b.title, author: p.fname + " " + p.lname, publisher: pub.name } ) as records
+
+	OPTIONAL MATCH
+	(:Edition)-[*..3]-(b:Edition),
+	(p:Person)-[:WROTE]->(b)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
+
+	WHERE
+	b.title =~ { regex } OR
+	p.lname =~ { regex } OR
+	p.fname =~ { regex } OR
+	pub.name =~ { regex } OR
+	plc.name =~ { regex }
+	
+	WITH
+	collect( { title: b.title, author: p.fname + " " + p.lname, publisher: pub.name } ) + records as records
+
+	UNWIND records as r
+	RETURN DISTINCT
+	CASE
+    WHEN (r.title IS NULL OR r.author IS NULL OR r.publisher IS NULL) THEN NULL
+    ELSE r
+    END AS res
+	LIMIT { limit }
+`
+*/
+
+/**
+ * Example returning authors and publishers as a list
+ */
+qstrings.keywordReturnListsExample = `
+OPTIONAL MATCH
+	(p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
+
+	WHERE
+	b.title =~ "(?i).*Harry Potter.*" OR
+	p.lname =~ "(?i).*Pinker.*" OR
+	p.fname =~ "(?i).*Steven.*"
+	
+	WITH
+	{
+		authors: collect( DISTINCT (p.fname + " " + p.lname )), 
+		publishers: collect( DISTINCT pub.name ),
+		title: b.title
+	} as tmp
+
+    WITH
+	collect( DISTINCT tmp ) as records
+
+	UNWIND records as r
+	RETURN DISTINCT
+	CASE
+    WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
+    ELSE r
+    END AS res
+	LIMIT 100
+`
+
+/**
  * Params:
  *
  *   - regex <string>
  *   - limit <number>
  *
  */
+qstrings.keywordSearchExample = `
+                        OPTIONAL MATCH
+						(p:Person)-[*..3]-(b:Edition),
+						(b)<-[:WROTE]-(p1:Person),
+						(b)<-[:PUBLISHED]-(pub:Publisher),
+						(pub)-[:PUBLISHES_IN]->(plc:Place)
+						WHERE
+						p1.lname =~ { regex }
+						OR p1.fname =~  { regex }
+						WITH collect( { title: b.title, name: p1.fname + " " + p1.lname, publisher:pub.name, place:plc.name } ) as r
 
-qstrings.keywordSearchExample = `OPTIONAL MATCH (p:Person)-[*..2]-(b:Edition)
-						WHERE p.lname =~ { regex }
-						OR p.fname =~ { regex }
-						WITH collect(b) as c1
+						OPTIONAL MATCH 
+						(b1:Edition)-[*..2]-(b2:Edition)
+						(b1)<-[:WROTE]-(p:Person),
+						(b1)<-[:PUBLISHED]-(pub:Publisher),
+						(pub)-[:PUBLISHES_IN]->(plc:Place),
+						(b2)<-[:WROTE]-(p1:Person),
+						(b2)<-[:PUBLISHED]-(pub1:Publisher),
+						(pub1)-[:PUBLISHES_IN]->(plc1:Place)
+						WHERE
+						b1.title =~ { regex }
+						WITH
+						collect({ title: b1.title, name: p.fname + " " + p.lname, publisher: pub.name, place: plc.name }) + 
+						collect({ title: b2.title, name: p1.fname + " " + p1.lname, publisher: pub1.name, place: plc1.name }) + collect(r) as r1
 
-						OPTIONAL MATCH (e:Edition)-[*..2]-(b:Edition)
-						WHERE e.title =~ { regex }
-						WITH collect(e)+collect(b)+c1 as c2
-
-						OPTIONAL MATCH (n:Publisher)-[:PUBLISHES_IN|:DIRECTED]->(c:Place)-[*..2]-(b:Edition)
+						OPTIONAL MATCH (n:Publisher)-[:PUBLISHES_IN]->(c:Place)-[*..2]-(b:Edition)
 						WHERE n.name =~ { regex }
 						WITH collect(b)+c2 as c3
 
 						UNWIND c3 as x
 						RETURN DISTINCT x
 						LIMIT { limit }`;
+
 
 /*
  *
