@@ -31,7 +31,7 @@
         }
 
         .nodes circle {
-            
+
         }
 
 
@@ -64,7 +64,9 @@
                 .attr("fill", function(d) {
                     return color(d.group);
                 })
-                .on("onmouseover").enter().append("text")
+
+
+            .on("onmouseover").enter().append("text")
                 .attr("text", function(d) {
                     return d;
                 });
@@ -91,6 +93,7 @@
                     });
             }
         })
+
 
         function startDrag() {
             if (!d3.event.active) simulation.alphaTarget(0.3).restart();
