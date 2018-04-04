@@ -32,10 +32,6 @@
 
         .nodes circle {
 
-        }
-
-         
-
      </style>
      <template>
         <svg width = "" height = ""></svg> 
@@ -49,23 +45,12 @@
         var colorScheme = d3.scaleOrdinal(d3.schemeCategory20b);
 
         var simulation = d3.forceSimulation()
-            /*.force("link", d3.forceLink().id(function(d) {
-                return d.id;
-            })) */
-            .force("generalForce", d3.forceManyBody())
-            .force("center", d3.forceCenter(width/2, height/2));
+
+        .force("generalForce", d3.forceManyBody())
+            .force("center", d3.forceCenter(width / 2, height / 2));
 
         d3.json("wcImport", function(error, graph) {
-            if(error) throw error;
-
-           /* var edge = svg.append("g")
-                .attr("class", "links")
-                .selectAll("line")
-                .data(graph.links)
-                .enter().append("line")
-                .attr("stroke-width", function(d) {
-                    return Math.sqrt(d.value);
-                }) */
+            if (error) throw error;
 
             var node = svg.append("g")
                 .attr("class", "nodes")
@@ -75,17 +60,42 @@
                 .attr("r", 5)
                 .attr("fill", function(d) {
                     return color(d.group);
-                }) /*
-                .call(d3.drag()
-                    .on("start", dragstarted)
-                    .on("drag", dragged)
-                    .on("end", dragended)
-                );   */
+                })
+                .on("onmouseover").enter().append("text")
+                .attr("text", function(d) {
+                    return d;
+                });
 
-                simulation.force("node") 
-                   .nodes(graph.nodes);
+            node.append("title")
+                .text(function(d) {
+                    return d.title;
+                });
 
+            simulation
+                .nodes(graph.nodes)
+                .on("motion", motionIter);
+
+            simulation.force("node")
+                .nodes(graph.nodes);
+
+            function motionIter() {
+                node
+                    .attr("cx", function(d) {
+                        return d.x;
+                    })
+                    .attr("cy", function(d) {
+                        return d.y;
+                    });
+            }
         })
 
+        .on("drag", dragged)
+            .on("end", dragended)
+        ); * /
+
+        simulation.force("node")
+            .nodes(graph.nodes);
+
+        })
     </script>
 </dom-module>
