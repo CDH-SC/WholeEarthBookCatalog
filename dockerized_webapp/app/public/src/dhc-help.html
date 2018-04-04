@@ -2,7 +2,6 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_compoenets/polymer/paper-button.html">
 <link rel="import" href="frag-header.html">
-<link rel="import" href="frag-footer.html">
 
 
 
@@ -29,7 +28,15 @@
             color: whitesmoke;
         }
         
-        .contact-info {}
+        .contact-info {
+            margin: 5px;
+        }
+        
+        #email-inf {
+            font-size: 14px;
+        }
+        
+        .help-footer {}
     </style>
 
     <template>
@@ -37,7 +44,8 @@
             <p id = "help-message">
 
             <blockquote>
-                </blockquote>
+                To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately. 
+            </blockquote>
             
 
             <blockquote>
@@ -51,7 +59,7 @@
                     <p style = "font-size: 16px;">
                         Still having problems?
                     </p>
-                    <p id="email-inf" style = "font-size: 14px;"> 
+                    <p id="email-inf"> 
                         Send us an email {{email}}
                     </p>
                 </div>
