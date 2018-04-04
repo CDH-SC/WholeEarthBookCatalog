@@ -92,9 +92,6 @@
             }
 
             _validate() {
-                // Need some regex for bad usernames.
-
-                var rgx = new RegExp("^([a-z0-9]$)");
 
                 if (!this.username || this.username == "" || this.username.length <= 3) {
                     this.set("errorMessage", "Username not long enough");
@@ -104,7 +101,10 @@
                     this.valid = false;
                 } //following condition was previously repeated
                 else if (!this.password || !this.password_confirm) {
-                    this.set("errorMessage", "Passwords not equal");
+                    this.set("errorMessage", "Either password is empty");
+                    this.valid = false;
+                } else if (this.password === this.password_confirm) {
+                    this.set("errorMessage", "Passwords do not match");
                     this.valid = false;
                 } else if (this.password.length <= 5) {
                     this.set("errorMessage", "Password must be longer than 5 characters");
