@@ -221,14 +221,17 @@
                                 <div class="image-wrapper">
                                     <image id="result-item-image" class="border-color" src= "../images/no_cover_150_248.png"></image>
                                 </div>
-                                <template is="dom-repeat" items="{{item._fields}}" as="field">
+                                <template is="dom-repeat" items="{{item.records}}" as="record">
                                     <div class="book-info-text">
                                         <h1 class="ellipsis">
-                                            {{field.properties.title}}
+                                            {{record.title}}
                                         </h1>
                                         <h2 class="ellipsis">
-                                            {{field.properties.author}}
+                                            {{record.authors}}
                                         </h2>
+                                        <h1 class="ellipsis">
+                                            {{record.publishers}}
+                                        </h1>
                                     </div>
                                 </template>
                                 <a href="book-profile/test">

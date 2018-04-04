@@ -14,63 +14,16 @@ var qstrings = {};
  *   - limit <number>
  *
  */
-qstrings.simpleKeywordSearch = `MATCH (n:Movie)
-	                        WHERE n.title =~ { regex }
-				RETURN DISTINCT n LIMIT { limit }`;
-
-/**
- * 
- * work in progress
- * 
-qstrings.keywordSearchExample = `
-    OPTIONAL MATCH
-	(p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
-
-	WHERE
-	b.title =~ { regex } OR
-	p.lname =~ { regex } OR
-	p.fname =~ { regex } OR
-	pub.name =~ { regex } OR
-	plc.name =~ { regex }
-	
-	WITH
-	collect( { title: b.title, author: p.fname + " " + p.lname, publisher: pub.name } ) as records
-
-	OPTIONAL MATCH
-	(:Edition)-[*..3]-(b:Edition),
-	(p:Person)-[:WROTE]->(b)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
-
-	WHERE
-	b.title =~ { regex } OR
-	p.lname =~ { regex } OR
-	p.fname =~ { regex } OR
-	pub.name =~ { regex } OR
-	plc.name =~ { regex }
-	
-	WITH
-	collect( { title: b.title, author: p.fname + " " + p.lname, publisher: pub.name } ) + records as records
-
-	UNWIND records as r
-	RETURN DISTINCT
-	CASE
-    WHEN (r.title IS NULL OR r.author IS NULL OR r.publisher IS NULL) THEN NULL
-    ELSE r
-    END AS res
-	LIMIT { limit }
-`
-*/
-
-/**
- * Example returning authors and publishers as a list
- */
-qstrings.keywordReturnListsExample = `
+qstrings.keywordSearch = `
 OPTIONAL MATCH
 	(p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
 
 	WHERE
-	b.title =~ "(?i).*Harry Potter.*" OR
-	p.lname =~ "(?i).*Pinker.*" OR
-	p.fname =~ "(?i).*Steven.*"
+	b.title =~ { regex } OR
+	p.lname =~ { regex } OR
+	p.fname =~ { regex } OR
+	plc.name =~ { regex } OR
+	pub.name =~ { regex }
 	
 	WITH
 	{
@@ -78,9 +31,30 @@ OPTIONAL MATCH
 		publishers: collect( DISTINCT pub.name ),
 		title: b.title
 	} as tmp
-
     WITH
 	collect( DISTINCT tmp ) as records
+	
+OPTIONAL  MATCH
+    (:Edition)-[*..3]-(b:Edition),
+    (p:Person)-[:WROTE]->(b)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
+
+	WHERE
+	b.title =~ { regex } OR
+	p.lname =~ { regex } OR
+	p.fname =~ { regex } OR
+	plc.name =~ { regex } OR
+	pub.name =~ { regex }
+	
+	WITH
+	{
+		data: {
+			authors: collect( DISTINCT (p.fname + " " + p.lname )), 
+			publishers: collect( DISTINCT pub.name ),
+			title: b.title
+		},  records: records
+	} as tmp
+    WITH
+	collect( DISTINCT tmp.data ) + tmp.records as records
 
 	UNWIND records as r
 	RETURN DISTINCT
@@ -89,88 +63,7 @@ OPTIONAL MATCH
     ELSE r
     END AS res
 	LIMIT 100
-`
-
-/**
- * Params:
- *
- *   - regex <string>
- *   - limit <number>
- *
- */
-qstrings.keywordSearchExample = `
-                        OPTIONAL MATCH
-						(p:Person)-[*..3]-(b:Edition),
-						(b)<-[:WROTE]-(p1:Person),
-						(b)<-[:PUBLISHED]-(pub:Publisher),
-						(pub)-[:PUBLISHES_IN]->(plc:Place)
-						WHERE
-						p1.lname =~ { regex }
-						OR p1.fname =~  { regex }
-						WITH collect( { title: b.title, name: p1.fname + " " + p1.lname, publisher:pub.name, place:plc.name } ) as r
-
-						OPTIONAL MATCH 
-						(b1:Edition)-[*..2]-(b2:Edition)
-						(b1)<-[:WROTE]-(p:Person),
-						(b1)<-[:PUBLISHED]-(pub:Publisher),
-						(pub)-[:PUBLISHES_IN]->(plc:Place),
-						(b2)<-[:WROTE]-(p1:Person),
-						(b2)<-[:PUBLISHED]-(pub1:Publisher),
-						(pub1)-[:PUBLISHES_IN]->(plc1:Place)
-						WHERE
-						b1.title =~ { regex }
-						WITH
-						collect({ title: b1.title, name: p.fname + " " + p.lname, publisher: pub.name, place: plc.name }) + 
-						collect({ title: b2.title, name: p1.fname + " " + p1.lname, publisher: pub1.name, place: plc1.name }) + collect(r) as r1
-
-						OPTIONAL MATCH (n:Publisher)-[:PUBLISHES_IN]->(c:Place)-[*..2]-(b:Edition)
-						WHERE n.name =~ { regex }
-						WITH collect(b)+c2 as c3
-
-						UNWIND c3 as x
-						RETURN DISTINCT x
-						LIMIT { limit }`;
-
-
-/*
- *
- *
-*/
-qstrings.keywordSearch = `OPTIONAL MATCH (e:Edition)-[:IS-A-VERSION-OF]->(e1:Edition)-[*..6]-(e2:Edition)
-													WHERE
-													{ IBSN_re } IN e.IBSN
-													OR e.title =~ { title_re }
-													OR e.year =~ { year_re }
-													WITH collect(e)+collect(e1)+collect(e2) as c1
-
-													OPTIONAL MATCH (p:Person)-[:WROTE|:EDITTED|:CONTRIBUTED-TO|:TRANSLATED]->(x:Edition)-[*..6]-(e:Edition)
-													WHERE
-													p.lname =~ { lname_re }
-													OR p.fname =~ { fname_re }
-													OR p.death =~ { death_re }
-													OR p.birth =~ { birth_re }
-													WITH collect(c1)+collect(p)+collect(e)+collect(x) as c2
-
-													OPTIONAL MATCH (p:Publisher)-[:PUBLISHER-IN]->(x:Place)-[*..6]-(e:Edition)
-													WHERE
-													p.name =~ { name_re }
-													WITH collect(c2)+collect(x)+collect(e) as c3
-
-													OPTIONAL MATCH (p:Publisher)-[:PUBLISHED]->(e:Edition)-[*..6]-(e1:Edition)
-													WHERE
-													p.name =~ { name_re }
-													WITH collect(c3)+collect(x)+collect(e) as c4
-
-													OPTIONAL MATCH (p:Place)<-[:PUBLISHED-IN]-(e:Edition)-[*..6]-(e1:Edition)
-													WHERE
-													p.name =~ { name_re }
-													WITH collect(c4)+collect(p)+collect(e)+collect(e1) as c5
-
-													UNWIND c5 as x
-													RETURN DISTINCT x
-													LIMIT { limit }`;
-
-
+`;
 
 /**
  *

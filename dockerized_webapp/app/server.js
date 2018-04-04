@@ -295,7 +295,7 @@ router.post("/neo4j/", function (req, res) {
 
     console.log(`request:\n${JSON.stringify(data, null, 2)}`);
     
-    var statement = qstrings.keywordSearchExample;
+    var statement = qstrings.keywordSearch;
     var params = {};
 
     if ( data.advanced == false ) {
@@ -308,8 +308,17 @@ router.post("/neo4j/", function (req, res) {
 
     var q = neo4j.query(statement, params);
     q.response.then(function (resp) {
-            console.log(JSON.stringify(resp));
-            res.json(resp);
+            // parse
+            var arr = new Array();
+            resp.records.forEach(record => {
+                var record = record._fields[0];
+                arr.push({
+                    title: record.title,
+                    authors: record.authors.join(),
+                    publishers: record.publishers.join()
+                });
+            })
+            res.json({records: arr});
         })
         .catch(function (err) {
             var errstr = "This process was rejected. Please double check that your input follows the correct form";
