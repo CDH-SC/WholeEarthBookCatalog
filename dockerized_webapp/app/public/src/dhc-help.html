@@ -1,51 +1,37 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_compoenets/polymer/paper-button.html">
 <link rel="import" href="frag-header.html">
+<link rel="import" href="frag-footer.html">
 
 
 
 <dom-module id="dhc-help">
-    <style>
-      
-      /* Iron flex layout */
-
-      /* Large features */
-
-      #header-wrapper {
-
-      }
-
-      #search-wrapper {
-
-      }
-
-      #main-content {
-        margin-left: 50px;
-        margin-right: 50px;
-      }
-
-      #help-footer {
-
-      }
-
-      .contact-info {
-
-      }
-
-      /* Small features */
-      .login-button {
-
-      }
-
-      .advanced-options {
-
-      }
-
-      #help-message {
-
-      }
-
-
+    <style include="shared-styles">
+        /* Iron flex layout */
+        /* Large features */
+        
+        #h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 96px;
+            font-weight: lighter;
+        }
+        
+        #main-content {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        
+        paper-button {
+            margin: 0px;
+            background-color: #2d9cdb;
+            color: whitesmoke;
+        }
+        
+        .contact-info {}
     </style>
+
     <template>
         <div id = "main-content" class = "container-fluid"> 
             <p id = "help-message">
@@ -71,7 +57,7 @@
             <div id = "help-footer">
                 <div class = "contact-info">
                     <p style = "font-size: 16px;">
-                        Still need help?
+                        Still having problems?
                     </p>
                     <p id="email-inf" style = "font-size: 14px;"> 
                         Send us an email {{email}}
@@ -79,11 +65,21 @@
                 </div>
             </div>
         </div>
-        <a href="[[rootPath]]">Go back home.</a>
+        
+        <paper-button onclick = "returnHome(this)"> Go back home </paper-button>
+        
     </template>
     <script>
+        function returnHome(btn) {
+            btn.addEventListener('transitioned', function(e) {
+                location.href = "[[rootPath]]";
+            })
+        }
+
         class dhcHelp extends Polymer.Element {
-            static get is() { return 'dhc-help'; }
+            static get is() {
+                return 'dhc-help';
+            }
             static get properties() {
                 return {
                     email: {
@@ -96,4 +92,3 @@
         window.customElements.define(dhcHelp.is, dhcHelp);
     </script>
 </dom-module>
-
