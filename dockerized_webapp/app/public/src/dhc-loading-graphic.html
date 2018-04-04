@@ -31,6 +31,9 @@
         }
 
         .nodes circle {
+            
+        }
+
 
      </style>
      <template>
@@ -89,13 +92,22 @@
             }
         })
 
-        .on("drag", dragged)
-            .on("end", dragended)
-        ); * /
+        function startDrag() {
+            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d.dx = d.x;
+            d.fy = d.y;
+        }
 
-        simulation.force("node")
-            .nodes(graph.nodes);
+        function drag() {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+        }
 
-        })
+        function endDrag() {
+            if (!d3.event.active) simulation.alphaTarget(0.01);
+            d.fx = null;
+            d.fy = null;
+
+        }
     </script>
 </dom-module>
