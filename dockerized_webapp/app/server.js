@@ -13,7 +13,7 @@ var bodyParser = require("body-parser");
 var mongo = require("./utils/mongoDriver.js");
 var neo4j = require("./utils/neo4jDriver.js");
 var qstrings = require("./utils/querystrings.js");
-var qtest = require("../utils/querystringTest.js");
+var qtest = require("./utils/querystringTest.js");
 var ObjectId = require("mongodb").ObjectId;
 var clock = require("./utils/clock.js");
 var goodreadsDriver = require("./utils/goodreadsDriver.js");
@@ -415,7 +415,7 @@ router.post("/neo4j/", function (req, res) {
                     resp.records.forEach(record => {
                         var record = record._fields[0];
                         arr.push({
-                            date: record.date,
+                            date: record.date.low,
                             title: record.title,
                             authors: record.authors,
                             publishers: record.publishers
