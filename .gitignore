@@ -14,8 +14,6 @@ dockerized_webapp/data_acquisition/loc
 *.xml
 *.xml.gz
 
-dockerized_webapp/.env
-
 dockerized_webapp/*/utils
 dockerized_webapp/*/node_modules
 

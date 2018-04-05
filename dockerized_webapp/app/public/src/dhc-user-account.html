@@ -59,10 +59,6 @@
                 align-items: center;
                 justify-content: center;
             }
-
-            #user-username {
-                padding-left: 50px;
-            }
         </style>
         
         <app-location route="{{route}}"></app-location>
@@ -78,7 +74,8 @@
         
         <div class = "container">
             <div class = "user-info-container">
-                <h2 id = "user-username">Username: {{user.username}}</h2>
+                <p id = "user-username">Username</p>
+                <p id = "user-email">Email: username@email.com</p> 
             </div>
             <div class="favorite-books">
                 <paper-button noink on-click="_toggle_fave" class="toggler border-color"><iron-icon icon="favorite"></iron-icon>favorites

@@ -34,6 +34,7 @@
 
         }
 
+         
 
      </style>
      <template>
@@ -48,12 +49,23 @@
         var colorScheme = d3.scaleOrdinal(d3.schemeCategory20b);
 
         var simulation = d3.forceSimulation()
-
-        .force("generalForce", d3.forceManyBody())
-            .force("center", d3.forceCenter(width / 2, height / 2));
+            /*.force("link", d3.forceLink().id(function(d) {
+                return d.id;
+            })) */
+            .force("generalForce", d3.forceManyBody())
+            .force("center", d3.forceCenter(width/2, height/2));
 
         d3.json("wcImport", function(error, graph) {
-            if (error) throw error;
+            if(error) throw error;
+
+           /* var edge = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter().append("line")
+                .attr("stroke-width", function(d) {
+                    return Math.sqrt(d.value);
+                }) */
 
             var node = svg.append("g")
                 .attr("class", "nodes")
@@ -63,54 +75,17 @@
                 .attr("r", 5)
                 .attr("fill", function(d) {
                     return color(d.group);
-                })
+                }) /*
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended)
+                );   */
 
+                simulation.force("node") 
+                   .nodes(graph.nodes);
 
-            .on("onmouseover").enter().append("text")
-                .attr("text", function(d) {
-                    return d;
-                });
-
-            node.append("title")
-                .text(function(d) {
-                    return d.title;
-                });
-
-            simulation
-                .nodes(graph.nodes)
-                .on("motion", motionIter);
-
-            simulation.force("node")
-                .nodes(graph.nodes);
-
-            function motionIter() {
-                node
-                    .attr("cx", function(d) {
-                        return d.x;
-                    })
-                    .attr("cy", function(d) {
-                        return d.y;
-                    });
-            }
         })
 
-
-        function startDrag() {
-            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-            d.dx = d.x;
-            d.fy = d.y;
-        }
-
-        function drag() {
-            d.fx = d3.event.x;
-            d.fy = d3.event.y;
-        }
-
-        function endDrag() {
-            if (!d3.event.active) simulation.alphaTarget(0.01);
-            d.fx = null;
-            d.fy = null;
-
-        }
     </script>
 </dom-module>
