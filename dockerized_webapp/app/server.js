@@ -396,45 +396,57 @@ router.post("/neo4j/", function (req, res) {
     var data = req.body;
     
     // if data.basic_query is not a string with regular characters don't accept it
-
-    console.log(`request:\n${JSON.stringify(data, null, 2)}`);
+    var date = new Date().toISOString();
+    console.log(`neo4j request at [${date}]\n`);
     
     var statement = qstrings.keywordSearch;
     var params = {};
+    var errstr = "This process was rejected. Please double check that your input follows the correct form";
 
     if ( data.advanced == false ) {
-        params.regex = `(?i).*${data.basic_query}.*`;
-        params.limit = data.limit;
-    }
 
-    console.log(`statement:\n${JSON.stringify(statement, null, 2)}\n
-		 params:\n${JSON.stringify(params, null, 2)}\n`);
+        if ( typeof( data.basic_query ) == "string" ) {
+            params.regex = `(?i).*${data.basic_query}.*`;
+            params.limit = data.limit;
 
-    var q = neo4j.query(statement, params);
-    q.response.then(function (resp) {
-            // parse
-            var arr = new Array();
-            resp.records.forEach(record => {
-                var record = record._fields[0];
-                arr.push({
-                    title: record.title,
-                    authors: record.authors.join(),
-                    publishers: record.publishers.join()
+            var q = neo4j.query(statement, params);
+            q.response.then(function (resp) {
+                    var arr = new Array();
+                    resp.records.forEach(record => {
+                        var record = record._fields[0];
+                        arr.push({
+                            date: record.date,
+                            title: record.title,
+                            authors: record.authors,
+                            publishers: record.publishers
+                        });
+                    })
+                    res.json({
+                        records: arr
+                    });
+                    console.log("neo4j request completed normally\n");
+                })
+                .catch(function (err) {
+                    console.log(errstr)
+                    res.json({
+                        "Message": errstr,
+                        "Error": err
+                    });
+                    console.log(`neo4j request failed: ${JSON.stringify(err, null, 2)}\n`);
                 });
-            })
-            res.json({records: arr});
-        })
-        .catch(function (err) {
-            var errstr = "This process was rejected. Please double check that your input follows the correct form";
-            console.log(errstr)
+
+            q.driver.close();
+            q.session.close();
+
+        } else {
+            var err = "Input must be a well-formed string";
             res.json({
                 "Message": errstr,
                 "Error": err
             });
-        });
-
-    q.driver.close();
-    q.session.close();
+            console.log(`neo4j request failed: ${err}\n`);
+        }
+    }
 });
 
 
