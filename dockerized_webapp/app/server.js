@@ -311,7 +311,7 @@ router.post("/neo4j/", function (req, res) {
                     resp.records.forEach(record => {
                         var record = record._fields[0];
                         arr.push({
-                            date: record.date,
+                            date: record.date.low,
                             title: record.title,
                             authors: record.authors,
                             publishers: record.publishers

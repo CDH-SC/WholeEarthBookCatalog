@@ -64,7 +64,7 @@ OPTIONAL  MATCH
     WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
     ELSE r
     END AS res
-	LIMIT 100
+	LIMIT { limit }
 `;
 
 /**
