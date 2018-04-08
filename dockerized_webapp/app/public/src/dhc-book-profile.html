@@ -8,7 +8,7 @@
 <link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id = "dhc-book-profile">
+<dom-module id="dhc-book-profile">
     <template>
         <style include = "shared-styles">
           
@@ -141,16 +141,14 @@
                 {{selectedbook}}
                 <div id ="book-information-left">
                     <div id = "profile-metadata-div">
-
-                       <paper-dialog-scrollable class = "metadata-fields">
+                        <paper-dialog-scrollable class = "metadata-fields">
                              
                             <h2> The Snow Child </h2>
                             <h4> Author: Eowyn Ivey </h4>
                             <h4> Publisher: Random House  </h4>
                             <h4> Location Published: New York, NY  </h4> 
                             <h4> ISBN: 02395234562  </h4>
-
-                        </paper-dialog-scrollable>
+                         </paper-dialog-scrollable>
                     
                     </div>
                     <paper-dialog-scrollable id = "profile-description-div">
@@ -193,7 +191,9 @@
     </template>
     <script>
         class dhcBookProfile extends Polymer.Element {
-            static get is() { return 'dhc-book-profile'; }
+            static get is() {
+                return 'dhc-book-profile';
+            }
             static get properties() {
                 return {
                     selectedbook: {
