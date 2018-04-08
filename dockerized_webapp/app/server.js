@@ -245,34 +245,7 @@ router.post("/update_saved_content/", function(req, res) {
 });
 
 
-/**
- * GoodReads search endpoint
- * 
- * TODO:
- *   + Add comment detailing how the request should be passed
- * 
- */
-router.post("/goodreads/", function(req,res) {
-    var data = req.body;
-    if ( data.search === undefined) {
-        err = { "Error": "invalid data format" };
-        console.log( `${errStr}:\n${err}` );
-        res.json( err );
-        return;
-    }
 
-    console.log("Post: " + data);
-
-    goodreadsDriver.goodReadSearch(data.search, function(jsArr) {
-        var i = 1;
-        jsArr.forEach(function(value) {
-            console.log("\nSearch " + i + " \n" +JSON.stringify(value));
-            i++;
-        });
-
-    });
-    //goodreadsDriver.getBooks();
-});
 
 
 /*
