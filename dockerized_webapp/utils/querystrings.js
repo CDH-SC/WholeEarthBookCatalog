@@ -67,215 +67,53 @@ OPTIONAL  MATCH
 	LIMIT { limit } 
 `;
 
-qstrings.advancedSearchPerson = `OPTIONAL MATCH
-                                (p:Person)-[*..{ degrees }]-(e:Edition),
-                                (p1:Person)-[:WROTE]->(e),
-                                (x:Publisher)-[:PUBLISHED]->(e),
-                                (x)-[:PUBLISHES_IN]->(y:Place)
-                                WHERE
-                                p.lname =~ { lname_re }
-                                OR p.fname =~ { fname_re }
-                                WITH 
-                                {
-                                    authors: collect( DISTINCT (p.fname + " " + p.lname)),
-                                    publishers: collect( DISTINCT pub.name ),
-                                    title: e.title
-                                } as tmp
-                                WITH
-                                    collect( DISTINCT tmp ) as records
 
-								UNWIND records as r
-                                RETURN DISTINCT
-                                CASE
-                                WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
-                                ELSE r
-                                END AS res
-                                LIMIT 100`;
+// Advanced Search Query Strings
+qstrings.optionalMatch = `OPTIONAL MATCH `;
 
-/* Edition
-    - Edition
-    - Published by
-    - Written by
-    - Published in
-*/
-qstrings.advancedSearchEdition = `OPTIONAL MATCH
-                                    (e:Edition)<-[:PUBLISHED]-(pub:Publisher),
-                                    (e)<-[:WROTE]-(a:Person)
-									WHERE
-									{ title_re } IN e.IBSN
-									OR e.title =~ { title_re }
-                                    OR e.year =~ { year_re }
-									WITH 
-									{ 
-                                        authors: collect( DISTINCT (a.fname + " " + a.lname) ),
-                                        publishers: collect( DISTINCT pub.name),
-                                        title: e.title 
-                                    } as tmp
-                                    WITH
-                                        collect( DISTINCT tmp ) as records
+qstrings.relations = ' (p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place) ';
 
+qstrings.advancedAuthor = ' p.fname =~ { fname_re } OR p.lname =~ { lname_re } ';
 
-                                    OPTIONAL MATCH
-                                    (e:Edition)<-[:PUBLISHED]-(pub:Publisher),
-                                    (pub)-[:PUBLISHED]->(e1:Edition),
-                                    (e1)<-[:WROTE]-(a:Person)
-									WHERE
-									{ title_re } IN e.IBSN
-									OR e.title =~ { title_re }
-                                    OR e.year =~ { year_re }
+qstrings.advancedPublisher = ' pub.name =~ { name_re } ';
+
+qstrings.advancedPlace = ' plc.name =~ { plcname_re } ';
+
+qstrings.advancedEdition = ' { title_re } IN b.IBSN OR b.title =~ { title_re } OR b.year =~ { year_re } ';
+
+qstrings.withCollectFirst = `
+                            WITH
+                            {
+                                authors: collect( DISTINCT (p.fname + " " + p.lname) ),
+                                publishers: collect( DISTINCT pub.name),
+                                title: b.title
+                            } as tmp
+                            WITH
+                                collect( DISTINCT tmp ) as records
+                                `;
+
+qstrings.withCollect = `
                                     WITH
                                     {
                                         data: {
-                                            authors: collect( DISTINCT (a.fname + " " + a.lname) ),
+                                            authors: collect( DISTINCT (p.fname + " " + p.lname) ),
                                             publishers: collect( DISTINCT pub.name ),
-                                            title: e1.title
+                                            title: b.title
                                         }, records: records
                                     } as tmp
                                     WITH
                                         collect( DISTINCT tmp.data ) + tmp.records as records
-									
-										
-                                    OPTIONAL MATCH
-                                    (e:Edition)<-[:PUBLISHED]-(pub:Publisher),
-                                    (pub)-[:PUBLISHES_IN]->(plc:Place),
-                                    (plc)<-[:PUBLISHES_IN]-(pub2:Publisher),
-                                    (pub2)-[:PUBLISHED]->(e1:Edition),
-                                    (e1)<-[:WROTE]-(a:Person)
-									WHERE
-									{ title_re } IN e.IBSN
-									OR e.title =~ { title_re }
-									OR e.year =~ { year_re }
-                                    WITH
-                                    {
-                                        data: {
-                                            authors: collect( DISTINCT (a.fname + " " + a.lname) ),
-                                            publishers: collect( DISTINCT pub2.name ),
-                                            title: e1.title
-                                        }, records: records
-                                    } as tmp
-                                    WITH
-                                        collect( DISTINCT tmp.data ) + tmp.records as records
+                                        `;
 
-
-                                    OPTIONAL MATCH
-                                    (e:Edition)<-[:WROTE]-(a:Person),
-                                    (a)-[:WROTE]->(e1:Edition),
-                                    (e1)<-[:PUBLISHED]-(pub:Publisher),
-									WHERE
-									{ title_re } IN e.IBSN
-									OR e.title =~ { title_re }
-									OR e.year =~ { year_re }
-                                    WITH
-                                    {
-                                        data: {
-                                            authors: collect( DISTINCT (a.fname + " " + a.lname) ),
-                                            publishers: collect( DISTINCT pub.name ),
-                                            title: e1.title
-                                        }, records: records
-                                    } as tmp
-                                    WITH
-                                        collect( DISTINCT tmp.data ) + tmp.records as records
-
-									UNWIND records as r
- 									RETURN DISTINCT
-                                    CASE
-                                    WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
-                                    ELSE r
-                                    END AS res
-                                    LIMIT 100`;
-
-
-
-// Place
-qstrings.advancedSearchPlace = `OPTIONAL MATCH 
-                                (p:Place)<-[:PUBLISHES_IN]-(pub:Publisher),
-                                (pub)-[:PUBLISHED]->(e:Edition),
-                                (e)<-[:WROTE]-(a:Person)
-								WHERE
-								p.name =~ { name_re }
-                                WITH
-                                {
-                                    authors: collect( DISTINCT (a.fname + " " + a.lname) ),
-                                    publishers: collect( DISTINCT pub.name),
-                                    title: e.title
-                                } as tmp
-                                WITH
-                                    collect( DISTINCT tmp ) as records
-
-                                    
-								UNWIND records as r
- 								RETURN DISTINCT
-                                CASE
-                                WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
-                                ELSE r
-                                END AS res
-                                LIMIT 100`;
-
-
-/* Publisher
-    - Published
-    - Publishes in
-    - Writers
-*/
-qstrings.advancedSearchPublisher = `OPTIONAL MATCH 
-                                    (p:Publisher)-[:PUBLISHED]->(e:Edition),
-                                    (a:Person)-[:WROTE]->(e)
-									WHERE
-									p.name =~ { name_re }
-                                    WITH
-                                    {
-                                        authors: collect( DISTINCT (a.fname + " " + a.lname) ),
-                                        publishers: collect( DISTINCT p.name),
-                                        title: e.title
-                                    } as tmp
-                                    WITH
-                                    collect( DISTINCT tmp ) as records
-
-                                    OPTIONAL MATCH 
-                                    (p:Publisher)-[:PUBLISHES_IN]->(plc:Place),
-                                    (p1:Publisher)-[:PUBLISHES_IN]->(plc),
-                                    (e:Edition)<-[:PUBLISHED]-(p1),
-                                    (a:Person)-[:WROTE]->(e)
-									WHERE
-									p.name =~ { name_re }
-                                    WITH
-                                    {
-                                        data: {
-                                            authors: collect( DISTINCT (a.fname + " " + a.lname) ),
-                                            publishers: collect( DISTINCT p1.name ),
-                                            title: e.title
-                                        }, records: records
-                                    } as tmp
-                                    WITH
-                                        collect( DISTINCT tmp.data ) + tmp.records as records
-
-                                    OPTIONAL MATCH
-                                    (p:Publisher)-[:PUBLISHED]->(e:Edition),
-                                    (a:Person)-[:WROTE]->(e),
-                                    (e1:Edition)<-[:WROTE]-(a),
-                                    (p1:Publisher)-[:PUBLISHED]->(e1),
-                                    (plc:Place)<-[:PUBLISHES_IN]-(p2)
-                                    WHERE
-                                    p.name =~ { name_re }
-                                    WITH
-                                    {
-                                        data: {
-                                            authors: collect( DISTINCT (a.fname + " " + a.lname) ),
-                                            publishers: collect( DISTINCT p1.name ),
-                                            title: e.title
-                                        }, records: records
-                                    } as tmp
-                                    WITH
-                                        collect( DISTINCT tmp.data ) + tmp.records as records
-                                        
-
-                                UNWIND records as r
- 								RETURN DISTINCT
-                                CASE
-                                WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
-                                ELSE r
-                                END AS res
-                                LIMIT 100`;
+qstrings.unwindRecords = `
+                            UNWIND records as r
+ 							RETURN DISTINCT
+                            CASE
+                            WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
+                            ELSE r
+                            END AS res
+                            LIMIT 100
+                            `;
 
 
 qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "Tom"
