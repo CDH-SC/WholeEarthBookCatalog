@@ -8,6 +8,7 @@
 <!-- iron ajax -->
 <!-- app route -->
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <!-- Inserts/removes paper input fields -->
@@ -17,6 +18,11 @@
         <style>
             #dialog {
                 width: 60%;
+            }
+
+            #close {
+                margin-top: 2px;
+                margin-right: 2px;
             }
 
             .col-inputs {
@@ -87,7 +93,8 @@
         </iron-ajax>
 
         <paper-dialog id="dialog">
-            <h2>Advanced Search</h2>
+            <h2>Advanced Search</h2> 
+            <iron-icon id = "close" icon = "icons:close"></iron-icon>
             <paper-dialog-scrollable class="scrollable-c">
                 <template is="dom-repeat" items="[[numFieldsArray]]">
                     <div class="col-inputs">
@@ -99,41 +106,41 @@
                                         {{choice.field}}
                                     </paper-item>
                                 </template>
-                            </paper-listbox>
-                        </paper-dropdown-menu>
-                        <paper-button class="remove" on-click="_remove" remove-item="{{item}}" disabled="{{item.first}}">
-                            Remove
-                        </paper-button>
-                    </div>
-                    <!-- change to check if author -->
-                    <template is="dom-if" if="{{_isAuthor(item.searchType)}}">
+    </paper-listbox>
+    </paper-dropdown-menu>
+    <paper-button class="remove" on-click="_remove" remove-item="{{item}}" disabled="{{item.first}}">
+        Remove
+    </paper-button>
+    </div>
+    <!-- change to check if author -->
+    <template is="dom-if" if="{{_isAuthor(item.searchType)}}">
                         <div class="input-fields">
                             <paper-input label="first name" value="{{item.value.fname}}"></paper-input>
                             <paper-input label="last name" value="{{item.value.lname}}"></paper-input>
                         </div>
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isPub(item.searchType)}}">
+    <template class="input-fields" is="dom-if" if="{{_isPub(item.searchType)}}">
                         <div class="input-fields">
                             <paper-input label="name" value="{{item.value.name}}"></paper-input>
                         </div>
 
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isEdition(item.searchType)}}">
+    <template class="input-fields" is="dom-if" if="{{_isEdition(item.searchType)}}">
                         <div class="input-fields">
                             <paper-input label="name" value="{{item.value.name}}"></paper-input>
                             <paper-input label="year" value="{{item.value.year}}"></paper-input>
                         </div>
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isLocation(item.searchType)}}">
+    <template class="input-fields" is="dom-if" if="{{_isLocation(item.searchType)}}">
                         <div class="input-fields">
                             <paper-input label="Location" placeholder="Location" value="{{item.value.place}}"></paper-input>
                         </div>
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isDegree(item.searchType)}}">
+    <template class="input-fields" is="dom-if" if="{{_isDegree(item.searchType)}}">
                         <div class="input-fields">
                             <paper-dropdown-menu label="Degree">
                                 <paper-listbox slot="dropdown-content" selected="{{item.value.degree}}">
@@ -146,36 +153,36 @@
                             </paper-dropdown-menu>
                         </div>
                     </template>
-                </template>
+    </template>
 
-                <template is="dom-if" if="{{_invalidSearch}}">
+    <template is="dom-if" if="{{_invalidSearch}}">
                     <p class="error">Your search was invalid. Check over your fields and make sure everything has a title and author</p>
                 </template>
 
-                <div class="col-inputs no-just">
-                    <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
-                    <paper-button class="search-submit" on-click="_goto_search">Search</paper-button>
-                </div>
-            </paper-dialog-scrollable>
-        </paper-dialog>
-        
+    <div class="col-inputs no-just">
+        <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
+        <paper-button class="search-submit" on-click="_goto_search">Search</paper-button>
+    </div>
+    </paper-dialog-scrollable>
+    </paper-dialog>
+
     </template>
 
     <script>
         class fragAdvancedSearch extends Polymer.Element {
             static get is() {
-                return 'frag-advanced-search'; 
+                return 'frag-advanced-search';
             }
             static get properties() {
                 // Startout with 3 fields, Keyword, author, title
                 return {
-                    user:  {
+                    user: {
                         type: Object,
                         notify: true
                     },
                     numInputs: Number,
                     addMoreDisabled: Boolean,
-                    
+
                     /*
                      * Model:
                      * [ 
@@ -184,21 +191,58 @@
                      */
                     numFieldsArray: {
                         type: Array,
-                        value: [ {id: 0, searchTypeID: -1, searchType: "", value: {}} ]
+                        value: [{
+                            id: 0,
+                            searchTypeID: -1,
+                            searchType: "",
+                            value: {}
+                        }]
                     },
                     avaliableChoices: {
                         type: Array,
-                        value: [{ field: "author", subFields: [ { value:"first name", type: "String" }, { value:"last name", type:"String" }]}, 
-                                { field: "publisher", subFields: [{ value: "name", type: "String" }]}, 
-                                { field: "edition", subFields: [{value: "title", type: "String"},{value: "year", type: "Number"}]}, 
-                                { field: "location", subFields: [{value: "name", type: "String"}]}, 
-                                { field: "degree", subFields: [{value: "degree", type: "Dropdown"}]}]
+                        value: [{
+                            field: "author",
+                            subFields: [{
+                                value: "first name",
+                                type: "String"
+                            }, {
+                                value: "last name",
+                                type: "String"
+                            }]
+                        }, {
+                            field: "publisher",
+                            subFields: [{
+                                value: "name",
+                                type: "String"
+                            }]
+                        }, {
+                            field: "edition",
+                            subFields: [{
+                                value: "title",
+                                type: "String"
+                            }, {
+                                value: "year",
+                                type: "Number"
+                            }]
+                        }, {
+                            field: "location",
+                            subFields: [{
+                                value: "name",
+                                type: "String"
+                            }]
+                        }, {
+                            field: "degree",
+                            subFields: [{
+                                value: "degree",
+                                type: "Dropdown"
+                            }]
+                        }]
                     },
                     _highestIDUsed: {
                         type: Number,
                         value: 0
                     },
-                    _invalidSearch: { 
+                    _invalidSearch: {
                         type: Boolean,
                         value: false
                     },
@@ -224,8 +268,8 @@
             _getItems(item) {
                 // To accomdate for the blank
                 var index = item.searchTypeID - 1;
-                
-                
+
+
                 return this.avaliableChoices[index].subFields;
             }
 
@@ -250,17 +294,22 @@
             }
 
             _checkSearchType(item) {
-                if(item === "author") {
+                if (item === "author") {
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
             }
 
             _increment_num_fields() {
                 this._highestIDUsed += 1;
-                this.push("numFieldsArray", {id: this._highestIDUsed, value: "", searchTypeID: -1, searchType: "", value: {}});
+                this.push("numFieldsArray", {
+                    id: this._highestIDUsed,
+                    value: "",
+                    searchTypeID: -1,
+                    searchType: "",
+                    value: {}
+                });
                 if (this.numFieldsArray.length >= this._inputLimit) {
                     this.set("addMoreDisabled", true);
                 }
@@ -269,8 +318,8 @@
             _update_num_fields(event) {
                 var itemObj = event.path[0].dataArgs;
                 this.numFieldsArray.some(function(item, ind) {
-                    if(item.id === itemObj.id) {
-                        this.set("numFieldsArray." + ind + ".searchType", event.detail.value);                       
+                    if (item.id === itemObj.id) {
+                        this.set("numFieldsArray." + ind + ".searchType", event.detail.value);
                         return;
                     }
                 }.bind(this))
@@ -278,48 +327,43 @@
 
             _remove(event) {
                 this.numFieldsArray.some(function(item, ind) {
-                    if(item.id === event.path[0].removeItem.id) {
+                    if (item.id === event.path[0].removeItem.id) {
                         this.splice("numFieldsArray", ind, 1);
                         return;
                     }
                 }.bind(this))
-                
-                if(this.numFieldsArray.length < this._inputLimit) {
+
+                if (this.numFieldsArray.length < this._inputLimit) {
                     this.set("addMoreDisabled", false);
                 }
             }
 
             _validate() {
                 if (this.numFieldsArray.length <= 0) {
-                    
+
                     this.set("_invalidSearch", true);
                     this._bindTimeout();
-                }
-                
-                else if (this.numFieldsArray.length > 0) {
+                } else if (this.numFieldsArray.length > 0) {
                     var oneNonEmpty;
                     for (var i = 0; i < this.numFieldsArray.length; i++) {
                         // If we have a value we need a search type. All other combos we ignore in body
-                        
-                        if(this.numFieldsArray[i].searchType === "" && this.numFieldsArray[i].value !== "") {
-                            
+
+                        if (this.numFieldsArray[i].searchType === "" && this.numFieldsArray[i].value !== "") {
+
                             this.set("_invalidSearch", true);
                             this._bindTimeout();
                         }
-                        if(this.numFieldsArray[i].searchType !== "" && this.numFieldsArray[i].value !== "") {
+                        if (this.numFieldsArray[i].searchType !== "" && this.numFieldsArray[i].value !== "") {
                             oneNonEmpty = true;
                         }
                     }
-                    if(!oneNonEmpty) {
+                    if (!oneNonEmpty) {
                         this.set("_invalidSearch", true);
                         this._bindTimeout();
-                    }
-                    else {
+                    } else {
                         this.set("_invalidSearch", false);
                     }
-                }
-
-                else {
+                } else {
                     this.set("_invalidSearch", false);
                 }
             }
@@ -327,7 +371,7 @@
             _bindTimeout() {
                 setTimeout(function() {
                     this.set('_invalidSearch', false);
-                }.bind(this), 5000);                
+                }.bind(this), 5000);
             }
 
             _unsetInvalid() {
@@ -339,26 +383,28 @@
                 console.log(this.numFieldsArray);
                 this._validate();
 
-                if(!this._invalidSearch) {
-                    var sObj = { 
-                            advanced: true,
-                            basic_query: "",
-                            terms: this.numFieldsArray,
-                            limit: 25
+                if (!this._invalidSearch) {
+                    var sObj = {
+                        advanced: true,
+                        basic_query: "",
+                        terms: this.numFieldsArray,
+                        limit: 25
                     };
 
                     this.$.saveq.body = {
                         _id: this.user.id,
-                        keyword:"recent_searches",
+                        keyword: "recent_searches",
                         content: sObj
                     }
 
                     this.$.saveq.generateRequest();
 
                     this.dispatchEvent(new CustomEvent('update-search', {
-                        bubbles: true, composed: true, detail: sObj
+                        bubbles: true,
+                        composed: true,
+                        detail: sObj
                     }));
-                
+
                     // TODO: this needs to be updated to include more information. Ok for now.
                     // 
                     this.set("route.path", "book-results/advanced/");
@@ -369,6 +415,7 @@
                 console.log("successfull");
             }
 
-        } window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);
+        }
+        window.customElements.define(fragAdvancedSearch.is, fragAdvancedSearch);
     </script>
 </dom-module>

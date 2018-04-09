@@ -80,18 +80,18 @@
                         Still having problems?  Send us an email: {{email}}
                     </p>
                 </div>
-                <paper-button raised onclick = "returnHome(this)"> Go back home </paper-button>
+                <paper-button raised> <a href = "[[rootPath]]"> Go back  </a> </paper-button>
                 <paper-divider style = "relative: true;"></paper-divider>
             </div>
         </div>
         
     </template>
     <script>
-        function returnHome(btn) {
-            btn.addEventListener('transitioned', function(e) {
-                location.href = "[[rootPath]]";
-            })
-        }
+        /* function returnHome(btn) {
+                            btn.addEventListener('transitioned', function(e) {
+                                location.href = "[[rootPath]]";
+                            })
+                        }  */
 
         class dhcHelp extends Polymer.Element {
             static get is() {
