@@ -6,51 +6,45 @@
 
 <dom-module id="dhc-help">
 
-
     <template>
+                font-size: 96px;
+                font-weight: lighter;
+            }
+            
+            #main-content {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            
+            paper-button {
+                margin: 0px;
+                background-color: #2d9cdb;
+                color: whitesmoke;
+            }
+            
+            .contact-info {
+                margin: 5px;
+            }
+            
+            #email-inf {
 
-            <style include="shared-styles">
-                    /* Iron flex layout */
-                    /* Large features */
-                    
-                    #h1 {
-                        margin: 0;
-                        text-align: center;
-                        font-size: 96px;
-                        font-weight: lighter;
-                    }
-                    
-                    #main-content {
-                        margin-left: 50px;
-                        margin-right: 50px;
-                    }
-                    
-                    paper-button {
-                        margin: 0px;
-                        background-color: #2d9cdb;
-                        color: whitesmoke;
-                    }
-                    
-                    .contact-info {
-                        margin: 5px;
-                    }
-                    
-                    #email-inf {
-                        font-size: 14px;
-                    }
-                    
-                    .help-footer {}
-                    
-                </style>
+        <style include="shared-styles">
+            
+            #h1 {
+                margin: 0;
+                text-align: center;
+                font-size: 14px;
+            }
+                
+        </style>
 
         <div id = "main-content" class = "container-fluid"> 
             <p id = "help-message">
 
             <blockquote>
-
                 To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately. 
             </blockquote>
-
+            
 
             <blockquote>
             
