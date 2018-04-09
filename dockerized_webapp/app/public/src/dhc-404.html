@@ -1,14 +1,42 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="frag-header.html">
+<link rel="import" href="frag-footer.html">
 
 <dom-module id="dhc-404">
     <template>
-        <a href="[[rootPath]]">Go back home.</a>
+        <style include = "shared-styles.css">
+            h1 {
+                font-size: 40px;
+            }
+
+            span {
+                background-color: #2d9cdb;
+                text-decoration-color: whitesmoke;
+            }
+
+            #graphic {
+                align-content: center;
+                width: 60%;
+                height: 50%;
+            }
+
+            paper-button {
+                position: relative;
+                background-color: #2d9cdb;
+                color: whitesmoke;
+            }
+
+        </style>
+        <paper-button><a href="[[rootPath]]"> Go back home </a> </paper-button>
     </template>
     <script>
         class dhc404 extends Polymer.Element {
-            static get is() { return 'dhc-404'; }
+            static get is() {
+                return 'dhc-404';
+            }
         }
         window.customElements.define(dhc404.is, dhc404);
     </script>
 </dom-module>
-
