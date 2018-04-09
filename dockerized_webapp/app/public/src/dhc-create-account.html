@@ -96,9 +96,6 @@
                 if (!this.username || this.username == "" || this.username.length <= 3) {
                     this.set("errorMessage", "Username not long enough");
                     this.valid = false;
-                } else if (rgx.test(this.username)) {
-                    this.set("errorMessage", "Username not alphanumeric");
-                    this.valid = false;
                 } //following condition was previously repeated
                 else if (!this.password || !this.password_confirm) {
                     this.set("errorMessage", "Either password is empty");
