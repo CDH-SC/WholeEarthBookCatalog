@@ -49,6 +49,16 @@
 
         <app-location route="{{route}}"></app-location>
 
+        <iron-ajax 
+            method="POST" 
+            id="addAj" 
+            url="/api/add_user" 
+            handle-as="json" 
+            on-response="_handleResponse" 
+            content-type="application/json" 
+            debounce-duration="300">
+        </iron-ajax>
+
         <div class="container">
             <div id="login-box">
                 <div id="inner-flex">
@@ -62,13 +72,9 @@
                     <template is="dom-if" if="[[!valid]]">
                         <p class="error-msg">{{errorMessage}}</p>
                     </template>
-
-    <iron-ajax method="POST" id="addAj" url="/api/add_user" handle-as="json" on-response="_handleResponse" content-type="application/json" debounce-duration="300">
-    </iron-ajax>
-
-    </div>
-    </div>
-    </div>
+                </div>
+            </div>
+        </div>
     </template>
 
     <script>
@@ -96,20 +102,20 @@
                 if (!this.username || this.username == "" || this.username.length <= 3) {
                     this.set("errorMessage", "Username not long enough");
                     this.valid = false;
-                } else if (rgx.test(this.username)) {
-                    this.set("errorMessage", "Username not alphanumeric");
-                    this.valid = false;
-                } //following condition was previously repeated
+                }
                 else if (!this.password || !this.password_confirm) {
                     this.set("errorMessage", "Either password is empty");
                     this.valid = false;
-                } else if (this.password === this.password_confirm) {
+                }
+                else if (this.password === this.password_confirm) {
                     this.set("errorMessage", "Passwords do not match");
                     this.valid = false;
-                } else if (this.password.length <= 5) {
+                }
+                else if (this.password.length <= 5) {
                     this.set("errorMessage", "Password must be longer than 5 characters");
                     this.valid = false;
-                } else {
+                } 
+                else {
                     this._post_new_user();
                 }
             }
@@ -134,7 +140,6 @@
             }
 
             _handleResponse(e) {
-                console.log("EVENT " + e);
                 if (e.detail.response) {
                     if (e.detail.response.insertedIds) {
                         if (e.detail.response.ops && e.detail.response.ops[0]._id &&
@@ -149,19 +154,19 @@
                             }));
                             this.valid = true;
                         }
-
-
-                        console.log("movin");
                         this.set("route.path", "home");
-                    } else if (e.detail.response.Error) {
+                    } 
+                    else if (e.detail.response.Error) {
                         if (e.detail.response.Error === "invaild data format") {
                             this.set("errorMessage", "invalid data format");
                             this.valid = false;
-                        } else {
+                        } 
+                        else {
                             this.set("errorMessage", "Username already exists");
                             this.valid = false;
                         }
-                    } else {
+                    } 
+                    else {
                         this.set("errorMessage", "invalid data format");
                     }
                 }

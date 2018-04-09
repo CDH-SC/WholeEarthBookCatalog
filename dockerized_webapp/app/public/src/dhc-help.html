@@ -1,47 +1,39 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="frag-header.html">
-
-
 
 <dom-module id="dhc-help">
-
-
     <template>
-
-            <style include="shared-styles">
-                    /* Iron flex layout */
-                    /* Large features */
-                    
-                    #h1 {
-                        margin: 0;
-                        text-align: center;
-                        font-size: 96px;
-                        font-weight: lighter;
-                    }
-                    
-                    #main-content {
-                        margin-left: 50px;
-                        margin-right: 50px;
-                    }
-                    
-                    paper-button {
-                        margin: 0px;
-                        background-color: #2d9cdb;
-                        color: whitesmoke;
-                    }
-                    
-                    .contact-info {
-                        margin: 5px;
-                    }
-                    
-                    #email-inf {
-                        font-size: 14px;
-                    }
-                    
-                    .help-footer {}
-                    
-                </style>
+        <style include="shared-styles">
+            /* Iron flex layout */
+            /* Large features */
+            
+            #h1 {
+                margin: 0;
+                text-align: center;
+                font-size: 96px;
+                font-weight: lighter;
+            }
+            
+            #main-content {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            
+            paper-button {
+                margin: 0px;
+                background-color: #2d9cdb;
+                color: whitesmoke;
+            }
+            
+            .contact-info {
+                margin: 5px;
+            }
+            
+            #email-inf {
+                font-size: 14px;
+            }
+            
+        </style>
 
         <div id = "main-content" class = "container-fluid"> 
             <p id = "help-message">
@@ -70,16 +62,10 @@
             </div>
         </div>
         
-        <paper-button onclick = "returnHome(this)"> Go back home </paper-button>
+        <a href="[[rootPath]]home"><paper-button> Go back home </paper-button></a>
         
     </template>
     <script>
-        function returnHome(btn) {
-            btn.addEventListener('transitioned', function(e) {
-                location.href = "[[rootPath]]";
-            })
-        }
-
         class dhcHelp extends Polymer.Element {
             static get is() {
                 return 'dhc-help';

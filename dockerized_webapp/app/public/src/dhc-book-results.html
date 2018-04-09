@@ -4,9 +4,10 @@
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="dhc-graph-view.html">
-
-<link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="dhc-book-results">
@@ -29,11 +30,11 @@
             }
 
             .result-item-info {
-                height: 400px;
+                height: 450px;
                 width: 300px;
                 display: flex; /*relate to container element*/
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: center;
                 border: 1px solid #E0E0E0;
                 align-items: center;
                 padding-left: 20px;
@@ -53,6 +54,8 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
             } 
 
             .heart-icon {
@@ -114,6 +117,11 @@
                 text-decoration: none;
             }
 
+            paper-spinner {
+                width: 200px;
+                height: 200px;
+            }
+
             .toggler {
                 margin-left: 15%;
             }
@@ -151,46 +159,70 @@
                 overflow: hidden;
             }
 
-            .image-wrapper {
-                /* bad :( */
-                margin-top: 20px;
+            .book-title {
+                font-size: 1.1rem;
+            }
+
+            .book-other {
+                font-size: 1rem;
             }
 
             .book-info-text {
                 width: 100%;
             }
+
+            .full-container {
+                display: flex;
+                flex-grow: 3;
+                justify-content: center;
+                align-items: center;
+                height: 80%;
+            }
         </style>
 
         <app-route
-            route="{{route}}"
-            pattern="/:search"
-            data="{{routeData}}">
+            route="[[route]]"
+            pattern="/:advanced/:keyword"
+            data="{{uriKeywordData}}">
         </app-route>
 
-        <app-location route="{{route}}"></app-location>
+        <app-route
+            route="[[route]]"
+            pattern="/:advanced/:author/:publisher/:title/:location/:degree"
+            data="{{uriAdvancedData}}">
+         </app-route>
 
         <iron-ajax
             method="POST"
             id="npost"
             url="/api/neo4j/"
             handle-as="json"
-            on-response="_handleResponse"
+            on-response="_handleResponseFireSearch"
             content-type="application/json"
             debounce-duration="300">
         </iron-ajax>
 
         <iron-ajax
             method="POST"
-            id="addlike"
+            id="updateRecentQueries"
             url="/api/update_saved_content/"
             handle-as="json"
-            on-response="_handleResponse"
+            on-response="_handleResponseRecent"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <iron-ajax
+            method="POST"
+            id="updateSavedQueries"
+            url="/api/update_saved_content/"
+            handle-as="json"
+            on-response="_handleResponseSavedQuery"
             content-type="application/json"
             debounce-duration="300">
         </iron-ajax>
 
         <div>
-
         <div class="btn-wrapper">
             <div class="toggler">
                 <paper-button class="btn-attached" id="list-btn" on-click="_showList">List</paper-button>
@@ -205,7 +237,9 @@
 
         <template is="dom-if" if="{{isList}}">
             <template is="dom-if" if="{{!searchDataLoaded}}">
-                    Loading...
+                <div class="full-container">
+                    <paper-spinner active="{{!searchDataLoaded}}" alt="Loading..."></paper-spinner>
+                </div>
             </template>
 
             <template is="dom-if" if="{{noResults}}">
@@ -214,27 +248,28 @@
 
             <template is="dom-if" if="{{searchDataLoaded}}">
                 <div id = "result-entry-wrapper" class="border-color">
-                    <template is="dom-repeat" items="[[searchData.records]]">
+                    <template is="dom-repeat" items="[[searchData.records]]" as="record">
                         <div class="result-item-info border-color">
                             <div class="book-info">
                                 <div class="image-wrapper">
                                     <image id="result-item-image" class="border-color" src= "../images/no_cover_150_248.png"></image>
                                 </div>
-                                <template is="dom-repeat" items="{{item.records}}" as="record">
-                                    <div class="book-info-text">
-                                        <h1 class="ellipsis">
-                                            {{record.title}}
-                                        </h1>
-                                        <h2 class="ellipsis">
-                                            {{record.authors}}
-                                        </h2>
-                                        <h1 class="ellipsis">
-                                            {{record.publishers}}
-                                        </h1>
-                                    </div>
-                                </template>
-                                <a href="book-profile/test">
-                                    <paper-button on-click="" id = "result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
+                                <div class="book-info-text">
+                                    <h1 class="book-title ellipsis">
+                                        {{record.title}}
+                                    </h1>
+                                    <h2 class="book-other ellipsis">
+                                        {{_getFirstAuthor(record)}}
+                                    </h2>
+                                    <h1 class="book-other ellipsis">
+                                        {{_getFirstPublisher(record)}}
+                                    </h1>
+                                    <h1 class="book-other ellipsis">
+                                        {{record.date}}
+                                    </h1>
+                                </div>
+                                <a href="book-profile/{{record.id}}/{{record.title}}">
+                                    <paper-button id ="result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
                                 </a>
                             </div>
                         </div>
@@ -252,25 +287,26 @@
 
             static get properties() {
                 return {
+                    // Defining the route object from app-route to use observer
                     route: {
                         type: Object,
                         observer: "_resultPageChanged"
                     },
-                    searchparams: {
-                        type: Object,
-                        notify: true
-                    },
+                    // Search data returned from iron-ajax to /api/neo4j/
                     searchData: {
                         type: Object,
                     },
+                    // Determines if data is loading
                     searchDataLoaded: {
                         type: Boolean,
                         value: false
                     },
+                    // Boolean that determines if there are no results
                     noResults: {
                         type: Boolean,
                         value: false
                     },
+                    // 
                     isList: {
                         type: Boolean,
                         value: true
@@ -278,79 +314,105 @@
                 }
             }
 
+            // Called when element is loaded
             ready() {
                 super.ready();
-                // this._fireSearchPost();
             }
 
-            _resultPageChanged() {
+            // Grabs the first author out of the list of authors for a record
+            _getFirstAuthor(record) {
+                return record.authors.length > 0 ? record.authors[0] : '';
+            }
 
-                if (this.route.path.includes("book-results/")) {
+            // Grabs the first publisher out of the list of pubs for a record
+            _getFirstPublisher(record) {
+                return record.publishers.length > 0 ? record.publishers[0] : '';
+            }
+
+            // The observer for the route object, fires when route obj is changed
+            _resultPageChanged() {
+                // Only do stuff if in book-results
+                if (this.route.prefix.includes("book-results")) {
                     this.set("noResults", false);
-                    this.set("searchData", {});
                     this.set("searchDataLoaded", false);
                     this.set("isList", true);
-
+                    this.set("searchData", {});
 
                     this._fireSearchPost();
                 }
             }
 
-            _wait_on_value() {
-                if(this.searchparams !== undefined) {
-                    this._fireSearchPost();
-                    return;
-                }
-            }
-
+            // Toggles graph view
             _showGraph() {
                 this.set("isList", false);
             }
 
+            // Toggles list view
             _showList() {
                 this.set("isList", true);                
             }
 
-            // Creates a custom event listened for by the app wrapper.
-            // Passes the favorite book, and the type of update. Need to add
-            // the user id at the app wrapper level.
-            _addFavBook(e) {
-                console.log(e);
-                this.dispatchEvent(new CustomEvent('send-user-data', {
-                    bubbles: true, composed: true, detail: {
-                        keyword: "favorites",
-                        content: e.path[0].book
-                    }
-                }));
-            }
-
             _addSavedQuery() {
-                this.dispatchEvent(new CustomEvent('send-user-data', {
-                    bubbles: true, composed: true, detail: {
+                console.log(this.user);
+                if (this.user !== undefined && this.user !== {}) {
+                    var obj = {
+                        _id: this.user._id,
                         keyword: "saved_searches",
-                        content: this.searchparams
+                        content: {
+                            advanced: false,
+                            basic_query: this.uriKeywordData.keyword,
+                            terms: {},
+                            limit: 25
+                        }
                     }
-                }));
+
+                    this.$.updateSavedQueries.body = obj;
+                    this.$.updateSavedQueries.generateRequest();
+                }
             }
 
-            _fireSearchPost() {
-                console.log("Search params", this.searchparams);
-                this.$.npost.body = this.searchparams;
+            _addRecentQuery() {
+                // TODO: Add functionality for advanced 
+                console.log(this.user);
+                if (this.user !== undefined && this.user !== {}) {
+                    var obj = {
+                        _id: this.user._id,
+                        keyword: "recent_searches",
+                        content: {
+                            advanced: false,
+                            basic_query: this.uriKeywordData.keyword,
+                            terms: {},
+                            limit: 25
+                        }
+                    }
 
-                console.log("Neopost", this.$.npost.body);
+                    this.$.updateRecentQueries.body = obj;
+                    this.$.updateRecentQueries.generateRequest();
+                }
+            }
+
+            // Uses iron-ajax to post to /api/neo4j/
+            // Sets the body based on the URI 
+            _fireSearchPost() {
+                console.log("keyword data", this.uriKeywordData.keyword);
+                if (this.uriKeywordData.advanced === "keyword") {
+                    this.$.npost.body = {
+                        advanced: false,
+                        basic_query: this.uriKeywordData.keyword,
+                        terms: {},
+                        limit: 25
+                    }
+                }
+                else {
+                    // advanced search not implemented
+                }
 
                 this.$.npost.generateRequest();
             }
 
-            _fireSaveSelected(e) {
-                this.dispatchEvent(new CustomEvent('send-user-data', {
-                    bubbles: true, composed: true, detail: e.path[0].selbook
-                }));
-            }
-
-            _handleResponse(e) { 
+            // Response for /api/neo4j/ call
+            _handleResponseFireSearch(e) { 
                 this.set("searchData", e.detail.response);
-                console.log(e.detail.response);
                 this.set('searchDataLoaded', true);
 
                 if(this.searchData.records && this.searchData.records.length > 0) {
@@ -359,6 +421,18 @@
                 else {
                     this.set("noResults", true);
                 }
+
+                this._addRecentQuery();
+            }
+
+            _handleResponseSavedQuery(e) {
+                // Dispatch event for toast
+                this.dispatchEvent(new CustomEvent('open-saved-q-toast', { bubbles: true, composed: true, detail: {}} ));
+            }
+
+            _handleResponseRecent(e) {
+                console.log("Added query to recent", e.detail.response);
+                // Nothing needed here.
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);

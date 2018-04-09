@@ -20,12 +20,6 @@
     <template>
         <style include="shared-styles">
             :host {
-                /* position: fixed; */
-                /* height: 100vh; */
-                /* min-height: 100vh;
-                width: 100vw;
-                overflow-y: auto; */
-
                 display: block;
                 position: relative;
                 min-height: 100vh;
@@ -49,18 +43,7 @@
             }
         </style>
 
-        <iron-ajax
-            method="POST"
-            id="updateinfo"
-            url="/api/update_saved_content/"
-            handle-as="json"
-            on-response="_handleResponse"
-            content-type="application/json"
-            debounce-duration="300">
-        </iron-ajax>
-
         <data-login id="userData" user="{{user}}"></data-login>
-        <data-search id="searchdatacomp" selectedbook="{{selectedbook}}" searchparams="{{searchparams}}"></data-search>
 
         <app-location
             route="{{route}}">
@@ -79,7 +62,7 @@
 
         <paper-toast id="signInToast" text="Successfully Logged In!"></paper-toast>
         <paper-toast id="signOutToast" text="Successfully Logged Out!"></paper-toast>
-        <paper-toast id="faveQuery" text="Query Saved!"></paper-toast>
+        <paper-toast id="savedQToast" text="Query Saved!"></paper-toast>
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -95,8 +78,8 @@
             <dhc-user-account name="user-account" user="{{user}}" route="{{subroute}}"></dhc-user-account> 
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
-            <dhc-book-results name="book-results" route="{{subroute}}" searchparams="{{searchparams}}"></dhc-book-results>
-            <dhc-book-profile name="book-profile" selectedbook="{{selectedbook}}" route="{{subroute}}"> </dhc-book-profile>
+            <dhc-book-results name="book-results" user="[[user]]" route="{{subroute}}"></dhc-book-results>
+            <dhc-book-profile name="book-profile" route="{{subroute}}"> </dhc-book-profile>
         </iron-pages>
 
         <footer>
@@ -125,16 +108,14 @@
                         type: Boolean,
                         value: false
                     }
-                        // This might want to be an object with the obj data?
-                };
+                 };
             }
 
             ready() {
                 super.ready();
                 this.addEventListener('update-user', (e) => this._onUpdateUserData(e));
-                this.addEventListener('update-search', (e) => this._onUpdateSearchData(e));
                 this.addEventListener('send-user-data', (e) => this._onSendUserData(e));
-                this.addEventListener('set-selected-book', (e) => this._onSetSelectedBook(e));
+                this.addEventListener('open-saved-q-toast', (e) => this._openSavedQueryToast());
             }
 
             connectedCallback() {
@@ -259,19 +240,17 @@
                 this.$.userData.updateUser(event.detail.user);
             }
 
-            _onUpdateSearchData(event) {
-                this.$.searchdatacomp.updateSearch(event.detail);
-                e.detail._id = this.user._id;
-                this.$.updateinfo.body = e.detail;
-                this.$.updateinfo.generateRequest();
+            _onUpdateSearchData(e) {
+                console.log("ehllo", e.detail);
+                this.$.searchdatacomp.updateSearch(e.detail);
+
+                // this.$.updateinfo.body = newObj;
+                // this.$.updateinfo.generateRequest();
             }
 
-            _handleResponse(e) {
-                console.log(e);
-                // console.log(e.detail.request);
-                this.$.faveQuery.open();
-                console.log(e.detail.response);
-                console.log("handled");
+            _openSavedQueryToast() {
+                console.log("Opening Toast")
+                this.$.savedQToast.open();
             }
         }
 
