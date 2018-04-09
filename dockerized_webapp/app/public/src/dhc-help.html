@@ -1,59 +1,79 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/polymer/paper-divider.html">
+<link rel="import" href="frag-header.html">
+
+
 
 <dom-module id="dhc-help">
 
-    <template>
-        <style include="shared-styles">
-            /* Iron flex layout */
-            /* Large features */
-            
-            #h1 {
-                margin: 0;
-                text-align: center;
-                font-size: 96px;
-                font-weight: lighter;
-            }
-            
-            #main-content {
-                margin-left: 50px;
-                margin-right: 50px;
-            }
-            
-            paper-button {
-                margin: 0px;
-                background-color: #2d9cdb;
-                color: whitesmoke;
-            }
-            
-            .contact-info {
-                margin: 5px;
-            }
-            
-            #email-inf {}
-            
-            #h1 {
-                margin: 0;
-                text-align: center;
-                font-size: 14px;
-            }
-                
-        </style>
 
-        <div id = "main-content" class = "container-fluid"> 
+    <template>
+
+            <style include="shared-styles">
+                    /* Iron flex layout */
+                    /* Large features */
+                    
+                    #h1 {
+                        margin: 0;
+                        text-align: center;
+                        font-size: 96px;
+                        font-weight: lighter;
+                    }
+                    
+                    #main-content {
+                        margin-left: 50px;
+                        margin-right: 50px;
+                    }
+
+                    #help-message {
+                        margin-top: 25px;
+                        font-size: 14px;
+
+                    }
+                    
+                    paper-button {
+                        margin: 0px;
+                        background-color: #2d9cdb;
+                        color: whitesmoke;
+                    }
+                    
+                    .contact-info {
+                        margin: 5px;
+                    }
+                    
+                    #email-inf {
+                        font-size: 14px;
+                    }
+                    
+                    .help-footer {
+
+                    }
+                    
+            </style>
+
+        <div id = "main-content" class = "container-fluid"> \
+            <paper-divider> </paper-divider>
             <p id = "help-message">
 
             <blockquote>
+                Creating an Account: 
+
                 To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately. 
             </blockquote>
-            
-
+            <br>
             <blockquote>
+                Using our Search Features:
+                
+                Type in the designated keyword or keywords for your search. 
+
+                A user account is not required, but it does help if you would like to save certain titles. 
             
             </blockquote>
             
             </p>
             
+            <paper-divider relative></paper-divider>
             <div id = "help-footer">
                 <div class = "contact-info">
                     <p style = "font-size: 16px;">
@@ -63,13 +83,20 @@
                         Send us an email {{email}}
                     </p>
                 </div>
+                <paper-divider relative></paper-divider>
             </div>
         </div>
         
-        <a href="[[rootPath]]home"><paper-button> Go back home </paper-button></a>
+        <paper-button onclick = "returnHome(this)"> Go back home </paper-button>
         
     </template>
     <script>
+        function returnHome(btn) {
+            btn.addEventListener('transitioned', function(e) {
+                location.href = "[[rootPath]]";
+            })
+        }
+
         class dhcHelp extends Polymer.Element {
             static get is() {
                 return 'dhc-help';
