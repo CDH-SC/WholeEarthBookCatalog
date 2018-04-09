@@ -4,6 +4,7 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
@@ -139,6 +140,11 @@
                 border: 1px solid #E0E0E0;
             }
         </style>
+
+        <app-route route="[[route]]"
+                   pattern="/:id/:title"
+                   data="{{bookUriData}}"
+
             <div class = "container-profile">
                 {{selectedbook}}
                 <div id ="book-information-left">

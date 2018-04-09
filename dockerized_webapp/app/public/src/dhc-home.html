@@ -135,7 +135,7 @@
             <div class="inner-container">
                 <h1 id="title-center">DHC</h1>
 
-                <paper-input id="keywordSearch" class="large-keyword-search" on-keydown="_enter_check" placeholder="Keywords" value="{{search.keyword}}">
+                <paper-input active id="keywordSearch" class="large-keyword-search" on-keydown="_enter_check" placeholder="Keywords" value="{{search.keyword}}">
                     <paper-button noink on-click="_goto_search" id="sendSearchButton" slot="suffix"><iron-icon icon="arrow-forward"></iron-icon></paper-button>
                 </paper-input>
 
@@ -214,25 +214,7 @@
             }
 
             _goto_search() {
-                var obj ={ 
-                        advanced: false,
-                        basic_query: this.search.keyword,
-                        terms: {},
-                        limit: 25
-                }
-
-                this.$.savebasicq.body = {
-                    _id: this.user.id,
-                    keyword: "recent_searches",
-                    content: obj
-                }
-
-                // needs to be changed back to obj
-                this.dispatchEvent(new CustomEvent('update-search', {
-                    bubbles: true, composed: true, detail: obj
-                }));
-                
-                this.set("route.path", "book-results/" + this.search.keyword);
+                this.set("route.path", "book-results/keyword/" + this.search.keyword);
             }
 
             _open_advanced() {

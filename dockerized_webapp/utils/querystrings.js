@@ -30,7 +30,9 @@ OPTIONAL MATCH
 		authors: collect( DISTINCT (p.fname + " " + p.lname )), 
 		publishers: collect( DISTINCT pub.name ),
 		title: b.title,
-		date: b.date
+		isbn: b.isbn,
+		date: b.date,
+		id: ID(b)
 	} as tmp
         WITH
 	collect( DISTINCT tmp ) as records
@@ -51,8 +53,10 @@ OPTIONAL  MATCH
 		data: {
 			authors: collect( DISTINCT (p.fname + " " + p.lname )), 
 			publishers: collect( DISTINCT pub.name ),
+			isbn: b.isbn,
 			title: b.title,
-			date: b.date
+			date: b.date,
+			id: ID(b)
 		},  records: records
 	} as tmp
   WITH
