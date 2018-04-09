@@ -1,12 +1,16 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="frag-header.html">
-
-
 
 <dom-module id="dhc-help">
 
     <template>
+        <style include="shared-styles">
+            /* Iron flex layout */
+            /* Large features */
+            
+            #h1 {
+                margin: 0;
+                text-align: center;
                 font-size: 96px;
                 font-weight: lighter;
             }
@@ -26,9 +30,7 @@
                 margin: 5px;
             }
             
-            #email-inf {
-
-        <style include="shared-styles">
+            #email-inf {}
             
             #h1 {
                 margin: 0;
@@ -64,16 +66,10 @@
             </div>
         </div>
         
-        <paper-button onclick = "returnHome(this)"> Go back home </paper-button>
+        <a href="[[rootPath]]home"><paper-button> Go back home </paper-button></a>
         
     </template>
     <script>
-        function returnHome(btn) {
-            btn.addEventListener('transitioned', function(e) {
-                location.href = "[[rootPath]]";
-            })
-        }
-
         class dhcHelp extends Polymer.Element {
             static get is() {
                 return 'dhc-help';

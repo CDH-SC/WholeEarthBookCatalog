@@ -32,7 +32,8 @@
     "paper-dialog-scrollable": "^2.2.0",
     "paper-toast": "^2.1.0",
     "animate.css": "^3.5.2",
-    "d3": "^5.0.0"
+    "d3": "^5.0.0",
+    "paper-spinner": "^2.1.0"
   },
   "resolutions": {
     "polymer": "^2.0.0",

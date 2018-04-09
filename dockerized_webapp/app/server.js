@@ -175,6 +175,9 @@ router.post("/update_saved_content/", function(req, res) {
     // error handling
     if ( data._id === undefined || data.keyword === undefined || data.content === undefined ) {
         err = { "Error": "invalid data format" };
+        console.log (data._id);
+        console.log(data.keyword);
+        console.log(data.content);
         
         res.json( err );
         return;
@@ -390,30 +393,40 @@ router.post("/neo4j/", function (req, res) {
     var params = {};
     var errstr = "This process was rejected. Please double check that your input follows the correct form";
 
-    if ( data.advanced == false ) {
-
-        if ( typeof( data.basic_query ) == "string" ) {
+    if ( data.advanced === false ) {
+        if ( typeof( data.basic_query ) === "string" ) {
+            console.log("basic: ", data.basic_query);
+            console.log("limit", data.limit);
             params.regex = `(?i).*${data.basic_query}.*`;
             params.limit = data.limit;
 
             var q = neo4j.query(statement, params);
             q.response.then(function (resp) {
-                    var arr = new Array();
-                    resp.records.forEach(record => {
-                        var record = record._fields[0];
-                        arr.push({
-                            date: record.date.low,
-                            title: record.title,
-                            authors: record.authors,
-                            publishers: record.publishers
-                        });
-                    })
+                    console.log(resp);
+                    var arr = [];
+                    if (resp.records.length > 0) {
+                        resp.records.forEach(record => {
+                            var record = record._fields[0];
+                            if (record) {
+                                console.log(record.isbn);
+                                arr.push({
+                                    id: record.id ? record.id.low : -1,
+                                    isbn: record.isbn ? record.isbn : [],
+                                    date: record.date ? record.date.low : '',
+                                    title: record.title ? record.title : '',
+                                    authors: record.authors ? record.authors : [],
+                                    publishers: record.publishers ? record.publishers : []
+                                });
+                            }
+                        })
+                    }
                     res.json({
                         records: arr
                     });
                     console.log("neo4j request completed normally\n");
                 })
                 .catch(function (err) {
+                    console.log(err);
                     console.log(errstr)
                     res.json({
                         "Message": errstr,
