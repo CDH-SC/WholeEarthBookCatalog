@@ -31,8 +31,9 @@
 
                     }
                     
-                    paper-button {
-                        margin: 0px;
+                    paper-button raised {
+                        position: relative;
+                        margin-left: 20px;
                         background-color: #2d9cdb;
                         color: whitesmoke;
                     }
@@ -45,14 +46,10 @@
                     .contact-info {
                         margin: 5px;
                     }
-
-                    .help-footer {
-
-                    }
                     
             </style>
 
-        <div id = "main-content" class = "container-fluid"> \
+        <div id = "main-content" class = "container-fluid"> 
             <paper-divider> </paper-divider>
             <p id = "help-message">
 
@@ -83,11 +80,10 @@
                         Still having problems?  Send us an email: {{email}}
                     </p>
                 </div>
+                <paper-button raised onclick = "returnHome(this)"> Go back home </paper-button>
                 <paper-divider style = "relative: true;"></paper-divider>
             </div>
         </div>
-        
-        <paper-button onclick = "returnHome(this)"> Go back home </paper-button>
         
     </template>
     <script>
