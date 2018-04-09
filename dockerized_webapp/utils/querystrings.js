@@ -30,7 +30,9 @@ OPTIONAL MATCH
 		authors: collect( DISTINCT (p.fname + " " + p.lname )), 
 		publishers: collect( DISTINCT pub.name ),
 		title: b.title,
-		date: b.date
+		isbn: b.isbn,
+		date: b.date,
+		id: ID(b)
 	} as tmp
         WITH
 	collect( DISTINCT tmp ) as records
@@ -51,8 +53,10 @@ OPTIONAL  MATCH
 		data: {
 			authors: collect( DISTINCT (p.fname + " " + p.lname )), 
 			publishers: collect( DISTINCT pub.name ),
+			isbn: b.isbn,
 			title: b.title,
-			date: b.date
+			date: b.date,
+			id: ID(b)
 		},  records: records
 	} as tmp
     WITH
@@ -119,6 +123,52 @@ qstrings.advancedSearchPublisher = `OPTIONAL MATCH (p:Publisher)-[:PUBLISHED]->(
 																	 RETURN DISTINCT x
 																	 LIMIT { limit }`;
 
+// Advanced Search Query Strings
+qstrings.optionalMatch = `OPTIONAL MATCH `;
+
+qstrings.relations = ' (p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place) ';
+
+qstrings.advancedAuthor = ' p.fname =~ { fname_re } OR p.lname =~ { lname_re } ';
+
+qstrings.advancedPublisher = ' pub.name =~ { name_re } ';
+
+qstrings.advancedPlace = ' plc.name =~ { plcname_re } ';
+
+qstrings.advancedEdition = ' { title_re } IN b.IBSN OR b.title =~ { title_re } OR b.year =~ { year_re } ';
+
+qstrings.withCollectFirst = `
+                            WITH
+                            {
+                                authors: collect( DISTINCT (p.fname + " " + p.lname) ),
+                                publishers: collect( DISTINCT pub.name),
+                                title: b.title
+                            } as tmp
+                            WITH
+                                collect( DISTINCT tmp ) as records
+                                `;
+
+qstrings.withCollect = `
+                                    WITH
+                                    {
+                                        data: {
+                                            authors: collect( DISTINCT (p.fname + " " + p.lname) ),
+                                            publishers: collect( DISTINCT pub.name ),
+                                            title: b.title
+                                        }, records: records
+                                    } as tmp
+                                    WITH
+                                        collect( DISTINCT tmp.data ) + tmp.records as records
+                                        `;
+
+qstrings.unwindRecords = `
+                            UNWIND records as r
+ 							RETURN DISTINCT
+                            CASE
+                            WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
+                            ELSE r
+                            END AS res
+                            LIMIT 100
+                            `;
 
 qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "Tom"
                          				WITH collect(r) as edges, collect(p)+collect(m) as nodes

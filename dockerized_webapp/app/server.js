@@ -176,6 +176,9 @@ router.post("/update_saved_content/", function(req, res) {
     // error handling
     if ( data._id === undefined || data.keyword === undefined || data.content === undefined ) {
         err = { "Error": "invalid data format" };
+        console.log (data._id);
+        console.log(data.keyword);
+        console.log(data.content);
         
         res.json( err );
         return;
@@ -245,34 +248,121 @@ router.post("/update_saved_content/", function(req, res) {
 
 });
 
-
-/**
- * GoodReads search endpoint
- * 
- * TODO:
- *   + Add comment detailing how the request should be passed
- * 
- */
-router.post("/goodreads/", function(req,res) {
+/*
+* Request body should only contain an id
+*/
+router.post("/neo4j/single_node/", function(req, res) {
     var data = req.body;
-    if ( data.search === undefined) {
-        err = { "Error": "invalid data format" };
-        console.log( `${errStr}:\n${err}` );
-        res.json( err );
-        return;
+
+    var statement = qstrings.singleNode;
+    var params = {};
+
+    if (data.id !== undefined) {
+        params.id = data.id;
     }
 
-    console.log("Post: " + data);
+    var q = neo4j.query(statement, params);
+    q.response.then(function(resp) {
+        res.json(resp);
+    })
+    .catch(function (err) {
+        res.json({error: "There was an error retrieving the id"});
+    })
+})
 
-    goodreadsDriver.goodReadSearch(data.search, function(jsArr) {
-        var i = 1;
-        jsArr.forEach(function(value) {
-            console.log("\nSearch " + i + " \n" +JSON.stringify(value));
-            i++;
-        });
+/* Temporary testing endpoint for putting together 
+ * advanced search query strings
+*/
+router.post("/advanced_search/", function (req, res) {
+    var data = req.body;
 
-    });
-    //goodreadsDriver.getBooks();
+    console.log(`request:\n${JSON.stringify(data, null, 2)}\n`);
+
+    var query = qstrings.optionalMatch;
+    query += qstrings.relations;
+    query += "WHERE";
+    var before = false;
+
+    // Authors
+    if ( data.author != null ) {
+        for ( var i = 0; i < data.author.length; i++ ) {
+            var addAuthor = qstrings.advancedAuthor;
+            if ( data.author[i].fname != null ) {
+                addAuthor = addAuthor.replace('{ fname_re }', '\"(?i).*' + data.author[i].fname + '.*\"');
+            }
+            if ( data.author[i].lname != null ) {
+                addAuthor = addAuthor.replace('{ lname_re }', '\"(?i).*' + data.author[i].lname + '.*\"');
+            }
+            query += addAuthor;
+            if ( i+1 < data.author.length ) {
+                query += "OR";
+            }
+        }
+        before = true;
+    }
+
+    // Publishers
+    if ( data.publisher != null ) {
+        if ( before == true ) {
+            query += "AND";
+        }
+        var addPublisher = qstrings.advancedPublisher;
+        for ( var i = 0; i < data.publisher.length; i++ ) {
+            query += qstrings.advancedPublisher;
+            addPublisher = addPublisher.replace('{ name_re }', '\"(?i).*' + data.publisher[i].name + '.*\"');
+            query += addPublisher;
+            if ( i + 1 < data.publisher.length ) {
+                query += "OR";
+            }
+        }
+        before = true;
+    }
+
+    // Book
+    if ( data.edition != null ) {
+        if ( before == true ) {
+            query += "AND";
+        }
+        var addBook = qstrings.advancedEdition;
+        for ( var i = 0; i < data.edition.length; i++ ) {
+            if ( data.edition[i].title != null ) {
+                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.edition[i].title + '.*\"');
+                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.edition[i].title + '.*\"');
+            }
+            if ( data.edition[i].year != null ) {
+                addBook = addBook.replace('{ year_re }', '\"(?i).*' + data.edition[i].year + '.*\"');
+            }
+            query += addBook;
+            if ( i+1 < data.edition.length ) {
+                query += "OR";
+            }
+        }
+    }
+
+    // Place
+    if ( data.place != null) {
+        if ( before == true ) {
+            query += "AND";
+        }
+        for ( var i = 0; i < data.place.length; i++ ) {
+            var addPlace = qstrings.advancedPlace;
+            addPlace = addPlace.replace('{ plcname_re }', '\"(?i).*' + data.place[i].name + '.*\"');
+            query += addPlace;
+            if ( i+1 < data.place.length ) {
+                query += "OR";
+            }
+        }
+    }
+    
+
+    query += qstrings.withCollectFirst;
+    query += qstrings.unwindRecords;
+
+    console.log(query +"\n\n");
+    var statement = JSON.stringify(query, null, 2);
+    
+    res.json(query);
+    
 });
 
 /** keyword query for neo4j
@@ -299,30 +389,40 @@ router.post("/neo4j/", function (req, res) {
     var params = {};
     var errstr = "This process was rejected. Please double check that your input follows the correct form";
 
-    if ( data.advanced == false ) {
-
-        if ( typeof( data.basic_query ) == "string" ) {
+    if ( data.advanced === false ) {
+        if ( typeof( data.basic_query ) === "string" ) {
+            console.log("basic: ", data.basic_query);
+            console.log("limit", data.limit);
             params.regex = `(?i).*${data.basic_query}.*`;
             params.limit = data.limit;
 
             var q = neo4j.query(statement, params);
             q.response.then(function (resp) {
-                    var arr = new Array();
-                    resp.records.forEach(record => {
-                        var record = record._fields[0];
-                        arr.push({
-                            date: record.date.low,
-                            title: record.title,
-                            authors: record.authors,
-                            publishers: record.publishers
-                        });
-                    })
+                    console.log(resp);
+                    var arr = [];
+                    if (resp.records.length > 0) {
+                        resp.records.forEach(record => {
+                            var record = record._fields[0];
+                            if (record) {
+                                console.log(record.isbn);
+                                arr.push({
+                                    id: record.id ? record.id.low : -1,
+                                    isbn: record.isbn ? record.isbn : [],
+                                    date: record.date ? record.date.low : '',
+                                    title: record.title ? record.title : '',
+                                    authors: record.authors ? record.authors : [],
+                                    publishers: record.publishers ? record.publishers : []
+                                });
+                            }
+                        })
+                    }
                     res.json({
                         records: arr
                     });
                     console.log("neo4j request completed normally\n");
                 })
                 .catch(function (err) {
+                    console.log(err);
                     console.log(errstr)
                     res.json({
                         "Message": errstr,

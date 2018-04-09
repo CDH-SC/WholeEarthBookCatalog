@@ -135,7 +135,7 @@
             <div class="inner-container">
                 <h1 id="title-center">DHC</h1>
 
-                <paper-input id="keywordSearch" class="large-keyword-search" on-keydown="_enter_check" placeholder="Keywords" value="{{search.keyword}}">
+                <paper-input active id="keywordSearch" class="large-keyword-search" on-keydown="_enter_check" placeholder="Keywords" value="{{search.keyword}}">
                     <paper-button noink on-click="_goto_search" id="sendSearchButton" slot="suffix"><iron-icon icon="arrow-forward"></iron-icon></paper-button>
                 </paper-input>
 
@@ -153,12 +153,11 @@
                         </div>
                     </template>
                     <div class="absol">
-                        <frag-rotation ></frag-rotation>
+                        <frag-rotation></frag-rotation>
                     </div>
                 </div>
             </div>
         </div>
-    
     </template>
     <script>
         class dhcHome extends Polymer.Element {
@@ -197,48 +196,30 @@
             }
 
             _update_dom_session() {
-                if(this.user !== undefined && this.user.authenticated) {
+                if (this.user !== undefined && this.user.authenticated) {
                     console.log(this.user);
                     this.inSession = true;
-                }
-                else {
+                } else {
                     this.inSession = false;
                 }
             }
 
             _enter_check(event) {
-                
-                if(event.keyCode === 13) {
+
+                if (event.keyCode === 13) {
                     this._goto_search();
                 }
             }
 
             _goto_search() {
-                var obj ={ 
-                        advanced: false,
-                        basic_query: this.search.keyword,
-                        terms: {},
-                        limit: 25
-                }
-
-                this.$.savebasicq.body = {
-                    _id: this.user.id,
-                    keyword: "recent_searches",
-                    content: obj
-                }
-
-                // needs to be changed back to obj
-                this.dispatchEvent(new CustomEvent('update-search', {
-                    bubbles: true, composed: true, detail: obj
-                }));
-                
-                this.set("route.path", "book-results/" + this.search.keyword);
+                this.set("route.path", "book-results/keyword/" + this.search.keyword);
             }
 
             _open_advanced() {
-                
+
                 this.$.advancedSearch.$.dialog.open();
             }
-        } window.customElements.define(dhcHome.is, dhcHome);
+        }
+        window.customElements.define(dhcHome.is, dhcHome);
     </script>
 </dom-module>

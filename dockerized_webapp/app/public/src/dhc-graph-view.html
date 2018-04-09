@@ -10,7 +10,6 @@
 
     <script>
         class dhcGraphView extends Polymer.Element {
-
             // code mostly borrowed from here 
             // https://medium.com/ninjaconcept/interactive-dynamic-force-directed-graphs-with-d3-da720c6d7811
 
@@ -48,7 +47,7 @@
             _massageData() {
                 for (var i = 0; i < this.records.length; i++) {
                     var currRecord = this.records[i];
-                    this.push('nodes', {id: i, group: 1, label: currRecord._fields[0].properties.title, level: 1});
+                    this.push('nodes', {id: i, group: 1, label: currRecord.title, level: 1});
                 }
             }
 

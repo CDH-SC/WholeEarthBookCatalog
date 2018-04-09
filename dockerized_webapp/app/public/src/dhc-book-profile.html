@@ -4,11 +4,12 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id = "dhc-book-profile">
+<dom-module id="dhc-book-profile">
     <template>
         <style include = "shared-styles">
           
@@ -126,9 +127,7 @@
                 margin-right: 50px
             }
         
-            #profile-description-paragraph {
-            }
-        
+            /* plot descriptions will not be included */
             #profile-related table {
                 border: 1px solid #e0e0e0;
             }
@@ -139,60 +138,66 @@
                 border: 1px solid #E0E0E0;
             }
         </style>
-            <div class = "container-profile">
-                {{selectedbook}}
-                <div id ="book-information-left">
-                    <div id = "profile-metadata-div">
-                       <paper-dialog-scrollable class = "metadata-fields">  
-                            <h2> The Snow Child </h2>
-                            <h4> Author: Eowyn Ivey </h4>
-                            <h4> Publisher: Random House  </h4>
-                            <h4> Location Published: New York, NY  </h4> 
-                            <h4> ISBN: 02395234562  </h4>
-                        </paper-dialog-scrollable>
-                    
-                    </div>
-                    <paper-dialog-scrollable id = "profile-description-div">
-                        <h3>Summary:</h3>
-                        <div id = "profile-description-paragraph">
-                          <!-- {{descValue}} -->Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
-                        </div> 
-                    </paper-dialog-scrollable>
-                    <paper-dialog-scrollable id="profile-related-div">
-                        <h3>Related:</h3>
+
+        <app-route route="[[route]]"
+                   pattern="/:id/:title"
+                   data="{{bookUriData}}">
+        </app-route>
+
+        <div class="container-profile">
+            {{selectedbook}}
+            <div id="book-information-left">
+                <div id="profile-metadata-div">
+                    <paper-dialog-scrollable class="metadata-fields">
+                        <h2> The Snow Child </h2>
+                        <h4> Author: Eowyn Ivey </h4>
+                        <h4> Publisher: Random House  </h4>
+                        <h4> Location Published: New York, NY  </h4> 
+                        <h4> ISBN: 02395234562  </h4>
                     </paper-dialog-scrollable>
                 </div>
 
-                    <div id="book-information-right">
-
-                        <div id = "profile-image-div">
-                           <img id = "profile-image" src="../images/no_cover_350_579.png" alt = "Snow Child"> 
-                        </div>
-
-                        <div id = "profile-menu-div">
-                           
-                                <paper-button class="menu-btn" id = "menu-favorites">
-                                    Add to Favorites 
-                                </paper-button>
-                               
-                                <paper-button  class="menu-btn"  id = "menu-generate-citation"> 
-                                    Generate Citation
-                                </paper-button> 
-
-                                <paper-button  class="menu-btn" id = "menu-request"> 
-                                    Request from Library 
-                                </paper-button> 
-
-                                <paper-button class="menu-btn"  id = "menu-share">
-                                    Share 
-                                </paper-button>
-                        </div>
-                    </div>
+                <paper-dialog-scrollable id="profile-description-div">
+                    <h3>Summary:</h3>
+                    <div id="profile-description-paragraph">
+                        <!-- {{descValue}} -->Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
+                    </div> 
+                </paper-dialog-scrollable>
+                <paper-dialog-scrollable id="profile-related-div">
+                    <h3>Related:</h3>
+                </paper-dialog-scrollable>
             </div>
+
+            <div id="book-information-right">
+                <div id = "profile-image-div">
+                    <img id = "profile-image" src="../images/no_cover_350_579.png" alt = "Snow Child"> 
+                </div>
+
+                <div id = "profile-menu-div">
+                    <paper-button class="menu-btn" id="menu-favorites">
+                        Add to Favorites 
+                    </paper-button>
+                    
+                    <paper-button  class="menu-btn"  id="menu-generate-citation"> 
+                        Generate Citation
+                    </paper-button> 
+
+                    <paper-button  class="menu-btn" id="menu-request"> 
+                        Request from Library 
+                    </paper-button> 
+
+                    <paper-button class="menu-btn"  id="menu-share">
+                        Share 
+                    </paper-button>
+                </div>
+            </div>
+        </div>
     </template>
     <script>
         class dhcBookProfile extends Polymer.Element {
-            static get is() { return 'dhc-book-profile'; }
+            static get is() {
+                return 'dhc-book-profile';
+            }
             static get properties() {
                 return {
                     selectedbook: {
