@@ -46,7 +46,18 @@
             }
         </style>
     
-    <app-location route="{{route}}"></app-location>
+        <app-location route="{{route}}"></app-location>
+
+        <iron-ajax
+            method="POST"
+            id="addj"
+            url="/api/get_user/"
+            handle-as="json"
+            on-response="_handle_response"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
         <div class="container">
 
             <div id="login-box">
@@ -61,16 +72,6 @@
                 <template is="dom-if" if="[[!valid]]">
                     <p class="error-msg">{{errorMessage}}</p>
                 </template>
-
-                <iron-ajax
-                method="POST"
-                id="addj"
-                url="/api/get_user"
-                handle-as="json"
-                on-response="_handle_response"
-                content-type="application/json"
-                debounce-duration="300">
-            </iron-ajax>
             </div>
         </div>
     </template>

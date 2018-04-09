@@ -153,12 +153,11 @@
                         </div>
                     </template>
                     <div class="absol">
-                        <frag-rotation ></frag-rotation>
+                        <frag-rotation></frag-rotation>
                     </div>
                 </div>
             </div>
         </div>
-    
     </template>
     <script>
         class dhcHome extends Polymer.Element {
@@ -197,18 +196,17 @@
             }
 
             _update_dom_session() {
-                if(this.user !== undefined && this.user.authenticated) {
+                if (this.user !== undefined && this.user.authenticated) {
                     console.log(this.user);
                     this.inSession = true;
-                }
-                else {
+                } else {
                     this.inSession = false;
                 }
             }
 
             _enter_check(event) {
-                
-                if(event.keyCode === 13) {
+
+                if (event.keyCode === 13) {
                     this._goto_search();
                 }
             }
@@ -218,9 +216,10 @@
             }
 
             _open_advanced() {
-                
+
                 this.$.advancedSearch.$.dialog.open();
             }
-        } window.customElements.define(dhcHome.is, dhcHome);
+        }
+        window.customElements.define(dhcHome.is, dhcHome);
     </script>
 </dom-module>
