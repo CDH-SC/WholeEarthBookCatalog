@@ -175,16 +175,17 @@ qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "T
                          				RETURN nodes, edges`;
 
 
-										 qstrings.createEdition = `MERGE ({var_id}:Edition {
-											title: "{Title}",
-											date: {Date},
-											isbn: {ISBN}
-												})`;
+qstrings.createEdition = `
+MERGE ({var_id}:Edition {
+	title: "{Title}",
+	date: {Date},
+	isbn: {ISBN}
+})`;
 
-qstrings.createPerson = `MERGE ({var_id}:Person {
-											  fname: "{fname}",
-											  lname: "{lname}"
-													  })`;
+qstrings.createPerson = `
+MERGE ({var_id}:Person {
+	name: "{name}",
+})`;
 
 qstrings.createPlace = `MERGE ({var_id}:Place {
 										   name: "{placename}"
