@@ -5,7 +5,14 @@
         <style>
         </style>
         
-        <svg id="container"></svg>
+        <template is="dom-if" if="{{isSelection}}">
+           <div class="selection-display"><h2>Node Name : {{selectedNode.name}}</h2></div> 
+        </template>
+
+    <template is="dom-if" if="{{!isSelection}}">
+            <div><p>Nothing selected!</p></div>
+        </template>
+    <svg id="container"></svg>
     </template>
 
     <script>
@@ -13,7 +20,9 @@
             // code mostly borrowed from here 
             // https://medium.com/ninjaconcept/interactive-dynamic-force-directed-graphs-with-d3-da720c6d7811
 
-            static get is() { return 'dhc-graph-view'; }
+            static get is() {
+                return 'dhc-graph-view';
+            }
             static get properties() {
                 return {
                     // If we're in graph view used to trigger generations.
@@ -26,12 +35,27 @@
                     records: {
                         type: Array
                     },
-                    
+
                     // Massaged Records,needs to be initialized for pushing
                     nodes: {
                         type: Array,
                         value: []
-                    }
+
+                    },
+
+                    edges: {
+                        type: Array,
+                        value: []
+                    },
+
+                    selectedNode: {
+                        type: Object,
+                        value: {
+                            name: ""
+                        }
+                    },
+
+                    isSelection: Boolean
                 }
             }
 
@@ -47,7 +71,13 @@
             _massageData() {
                 for (var i = 0; i < this.records.length; i++) {
                     var currRecord = this.records[i];
-                    this.push('nodes', {id: i, group: 1, label: currRecord.title, level: 1});
+                  
+                    this.push('nodes', {
+                        id: i,
+                        group: 1,
+                        label: currRecord._fields[0].properties.title,
+                        level: 1
+                    });
                 }
             }
 
@@ -70,7 +100,7 @@
                 // more details in the link at the begingin of the script
                 const simulation = d3.forceSimulation()
                     .force('charge', d3.forceManyBody().strength(-20))
-                    .force('center', d3.forceCenter(width / 2, height /2));
+                    .force('center', d3.forceCenter(width / 2, height / 2));
 
                 console.log(simulation);
 
@@ -80,9 +110,12 @@
                     .selectAll("circle")
                     .data(nodesInScope)
                     .enter().append("circle")
-                        .attr("r", 10)
-                        .attr("fill", "red")
-            
+                    .attr("r", 10)
+                    .attr("fill", "red")
+                    .on("click", function(d) {
+                        this._setSelections(d);
+                    }.bind(this));
+
                 console.log(nodeElements);
 
                 svg.append("circle").attr("cx", 25).attr("cy", 25)
@@ -91,18 +124,20 @@
                     .selectAll('text')
                     .data(nodesInScope)
                     .enter().append('text')
-                        .text(function (node) { return node.label })
-                        .attr('font-size', 15)
-                        .attr('dx', 15)
-                        .attr('dy', 4)
+                    .text(function(node) {
+                        return node.label
+                    })
+                    .attr('font-size', 15)
+                    .attr('dx', 15)
+                    .attr('dy', 4)
 
                 simulation.nodes(nodesInScope).on('tick', () => {
                     nodeElements
                         .attr("cx", node => node.x)
-                        .attr("cy", node=> node.y)
+                        .attr("cy", node => node.y)
                     textElements
-                        .attr("x", node=>node.x)
-                        .attr("y", node=> node.y)
+                        .attr("x", node => node.x)
+                        .attr("y", node => node.y)
                 })
             }
 
@@ -113,5 +148,5 @@
         }
         window.customElements.define(dhcGraphView.is, dhcGraphView);
     </script>
-    
+
 </dom-module>
