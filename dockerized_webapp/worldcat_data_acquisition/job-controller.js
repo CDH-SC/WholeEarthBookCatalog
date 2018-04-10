@@ -77,12 +77,20 @@ var addJobs = function( jobs ) {
     MongoClient.connect(mongoUrl, (err, db) => {
         assert.equal(err, null)
         // create collection if it does not exist
-        db.createCollection( "worldcatJobs")
-        var worldcatJobs = db.collection("worldcatJobs")
-        worldcatJobs.createIndex( { "jobString": 1 }, { unique: true } )
-        worldcatJobs.insertMany(jobs, { ordered: false }, (err, res) => {
-            console.log(`inserted ${JSON.stringify(res.nInserted, null, 2)} new jobs`)
-            db.close();
+        db.listCollections({"name": "worldcatJobs"}).toArray()
+        .then( (items) => {
+            if ( items.length == 0 ) {
+                db.createCollection( "worldcatJobs ")
+            }
+            return db
+        })
+        .then( (db) => {
+            var worldcatJobs = db.collection("worldcatJobs")
+            worldcatJobs.createIndex( { "jobString": 1 }, { unique: true } )
+            worldcatJobs.insertMany(jobs, { ordered: false }, (err, res) => {
+                console.log(`inserted ${JSON.stringify(res.nInserted, null, 2)} new jobs`)
+                db.close();
+            })
         })
     })
 }
