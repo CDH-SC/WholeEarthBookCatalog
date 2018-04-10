@@ -159,16 +159,6 @@ function ExtractData_Item_CorporateAuthor(obj, dataField) {
     return obj;
 }
 
-function ExtractData_Numbers_And_Codes(obj, dataField) {
-    switch(datafiel._tag) {
-        case "028": {
-            obj = Add(obj, "Publisher", Subfields(dataField, "b"));
-            break;
-        }
-    }
-    return obj;
-}
-
 function ExtractData_Item(obj, dataField) {
     var tag = dataField._tag;
     if (["210", "222", "240", "242", "243", "245", "246", "247"].includes(tag))
@@ -177,8 +167,6 @@ function ExtractData_Item(obj, dataField) {
         obj = ExtractData_Item_Author(obj, dataField);
     if (["110", "111", "130"].includes(tag))
         obj = ExtractData_Item_CorporateAuthor(obj, dataField);
-    if (["028"].includes(tag))
-        obj = ExtractData_Numbers_And_Codes(obj, dataField);
     return obj;
 }
 

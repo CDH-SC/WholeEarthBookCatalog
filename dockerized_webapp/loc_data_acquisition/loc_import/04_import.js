@@ -43,15 +43,11 @@ function GetNext() {
 function CreateScript(obj) {
     // if author, get author add "WROTE" relationship
     var author = obj.Author;
-    var publisher = obj.Publisher;
     var script = "";
     if (author != undefined && author != null) {
         script += "MERGE (a:Person {Name:$Author}) ";
     }
-    if (publisher != undefined && publisher != null) {
-        script += "MERGE (b:Publisher {Name:$Publisher}) ";
-    }
-    script += "CREATE (i:Item { ";
+    script += "CREATE (b:Item { ";
     var propertyStatements = [];
     for (var propertyName in obj) {
         propertyStatements.push(propertyName + ": $" + propertyName);
@@ -59,12 +55,9 @@ function CreateScript(obj) {
     script += propertyStatements.join(", ");
     script += "}) ";
     if (author != undefined && author != null) {
-        script += "MERGE (a) -[ra:WROTE]-> (i) ";
+        script += "MERGE (a) -[r:WROTE]-> (b) ";
     }
-    if (publisher != undefined && publisher != null) {
-        script += "MERGE (b) -[rb:PUBLISHED]-> (i) ";
-    }
-    script += "RETURN i";
+    script += "RETURN b";
     return script;
 }
 
@@ -72,18 +65,12 @@ function Import() {
     var data = GetNext();
     var script = CreateScript(data);
     // neo4j.query(script, data).then(() => { Import(); });
-    neo4j
-        .action(script, data)
-        .then(function(result) {
-            Import();
-        });
-
-    // var queryResponse = neo4j.query(script, data);
-    // queryResponse.response.then(() => { 
-    //     queryResponse.session.close();
-    //     queryResponse.driver.close();
-    //     Import(); 
-    // });
+    var queryResponse = neo4j.query(script, data);
+    queryResponse.response.then(() => { 
+        queryResponse.session.close();
+        queryResponse.driver.close();
+        Import(); 
+    });
 }
 
 Import();

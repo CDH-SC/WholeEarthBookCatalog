@@ -46,10 +46,9 @@
             <blockquote>
                 To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately. 
             </blockquote>
-            
 
             <blockquote>
-            
+
             </blockquote>
             
             </p>
@@ -57,23 +56,21 @@
             <div id = "help-footer">
                 <div class = "contact-info">
                     <p style = "font-size: 16px;">
-                        Still having problems?
+                        Still need help?
                     </p>
-                    <p id="email-inf"> 
+                    <p id="email-inf" style = "font-size: 14px;"> 
                         Send us an email {{email}}
                     </p>
                 </div>
             </div>
         </div>
-        
+       
         <a href="[[rootPath]]home"><paper-button> Go back home </paper-button></a>
         
     </template>
     <script>
         class dhcHelp extends Polymer.Element {
-            static get is() {
-                return 'dhc-help';
-            }
+            static get is() { return 'dhc-help'; }
             static get properties() {
                 return {
                     email: {
@@ -86,3 +83,4 @@
         window.customElements.define(dhcHelp.is, dhcHelp);
     </script>
 </dom-module>
+

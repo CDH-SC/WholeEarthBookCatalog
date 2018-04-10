@@ -14,35 +14,19 @@
 <dom-module id="dhc-login">
 
     <template>
-        <style>
-            #login-box {
-                box-shadow: 0px 4px 4px  rgba(0, 0, 0, 0.25);
-                margin: 20px;
-                flex-grow: 3;
-                max-width:550px;
+        <style include="shared-styles iron-flex iron-flex-alignment">
+            .container {
+                @apply --layout-horizontal;
             }
 
-            .container {
-                height: 75%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            #login-box {
+                min-height: 600px;
+                min-width: 500px;
+                box-shadow: 0px 4px 4px  rgba(0, 0, 0, 0.25);
             }
 
             #inner-flex {
                 padding: 20px;
-            }
-
-            .blue-btn {
-                background-color: var(--paper-blue-500);
-                color: white;
-            }
-
-            .error-msg {
-                background-color: var(--paper-red-400);
-                border-radius: 5px;
-                padding:10px;
-                color: white;
             }
         </style>
     
@@ -62,15 +46,16 @@
 
             <div id="login-box">
                 <div id="inner-flex">
+                    <h1>DHC</h1>
                     <h2>Login</h2>
                     <paper-input placeholder="Username" value={{username}}></paper-input>
-                    <paper-input placeholder="Password" on-keydown="_enter_check" type="password" value={{password}}></paper-input>
-                    <paper-button raised class="blue-btn" on-click="_user_login">Login</paper-button>
+                    <paper-input placeholder="Password" type="password" value={{password}}></paper-input>
+                    <paper-button on-click="_user_login">Login</paper-button>
                     <a href="[[rootPath]]create-account">Create Account</a>
                 </div>
 
                 <template is="dom-if" if="[[!valid]]">
-                    <p class="error-msg">{{errorMessage}}</p>
+                    <p>{{errorMessage}}</p>
                 </template>
             </div>
         </div>
@@ -100,12 +85,6 @@
 
                 this.$.addj.body = userObj;
                 this.$.addj.generateRequest();
-            }
-
-            _enter_check(event) {
-                if(event.keyCode === 13) {
-                    this._user_login();
-                }
             }
 
             _handle_response(e) {

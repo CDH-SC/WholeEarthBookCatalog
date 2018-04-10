@@ -103,18 +103,16 @@
                     </template>
 
                     <template is="dom-if" if="[[inSession]]">
-                        <div>
-                        <paper-menu-button>
+                        <paper-menu-button vertical-offset="60" horizontal-align="right">
                             <paper-button slot="dropdown-trigger" class="account-blue ellipsis">{{user.username}}</paper-button>
-                            <paper-listbox slot="dropdown-content">
+                            <paper-listbox class="user-listbox" slot="dropdown-content">
                                 <a id="goto-user-account" user="{{user}}" href="/user-account/{{user._id}}"><paper-item>Account</paper-item></a>
+                                <paper-item>Favorites</paper-item>
                                 <paper-item on-click="_sign_out">Sign out</paper-item>
                             </paper-listbox>
                         </paper-menu-button>
-                    </div>
-                    </template>
-                    
 
+                    </template>
                     <template is="dom-if" if="[[!inSession]]"> 
                         <a href="/login">
                             <paper-button class="account-blue">Sign in</paper-button>
@@ -162,17 +160,6 @@
                 if (this.route.path.includes("user-account")) {
                     this.set("route.path", "home");
                 }
-            
-            }
-
-            _setZindex(e) {
-                console.log("fixing z index");
-                const menu = e.target;
-                console.log(e.target);
-                const item = menu.parentNode;
-                console.log(menu.parentNode);
-                console.log(item.style);
-                item.style.zIndex = menu.opened ? 101 : null;
             }
 
             _showSearch() {

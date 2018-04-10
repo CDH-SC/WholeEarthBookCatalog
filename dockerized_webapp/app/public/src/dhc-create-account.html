@@ -15,35 +15,19 @@
 
 <dom-module id="dhc-create-account">
     <template>
-        <style>
-            #login-box {
-                box-shadow: 0px 4px 4px  rgba(0, 0, 0, 0.25);
-                margin: 20px;
-                flex-grow: 3;
-                max-width: 550px;
+        <style include="shared-styles iron-flex iron-flex-alignment">
+            .container {
+                @apply --layout-horizontal;
             }
 
-            .container {
-                height: 75%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            #login-box {
+                min-height: 600px;
+                min-width: 500px;
+                box-shadow: 0px 4px 4px  rgba(0, 0, 0, 0.25);
             }
 
             #inner-flex {
                 padding: 20px;
-            }
-
-            .blue-btn {
-                background-color: var(--paper-blue-500);
-                color: white;
-            }
-
-            .error-msg {
-                background-color: var(--paper-red-400);
-                border-radius: 5px;
-                padding:10px;
-                color: white;
             }
         </style>
 
@@ -67,10 +51,10 @@
                     
                     <paper-input placeholder="Username" value="{{username}}"></paper-input>
                     <paper-input error-message="invalid" placeholder="Password" type="password" value={{password}}></paper-input>
-                    <paper-input placeholder="Confirm Password" type="password" on-keydown="_errorCheck" value="{{password_confirm}}"></paper-input>
-                    <paper-button raised class="blue-btn" on-click="_validate">Login</paper-button>
+                    <paper-input placeholder="Confirm Password" type="password" value="{{password_confirm}}"></paper-input>
+                    <paper-button on-click="_validate">Login</paper-button>
                     <template is="dom-if" if="[[!valid]]">
-                        <p class="error-msg">{{errorMessage}}</p>
+                        <p>{{errorMessage}}</p>
                     </template>
                 </div>
             </div>

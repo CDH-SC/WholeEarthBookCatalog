@@ -1,0 +1,91 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/app-storage/app-localstorage/app-localstorage-document.html">
+<link rel="import" href="d3-import.html">
+
+<dom-module id="dhc-loading-graphic">
+    <template>
+        <style include = "shared-styles.html"> 
+
+        #d3-graph:-webkit-full-screen {
+
+        }
+
+        #d3-graph:-moz-full-screen {
+
+        }
+
+        #d3-graph:-ms-full-screen {
+            
+        }
+
+        #d3-graph-container {
+
+        }
+
+        #d3-graph-header {
+
+        }
+
+        #d3-graph-header-span {
+            
+        }
+
+        .nodes circle {
+
+        }
+
+         
+
+     </style>
+     <template>
+        <svg width = "" height = ""></svg> 
+     </template>
+
+    <script>
+        var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height");
+
+        var colorScheme = d3.scaleOrdinal(d3.schemeCategory20b);
+
+        var simulation = d3.forceSimulation()
+            /*.force("link", d3.forceLink().id(function(d) {
+                return d.id;
+            })) */
+            .force("generalForce", d3.forceManyBody())
+            .force("center", d3.forceCenter(width/2, height/2));
+
+        d3.json("wcImport", function(error, graph) {
+            if(error) throw error;
+
+           /* var edge = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter().append("line")
+                .attr("stroke-width", function(d) {
+                    return Math.sqrt(d.value);
+                }) */
+
+            var node = svg.append("g")
+                .attr("class", "nodes")
+                .selectAll("circle")
+                .data(graph.nodes)
+                .enter().append("circle")
+                .attr("r", 5)
+                .attr("fill", function(d) {
+                    return color(d.group);
+                }) /*
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended)
+                );   */
+
+                simulation.force("node") 
+                   .nodes(graph.nodes);
+
+        })
+
+    </script>
+</dom-module>
