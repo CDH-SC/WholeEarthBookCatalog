@@ -184,22 +184,31 @@ MERGE ({var_id}:Edition {
 
 qstrings.createPerson = `
 MERGE ({var_id}:Person {
-	name: "{name}",
+	name: "{name}"
 })`;
 
-qstrings.createPlace = `MERGE ({var_id}:Place {
-										   name: "{placename}"
-													  })`
+qstrings.createPlace = `
+MERGE ({var_id}:Place {
+	name: "{placename}"
+})
+`;
 
-qstrings.createPublisher = `MERGE ({var_id}:Publisher {
-										   name: "{pubname}"
-													})`
+qstrings.createPublisher = `
+MERGE ({var_id}:Publisher {
+	name: "{pubname}"
+})
+`;
 	  
-qstrings.createWroteRelation = `MERGE ({author})-[:WROTE]->({book})`;
+qstrings.createWroteRelation = `
+MERGE ({author})-[:WROTE]->({book})
+`;
 	  
-qstrings.createPublishedRelation = `MERGE ({pubname})-[:PUBLISHED]->({book})`;
+qstrings.createPublishedRelation = `
+MERGE ({pubname})-[:PUBLISHED]->({book})
+`;
 	  
-qstrings.createPublishesInRelation = `MERGE ({pubname})-[:PUBLISHES_IN]->({place})\n`
+qstrings.createPublishesInRelation = `
+MERGE ({pubname})-[:PUBLISHES_IN]->({place})
+`;
 
-// exports
 module.exports = qstrings;
