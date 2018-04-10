@@ -51,6 +51,7 @@ wcq.query = function(query) {
             var data = wcq.parseResp(json);
             console.log(JSON.stringify(data, null, 2))
             var qstring = wcq.constructQuery(data);
+            console.log(qstring);
             var qr = neo4j.query(qstring)
 
             // handle the response
