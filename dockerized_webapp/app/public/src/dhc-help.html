@@ -33,16 +33,22 @@
                         position: relative;
                         margin-left: 20px;
                         background-color: #2d9cdb;
-                        color: whitesmoke;
                     }
 
                     paper-divider {
+                        padding-top: 5%;
                         margin: true;
+                        padding-bottom: 5%;
                         
                     }
                     
                     .contact-info {
                         margin: 5px;
+                    }
+
+                    a:visited {
+                        background-color: #2d9cdb;
+
                     }
                     
             </style>
@@ -58,7 +64,7 @@
                         To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately.
 
                     </blockquote>
-                    <br>
+                    
                     <blockquote>
 
                         <h3> Using our Search Features </h3>
@@ -86,10 +92,10 @@
     </template>
     <script>
         /* function returnHome(btn) {
-                                                                                                            btn.addEventListener('transitioned', function(e) {
-                                                                                                                location.href = "[[rootPath]]";
-                                                                                                            })
-                                                                                                        }  */
+                                                                                                                            btn.addEventListener('transitioned', function(e) {
+                                                                                                                                location.href = "[[rootPath]]";
+                                                                                                                            })
+                                                                                                                        }  */
 
         class dhcHelp extends Polymer.Element {
             static get is() {
