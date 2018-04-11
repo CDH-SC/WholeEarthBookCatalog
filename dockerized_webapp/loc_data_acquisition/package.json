@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "glob": "^7.1.2",
     "gunzip-file": "^0.1.1",
     "json-array-streams": "^1.0.1",
     "marc4js": "0.0.9",

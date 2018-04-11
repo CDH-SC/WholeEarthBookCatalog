@@ -7,8 +7,8 @@ var LookupInTable = lib.LookupInTable;
 
 function ExtractControl_FixedLengthData(controlField, obj) {
     var data = controlField._data;
-    obj = Add(obj, "Language", data.substring(35, 37));
-    obj = Add(obj, "PublishingLocation", data.substring(15, 17));
+    obj = Add(obj, "language", data.substring(35, 37));
+    //obj = Add(obj, "publishinglocation", data.substring(15, 17));
     return obj;
 }
 
@@ -30,13 +30,13 @@ controlParser.Parse = function(marc21, obj) {
         var controlField = control[i];
         switch (controlField._tag) {
             case "001":
-                obj = Add(obj, "ControlNumber", controlField._data);
+                obj = Add(obj, "controlnumber", controlField._data);
                 break;
             case "003":
-                obj = Add(obj, "ControlNumberIdentifier", controlField._data);
+                obj = Add(obj, "controlnumberidentifier", controlField._data);
                 break;
             case "005":
-                obj = Add(obj, "LastTransaction", controlField._data);
+                //obj = Add(obj, "lasttransaction", controlField._data);
                 break;
             case "006":
                 obj = ExtractControl_FixedLengthDataAdditionalCharacteristics(controlField, obj);

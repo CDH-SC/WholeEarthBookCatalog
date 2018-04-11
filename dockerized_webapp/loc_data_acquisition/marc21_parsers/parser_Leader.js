@@ -36,10 +36,10 @@ function ExtractLeader_TypeOfRecord(code) {
 
 leaderParser.Parse = function (marc21, obj) {
     var leader = marc21._leader;
-    obj = Add(obj, "RecordStatus", ExtractLeader_RecordStatusCode(leader._recordStatus));
+    //obj = Add(obj, "recordstatus", ExtractLeader_RecordStatusCode(leader._recordStatus));
     var type = ExtractLeader_TypeOfRecord(leader._typeOfRecord);
-    obj = Add(obj, "RecordType", type[0]);
-    obj = Add(obj, "Type", type[1]);
+    obj = Add(obj, "recordtype", type[0]);
+    obj = Add(obj, "type", type[1]);
     return obj;
 }
 
