@@ -15,13 +15,13 @@ const NEO4J_URL = process.env.NEO4J_URL
 
 // get session
 var getSession = function() {
-    var driver = neo4j.driver(`bolt://${NEO4J_URL}`, neo4j.auth.basic("neo4j", NEO4J_PASSWORD));
+    var driver = neo4j.driver(`bolt://${NEO4J_URL}`);
     return driver.session();
 }
 
 // run commands
 neo4jDriver.query = function(statement, params) {
-    var driver = neo4j.driver(`bolt://${NEO4J_URL}`, neo4j.auth.basic("neo4j", NEO4J_PASSWORD));
+    var driver = neo4j.driver(`bolt://${NEO4J_URL}`);
     var session = driver.session();
     var result;
 
@@ -32,6 +32,26 @@ neo4jDriver.query = function(statement, params) {
      })
      
      return { response: txRes, driver: driver, session: session };  
+}
+
+neo4jDriver.action = function(statement, params) {
+    var driver = neo4j.driver(`bolt://${NEO4J_URL}`);
+    var session = driver.session();
+    return session
+        .run(statement, params)
+        .then(function (result) {
+            session.close();
+            driver.close();
+        })
+        .catch(function (error) {
+            console.log(error);
+            try {
+                session.close();
+                driver.close();
+            } catch(ex) {
+
+            }
+        });
 }
 
 module.exports = neo4jDriver;

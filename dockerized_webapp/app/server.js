@@ -14,8 +14,6 @@ var mongo = require("./utils/mongoDriver.js");
 var neo4j = require("./utils/neo4jDriver.js");
 var qstrings = require("./utils/querystrings.js");
 var ObjectId = require("mongodb").ObjectId;
-var clock = require("./utils/clock.js");
-var goodreadsDriver = require("./utils/goodreadsDriver.js");
 
 var port = process.env.PORT || 8080;
 var app = express();

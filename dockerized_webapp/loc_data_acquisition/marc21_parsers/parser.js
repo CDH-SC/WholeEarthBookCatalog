@@ -20,10 +20,40 @@ parseTools.parse = function (object) {
     return ParseMARC(object);
 }
 
+function TryGet(obj, field) {
+    var value = "";
+    try {
+        value = obj[field];
+    } catch (ex) {
+
+    }
+    return value;
+}
+
+function ConvertForNeo(obj) {
+    var neoObject = {
+        isValid: false,
+        person: TryGet(obj, "author"),
+        publisher: TryGet(obj, "publisher"),
+        place: TryGet(obj, "publishinglocation"),
+        editionISBN: TryGet(obj, "isbn"),
+        editionTitle: TryGet(obj, "title"),
+        editionDate: TryGet(obj, "publisheddate")
+    };
+    neoObject.isValid = (neoObject.person != "" 
+        && neoObject.publisher != "" 
+        && neoObject.place != "" 
+        && neoObject.editionISBN != "" 
+        && neoObject.editionTitle != "" 
+        && neoObject.editionDate != "");
+    return neoObject;
+}
+
 parseTools.streamParse = function () {
     return through.obj(function (object, enc, cb) {
         var obj = ParseMARC(object);
-        this.push(obj);
+        var neoObject = ConvertForNeo(obj);
+        this.push(neoObject);
         cb();
     });
 }

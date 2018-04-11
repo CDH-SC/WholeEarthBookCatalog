@@ -126,7 +126,7 @@ qstrings.optionalMatch = `OPTIONAL MATCH `;
 
 qstrings.relations = ' (p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place) ';
 
-qstrings.advancedAuthor = ' p.fname =~ { fname_re } OR p.lname =~ { lname_re } ';
+qstrings.advancedAuthor = ' p.name =~ { fname_re } OR p.name =~ { lname_re } ';
 
 qstrings.advancedPublisher = ' pub.name =~ { name_re } ';
 
@@ -137,7 +137,7 @@ qstrings.advancedEdition = ' { title_re } IN b.IBSN OR b.title =~ { title_re } O
 qstrings.withCollectFirst = `
                             WITH
                             {
-                                authors: collect( DISTINCT (p.fname + " " + p.lname) ),
+                                authors: collect( DISTINCT (p.name) ),
                                 publishers: collect( DISTINCT pub.name),
                                 title: b.title
                             } as tmp
@@ -149,7 +149,7 @@ qstrings.withCollect = `
                                     WITH
                                     {
                                         data: {
-                                            authors: collect( DISTINCT (p.fname + " " + p.lname) ),
+                                            authors: collect( DISTINCT (p.name) ),
                                             publishers: collect( DISTINCT pub.name ),
                                             title: b.title
                                         }, records: records
