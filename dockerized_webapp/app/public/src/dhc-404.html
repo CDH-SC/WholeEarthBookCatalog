@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
 
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
@@ -18,8 +19,6 @@
 
             #graphic {
                 align-content: center;
-                width: 60%;
-                height: 50%;
             }
 
             paper-button {
@@ -28,8 +27,25 @@
                 color: whitesmoke;
             }
 
+            paper-item {
+                min-height: 60%;
+            }
+
         </style>
         <paper-button><a href="[[rootPath]]"> Go back home </a> </paper-button>
+    </template>
+    <template>
+        <paper-item>
+            <div id = "graphic">
+                <paper-item-body one-line>
+                    <span>
+                        <p>
+                            I'm sorry, this page cannot be found.
+                        </p>
+                    </span>
+                </paper-item-body>
+            </div>
+        </paper-item>
     </template>
     <script>
         class dhc404 extends Polymer.Element {
