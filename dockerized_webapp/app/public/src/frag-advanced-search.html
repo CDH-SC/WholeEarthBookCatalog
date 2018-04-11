@@ -23,6 +23,7 @@
             #close {
                 margin-top: 2px;
                 margin-right: 2px;
+                position: relative;
             }
 
             .col-inputs {
@@ -72,7 +73,7 @@
 
         <paper-dialog id="dialog">
             <h2>Advanced Search</h2> 
-            <iron-icon id = "close" icon = "icons:close"></iron-icon>
+            <paper-button dialog-dismiss><iron-icon id = "close" icon = "icons:close"></iron-icon></paper-button>
             <paper-dialog-scrollable class="scrollable-c">
                 <template is="dom-repeat" items="[[numFieldsArray]]">
                     <div class="col-inputs">
