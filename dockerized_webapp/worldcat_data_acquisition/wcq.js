@@ -6,7 +6,7 @@
 
 "use strict";
 
-var tags = require("./marcMaps")
+var tags = require("./marcMaps");
 var qstrings = require("./utils/querystrings");
 var neo4j = require("./utils/neo4jDriver");
 var format = require("string-format");
@@ -51,6 +51,7 @@ wcq.query = function(query) {
             var data = wcq.parseResp(json);
             console.log(JSON.stringify(data, null, 2))
             var qstring = wcq.constructQuery(data);
+            console.log(qstring);
             var qr = neo4j.query(qstring)
 
             // handle the response
@@ -115,7 +116,7 @@ var evaluateRecord = function(record) {
         return false;
     } else {
         people.forEach( (person) => {
-            if ( person.lname.match(re) != undefined || person.fname.match(re) != undefined ) {
+            if ( person.name.match(re) != undefined ) {
                 console.log("unformatted person")
                 return false;
             }
@@ -183,9 +184,9 @@ var parseData = function(data) {
             Title: "<TITLE_NOT_FOUND>",
             Date: -9999
         },
-        "Places": Array(),
-        "Publishers": Array(),
-        "People": Array()
+        "Places": new Array(),
+        "Publishers": new Array(),
+        "People": new Array()
     };
 
     for ( var i = 0; i < data.length; i++ ) {
@@ -232,30 +233,6 @@ var parseSubfield = function(code, val, tag, tags, obj) {
             var m = val.match(re_filter);
             
             for ( var key in mgroup ) {
-                if ( key == "Author lname" ) {
-                    if ( obj.People.length == 0 ) {
-                        obj.People.push({});
-                    }
-                    if ( obj.People[obj.People.length - 1].lname === undefined ) {
-                        obj.People[obj.People.length - 1].lname = m[ mgroup[key] ];
-                    } else {
-                        obj.People.push({
-                            lname: m[ mgroup[key] ]
-                        });
-                    }
-                }
-                if ( key == "Author fname" ) {
-                    if ( obj.People.length == 0 ) {
-                        obj.People.push({});
-                    }
-                    if ( obj.People[obj.People.length - 1].fname === undefined ) {
-                        obj.People[obj.People.length - 1].fname = m[ mgroup[key] ];
-                    } else {
-                        obj.People.push({
-                            fname: m[ mgroup[key] ]
-                        });
-                    }
-                }
                 if ( key == "ISBN" ) {
                     obj.Edition.ISBN.push( m[ mgroup[key] ] );
                 }
@@ -275,6 +252,15 @@ var parseSubfield = function(code, val, tag, tags, obj) {
                 if (key == "Date" ) {
                     obj.Edition.Date = parseInt( m[ mgroup[key] ]);
                 }
+                if ( key == "Author" ) {
+                    var raw = m[mgroup[key]];
+                    var raw_arr = raw.split(", ");
+                    var aname = `${raw_arr[1]} ${raw_arr[0]}`;
+                    obj.People.push({
+                        name: aname
+                    });
+                }
+
             }
         }
     }

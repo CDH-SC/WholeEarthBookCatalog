@@ -7,7 +7,8 @@
 "use strict";
 
 var general_filter = /^\[?(.*?)\]?\s?(\/|,|\.|:|;)?$/i
-var name_filter = /^\[?(.*?)(,\s(.*?),?)?\]?$/i
+var name_filter = /^\[?((.*?)(,\s(.*?))),?\]?$/i
+var pub_filter = /^(\[.*\][\/,\.:;]?\s?)?([a-zA-Z\s-\.\(\)]*),?$/i
 
 // tag to field mappings
 var tags = {
@@ -25,8 +26,7 @@ var tags = {
             "unknown_keys": [],
             "re_filter": name_filter,
             "mgroup": {
-                "Author lname": 1,
-                "Author fname": 3
+                "Author": 1
             }
         }
     },
@@ -54,9 +54,9 @@ var tags = {
             "unknown_keys": [
                 "[s.n.] :"
             ],
-            "re_filter": general_filter,
+            "re_filter": pub_filter,
             "mgroup": {
-                "Publisher":1
+                "Publisher": 2
             }
         },
         "c": {

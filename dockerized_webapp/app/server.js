@@ -39,6 +39,7 @@ router.post("/add_user/", function (req, res) {
         
         res.json(err);
     } else {
+
         // construct userdoc
         var userdoc = {
             username: data.username
@@ -247,10 +248,6 @@ router.post("/update_saved_content/", function(req, res) {
 
 });
 
-
-
-
-
 /*
 * Request body should only contain an id
 */
@@ -368,7 +365,6 @@ router.post("/advanced_search/", function (req, res) {
     
 });
 
-
 /** keyword query for neo4j
  *
  *  The request body should have the form:
@@ -449,6 +445,10 @@ router.post("/neo4j/", function (req, res) {
     }
 });
 
+// WIP
+// router.post("/neo4j/get_single_record", function(req, res) {
+//     var statement = qstrings.
+// })
 
 /**
  * 
@@ -501,10 +501,10 @@ app.use(bodyParser.json());
 // all endpoints are prepended with '/api'
 app.use('/api', router);
 
-app.use(express.static("public/"));
+app.use(express.static("public/build/es6-bundled"));
 
 app.get('*', function (req, res) {
-    res.sendFile("public/index.html", { root: '.' });
+    res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
 });
 
 // add directories with the files we need

@@ -7,6 +7,7 @@ Since there is not a wide swath of data in the database currently, I would recom
 <h1> Setup </h1>
 
 If you have not already, clone the repo to get the source code. 
+
 ```
 git clone https://github.com/SCCapstone/DirtyHistoryCrawler.git
 ```
@@ -22,11 +23,10 @@ This app uses:
 
   + Node.js
   + Polymer.js
-  + .NET core
   + MongoDB
   + Neo4j
 
-To make our lives and the lives of those who wish to run this software easier, we have chosen to deploy our app inside [Docker](https://docs.docker.com/) containers.
+To make our lives and the lives of those who wish to run this software easier, we have chosen to deploy our app inside [Docker](https://docs.docker.com/) containers, but, it is still best to run in a linux environment.
 
 ***Install Docker:***
 
