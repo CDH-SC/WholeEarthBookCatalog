@@ -20,14 +20,13 @@ OPTIONAL MATCH
 
 	WHERE
 	b.title =~ { regex } OR
-	p.lname =~ { regex } OR
-	p.fname =~ { regex } OR
+	p.name =~ { regex } OR
 	plc.name =~ { regex } OR
 	pub.name =~ { regex }
 	
 	WITH
 	{
-		authors: collect( DISTINCT (p.fname + " " + p.lname )), 
+		authors: collect( DISTINCT p.name ), 
 		publishers: collect( DISTINCT pub.name ),
 		title: b.title,
 		isbn: b.isbn,
@@ -43,15 +42,14 @@ OPTIONAL  MATCH
 
 	WHERE
 	b.title =~ { regex } OR
-	p.lname =~ { regex } OR
-	p.fname =~ { regex } OR
+	p.name =~ { regex } OR
 	plc.name =~ { regex } OR
 	pub.name =~ { regex }
 	
 	WITH
 	{
 		data: {
-			authors: collect( DISTINCT (p.fname + " " + p.lname )), 
+			authors: collect( DISTINCT (p.name )), 
 			publishers: collect( DISTINCT pub.name ),
 			isbn: b.isbn,
 			title: b.title,
