@@ -24,7 +24,7 @@
                     }
 
                     #help-message {
-                        margin-top: 25px;
+                        margin-top: 20px;
                         font-size: 14px;
 
                     }
@@ -37,7 +37,6 @@
 
                     paper-divider {
                         margin-top: 5%;
-                    
                         margin-bottom: 5%;
                         
                     }
@@ -84,17 +83,17 @@
                         Still having problems?  Send us an email: {{email}}
                     </p>
                 </div>
-                <paper-button raised> <a href = "[[rootPath]]"> Go back  </a> </paper-button>
+                <paper-button raised style = "color:#2d9cdb;"> <a href = "[[rootPath]]"> Go back  </a> </paper-button>
             </div>
         </div>
         
     </template>
     <script>
         /* function returnHome(btn) {
-                                                                                                                                                                                    btn.addEventListener('transitioned', function(e) {
-                                                                                                                                                                                        location.href = "[[rootPath]]";
-                                                                                                                                                                                    })
-                                                                                                                                                                                }  */
+                                                                                                                                                                                                                            btn.addEventListener('transitioned', function(e) {
+                                                                                                                                                                                                                                location.href = "[[rootPath]]";
+                                                                                                                                                                                                                            })
+                                                                                                                                                                                                                        }  */
 
         class dhcHelp extends Polymer.Element {
             static get is() {
