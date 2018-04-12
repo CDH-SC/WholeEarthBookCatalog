@@ -26,8 +26,16 @@ OPTIONAL MATCH
 	
 	WITH
 	{
-		authors: collect( DISTINCT p.name ), 
-		publishers: collect( DISTINCT pub.name ),
+		authors: collect(
+		DISTINCT {
+			name: p.name,
+			id: id(p) 
+		}), 
+		publishers: collect(
+		DISTINCT {
+			name: pub.name,
+			id: id(pub)
+		}),
 		title: b.title,
 		isbn: b.isbn,
 		date: b.date,
@@ -49,8 +57,16 @@ OPTIONAL  MATCH
 	WITH
 	{
 		data: {
-			authors: collect( DISTINCT (p.name )), 
-			publishers: collect( DISTINCT pub.name ),
+			authors: collect(
+			DISTINCT {
+				name: p.name,
+				id: id(p) 
+			}), 
+			publishers: collect(
+			DISTINCT {
+				name: pub.name,
+				id: id(pub)
+			}),
 			isbn: b.isbn,
 			title: b.title,
 			date: b.date,
