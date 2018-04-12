@@ -406,12 +406,14 @@ router.post("/neo4j/", function (req, res) {
                             if (record) {
                                 console.log(record.isbn);
                                 arr.push({
-                                    id: record.id ? record.id.low : -1,
+                                    id: record.id ? record.id : '',
                                     isbn: record.isbn ? record.isbn : [],
-                                    date: record.date ? record.date.low : '',
+                                    date: record.date ? record.date : '',
                                     title: record.title ? record.title : '',
                                     authors: record.authors ? record.authors : [],
-                                    publishers: record.publishers ? record.publishers : []
+                                    publishers: record.publishers ? record.publishers : [],
+                                    places: record.places ? record.places : [],
+                                    relationships: record.relationships ? record.relationships : []
                                 });
                             }
                         })
