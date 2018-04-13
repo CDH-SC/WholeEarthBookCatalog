@@ -64,19 +64,41 @@
         <app-location route="{{route}}"></app-location>
         
         <iron-ajax
-             id="userData"
+             id="getSavedQs"
              method="POST"
              handle-as="json"
              content-type="application/json"
              url="/api/get_saved_content/"
              handle-as="json"
-             on-response="handleResponse"></iron-ajax>
+             on-response="_handleSQResponse">
+        </iron-ajax>
+
+        <iron-ajax
+            id="getRecentQs"
+            method="POST"
+            handle-as="json"
+            content-type="application/json"
+            url="/api/get_saved_content/"
+            handle-as="json"
+            on-response="_handleRQResponse">
+         </iron-ajax>
+
+         <iron-ajax
+            id="getFavs"
+            method="POST"
+            handle-as="json"
+            content-type="application/json"
+            url="/api/get_saved_content/"
+            handle-as="json"
+            on-response="_handleFavResponse">
+        </iron-ajax>
         
         <div class = "container">
             <div class = "user-info-container">
                 <p id = "user-username">Username</p>
                 <p id = "user-email">Email: username@email.com</p> 
             </div>
+            
             <div class="favorite-books">
                 <paper-button noink on-click="_toggle_fave" class="toggler border-color"><iron-icon icon="favorite"></iron-icon>favorites
                     <template is="dom-if" if="[[favorite_books_show]]">
@@ -89,11 +111,17 @@
                     </template>
                 </paper-button>
                 <template is="dom-if" if="[[favorite_books_show]]">
-                    <div class="book-rot-container">
-                        <frag-rotation></frag-rotation>
-                    </div>
+                    <template is="dom-if" if="[[noFavs]]">
+                        No favorites here...
+                    </template>
+                    <template is="dom-if" if="[[!noFavs]]">
+                        <div class="book-rot-container">
+                            <frag-rotation num-show="6" data="{{savedBooks}}"img-based="true"></frag-rotation>
+                        </div>
+                    </template>
                 </template>
             </div>
+
             <div class="recent-searches">
                 <paper-button noink on-click="_toggle_recent" class="toggler border-color"><iron-icon icon="schedule"></iron-icon>Recently Searched
                     <template is="dom-if" if="[[recent_search_show]]">
@@ -106,9 +134,14 @@
                     </template>
                 </paper-button>
                 <template is="dom-if" if="[[recent_search_show]]">
-                    <div class="book-rot-container">
-                        <frag-rotation></frag-rotation>
-                    </div>
+                    <template is="dom-if" if="[[noRecentQs]]">
+                        No recent queries
+                    </template>
+                    <template is="dom-if" if="[[!noRecentQs]]">
+                        <div class="book-rot-container">
+                            <frag-rotation num-show="6" data="{{recentSearches}}" img-based="false"></frag-rotation>
+                        </div>
+                    </template>
                 </template>
             </div>
             
@@ -122,9 +155,14 @@
                     </template>
                 </paper-button>
                 <template is="dom-if" if="[[save_search_show]]">
-                    <div class="book-rot-container">
-                        <frag-rotation></frag-rotation>
-                    </div>
+                    <template is="dom-if" if="[[noSavedQs]]">
+                        No Saved Queries
+                    </template>
+                    <template is="dom-if" if="[[!noSavedQs]]">
+                        <div class="book-rot-container">
+                            <frag-rotation num-show="6" data="{{savedSearches}}" img-based="false"></frag-rotation>
+                        </div>
+                    </template>
                 </template>
             </div>
         </div>
@@ -158,14 +196,17 @@
                     },
                     recentSearches: {
                         type: Array
-                    }
+                    },
+                    noFavs: Boolean,
+                    NoRecent: Boolean,
+                    NoSavedQs: Boolean
                 }
             }
 
             ready() {
                 console.log("test");
                 super.ready();
-                // this._getInfo();
+
             }
 
             _resultPageChanged() {
@@ -173,18 +214,9 @@
                 console.log(this.route.path);
                 if (this.route.path.includes("user-account")) {
                     console.log("Getting info");
-                    this._getInfo();
-                }
-            }
-
-            _getInfo() {
-                console.log(this.user);
-                console.log(this.$);
-                this.$.userData.body = {
-                    _id: this.user._id,
-                    authenticated: this.user.authenticated
-                }
-                this.$.userData.generateRequest();
+                    this._getFavorites();
+                    this._getRecentQueries();
+                    this._getSavedQueries();                }
             }
 
             handleResponse(e) {
@@ -226,6 +258,68 @@
 
             _toggle_fave() {
                 this.set("favorite_books_show", !this.favorite_books_show);
+            }
+        
+            _getSavedQueries() {
+                this.$.getSavedQs.body = {
+                    _id: this.user._id,
+                    authenticated: this.user.authenticated,
+                    keyword: "saved_searches"
+                }
+
+                this.$.getSavedQs.generateRequest();
+            }
+
+            _handleSQResponse(e) {
+                var resp = e.detail.response;
+                console.log(resp);
+                if (resp.length > 0) {
+                    this.set('savedSearches', resp);
+                    console.log("RESP: ", resp);
+                }
+                else {
+                    this.set('noSavedQs', true);
+                }
+            }
+
+            _getRecentQueries() {
+                this.$.getRecentQs.body = {
+                    _id: this.user._id,
+                    authenticated:this.user.authenticated,
+                    keyword: "recent_searches"
+                }
+
+                this.$.getRecentQs.generateRequest();
+            }
+
+            _handleRQResponse(e) {
+                var resp = e.detail.response;
+                if (resp.length > 0) {
+                    this.set('recentSearches', resp);
+                }
+                else {
+                    this.set('noRecent', true);
+                }          
+            }
+
+            _getFavorites() {
+                this.$.getFavs.body = {
+                    _id: this.user._id,
+                    authenticated: this.user.authenticated,
+                    keyword: "favorites"
+                }
+
+                this.$.getFavs.generateRequest();
+            }
+
+            _handleFavResponse(e) {
+                var resp = e.detail.response;
+                if (resp.length > 0) {
+                    this.set('savedBooks', resp);
+                }
+                else {
+                    this.set('noFavs', true);
+                }   
             }
         }
         window.customElements.define(dhcUserAccount.is, dhcUserAccount);
