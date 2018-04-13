@@ -119,17 +119,31 @@ router.post("/get_user/", function (req, res) {
     }
 });
 
-// WIP :p
+/**
+ *  get Saved content
+ *
+ *  request format:
+ *
+ *  {
+ *      "_id": <idstr>,
+ *      "keyword": <keyword>,
+ *      "authenticated": <boolean>
+ *  }
+ *
+ */
 router.post("/get_saved_content/", function(req, res) {
     var data = req.body;
     var errStr = "Error - could not retreive content";
     var err;
 
-    if (data._id === undefined || !data.authenticated) {
+    if (data._id === undefined || !data.authenticated || !data.keyword) {
         if(!data.authenticated) {
             err = { "Error": "unauthorized get request" }
         }
         else {
+            console.log(data._id);
+            console.log(data.authenticated);
+            console.log(data.keyword);
             err = { "Error": "invalid data format" };
         }
 
@@ -145,7 +159,18 @@ router.post("/get_saved_content/", function(req, res) {
     
     mongo.findDocument(usrDoc, function(resp) {
         if (resp.length > 0) {
-            res.json(resp[0]);
+            if (data.keyword === "recent_searches") {
+                res.json(resp[0].recentSearches ? resp[0].recentSearches : []);
+            }
+            else if (data.keyword === "saved_searches") {
+                res.json(resp[0].savedSearches ? resp[0].savedSearches : []);
+            }
+            else if (data.keyword === "favorites") {
+                res.json(resp[0].favorites ? resp[0].favorites : []);
+            }
+            else {
+                res.json( { error: "invalid data request" } );
+            }
         }
         else {
             err = { "Error": "Could not find user with given ID" }

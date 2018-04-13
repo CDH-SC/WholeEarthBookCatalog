@@ -75,15 +75,30 @@
         </style>
 
         <div id="bookRecommends">
-            <paper-button on-click="_set_image_b" class="chev-cir"><iron-icon class="chev-button" icon="chevron-left"></iron-icon></paper-button>
-            <div id="bookHolder" class="book-wrapper">
-                <template is="dom-repeat" items="[[current_display]]">
-                    <div class="book-rec">
-                        <img class="rec-book" src="{{item}}"></img>
-                    </div>
-                </template>
-            </div>
-            <paper-button on-click="_set_image_f" class="chev-cir"><iron-icon class="chev-button" icon="chevron-right"></iron-icon></paper-button>
+            <template is="dom-if" if="[[imgBased]]">
+                <paper-button on-click="_set_image_b" class="chev-cir"><iron-icon class="chev-button" icon="chevron-left"></iron-icon></paper-button>
+                <div id="bookHolder" class="book-wrapper">
+                    <template is="dom-repeat" items="[[current_display]]">
+                        <div class="book-rec">
+                            <p>advanced: {{item.advanced}}</p>
+                            <p>basic_q: {{item.basic_query}}</p>
+                        </div>
+                    </template>
+                </div>
+                <paper-button on-click="_set_image_f" class="chev-cir"><iron-icon class="chev-button" icon="chevron-right"></iron-icon></paper-button>
+            </template>
+    
+            <template is="dom-if" if="[[!imgBased]]">
+                <paper-button on-click="_set_image_b" class="chev-cir"><iron-icon class="chev-button" icon="chevron-left"></iron-icon></paper-button>
+                <div id="bookHolder" class="book-wrapper">
+                    <template is="dom-repeat" items="[[current_display]]">
+                        <div class="book-rec">
+                            <div>{{item.title}}docker</div>
+                        </div>
+                    </template>
+                </div>
+                <paper-button on-click="_set_image_f" class="chev-cir"><iron-icon class="chev-button" icon="chevron-right"></iron-icon></paper-button>
+            </template>
         </div>
     </template>
     <script>
@@ -94,18 +109,18 @@
 
             static get properties() {
                 return {
-                    book_rec_covers: {
-                        type: Array,
-                        value: ['../images/no_cover_150_248.png', '../images/no_cover_150_248.png', '../images/no_cover_150_248.png', '../images/no_cover_150_248.png'],
-                    },
-                    book_rec_size: {
-                        type: Number,
-                        value: 3,
-                        observer: '_book_rec_size_changed'
-                    },
                     current_display: {
                         type: Array
                     },
+                    imgBased: Boolean,
+                    data: {
+                        type: Array,
+                        observer: '_watchingData'
+                    },
+                    numShow: {
+                        type: Number,
+                        observer: '_numShowChanged'
+                    }
                 }
             }
 
@@ -116,10 +131,11 @@
 
             ready() {
                 super.ready();
+                console.log("Data: " + this.data);
                 this._resize();
                 this.current_display = [];
-                for (var i = 0; i < this.book_rec_size; i++) {
-                    this.push('current_display', this.book_rec_covers[i]);
+                for (var i = 0; i < this.numShow; i++) {
+                    this.push('current_display', this.data[i]);
                 }
             }
 
@@ -128,62 +144,66 @@
                 window.addEventListener('resize', this._windowResize);
             }
 
-            _book_rec_size_changed(oldVal, newVal) {
+            _watchingData() {
+                console.log("DATA: " + this.data);
+            }
+
+            _numShowChanged(oldVal, newVal) {
                 if(oldVal !== newVal && this.current_display) {
                     if(oldVal < newVal) {
                         this.pop('current_display');
                     }
                     else {
-                        var add_index = this.book_rec_covers.indexOf(this.current_display[this.current_display.length - 1]) + 1;
-                        if(add_index >= this.book_rec_covers.length) {
+                        var add_index = this.data.indexOf(this.current_display[this.current_display.length - 1]) + 1;
+                        if(add_index >= this.data.length) {
                             add_index = 0;
                         }
-                        this.push('current_display', this.book_rec_covers[add_index]);
+                        this.push('current_display', this.data[add_index]);
                     }
                 }
             }
 
             _set_image_f() {
-                var ind = this.book_rec_covers.indexOf(this.current_display[this.current_display.length - 1]) + 1;
+                var ind = this.data.indexOf(this.current_display[this.current_display.length - 1]) + 1;
 
-                if (ind >= this.book_rec_covers.length) {
+                if (ind >= this.data.length) {
                     ind = 0;
                 }
 
-                this.push('current_display', this.book_rec_covers[ind]);
+                this.push('current_display', this.data[ind]);
                 this.shift('current_display');
             }
 
             _set_image_b() {
-                var ind = this.book_rec_covers.indexOf(this.current_display[0]) - 1;
+                var ind = data.indexOf(this.current_display[0]) - 1;
 
                 if (ind < 0) {
-                    ind = this.book_rec_covers.length - 1;
+                    ind = this.data.length - 1;
                 }
 
                 this.pop('current_display');
-                this.unshift('current_display', this.book_rec_covers[ind]);
+                this.unshift('current_display', this.data[ind]);
                 // this._bindTimeoutBounce()
             }
 
             _bindTimeoutBounce() {
                 setTimeout(function() {
                     this.$.bookHolder.setAttribute("class", "animated bounce")
-                }.bind(this), 1000);                
+                }.bind(this), 1000);
             }
 
             _resize() {
                 if (window.innerWidth < 1050 && window.innerWidth >= 800) {
-                    this.book_rec_size = 1;
+                    this.numShow = this.numShow - 1 >= 0 ? this.numShow - 1 : 0;
                 }
                 else if(window.innerWidth >= 1050 && window.innerWidth <= 1300) {
-                    this.book_rec_size = 2;
+                    this.numShow = this.numShow - 1 >= 0 ? this.numShow - 1 : 0;
                 }
                 else if(window.innerWidth > 1300) {
-                    this.book_rec_size = 3;
+                    this.numShow = this.numShow - 1 >= 0 ? this.numShow - 1 : 0;
                 }
                 else {
-                    this.book_rec_size = 0;
+                    this.numShow = 0;
                 }
             }
         }
