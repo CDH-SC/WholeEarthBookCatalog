@@ -60,52 +60,95 @@
                     
             </style>
 
-            <app-location route = "{{}}"> </app-location>
+            <app-location route = "{{route}}"> </app-location>
 
         <div id = "main-content" class = "container-fluid"> 
             <paper-divider> </paper-divider>
-                <p id = "help-message">
+                <div id = "help-messages-wrapper">
 
-                    <blockquote>
+                    <div id = "account-setup-container">
 
-                        <h3> How do you create an account? </h3>
-                        
-                        To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately.
+                        <template is="dom-if" if="[[account_setup_show]]">
+                            <iron-icon icon = "expand-more"></iron-icon>
+                            
+                        </template>
 
-                    </blockquote>
-                    <paper-divider></paper-divider>
-                    <blockquote>
+    <template is="dom-if" if="[[!account_setup_show]]">
+                            <iron-icon icon = "expand-less"></iron-icon>
+                            
+                        </template>
 
-                        <h3> How do you search? </h3>
-                        
-                        Type in the designated keyword or keywords for your search. 
+    </div>
 
-                        A user account is not required, but it does help if you would like to save certain titles. 
-                    
-                    </blockquote>
-                    <paper-divider></paper-divider>
-                    <blockquote>
-                        <h3>What can you do with your user account?</h3>
+    <div id="item-search-container">
 
-                    </blockquote>
-                    <paper-divider></paper-divider>
-                    <blockquote>
-                        <h3> What can you save? </h3>
-                    </blockquote>
-                </p>
-            
-            <paper-divider relative></paper-divider>
-            
-            <div id = "help-footer">
-                <div class = "contact-info">
-                    <p style = "font-size: 16px;">
-                        Still having problems?  Send us an email: {{email}}
-                    </p>
-                </div>
-                <paper-button style = "color:#2d9cdb;"> <a href = "[[rootPath]]">  <u style = "display:hidden;">Go back </u> </a> </paper-button>
-            </div>
+        <template is="dom-if" if="[[item_search_show]]">
+                                <iron-icon icon = "expand-more"></iron-icon>
+                            
+                        </template>
+
+        <template is="dom-if" if="[[!item_search_show]]">
+                                <iron-icon icon = "expand-less"></iron-icon>
+                            
+                        </template>
+
+    </div>
+
+    <div id="user-account-container">
+
+        <template is="dom-if" if="[[user_account_show]]">
+                                <iron-icon icon = "expand-more"></iron-icon>
+
+                        </template>
+
+        <template is="dom-if" if="[[!user_account_show]]">
+                                <iron-icon icon = "expand-less"></iron-icon>
+                            
+                        </template>
+
+    </div>
+
+    <blockquote>
+
+        <h3> How do you create an account? </h3>
+
+        To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will
+        be created immediately.
+
+    </blockquote>
+    <paper-divider></paper-divider>
+    <blockquote>
+
+        <h3> How do you search? </h3>
+
+        Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles.
+
+    </blockquote>
+    <paper-divider></paper-divider>
+    <blockquote>
+        <h3>What can you do with your user account?</h3>
+
+    </blockquote>
+    <paper-divider></paper-divider>
+    <blockquote>
+        <h3> What can you save? </h3>
+    </blockquote>
+    </div>
+
+    <paper-divider relative></paper-divider>
+
+    <div id="help-footer">
+        <div class="contact-info">
+            <p style="font-size: 16px;">
+                Still having problems? Send us an email: {{email}}
+            </p>
         </div>
-        
+        <paper-button style="color:#2d9cdb;">
+            <a href="[[rootPath]]"> <u style="display:hidden;">Go back </u> </a>
+        </paper-button>
+    </div>
+    </div>
+
     </template>
     <script>
         class dhcHelp extends Polymer.Element {
@@ -117,7 +160,24 @@
                     email: {
                         type: String,
                         value: 'dhc@fakeemail.com'
+                    },
+
+                    account_setup_show: {
+                        type: Boolean,
+                        value: true
+                    },
+
+                    item_search_show: {
+                        type: Boolean,
+                        value: true
+                    },
+
+                    user_account_show: {
+                        type: Boolean,
+                        value: show
                     }
+
+
                 }
             }
         }
