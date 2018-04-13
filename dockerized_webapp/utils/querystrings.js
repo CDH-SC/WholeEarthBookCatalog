@@ -16,6 +16,7 @@ var qstrings = {};
  */
 qstrings.keywordSearch = `
 OPTIONAL MATCH
+
 	(p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
 
 	WHERE
@@ -26,20 +27,52 @@ OPTIONAL MATCH
 	
 	WITH
 	{
-		authors: collect( DISTINCT p.name ), 
-		publishers: collect( DISTINCT pub.name ),
 		title: b.title,
 		isbn: b.isbn,
-		date: b.date,
-		id: ID(b)
+		date: toString( b.date ),
+		id: toString( id(b) ),
+		authors: collect(
+		DISTINCT {
+			name: p.name,
+			id: toString( id(p) ) 
+		}), 
+		publishers: collect(
+		DISTINCT {
+			name: pub.name,
+			id: toString( id(pub) )
+		}),
+		places: collect(
+		DISTINCT {
+			name: plc.name,
+			id: toString( id(plc) )
+		}),
+		relationships: {
+            wrote: collect(
+			DISTINCT [
+				toString( id(p) ),
+				toString( id(b) )
+			]),
+			published: collect(
+			DISTINCT [
+				toString( id(pub) ),
+				toString( id(b) )
+			]),
+			publishes_in: collect(
+			DISTINCT [
+				toString( id(pub) ),
+				toString( id(plc) )
+			])
+		}
 	} as tmp
-        WITH
+
+    WITH
 	collect( DISTINCT tmp ) as records
 	
 OPTIONAL  MATCH
-    (:Edition)-[*..3]-(b:Edition),
-    (p:Person)-[:WROTE]->(b)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
-
+    (b1:Edition)-[*..2]-(b:Edition),
+    (p:Person)-[:WROTE]->(b)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place),
+	(p1:Person)-[:WROTE]->(b1)<-[:PUBLISHED]-(pub1:Publisher)-[:PUBLISHES_IN]->(plc1:Place)
+	
 	WHERE
 	b.title =~ { regex } OR
 	p.name =~ { regex } OR
@@ -49,23 +82,55 @@ OPTIONAL  MATCH
 	WITH
 	{
 		data: {
-			authors: collect( DISTINCT (p.name )), 
-			publishers: collect( DISTINCT pub.name ),
-			isbn: b.isbn,
-			title: b.title,
-			date: b.date,
-			id: ID(b)
-		},  records: records
+			title: b1.title,
+			isbn: b1.isbn,
+			date: toString( b1.date ),
+			id: toString( id(b1) ),
+			authors: collect(
+			DISTINCT {
+				name: p1.name,
+				id: toString( id(p1) ) 
+			}), 
+			publishers: collect(
+			DISTINCT {
+				name: pub1.name,
+				id: toString( id(pub1) )
+			}),
+			places: collect(
+			DISTINCT {
+				name: plc1.name,
+				id: toString( id(plc1) )
+			}),
+			relationships: {
+				wrote: collect(
+				DISTINCT [
+					toString( id(p1) ),
+					toString( id(b1) )
+				]),
+				published: collect(
+				DISTINCT [
+					toString( id(pub1) ),
+					toString( id(b1) )
+				]),
+				publishes_in: collect(
+				DISTINCT [
+					toString( id(pub1) ),
+					toString( id(plc1) )
+				])
+			}
+		},
+		records: records
 	} as tmp
+
     WITH
 	collect( DISTINCT tmp.data ) + tmp.records as records
 
 	UNWIND records as r
 	RETURN DISTINCT
-	CASE
-    WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
-    ELSE r
-    END AS res
+	    CASE
+			WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
+			ELSE r
+		END AS res
 	LIMIT { limit }
 `;
 
