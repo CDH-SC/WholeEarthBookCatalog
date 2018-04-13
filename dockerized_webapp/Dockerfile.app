@@ -7,6 +7,7 @@ RUN npm install
 
 WORKDIR /usr/src/app/public
 RUN bower install --allow-root
+RUN polymer build
 
 WORKDIR /usr/src/app
 

@@ -22,8 +22,7 @@
             .col-inputs {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-end;
+                justify-content: space-around;
             }
 
             .input-adv {
@@ -33,16 +32,15 @@
             }
 
             .remove {
-                height: 40px;
-                background-color: var(--paper-red-400);
+                background-color: red;
                 color: white;
             }
             .add {
-                background-color: var(--paper-green-400);
+                background-color: green;
                 color: white;
             }
             .search-submit {
-                background-color: var(--paper-blue-400);
+                background-color: blue;
                 color: white;
             }
 
@@ -52,26 +50,6 @@
                     width: 80%;
                     height: 640px;
                 }
-            }
-
-            .scrollable-c {
-                padding-left: 50px;
-                padding-right: 50px;
-            }
-
-            .input-fields {
-                padding-left:10px;
-            }
-
-            .no-just {
-                justify-content: unset;
-            }
-
-            .error {
-                background-color: var(--paper-red-400);
-                border-radius: 5px;
-                padding:10px;
-                color: white;
             }
   
         </style>
@@ -88,7 +66,7 @@
 
         <paper-dialog id="dialog">
             <h2>Advanced Search</h2>
-            <paper-dialog-scrollable class="scrollable-c">
+            <paper-dialog-scrollable>
                 <template is="dom-repeat" items="[[numFieldsArray]]">
                     <div class="col-inputs">
                         <paper-dropdown-menu label="search type" on-value-changed="_update_num_fields" data-args="{{item}}">
@@ -107,55 +85,45 @@
                     </div>
                     <!-- change to check if author -->
                     <template is="dom-if" if="{{_isAuthor(item.searchType)}}">
-                        <div class="input-fields">
-                            <paper-input label="first name" value="{{item.value.fname}}"></paper-input>
-                            <paper-input label="last name" value="{{item.value.lname}}"></paper-input>
-                        </div>
+                        <paper-input label="first name" value="{{item.value.fname}}"></paper-input>
+                        <paper-input label="last name" value="{{item.value.lname}}"></paper-input>
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isPub(item.searchType)}}">
-                        <div class="input-fields">
-                            <paper-input label="name" value="{{item.value.name}}"></paper-input>
-                        </div>
-
+                    <template is="dom-if" if="{{_isPub(item.searchType)}}">
+                        <paper-input label="name" value="{{item.value.name}}"></paper-input>
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isEdition(item.searchType)}}">
-                        <div class="input-fields">
-                            <paper-input label="name" value="{{item.value.name}}"></paper-input>
-                            <paper-input label="year" value="{{item.value.year}}"></paper-input>
-                        </div>
+                    <template is="dom-if" if="{{_isEdition(item.searchType)}}">
+                        <paper-input label="name" value="{{item.value.name}}"></paper-input>
+                        <paper-input label="year" value="{{item.value.year}}"></paper-input>
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isLocation(item.searchType)}}">
-                        <div class="input-fields">
-                            <paper-input label="Location" placeholder="Location" value="{{item.value.place}}"></paper-input>
-                        </div>
+                    <template is="dom-if" if="{{_isLocation(item.searchType)}}">
+                        <paper-input label="Location" placeholder="Location" value="{{item.value.place}}"></paper-input>
                     </template>
 
-                    <template class="input-fields" is="dom-if" if="{{_isDegree(item.searchType)}}">
-                        <div class="input-fields">
-                            <paper-dropdown-menu label="Degree">
-                                <paper-listbox slot="dropdown-content" selected="{{item.value.degree}}">
-                                    <paper-item></paper-item>
-                                    <paper-item>1</paper-item>
-                                    <paper-item>2</paper-item>
-                                    <paper-item>3</paper-item>
-                                    <paper-item>4</paper-item>
-                                </paper-listbox>
-                            </paper-dropdown-menu>
-                        </div>
+                    <template is="dom-if" if="{{_isDegree(item.searchType)}}">
+                        <paper-dropdown-menu label="search type">
+                            <paper-listbox slot="dropdown-content" selected="{{item.value.degree}}">
+                                <paper-item></paper-item>
+                                <paper-item>1</paper-item>
+                                <paper-item>2</paper-item>
+                                <paper-item>3</paper-item>
+                                <paper-item>4</paper-item>
+                                <paper-item>5</paper-item>
+                                <paper-item>6</paper-item>
+                                <paper-item>7</paper-item>
+                            </paper-listbox>
+                        </paper-dropdown-menu>
                     </template>
                 </template>
 
                 <template is="dom-if" if="{{_invalidSearch}}">
-                    <p class="error">Your search was invalid. Check over your fields and make sure everything has a title and author</p>
+                    <p>Your search was invalid. Check over your fields and make sure everything has a title and author</p>
                 </template>
 
-                <div class="col-inputs no-just">
-                    <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
-                    <paper-button class="search-submit" on-click="_goto_search">Search</paper-button>
-                </div>
+                <paper-button class="add" on-click="_increment_num_fields" disabled="{{addMoreDisabled}}">Add Field</paper-button>
+                <paper-button class="search-submit" on-click="_goto_search">Search</paper-button>
             </paper-dialog-scrollable>
         </paper-dialog>
         

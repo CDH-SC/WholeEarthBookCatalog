@@ -3,9 +3,6 @@
 <dom-module id="dhc-graph-view">
     <template>
         <style>
-            .selection-display {
-                padding-left: 50px;
-            }
         </style>
         
         <template is="dom-if" if="{{isSelection}}">
@@ -43,6 +40,7 @@
                     nodes: {
                         type: Array,
                         value: []
+
                     },
 
                     edges: {
@@ -83,11 +81,6 @@
                 }
             }
 
-            _setSelections(d) {
-                this.set("isSelection", true);
-                this.set("selectedNode.name", d.label);
-            }
-
             _genGraph() {
                 const width = window.innerWidth;
                 const height = window.innerHeight;
@@ -112,7 +105,6 @@
                 console.log(simulation);
 
                 // this might break...
-
                 const nodeElements = svg.append('g')
                     .attr("class", "nodes")
                     .selectAll("circle")
@@ -123,8 +115,6 @@
                     .on("click", function(d) {
                         this._setSelections(d);
                     }.bind(this));
-
-
 
                 console.log(nodeElements);
 

@@ -63,6 +63,7 @@
         <paper-toast id="signInToast" text="Successfully Logged In!"></paper-toast>
         <paper-toast id="signOutToast" text="Successfully Logged Out!"></paper-toast>
         <paper-toast id="savedQToast" text="Query Saved!"></paper-toast>
+
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -239,6 +240,7 @@
                 
                 this.$.userData.updateUser(event.detail.user);
             }
+
 
             _onUpdateSearchData(e) {
                 console.log("ehllo", e.detail);

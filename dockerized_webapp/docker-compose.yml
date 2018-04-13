@@ -20,7 +20,7 @@ services:
     expose:
       - "7687" # bolt connection
     environment:
-      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD}
+      - NEO4J_AUTH=none
     volumes:
       - "neo4j:/var/lib/neo4j/data"
 
@@ -37,13 +37,15 @@ services:
       context: ./
       dockerfile: ./Dockerfile.app
     ports:
-      - "${PORT}:${PORT}"
+      - "${PORT}:80"
 
   loc_data_miner:
     env_file: .env
     build: 
       context: ./
       dockerfile: ./Dockerfile.loc
+    volumes:
+      - "loc:/usr/src/loc"
   
   worldcat_data_miner:
     env_file: .env
@@ -54,3 +56,4 @@ services:
 volumes:
   data:
   neo4j:
+  loc:

@@ -105,39 +105,38 @@ function BuildAuthorName(dataField) {
 function ExtractData_Item_TitleField(obj, dataField) {
     switch (dataField._tag) {
         case "210": {
-            obj = Add(obj, "Title", Subfield(dataField, "a"));
+            obj = Add(obj, "title", Subfield(dataField, "a"));
             break;
         }
         case "222": {
-            obj = Add(obj, "Title", Subfield(dataField, "a"));
+            obj = Add(obj, "title", Subfield(dataField, "a"));
             break;
         }
         case "240": {
-            obj = Add(obj, "Title", Subfield(dataField, "a"));
-            obj = Add(obj, "Language", Subfield(dataField, "l"));
-            obj = Add(obj, "Subheading", Subfield(dataField, "k"));
+            obj = Add(obj, "title", Subfield(dataField, "a"));
+            obj = Add(obj, "language", Subfield(dataField, "l"));
             break;
         }
         case "242": {
-            obj = Add(obj, "Title", Subfields(dataField, ["a", "b"]));
-            obj = Add(obj, "Language", Subfield(dataField, "y"));
+            obj = Add(obj, "title", Subfields(dataField, ["a", "b"]));
+            obj = Add(obj, "language", Subfield(dataField, "y"));
             break;
         }
         case "243": {
-            obj = Add(obj, "Title", Subfield(dataField, "a"));
-            obj = Add(obj, "Language", Subfield(dataField, "l"));
+            obj = Add(obj, "title", Subfield(dataField, "a"));
+            obj = Add(obj, "language", Subfield(dataField, "l"));
             break;
         }
         case "245": {
-            obj = Add(obj, "Title", Subfields(dataField, ["a", "b"]));
+            obj = Add(obj, "title", Subfields(dataField, ["a", "b"]));
             break;
         }
         case "246": {
-            obj = Add(obj, "Title", Subfields(dataField, ["a", "b"]));
+            obj = Add(obj, "title", Subfields(dataField, ["a", "b"]));
             break;
         }
         case "247": {
-            obj = Add(obj, "Title", Subfields(dataField, ["a", "b"]));
+            obj = Add(obj, "title", Subfields(dataField, ["a", "b"]));
             break;
         }
         default:
@@ -147,22 +146,37 @@ function ExtractData_Item_TitleField(obj, dataField) {
 }
 
 function ExtractData_Item_Author(obj, dataField) {
-    obj = Add(obj, "Author", BuildAuthorName(dataField));
-    obj = Add(obj, "AuthorDates", Subfield(dataField, "d"));
+    obj = Add(obj, "author", BuildAuthorName(dataField));
+    obj = Add(obj, "authordates", Subfield(dataField, "d"));
     return obj;
 }
 
 function ExtractData_Item_CorporateAuthor(obj, dataField) {
-    obj = Add(obj, "Author", Subfields(dataField, ["a", "b"]));
-    obj = Add(obj, "LocationOfMeeting", Subfield(dataField, "c"));
-    obj = Add(obj, "DateOfMeeting", Subfield(dataField, "d"));
+    obj = Add(obj, "author", Subfields(dataField, ["a", "b"]));
     return obj;
 }
 
 function ExtractData_Numbers_And_Codes(obj, dataField) {
-    switch(datafiel._tag) {
+    switch(dataField._tag) {
         case "028": {
-            obj = Add(obj, "Publisher", Subfields(dataField, "b"));
+            obj = Add(obj, "publisher", Subfields(dataField, "b"));
+            break;
+        }
+        case "020": {
+            obj = Add(obj, "isbn", Subfields(dataField, "a"));
+            break;
+        }
+        case "022": {
+            obj = Add(obj, "issn", Subfields(dataField, "a"));
+            break;
+        }
+        case "260": {
+            obj = Add(obj, "publishinglocation", Subfield(dataField, "a"));
+            obj = Add(obj, "publisher", Subfield(dataField, "b"));
+            obj = Add(obj, "publisheddate", Subfield(dataField, "c"));
+            break;
+        }
+        default: {
             break;
         }
     }
@@ -177,7 +191,7 @@ function ExtractData_Item(obj, dataField) {
         obj = ExtractData_Item_Author(obj, dataField);
     if (["110", "111", "130"].includes(tag))
         obj = ExtractData_Item_CorporateAuthor(obj, dataField);
-    if (["028"].includes(tag))
+    if (["028", "260", "020", "022"].includes(tag))
         obj = ExtractData_Numbers_And_Codes(obj, dataField);
     return obj;
 }
