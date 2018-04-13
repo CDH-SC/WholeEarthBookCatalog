@@ -1,5 +1,3 @@
-import { isNullOrUndefined } from 'util';
-
 /**
  * Import the items into the db
  */
@@ -7,6 +5,7 @@ import { isNullOrUndefined } from 'util';
 var fs = require('fs');
 var jsonArrayStream = require('json-array-streams');
 var through = require("through2");
+var isNullOrUndefined = require('util').isNullOrUndefined;
 
 var neo4j = require('../utils/neo4jDriver');
 //var neo4j = require("neo4j-driver").v1
