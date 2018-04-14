@@ -4,6 +4,7 @@
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 
 <link rel="import" href="frag-header.html">
@@ -14,6 +15,10 @@
     <template>
 
             <style include="shared-styles">
+
+                    .container-fluid {
+                        width: 100%;
+                    }
                     
                     #h1 {
                         margin: 0;
@@ -62,61 +67,69 @@
 
             <app-location route = "{{route}}"> </app-location>
 
-        <div id = "main-content" class = "container-fluid"> 
-            <paper-divider> </paper-divider>
-                <div id = "help-messages-wrapper">
+            <div id = "main-content" class = "container-fluid"> 
+                <paper-divider> </paper-divider>
+                    <div id = "help-messages-wrapper">
 
-                    <div id = "account-setup-container">
+                <div id = "account-setup-container">
 
-                        <template is="dom-if" if="[[account_setup_show]]">
-                            <iron-icon icon = "expand-more"></iron-icon>
+                    <template is="dom-if" if="[[account_setup_show]]">
+                        <iron-icon icon = "expand-less"></iron-icon>
+                        <div id = "account-setup-dropdown-content">
+                            <blockquote>
+
+                                <h3> Setting Up Your Account </h3>
+                        
+                                To set up your account, you must follow these steps:
+                                <ol>
+                                    <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
+                                    <li> Click on the link to 'Create an Account'</li>
+                                    <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
+
+                                </ol>
                             
-                        </template>
+                                </blockquote>
+                        </div>
+                        
+                    </template>
 
     <template is="dom-if" if="[[!account_setup_show]]">
-                            <iron-icon icon = "expand-less"></iron-icon>
-                            
-                        </template>
+                        <iron-icon icon = "expand-more"></iron-icon>
+                                            
+                    </template>
 
     </div>
-
+    <paper-divider></paper-divider>
     <div id="item-search-container">
 
         <template is="dom-if" if="[[item_search_show]]">
-                                <iron-icon icon = "expand-more"></iron-icon>
-                            
-                        </template>
+                        <iron-icon icon = "expand-less"></iron-icon>
+                                        
+                    </template>
 
         <template is="dom-if" if="[[!item_search_show]]">
-                                <iron-icon icon = "expand-less"></iron-icon>
-                            
-                        </template>
+                        <iron-icon icon = "expand-more"></iron-icon>
+                                
+                    </template>
 
     </div>
-
+    <paper-divider></paper-divider>
     <div id="user-account-container">
 
         <template is="dom-if" if="[[user_account_show]]">
-                                <iron-icon icon = "expand-more"></iron-icon>
+                        <iron-icon icon = "expand-less"></iron-icon>
 
-                        </template>
+                    </template>
 
         <template is="dom-if" if="[[!user_account_show]]">
-                                <iron-icon icon = "expand-less"></iron-icon>
-                            
-                        </template>
+                        <iron-icon icon = "expand-more"></iron-icon>
+                                
+                    </template>
 
     </div>
 
-    <blockquote>
 
-        <h3> How do you create an account? </h3>
 
-        To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will
-        be created immediately.
-
-    </blockquote>
-    <paper-divider></paper-divider>
     <blockquote>
 
         <h3> How do you search? </h3>
