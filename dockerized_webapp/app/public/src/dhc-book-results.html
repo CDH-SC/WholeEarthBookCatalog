@@ -269,9 +269,7 @@
                                         {{record.date}}
                                     </h1>
                                 </div>
-                                <a href="book-profile/{{record.id}}/{{record.title}}">
-                                    <paper-button id ="result-item-view-profile" selbook="{{item}}" on-click="_fireSaveSelected" class="border-color"> View Full Profile </paper-button> 
-                                </a>
+                                    <paper-button id ="result-item-view-profile" on-click="_goToBookProfile" class="border-color"> View Full Profile </paper-button> 
                             </div>
                         </div>
                     </template>
@@ -322,12 +320,12 @@
 
             // Grabs the first author out of the list of authors for a record
             _getFirstAuthor(record) {
-                return record.authors.length > 0 ? record.authors[0] : '';
+                return record.authors.length > 0 ? record.authors[0].name : '';
             }
 
             // Grabs the first publisher out of the list of pubs for a record
             _getFirstPublisher(record) {
-                return record.publishers.length > 0 ? record.publishers[0] : '';
+                return record.publishers.length > 0 ? record.publishers[0].name : '';
             }
 
             // The observer for the route object, fires when route obj is changed
@@ -434,6 +432,22 @@
             _handleResponseRecent(e) {
                 console.log("Added query to recent", e.detail.response);
                 // Nothing needed here.
+            }
+
+
+            _goToBookProfile(e) {
+                var obj = e.model.record;
+                var authors = e.model.record.authors.map(e => e.id).join("+");
+                var pubs = e.model.record.publishers.map(e => e.id).join("+");
+                var places = e.model.record.places.map(e => e.id).join("+");
+
+                console.log("authors");
+
+                console.log("record", e.model.record);
+                this.dispatchEvent(new CustomEvent('change-route', { bubbles: true, composed: true, detail: {
+                    path: "book-profile/" + e.model.record.title + "/" + e.model.record.id
+                    + '/' + authors + '/' + pubs + '/' + places
+                }} ));
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);
