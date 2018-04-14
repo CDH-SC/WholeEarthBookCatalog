@@ -10,6 +10,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 
 <link rel="import" href="frag-rotation.html">
 <link rel="import" href="frag-header.html">
@@ -58,6 +59,15 @@
                 display:flex;
                 align-items: center;
                 justify-content: center;
+            }
+
+            .q-card {
+                height: 200px;
+                width: 200px;
+            }
+
+            .saved-box {
+                height: 500px;
             }
         </style>
         
@@ -110,16 +120,21 @@
                         <!-- chev down -->
                     </template>
                 </paper-button>
-                <template is="dom-if" if="[[favorite_books_show]]">
-                    <template is="dom-if" if="[[noFavs]]">
-                        No favorites here...
-                    </template>
-                    <template is="dom-if" if="[[!noFavs]]">
-                        <div class="book-rot-container">
-                            <frag-rotation num-show="6" data="{{savedBooks}}"img-based="true"></frag-rotation>
-                        </div>
-                    </template>
-                </template>
+                <iron-collapse id="favCollapse">
+                    <div>
+                        <!-- TODO book covers -->
+                        <!-- TODO format info -->
+                        <!-- TODO route to book profile -->
+                        <template is="dom-if" if="{{noFavs}}">
+                                No Favorites Yet...
+                        </template>
+                        <template is="dom-if" if="[[!noFavs]]">
+                            <template is="dom-repeat" items="{{savedBooks}}">
+                               title: {{item.title}} | 
+                            </template>
+                        </template>
+                    </div>
+                </iron-collapse>
             </div>
 
             <div class="recent-searches">
@@ -133,16 +148,26 @@
                         <!-- chev down -->
                     </template>
                 </paper-button>
-                <template is="dom-if" if="[[recent_search_show]]">
-                    <template is="dom-if" if="[[noRecentQs]]">
-                        No recent queries
-                    </template>
-                    <template is="dom-if" if="[[!noRecentQs]]">
-                        <div class="book-rot-container">
-                            <frag-rotation num-show="6" data="{{recentSearches}}" img-based="false"></frag-rotation>
-                        </div>
-                    </template>
-                </template>
+
+                <iron-collapse id="recentCollapse">
+                    <div>
+                        <template is="dom-if" if="{{noRecent}}">
+                                No Recents Yet...
+                        </template>
+                        <template is="dom-if" if="{{!noRecent}}">
+                            <!-- TODO make cards and CSS -->
+                            <!-- TODO on click route to search :o -->
+                            <template is="dom-repeat" items="{{recentSearches}}">
+                                advanced: {{item.advanced}}
+                                basic_query: {{item.basic_query}}
+                                degrees: {{item.degrees}}
+                                authors: {{item.authors}}
+                                publishers: {{item.publishers}}
+                                editions: {{item.editions}}
+                            </template>
+                        </template>
+                    </div>
+                </iron-collapse>
             </div>
             
             <div class="saved-searches">
@@ -154,16 +179,25 @@
                         <iron-icon icon="expand-more"></iron-icon>
                     </template>
                 </paper-button>
-                <template is="dom-if" if="[[save_search_show]]">
-                    <template is="dom-if" if="[[noSavedQs]]">
-                        No Saved Queries
-                    </template>
-                    <template is="dom-if" if="[[!noSavedQs]]">
-                        <div class="book-rot-container">
-                            <frag-rotation num-show="6" data="{{savedSearches}}" img-based="false"></frag-rotation>
-                        </div>
-                    </template>
-                </template>
+                <iron-collapse id="saveCollapse">
+                    <div>
+                        <template is="dom-if" if="{{noSavedQs}}">
+                            No Recents Yet...
+                        </template>
+                        <template is="dom-if" if="{{!noSavedQs}}">
+                            <!-- TODO make cards and CSS -->
+                            <!-- TODO on click route to search :o -->
+                            <template is="dom-repeat" items="{{savedSearches}}">
+                                advanced: {{item.advanced}}
+                                basic_query: {{item.basic_query}}
+                                degrees: {{item.degrees}}
+                                authors: {{item.authors}}
+                                publishers: {{item.publishers}}
+                                editions: {{item.editions}}
+                            </template>
+                        </template>
+                    </div>
+                </iron-collapse>
             </div>
         </div>
     </template>
@@ -197,9 +231,18 @@
                     recentSearches: {
                         type: Array
                     },
-                    noFavs: Boolean,
-                    NoRecent: Boolean,
-                    NoSavedQs: Boolean
+                    noFavs: {
+                        type: Boolean,
+                        value: true
+                    },
+                    NoRecent: {
+                        type: Boolean,
+                        value: true
+                    },
+                    NoSavedQs: {
+                        type: Boolean,
+                        value: true
+                    }
                 }
             }
 
@@ -207,6 +250,11 @@
                 console.log("test");
                 super.ready();
 
+            }
+
+            _getStringified(item) {
+                console.log(item);
+                return JSON.stringify(item);
             }
 
             _resultPageChanged() {
@@ -219,44 +267,20 @@
                     this._getSavedQueries();                }
             }
 
-            handleResponse(e) {
-                console.log("Got response");
-                console.log(e.detail.response);
-                var saveSearch = e.detail.response.savedSearches;
-                var saveBooks = e.detail.response.savedBooks;
-                var recentSearch = e.detail.response.recentSearches;
-
-                if(saveSearch === undefined) {
-                    this.savedSearches = [];
-                }
-                else {
-                    this.savedSearches = saveSearch;
-                }
-
-                if (saveBooks === undefined) {
-                    this.savedBooks = [];
-                }
-                else {
-                    this.savedBooks = saveBooks;
-                }
-
-                if(recentSearch === undefined) {
-                    this.recentSearches = [];
-                }
-                else {
-                    this.recentSearches = recentSearch;
-                }
-            }
-
             _toggle_recent() {
+                this.$.recentCollapse.toggle();
                 this.set("recent_search_show", !this.recent_search_show);
             }
 
             _toggle_save() {
+                this.$.saveCollapse.toggle();
                 this.set("save_search_show", !this.save_search_show);
             }
 
             _toggle_fave() {
+                console.log(this.savedBooks);
+                console.log(this.noFavs);
+                this.$.favCollapse.toggle();
                 this.set("favorite_books_show", !this.favorite_books_show);
             }
         
@@ -276,6 +300,9 @@
                 if (resp.length > 0) {
                     this.set('savedSearches', resp);
                     console.log("RESP: ", resp);
+                    console.log(this.savedSearches)
+                    this.set('noSavedQs', false);
+
                 }
                 else {
                     this.set('noSavedQs', true);
@@ -296,6 +323,7 @@
                 var resp = e.detail.response;
                 if (resp.length > 0) {
                     this.set('recentSearches', resp);
+                    this.set('noRecent', false);
                 }
                 else {
                     this.set('noRecent', true);
@@ -316,6 +344,8 @@
                 var resp = e.detail.response;
                 if (resp.length > 0) {
                     this.set('savedBooks', resp);
+                    this.set('noFavs', false);
+
                 }
                 else {
                     this.set('noFavs', true);

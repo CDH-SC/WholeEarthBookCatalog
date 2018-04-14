@@ -5,6 +5,7 @@
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
@@ -140,9 +141,49 @@
         </style>
 
         <app-route route="[[route]]"
-                   pattern="/:id/:title"
-                   data="{{bookUriData}}">
+            pattern="book-profile/:title/:bookId/:authorList/:pubList/:placeList"
+            data="{{bookUriData}}">
         </app-route>
+
+        <iron-ajax
+            method="POST"
+            id="getBook"
+            url="/api/neo4j/single_node/"
+            handle-as="json"
+            on-response="_handleBookResp"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <iron-ajax
+            method="POST"
+            id="getAuths"
+            url="/api/neo4j/single_node/"
+            handle-as="json"
+            on-response="_handleAuthorResp"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <iron-ajax
+            method="POST"
+            id="getPubs"
+            url="/api/neo4j/single_node/"
+            handle-as="json"
+            on-response="_handlePubResp"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
+
+        <iron-ajax
+            method="POST"
+            id="getPlaces"
+            url="/api/neo4j/single_node/"
+            handle-as="json"
+            on-response="_handlePlacesResp"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
 
         <div class="container-profile">
             {{selectedbook}}
@@ -200,11 +241,95 @@
             }
             static get properties() {
                 return {
-                    selectedbook: {
+                    route: {
                         type: Object,
-                        notify: true
+                        observer: "_resultPageChanged"
+                    },
+                    book: {
+                        type: Object
+                    },
+                    authors: {
+                        type: Array,
+                        value: []
+                    },
+                    publishers: {
+                        type: Array,
+                        value: []
+                    },
+                    places: {
+                        type: Array,
+                        value: []
                     }
                 }
+            }
+
+            _resultPageChanged() {
+                if(this.route.prefix.includes("book-profile")) {
+                    this._getBookNode();
+                    this._getAuthorNodes();
+                    this._getPubsNodes();
+                    this._getPlaceNodes();
+                }
+            }
+
+            _getBookNode() {
+                this.$.getBook.body = {
+                    id: this.bookUriData.bookId
+                }
+                this.$.getBook.generateRequest();
+            }
+
+            _handleBookResp(e) {
+                this.set('book', e.detail.response);
+                console.log(e.detail.response);
+            }
+
+            _getAuthorNodes() {
+                var auths = this.bookUriData.authorList.split("+");
+
+                for(var i = 0; i < auths.length; i++) {
+                    this.$.getAuths.body = {
+                        id: auths[i].id
+                    }
+                    this.$.getAuths.generateRequest();
+                }
+            }
+
+            _handleAuthorResp(e) {
+                this.set('authors', e.detail.response);
+                console.log(e.detail.response);
+            }
+
+            _getPubsNodes() {
+                var pubs = this.bookUriData.pubList.split("+");
+
+                for(var i = 0; i < pubs.length; i++) {
+                    this.$.getPubs.body = {
+                        id: pubs[i].id
+                    }
+                    this.$.getPubs.generateRequest();
+                }
+            }
+
+            _handlePubResp(e) {
+                this.set('publishers', e.detail.response);
+                console.log(e.detail.response);
+            }
+
+            _getPlaceNodes() {
+                var places = this.bookUriData.placeList.split("+");
+
+                for(var i = 0; i < pubs.length; i++) {
+                    this.$.getPlaces.body = {
+                        id: pubs[i].id
+                    }
+                    this.$.getPlaces.generateRequest();
+                }
+            }
+
+            _handlePlacesResp(e) {
+                this.set('places', e.detail.response);
+                console.log(e.detail.response);
             }
         }
         window.customElements.define(dhcBookProfile.is, dhcBookProfile);
