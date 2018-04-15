@@ -178,6 +178,12 @@
                 align-items: center;
                 height: 80%;
             }
+
+            .button-row {
+                display: flex;
+                justify-content: center;
+                flex-direction: row;
+            }
         </style>
 
         <app-route
@@ -269,7 +275,10 @@
                                         {{record.date}}
                                     </h1>
                                 </div>
+                                <div class="button-row">
                                     <paper-button id ="result-item-view-profile" on-click="_goToBookProfile" class="border-color"> View Full Profile </paper-button> 
+                                    <iron-icon on-click="addToFavorites()" icon="favorite-border"></iron-icon>
+                                </div>
                             </div>
                         </div>
                     </template>
