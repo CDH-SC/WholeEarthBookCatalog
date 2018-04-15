@@ -5,10 +5,11 @@
 
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="dhc-404">
     <template>
-        <style include = "shared-styles.css">
+        <style include = "shared-styles">
             h1 {
                 font-size: 40px;
                 /*get font family*/
@@ -33,37 +34,15 @@
                 width: 50%
             }
 
-            /*what other features should be added? 
-                additional menu including 'suggested pages
-                    home page 
-                    help page 
-                    login page -> keep basic
-                */
-
         </style>
-
-       <app-location route = "{{route}}"></app-location>
-
-    </template>
-    <template>
         <paper-item>
             <div id = "graphic">
-                <paper-item-body three-line> <!-- should split? -->
-                    <span>
-                        <p>
-                            I'm sorry, this page cannot be found.
-                        </p>
-                    </span>
+                <span>
+                    <p>
+                        I'm sorry, this page cannot be found.
+                    </p>
+                </span>
 
-                    <span>
-                       <p> Here are a list of suggested pages to visit: </p>
-
-                        <paper-button raised> <a href = ""><u style = "display:hidden;"></u></a></paper-button>
-                        <paper-button raised> <a href = ""><u style = "display:hidden;"></u</a></paper-button>
-                        <paper-button raised> <a href = ""><u style = "display:hidden;"></u</a></paper-button>
-                    
-                    </span>
-                </paper-item-body>
             </div>
         </paper-item>
         <paper-button><a href="[[rootPath]]"> Go back home </a> </paper-button>
