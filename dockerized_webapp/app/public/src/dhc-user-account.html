@@ -1,18 +1,12 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
-<link rel="import" href="../bower_components/iron-meta/iron-meta.html">
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
-<link rel="import" href="../bower_components/paper-item/paper-item.html">
-<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
-<link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 
-<link rel="import" href="frag-rotation.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
@@ -22,12 +16,29 @@
         <style include="shared-styles">
             .container {
                 width: 100%;
-                display:flex;
+                display: flex;
                 flex-direction: column;
                 justify-content: start;
             }
-         /* Large features */
-            .favorite-books, .recent-searches, .saved-searches {
+
+            .card-container {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .query-card {
+                font-size: 1rem;
+                @apply --layout-vertical;
+                @apply --layout-wrap;
+            }
+
+            /* Large features */
+
+            .favorite-books,
+            .recent-searches,
+            .saved-searches {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -42,10 +53,13 @@
                 border-bottom: 1px solid grey;
                 background-color: #ffffff;
                 height: 50px;
+                font-size: 1.2rem;
             }
 
             .toggler {
-                width: 100%
+                background-color: #2d9cdb;
+                width: 100%;
+                color: white;
             }
 
             .user-info-container {
@@ -56,7 +70,7 @@
 
             .book-rot-container {
                 height: 17%;
-                display:flex;
+                display: flex;
                 align-items: center;
                 justify-content: center;
             }
@@ -69,54 +83,97 @@
             .saved-box {
                 height: 500px;
             }
+
+            .query {
+                background-color: rgba(83, 227, 247, 0.3)
+            }
+
+            .author {
+                background-color: rgba(83, 247, 124, 0.3)
+            }
+
+            .publisher {
+                background-color: rgba(247, 171, 83, 0.3)
+            }
+
+            .edition {
+                background-color: rgba(247, 83, 83, 0.3);
+            }
+
+            .place {
+                background-color: rgba(242, 83, 247, 0.3)
+            }
+
+            .query-card>paper-card {
+                padding: 10px;
+                box-sizing: border-box;
+                width: 300px;
+                margin: 3px;
+                flex: 0 0 auto;
+            }
+
+            .card-text {
+                margin: 4px;
+                padding-left: 5px;
+                border-radius: 50px;
+            }
+
+            .book-card {
+                --paper-card-header-image: {
+                    width: 150px;
+                }
+
+                --paper-card-header: {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
         </style>
-        
+
         <app-location route="{{route}}"></app-location>
-        
-        <iron-ajax
-             id="getSavedQs"
-             method="POST"
-             handle-as="json"
-             content-type="application/json"
-             url="/api/get_saved_content/"
-             handle-as="json"
-             on-response="_handleSQResponse">
+
+        <iron-ajax 
+            id="getSavedQs" 
+            method="POST"
+            handle-as="json" 
+            content-type="application/json" 
+            url="/api/get_saved_content/" 
+            handle-as="json"
+            on-response="_handleSQResponse">
         </iron-ajax>
 
-        <iron-ajax
+        <iron-ajax 
             id="getRecentQs"
-            method="POST"
-            handle-as="json"
-            content-type="application/json"
+            method="POST" 
+            handle-as="json" 
+            content-type="application/json" 
             url="/api/get_saved_content/"
-            handle-as="json"
+            handle-as="json" 
             on-response="_handleRQResponse">
-         </iron-ajax>
+        </iron-ajax>
 
-         <iron-ajax
+        <iron-ajax 
             id="getFavs"
-            method="POST"
-            handle-as="json"
-            content-type="application/json"
-            url="/api/get_saved_content/"
+            method="POST" 
+            handle-as="json" 
+            content-type="application/json" 
+            url="/api/get_saved_content/" 
             handle-as="json"
             on-response="_handleFavResponse">
         </iron-ajax>
-        
-        <div class = "container">
-            <div class = "user-info-container">
-                <p id = "user-username">Username</p>
-                <p id = "user-email">Email: username@email.com</p> 
-            </div>
-            
+
+        <div class="container">
+
             <div class="favorite-books">
-                <paper-button noink on-click="_toggle_fave" class="toggler border-color"><iron-icon icon="favorite"></iron-icon>favorites
+                <paper-button noink on-click="_toggle_fave" class="toggler border-color">
+                    <iron-icon icon="favorite"></iron-icon>favorites
                     <template is="dom-if" if="[[favorite_books_show]]">
-                            <iron-icon icon="expand-less"></iron-icon>
+                        <iron-icon icon="expand-less"></iron-icon>
                         <!-- chev up -->
                     </template>
                     <template is="dom-if" if="[[!favorite_books_show]]">
-                            <iron-icon icon="expand-more"></iron-icon>
+                        <iron-icon icon="expand-more"></iron-icon>
                         <!-- chev down -->
                     </template>
                 </paper-button>
@@ -126,19 +183,29 @@
                         <!-- TODO format info -->
                         <!-- TODO route to book profile -->
                         <template is="dom-if" if="{{noFavs}}">
-                                No Favorites Yet...
+                            No Favorites Yet...
                         </template>
-                        <template is="dom-if" if="[[!noFavs]]">
-                            <template is="dom-repeat" items="{{savedBooks}}">
-                               title: {{item.title}} | 
+                        <div class="card-container">
+                            <template is="dom-if" if="[[!noFavs]]">
+                                <template is="dom-repeat" items="{{savedBooks.records}}">
+                                    <div class="query-card">
+                                        <paper-card class="book-card" image="../images/no_cover_150_248.png">
+                                            <p class="card-text edition">title: {{item.title}}</p>
+                                            <p class="card-text author">author: {{_getFirstAuthor(item.authors)}}</p>
+                                            <p class="card-text publisher">publisher: {{_getFirstPublisher(item.publishers)}}</p>
+                                            <P class="card-text edition">date: {{item.date}}</P>
+                                        </paper-card>
+                                    </div>
+                                </template>
                             </template>
-                        </template>
+                        </div>
                     </div>
                 </iron-collapse>
             </div>
 
             <div class="recent-searches">
-                <paper-button noink on-click="_toggle_recent" class="toggler border-color"><iron-icon icon="schedule"></iron-icon>Recently Searched
+                <paper-button noink on-click="_toggle_recent" class="toggler border-color">
+                    <iron-icon icon="schedule"></iron-icon>Recently Searched
                     <template is="dom-if" if="[[recent_search_show]]">
                         <iron-icon icon="expand-less"></iron-icon>
                         <!-- chev up -->
@@ -150,37 +217,55 @@
                 </paper-button>
 
                 <iron-collapse id="recentCollapse">
-                    <div>
+                    <div class="card-container">
                         <template is="dom-if" if="{{noRecent}}">
-                                No Recents Yet...
+                            No Recents Yet...
                         </template>
                         <template is="dom-if" if="{{!noRecent}}">
                             <!-- TODO make cards and CSS -->
                             <!-- TODO on click route to search :o -->
                             <template is="dom-repeat" items="{{recentSearches}}">
-                                advanced: {{item.advanced}}
-                                basic_query: {{item.basic_query}}
-                                degrees: {{item.degrees}}
-                                authors: {{item.authors}}
-                                publishers: {{item.publishers}}
-                                editions: {{item.editions}}
+                                <div class="query-card">
+                                    <paper-card>
+                                        <p class="card-text query">advanced: {{item.advanced}}</p>
+                                        <p class="card-text query">basic_query: {{item.basic_query}}</p>
+                                        <template is="dom-if" if="{{item.advanced}}">
+                                            <p class="card-text query">degrees: {{item.degrees}}</p>
+                                            <template is="dom-repeat" items="{{item.authors}}">
+                                                <p class="card-text author">author name: {{item.name}}</p>
+                                            </template>
+                                            <template is="dom-repeat" items="{{item.publishers}}">
+                                                <p class="card-text publisher">publisher name: {{item.name}}</p>
+                                            </template>
+                                            <template is="dom-repeat" items="{{item.editions}}">
+                                                <p class="card-text edition">title: {{item.title}}</p>
+                                                <p class="card-text edition">isbn: {{item.isbn}}</p>
+                                                <P class="card-text edition">date: {{item.date}}</P>
+                                            </template>
+                                            <template is="dom-repeat" items="{{item.places}}">
+                                                <p class="card-text place">place: {{item.name}}</p>
+                                            </template>
+                                        </template>
+                                    </paper-card>
+                                </div>
                             </template>
                         </template>
                     </div>
                 </iron-collapse>
             </div>
-            
+
             <div class="saved-searches">
-                <paper-button noink on-click="_toggle_save" class="toggler border-color"><iron-icon icon="save"></iron-icon>Saved Searched
+                <paper-button noink on-click="_toggle_save" class="toggler border-color">
+                    <iron-icon icon="save"></iron-icon>Saved Searched
                     <template is="dom-if" if="[[save_search_show]]">
-                            <iron-icon icon="expand-less"></iron-icon>
+                        <iron-icon icon="expand-less"></iron-icon>
                     </template>
                     <template is="dom-if" if="[[!save_search_show]]">
                         <iron-icon icon="expand-more"></iron-icon>
                     </template>
                 </paper-button>
                 <iron-collapse id="saveCollapse">
-                    <div>
+                    <div class="card-container">
                         <template is="dom-if" if="{{noSavedQs}}">
                             No Recents Yet...
                         </template>
@@ -188,12 +273,29 @@
                             <!-- TODO make cards and CSS -->
                             <!-- TODO on click route to search :o -->
                             <template is="dom-repeat" items="{{savedSearches}}">
-                                advanced: {{item.advanced}}
-                                basic_query: {{item.basic_query}}
-                                degrees: {{item.degrees}}
-                                authors: {{item.authors}}
-                                publishers: {{item.publishers}}
-                                editions: {{item.editions}}
+                                <div class="query-card">
+                                    <paper-card>
+                                        <p class="card-text query">advanced: {{item.advanced}}</p>
+                                        <p class="card-text query">basic_query: {{item.basic_query}}</p>
+                                        <template is="dom-if" if="{{item.advanced}}">
+                                            <p class="card-text query">degrees: {{item.degrees}}</p>
+                                            <template is="dom-repeat" items="{{item.authors}}">
+                                                <p class="card-text author">author name: {{item.name}}</p>
+                                            </template>
+                                            <template is="dom-repeat" items="{{item.publishers}}">
+                                                <p class="card-text publisher">publisher name: {{item.name}}</p>
+                                            </template>
+                                            <template is="dom-repeat" items="{{item.editions}}">
+                                                <p class="card-text edition">title: {{item.title}}</p>
+                                                <p class="card-text edition">isbn: {{item.isbn}}</p>
+                                                <P class="card-text edition">date: {{item.date}}</P>
+                                            </template>
+                                            <template is="dom-repeat" items="{{item.places}}">
+                                                <p class="card-text place">place: {{item.name}}</p>
+                                            </template>
+                                        </template>
+                                    </paper-card>
+                                </div>
                             </template>
                         </template>
                     </div>
@@ -203,7 +305,9 @@
     </template>
     <script>
         class dhcUserAccount extends Polymer.Element {
-            static get is() { return 'dhc-user-account'; }
+            static get is() {
+                return 'dhc-user-account';
+            }
             static get properties() {
                 return {
                     route: {
@@ -252,9 +356,30 @@
 
             }
 
+            _getFirstAuthor(authors) {
+                return authors[0].name;
+            }
+
+            _getFirstPublisher(publishers) {
+                return publishers[0].name;
+            }
+
+            _handleImage(e) {
+                console.log("RESPONSE:")
+                console.log(e);
+            }
+
             _getStringified(item) {
                 console.log(item);
                 return JSON.stringify(item);
+            }
+
+            _routeToSearch(e) {
+                console.log(e.model.item);
+            }
+
+            _getISBN(isbns) {
+                return isbns[0];
             }
 
             _resultPageChanged() {
@@ -264,7 +389,8 @@
                     console.log("Getting info");
                     this._getFavorites();
                     this._getRecentQueries();
-                    this._getSavedQueries();                }
+                    this._getSavedQueries();
+                }
             }
 
             _toggle_recent() {
@@ -283,7 +409,7 @@
                 this.$.favCollapse.toggle();
                 this.set("favorite_books_show", !this.favorite_books_show);
             }
-        
+
             _getSavedQueries() {
                 this.$.getSavedQs.body = {
                     _id: this.user._id,
@@ -303,8 +429,7 @@
                     console.log(this.savedSearches)
                     this.set('noSavedQs', false);
 
-                }
-                else {
+                } else {
                     this.set('noSavedQs', true);
                 }
             }
@@ -312,7 +437,7 @@
             _getRecentQueries() {
                 this.$.getRecentQs.body = {
                     _id: this.user._id,
-                    authenticated:this.user.authenticated,
+                    authenticated: this.user.authenticated,
                     keyword: "recent_searches"
                 }
 
@@ -324,10 +449,9 @@
                 if (resp.length > 0) {
                     this.set('recentSearches', resp);
                     this.set('noRecent', false);
-                }
-                else {
+                } else {
                     this.set('noRecent', true);
-                }          
+                }
             }
 
             _getFavorites() {
@@ -342,14 +466,14 @@
 
             _handleFavResponse(e) {
                 var resp = e.detail.response;
-                if (resp.length > 0) {
+                console.log("Faves: ");
+                console.log(resp);
+                if (resp.records.length > 0) {
                     this.set('savedBooks', resp);
                     this.set('noFavs', false);
-
-                }
-                else {
+                } else {
                     this.set('noFavs', true);
-                }   
+                }
             }
         }
         window.customElements.define(dhcUserAccount.is, dhcUserAccount);

@@ -89,6 +89,7 @@
                     // Group 2 for auths
                     for (var j = 0; j < currRecord.authors.length; j++) {
                         var auth = currRecord.authors[j];
+                        console.log("Auth:", auth)
                         this.push('nodes', {
                             id: auth.id,
                             group: 2,
@@ -153,7 +154,7 @@
                             target: rel[j][1],
                             source: rel[j][0],
                             label: 'published',
-                            strength: 0.01
+                            strength: 0.1
                         })
                     }
 
@@ -163,7 +164,7 @@
                         this.push('edges', {
                             target: rel[j][1],
                             source: rel[j][0],
-                            label: 'published',
+                            label: 'published_in',
                             strength: 0.1
                         })
                     }
