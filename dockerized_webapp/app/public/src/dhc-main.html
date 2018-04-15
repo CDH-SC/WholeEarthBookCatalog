@@ -41,6 +41,11 @@
                 padding-bottom: 24px;
                 text-align: center;
             }
+
+            #saveError {
+                background-color: var(--paper-red-400);
+                color: white;
+            }
         </style>
 
         <data-login id="userData" user="{{user}}"></data-login>
@@ -63,6 +68,7 @@
         <paper-toast id="signInToast" text="Successfully Logged In!"></paper-toast>
         <paper-toast id="signOutToast" text="Successfully Logged Out!"></paper-toast>
         <paper-toast id="savedQToast" text="Query Saved!"></paper-toast>
+        <paper-toast id="saveError" text="Must be logged in to favorite or save queries"></paper-toast>
 
         <iron-pages
             selected="[[page]]"
@@ -118,7 +124,7 @@
                 this.addEventListener('send-user-data', (e) => this._onSendUserData(e));
                 this.addEventListener('open-saved-q-toast', (e) => this._openSavedQueryToast());
                 this.addEventListener('change-route', (e) => this._changeRouteEvent(e));
-
+                this.addEventListener('save-error', (e) => this._saveError());
             }
 
             connectedCallback() {
@@ -131,6 +137,10 @@
             static get observers() {
                 return ['_routePageChanged(routeData.page, isAttached)'];
             };
+
+            _saveError() {
+                this.$.saveError.open();
+            }
 
             _changeRouteEvent(e) {
                 console.log(e.detail.path);

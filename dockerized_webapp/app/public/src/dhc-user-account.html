@@ -187,7 +187,7 @@
                         </template>
                         <div class="card-container">
                             <template is="dom-if" if="[[!noFavs]]">
-                                <template is="dom-repeat" items="{{savedBooks.records}}">
+                                <template is="dom-repeat" items="{{savedBooks}}">
                                     <div class="query-card">
                                         <paper-card class="book-card" image="../images/no_cover_150_248.png">
                                             <p class="card-text edition">title: {{item.title}}</p>

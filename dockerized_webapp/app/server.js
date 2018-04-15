@@ -288,9 +288,55 @@ router.post("/neo4j/single_node/", function(req, res) {
     var q = neo4j.query(statement, params);
     q.response.then(function(resp) {
         console.log(JSON.stringify(resp));
-        res.json(resp);
+        var field = resp.records[0]._fields[0];
+        console.log(field);
+        var retVal = {};
+        if (field.labels[0] === "Edition") {
+            console.log("edition");
+            console.log(field.labels[0])
+            console.log(field.properties);
+            retVal = {
+                id: field.identity.low ? field.identity.low : -1,
+                title: field.properties.title ? field.properties.title : '',
+                date: field.properties.date ? field.properties.date.low : -1,
+                isbn: field.properties.isbn ? field.properties.isbn : []
+            }
+        }
+        else if (field.labels[0] === "Place") {
+            console.log("Place");
+            console.log(field.labels[0])
+            console.log(field.properties);
+            retVal = {
+                id: field.identity.low ? field.identity.low : -1,
+                name: field.properties.name ? field.properties.name : ''
+            }
+        }
+        else if (field.labels[0] === "Person") {
+            console.log("Person");
+            console.log(field.labels[0])
+            console.log(field.properties);
+            retVal = {
+                id: field.identity.low ? field.identity.low : -1,
+                name: field.properties.name ? field.properties.name : ""
+            }
+        }
+        else if (field.labels[0] === "Publisher") {
+            console.log("Publisher");
+            console.log(field.labels[0])
+            console.log(field.properties);
+            retVal = {
+                id: field.identity.low ? field.identity.low : -1,
+                name: field.properties.name ? field.properties.name : ''
+            }
+        }
+        else {
+            
+        }
+        
+        res.json(retVal);
     })
     .catch(function (err) {
+        console.log(err);
         res.json({error: "There was an error retrieving the id"});
     })
 })
