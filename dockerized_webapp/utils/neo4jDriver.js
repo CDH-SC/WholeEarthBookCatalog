@@ -8,6 +8,8 @@
 // module
 var neo4jDriver = {}
 
+var qstrings = require("./querystrings.js");
+
 // env
 var neo4j = require("neo4j-driver").v1
 const NEO4J_PASSWORD = process.env.NEO4J_PASSWORD
@@ -39,36 +41,39 @@ neo4jDriver.advancedQuery = function(data) {
     
     var pass = true;
 
+    
     // Check types
     // Authors
     for ( var i = 0; i < data.authors.length; i++) {
-        if ( !typeOf(data.authors[i].name) === "string" ) {
+        if ( !typeof(data.authors[i].name) === "string" ) {
             pass = false;
         }
     }
     // Publishers
     for (var i = 0; i < data.publishers.length; i++) {
-        if ( !typeOf(data.publishers[i].name) === "string" ) {
+        if ( !typeof(data.publishers[i].name) === "string" ) {
             pass = false;
         }
     }
     // Editions
     for ( var i = 0; i < data.editions.length; i++ ) {
-        if ( !typeOf(data.editions[i].title) === "string" ) {
+        if ( !typeof(data.editions[i].title) === "string" ) {
             pass = false;
         }
-        if (!typeOf(data.editions[i].year) === "number") {
+        if (!typeof(data.editions[i].year) === "number") {
             pass = false;
         }
     }
     // Places
     for ( var i = 0; i < data.places.length; i++ ) {
-        if ( !typeOf(data.places[i].name) === "string" ) {
+        if ( !typeof(data.places[i].name) === "string" ) {
             pass = false;
         }
     }
     
+     
     if ( pass == true ) {
+        var driver = neo4j.driver(`bolt://${NEO4J_URL}`);
         var query = neo4jDriver.constructQuery(data);
         var session = driver.session();
         var result;
@@ -88,6 +93,7 @@ neo4jDriver.advancedQuery = function(data) {
         });
         console.log(`neo4j request failed: ${err}\n`);
     }
+   
 }
 
 // Construct Advanced Search Query
@@ -99,14 +105,14 @@ neo4jDriver.constructQuery = function(data) {
     var before = false;
 
     // Authors
-    if (data.author != null) {
-        for (var i = 0; i < data.author.length; i++) {
+    if (data.authors != null) {
+        for (var i = 0; i < data.authors.length; i++) {
             var addAuthor = qstrings.advancedAuthor;
-            if (data.author[i].name != null) {
-                addAuthor = addAuthor.replace('{ name_re }', '\"(?i).*' + data.author[i].name + '.*\"');
+            if (data.authors[i].name != null) {
+                addAuthor = addAuthor.replace('{ name_re }', '\"(?i).*' + data.authors[i].name + '.*\"');
             }
             query += addAuthor;
-            if (i + 1 < data.author.length) {
+            if (i + 1 < data.authors.length) {
                 query += "OR";
             }
         }
@@ -114,16 +120,15 @@ neo4jDriver.constructQuery = function(data) {
     }
 
     // Publishers
-    if (data.publisher != null) {
+    if (data.publishers != null) {
         if (before == true) {
             query += "AND";
         }
-        var addPublisher = qstrings.advancedPublisher;
-        for (var i = 0; i < data.publisher.length; i++) {
-            query += qstrings.advancedPublisher;
-            addPublisher = addPublisher.replace('{ name_re }', '\"(?i).*' + data.publisher[i].name + '.*\"');
+        for (var i = 0; i < data.publishers.length; i++) {
+            var addPublisher = qstrings.advancedPublisher;
+            addPublisher = addPublisher.replace('{ name_re }', '\"(?i).*' + data.publishers[i].name + '.*\"');
             query += addPublisher;
-            if (i + 1 < data.publisher.length) {
+            if (i + 1 < data.publishers.length) {
                 query += "OR";
             }
         }
@@ -131,36 +136,36 @@ neo4jDriver.constructQuery = function(data) {
     }
 
     // Book
-    if (data.edition != null) {
+    if (data.editions != null) {
         if (before == true) {
             query += "AND";
         }
         var addBook = qstrings.advancedEdition;
-        for (var i = 0; i < data.edition.length; i++) {
-            if (data.edition[i].title != null) {
-                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.edition[i].title + '.*\"');
-                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.edition[i].title + '.*\"');
+        for (var i = 0; i < data.editions.length; i++) {
+            if (data.editions[i].title != null) {
+                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.editions[i].title + '.*\"');
+                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.editions[i].title + '.*\"');
             }
-            if (data.edition[i].year != null) {
-                addBook = addBook.replace('{ year_re }', '\"(?i).*' + data.edition[i].year + '.*\"');
+            if (data.editions[i].year != null) {
+                addBook = addBook.replace('{ year_re }', '\"(?i).*' + data.editions[i].year + '.*\"');
             }
             query += addBook;
-            if (i + 1 < data.edition.length) {
+            if (i + 1 < data.editions.length) {
                 query += "OR";
             }
         }
     }
 
     // Place
-    if (data.place != null) {
+    if (data.places != null) {
         if (before == true) {
             query += "AND";
         }
-        for (var i = 0; i < data.place.length; i++) {
+        for (var i = 0; i < data.places.length; i++) {
             var addPlace = qstrings.advancedPlace;
-            addPlace = addPlace.replace('{ plcname_re }', '\"(?i).*' + data.place[i].name + '.*\"');
+            addPlace = addPlace.replace('{ plcname_re }', '\"(?i).*' + data.places[i].name + '.*\"');
             query += addPlace;
-            if (i + 1 < data.place.length) {
+            if (i + 1 < data.places.length) {
                 query += "OR";
             }
         }
