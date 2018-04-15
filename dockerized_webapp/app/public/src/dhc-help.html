@@ -7,6 +7,7 @@
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 
 <link rel="import" href="frag-header.html">
+<link rel="import" href="shared-styles.html">
 
 
 <dom-module id="dhc-help">
@@ -54,29 +55,12 @@
 
                     }
                     
-                    paper-button raised {
-                        position: relative;
-                        margin-left: 20px;
-                        background-color: #2d9cdb;
-                    }
-
-                    paper-divider {
-                        margin-top: 5%;
-                        margin-bottom: 5%;
-                        
-                    }
-
-                    paper-dialog {
-                        margin-bottom: 0;
-                    }
-                    
                     .contact-info {
                         margin: 5px;
                     }
 
                     a:visited {
                         background-color: #2d9cdb;
-
                     }
 
                     #help-footer {
@@ -89,7 +73,6 @@
                         float: left;
                         margin-right: -20%;
                         padding-right: 0%;
-                        
                     }
 
                     #return-button {
@@ -98,11 +81,26 @@
                         margin-right: 48%;
                         margin-top: 0px;
                         width: 8%
-                        
+                    }
+
+                    paper-button raised {
+                        position: relative;
+                        margin-left: 20px;
+                        background-color: #2d9cdb;
+                    }
+
+                    paper-divider {
+                        margin-top: 5%;
+                        margin-bottom: 5%;
+                    }
+
+                    paper-dialog {
+                        margin-bottom: 0;
                     }
   
             </style>
-
+           
+             <!-- Static block for account setup -->
             <div id = "main-content" class = "container-fluid"> 
                 <paper-divider> </paper-divider>
      
@@ -156,7 +154,9 @@
 
     <paper-divider></paper-divider>
 
-    <div id="item-search-exaplanation">
+    <!-- Static block for item search -->
+
+    <div id="item-search-explanation">
         <blockquote>
 
             <h3> How do you search? </h3>
@@ -202,6 +202,8 @@
     </div>
 
     <paper-divider></paper-divider>
+
+    <!-- Static block for user account  -->
     <div id="user-account-explanation">
         <blockquote>
             <h3>What can you do with your user account?</h3>
