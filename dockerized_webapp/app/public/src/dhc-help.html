@@ -73,6 +73,18 @@
 
             <div id = "main-content" class = "container-fluid"> 
                 <paper-divider> </paper-divider>
+
+                <div id = "main-content" class = "container-fluid"> 
+                        <p id = "help-message">
+            
+                        <blockquote>
+                            To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately. 
+                        </blockquote>
+
+
+
+
+                        
                     <div id = "help-messages-wrapper">
 
                     <div id = "account-setup-container">
@@ -163,11 +175,14 @@
     <paper-divider relative></paper-divider>
 
     <div id="help-footer">
-        <div class="contact-info">
-            <p id="email-inf">
-                Still having problems? Send us an email at {{email}}
-            </p>
-        </div>
+        <template>
+            <div class="contact-info">
+                
+                <p id="email-inf">
+                    Still having problems? Send us an email at {{email}}
+                </p>
+            </div>
+        </template>
         <paper-button style="color:#2d9cdb;">
             <a href="[[rootPath]]"> <u style="display:hidden;">Go back </u> </a>
         </paper-button>
