@@ -135,27 +135,27 @@
     <div id="user-account-container">
 
         <template is="dom-if" if="[[user_account_show]]">
-                            <paper-button on-click = "toggle_user_account"><iron-icon icon = "expand-more"></iron-icon></paper-button>
-                            <blockquote>
-                                    <h3>What can you do with your user account?</h3>
+                                <paper-button on-click = "toggle_user_account"><iron-icon icon = "expand-more"></iron-icon></paper-button>
+                                <blockquote>
+                                        <h3>What can you do with your user account?</h3>
 
-                                    A user can: 
-                                    <ul>
-                                        <li>
-                                            Save queries made within this website and observe them within a specific drop-down menu
-                                        </li>
-                                        <li>
-                                            Add specific editions to a selection of 'Favorites'
-                                        </li>
-                                    </ul>
-                            
-                                </blockquote>
-                        </template>
+                                        A user can: 
+                                        <ul>
+                                            <li>
+                                                Save queries made within this website and observe them within a specific drop-down menu
+                                            </li>
+                                            <li>
+                                                Add specific editions to a selection of 'Favorites'
+                                            </li>
+                                        </ul>
+                                
+                                    </blockquote>
+                            </template>
 
         <template is="dom-if" if="[[!user_account_show]]">
-                            <paper-button on-click = "toggle_user_account"><iron-icon icon = "expand-less"></iron-icon></paper-button>
-                                    
-                        </template>
+                                <paper-button on-click = "toggle_user_account"><iron-icon icon = "expand-less"></iron-icon></paper-button>
+                                        
+                            </template>
 
     </div>
     </div>
@@ -165,7 +165,7 @@
     <div id="help-footer">
         <div class="contact-info">
             <p id="email-inf">
-                Still having problems? Send us an email: {{email}}
+                Still having problems? Send us an email at {{email}}
             </p>
         </div>
         <paper-button style="color:#2d9cdb;">
