@@ -64,18 +64,23 @@
                     }
 
                     #help-footer {
-                        position: relative;
-                        width: 100%
+                        width: 100%;
+                        height: 10%;
                     }
 
                     #email-inf {
-                        font-size: 16px;
-                        width: 20%
+                        font-size: 14px;
+                        float: left;
+                        margin-right: -20%;
+                        padding-right: 0%;
                     }
 
                     #return-button {
                         background-color: #2d9cdb;
-                        width: 75%;
+                        float: left;
+                        margin-right: 48%;
+                        margin-top: 0px;
+                        width: 8%
                         
                     }
 
@@ -219,18 +224,12 @@
     <paper-divider relative></paper-divider>
 
     <div id="help-footer">
-        <template>
-            <div class="contact-info">
-                
-                <p id="email-inf">
-                    Still having problems? Send us an email at {{email}}
-                </p>
-            </div>
-        </template>
-        <paper-button id="return-button">
-            <a href="[[rootPath]]"> <u style="display:hidden;">Go back </u> </a>
-        </paper-button>
-    </div>
+        <div class="email-inf">
+            <strong> Still having problems? Send us an email at {{email}} </strong>
+            <paper-button id="return-button">
+                <a href="[[rootPath]]"> <u style="display:hidden;">Go back </u> </a>
+            </paper-button>
+        </div>
     </div>
 
     </template>
