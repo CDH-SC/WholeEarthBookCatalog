@@ -1,56 +1,63 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
-<link rel="import" href="../bower_components/app-route/app-location.html">
 
 <link rel="import" href="frag-header.html">
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="dhc-404">
-    <template>
-        <style include = "shared-styles">
-            h1 {
-                font-size: 40px;
-                /*get font family*/
-            }
+    <template>  
 
-            span {
-                background-color: #2d9cdb;
-                text-decoration-color: whitesmoke;
-            }
+    <style include="shared-styles">
+        .container-fluid {
+            width: 100%;
+            height: 90%;
+            margin-top: 8%;
+            box-shadow: 15px 0px 15px 10px whitesmoke; 
+            border-top-color: linear-gradient(#2d9cdb, #5DADE2, #85c1e9, #aed6f1);
+            background: linear-gradient(#aed6f1, #85c1e9, #5dade2, #2d9cdb, whitesmoke);
+        }
+        
+        span {
+            padding: 5%;
+            width: 100%;
+        }
+        
+        #graphic {
+            border: 2px groove;
+        }
 
-            #graphic {
-                align-content: center;
-            }
+        paper-item {
+            float: center;
+            height: 75%;
+            line-height: 38px;
+            font-size: 36px;
+            font-family: "Tw Cent MT", "Trebuchet MS", Arial, sans-serif;
+        }
 
-            paper-button {
-                position: relative;
-                background-color: #2d9cdb;
-            }
+    </style>
+         <div class="container-fluid">
+             <paper-item>
+                <span id = "graphic"> <p> {{message}} </p> </span>
+            </paper-item>
+         </div>
 
-            paper-item {
-                height: 60%;
-                width: 50%
-            }
-
-        </style>
-        <paper-item>
-            <div id = "graphic">
-                <span>
-                    <p>
-                        I'm sorry, this page cannot be found.
-                    </p>
-                </span>
-
-            </div>
-        </paper-item>
-        <paper-button><a href="[[rootPath]]"> Go back home </a> </paper-button>
+    <paper-button style="position: relative;"><a href="[[rootPath]]"> Go back home </a> </paper-button>
     </template>
     <script>
         class dhc404 extends Polymer.Element {
             static get is() {
                 return 'dhc-404';
+            }
+
+            static get properties() {
+                return {
+                    message: {
+                        type: String,
+                        value: "I'm sorry but this page cannot be found. Please return to one of the pages shown in the header, or visit the help page for reference."
+                    }
+                }
             }
         }
         window.customElements.define(dhc404.is, dhc404);
