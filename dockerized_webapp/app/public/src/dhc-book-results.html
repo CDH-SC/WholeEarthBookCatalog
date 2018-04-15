@@ -374,12 +374,7 @@
                     var obj = {
                         _id: this.user._id,
                         keyword: "saved_searches",
-                        content: {
-                            advanced: false,
-                            basic_query: this.uriKeywordData.keyword,
-                            terms: {},
-                            limit: 25
-                        }
+                        content: this.$.npost.body
                     }
 
                     this.$.updateSavedQueries.body = obj;
@@ -392,9 +387,15 @@
 
             _addRecentQuery(obj) {
                 // TODO: Add functionality for advanced 
-                console.log(this.user);
                 if (this.user !== undefined && this.user !== {} && this.user.authenticated) {
-                    
+                    console.log("saving recnet queriy");
+
+                    var obj = {
+                        _id: this.user._id,
+                        keyword: "recent_searches",
+                        content: this.$.npost.body
+                    }
+
                     this.$.updateRecentQueries.body = obj;
                     this.$.updateRecentQueries.generateRequest();
                 }
@@ -420,6 +421,8 @@
                         }
 
                         this._addRecentQuery(this.$.npost.body)
+
+                        console.log("Firing simple keyword query")
                         this.$.npost.generateRequest();
                 }
 
@@ -446,7 +449,9 @@
                             editions: editions,
                             degree: this.uriAdvancedData.degree
                         }
-                        this._addRecentQuery(this.$.npost.body)
+                        this._addRecentQuery(this.$.npost.body);
+
+                        console.log("Firing advanced query");
                         this.$.npost.generateRequest();
 
                     }
