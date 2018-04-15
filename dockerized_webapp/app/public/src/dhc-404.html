@@ -1,14 +1,58 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+
+<link rel="import" href="frag-header.html">
+<link rel="import" href="frag-footer.html">
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="dhc-404">
     <template>
-        <a href="[[rootPath]]">Go back home.</a>
+        <style include = "shared-styles">
+            h1 {
+                font-size: 40px;
+                /*get font family*/
+            }
+
+            span {
+                background-color: #2d9cdb;
+                text-decoration-color: whitesmoke;
+            }
+
+            #graphic {
+                align-content: center;
+            }
+
+            paper-button {
+                position: relative;
+                background-color: #2d9cdb;
+            }
+
+            paper-item {
+                height: 60%;
+                width: 50%
+            }
+
+        </style>
+        <paper-item>
+            <div id = "graphic">
+                <span>
+                    <p>
+                        I'm sorry, this page cannot be found.
+                    </p>
+                </span>
+
+            </div>
+        </paper-item>
+        <paper-button><a href="[[rootPath]]"> Go back home </a> </paper-button>
     </template>
     <script>
         class dhc404 extends Polymer.Element {
-            static get is() { return 'dhc-404'; }
+            static get is() {
+                return 'dhc-404';
+            }
         }
         window.customElements.define(dhc404.is, dhc404);
     </script>
 </dom-module>
-

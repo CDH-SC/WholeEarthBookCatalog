@@ -109,7 +109,7 @@
                         type: Boolean,
                         value: false
                     }
-                 };
+                };
             }
 
             ready() {
@@ -158,7 +158,7 @@
                 console.log("in routePageChanged");
                 console.log("Am i attached? " + isAttached);
                 console.log(page);
-                if(!isAttached) {
+                if (!isAttached) {
                     return;
                 }
 
@@ -171,7 +171,10 @@
 
                 this.page = page;
 
-                Polymer.AppLayout.scroll( {top:0, behavior: 'silent'});
+                Polymer.AppLayout.scroll({
+                    top: 0,
+                    behavior: 'silent'
+                });
                 // this.page = page || 'home';
                 // this._setIsHome(page);
             };
@@ -181,7 +184,7 @@
                 this.showHead = true;
 
                 let href;
-                switch(page) {
+                switch (page) {
                     case 'home':
                         href = 'dhc-home.html';
                         this.showHead = false;
@@ -223,14 +226,16 @@
             }
 
             _ensureLazyLoaded() {
-                if(!this.loadComplete) {
+                if (!this.loadComplete) {
                     Polymer.RenderStatus.afterNextRender(this, () => {
                         Polymer.importHref(this.resolveUrl('lazy-resources.html'), () => {
                             this.loadComplete = true;
                         })
 
                         if ('serviceWorker' in navigator) {
-                            navigator.serviceWorker.register('service-worker.js', {scope: '/'});
+                            navigator.serviceWorker.register('service-worker.js', {
+                                scope: '/'
+                            });
                         }
                     })
                 }
@@ -240,11 +245,10 @@
                 console.log("On update user data");
                 if (event.detail.action === "sign-in") {
                     this.$.signInToast.open();
-                }
-                else if ( event.detail.action === "sign-out") {
+                } else if (event.detail.action === "sign-out") {
                     this.$.signOutToast.open();
                 }
-                
+
                 this.$.userData.updateUser(event.detail.user);
             }
 
