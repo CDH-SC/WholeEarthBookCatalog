@@ -60,6 +60,10 @@
                 background-color: #2d9cdb;
                 width: 100%;
                 color: white;
+                height: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
             .user-info-container {
@@ -166,7 +170,7 @@
         <div class="container">
 
             <div class="favorite-books">
-                <paper-button noink on-click="_toggle_fave" class="toggler border-color">
+                <div noink on-click="_toggle_fave" class="toggler border-color">
                     <iron-icon icon="favorite"></iron-icon>favorites
                     <template is="dom-if" if="[[favorite_books_show]]">
                         <iron-icon icon="expand-less"></iron-icon>
@@ -176,7 +180,7 @@
                         <iron-icon icon="expand-more"></iron-icon>
                         <!-- chev down -->
                     </template>
-                </paper-button>
+                </div>
                 <iron-collapse id="favCollapse">
                     <div>
                         <!-- TODO book covers -->
@@ -187,7 +191,7 @@
                         </template>
                         <div class="card-container">
                             <template is="dom-if" if="[[!noFavs]]">
-                                <template is="dom-repeat" items="{{savedBooks.records}}">
+                                <template is="dom-repeat" items="{{savedBooks}}">
                                     <div class="query-card">
                                         <paper-card class="book-card" image="../images/no_cover_150_248.png">
                                             <p class="card-text edition">title: {{item.title}}</p>
@@ -204,7 +208,7 @@
             </div>
 
             <div class="recent-searches">
-                <paper-button noink on-click="_toggle_recent" class="toggler border-color">
+                <div on-click="_toggle_recent" class="toggler border-color">
                     <iron-icon icon="schedule"></iron-icon>Recently Searched
                     <template is="dom-if" if="[[recent_search_show]]">
                         <iron-icon icon="expand-less"></iron-icon>
@@ -214,7 +218,7 @@
                         <iron-icon icon="expand-more"></iron-icon>
                         <!-- chev down -->
                     </template>
-                </paper-button>
+                </div>
 
                 <iron-collapse id="recentCollapse">
                     <div class="card-container">
@@ -255,7 +259,7 @@
             </div>
 
             <div class="saved-searches">
-                <paper-button noink on-click="_toggle_save" class="toggler border-color">
+                <div noink on-click="_toggle_save" class="toggler border-color">
                     <iron-icon icon="save"></iron-icon>Saved Searched
                     <template is="dom-if" if="[[save_search_show]]">
                         <iron-icon icon="expand-less"></iron-icon>
@@ -263,7 +267,7 @@
                     <template is="dom-if" if="[[!save_search_show]]">
                         <iron-icon icon="expand-more"></iron-icon>
                     </template>
-                </paper-button>
+                </div>
                 <iron-collapse id="saveCollapse">
                     <div class="card-container">
                         <template is="dom-if" if="{{noSavedQs}}">

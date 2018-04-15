@@ -6,10 +6,11 @@
 <link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
 <link rel="import" href="frag-footer.html">
 <link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
-
 <dom-module id="dhc-book-profile">
     <template>
         <style include = "shared-styles">
@@ -35,6 +36,16 @@
                 flex-direction: column;
                 justify-content: space-around;
                 width: 65%;
+            }
+
+            paper-card {
+                margin: 20px;
+                display: flex;
+                flex-grow: 3;
+                flex-direction: column;
+                align-items: flex-start;
+                min-height: 100px;
+                padding: 10px;
             }
 
             #book-information-right {
@@ -138,12 +149,51 @@
                 box-shadow: none;
                 border: 1px solid #E0E0E0;
             }
+
+            .card-text {
+                font-size: 1rem;
+                margin: 4px;
+                padding-left: 5px;
+                border-radius: 50px;
+            }
+
+            .row-items {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .author {
+                background-color: rgba(83, 247, 124, 0.3)
+            }
+
+            .publisher {
+                background-color: rgba(247, 171, 83, 0.3)
+            }
+
+            .edition {
+                background-color: rgba(247, 83, 83, 0.3);
+            }
+
+            .place {
+                background-color: rgba(242, 83, 247, 0.3)
+            }
         </style>
 
         <app-route route="[[route]]"
-            pattern="book-profile/:title/:bookId/:authorList/:pubList/:placeList"
+            pattern="/:title/:bookId/:authorList/:pubList/:placeList"
             data="{{bookUriData}}">
         </app-route>
+
+        <iron-ajax
+            method="POST"
+            id="addFav"
+            url="/api/neo4j/update_user_data/"
+            handle-as="json"
+            on-response="_handleFav"
+            content-type="application/json"
+            debounce-duration="300">
+        </iron-ajax>
 
         <iron-ajax
             method="POST"
@@ -186,53 +236,61 @@
         </iron-ajax>
 
         <div class="container-profile">
-            {{selectedbook}}
             <div id="book-information-left">
-                <div id="profile-metadata-div">
-                    <paper-dialog-scrollable class="metadata-fields">
-                        <h2> The Snow Child </h2>
-                        <h4> Author: Eowyn Ivey </h4>
-                        <h4> Publisher: Random House  </h4>
-                        <h4> Location Published: New York, NY  </h4> 
-                        <h4> ISBN: 02395234562  </h4>
-                    </paper-dialog-scrollable>
-                </div>
+                    <h3><i>{{book.title}}</i></h3>
 
-                <paper-dialog-scrollable id="profile-description-div">
-                    <h3>Summary:</h3>
-                    <div id="profile-description-paragraph">
-                        <!-- {{descValue}} -->Lorem ipsum dolor sit amet, amet quisque fermentum donec quis pellentesque accumsan, aliquam sagittis adipiscing magna risus risus wisi, pellentesque aliquet pellentesque rutrum penatibus quis. Nam ligula senectus maecenas gravida sodales eros, vestibulum metus a nibh lacus eget luctus, quidem urna tortor hymenaeos tellus dis sit, pede ridiculus urna egestas egestas amet, luctus habitasse placerat vel sodales nunc integer. Id ipsum erat sodales mollis elit feugiat, neque ac eros commodo mollis orci, eros blandit etiam fusce proin purus, ac et arcu aliquam a mi nulla, curabitur non erat sodales pharetra nullam eget. Nam fusce erat ut vivamus nunc, commodo felis mauris tristique aliquam congue sed, justo luctus in dictum quis justo. 
-                    </div> 
-                </paper-dialog-scrollable>
-                <paper-dialog-scrollable id="profile-related-div">
-                    <h3>Related:</h3>
-                </paper-dialog-scrollable>
+                <paper-card>
+                    <h3>Authors:</h3>
+                    <div class="row-item">
+                        <template is="dom-repeat" items="{{authors}}">
+                            <p class="card-text author">{{item.name}}</p>
+                        </template>
+                    </div>
+                </paper-card>
+
+                <paper-card>
+                    <h3>Publishers:</h3>
+                    <div class="row-items">
+                        <template is="dom-repeat" items="{{publishers}}">
+                            <p class="card-text publisher">{{item.name}}</p>
+                        </template>
+                    </div>
+                </paper-card>
+
+                <paper-card>
+                    <h3>Places:</h3>
+                    <div class="row-items"> 
+                        <template is="dom-repeat" items="{{places}}">
+                            <p class="card-text place">{{item.places}}</p>
+                        </template>
+                    </div>
+                </paper-card>
+
+                <paper-card>
+                    <h3>Edition Information:</h3>
+                    <div class="row-items">
+                        <p class="card-text edition">Title: {{book.title}}</p>
+                        <p class="card-text edition">Date: {{book.date}}</p>
+                    </div>
+                    <h5>ISBNS:</h5>
+                    <div class="row-items">
+                            <template is="dom-repeat" items="{{book.isbn}}">
+                                    <p class="card-text edition">{{item.isbn}}</p>
+                                </template>
+                    </div>
+                </paper-card>
             </div>
-
             <div id="book-information-right">
                 <div id = "profile-image-div">
-                    <img id = "profile-image" src="../images/no_cover_350_579.png" alt = "Snow Child"> 
+                    <img id = "profile-image" src="../images/no_cover_350_579.png"> 
                 </div>
 
                 <div id = "profile-menu-div">
                     <paper-button class="menu-btn" id="menu-favorites">
                         Add to Favorites 
                     </paper-button>
-                    
-                    <paper-button  class="menu-btn"  id="menu-generate-citation"> 
-                        Generate Citation
-                    </paper-button> 
-
-                    <paper-button  class="menu-btn" id="menu-request"> 
-                        Request from Library 
-                    </paper-button> 
-
-                    <paper-button class="menu-btn"  id="menu-share">
-                        Share 
-                    </paper-button>
                 </div>
             </div>
-        </div>
     </template>
     <script>
         class dhcBookProfile extends Polymer.Element {
@@ -272,31 +330,57 @@
                 }
             }
 
+            _addToFavorites() {
+                if (this.user !== {} && this.user.authenticated) {
+                    this.$.addFav.body = {
+                        title: this.book.title,
+                        id: this.book.id,
+                        isbn: this.book.isbn,
+                        publishers: this.publishers,
+                        authors: this.authors,
+                        date: this.book.date,
+                        relationships: {}
+                    }
+
+                    this.$.addFav.generateRequest();
+                }
+                else {
+                    this.dispatchEvent(new CustomEvent('save-error', { bubbles: true, composed: true, detail: {}} ));
+                }
+            }
+
+            _handleFav(e) {
+                console.log(e.detail.response);
+                console.log("handled fav");
+            }
+
             _getBookNode() {
                 this.$.getBook.body = {
-                    id: this.bookUriData.bookId
+                    id: parseInt(this.bookUriData.bookId)
                 }
                 this.$.getBook.generateRequest();
             }
 
             _handleBookResp(e) {
                 this.set('book', e.detail.response);
-                console.log(e.detail.response);
+                console.log(this.book)
             }
 
             _getAuthorNodes() {
+                console.log(this.bookUriData);
+                console.log(this.bookUriData.authorList);
                 var auths = this.bookUriData.authorList.split("+");
 
                 for(var i = 0; i < auths.length; i++) {
                     this.$.getAuths.body = {
-                        id: auths[i].id
+                        id: parseInt(auths[i])
                     }
                     this.$.getAuths.generateRequest();
                 }
             }
 
             _handleAuthorResp(e) {
-                this.set('authors', e.detail.response);
+                this.push('authors', e.detail.response);
                 console.log(e.detail.response);
             }
 
@@ -305,31 +389,31 @@
 
                 for(var i = 0; i < pubs.length; i++) {
                     this.$.getPubs.body = {
-                        id: pubs[i].id
+                        id: parseInt(pubs[i])
                     }
                     this.$.getPubs.generateRequest();
                 }
             }
 
             _handlePubResp(e) {
-                this.set('publishers', e.detail.response);
+                this.push('publishers', e.detail.response);
                 console.log(e.detail.response);
             }
 
             _getPlaceNodes() {
                 var places = this.bookUriData.placeList.split("+");
-
-                for(var i = 0; i < pubs.length; i++) {
+                console.log("PLACES", places)
+                for(var i = 0; i < places.length; i++) {
                     this.$.getPlaces.body = {
-                        id: pubs[i].id
+                        id: parseInt(places[i])
                     }
                     this.$.getPlaces.generateRequest();
                 }
             }
 
             _handlePlacesResp(e) {
-                this.set('places', e.detail.response);
-                console.log(e.detail.response);
+                this.push('places', e.detail.response);
+                console.log(this.places);
             }
         }
         window.customElements.define(dhcBookProfile.is, dhcBookProfile);

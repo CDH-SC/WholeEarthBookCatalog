@@ -212,6 +212,8 @@ qstrings.getGraphJSON = `MATCH (p:Person)-[r]-(m:Movie) WHERE p.name CONTAINS "T
                          				WITH collect(r) as edges, collect(p)+collect(m) as nodes
                          				RETURN nodes, edges`;
 
+qstrings.singleNode = `MATCH (s) WHERE ID(s) = { id } RETURN s`;
+
 
 qstrings.createEdition = `
 MERGE ({var_id}:Edition {
