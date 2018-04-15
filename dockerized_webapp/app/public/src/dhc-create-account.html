@@ -91,7 +91,7 @@
                     this.set("errorMessage", "Either password is empty");
                     this.valid = false;
                 }
-                else if (this.password === this.password_confirm) {
+                else if (this.password !== this.password_confirm) {
                     this.set("errorMessage", "Passwords do not match");
                     this.valid = false;
                 }

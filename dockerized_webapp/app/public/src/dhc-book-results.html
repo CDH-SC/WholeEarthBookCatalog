@@ -194,7 +194,7 @@
 
         <app-route
             route="[[route]]"
-            pattern="/:advanced/:author/:publisher/:title/:location/:degree"
+            pattern="/:advanced/:editions/:authors/:publishers/:places/:degree"
             data="{{uriAdvancedData}}">
          </app-route>
 
@@ -277,7 +277,7 @@
                                 </div>
                                 <div class="button-row">
                                     <paper-button id ="result-item-view-profile" on-click="_goToBookProfile" class="border-color"> View Full Profile </paper-button> 
-                                    <iron-icon on-click="addToFavorites()" icon="favorite-border"></iron-icon>
+                                    <!-- <iron-icon on-click="addToFavorites()" icon="favorite-border"></iron-icon> -->
                                 </div>
                             </div>
                         </div>
@@ -348,6 +348,14 @@
 
                     this._fireSearchPost();
                 }
+                else {
+
+                    if (this.$.npost.lastRequest) {
+                        this.$.npost.lastRequest.xhr.abort();
+                    }
+                    this.set('uriKeywordData', {});
+                    this.set('uriAdvancedData', {})
+                }
             }
 
             // Toggles graph view
@@ -362,36 +370,30 @@
 
             _addSavedQuery() {
                 console.log(this.user);
-                if (this.user !== undefined && this.user !== {}) {
+                if (this.user !== undefined && this.user !== {} && this.user.authenticated) {
                     var obj = {
                         _id: this.user._id,
                         keyword: "saved_searches",
-                        content: {
-                            advanced: false,
-                            basic_query: this.uriKeywordData.keyword,
-                            terms: {},
-                            limit: 25
-                        }
+                        content: this.$.npost.body
                     }
 
                     this.$.updateSavedQueries.body = obj;
                     this.$.updateSavedQueries.generateRequest();
                 }
+                else {
+                    this.dispatchEvent(new CustomEvent('save-error', { bubbles: true, composed: true, detail: {}} ));
+                }
             }
 
-            _addRecentQuery() {
+            _addRecentQuery(obj) {
                 // TODO: Add functionality for advanced 
-                console.log(this.user);
-                if (this.user !== undefined && this.user !== {}) {
+                if (this.user !== undefined && this.user !== {} && this.user.authenticated) {
+                    console.log("saving recnet queriy");
+
                     var obj = {
                         _id: this.user._id,
                         keyword: "recent_searches",
-                        content: {
-                            advanced: false,
-                            basic_query: this.uriKeywordData.keyword,
-                            terms: {},
-                            limit: 25
-                        }
+                        content: this.$.npost.body
                     }
 
                     this.$.updateRecentQueries.body = obj;
@@ -402,20 +404,58 @@
             // Uses iron-ajax to post to /api/neo4j/
             // Sets the body based on the URI 
             _fireSearchPost() {
-                console.log("keyword data", this.uriKeywordData.keyword);
+                console.log("keyword data", this.uriKeywordData);
+                console.log("advanced data", this.uriAdvancedData);
+
+
                 if (this.uriKeywordData.advanced === "keyword") {
                     this.$.npost.body = {
                         advanced: false,
                         basic_query: this.uriKeywordData.keyword,
-                        terms: {},
+                        authors: [],
+                        publishers: [],
+                        places: [],
+                        editions: [],
+                        degree: 0,
                         limit: 25
-                    }
-                }
-                else {
-                    // advanced search not implemented
+                        }
+
+                        this._addRecentQuery(this.$.npost.body)
+
+                        console.log("Firing simple keyword query")
+                        this.$.npost.generateRequest();
                 }
 
-                this.$.npost.generateRequest();
+                else {
+                    var editions = [];
+
+                    console.log("BEFORE PARSING",this.uriAdvancedData.editions)
+                    if (this.uriAdvancedData.editions !== 'null') {
+                        var temp = this.uriAdvancedData.editions.split("+");
+
+                        for (var i = 0; i < temp.length; i++) {
+                            var inner = temp[i].split("*");
+                            editions.push({title: inner[0], date: inner[1], isbn: inner[2] ? inner[2] : '' })
+                        }
+                    }
+                    
+                    if(this.uriAdvancedData.advanced === "advanced") {
+                        this.$.npost.body = {
+                            advanced: true,
+                            basic_query: '',
+                            authors: this.uriAdvancedData.authors === "null" ? [] : this.uriAdvancedData.authors.split("+"),
+                            publishers: this.uriAdvancedData.publishers === "null" ? [] : this.uriAdvancedData.publishers.split("+"),
+                            places: this.uriAdvancedData.places === "null" ? [] : this.uriAdvancedData.places.split("+"),
+                            editions: editions,
+                            degree: this.uriAdvancedData.degree
+                        }
+                        this._addRecentQuery(this.$.npost.body);
+
+                        console.log("Firing advanced query");
+                        this.$.npost.generateRequest();
+
+                    }
+                }
             }
 
             // Response for /api/neo4j/ call
