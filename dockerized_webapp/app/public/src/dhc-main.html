@@ -117,6 +117,8 @@
                 this.addEventListener('update-user', (e) => this._onUpdateUserData(e));
                 this.addEventListener('send-user-data', (e) => this._onSendUserData(e));
                 this.addEventListener('open-saved-q-toast', (e) => this._openSavedQueryToast());
+                this.addEventListener('change-route', (e) => this._changeRouteEvent(e));
+
             }
 
             connectedCallback() {
@@ -129,6 +131,11 @@
             static get observers() {
                 return ['_routePageChanged(routeData.page, isAttached)'];
             };
+
+            _changeRouteEvent(e) {
+                console.log(e.detail.path);
+                this.set('route.path', e.detail.path);
+            }
 
             _onSetSelectedBook(e) {
                 this.$.selectedbook.updateSelectedBook(e.detail);

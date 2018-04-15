@@ -339,10 +339,11 @@
                 this.set("_invalidSearch", false);
             }
 
-
             _goto_search() {
                 console.log(this.numFieldsArray);
                 this._validate();
+                
+                // this._organizeNumFieldsArray();
 
                 if (!this._invalidSearch) {
                     var sObj = {
