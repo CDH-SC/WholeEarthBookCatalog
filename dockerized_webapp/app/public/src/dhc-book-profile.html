@@ -333,13 +333,17 @@
             _addToFavorites() {
                 if (this.user !== {} && this.user.authenticated) {
                     this.$.addFav.body = {
-                        title: this.book.title,
-                        id: this.book.id,
-                        isbn: this.book.isbn,
-                        publishers: this.publishers,
-                        authors: this.authors,
-                        date: this.book.date,
-                        relationships: {}
+                        _id: this.user._id,
+                        keyword: "favorites",
+                        content: {
+                            title: this.book.title,
+                            id: this.book.id,
+                            isbn: this.book.isbn,
+                            publishers: this.publishers,
+                            authors: this.authors,
+                            date: this.book.date,
+                            relationships: {}
+                        }
                     }
 
                     this.$.addFav.generateRequest();
