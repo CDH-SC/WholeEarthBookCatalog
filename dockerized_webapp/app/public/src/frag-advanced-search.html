@@ -85,8 +85,7 @@
     </div>
     <!-- change to check if author -->
     <template is="dom-if" if="{{_isAuthor(item.searchType)}}">
-                        <paper-input label="first name" value="{{item.value.fname}}"></paper-input>
-                        <paper-input label="last name" value="{{item.value.lname}}"></paper-input>
+                        <paper-input label="name" value="{{item.value.name}}"></paper-input>
                     </template>
 
     <template is="dom-if" if="{{_isPub(item.searchType)}}">
@@ -94,7 +93,7 @@
                     </template>
 
     <template is="dom-if" if="{{_isEdition(item.searchType)}}">
-                        <paper-input label="name" value="{{item.value.name}}"></paper-input>
+                        <paper-input label="title" value="{{item.value.title}}"></paper-input>
                         <paper-input label="year" value="{{item.value.year}}"></paper-input>
                     </template>
 
@@ -109,10 +108,6 @@
                                 <paper-item>1</paper-item>
                                 <paper-item>2</paper-item>
                                 <paper-item>3</paper-item>
-                                <paper-item>4</paper-item>
-                                <paper-item>5</paper-item>
-                                <paper-item>6</paper-item>
-                                <paper-item>7</paper-item>
                             </paper-listbox>
                         </paper-dropdown-menu>
                     </template>
@@ -164,10 +159,7 @@
                         value: [{
                             field: "author",
                             subFields: [{
-                                value: "first name",
-                                type: "String"
-                            }, {
-                                value: "last name",
+                                value: "name",
                                 type: "String"
                             }]
                         }, {

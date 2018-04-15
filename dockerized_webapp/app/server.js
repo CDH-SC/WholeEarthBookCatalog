@@ -283,9 +283,11 @@ router.post("/neo4j/single_node/", function(req, res) {
     if (data.id !== undefined) {
         params.id = data.id;
     }
-
+    console.log(statement);
+    console.log(params);
     var q = neo4j.query(statement, params);
     q.response.then(function(resp) {
+        console.log(JSON.stringify(resp));
         res.json(resp);
     })
     .catch(function (err) {
