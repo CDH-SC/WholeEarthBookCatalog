@@ -1,14 +1,79 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+
+<link rel="import" href="frag-header.html">
+<link rel="import" href="frag-footer.html">
 
 <dom-module id="dhc-404">
     <template>
-        <a href="[[rootPath]]">Go back home.</a>
+        <style include = "shared-styles.css">
+            h1 {
+                font-size: 40px;
+                /*get font family*/
+            }
+
+            span {
+                background-color: #2d9cdb;
+                text-decoration-color: whitesmoke;
+            }
+
+            #graphic {
+                align-content: center;
+            }
+
+            paper-button {
+                position: relative;
+                background-color: #2d9cdb;
+            }
+
+            paper-item {
+                height: 60%;
+                width: 50%
+            }
+
+            /*what other features should be added? 
+                additional menu including 'suggested pages
+                    home page 
+                    help page 
+                    login page -> keep basic
+                */
+
+        </style>
+
+       <app-location route = "{{route}}"></app-location>
+
+    </template>
+    <template>
+        <paper-item>
+            <div id = "graphic">
+                <paper-item-body three-line> <!-- should split? -->
+                    <span>
+                        <p>
+                            I'm sorry, this page cannot be found.
+                        </p>
+                    </span>
+
+                    <span>
+                       <p> Here are a list of suggested pages to visit: </p>
+
+                        <paper-button raised> <a href = ""><u style = "display:hidden;"></u></a></paper-button>
+                        <paper-button raised> <a href = ""><u style = "display:hidden;"></u</a></paper-button>
+                        <paper-button raised> <a href = ""><u style = "display:hidden;"></u</a></paper-button>
+                    
+                    </span>
+                </paper-item-body>
+            </div>
+        </paper-item>
+        <paper-button><a href="[[rootPath]]"> Go back home </a> </paper-button>
     </template>
     <script>
         class dhc404 extends Polymer.Element {
-            static get is() { return 'dhc-404'; }
+            static get is() {
+                return 'dhc-404';
+            }
         }
         window.customElements.define(dhc404.is, dhc404);
     </script>
 </dom-module>
-
