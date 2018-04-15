@@ -15,11 +15,6 @@
     <template>
 
             <style include="shared-styles">
-
-                    .container-fluid {
-                        width: 100%;
-                        height: 100%;
-                    }
                     
                     #h1 {
                         margin: 0;
@@ -101,7 +96,7 @@
             </style>
            
              <!-- Static block for account setup -->
-            <div id = "main-content" class = "container-fluid"> 
+            <div id = "main-content" class = "container"> 
                 <paper-divider> </paper-divider>
      
                 <div id = "help-messages-wrapper">
@@ -123,9 +118,9 @@
                             </div>
 
                     <div id = "account-setup-container">
-
+                        <paper-button on-click = "toggle_account_setup"> 
                         <template is="dom-if" if="[[account_setup_show]]">
-                           <paper-button on-click = "toggle_account_setup"><iron-icon icon = "expand-more"></iron-icon> </paper-button>
+                            <iron-icon icon = "expand-less"></iron-icon>
                             <div id = "account-setup-dropdown-content">
                                 <blockquote>
 
@@ -143,11 +138,12 @@
                             </div>
                             
                         </template>
-
     <template is="dom-if" if="[[!account_setup_show]]">
-                            <paper-button on-click = "toggle_account_setup"><iron-icon icon = "expand-less"></iron-icon></paper-button>
+                            <paper-button on-click = "toggle_account_setup"><iron-icon icon = "expand-more"></iron-icon></paper-button>
                                                 
                         </template>
+    </paper-button>
+
 
     </div>
 
@@ -174,11 +170,11 @@
 
 
     <div id="item-search-container">
-
-        <template is="dom-if" if="[[item_search_show]]">
-                            <paper-button on-click = "toggle_item_search"><iron-icon icon = "expand-more"></iron-icon></paper-button>
-                            <div id = "item-search-show">
-                                <blockquote>
+        <paper-button on-click="toggle_item_search">
+            <template is="dom-if" if="[[item_search_show]]">
+                <iron-icon icon = "expand-less"></iron-icon>
+                <div id = "item-search-dropdown-content">
+                    <blockquote>
 
                                     <h3> How do you search? </h3>
                             
@@ -194,10 +190,12 @@
                                             
                         </template>
 
-        <template is="dom-if" if="[[!item_search_show]]">
-                           <paper-button on-click = "toggle_item_search"><iron-icon icon = "expand-less"></iron-icon></paper-button>
+
+            <template is="dom-if" if="[[!item_search_show]]">
+                           <paper-button on-click = "toggle_item_search"><iron-icon icon = "expand-more"></iron-icon></paper-button>
                                     
                         </template>
+        </paper-button>
 
     </div>
 
@@ -222,16 +220,32 @@
     </div>
 
     <div id="user-account-container">
+        <paper-button on-click="toggle_user_account">
+            <template is="dom-if" if="[[user_account_show]]">
+                        <iron-icon icon = "expand-less"></iron-icon>
+                        <div id = "user-account-dropdown-content">
+                            <blockquote>
 
-        <template is="dom-if" if="[[user_account_show]]">
-                                <paper-button on-click = "toggle_user_account"><iron-icon icon = "expand-more"></iron-icon></paper-button>
-                                
+      
+            <h3>What can you do with your user account?</h3>
+
+            A user can:
+            <ul>
+                <li>
+                    Save queries made within this website and observe them within a specific drop-down menu
+                </li>
+                <li>
+                    Add specific editions to a selection of 'Favorites'
+                </li>
+            </ul>
+
+        </blockquote>
                             </template>
 
-        <template is="dom-if" if="[[!user_account_show]]">
-                                <paper-button on-click = "toggle_user_account"><iron-icon icon = "expand-less"></iron-icon></paper-button>
+            <template is="dom-if" if="[[!user_account_show]]">
                                         
                             </template>
+        </paper-button>
 
     </div>
 
