@@ -15,7 +15,7 @@ var neo4j = require("./utils/neo4jDriver.js");
 var qstrings = require("./utils/querystrings.js");
 var ObjectId = require("mongodb").ObjectId;
 
-var port = process.env.PORT || 8080;
+var port = 80;
 var app = express();
 var router = express.Router();
 

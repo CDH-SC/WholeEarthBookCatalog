@@ -37,7 +37,7 @@ services:
       context: ./
       dockerfile: ./Dockerfile.app
     ports:
-      - "${PORT}:8080"
+      - "${PORT}:80"
 
   loc_data_miner:
     env_file: .env
