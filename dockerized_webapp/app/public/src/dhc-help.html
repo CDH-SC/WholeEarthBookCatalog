@@ -1,3 +1,4 @@
+<!--
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-divider/paper-divider.html">
@@ -121,7 +122,7 @@
 
     </div>
 
-    -->
+    
     <paper-divider></paper-divider>
 
     <div id="item-search-show">
@@ -138,7 +139,9 @@
         </blockquote>
 
     </div>
-    <!--
+
+
+    
     <div id="item-search-container">
 
         <template is="dom-if" if="[[item_search_show]]">
@@ -166,7 +169,7 @@
                         </template>
 
     </div>
--->
+
     <paper-divider></paper-divider>
 
     <blockquote>
@@ -197,7 +200,7 @@
                             </template>
 
     </div>
--->
+
     </div>
 
     <paper-divider relative></paper-divider>
@@ -266,6 +269,96 @@
 
         }
 
+        window.customElements.define(dhcHelp.is, dhcHelp);
+    </script>
+</dom-module>
+
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="dhc-help">
+
+    <template>
+        <style include="shared-styles">
+            /* Iron flex layout */
+            /* Large features */
+            
+            #h1 {
+                margin: 0;
+                text-align: center;
+                font-size: 96px;
+                font-weight: lighter;
+            }
+            
+            #main-content {
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            
+            paper-button {
+                margin: 0px;
+                background-color: #2d9cdb;
+                color: whitesmoke;
+            }
+            
+            .contact-info {
+                margin: 5px;
+            }
+            
+            #email-inf {}
+            
+            #h1 {
+                margin: 0;
+                text-align: center;
+                font-size: 14px;
+            }
+                
+        </style>
+
+        <div id = "main-content" class = "container-fluid"> 
+            <p id = "help-message">
+
+            <blockquote>
+                To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately. 
+            </blockquote>
+
+            <blockquote>
+
+            </blockquote>
+            
+            </p>
+            
+            <div id = "help-footer">
+                <div class = "contact-info">
+                    <p style = "font-size: 16px;">
+                        Still need help?
+                    </p>
+                    <p id="email-inf" style = "font-size: 14px;"> 
+                        Send us an email {{email}}
+                    </p>
+                </div>
+            </div>
+        </div>
+       
+        <a href="[[rootPath]]home"><paper-button> Go back home </paper-button></a>
+        
+    </template>
+    <script>
+        class dhcHelp extends Polymer.Element {
+            static get is() {
+                return 'dhc-help';
+            }
+            static get properties() {
+                return {
+                    email: {
+                        type: String,
+                        value: 'dhc@fakeemail.com'
+                    }
+                }
+            }
+        }
         window.customElements.define(dhcHelp.is, dhcHelp);
     </script>
 </dom-module>
