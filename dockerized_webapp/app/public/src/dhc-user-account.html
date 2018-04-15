@@ -468,7 +468,7 @@
                 var resp = e.detail.response;
                 console.log("Faves: ");
                 console.log(resp);
-                if (resp.records.length > 0) {
+                if (resp.records && resp.records.length > 0) {
                     this.set('savedBooks', resp);
                     this.set('noFavs', false);
                 } else {
