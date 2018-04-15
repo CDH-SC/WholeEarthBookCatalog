@@ -13,12 +13,6 @@
 <dom-module id="dhc-help">
 
     <template>
-            <div>
-
-                    <h1> is this thing on?  (1)</h1>
-                    <i>?????</i>
-                    
-                </div>
 
             <style include="shared-styles">
 
@@ -74,39 +68,30 @@
                     }
                     
             </style>
-            <div>
-
-                    <h1> is this thing on?  (2)</h1>
-                    <i>?????</i>
-                    
-                </div>
 
             <app-location route = "{{route}}"> </app-location>
-            <div>
-
-                <h1> is this thing on? (3)</h1>
-                <i>?????</i>
-
-            </div>
 
             <div id = "main-content" class = "container-fluid"> 
                 <paper-divider> </paper-divider>
+     
+                <div id = "help-messages-wrapper">
 
-                <div id = "main-content-test" class = "container-fluid-test"> 
-                    <p id = "help-message-test">
-        
-                        <blockquote>
-                            To create an account with us, please click on the login button at the top of the screen. The option for creating an account will be given on the next screen. Please enter an appropriate name and password for your designated account, and your account will be created immediately. 
-                        </blockquote>
-                    </p>
-                </div>
+                        <div id = "account-setup-dropdown-content">
+                                <blockquote>
 
+                                    <h3> Setting Up Your Account </h3>
+                            
+                                    To set up your account, you must follow these steps:
+                                    <ol>
+                                        <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
+                                        <li> Click on the link to 'Create an Account'</li>
+                                        <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
 
-
-
-                        
-                    <div id = "help-messages-wrapper">
-
+                                    </ol>
+                                
+                                    </blockquote>
+                            </div>
+<!--
                     <div id = "account-setup-container">
 
                         <template is="dom-if" if="[[account_setup_show]]">
@@ -135,7 +120,25 @@
                         </template>
 
     </div>
+
+    -->
     <paper-divider></paper-divider>
+
+    <div id="item-search-show">
+        <blockquote>
+
+            <h3> How do you search? </h3>
+
+            Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles.
+
+            <ul>
+                <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
+            </ul>
+
+        </blockquote>
+
+    </div>
+    <!--
     <div id="item-search-container">
 
         <template is="dom-if" if="[[item_search_show]]">
@@ -163,25 +166,29 @@
                         </template>
 
     </div>
+-->
     <paper-divider></paper-divider>
-    <div id="user-account-container">
+
+    <blockquote>
+        <h3>What can you do with your user account?</h3>
+
+        A user can:
+        <ul>
+            <li>
+                Save queries made within this website and observe them within a specific drop-down menu
+            </li>
+            <li>
+                Add specific editions to a selection of 'Favorites'
+            </li>
+        </ul>
+
+    </blockquote>
+
+    <!--<div id="user-account-container">
 
         <template is="dom-if" if="[[user_account_show]]">
                                 <paper-button on-click = "toggle_user_account"><iron-icon icon = "expand-more"></iron-icon></paper-button>
-                                <blockquote>
-                                        <h3>What can you do with your user account?</h3>
-
-                                        A user can: 
-                                        <ul>
-                                            <li>
-                                                Save queries made within this website and observe them within a specific drop-down menu
-                                            </li>
-                                            <li>
-                                                Add specific editions to a selection of 'Favorites'
-                                            </li>
-                                        </ul>
                                 
-                                    </blockquote>
                             </template>
 
         <template is="dom-if" if="[[!user_account_show]]">
@@ -190,6 +197,7 @@
                             </template>
 
     </div>
+-->
     </div>
 
     <paper-divider relative></paper-divider>
