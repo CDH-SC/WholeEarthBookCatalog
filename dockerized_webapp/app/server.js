@@ -285,11 +285,8 @@ router.post("/advanced_search/", function (req, res) {
     if ( data.author != null ) {
         for ( var i = 0; i < data.author.length; i++ ) {
             var addAuthor = qstrings.advancedAuthor;
-            if ( data.author[i].fname != null ) {
-                addAuthor = addAuthor.replace('{ fname_re }', '\"(?i).*' + data.author[i].fname + '.*\"');
-            }
-            if ( data.author[i].lname != null ) {
-                addAuthor = addAuthor.replace('{ lname_re }', '\"(?i).*' + data.author[i].lname + '.*\"');
+            if ( data.author[i].name != null ) {
+                addAuthor = addAuthor.replace('{ name_re }', '\"(?i).*' + data.author[i].name + '.*\"');
             }
             query += addAuthor;
             if ( i+1 < data.author.length ) {
@@ -442,6 +439,51 @@ router.post("/neo4j/", function (req, res) {
             });
             console.log(`neo4j request failed: ${err}\n`);
         }
+    }
+
+    // Advanced Search
+    else {
+        var q = neo4j.advancedQuery(req.body);
+
+        q.response.then(function (resp) {
+            console.log(resp);
+            var arr = [];
+            if (resp.records.length > 0) {
+                resp.records.forEach(record => {
+                    var record = record._fields[0];
+                    if (record) {
+                        console.log(record.isbn);
+                        arr.push({
+                            id: record.id ? record.id : '',
+                            isbn: record.isbn ? record.isbn : [],
+                            date: record.date ? record.date : '',
+                            title: record.title ? record.title : '',
+                            authors: record.authors ? record.authors : [],
+                            publishers: record.publishers ? record.publishers : [],
+                            places: record.places ? record.places : [],
+                            relationships: record.relationships ? record.relationships : []
+                        });
+                    }
+                })
+            }
+            res.json({
+                records: arr
+            });
+            console.log("neo4j request completed normally\n");
+        })
+            .catch(function (err) {
+                console.log(err);
+                console.log(errstr)
+                res.json({
+                    "Message": errstr,
+                    "Error": err
+                });
+                console.log(`neo4j request failed: ${JSON.stringify(err, null, 2)}\n`);
+        });
+        
+        q.driver.close();
+        q.session.close();
+
     }
 });
 
