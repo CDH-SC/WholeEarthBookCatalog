@@ -5,7 +5,6 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
-<link rel="import" href="../bower_components/app-route/app-location.html">
 
 <link rel="import" href="frag-header.html">
 
@@ -18,6 +17,7 @@
 
                     .container-fluid {
                         width: 100%;
+                        height: 100%;
                     }
                     
                     #h1 {
@@ -35,6 +35,22 @@
                     #help-message {
                         margin-top: 20px;
                         font-size: 14px;
+                        width: 100%;
+
+                    }
+
+                    #account-setup-explanation {
+                        width: 80%;
+                        
+                    }
+
+                    #item-search-explanation {
+                        width: 80%;
+
+                    }
+
+                    #user-account-explanation {
+                        width: 80%
 
                     }
                     
@@ -73,6 +89,7 @@
                         float: left;
                         margin-right: -20%;
                         padding-right: 0%;
+
                     }
 
                     #return-button {
@@ -83,19 +100,15 @@
                         width: 8%
                         
                     }
-
-
-                    
+  
             </style>
-
-            <app-location route = "{{route}}"> </app-location>
 
             <div id = "main-content" class = "container-fluid"> 
                 <paper-divider> </paper-divider>
      
                 <div id = "help-messages-wrapper">
 
-                        <div id = "account-setup-dropdown-content">
+                        <div id = "account-setup-explanation">
                                 <blockquote>
 
                                     <h3> Setting Up Your Account </h3>
@@ -143,7 +156,7 @@
 
     <paper-divider></paper-divider>
 
-    <div id="item-search-show">
+    <div id="item-search-exaplanation">
         <blockquote>
 
             <h3> How do you search? </h3>
@@ -189,21 +202,22 @@
     </div>
 
     <paper-divider></paper-divider>
+    <div id="user-account-explanation">
+        <blockquote>
+            <h3>What can you do with your user account?</h3>
 
-    <blockquote>
-        <h3>What can you do with your user account?</h3>
+            A user can:
+            <ul>
+                <li>
+                    Save queries made within this website and observe them within a specific drop-down menu
+                </li>
+                <li>
+                    Add specific editions to a selection of 'Favorites'
+                </li>
+            </ul>
 
-        A user can:
-        <ul>
-            <li>
-                Save queries made within this website and observe them within a specific drop-down menu
-            </li>
-            <li>
-                Add specific editions to a selection of 'Favorites'
-            </li>
-        </ul>
-
-    </blockquote>
+        </blockquote>
+    </div>
 
     <div id="user-account-container">
 
@@ -225,7 +239,7 @@
 
     <div id="help-footer">
         <div class="email-inf">
-            <strong> Still having problems? Send us an email at {{email}} </strong>
+            <strong> Still having problems? Send us an email at dhc@fakeemail.com </strong>
             <paper-button id="return-button">
                 <a href="[[rootPath]]"> <u style="display:hidden;">Go back </u> </a>
             </paper-button>
