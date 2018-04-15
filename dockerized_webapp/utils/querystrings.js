@@ -191,7 +191,7 @@ qstrings.optionalMatch = `OPTIONAL MATCH `;
 
 qstrings.relations = ' (p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place) ';
 
-qstrings.advancedAuthor = ' p.name =~ { fname_re } OR p.name =~ { lname_re } ';
+qstrings.advancedAuthor = ' p.name =~ { name_re } ';
 
 qstrings.advancedPublisher = ' pub.name =~ { name_re } ';
 
@@ -200,27 +200,53 @@ qstrings.advancedPlace = ' plc.name =~ { plcname_re } ';
 qstrings.advancedEdition = ' { title_re } IN b.IBSN OR b.title =~ { title_re } OR b.year =~ { year_re } ';
 
 qstrings.withCollectFirst = `
-                            WITH
-                            {
-                                authors: collect( DISTINCT (p.name) ),
-                                publishers: collect( DISTINCT pub.name),
-                                title: b.title
-                            } as tmp
-                            WITH
-                                collect( DISTINCT tmp ) as records
-                                `;
-
-qstrings.withCollect = `
                                     WITH
                                     {
-                                        data: {
-                                            authors: collect( DISTINCT (p.name) ),
-                                            publishers: collect( DISTINCT pub.name ),
-                                            title: b.title
-                                        }, records: records
+                                            title: b.title,
+                                            isbn: b.isbn,
+                                            date: toString( b.date ),
+                                            id: toString( id(b) ),
+                                            authors: collect(
+                                                DISTINCT {
+                                                    name: p.name,
+                                                    id: toString( id(p) )
+                                                }
+                                            ),
+                                            publishers: collect(
+                                                DISTINCT {
+                                                    name: pub.name,
+                                                    id: toString( id(pub) )
+                                                },
+                                            )
+                                            places: collect(
+                                                DISTINCT {
+                                                    name: plc.name,
+                                                    id: toString( id(plc) )
+                                                }
+                                            ),
+                                            relationships: {
+                                                wrote: collect(
+                                                    DISTINCT [
+                                                        toString( id(p) ),
+                                                        toString( id(b) ),
+                                                    ]
+                                                ),
+                                                published: collect(
+                                                    DISTINCT [
+                                                        toString( id(pub) ),
+                                                        toString( id(b) )
+                                                    ]
+                                                ),
+                                                publishes_in: collect(
+                                                    DISTINCT [
+                                                        toString( id(pub) ),
+                                                        toString( id(plc) )
+                                                    ]
+                                                )
+                                            }
                                     } as tmp
                                     WITH
-                                        collect( DISTINCT tmp.data ) + tmp.records as records
+                                        collect( DISTINCT tmp ) as records
                                         `;
 
 qstrings.unwindRecords = `
