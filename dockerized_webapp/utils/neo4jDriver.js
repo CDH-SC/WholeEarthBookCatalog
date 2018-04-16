@@ -105,7 +105,7 @@ neo4jDriver.constructQuery = function(data) {
     var before = false;
 
     // Authors
-    if (data.authors != null) {
+    if (data.authors.length > 0) {
         for (var i = 0; i < data.authors.length; i++) {
             var addAuthor = qstrings.advancedAuthor;
             if (data.authors[i].name != null) {
@@ -120,7 +120,7 @@ neo4jDriver.constructQuery = function(data) {
     }
 
     // Publishers
-    if (data.publishers != null) {
+    if (data.publishers.length > 0) {
         if (before == true) {
             query += "AND";
         }
@@ -136,7 +136,7 @@ neo4jDriver.constructQuery = function(data) {
     }
 
     // Book
-    if (data.editions != null) {
+    if (data.editions.length > 0) {
         if (before == true) {
             query += "AND";
         }
@@ -154,10 +154,11 @@ neo4jDriver.constructQuery = function(data) {
                 query += "OR";
             }
         }
+        before = true;
     }
 
     // Place
-    if (data.places != null) {
+    if (data.places.length > 0) {
         if (before == true) {
             query += "AND";
         }
