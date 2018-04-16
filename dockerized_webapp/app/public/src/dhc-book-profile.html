@@ -135,6 +135,10 @@
                 margin-left: 50px;
                 margin-right: 50px
             }
+
+            .book-title-header {
+                margin-top: 200px;
+            }
         
             /* plot descriptions will not be included */
             #profile-related table {
@@ -180,7 +184,7 @@
         <iron-ajax
             method="POST"
             id="addFav"
-            url="/api/neo4j/update_user_data/"
+            url="/api/neo4j/update_saved_content/"
             handle-as="json"
             on-response="_handleFav"
             content-type="application/json"
@@ -229,7 +233,7 @@
 
         <div class="container-profile">
             <div id="book-information-left">
-                    <h3><i>{{book.title}}</i></h3>
+                    <h3 class="book-title-header"><i>{{book.title}}</i></h3>
 
                 <paper-card>
                     <h3>Authors:</h3>
@@ -262,7 +266,7 @@
                     <h3>Edition Information:</h3>
                     <div class="row-items">
                         <p class="card-text edition">Title: {{book.title}}</p>
-                        <p class="card-text edition">Date: {{book.date}}</p>
+                        <p class="card-text edition">Date: {{book.date.low}}</p>
                     </div>
                     <h5>ISBNS:</h5>
                     <div class="row-items">
@@ -313,13 +317,26 @@
                 }
             }
 
-            _resultPageChanged() {
+            _resultPageChanged(newVal, oldVal) {
                 if(this.route.prefix.includes("book-profile")) {
                     this._getBookNode();
                     this._getAuthorNodes();
                     this._getPubsNodes();
                     this._getPlaceNodes();
                 }
+
+                else {
+                    console.log("OLD VALUE", oldVal);
+                    this._clearAll();
+                }
+            }
+
+            _clearAll() {
+                this.set("places", []);
+                this.set("authors", []);
+                this.set('publishers', [])
+                this.set('book', {})
+                this.set('bookUriData', {})
             }
 
             _addToFavorites() {
@@ -333,7 +350,7 @@
                             isbn: this.book.isbn,
                             publishers: this.publishers,
                             authors: this.authors,
-                            date: this.book.date,
+                            date: this.book.date ? this.book.date: '',
                             relationships: {}
                         }
                     }
@@ -348,6 +365,8 @@
             _handleFav(e) {
                 console.log(e.detail.response);
                 console.log("handled fav");
+                this.dispatchEvent(new CustomEvent('save-fav-success', { bubbles: true, composed: true, detail: {}} ));
+
             }
 
             _getBookNode() {

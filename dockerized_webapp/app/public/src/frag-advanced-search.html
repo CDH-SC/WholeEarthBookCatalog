@@ -90,15 +90,26 @@
                     <h2>Advanced Search</h2>
                     <paper-dialog-scrollable class="scrollable-c">
                         <template is="dom-repeat" items="[[numFieldsArray]]">
+                            <div class="holder">
                             <div class="col-inputs">
-                                <paper-dropdown-menu label="search type" on-value-changed="_update_num_fields" data-args="{{item}}">
+                                <paper-dropdown-menu label="search type" on-value-changed="_update_num_fields" value="{{item.searchType}}">
                                     <paper-listbox slot="dropdown-content" selected="{{item.searchTypeID}}">
                                         <paper-item></paper-item>
-                                        <template is="dom-repeat" items="[[avaliableChoices]]" as="choice">
                                             <paper-item>
-                                                {{choice.field}}
+                                                author
                                             </paper-item>
-                                        </template>
+                                            <paper-item>
+                                                publisher
+                                            </paper-item>
+                                            <paper-item>
+                                                edition
+                                            </paper-item>
+                                            <paper-item>
+                                                location
+                                            </paper-item>
+                                            <paper-item>
+                                                degree
+                                            </paper-item>
                                     </paper-listbox>
                                 </paper-dropdown-menu>
                                 <paper-button class="remove" on-click="_remove" remove-item="{{item}}" disabled="{{item.first}}">
@@ -106,20 +117,20 @@
                                 </paper-button>
                             </div>
                             <!-- change to check if author -->
-                            <template is="dom-if" if="{{_isAuthor(item.searchType)}}">
+                            <template class="auth-field" is="dom-if" if="[[_isAuthor(item.searchType)]]">
                                 <div class="input-fields">
                                     <paper-input label="name" value="{{item.value.name}}"></paper-input>
                                 </div>
                             </template>
         
-                            <template class="input-fields" is="dom-if" if="{{_isPub(item.searchType)}}">
+                            <template class="pub-fields" is="dom-if" if="{{_isPub(item.searchType)}}">
                                 <div class="input-fields">
                                     <paper-input label="name" value="{{item.value.name}}"></paper-input>
                                 </div>
         
                             </template>
         
-                            <template class="input-fields" is="dom-if" if="{{_isEdition(item.searchType)}}">
+                            <template class="ed-fields" is="dom-if" if="{{_isEdition(item.searchType)}}">
                                 <div class="input-fields">
                                     <paper-input label="name" value="{{item.value.title}}"></paper-input>
                                     <paper-input label="year" value="{{item.value.year}}"></paper-input>
@@ -127,13 +138,13 @@
                                 </div>
                             </template>
         
-                            <template class="input-fields" is="dom-if" if="{{_isLocation(item.searchType)}}">
+                            <template class="loc-fields" is="dom-if" if="{{_isLocation(item.searchType)}}">
                                 <div class="input-fields">
-                                    <paper-input label="Location" placeholder="Location" value="{{item.value.place}}"></paper-input>
+                                    <paper-input label="Location" placeholder="Location" value="{{item.value.name}}"></paper-input>
                                 </div>
                             </template>
         
-                            <template class="input-fields" is="dom-if" if="{{_isDegree(item.searchType)}}">
+                            <template class="deg-fields" is="dom-if" if="{{_isDegree(item.searchType)}}">
                                 <div class="input-fields">
                                     <paper-dropdown-menu label="Degree">
                                         <paper-listbox slot="dropdown-content" selected="{{item.value.degree}}">
@@ -145,6 +156,7 @@
                                     </paper-dropdown-menu>
                                 </div>
                             </template>
+                        </div>
                         </template>
         
                         <template is="dom-if" if="{{_invalidSearch}}">
@@ -187,7 +199,8 @@
                             searchTypeID: -1,
                             searchType: "",
                             value: {}
-                        }]
+                        }],
+                        notify: true
                     },
                     avaliableChoices: {
                         type: Array,
@@ -256,6 +269,23 @@
                 }
             }
 
+            _getSearchType(num) {
+                switch(num) {
+                    case 1:
+                        return 'author'
+                    case 2:
+                        return 'publisher'
+                    case 3:
+                        return 'edition'
+                    case 4:
+                        return 'location'
+                    case 5:
+                        return 'degree'
+                    default:
+                        return ''
+                }
+            }
+
             _increment_num_fields() {
                 this._highestIDUsed += 1;
                 this.push("numFieldsArray", {
@@ -271,19 +301,23 @@
             }
 
             _update_num_fields(event) {
-                var itemObj = event.path[0].dataArgs;
-                this.numFieldsArray.some(function(item, ind) {
-                    if (item.id === itemObj.id) {
-                        this.set("numFieldsArray." + ind + ".searchType", event.detail.value);
-                        
-                        return;
-                    }
-                }.bind(this))
+                console.log(event);
+                var itemObj = event.model.item;
+                console.log(itemObj);
+                console.log(this.numFieldsArray);
+                    // this.numFieldsArray.some(function(item, ind) {
+                //     if (item.id === itemObj.id) {
+                //         this.set("numFieldsArray." + ind + ".searchType", this._getSearchType(itemObj.searchTypeID));
+                //         console.log("ID USED: ", itemObj.searchTypeID)
+                //         
+                //         return;
+                //     }
+                // }.bind(this))
             }
 
             _remove(event) {
                 this.numFieldsArray.some(function(item, ind) {
-                    if (item.id === event.path[0].removeItem.id) {
+                    if (item.id === event.model.item.id) {
                         this.splice("numFieldsArray", ind, 1);
                         return;
                     }

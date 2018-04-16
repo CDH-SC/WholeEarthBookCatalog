@@ -83,6 +83,7 @@
                         id: currRecord.id,
                         group: 1,
                         label: this._getLabelShort(currRecord.title),
+                        longLabel: currRecord.title,
                         level: 1
                     });
 
@@ -94,6 +95,7 @@
                             id: auth.id,
                             group: 2,
                             label: this._getLabelShort(auth.name),
+                            longLabel: auth.name,
                             level: 1
                         });
                     }
@@ -106,6 +108,7 @@
                             id: pub.id,
                             group: 3,
                             label: this._getLabelShort(pub.name),
+                            longLabel: pub.name,
                             level: 1
                         });
                     }
@@ -117,6 +120,7 @@
                             id: place.id,
                             group: 4,
                             label: this._getLabelShort(place.name),
+                            longLabel: place.name,
                             level: 1
                         });
                     }
@@ -193,7 +197,7 @@
                 // :o The neat effects for bouncing around <3
                 // more details in the link at the begingin of the script
                 const simulation = d3.forceSimulation()
-                    .force('charge', d3.forceManyBody().strength(-20))
+                    .force('charge', d3.forceManyBody().strength(-5))
                     .force('center', d3.forceCenter(width / 2, height / 2));
 
                 simulation.force('link', d3.forceLink()
@@ -246,8 +250,11 @@
                                 break;
                         }
                     })
+                    .on("click", (node) => {
+                        console.log("clicked");
+                        this.set('selectedNode.name', node.longLabel);
+                    })
                     .call(dragDrop)
-                   
 
                 console.log(nodeElements);
 
@@ -287,8 +294,6 @@
                     .attr("width", function(d){return d.bbox.width})
                     .attr("height", function(d){return d.bbox.height})
                     .style("fill", "yellow");
-
-
 
                 const linkElements = svg.append('g')
                     .selectAll('line')
