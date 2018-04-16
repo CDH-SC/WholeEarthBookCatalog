@@ -435,6 +435,8 @@
 
                         for (var i = 0; i < temp.length; i++) {
                             var inner = temp[i].split("*");
+                            console.log(inner);
+                            console.log(inner[2]=== '');
                             editions.push({title: inner[0] === '' ? null : inner[0], date: inner[1] === '' ? null : inner[1], isbn: inner[2] ? inner[2] : null })
                         }
                     }                    
