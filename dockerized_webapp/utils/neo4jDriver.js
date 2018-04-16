@@ -41,7 +41,7 @@ neo4jDriver.advancedQuery = function(data) {
     
     var pass = true;
 
-    
+    /*
     // Check types
     // Authors
     for ( var i = 0; i < data.authors.length; i++) {
@@ -70,7 +70,7 @@ neo4jDriver.advancedQuery = function(data) {
             pass = false;
         }
     }
-    
+    */
      
     if ( pass == true ) {
         var driver = neo4j.driver(`bolt://${NEO4J_URL}`);
@@ -140,14 +140,23 @@ neo4jDriver.constructQuery = function(data) {
         if (before == true) {
             query += "AND";
         }
-        var addBook = qstrings.advancedEdition;
+        
         for (var i = 0; i < data.editions.length; i++) {
+            var addBook = "";
             if (data.editions[i].title != null) {
-                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.editions[i].title + '.*\"');
-                addBook = addBook.replace('{ title_re }', '\"(?i).*' + data.editions[i].title + '.*\"');
+                var addbookTitle = qstrings.advancedEditionTitle;
+                addbookTitle = addbookTitle.replace('{ title_re }', '\"(?i).*' + data.editions[i].title + '.*\"');
+                addBook += addbookTitle;
+            }
+            if (data.editions[i].isbn != null) {
+                var addbookISBN = qstrings.advancedEditionISBN;
+                addbookISBN = addbookISBN.replace('{ isbn_re }', '\"(?i).*' + data.editions[i].isbn + '.*\"')
+                addBook += addbookISBN;
             }
             if (data.editions[i].year != null) {
-                addBook = addBook.replace('{ year_re }', '\"(?i).*' + data.editions[i].year + '.*\"');
+                var addbookYear = qstrings.advancedEditionYear;
+                addbookYear = addbookYear.replace('{ year_re }', '\"(?i).*' + data.editions[i].year + '.*\"');
+                addBook += addbookYear;
             }
             query += addBook;
             if (i + 1 < data.editions.length) {
