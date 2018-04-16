@@ -3,6 +3,7 @@
 <link rel="import" href="../bower_components/paper-divider/paper-divider.html">
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
 
@@ -35,27 +36,35 @@
 
                     }
 
-                    #account-setup-explanation {
-                        width: 80%;
+                    #account-setup-faq {
+                        position: relative;
+                        float: right;
+                        margin-right: 3%;
                         
                     }
 
                     #item-search-explanation {
                         width: 80%;
-
-                    }
+                     }
 
                     #user-account-explanation {
-                        width: 80%
+                        width: 80%;
+                     }
 
+                    #account-setup-container {
+                        width: 100%;
+                    }
+
+                    #item-search-container {
+                        width: 100%;
+                    }
+
+                    #user-account-container {
+                        width: 100%;
                     }
                     
                     .contact-info {
                         margin: 5px;
-                    }
-
-                    a:visited {
-                        background-color: #2d9cdb;
                     }
 
                     #help-footer {
@@ -70,6 +79,15 @@
                         padding-right: 0%;
                     }
 
+                    .FAQS {
+                        margin-left: 15%;
+                        opacity: 0.2;
+                    }
+
+                    .FAQs:hover {
+                        cursor: auto;
+                    }
+
                     #return-button {
                         background-color: #2d9cdb;
                         float: left;
@@ -78,19 +96,20 @@
                         width: 8%
                     }
 
+                    polymer-dropdown-menu {
+                        width: 100%;
+                    }
+
                     paper-button raised {
                         position: relative;
-                        margin-left: 10%;
+                        width: 80%;
+                        float: center
                         
                     }
 
                     paper-divider {
                         margin-top: 5%;
                         margin-bottom: 5%;
-                    }
-
-                    paper-dialog {
-                        margin-bottom: 0;
                     }
   
             </style>
@@ -99,6 +118,8 @@
                 <paper-divider> </paper-divider>
      
                 <div id = "help-messages-wrapper">
+
+
                         <!-- static block for account setup -->
                         <div id = "account-setup-explanation">
                                 <blockquote>
@@ -114,16 +135,24 @@
                                     </ol>
                                 
                                     </blockquote>
+                                    <!-- <div class = "FAQs" >
+                                    
+                                    <h4 style> Frequently Asked Questions: </h4> 
+                                           
+                                                    <p>Can I only set up one account? </p>
+                                                        <p >No, it is possible to have an unlimited number of accounts. We only ask that you use one at a time.</p>
+                                                    <br>
+                                                    <p>Is the password encrypted?</p>
+                                                        <p>Yes, the password is encrypted through the SHA-256 hash algorithm. We do this through the Crypto JS library.</p>
+                                    </div> -->
                             </div>
 
-                        <div id = "account-setup-container">
-                            <paper-button on-click = "toggle_account_setup"> 
+                     <!--   <div id = "account-setup-container" onclick = "toggle_account_setup">
+                            <paper-button> 
                                 <template is="dom-if" if="[[account_setup_show]]">
-                                    <iron-icon icon = "expand-less"></iron-icon>
+                                    <iron-icon icon = "expand-less"></iron-icon> Setting Up Your Account
                                     <div id = "account-setup-dropdown-content">
                                         <blockquote>
-
-                                            <h3> Setting Up Your Account </h3>
                                     
                                             To set up your account, you must follow these steps:
                                             <ol>
@@ -143,7 +172,7 @@
                                 </template>
     </paper-button>
 
-    </div>
+    </div> -->
 
     <paper-divider></paper-divider>
 
@@ -159,13 +188,19 @@
                 <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
             </ul>
         </blockquote>
+        <div class="FAQs">
+            <h4 style> Frequently Asked Questions: </h4>
+            <p>What can I search for? </p>
+            <p> It is possible to search for </p>
+
+        </div>
 
     </div>
 
-    <div id="item-search-container">
-        <paper-button on-click="toggle_item_search">
-            <template is="dom-if" if="[[item_search_show]]">
-                                    <iron-icon icon = "expand-less"></iron-icon>
+    <!-- <div id="item-search-container" onclick="toggle_item_search">
+        <paper-button></paper-button>
+        <template is="dom-if" if="[[item_search_show]]">
+                                    <iron-icon icon = "expand-less"></iron-icon> Item Search
                                     <div id = "item-search-dropdown-content">
                                         <blockquote>
 
@@ -183,13 +218,13 @@
                                                                 
                                 </template>
 
-            <template is="dom-if" if="[[!item_search_show]]">
+        <template is="dom-if" if="[[!item_search_show]]">
                                     <paper-button on-click = "toggle_item_search"><iron-icon icon = "expand-more"></iron-icon></paper-button>
                                                 
                                 </template>
         </paper-button>
 
-    </div>
+    </div> -->
 
     <paper-divider></paper-divider>
 
@@ -209,12 +244,14 @@
             </ul>
 
         </blockquote>
+
+
     </div>
 
-    <div id="user-account-container">
-        <paper-button on-click="toggle_user_account">
+    <!-- <div id="user-account-container" onclick="toggle_user_account">
+        <paper-button>
             <template is="dom-if" if="[[user_account_show]]">
-                                    <iron-icon icon = "expand-less"></iron-icon>
+                                    <iron-icon icon = "expand-less"></iron-icon> Using your Account
                                     <div id = "user-account-dropdown-content">
                                         <blockquote>
 
@@ -239,7 +276,7 @@
                                 </template>
         </paper-button>
 
-    </div>
+    </div> -->
 
     <paper-divider relative></paper-divider>
 
@@ -260,45 +297,53 @@
                 return 'dhc-help';
             }
             static get properties() {
-                    return {
-                        email: {
-                            type: String,
-                            value: 'dhc@fakeemail.com'
-                        }
-
-                        /* account_setup_show: {
-                             type: Boolean,
-                             value: true
-                         },
-
-                         item_search_show: {
-                             type: Boolean,
-                             value: true
-                         },
-
-                         user_account_show: {
-                             type: Boolean,
-                             value: show
-                         } */
-
-
+                return {
+                    email: {
+                        type: String,
+                        value: 'dhc@fakeemail.com'
                     }
+
+                    /* account_setup_show: {
+                         type: Boolean,
+                         value: true
+                     },
+
+                     item_search_show: {
+                         type: Boolean,
+                         value: true
+                     },
+
+                     user_account_show: {
+                         type: Boolean,
+                         value: show
+                     } */
+
+
+                }
+            }
+
+            _show() {
+                    this.addEventListener("click", function() {
+                        this.opacity = 1;
+                    })
+
+
                 }
                 /*
-                        _toggle_account_setup() {
-                            this.set("account_setup_show", !this.account_setup_show);
+                _toggle_account_setup() {
+                    this.set("account_setup_show", !this.account_setup_show);
 
-                        }
+                }
 
-                        _toggle_item_search() {
-                            this.set("item_search_show", !this.item_search_show);
+                _toggle_item_search() {
+                    this.set("item_search_show", !this.item_search_show);
 
-                        }
+                }
 
-                        _toggle_user_account() {
-                            this.set("user_account_show", !this.user_account_show);
-                        }
-                            */
+                _toggle_user_account() {
+                    this.set("user_account_show", !this.user_account_show);
+                } */
+
 
         }
 
