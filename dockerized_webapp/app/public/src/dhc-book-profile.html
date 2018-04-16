@@ -8,8 +8,6 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 
-<link rel="import" href="frag-footer.html">
-<link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
 <dom-module id="dhc-book-profile">
     <template>
@@ -24,7 +22,6 @@
                 justify-content: space-between;
                 margin-left: 30px;
                 margin-right: 30px;
-                overflow-y: auto;
             }
             
             .menu-btn {
@@ -44,8 +41,9 @@
                 flex-grow: 3;
                 flex-direction: column;
                 align-items: flex-start;
-                min-height: 100px;
+                min-height: 200px;
                 padding: 10px;
+                overflow-y:auto;
             }
 
             #book-information-right {
@@ -157,12 +155,6 @@
                 border-radius: 50px;
             }
 
-            .row-items {
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
-            }
-
             .author {
                 background-color: rgba(83, 247, 124, 0.3)
             }
@@ -180,7 +172,8 @@
             }
         </style>
 
-        <app-route route="[[route]]"
+        <app-route
+            route="[[route]]"
             pattern="/:title/:bookId/:authorList/:pubList/:placeList"
             data="{{bookUriData}}">
         </app-route>
@@ -261,7 +254,7 @@
                     <h3>Places:</h3>
                     <div class="row-items"> 
                         <template is="dom-repeat" items="{{places}}">
-                            <p class="card-text place">{{item.places}}</p>
+                            <p class="card-text place">{{item.name}}</p>
                         </template>
                     </div>
                 </paper-card>
@@ -275,7 +268,7 @@
                     <h5>ISBNS:</h5>
                     <div class="row-items">
                             <template is="dom-repeat" items="{{book.isbn}}">
-                                    <p class="card-text edition">{{item.isbn}}</p>
+                                    <p class="card-text edition">{{item}}</p>
                                 </template>
                     </div>
                 </paper-card>
@@ -286,7 +279,7 @@
                 </div>
 
                 <div id = "profile-menu-div">
-                    <paper-button class="menu-btn" id="menu-favorites">
+                    <paper-button on-click="_addToFavorites" class="menu-btn" id="menu-favorites">
                         Add to Favorites 
                     </paper-button>
                 </div>
@@ -416,6 +409,7 @@
             }
 
             _handlePlacesResp(e) {
+                console.log("place", e.detail.response)
                 this.push('places', e.detail.response);
                 console.log(this.places);
             }
