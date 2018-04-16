@@ -295,11 +295,22 @@ router.post("/neo4j/single_node/", function(req, res) {
             console.log("edition");
             console.log(field.labels[0])
             console.log(field.properties);
+
+            var isbn = [];
+            if (field.properties.isbn){
+                if (typeof(field.properties.isbn) === "string") {
+                    isbn.push(field.properties.isbn);
+                }
+                else {
+                    isbn = field.properties.isbn
+                }
+            }
+
             retVal = {
                 id: field.identity.low ? field.identity.low : -1,
                 title: field.properties.title ? field.properties.title : '',
-                date: field.properties.date ? field.properties.date.low : -1,
-                isbn: field.properties.isbn ? field.properties.isbn : []
+                date: field.properties.date ? field.properties.date : -1,
+                isbn: isbn
             }
         }
         else if (field.labels[0] === "Place") {

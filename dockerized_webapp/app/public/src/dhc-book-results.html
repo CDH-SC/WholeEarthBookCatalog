@@ -188,13 +188,13 @@
 
         <app-route
             route="[[route]]"
-            pattern="/:advanced/:keyword"
+            pattern="/book-results/:advanced/:keyword"
             data="{{uriKeywordData}}">
         </app-route>
 
         <app-route
             route="[[route]]"
-            pattern="/:advanced/:editions/:authors/:publishers/:places/:degree"
+            pattern="/book-results/:advanced/:editions/:authors/:publishers/:places/:degree"
             data="{{uriAdvancedData}}">
          </app-route>
 
@@ -340,7 +340,7 @@
             // The observer for the route object, fires when route obj is changed
             _resultPageChanged() {
                 // Only do stuff if in book-results
-                if (this.route.prefix.includes("book-results")) {
+                if (this.route.path.includes("book-results")) {
                     this.set("noResults", false);
                     this.set("searchDataLoaded", false);
                     this.set("isList", true);
@@ -435,23 +435,25 @@
 
                         for (var i = 0; i < temp.length; i++) {
                             var inner = temp[i].split("*");
-                            editions.push({title: inner[0], date: inner[1], isbn: inner[2] ? inner[2] : '' })
+                            console.log(inner);
+                            console.log(inner[2]=== '');
+                            editions.push({title: inner[0] === '' ? null : inner[0], date: inner[1] === '' ? null : inner[1], isbn: inner[2] ? inner[2] : null })
                         }
-                    }
-                    
+                    }                    
                     if(this.uriAdvancedData.advanced === "advanced") {
                         this.$.npost.body = {
                             advanced: true,
                             basic_query: '',
-                            authors: this.uriAdvancedData.authors === "null" ? [] : this.uriAdvancedData.authors.split("+"),
-                            publishers: this.uriAdvancedData.publishers === "null" ? [] : this.uriAdvancedData.publishers.split("+"),
-                            places: this.uriAdvancedData.places === "null" ? [] : this.uriAdvancedData.places.split("+"),
+                            authors: this.uriAdvancedData.authors === "null" ? [] : this.uriAdvancedData.authors.split("+").map(e => {return {name: e}}),
+                            publishers: this.uriAdvancedData.publishers === "null" ? [] : this.uriAdvancedData.publishers.split("+").map(e => {return {name: e}}),
+                            places: this.uriAdvancedData.places === "null" ? [] : this.uriAdvancedData.places.split("+").map(e => {return {name: e}}),
                             editions: editions,
                             degree: this.uriAdvancedData.degree
                         }
                         this._addRecentQuery(this.$.npost.body);
 
                         console.log("Firing advanced query");
+                        console.log(this.$.npost.body);
                         this.$.npost.generateRequest();
 
                     }
@@ -493,10 +495,8 @@
                 console.log("authors");
 
                 console.log("record", e.model.record);
-                this.dispatchEvent(new CustomEvent('change-route', { bubbles: true, composed: true, detail: {
-                    path: "book-profile/" + e.model.record.title + "/" + e.model.record.id
-                    + '/' + authors + '/' + pubs + '/' + places
-                }} ));
+           
+                this.set("route.path", "book-profile/" + e.model.record.title + "/" + e.model.record.id + "/" + authors + "/" + pubs + "/" + places);
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);
