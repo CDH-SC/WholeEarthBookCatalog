@@ -435,23 +435,23 @@
 
                         for (var i = 0; i < temp.length; i++) {
                             var inner = temp[i].split("*");
-                            editions.push({title: inner[0], date: inner[1], isbn: inner[2] ? inner[2] : '' })
+                            editions.push({title: inner[0] === '' ? null : inner[0], date: inner[1] === '' ? null : inner[1], isbn: inner[2] ? inner[2] : null })
                         }
-                    }
-                    
+                    }                    
                     if(this.uriAdvancedData.advanced === "advanced") {
                         this.$.npost.body = {
                             advanced: true,
                             basic_query: '',
-                            authors: this.uriAdvancedData.authors === "null" ? [] : this.uriAdvancedData.authors.split("+"),
-                            publishers: this.uriAdvancedData.publishers === "null" ? [] : this.uriAdvancedData.publishers.split("+"),
-                            places: this.uriAdvancedData.places === "null" ? [] : this.uriAdvancedData.places.split("+"),
+                            authors: this.uriAdvancedData.authors === "null" ? [] : this.uriAdvancedData.authors.split("+").map(e => {return {name: e}}),
+                            publishers: this.uriAdvancedData.publishers === "null" ? [] : this.uriAdvancedData.publishers.split("+").map(e => {return {name: e}}),
+                            places: this.uriAdvancedData.places === "null" ? [] : this.uriAdvancedData.places.split("+").map(e => {return {name: e}}),
                             editions: editions,
                             degree: this.uriAdvancedData.degree
                         }
                         this._addRecentQuery(this.$.npost.body);
 
                         console.log("Firing advanced query");
+                        console.log(this.$.npost.body);
                         this.$.npost.generateRequest();
 
                     }
