@@ -81,7 +81,10 @@
 
                     .FAQS {
                         margin-left: 15%;
-                        opacity: 0.2;
+                    }
+
+                    .FAQs ul {
+                        list-style-type: square;
                     }
 
                     .FAQs:hover {
@@ -135,15 +138,16 @@
                                     </ol>
                                 
                                     </blockquote>
-                                     <div class = "FAQs" >
+                                     <div class = "FAQs" style = "margin-left:12%">
                                     
                                     <h4 style> Frequently Asked Questions: </h4> 
-                                           
-                                                    <p>Can I only set up one account? </p>
-                                                        <p >No, it is possible to have an unlimited number of accounts. We only ask that you use one at a time.</p>
-                                                    <br>
-                                                    <p>Is the password encrypted?</p>
-                                                        <p>Yes, the password is encrypted through the SHA-256 hash algorithm. We do this through the Crypto JS library.</p>
+                                           <ul>
+                                            <li>Can I only set up one account? </li>
+                                                <p >No, it is possible to have an unlimited number of accounts. We only ask that you use one at a time.</p>
+                                            
+                                            <li>Is the password encrypted?</li>
+                                                <p>Yes, the password is encrypted through the SHA-256 hash algorithm. We do this through the Crypto JS library.</p>
+                                            </ul>
                                     </div> 
                             </div>
 
@@ -191,17 +195,18 @@
 
         <div class="FAQs">
             <h4 style> Frequently Asked Questions: </h4>
-            <p>What can I search for? </p>
-            <p> Possible search fields include editions, authors, publishers, and places in which the editions are published.</p>
+            <ul>
+                <li>What can I search for? </li>
+                <p> Possible search fields include editions, authors, publishers, and places in which the editions are published.</p>
 
-            <p> How can I see my results?</p>
-            <p>Your results will be shown in List form, or in Graph form. The Graph form shows your search results as nodes connected with relationships. The List form shows full, comprehensive lists of your search results. You also have the option to visit
-                the profiles of these books.
-            </p>
+                <li> How can I see my results?</li>
+                <p>Your results will be shown in List form, or in Graph form. The Graph form shows your search results as nodes connected with relationships. The List form shows full, comprehensive lists of your search results. You also have the option to
+                    visit the profiles of these books.
+                </p>
 
-            <p>Where will my saved queries go?</p>
-            <p>Any saved queries will be stored on your user profile.</p>
-
+                <li>Where will my saved queries go?</li>
+                <p>Any saved queries will be stored on your user profile. You can save a query by selecting the corresponding option on the tab bar.</p>
+            </ul>
         </div>
 
     </div>
@@ -254,10 +259,12 @@
 
         </blockquote>
 
-        <div class=F AQs>
+        <div class=FAQs>
             <h4> Frequently Asked Questions </h4>
-            <p></p>
-
+            <ul>
+                <li>What information is saved on my user profile?</li>
+                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+            </ul>
         </div>
 
 
