@@ -86,7 +86,11 @@ qstrings.advancedPublisher = ' pub.name =~ { name_re } ';
 
 qstrings.advancedPlace = ' plc.name =~ { plcname_re } ';
 
-qstrings.advancedEdition = ' { title_re } IN b.IBSN OR b.title =~ { title_re } OR b.year =~ { year_re } ';
+qstrings.advancedEditionTitle = ' b.title =~ { title_re } ';
+
+qstrings.advancedEditionISBN = ' OR { isbn_re } IN b.IBSN ';
+
+qstrings.advancedEditionYear = ' OR b.year =~ { year_re } ';
 
 qstrings.withCollectFirst = `
                                     WITH
