@@ -94,8 +94,7 @@
                     }
   
             </style>
-           
-             <!-- Static block for account setup -->
+        
             <div id = "main-content" class = "container"> 
                 <paper-divider> </paper-divider>
      
@@ -119,34 +118,32 @@
 
                         <div id = "account-setup-container">
                             <paper-button on-click = "toggle_account_setup"> 
-                            <template is="dom-if" if="[[account_setup_show]]">
-                                <iron-icon icon = "expand-less"></iron-icon>
-                                <div id = "account-setup-dropdown-content">
-                                    <blockquote>
+                                <template is="dom-if" if="[[account_setup_show]]">
+                                    <iron-icon icon = "expand-less"></iron-icon>
+                                    <div id = "account-setup-dropdown-content">
+                                        <blockquote>
 
-                                        <h3> Setting Up Your Account </h3>
-                                
-                                        To set up your account, you must follow these steps:
-                                        <ol>
-                                            <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
-                                            <li> Click on the link to 'Create an Account'</li>
-                                            <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
-
-                                        </ol>
+                                            <h3> Setting Up Your Account </h3>
                                     
-                                        </blockquote>
-                                </div>
-                            
-                            </template>
+                                            To set up your account, you must follow these steps:
+                                            <ol>
+                                                <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
+                                                <li> Click on the link to 'Create an Account'</li>
+                                                <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
+
+                                            </ol>
+                                        
+                                            </blockquote>
+                                    </div>
+                                
+                                </template>
     <template is="dom-if" if="[[!account_setup_show]]">
-                              <iron-icon icon = "expand-more"></iron-icon>
-                                                
-                            </template>
+                                    <iron-icon icon = "expand-more"></iron-icon>
+                                                    
+                                </template>
     </paper-button>
 
-
     </div>
-
 
     <paper-divider></paper-divider>
 
@@ -156,45 +153,40 @@
         <blockquote>
 
             <h3> How do you search? </h3>
-
-            Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles.
+            <p>Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles. </p>
 
             <ul>
                 <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
             </ul>
-
         </blockquote>
 
     </div>
 
-
-
     <div id="item-search-container">
         <paper-button on-click="toggle_item_search">
             <template is="dom-if" if="[[item_search_show]]">
-                <iron-icon icon = "expand-less"></iron-icon>
-                <div id = "item-search-dropdown-content">
-                    <blockquote>
+                                    <iron-icon icon = "expand-less"></iron-icon>
+                                    <div id = "item-search-dropdown-content">
+                                        <blockquote>
 
-                                    <h3> How do you search? </h3>
-                            
-                                    Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles.
+                                            <h3> How do you search? </h3>
+                                    
+                                            <p> Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles. </p>
 
-                                    <ul>
-                                        <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
-                                    </ul>
-                                
-                                </blockquote>
+                                            <ul>
+                                                <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
+                                            </ul>
+                                        
+                                        </blockquote>
 
-                            </div>
-                                            
-                        </template>
-
+                                    </div>
+                                                                
+                                </template>
 
             <template is="dom-if" if="[[!item_search_show]]">
-                           <paper-button on-click = "toggle_item_search"><iron-icon icon = "expand-more"></iron-icon></paper-button>
-                                    
-                        </template>
+                                    <paper-button on-click = "toggle_item_search"><iron-icon icon = "expand-more"></iron-icon></paper-button>
+                                                
+                                </template>
         </paper-button>
 
     </div>
@@ -206,7 +198,7 @@
         <blockquote>
             <h3>What can you do with your user account?</h3>
 
-            A user can:
+            <p>A user can: </p>
             <ul>
                 <li>
                     Save queries made within this website and observe them within a specific drop-down menu
@@ -222,32 +214,30 @@
     <div id="user-account-container">
         <paper-button on-click="toggle_user_account">
             <template is="dom-if" if="[[user_account_show]]">
-                        <iron-icon icon = "expand-less"></iron-icon>
-                        <div id = "user-account-dropdown-content">
-                            <blockquote>
+                                    <iron-icon icon = "expand-less"></iron-icon>
+                                    <div id = "user-account-dropdown-content">
+                                        <blockquote>
 
-      
-            <h3>What can you do with your user account?</h3>
+                                            <h3>What can you do with your user account?</h3>
 
-            A user can:
-            <ul>
-                <li>
-                    Save queries made within this website and observe them within a specific drop-down menu
-                </li>
-                <li>
-                    Add specific editions to a selection of 'Favorites'
-                </li>
-            </ul>
+                                            <p> A user can: </p>
+                                            <ul>
+                                                <li>
+                                                    Save queries made within this website and observe them within a specific drop-down menu
+                                                </li>
+                                                <li>
+                                                    Add specific editions to a selection of 'Favorites'
+                                                </li>
+                                            </ul>
 
-        </blockquote>
-                            </template>
+                                        </blockquote>
+                                    </div>
+                                </template>
 
             <template is="dom-if" if="[[!user_account_show]]">
-                                        
-                            </template>
+                                    <iron-icon icon = "expand-more"></iron-icon>
+                                </template>
         </paper-button>
-
-    </div>
 
     </div>
 
@@ -263,6 +253,7 @@
     </div>
 
     </template>
+
     <script>
         class dhcHelp extends Polymer.Element {
             static get is() {
