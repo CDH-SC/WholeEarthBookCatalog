@@ -7,10 +7,11 @@ RUN npm install
 
 WORKDIR /usr/src/app/public
 RUN bower install --allow-root
+RUN polymer build
 
 WORKDIR /usr/src/app
 
-EXPOSE 8080
+EXPOSE 80
 
 ENTRYPOINT ["npm"]
 CMD ["start"]
