@@ -205,6 +205,8 @@
             handle-as="json"
             on-response="_handleResponseFireSearch"
             content-type="application/json"
+            timeout="30000"
+            on-error="_timeout"
             debounce-duration="300">
         </iron-ajax>
 
@@ -318,6 +320,10 @@
                     isList: {
                         type: Boolean,
                         value: true
+                    },
+                    needTimeout: {
+                        type: Boolean,
+                        observer: "_timeout"
                     }
                 }
             }
@@ -423,6 +429,7 @@
                         this._addRecentQuery(this.$.npost.body)
 
                         console.log("Firing simple keyword query")
+
                         this.$.npost.generateRequest();
                 }
 
@@ -473,6 +480,11 @@
                 }
 
                 this._addRecentQuery();
+            }
+
+            _timeout(e) {
+                this.set("searchDataLoaded", true)
+                this.set("noResults", true);
             }
 
             _handleResponseSavedQuery(e) {
