@@ -184,7 +184,7 @@
         <iron-ajax
             method="POST"
             id="addFav"
-            url="/api/neo4j/update_saved_content/"
+            url="/api/update_saved_content/"
             handle-as="json"
             on-response="_handleFav"
             content-type="application/json"
@@ -266,7 +266,7 @@
                     <h3>Edition Information:</h3>
                     <div class="row-items">
                         <p class="card-text edition">Title: {{book.title}}</p>
-                        <p class="card-text edition">Date: {{book.date.low}}</p>
+                        <p class="card-text edition">Date: {{book.date}}</p>
                     </div>
                     <h5>ISBNS:</h5>
                     <div class="row-items">
