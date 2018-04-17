@@ -1,7 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-divider/paper-divider.html">
-<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
@@ -27,6 +27,11 @@
                         margin-left: 50px;
                         margin-right: 50px;
                         width: 100%
+                    }
+
+                    #menu-wrapper {
+                        width: 60%;
+                        background-color: yellow;
                     }
 
                     #help-message {
@@ -121,6 +126,16 @@
                 <paper-divider> </paper-divider>
      
                 <div id = "help-messages-wrapper">
+
+
+                    <paper-menu id = "menu-wrapper">
+                        <paper-submenu> <!-- Won't appear as its own menu item -->
+                            <paper-item class = "menu-item"> About Us </paper-item>
+                            <paper-item class = "menu-item"> Setting Up Your Account </paper-item>
+                            <paper-item class = "menu-item"> Searching for Items </paper-item>
+                            <paper-item class = "menu-item"> Using Your Account </paper-item>
+                        </paper-submenu>
+                    </paper-menu>
 
 
                         <!-- static block for account setup -->
