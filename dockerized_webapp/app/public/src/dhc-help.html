@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-divider/paper-divider.html">
 <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
@@ -9,13 +10,16 @@
 
 <link rel="import" href="frag-header.html">
 <link rel="import" href="shared-styles.html">
+<meta charset="utf-8">
 
 
 <dom-module id="dhc-help">
 
     <template>
+        <custom-style>
+            <style is = "custom-style" include="shared-styles iron-flex iron-flex-alignment" >
 
-            <style include="shared-styles">
+                    
                     
                     #h1 {
                         margin: 0;
@@ -24,28 +28,53 @@
                     }
                     
                     #main-content {
-                        margin-left: 50px;
-                        margin-right: 50px;
+        
+                        display: flex;
+                       /* align-items: center;
+                        justify-content: center;
+                        flex-direction: column; */
                         width: 100%
+                    }
+
+                    .wrapper-divider {
+                        border-left: 1px solid #2d9cdb;
+                        width: 4px;
+                        height: 92%;
+                        position: absolute;
+                        margin-top: 10%;
+                        left: 7%;
+                        right: 70%;
+
+                    }
+
+                    #help-messages-wrapper {
+                        left: 30%;
+                        margin-left: 10%;
                     }
 
                     #menu-wrapper {
                         width: 60%;
-                        background-color: yellow;
+                        height: 7%;
+                    
+                        border: 2px solid black;
+                    } 
+
+                    .menu-item {
+                        background-color: purple;
                     }
+
+                    
 
                     #help-message {
                         margin-top: 20px;
                         font-size: 14px;
                         width: 100%;
-
                     }
 
                     #account-setup-faq {
                         position: relative;
                         float: right;
                         margin-right: 3%;
-                        
                     }
 
                     #item-search-explanation {
@@ -104,6 +133,10 @@
                         width: 8%
                     }
 
+                    paper-submenu {
+                        background-color: green;
+                    }
+
                     polymer-dropdown-menu {
                         width: 100%;
                     }
@@ -112,7 +145,6 @@
                         position: relative;
                         width: 80%;
                         float: center
-                        
                     }
 
                     paper-divider {
@@ -121,24 +153,43 @@
                     }
   
             </style>
+            </custom-style>
         
             <div id = "main-content" class = "container"> 
                 <paper-divider> </paper-divider>
+                <div class = "wrapper-divider"></div>
      
-                <div id = "help-messages-wrapper">
+                <!--<div id = "help-messages-wrapper">
+                    <div class = "layout-horizontal">
+                        <div> First </div>
+                        <div> Second </div>
+                        <div> Third </div>
+                </div>
+               
 
+            -->
+            <paper-menu selected="0" style = "background-color: blue">
+                    <paper-item>Item 1</paper-item>
+                    <paper-item>Item 2</paper-item>
+                  </paper-menu>
+                
 
-                    <paper-menu id = "menu-wrapper">
-                        <paper-submenu> <!-- Won't appear as its own menu item -->
-                            <paper-item class = "menu-item"> About Us </paper-item>
+                    <h6> Sections </h6>
+                    <paper-menu id = "menu-wrapper" selected = "0"> Menu
+                        <paper-submenu class = "menu-item">   <!--Won't appear as its own menu item -->
+                           <paper-item class = "menu-item"> About Us </paper-item>
                             <paper-item class = "menu-item"> Setting Up Your Account </paper-item>
                             <paper-item class = "menu-item"> Searching for Items </paper-item>
                             <paper-item class = "menu-item"> Using Your Account </paper-item>
                         </paper-submenu>
-                    </paper-menu>
+                    </paper-menu> 
 
-
+                       
                         <!-- static block for account setup -->
+
+                        
+                   
+                        <div id = "help-messages-wrapper">
                         <div id = "account-setup-explanation">
                                 <blockquote>
 
@@ -314,6 +365,8 @@
         </paper-button>
 
     </div> -->
+    </div>
+    </div>
 
     <paper-divider relative></paper-divider>
 
