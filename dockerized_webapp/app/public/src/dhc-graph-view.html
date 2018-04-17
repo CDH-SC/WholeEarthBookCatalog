@@ -3,11 +3,24 @@
 <dom-module id="dhc-graph-view">
     <template>
         <style>
+            .click-data {
+                font-size: 1rem;
+            }
         </style>
 
         <template is="dom-if" if="{{isSelection}}">
             <div class="selection-display">
-                <h2>Node Name : {{selectedNode.name}}</h2>
+                <template is="dom-if" if="{{!selectedNode.isEdition}}">
+                    <p class="click-data">Node Type: {{selectedNode.type}}</p>
+                    <p class="click-data">Name: {{selectedNode.data.name}}</p>
+                </template>
+                <template is="dom-if" if="{{selectedNode.isEdition}}">
+                    <p class="click-data">Node Type: {{selectedNode.type}} | Title: {{selectedNode.data.title}}</p>
+                    <p class="click-data">Date: {{selectedNode.data.date}} | ISBNS: 
+                        <template is="dom-repeat" items="{{selectedNode.data.isbn}}">
+                           {{item}}
+                        </template></p>
+                </template>
             </div>
         </template>
 
@@ -59,7 +72,10 @@
                         }
                     },
 
-                    isSelection: Boolean
+                    isSelection: {
+                        type: Boolean,
+                        value: false
+                    }
                 }
             }
 
@@ -83,6 +99,10 @@
                         id: currRecord.id,
                         group: 1,
                         label: this._getLabelShort(currRecord.title),
+                        longLabel: currRecord.title,
+                        type: 'edition',
+                        data: currRecord,
+                        isEdition: true,
                         level: 1
                     });
 
@@ -94,6 +114,9 @@
                             id: auth.id,
                             group: 2,
                             label: this._getLabelShort(auth.name),
+                            data: auth,
+                            type: 'author',
+                            isEdition: false,
                             level: 1
                         });
                     }
@@ -106,6 +129,9 @@
                             id: pub.id,
                             group: 3,
                             label: this._getLabelShort(pub.name),
+                            data: pub,
+                            type: 'publisher',
+                            isEdition: false,
                             level: 1
                         });
                     }
@@ -117,6 +143,9 @@
                             id: place.id,
                             group: 4,
                             label: this._getLabelShort(place.name),
+                            data: auth,
+                            type: 'place',
+                            isEdition: false,
                             level: 1
                         });
                     }
@@ -143,7 +172,7 @@
                             target: rel[j][1],
                             source: rel[j][0],
                             label: 'wrote',
-                            strength: 0.01
+                            strength: 0.005
                         })
                     }
 
@@ -183,17 +212,33 @@
                 console.log(linksInScope);
 
                 // Finding svg container for the visualization
-                const svg = d3.select(this.$.container)
+                const container = d3.select(this.$.container)
                     .attr('width', width)
                     .attr('height', height)
                     .style('background', "#333333")
+                    .call(d3.zoom()
+                        .scaleExtent([1 / 2, 4])
+                        .on("zoom", function() {
+                           svg.attr("transform", d3.event.transform);
+                        })
+                    );
 
+                const svg = container.append('g')
+                .attr('width', width)
+                    .attr('height', height)
+                    .style('background', "#333333")
+                    .call(d3.zoom()
+                        .scaleExtent([1 / 2, 4])
+                        .on("zoom", function() {
+                           svg.attr("transform", d3.event.transform);
+                        })
+                    );
                 console.log(svg);
 
                 // :o The neat effects for bouncing around <3
                 // more details in the link at the begingin of the script
                 const simulation = d3.forceSimulation()
-                    .force('charge', d3.forceManyBody().strength(-20))
+                    .force('charge', d3.forceManyBody())
                     .force('center', d3.forceCenter(width / 2, height / 2));
 
                 simulation.force('link', d3.forceLink()
@@ -246,8 +291,12 @@
                                 break;
                         }
                     })
+                    .on("click", (node) => {
+                        console.log("clicked");
+                        this.set('selectedNode', node);
+                        this.set('isSelection', true);
+                    })
                     .call(dragDrop)
-                   
 
                 console.log(nodeElements);
 
@@ -287,8 +336,6 @@
                     .attr("width", function(d){return d.bbox.width})
                     .attr("height", function(d){return d.bbox.height})
                     .style("fill", "yellow");
-
-
 
                 const linkElements = svg.append('g')
                     .selectAll('line')

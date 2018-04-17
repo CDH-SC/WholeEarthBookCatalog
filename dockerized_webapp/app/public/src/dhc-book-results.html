@@ -255,6 +255,10 @@
                 NO RESULTS FOUND
             </template>
 
+            <template is="dom-if" if="{{timeoutOccured}}">
+                A timeout occured. Our databases may be down at this time.
+            </template>
+
             <template is="dom-if" if="{{searchDataLoaded}}">
                 <div id = "result-entry-wrapper" class="border-color">
                     <template is="dom-repeat" items="[[searchData.records]]" as="record">
@@ -324,6 +328,10 @@
                     needTimeout: {
                         type: Boolean,
                         observer: "_timeout"
+                    },
+                    timeoutOccured: {
+                        type:Boolean,
+                        value: false
                     }
                 }
             }
@@ -484,7 +492,7 @@
 
             _timeout(e) {
                 this.set("searchDataLoaded", true)
-                this.set("noResults", true);
+                this.set("timeoutOccured", true);
             }
 
             _handleResponseSavedQuery(e) {

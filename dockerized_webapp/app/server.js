@@ -309,7 +309,7 @@ router.post("/neo4j/single_node/", function(req, res) {
             retVal = {
                 id: field.identity.low ? field.identity.low : -1,
                 title: field.properties.title ? field.properties.title : '',
-                date: field.properties.date ? field.properties.date : -1,
+                date: field.properties.date ? field.properties.date.low : -1,
                 isbn: isbn
             }
         }

@@ -69,7 +69,8 @@
         <paper-toast id="signOutToast" text="Successfully Logged Out!"></paper-toast>
         <paper-toast id="savedQToast" text="Query Saved!"></paper-toast>
         <paper-toast id="saveError" text="Must be logged in to favorite or save queries"></paper-toast>
-
+        <paper-toast id="favToast" text="Succesfully Saved Favorite!"></paper-toast>
+        
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
@@ -86,7 +87,7 @@
             <dhc-404 name="404"></dhc-404>
             <dhc-create-account name="create-account" user="{{user}}"></dhc-create-account>
             <dhc-book-results name="book-results" user="[[user]]" route="{{route}}"></dhc-book-results>
-            <dhc-book-profile name="book-profile" route="{{subroute}}"></dhc-book-profile>
+            <dhc-book-profile name="book-profile" user="[[user]]" route="{{subroute}}"></dhc-book-profile>
         </iron-pages>
 
         <footer>
@@ -125,6 +126,7 @@
                 this.addEventListener('open-saved-q-toast', (e) => this._openSavedQueryToast());
                 this.addEventListener('change-route', (e) => this._changeRouteEvent(e));
                 this.addEventListener('save-error', (e) => this._saveError());
+                this.addEventListener('save-fav-success', (e) => this._openFavToast());
             }
 
             connectedCallback() {
@@ -275,6 +277,12 @@
                 console.log("Opening Toast")
                 this.$.savedQToast.open();
             }
+
+
+            _openFavToast() {
+                this.$.favToast.open();
+            }
+
         }
 
         window.customElements.define(dhcMain.is, dhcMain);
