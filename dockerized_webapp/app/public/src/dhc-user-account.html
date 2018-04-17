@@ -190,7 +190,7 @@
                             No Favorites Yet...
                         </template>
                         <div class="card-container">
-                            <template is="dom-if" if="[[!noFavs]]">
+                            <template is="dom-if" if="{{!noFavs}}">
                                 <template is="dom-repeat" items="{{savedBooks}}">
                                     <div class="query-card">
                                         <paper-card class="book-card" image="../images/no_cover_150_248.png">
@@ -472,7 +472,7 @@
                 var resp = e.detail.response;
                 console.log("Faves: ");
                 console.log(resp);
-                if (resp.records && resp.records.length > 0) {
+                if (resp.length > 0) {
                     this.set('savedBooks', resp);
                     this.set('noFavs', false);
                 } else {

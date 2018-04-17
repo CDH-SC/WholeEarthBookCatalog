@@ -516,7 +516,7 @@
 
                 console.log("record", e.model.record);
            
-                this.set("route.path", "book-profile/" + e.model.record.title + "/" + e.model.record.id + "/" + authors + "/" + pubs + "/" + places);
+                this.set("route.path", "book-profile/" + obj.title.replace("/", "") + "/" + obj.id + "/" + authors + "/" + pubs + "/" + places);
             }
         }
         window.customElements.define(dhcBookResults.is, dhcBookResults);
