@@ -102,6 +102,7 @@ neo4jDriver.constructQuery = function(data) {
     var query = qstrings.optionalMatch;
     query += qstrings.relations;
     query += "WHERE";
+    query += qstrings.filter;
     var before = false;
 
     // Authors
@@ -183,7 +184,7 @@ neo4jDriver.constructQuery = function(data) {
 
 
     query += qstrings.withCollectFirst;
-    query += qstrings.unwindRecords;
+    // query += qstrings.unwindRecords;
 
     console.log(query + "\n\n");
 
