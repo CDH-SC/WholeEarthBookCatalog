@@ -15,63 +15,54 @@ var qstrings = {};
  *
  */
 qstrings.keywordSearch = `
-OPTIONAL MATCH
+OPTIONAL MATCH (p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
+WHERE
+  b.title =~ { regex } AND 
+  NOT b.title IS NULL AND
+  size((b)<-[:WROTE]-()) > 0 AND
+  size((b)<-[:PUBLISHED]-()) > 0
 
-	(p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place)
-
-	WHERE
-	b.title =~ { regex }
-
-	WITH
-	{
-		title: b.title,
-		isbn: b.isbn,
-		date: toString( b.date ),
-		id: toString( id(b) ),
-		authors: collect(
-		DISTINCT {
-			name: p.name,
-			id: toString( id(p) ) 
-		}), 
-		publishers: collect(
-		DISTINCT {
-			name: pub.name,
-			id: toString( id(pub) )
-		}),
-		places: collect(
-		DISTINCT {
-			name: plc.name,
-			id: toString( id(plc) )
-		}),
-		relationships: {
-            wrote: collect(
-			DISTINCT [
-				toString( id(p) ),
-				toString( id(b) )
-			]),
-			published: collect(
-			DISTINCT [
-				toString( id(pub) ),
-				toString( id(b) )
-			]),
-			publishes_in: collect(
-			DISTINCT [
-				toString( id(pub) ),
-				toString( id(plc) )
-			])
-		}
-	} as tmp
-
-    WITH
-	collect( DISTINCT tmp ) as records
-	
-	UNWIND records as r
-	RETURN DISTINCT
-	    CASE
-			WHEN (r.title IS NULL OR r.authors IS NULL OR r.publishers IS NULL) THEN NULL
-			ELSE r
-		END AS res
-	LIMIT { limit }
+WITH
+{
+    title: b.title,
+    isbn: b.isbn,
+    date: toString( b.date ),
+    id: toString( id(b) ),
+    authors: collect(
+    DISTINCT {
+        name: p.name,
+        id: toString( id(p) ) 
+    }), 
+    publishers: collect(
+    DISTINCT {
+        name: pub.name,
+        id: toString( id(pub) )
+    }),
+    places: collect(
+    DISTINCT {
+        name: plc.name,
+        id: toString( id(plc) )
+    }),
+    relationships: {
+        wrote: collect(
+        DISTINCT [
+            toString( id(p) ),
+            toString( id(b) )
+        ]),
+        published: collect(
+        DISTINCT [
+            toString( id(pub) ),
+            toString( id(b) )
+        ]),
+        publishes_in: collect(
+        DISTINCT [
+            toString( id(pub) ),
+            toString( id(plc) )
+        ])
+    }
+} as record
+RETURN DISTINCT record
+LIMIT {limit}
 `;
 
 
