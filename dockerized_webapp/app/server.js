@@ -480,55 +480,6 @@ router.post("/neo4j/", function (req, res) {
     }
 });
 
-// WIP
-// router.post("/neo4j/get_single_record", function(req, res) {
-//     var statement = qstrings.
-// })
-
-/**
- * 
- * Not production ready, just useful for playing with GraphJSON right now.
- * May not ever be necessary...
- * 
- */
-router.post("/neo4j/get_graph/", function (req, res) {
-    var statement = qstrings.getGraphJSON;
-
-    neo4j.query(statement, {})
-        .then(function (resp) {
-
-            var fields = resp.records[0]._fields
-            var nodes = new Array();
-            var edges = new Array();
-
-            for (var i = 0; i < fields[0].length; i++) {
-                nodes.push({
-                    caption: ( fields[0][i].properties.title || fields[0][i].properties.name ),
-                    type: fields[0][i].labels[0],
-                    id: fields[0][i].identity.low
-                });
-            }
-
-            for (var i = 0; i < fields[1].length; i++) {
-                edges.push({
-                    source: fields[1][i].start.low,
-                    target: fields[1][i].end.low,
-                    caption: fields[1][i].type
-                })
-            }
-
-            var graphJSON = {
-                nodes: nodes,
-                edges: edges
-            }
-
-            res.json(graphJSON);
-        })
-        .catch(function (err) {
-            res.json({"Error": `${JSON.stringify(err)}`});
-        });
-});
-
 // use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -541,8 +492,6 @@ app.use(express.static("public/build/es6-bundled"));
 app.get('*', function (req, res) {
     res.sendFile("public/build/es6-bundled/index.html", { root: '.' });
 });
-
-// add directories with the files we need
 
 // Start the server instance
 app.listen(port);
