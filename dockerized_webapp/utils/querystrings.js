@@ -71,6 +71,12 @@ qstrings.optionalMatch = `OPTIONAL MATCH `;
 
 qstrings.relations = ' (p:Person)-[:WROTE]->(b:Edition)<-[:PUBLISHED]-(pub:Publisher)-[:PUBLISHES_IN]->(plc:Place) ';
 
+qstrings.filter = `
+NOT b.title IS NULL AND
+  size((b)<-[:WROTE]-()) > 0 AND
+  size((b)<-[:PUBLISHED]-()) > 0 AND
+`;
+
 qstrings.advancedAuthor = ' p.name =~ { name_re } ';
 
 qstrings.advancedPublisher = ' pub.name =~ { name_re } ';
@@ -128,10 +134,8 @@ qstrings.withCollectFirst = `
                                                     ]
                                                 )
                                             }
-                                    } as tmp
-                                    WITH
-                                        collect( DISTINCT tmp ) as records
-                                        `;
+                                    } as record
+                                    RETURN DISTINCT record LIMIT 100`;
 
 qstrings.unwindRecords = `
                             UNWIND records as r
