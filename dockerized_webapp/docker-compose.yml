@@ -12,10 +12,7 @@ services:
   neo4j:
     env_file: .env
     image: neo4j
-    deploy:
-      restart-policy:
-        condition: on-failure
-        delay: 10s
+    restart: on-failure
     expose:
       - "7687"
     environment:
@@ -28,10 +25,7 @@ services:
 
   mongo:
     image: mongo
-    deploy:
-      restart-policy:
-        condition: on-failure
-        delay: 10s
+    restart: on-failure
     expose:
       - "27017"
     volumes:
@@ -39,10 +33,7 @@ services:
 
   node_webapp:
     env_file: .env
-    deploy:
-      restart-policy:
-        condition: on-failure
-        delay: 10s
+    restart: on-failure
     build:
       context: ./
       dockerfile: ./Dockerfile.app
@@ -51,10 +42,7 @@ services:
 
   loc_data_miner:
     env_file: .env
-    deploy:
-      restart-policy:
-        condition: on-failure
-        delay: 10s
+    restart: on-failure
     build: 
       context: ./
       dockerfile: ./Dockerfile.loc
@@ -63,10 +51,7 @@ services:
   
   worldcat_data_miner:
     env_file: .env
-    deploy:
-      restart-policy:
-        condition: on-failure
-        delay: 10s
+    restart: on-failure
     build: 
       context: ./
       dockerfile: ./Dockerfile.worldcat
