@@ -1,10 +1,6 @@
-***DHC***
+# DHC
 
-<h1> Searching </h1>
-
-Since there is not a wide swath of data in the database currently, I would recommend searching for something like "Harry Potter", or "Tolkien."
-
-<h1> Setup </h1>
+## Setup  
 
 If you have not already, clone the repo to get the source code. 
 
@@ -17,7 +13,7 @@ Enter the `dockerized_webapp` directory.
 cd dockerized_webapp
 ```  
 
-<h1> Dependencies </h1>
+## Dependencies  
 
 This app uses:
 
@@ -34,55 +30,50 @@ To make our lives and the lives of those who wish to run this software easier, w
   + [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
   + [Windows](https://docs.docker.com/docker-for-windows/install/)
 
-<h1> Building </h1>
+## Building  
 
-You need a configuration file which defines the port the webapp will be served on, as well as the neo4j password.  
-We have provided an example file to model what this should look like.
+You need a configuration file which defines the port the webapp will be served on. We have provided an example file to model what this should look like.
 
-Before deployment, be sure to edit the `.env.example` and rename as `.env`. _The naming convention is very important. You MUST name this file `.env` or `docker-compose` will not recognize it._ The password for neo4j can be set to whichever value you please.
+Before deployment, be sure to edit the `.env.example` and rename as `.env`. _The naming convention is very important. You MUST name this file `.env` or `docker-compose` will not recognize it._  
 
 ***Data Acquisition:***
 
-If you want to run the worldcat miner, you need a [wskey](https://www.oclc.org/developer/develop/authentication/what-is-a-wskey.en.html) from worldcat. Once you have one, set the `WSKEY` environment variable in `app.conf`.
+If you want to run the worldcat miner, you need a [wskey](https://www.oclc.org/developer/develop/authentication/what-is-a-wskey.en.html) from worldcat. Once you have one, set the `WSKEY` environment variable in your `.env` file.
 
-***Building:***
+***Production Versus Development Builds:***
 
+In the `dockerized_webapp` directory there are two different `.yml` files to configure `docker-compose` builds. `docker-compose.yml` is the configuration file for production builds and is the default configuration file. The main difference between this and the `docker-compose.dev.yml` file is that the former has more memory allocated to neo4j and is configured to restart containers if they exit with a non-zero code. Also, the dev configuration has opened ports for the neo4j web browser, which is convenient for doing development, but insecure for public facing production deployments.  
+
+To build the production version of the app:  
 ```
 $ docker-compose build
 ```
 
-***Running:***
+To build the development version of the app:
+```
+$ docker-compose -f docker-compose.dev.yml build
+```  
 
+## Deploying
+
+for production:  
 ```
 $ docker-compose up -d
+```
+
+for development:
+```
+$ docker-compose -f docker-compose.dev.yml -d
 ```
 
 The app will be deployed on `localhost:$SERVER_PORT`.
 
 ***Notes:***
-
-  + The above example assumes you are running `bash`. If you have a different shell, it might not use the `source` command to handle environment variables.
-  + Check on the status of your containers with `docker logs <container_id>`. The id can be found by running `docker ps`.
-
-***Development:***
-
-If you do not wish to build the whole project to test your code, there is an included `start-dev.sh` script. This will work best if you have already built the project with `docker-compose`, as it uses the docker volumes created in that process. You must also write a small configuration file, as detailed in the comments of the script.  
-
-If you are doing dev with the polymer code:  
-
-```
-$ cd public  
-$ polymer build  
-$ cd .. 
-```
-
-To run:  
+  + If you want, you can skip the `build` command and just run `up`. Compose will automatically run the build step. However, sometimes you may want to separate them out to tweak the build process; e.g. running `docker-compose build --no-cache` to ensure that the build is completely fresh when your source code is altered.
+  + You can check on the status of your containers with `docker logs <container_id>`. The id can be found by running `docker ps`.
+  + If you specified the `docker-compose.dev.yml` config file to run a development build, you must also sepcify this file if you want to stop the deployment: `docker-compose -f docker-compose.dev.yml down`.  
   
-``` 
-$ ./start-dev.sh
-```
-
-<h1>Testing</h1>
+## Testing  
 
 ***For Behvaioral Tests:***
 
@@ -113,7 +104,7 @@ $ ./start-dev.sh
   Then run:   
   `$ mocha`
 
-<h1>Potential Problems</h1>
+## Potential Problems  
 
 If you have MongoDB installed locally on your machine, it may be running in the background. If so, it is likely running on the port that the dockerized instance of MongoDB from this app is intended to run on. If you run into this problem, there are two quick fixes:
 
