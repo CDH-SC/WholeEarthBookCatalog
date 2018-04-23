@@ -1,7 +1,6 @@
-# Compose file for the webapp
+# Compose file for production builds
 #
-# Be sure to set environment variable in app.conf and then run
-# `$ source $PATH/app.conf`
+# Be sure to set environment variable in .env
 #
 # To build and run:
 #    docker-compose up
@@ -13,23 +12,26 @@ services:
   neo4j:
     env_file: .env
     image: neo4j
-    ports:
-    - "7474:7474" # bolt web admin
-    # only uncomment for development builds
-    - "7687:7687" 
+    deploy:
+      restart-policy:
+        condition: on-failure
+        delay: 10s
     expose:
-      - "7687" # bolt connection
+      - "7687"
     environment:
       - NEO4J_AUTH=none
-    # production
-    #  - NEO4J_dbms_memory_heap_initialSize=2G
-    #  - NEO4J_dbms_memory_heap_maxSize=2G
-    #  - NEO4J_dmbs_memory_pagecache_size=1G
+      - NEO4J_dbms_memory_heap_initialSize=2G
+      - NEO4J_dbms_memory_heap_maxSize=2G
+      - NEO4J_dmbs_memory_pagecache_size=1G
     volumes:
       - "neo4j:/var/lib/neo4j/data"
 
   mongo:
     image: mongo
+    deploy:
+      restart-policy:
+        condition: on-failure
+        delay: 10s
     expose:
       - "27017"
     volumes:
@@ -37,6 +39,10 @@ services:
 
   node_webapp:
     env_file: .env
+    deploy:
+      restart-policy:
+        condition: on-failure
+        delay: 10s
     build:
       context: ./
       dockerfile: ./Dockerfile.app
@@ -45,6 +51,10 @@ services:
 
   loc_data_miner:
     env_file: .env
+    deploy:
+      restart-policy:
+        condition: on-failure
+        delay: 10s
     build: 
       context: ./
       dockerfile: ./Dockerfile.loc
@@ -53,6 +63,10 @@ services:
   
   worldcat_data_miner:
     env_file: .env
+    deploy:
+      restart-policy:
+        condition: on-failure
+        delay: 10s
     build: 
       context: ./
       dockerfile: ./Dockerfile.worldcat
