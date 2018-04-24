@@ -47,12 +47,12 @@
             <div id="login-box">
                 <div id="inner-flex">
                     <h1>DHC</h1>
-                    <h2>Login</h2>
+                    <h2>Create Account</h2>
                     
                     <paper-input placeholder="Username" value="{{username}}"></paper-input>
                     <paper-input error-message="invalid" placeholder="Password" type="password" value={{password}}></paper-input>
                     <paper-input placeholder="Confirm Password" type="password" value="{{password_confirm}}"></paper-input>
-                    <paper-button on-click="_validate">Login</paper-button>
+                    <paper-button on-click="_validate">Create Account</paper-button>
                     <template is="dom-if" if="[[!valid]]">
                         <p>{{errorMessage}}</p>
                     </template>
@@ -85,9 +85,6 @@
 
                 if (!this.username || this.username == "" || this.username.length <= 3) {
                     this.set("errorMessage", "Username not long enough");
-                    this.valid = false;
-                } else if (!this.username.length >= 9) {
-                    this.set("errorMessage", "Username is longer than 8 characters");
                     this.valid = false;
                 } else if (!this.password || !this.password_confirm) {
                     this.set("errorMessage", "Either password is empty");
