@@ -1,9 +1,9 @@
-# Compose file for production builds
+# Compose file for development builds
 #
 # Be sure to set environment variable in .env
 #
 # To build and run:
-#    docker-compose up
+#    docker-compose up -f docker-compose-dev.yml
 
 version: "3"
 
@@ -12,20 +12,18 @@ services:
   neo4j:
     env_file: .env
     image: neo4j
-    restart: on-failure
+    ports:
+      - "7474:7474"
+      - "7687:7687" 
     expose:
       - "7687"
     environment:
       - NEO4J_AUTH=none
-      - NEO4J_dbms_memory_heap_initialSize=2G
-      - NEO4J_dbms_memory_heap_maxSize=2G
-      - NEO4J_dmbs_memory_pagecache_size=1G
     volumes:
       - "neo4j:/var/lib/neo4j/data"
 
   mongo:
     image: mongo
-    restart: on-failure
     expose:
       - "27017"
     volumes:
@@ -33,7 +31,6 @@ services:
 
   node_webapp:
     env_file: .env
-    restart: on-failure
     build:
       context: ./
       dockerfile: ./Dockerfile.app
@@ -42,7 +39,6 @@ services:
 
   loc_data_miner:
     env_file: .env
-    restart: on-failure
     build: 
       context: ./
       dockerfile: ./Dockerfile.loc
@@ -51,7 +47,6 @@ services:
   
   worldcat_data_miner:
     env_file: .env
-    restart: on-failure
     build: 
       context: ./
       dockerfile: ./Dockerfile.worldcat
