@@ -41,7 +41,7 @@
                         width: 4px;
                         height: 92%;
                         position: absolute;
-                       /* margin-top: 10%;*/
+                        margin-top: 10%;
                         left: 7%;
                         right: 70%;
 
@@ -77,37 +77,26 @@
                         margin-right: 3%;
                     }
 
+                    #item-search-explanation {
+                        width: 80%;
+                     }
+
+                    #user-account-explanation {
+                        width: 80%;
+                     }
+
                     #account-setup-container {
                         width: 100%;
-                        /*background-color: red; */
-                        margin-bottom: -2%;
                     }
 
                     #item-search-container {
                         width: 100%;
-                       /* background-color: yellow; */
-                       margin-top: -2%;
-                       margin-bottom: -2%;
                     }
 
                     #user-account-container {
                         width: 100%;
-                       /* background-color: blue; */
-                       margin-top: -2%
                     }
-
-                    .help-section {
-                        margin-left: 10%;
-                    }
-
-                    .secondary-help-section {
-                        margin-left: 25%;
-                    }
-
-                    .dropdown-content {
-                        margin-left: 10%
-                    }
-
+                    
                     .contact-info {
                         margin: 5px;
                     }
@@ -166,185 +155,42 @@
             </style>
             </custom-style>
         
-            <div class = "container"> 
+            <div id = "main-content" class = "container"> 
                 <paper-divider> </paper-divider>
+                <div class = "wrapper-divider"></div>
      
                <div id = "account-setup-container">
-                    <div noink on-click = "_toggle_account_setup" class = "help-section">
-                        <iron-icon icon = "work"></iron-icon>
-                            <template is="dom-if" if="[[account_setup_show]]">
-                                    <iron-icon icon = "expand-less"></iron-icon> Setting Up Your Account
-                            </template>
+                            <div noink on-click = "_toggle_account_setup">
+                                    <template is="dom-if" if="[[account_setup_show]]">
+                                            <iron-icon icon = "expand-less"></iron-icon> Setting Up Your Account
+                                    </template>
     <template is="dom-if" if="[[!account_setup_show]]">
-                                    <iron-icon icon = "expand-more"></iron-icon>
-                            </template>
+                                        <iron-icon icon = "expand-more"></iron-icon>
+                                    </template>
     </div>
     <iron-collapse id="accountSetupCollapse">
-        <div class="dropdown-content">
+        <div id="account-setup-dropdown-content">
             <blockquote>
-                <h3>Account Setup</h3>
 
-                <p> To set up your account, you must follow these steps: </p>
+                To set up your account, you must follow these steps:
                 <ol>
                     <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
                     <li> Click on the link to 'Create an Account'</li>
                     <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
+
                 </ol>
+
             </blockquote>
         </div>
-        <div id="faq-container">
-            <div noink on-click="_toggle_faq" id="secondary-help-section">
-                <template is="dom-if" if="[[faq_show]]">
-                        <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-
-                    </template>
-                <template is="dom-if" if="[[!faq_show]]">
-                        <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                    </template>
-
-                <iron-collapse id="faqCollapse">
-                    <div class=FAQs>
-                        <h4> Frequently Asked Questions </h4>
-                        <ul>
-                            <li>What information is saved on my user profile?</li>
-                            <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                        </ul>
-                    </div>
-
-                </iron-collapse>
-            </div>
-        </div>
-
-
     </iron-collapse>
 
     </div>
 
-    <!--<div id="account-setup-container">
-        <div noink on-click="_toggle_account_setup" class="help-section">
-            <iron-icon icon="book"></iron-icon>
-
-            <template is="dom-if" if="[[account_setup_show]]">
-                           
-                                        <iron-icon icon = "expand-less"></iron-icon> Using your Account
-                                        
-                                    </template>
-
-            <template is="dom-if" if="[[!account_setup_show]]">
-                                        <iron-icon icon = "expand-more"></iron-icon>
-                                    </template>
-        </div>
-        <iron-collapse id="accountSetupCollapse">
-            <div class="dropdown-content">
-                <blockquote>
-
-                    <h3>What can you do with your user account?</h3>
-
-                    <p> A user can: </p>
-                    <ul>
-                        <li>
-                            Save queries made within this website and observe them within a specific drop-down menu
-                        </li>
-                        <li>
-                            Add specific editions to a selection of 'Favorites'
-                        </li>
-                    </ul>
-
-                </blockquote>
-            </div>
-            <div id="faq-container">
-                <div noink on-click="_toggle_faq" id="secondary-help-section">
-                    <template is="dom-if" if="[[faq_show]]">
-                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-    
-                        </template>
-                    <template is="dom-if" if="[[!faq_show]]">
-                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                        </template>
-
-                    <iron-collapse id="faqCollapse">
-                        <div class=FAQs>
-                            <h4> Frequently Asked Questions </h4>
-                            <ul>
-                                <li>What information is saved on my user profile?</li>
-                                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                            </ul>
-                        </div>
-
-                    </iron-collapse>
-                </div>
-            </div>
-
-        </iron-collapse> 
-
-
-    </div> -->
-
     <paper-divider></paper-divider>
 
-    <!-- <div id="item_search-container">
-        <div noink on-click="_toggle_item_search" class="help-section">
-            <iron-icon icon="book"></iron-icon>
-
-            <template is="dom-if" if="[[item_search_show]]">
-                           
-                                        <iron-icon icon = "expand-less"></iron-icon> Using your Account
-                                        
-                                    </template>
-
-            <template is="dom-if" if="[[!item_search_show]]">
-                                        <iron-icon icon = "expand-more"></iron-icon>
-                                    </template>
-        </div>
-        <iron-collapse id="itemSearchCollapse">
-            <div class="dropdown-content">
-                <blockquote>
-
-                    <h3>What can you do with your user account?</h3>
-
-                    <p> A user can: </p>
-                    <ul>
-                        <li>
-                            Save queries made within this website and observe them within a specific drop-down menu
-                        </li>
-                        <li>
-                            Add specific editions to a selection of 'Favorites'
-                        </li>
-                    </ul>
-
-                </blockquote>
-            </div>
-            <div id="faq-container">
-                <div noink on-click="_toggle_faq" id="secondary-help-section">
-                    <template is="dom-if" if="[[faq_show]]">
-                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-    
-                        </template>
-                    <template is="dom-if" if="[[!faq_show]]">
-                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                        </template>
-
-                    <iron-collapse id="faqCollapse">
-                        <div class=FAQs>
-                            <h4> Frequently Asked Questions </h4>
-                            <ul>
-                                <li>What information is saved on my user profile?</li>
-                                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                            </ul>
-                        </div>
-
-                    </iron-collapse>
-                </div>
-            </div>
-
-        </iron-collapse>
-
-
-    </div> -->
-
     <div id="item-search-container">
-        <div noink on-click="_toggle_item_search" class="help-section">
-            <iron-icon icon="search"></iron-icon>
+        <div noink on-click="_toggle_item_search" class="toggler border-color">
+            <iron-icon icon="book"></iron-icon>
 
             <template is="dom-if" if="[[item_search_show]]">
                        
@@ -352,12 +198,12 @@
                                     
                                 </template>
 
-            <template is="dom-if" if="[[!item_search_show]]" style="white-space:pre">
-                                                    <iron-icon icon = "expand-more" style = "white-space:pre"></iron-icon>
-                                                </template>
+            <template is="dom-if" if="[[!item_search_show]]">
+                                    <iron-icon icon = "expand-more"></iron-icon>
+                                </template>
         </div>
         <iron-collapse id="itemSearchCollapse">
-            <div class="dropdown-content">
+            <div id="item-search-dropdown-content">
                 <blockquote>
 
                     <h3> How do you search? </h3>
@@ -369,28 +215,6 @@
                     </ul>
 
                 </blockquote>
-
-            </div>
-            <div id="faq-container">
-                <div noink on-click="_toggle_faq">
-                    <template is="dom-if" if="[[faq_show]]">
-                                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-                    
-                                        </template>
-                    <template is="dom-if" if="[[!faq_show]]">
-                                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                                        </template>
-                </div>
-                <iron-collapse id="faqCollapse">
-                    <div class=FAQs>
-                        <h4> Frequently Asked Questions </h4>
-                        <ul>
-                            <li>What information is saved on my user profile?</li>
-                            <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                        </ul>
-                    </div>
-
-                </iron-collapse>
 
             </div>
 
@@ -407,7 +231,7 @@
     </div>
 
     <div id="user-account-container">
-        <div noink on-click="_toggle_user_account" class="help-section">
+        <div noink on-click="_toggle_user_account">
             <iron-icon icon="book"></iron-icon>
 
             <template is="dom-if" if="[[user_account_show]]">
@@ -421,7 +245,7 @@
                                 </template>
         </div>
         <iron-collapse id="userAccountCollapse">
-            <div class="dropdown-content">
+            <div id="user-account-dropdown-content">
                 <blockquote>
 
                     <h3>What can you do with your user account?</h3>
@@ -438,30 +262,16 @@
 
                 </blockquote>
             </div>
-            <div id="faq-container">
-                <div noink on-click="_toggle_faq" id="secondary-help-section">
-                    <template is="dom-if" if="[[faq_show]]">
-                        <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-
-                    </template>
-                    <template is="dom-if" if="[[!faq_show]]">
-                        <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                    </template>
-
-                    <iron-collapse id="faqCollapse">
-                        <div class=FAQs>
-                            <h4> Frequently Asked Questions </h4>
-                            <ul>
-                                <li>What information is saved on my user profile?</li>
-                                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                            </ul>
-                        </div>
-
-                    </iron-collapse>
-                </div>
-            </div>
 
         </iron-collapse>
+
+        <div class=FAQs>
+            <h4> Frequently Asked Questions </h4>
+            <ul>
+                <li>What information is saved on my user profile?</li>
+                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+            </ul>
+        </div>
 
 
     </div>
@@ -517,25 +327,16 @@
             }
 
             _toggle_account_setup() {
-                if (Error) {
-                    console.log(Error);
-                }
                 this.$.accountSetupCollapse.toggle();
                 this.set("account_setup_show", !this.account_setup_show);
             }
 
             _toggle_item_search() {
-                if (Error) {
-                    console.log(Error);
-                }
                 this.$.itemSearchCollapse.toggle();
                 this.set("item_search_show", !this.item_search_show);
             }
 
             _toggle_user_account() {
-                if (Error) {
-                    console.log(Error);
-                }
                 this.$.userAccountCollapse.toggle();
                 this.set("user_account_show", !this.user_account_show);
             }
