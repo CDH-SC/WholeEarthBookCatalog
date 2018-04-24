@@ -230,7 +230,7 @@
                             <!-- TODO on click route to search :o -->
                             <template is="dom-repeat" items="{{recentSearches}}">
                                 <div class="query-card">
-                                    <paper-card>
+                                    <paper-card on-click="_routeQuery">
                                         <p class="card-text query">advanced: {{item.advanced}}</p>
                                         <p class="card-text query">basic_query: {{item.basic_query}}</p>
                                         <template is="dom-if" if="{{item.advanced}}">
@@ -278,7 +278,7 @@
                             <!-- TODO on click route to search :o -->
                             <template is="dom-repeat" items="{{savedSearches}}">
                                 <div class="query-card">
-                                    <paper-card>
+                                    <paper-card on-click="_routeQuery">
                                         <p class="card-text query">advanced: {{item.advanced}}</p>
                                         <p class="card-text query">basic_query: {{item.basic_query}}</p>
                                         <template is="dom-if" if="{{item.advanced}}">
@@ -448,6 +448,30 @@
                 this.$.getRecentQs.generateRequest();
             }
 
+            _routeQuery(e) {
+                // contains the element from the dom-repeat
+                var obj = e.model.item;
+
+                if (obj.advanced) {
+                    var editionStr = obj.editions.map(e=>e.title + "*" + e.date + "*" + e.isbn).join("+");
+                    var authorsStr = obj.authors.map(e => e.name).join("+")
+                    var publishersStr = obj.publishers.map(e=>e.name).join("+")
+                    var placesStr = obj.places.map(e => e.name).join("+");
+                    var degree = obj.degree;
+
+                    this.set("route.path", "book-results/advanced/"
+                        + (editionStr === '' || editionStr === '**' ? "null" : editionStr) + "/" 
+                        + (authorsStr === '' ? "null" : authorsStr) + "/" 
+                        + (publishersStr === '' ? "null" : publishersStr) + "/"
+                        + (placesStr === '' ? "null" : placesStr) + "/" 
+                        + degree
+                    );
+                }
+                else {
+                    this.set("route.path", "book-results/keyword/" + obj.basic_query);
+                }
+            }
+
             _handleRQResponse(e) {
                 var resp = e.detail.response;
                 if (resp.length > 0) {
@@ -472,6 +496,7 @@
                 var resp = e.detail.response;
                 console.log("Faves: ");
                 console.log(resp);
+                console.log(resp.length)
                 if (resp.length > 0) {
                     this.set('savedBooks', resp);
                     this.set('noFavs', false);
