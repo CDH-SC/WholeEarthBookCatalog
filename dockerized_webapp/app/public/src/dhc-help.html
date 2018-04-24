@@ -159,111 +159,171 @@
                 <paper-divider> </paper-divider>
                 <div class = "wrapper-divider"></div>
      
-               <div id = "account-setup-container">
-                            <div noink on-click = "_toggle_account_setup">
-                                    <template is="dom-if" if="[[account_setup_show]]">
-                                            <iron-icon icon = "expand-less"></iron-icon> Setting Up Your Account
-                                    </template>
+                <!--<div id = "help-messages-wrapper">
+                    <div class = "layout-horizontal">
+                        <div> First </div>
+                        <div> Second </div>
+                        <div> Third </div>
+                </div>
+               
+
+            -->
+            <paper-menu selected="0" style = "background-color: blue">
+                    <paper-item>Item 1</paper-item>
+                    <paper-item>Item 2</paper-item>
+                  </paper-menu>
+                
+
+                    <h6> Sections </h6>
+                    <paper-menu id = "menu-wrapper" selected = "0"> Menu
+                        <paper-submenu class = "menu-item">   <!--Won't appear as its own menu item -->
+                           <paper-item class = "menu-item"> About Us </paper-item>
+                            <paper-item class = "menu-item"> Setting Up Your Account </paper-item>
+                            <paper-item class = "menu-item"> Searching for Items </paper-item>
+                            <paper-item class = "menu-item"> Using Your Account </paper-item>
+                        </paper-submenu>
+                    </paper-menu> 
+
+                       
+                        <!-- static block for account setup -->
+
+                        
+                   
+                        <div id = "help-messages-wrapper">
+                        <div id = "account-setup-explanation">
+                                <blockquote>
+
+                                    <h3> Setting Up Your Account </h3>
+                            
+                                    To set up your account, you must follow these steps:
+                                    <ol>
+                                        <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
+                                        <li> Click on the link to 'Create an Account'</li>
+                                        <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
+
+                                    </ol>
+                                
+                                    </blockquote>
+                                     <div class = "FAQs" style = "margin-left:12%">
+                                    
+                                    <h4 style> Frequently Asked Questions: </h4> 
+                                           <ul>
+                                            <li>Can I only set up one account? </li>
+                                                <p >No, it is possible to have an unlimited number of accounts. We only ask that you use one at a time.</p>
+                                            
+                                            <li>Is the password encrypted?</li>
+                                                <p>Yes, the password is encrypted through the SHA-256 hash algorithm. We do this through the Crypto JS library.</p>
+                                            </ul>
+                                    </div> 
+                            </div>
+
+                     <!--   <div id = "account-setup-container" onclick = "toggle_account_setup">
+                            <paper-button> 
+                                <template is="dom-if" if="[[account_setup_show]]">
+                                    <iron-icon icon = "expand-less"></iron-icon> Setting Up Your Account
+                                    <div id = "account-setup-dropdown-content">
+                                        <blockquote>
+                                    
+                                            To set up your account, you must follow these steps:
+                                            <ol>
+                                                <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
+                                                <li> Click on the link to 'Create an Account'</li>
+                                                <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
+
+                                            </ol>
+                                        
+                                            </blockquote>
+                                    </div>
+                                
+                                </template>
     <template is="dom-if" if="[[!account_setup_show]]">
-                                        <iron-icon icon = "expand-more"></iron-icon>
-                                    </template>
-    </div>
-    <iron-collapse id="accountSetupCollapse">
-        <div id="account-setup-dropdown-content">
-            <blockquote>
+                                    <iron-icon icon = "expand-more"></iron-icon>
+                                                    
+                                </template>
+    </paper-button>
 
-                To set up your account, you must follow these steps:
-                <ol>
-                    <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
-                    <li> Click on the link to 'Create an Account'</li>
-                    <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
-
-                </ol>
-
-            </blockquote>
-        </div>
-    </iron-collapse>
-
-    </div>
+    </div> -->
 
     <paper-divider></paper-divider>
 
-    <div id="item-search-container">
-        <div noink on-click="_toggle_item_search" class="toggler border-color">
-            <iron-icon icon="book"></iron-icon>
+    <!-- Static block for item search -->
 
-            <template is="dom-if" if="[[item_search_show]]">
-                       
-                                    <iron-icon icon = "expand-less"></iron-icon> Searching for Items
-                                    
-                                </template>
+    <div id="item-search-explanation">
+        <blockquote>
 
-            <template is="dom-if" if="[[!item_search_show]]">
-                                    <iron-icon icon = "expand-more"></iron-icon>
-                                </template>
+            <h3> How do you search? </h3>
+            <p>Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles. </p>
+
+            <ul>
+                <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
+            </ul>
+        </blockquote>
+
+        <div class="FAQs">
+            <h4 style> Frequently Asked Questions: </h4>
+            <ul>
+                <li>What can I search for? </li>
+                <p> Possible search fields include editions, authors, publishers, and places in which the editions are published.</p>
+
+                <li> How can I see my results?</li>
+                <p>Your results will be shown in List form, or in Graph form. The Graph form shows your search results as nodes connected with relationships. The List form shows full, comprehensive lists of your search results. You also have the option to
+                    visit the profiles of these books.
+                </p>
+
+                <li>Where will my saved queries go?</li>
+                <p>Any saved queries will be stored on your user profile. You can save a query by selecting the corresponding option on the tab bar.</p>
+            </ul>
         </div>
-        <iron-collapse id="itemSearchCollapse">
-            <div id="item-search-dropdown-content">
-                <blockquote>
 
-                    <h3> How do you search? </h3>
-
-                    <p> Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles. </p>
-
-                    <ul>
-                        <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
-                    </ul>
-
-                </blockquote>
-
-            </div>
-
-
-        </iron-collapse>
     </div>
 
+    <!-- <div id="item-search-container" onclick="toggle_item_search">
+        <paper-button></paper-button>
+        <template is="dom-if" if="[[item_search_show]]">
+                                    <iron-icon icon = "expand-less"></iron-icon> Item Search
+                                    <div id = "item-search-dropdown-content">
+                                        <blockquote>
 
+                                            <h3> How do you search? </h3>
+                                    
+                                            <p> Type in the designated keyword or keywords for your search. A user account is not required, but it does help if you would like to save certain titles. </p>
+
+                                            <ul>
+                                                <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
+                                            </ul>
+                                        
+                                        </blockquote>
+
+                                    </div>
+                                                                
+                                </template>
+
+        <template is="dom-if" if="[[!item_search_show]]">
+                                    <paper-button on-click = "toggle_item_search"><iron-icon icon = "expand-more"></iron-icon></paper-button>
+                                                
+                                </template>
+        </paper-button>
+
+    </div> -->
 
     <paper-divider></paper-divider>
 
-    <!-- Dynamic block for user account  -->
+    <!-- Static block for user account  -->
+    <div id="user-account-explanation">
+        <blockquote>
+            <h3>What can you do with your user account?</h3>
 
-    </div>
+            <p>A user can: </p>
+            <ul>
+                <li>
+                    Save queries made within this website and observe them within a specific drop-down menu
+                </li>
+                <li>
+                    Add specific editions to a selection of 'Favorites'
+                </li>
+            </ul>
 
-    <div id="user-account-container">
-        <div noink on-click="_toggle_user_account">
-            <iron-icon icon="book"></iron-icon>
-
-            <template is="dom-if" if="[[user_account_show]]">
-                       
-                                    <iron-icon icon = "expand-less"></iron-icon> Using your Account
-                                    
-                                </template>
-
-            <template is="dom-if" if="[[!user_account_show]]">
-                                    <iron-icon icon = "expand-more"></iron-icon>
-                                </template>
-        </div>
-        <iron-collapse id="userAccountCollapse">
-            <div id="user-account-dropdown-content">
-                <blockquote>
-
-                    <h3>What can you do with your user account?</h3>
-
-                    <p> A user can: </p>
-                    <ul>
-                        <li>
-                            Save queries made within this website and observe them within a specific drop-down menu
-                        </li>
-                        <li>
-                            Add specific editions to a selection of 'Favorites'
-                        </li>
-                    </ul>
-
-                </blockquote>
-            </div>
-
-        </iron-collapse>
+        </blockquote>
 
         <div class=FAQs>
             <h4> Frequently Asked Questions </h4>
@@ -276,6 +336,35 @@
 
     </div>
 
+    <!-- <div id="user-account-container" onclick="toggle_user_account">
+        <paper-button>
+            <template is="dom-if" if="[[user_account_show]]">
+                                    <iron-icon icon = "expand-less"></iron-icon> Using your Account
+                                    <div id = "user-account-dropdown-content">
+                                        <blockquote>
+
+                                            <h3>What can you do with your user account?</h3>
+
+                                            <p> A user can: </p>
+                                            <ul>
+                                                <li>
+                                                    Save queries made within this website and observe them within a specific drop-down menu
+                                                </li>
+                                                <li>
+                                                    Add specific editions to a selection of 'Favorites'
+                                                </li>
+                                            </ul>
+
+                                        </blockquote>
+                                    </div>
+                                </template>
+
+            <template is="dom-if" if="[[!user_account_show]]">
+                                    <iron-icon icon = "expand-more"></iron-icon>
+                                </template>
+        </paper-button>
+
+    </div> -->
     </div>
     </div>
 
@@ -302,52 +391,50 @@
                     email: {
                         type: String,
                         value: 'dhc@fakeemail.com'
-                    },
-
-                    faq_show: {
-                        type: Boolean,
-                        value: true
-                    },
-
-                    account_setup_show: {
-                        type: Boolean,
-                        value: true
-                    },
-
-                    item_search_show: {
-                        type: Boolean,
-                        value: true
-                    },
-
-                    user_account_show: {
-                        type: Boolean,
-                        value: true
                     }
+
+                    /* account_setup_show: {
+                         type: Boolean,
+                         value: true
+                     },
+
+                     item_search_show: {
+                         type: Boolean,
+                         value: true
+                     },
+
+                     user_account_show: {
+                         type: Boolean,
+                         value: show
+                     } */
+
+
                 }
             }
 
-            _toggle_account_setup() {
-                this.$.accountSetupCollapse.toggle();
-                this.set("account_setup_show", !this.account_setup_show);
-            }
+            _show() {
+                    this.addEventListener("click", function() {
+                        this.opacity = 1;
+                    })
 
-            _toggle_item_search() {
-                this.$.itemSearchCollapse.toggle();
-                this.set("item_search_show", !this.item_search_show);
-            }
 
-            _toggle_user_account() {
-                this.$.userAccountCollapse.toggle();
-                this.set("user_account_show", !this.user_account_show);
-            }
-
-            _toggle_faq() {
-                if (Error) {
-                    console.log(Error);
                 }
-                this.$.faqCollapse.toggle();
-                this.set("faq_show", !this.faq_show);
-            }
+                /*
+                _toggle_account_setup() {
+                    this.set("account_setup_show", !this.account_setup_show);
+
+                }
+
+                _toggle_item_search() {
+                    this.set("item_search_show", !this.item_search_show);
+
+                }
+
+                _toggle_user_account() {
+                    this.set("user_account_show", !this.user_account_show);
+                } */
+
+
         }
 
         window.customElements.define(dhcHelp.is, dhcHelp);
