@@ -161,25 +161,13 @@
                     paper-divider {
                         margin-top: 5%;
                         margin-bottom: 5%;
-                        
                     }
   
             </style>
             </custom-style>
-            
+        
             <div class = "container"> 
-            <paper-divider></paper-divider>
-                <div class = "overview" style = "margin-left: -5%; margin-top:-5%;">
-
-                    <p>
-                    <blockquote>
-                        The following topics cover the primary functions of this site. 
-                    </blockquote>
-                    </p>
-
-
-                </div>
-                <br>
+                <paper-divider> </paper-divider>
      
                <div id = "account-setup-container">
                     <div noink on-click = "_toggle_account_setup" class = "help-section">
@@ -197,12 +185,11 @@
                 <h3>Account Setup</h3>
 
                 <p> To set up your account, you must follow these steps: </p>
-                <ul>
+                <ol>
                     <li> Click on the 'Sign In' button at the top right hand corner of the page</li>
                     <li> Click on the link to 'Create an Account'</li>
                     <li> Enter a unique username and password. Although we do not require this yet, your password should be an appropriate blend of uppercase and lowercase letters, numbers, and special characters</li>
-                    <li> Once you hit 'Create Account' you will automatically be signed on with your username.</li>
-                </ul>
+                </ol>
             </blockquote>
         </div>
         <div id="faq-container">
@@ -233,11 +220,127 @@
 
     </div>
 
+    <!--<div id="account-setup-container">
+        <div noink on-click="_toggle_account_setup" class="help-section">
+            <iron-icon icon="book"></iron-icon>
 
+            <template is="dom-if" if="[[account_setup_show]]">
+                           
+                                        <iron-icon icon = "expand-less"></iron-icon> Using your Account
+                                        
+                                    </template>
+
+            <template is="dom-if" if="[[!account_setup_show]]">
+                                        <iron-icon icon = "expand-more"></iron-icon>
+                                    </template>
+        </div>
+        <iron-collapse id="accountSetupCollapse">
+            <div class="dropdown-content">
+                <blockquote>
+
+                    <h3>What can you do with your user account?</h3>
+
+                    <p> A user can: </p>
+                    <ul>
+                        <li>
+                            Save queries made within this website and observe them within a specific drop-down menu
+                        </li>
+                        <li>
+                            Add specific editions to a selection of 'Favorites'
+                        </li>
+                    </ul>
+
+                </blockquote>
+            </div>
+            <div id="faq-container">
+                <div noink on-click="_toggle_faq" id="secondary-help-section">
+                    <template is="dom-if" if="[[faq_show]]">
+                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
+    
+                        </template>
+                    <template is="dom-if" if="[[!faq_show]]">
+                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
+                        </template>
+
+                    <iron-collapse id="faqCollapse">
+                        <div class=FAQs>
+                            <h4> Frequently Asked Questions </h4>
+                            <ul>
+                                <li>What information is saved on my user profile?</li>
+                                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                            </ul>
+                        </div>
+
+                    </iron-collapse>
+                </div>
+            </div>
+
+        </iron-collapse> 
+
+
+    </div> -->
 
     <paper-divider></paper-divider>
 
+    <!-- <div id="item_search-container">
+        <div noink on-click="_toggle_item_search" class="help-section">
+            <iron-icon icon="book"></iron-icon>
 
+            <template is="dom-if" if="[[item_search_show]]">
+                           
+                                        <iron-icon icon = "expand-less"></iron-icon> Using your Account
+                                        
+                                    </template>
+
+            <template is="dom-if" if="[[!item_search_show]]">
+                                        <iron-icon icon = "expand-more"></iron-icon>
+                                    </template>
+        </div>
+        <iron-collapse id="itemSearchCollapse">
+            <div class="dropdown-content">
+                <blockquote>
+
+                    <h3>What can you do with your user account?</h3>
+
+                    <p> A user can: </p>
+                    <ul>
+                        <li>
+                            Save queries made within this website and observe them within a specific drop-down menu
+                        </li>
+                        <li>
+                            Add specific editions to a selection of 'Favorites'
+                        </li>
+                    </ul>
+
+                </blockquote>
+            </div>
+            <div id="faq-container">
+                <div noink on-click="_toggle_faq" id="secondary-help-section">
+                    <template is="dom-if" if="[[faq_show]]">
+                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
+    
+                        </template>
+                    <template is="dom-if" if="[[!faq_show]]">
+                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
+                        </template>
+
+                    <iron-collapse id="faqCollapse">
+                        <div class=FAQs>
+                            <h4> Frequently Asked Questions </h4>
+                            <ul>
+                                <li>What information is saved on my user profile?</li>
+                                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                            </ul>
+                        </div>
+
+                    </iron-collapse>
+                </div>
+            </div>
+
+        </iron-collapse>
+
+
+    </div> -->
 
     <div id="item-search-container">
         <div noink on-click="_toggle_item_search" class="help-section">
@@ -263,17 +366,6 @@
 
                     <ul>
                         <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
-                        <li> To view more information on an edition, click 'View Full Profile' to view additional authors, publishers, and locations in which the edition was published. </li>
-                        <br>
-                        <li>Clicking the 'Graph' tab above the search results will lead to a complete display of your search results. From this graph, you will also be able to view the relationships between your search results. </li>
-                        <li style="whitespace:pre"> The color scheme of nodes is listed as:
-                            <ul>
-                                <li> Red: Edition</li>
-                                <li> Purple: Author </li>
-                                <li> Green: Place of Publication </li>
-                                <li>Blue: Publisher </li>
-                            </ul>
-                        </li>
                     </ul>
 
                 </blockquote>
@@ -337,25 +429,11 @@
                     <p> A user can: </p>
                     <ul>
                         <li>
-                            Save queries made within this website and observe them within a specific drop-down menu To save queries, a user must do the following:
-                            <ul>
-                                <li> Execute a search for one or more items </li>
-                                <li> Select the 'Save Query' tab above the search results </li>
-                                <li> You should see a popup that confirms that the query is saved. These results can be viewed under your 'Saved Searched' menu </li>
-                                <li> By default, your saved searches will also appear under the 'Recently Searched' section of your user account</li>
-                            </ul>
-
+                            Save queries made within this website and observe them within a specific drop-down menu
                         </li>
-                        <br>
                         <li>
-                            A user may also add specific editions to a selection of 'Favorites'
-                            <ul>
-                                <li>
-                                    The editions that a user has added to 'Favorites' will appear in the order in which they have been added
-                                </li>
-                            </ul>
+                            Add specific editions to a selection of 'Favorites'
                         </li>
-
                     </ul>
 
                 </blockquote>
@@ -416,6 +494,11 @@
                         value: 'dhc@fakeemail.com'
                     },
 
+                    faq_show: {
+                        type: Boolean,
+                        value: true
+                    },
+
                     account_setup_show: {
                         type: Boolean,
                         value: true
@@ -427,21 +510,6 @@
                     },
 
                     user_account_show: {
-                        type: Boolean,
-                        value: true
-                    },
-
-                    ua_faq_show: {
-                        type: Boolean,
-                        value: true
-                    },
-
-                    is_faq_show: {
-                        type: Boolean,
-                        value: true
-                    },
-
-                    as_faq_show: {
                         type: Boolean,
                         value: true
                     }
