@@ -419,6 +419,9 @@
                     var placesStr = terms.places.map(e => e.name).join("+");
                     var degree = terms.degree;
 
+                    this.set("addMoreDisabled", false);
+                    this.set("numFieldsArray", []);
+
                     this.set("route.path", "book-results/advanced/"
                         + (editionStr === '' || editionStr === '**' ? "null" : editionStr) + "/" 
                         + (authorsStr === '' ? "null" : authorsStr) + "/" 
@@ -426,17 +429,6 @@
                         + (placesStr === '' ? "null" : placesStr) + "/" 
                         + degree
                     );
-
-                    var sObj = {
-                        advanced: true,
-                        basic_query: "",
-                        authors: terms.authors,
-                        publishers: terms.publishers,
-                        places: terms.places,
-                        degree: terms.degree,
-                        editions: terms.editions,
-                        limit: 25
-                    };
                 }
             }
 

@@ -295,6 +295,7 @@
                         console.log("clicked");
                         this.set('selectedNode', node);
                         this.set('isSelection', true);
+                        // node.attr('fill', 'yellow') 
                     })
                     .call(dragDrop)
 
@@ -377,8 +378,8 @@
             }
 
             _getLabelShort(text) {
-                if (text.length > 5) {
-                    return text.slice(-5) + "..."
+                if (text.length > 10) {
+                    return text.slice(-10) + "..."
                 }
                 else {
                     return text;

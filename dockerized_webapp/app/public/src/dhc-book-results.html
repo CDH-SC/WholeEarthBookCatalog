@@ -231,66 +231,69 @@
         </iron-ajax>
 
         <div>
-        <div class="btn-wrapper">
-            <div class="toggler">
-                <paper-button class="btn-attached" id="list-btn" on-click="_showList">List</paper-button>
-                <paper-button class="btn-attached" id="graph-btn" on-click="_showGraph">Graph</paper-button>
-                <paper-button class="q-btn" on-click="_addSavedQuery">Save Query</paper-button>
+        <template is="dom-if" if="{{!searchDataLoaded}}">
+            <div class="full-container">
+                <paper-spinner active="{{!searchDataLoaded}}" alt="Loading..."></paper-spinner>
             </div>
-        </div>
-
-        <template is="dom-if" if="{{!isList}}">
-            <dhc-graph-view records="{{searchData.records}}" is-visible="{{!isList}}"></dhc-graph-view>
         </template>
+    
+        <template is="dom-if" if="{{searchDataLoaded}}">
 
-
-        <template is="dom-if" if="{{isList}}">
-            <template is="dom-if" if="{{!searchDataLoaded}}">
-                <div class="full-container">
-                    <paper-spinner active="{{!searchDataLoaded}}" alt="Loading..."></paper-spinner>
+            <div class="btn-wrapper">
+                <div class="toggler">
+                    <paper-button class="btn-attached" id="list-btn" on-click="_showList">List</paper-button>
+                    <paper-button class="btn-attached" id="graph-btn" on-click="_showGraph">Graph</paper-button>
+                    <paper-button class="q-btn" on-click="_addSavedQuery">Save Query</paper-button>
                 </div>
+            </div>
+
+            <template is="dom-if" if="{{!isList}}">
+                <dhc-graph-view records="{{searchData.records}}" is-visible="{{!isList}}"></dhc-graph-view>
             </template>
 
-            <template is="dom-if" if="{{noResults}}">
-                NO RESULTS FOUND
-            </template>
 
-            <template is="dom-if" if="{{timeoutOccured}}">
-                A timeout occured. Our databases may be down at this time.
-            </template>
+            <template is="dom-if" if="{{isList}}">
+                <template is="dom-if" if="{{noResults}}">
+                    NO RESULTS FOUND
+                </template>
 
-            <template is="dom-if" if="{{searchDataLoaded}}">
-                <div id = "result-entry-wrapper" class="border-color">
-                    <template is="dom-repeat" items="[[searchData.records]]" as="record">
-                        <div class="result-item-info border-color">
-                            <div class="book-info">
-                                <div class="image-wrapper">
-                                    <image id="result-item-image" class="border-color" src= "../images/no_cover_150_248.png"></image>
-                                </div>
-                                <div class="book-info-text">
-                                    <h1 class="book-title ellipsis">
-                                        {{record.title}}
-                                    </h1>
-                                    <h2 class="book-other ellipsis">
-                                        {{_getFirstAuthor(record)}}
-                                    </h2>
-                                    <h1 class="book-other ellipsis">
-                                        {{_getFirstPublisher(record)}}
-                                    </h1>
-                                    <h1 class="book-other ellipsis">
-                                        {{record.date}}
-                                    </h1>
-                                </div>
-                                <div class="button-row">
-                                    <paper-button id ="result-item-view-profile" on-click="_goToBookProfile" class="border-color"> View Full Profile </paper-button> 
-                                    <!-- <iron-icon on-click="addToFavorites()" icon="favorite-border"></iron-icon> -->
+                <template is="dom-if" if="{{timeoutOccured}}">
+                    A timeout occured. Our databases may be down at this time.
+                </template>
+
+                <template is="dom-if" if="{{searchDataLoaded}}">
+                    <div id = "result-entry-wrapper" class="border-color">
+                        <template is="dom-repeat" items="[[searchData.records]]" as="record">
+                            <div class="result-item-info border-color">
+                                <div class="book-info">
+                                    <div class="image-wrapper">
+                                        <image id="result-item-image" class="border-color" src= "../images/no_cover_150_248.png"></image>
+                                    </div>
+                                    <div class="book-info-text">
+                                        <h1 class="book-title ellipsis">
+                                            {{record.title}}
+                                        </h1>
+                                        <h2 class="book-other ellipsis">
+                                            {{_getFirstAuthor(record)}}
+                                        </h2>
+                                        <h1 class="book-other ellipsis">
+                                            {{_getFirstPublisher(record)}}
+                                        </h1>
+                                        <h1 class="book-other ellipsis">
+                                            {{record.date}}
+                                        </h1>
+                                    </div>
+                                    <div class="button-row">
+                                        <paper-button id ="result-item-view-profile" on-click="_goToBookProfile" class="border-color"> View Full Profile </paper-button> 
+                                        <!-- <iron-icon on-click="addToFavorites()" icon="favorite-border"></iron-icon> -->
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </template>
-                </div>
-            </template>
+                        </template>
+                    </div>
+                </template>
 
+            </template>
         </template>
     </div>
     </template>
@@ -369,6 +372,10 @@
                     }
                     this.set('uriKeywordData', {});
                     this.set('uriAdvancedData', {})
+                    this.set('noResults', false);
+                    this.set('searchData', {});
+                    this.set('searchDataLoaded', false);
+                    this.set('timeoutOccured', false);
                 }
             }
 

@@ -17,7 +17,6 @@
                 display:flex;
                 flex-direction: row;
                 flex-grow:1;
-                height: 100vh;
                 justify-content: space-between;
                 margin-left: 30px;
                 margin-right: 30px;
@@ -32,6 +31,7 @@
                 flex-direction: column;
                 justify-content: space-around;
                 width: 65%;
+                margin-top: 50px;
             }
 
             paper-card {
@@ -137,7 +137,7 @@
             }
 
             .book-title-header {
-                margin-top: 200px;
+                /* margin-top: 200px; */
             }
         
             /* plot descriptions will not be included */
@@ -234,7 +234,6 @@
         <div class="container-profile">
             <div id="book-information-left">
                     <h3 class="book-title-header"><i>{{book.title}}</i></h3>
-
                 <paper-card>
                     <h3>Authors:</h3>
                     <div class="row-item">
@@ -350,6 +349,7 @@
                             isbn: this.book.isbn,
                             publishers: this.publishers,
                             authors: this.authors,
+                            places: this.places,
                             date: this.book.date ? this.book.date: '',
                             relationships: {}
                         }
@@ -379,6 +379,7 @@
             _handleBookResp(e) {
                 this.set('book', e.detail.response);
                 console.log(this.book)
+                console.log("GOT BOOK");
             }
 
             _getAuthorNodes() {
