@@ -20,6 +20,7 @@
                 justify-content: space-between;
                 width: 100%;
             }
+
             paper-button.account-blue {
                 /*margin-right: 5px;*/
                 background-color: #2d9cdb;
@@ -105,7 +106,7 @@
 
                     <template is="dom-if" if="[[inSession]]">
                         <paper-menu-button vertical-offset="60" horizontal-align="right">
-                            <paper-button slot="dropdown-trigger" class="account-blue ellipsis">{{user.username}}</paper-button>
+                            <paper-button slot="dropdown-trigger" class="account-blue ellipsis"><p class="username-text ellipsis">{{user.username}}</p></paper-button>
                             <paper-listbox class="user-listbox" slot="dropdown-content">
                                 <a id="goto-user-account" user="{{user}}" href="/user-account/{{user._id}}"><paper-item>Account</paper-item></a>
                                 <paper-item on-click="_sign_out">Sign out</paper-item>

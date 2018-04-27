@@ -19,6 +19,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: start;
+                margin-top: 20px;
             }
 
             .card-container {
@@ -122,6 +123,14 @@
                 border-radius: 50px;
             }
 
+            .ellipsis {
+                text-overflow: ellipsis;
+                width: 100%;
+                /* Required for text-overflow to do anything */
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
             .book-card {
                 --paper-card-header-image: {
                     width: 150px;
@@ -193,11 +202,11 @@
                             <template is="dom-if" if="{{!noFavs}}">
                                 <template is="dom-repeat" items="{{savedBooks}}">
                                     <div class="query-card">
-                                        <paper-card class="book-card" image="../images/no_cover_150_248.png">
-                                            <p class="card-text edition">title: {{item.title}}</p>
-                                            <p class="card-text author">author: {{_getFirstAuthor(item.authors)}}</p>
-                                            <p class="card-text publisher">publisher: {{_getFirstPublisher(item.publishers)}}</p>
-                                            <P class="card-text edition">date: {{item.date}}</P>
+                                        <paper-card on-click="_goToBookProfile" class="book-card" image="../images/no_cover_150_248.png">
+                                            <p title="{{item.title}}" class="card-text ellipsis edition">title: {{item.title}}</p>
+                                            <p title="{{_getFirstAuthor(item)}}" class="card-text ellipsis author">author: {{_getFirstAuthor(item.authors)}}</p>
+                                            <p title="{{_getFirstPublisher(item)}}" class="card-text ellipsis publisher">publisher: {{_getFirstPublisher(item.publishers)}}</p>
+                                            <p title="{{item.date}}" class="card-text ellipsis edition">date: {{item.date}}</p>
                                         </paper-card>
                                     </div>
                                 </template>
@@ -231,23 +240,23 @@
                             <template is="dom-repeat" items="{{recentSearches}}">
                                 <div class="query-card">
                                     <paper-card on-click="_routeQuery">
-                                        <p class="card-text query">advanced: {{item.advanced}}</p>
-                                        <p class="card-text query">basic_query: {{item.basic_query}}</p>
+                                        <p class="card-text ellipsis query">advanced: {{item.advanced}}</p>
+                                        <p class="card-text ellipsis query">basic_query: {{item.basic_query}}</p>
                                         <template is="dom-if" if="{{item.advanced}}">
                                             <p class="card-text query">degrees: {{item.degrees}}</p>
                                             <template is="dom-repeat" items="{{item.authors}}">
-                                                <p class="card-text author">author name: {{item.name}}</p>
+                                                <p class="card-text ellipsis author">author name: {{item.name}}</p>
                                             </template>
                                             <template is="dom-repeat" items="{{item.publishers}}">
-                                                <p class="card-text publisher">publisher name: {{item.name}}</p>
+                                                <p class="card-text ellipsis publisher">publisher name: {{item.name}}</p>
                                             </template>
                                             <template is="dom-repeat" items="{{item.editions}}">
-                                                <p class="card-text edition">title: {{item.title}}</p>
-                                                <p class="card-text edition">isbn: {{item.isbn}}</p>
-                                                <P class="card-text edition">date: {{item.date}}</P>
+                                                <p class="card-text ellipsis edition">title: {{item.title}}</p>
+                                                <p class="card-text ellipsis edition">isbn: {{item.isbn}}</p>
+                                                <P class="card-text ellipsis edition">date: {{item.date}}</P>
                                             </template>
                                             <template is="dom-repeat" items="{{item.places}}">
-                                                <p class="card-text place">place: {{item.name}}</p>
+                                                <p class="card-text ellipsis place">place: {{item.name}}</p>
                                             </template>
                                         </template>
                                     </paper-card>
@@ -361,11 +370,11 @@
             }
 
             _getFirstAuthor(authors) {
-                return authors[0].name;
+                return authors.length > 0 ? authors[0].name : "";
             }
 
             _getFirstPublisher(publishers) {
-                return publishers[0].name;
+                return publishers.length > 0 ? publishers[0].name : "";
             }
 
             _handleImage(e) {
@@ -480,6 +489,15 @@
                 } else {
                     this.set('noRecent', true);
                 }
+            }
+
+            _goToBookProfile(e) {
+                var obj = e.model.item;
+                var authors = obj.authors.map(e => e.id).join("+");
+                var pubs = obj.publishers.map(e => e.id).join("+");
+                var places = obj.places.map(e => e.id).join("+");
+
+                this.set("route.path", "book-profile/" + obj.title.replace("/", "") + "/" + obj.id + "/" + authors + "/" + pubs + "/" + places);
             }
 
             _getFavorites() {

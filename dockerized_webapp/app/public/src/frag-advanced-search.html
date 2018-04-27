@@ -419,6 +419,9 @@
                     var placesStr = terms.places.map(e => e.name).join("+");
                     var degree = terms.degree;
 
+                    this.set("addMoreDisabled", false);
+                    this.set("numFieldsArray", []);
+
                     this.set("route.path", "book-results/advanced/"
                         + (editionStr === '' || editionStr === '**' ? "null" : editionStr) + "/" 
                         + (authorsStr === '' ? "null" : authorsStr) + "/" 
