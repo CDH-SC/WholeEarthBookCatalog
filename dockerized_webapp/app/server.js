@@ -10,6 +10,7 @@ var path = require("path");
 var express = require("express");
 var bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
+var json2csv = require("json2csv").Parser;
 var mongo = require("./utils/mongoDriver.js");
 var neo4j = require("./utils/neo4jDriver.js");
 var qstrings = require("./utils/querystrings.js");
@@ -479,6 +480,27 @@ router.post("/neo4j/", function (req, res) {
 
     }
 });
+
+
+/* Save searches to a CSV
+ * takes search results in JSON
+ * puts them into csv by category
+*/
+router.post("/save_csv/", function(req, res) {
+    // data from search
+    var data = req.body;
+    var fields = ["title", "isbn", "date", "id", "authors", "publishers"];
+    var opts = {fields};
+
+    try {
+        const parser = new json2csv(opts);
+        const csv = parser.parse(data);
+        console.log(csv);
+    } catch (err) {
+        console.error(err);
+    }
+});
+
 
 // use bodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
