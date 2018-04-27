@@ -56,9 +56,9 @@
                     <template is="dom-if" if="[[!valid]]">
                         <p>{{errorMessage}}</p>
                     </template>
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
+    </div>
     </template>
 
     <script>
@@ -86,20 +86,16 @@
                 if (!this.username || this.username == "" || this.username.length <= 3) {
                     this.set("errorMessage", "Username not long enough");
                     this.valid = false;
-                }
-                else if (!this.password || !this.password_confirm) {
+                } else if (!this.password || !this.password_confirm) {
                     this.set("errorMessage", "Either password is empty");
                     this.valid = false;
-                }
-                else if (this.password !== this.password_confirm) {
+                } else if (this.password !== this.password_confirm) {
                     this.set("errorMessage", "Passwords do not match");
                     this.valid = false;
-                }
-                else if (this.password.length <= 5) {
+                } else if (this.password.length <= 5) {
                     this.set("errorMessage", "Password must be longer than 5 characters");
                     this.valid = false;
-                } 
-                else {
+                } else {
                     this._post_new_user();
                 }
             }
@@ -139,18 +135,15 @@
                             this.valid = true;
                         }
                         this.set("route.path", "home");
-                    } 
-                    else if (e.detail.response.Error) {
+                    } else if (e.detail.response.Error) {
                         if (e.detail.response.Error === "invaild data format") {
                             this.set("errorMessage", "invalid data format");
                             this.valid = false;
-                        } 
-                        else {
+                        } else {
                             this.set("errorMessage", "Username already exists");
                             this.valid = false;
                         }
-                    } 
-                    else {
+                    } else {
                         this.set("errorMessage", "invalid data format");
                     }
                 }

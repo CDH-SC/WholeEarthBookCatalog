@@ -22,6 +22,7 @@
         "gunzip-file": "^0.1.1",
         "jquery": "^3.3.1",
         "json-array-streams": "^1.0.1",
+        "json2csv": "4.1.2",
         "libxmljs": "0.18.7",
         "marc-record-converters": "^1.0.0",
         "marc4js": "0.0.8",
