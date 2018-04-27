@@ -63,7 +63,7 @@ $ docker-compose up -d
 
 for development:
 ```
-$ docker-compose -f docker-compose.dev.yml -d
+$ docker-compose -f docker-compose.dev.yml up -d
 ```
 
 The app will be deployed on `localhost:$SERVER_PORT`.
