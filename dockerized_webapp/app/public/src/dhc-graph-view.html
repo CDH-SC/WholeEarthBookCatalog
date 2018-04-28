@@ -45,9 +45,8 @@
                     // If we're in graph view used to trigger generations.
                     isVisible: {
                         type: Boolean,
-                        observer: "_isVisible"
+                        observer: "_visibleObserver"
                     },
-
                     // Unmassaged Records from backend
                     records: {
                         type: Array
@@ -83,9 +82,20 @@
                 super.ready();
             }
 
-            _isVisible() {
-                this._massageData();
-                this._genGraph();
+            _visibleObserver() {
+                console.log("VISIBLE:", this.isVisible);
+                if (this.isVisible) {
+                    this._massageData();
+                    this._genGraph();
+                }
+                else {
+                    console.log("CLEARING GRAPH");
+                    this._clearGraph();
+                }
+            }
+
+            _clearGraph() {
+                d3.select(this.$.container).remove();
             }
 
             _massageData() {
@@ -206,11 +216,6 @@
                 const height = window.innerHeight;
                 console.log(width);
 
-                const nodesInScope = this.nodes;
-                const linksInScope = this.edges;
-                console.log(nodesInScope);
-                console.log(linksInScope);
-
                 // Finding svg container for the visualization
                 const container = d3.select(this.$.container)
                     .attr('width', width)
@@ -268,7 +273,7 @@
                 const nodeElements = svg.append('g')
                     .attr("class", "nodes")
                     .selectAll("circle")
-                    .data(nodesInScope)
+                    .data(this.nodes)
                     .enter().append("circle")
                     .attr("r", 20)
                     .style("stroke", "white")    // set the line colour
@@ -305,7 +310,7 @@
 
                 const textElements = svg.append('g')
                     .selectAll('text')
-                    .data(nodesInScope)
+                    .data(this.nodes)
                     .enter().append('text')
                     .text(function (node) {
                         return node.label
@@ -319,7 +324,7 @@
 
                 const textLinks = svg.append('g')
                     .selectAll('text')
-                    .data(linksInScope)
+                    .data(this.edges)
                     .enter().append('text')
                     .text(function (link) {
                         return link.label
@@ -340,7 +345,7 @@
 
                 const linkElements = svg.append('g')
                     .selectAll('line')
-                    .data(linksInScope)
+                    .data(this.edges)
                     .enter().append('line')
                     .text(function (link) {
                         return link.label
@@ -348,7 +353,7 @@
                     .attr('stroke-width', 1)
                     .attr('stroke', '#FFFFFF')
 
-                simulation.nodes(nodesInScope).on('tick', () => {
+                simulation.nodes(this.nodes).on('tick', () => {
                     nodeElements
                         .attr("cx", node => node.x)
                         .attr("cy", node => node.y)
@@ -365,7 +370,7 @@
                         .attr('y2', link => link.target.y)
                 })
 
-                simulation.force('link').links(linksInScope)
+                simulation.force('link').links(this.edges)
             }
 
             _getNodeColor(node) {
