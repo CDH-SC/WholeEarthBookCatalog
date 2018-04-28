@@ -26,7 +26,7 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 margin-bottom: 60px;
-                overflow-y: auto;
+                /* overflow-y: auto; */
             }
 
             .result-item-info {
@@ -248,7 +248,7 @@
             </div>
 
             <template is="dom-if" if="{{!isList}}">
-                <dhc-graph-view records="{{searchData.records}}" is-visible="{{!isList}}"></dhc-graph-view>
+                <dhc-graph-view records="{{searchData.records}}" is-visible="[[!isList]]"></dhc-graph-view>
             </template>
 
 
@@ -312,6 +312,7 @@
                     // Search data returned from iron-ajax to /api/neo4j/
                     searchData: {
                         type: Object,
+                        notify: true
                     },
                     // Determines if data is loading
                     searchDataLoaded: {
@@ -326,7 +327,7 @@
                     // 
                     isList: {
                         type: Boolean,
-                        value: true
+                        value: true,
                     },
                     needTimeout: {
                         type: Boolean,
@@ -362,7 +363,6 @@
                     this.set("searchDataLoaded", false);
                     this.set("isList", true);
                     this.set("searchData", {});
-
                     this._fireSearchPost();
                 }
                 else {
@@ -376,6 +376,7 @@
                     this.set('searchData', {});
                     this.set('searchDataLoaded', false);
                     this.set('timeoutOccured', false);
+                    this.set('isList', true);
                 }
             }
 
