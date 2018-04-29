@@ -493,12 +493,19 @@ router.post("/save_csv/", function(req, res) {
     var opts = {fields};
 
     try {
+        // Creating parser and parsing to csv
         const parser = new json2csv(opts);
         const csv = parser.parse(data);
         console.log(csv);
+
+        // Send created csv
+        res.setHeader('Content-disposition', 'attachment; filename=testing.csv');
+        res.status(200).send(csv);
     } catch (err) {
         console.error(err);
+        res.json(err);
     }
+
 });
 
 
