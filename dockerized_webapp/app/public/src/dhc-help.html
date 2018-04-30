@@ -2,7 +2,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-divider/paper-divider.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-collapse/iron-collapse.html">
@@ -19,19 +18,9 @@
             <style is = "custom-style" include="shared-styles iron-flex iron-flex-alignment" >
 
                     
-                    
-                    #h1 {
-                        margin: 0;
-                        font-size: 96px;
-                        font-weight: lighter;
-                    }
-                    
                     #main-content {
         
                         display: flex;
-                       /* align-items: center;
-                        justify-content: center;
-                        flex-direction: column; */
                         width: 100%
                     }
 
@@ -40,7 +29,6 @@
                         width: 4px;
                         height: 92%;
                         position: absolute;
-                       /* margin-top: 10%;*/
                         left: 7%;
                         right: 70%;
 
@@ -61,8 +49,6 @@
                     .menu-item {
                         background-color: purple;
                     }
-
-                    
 
                     #help-message {
                         margin-top: 20px;
@@ -203,7 +189,34 @@
                     <li> Once you hit 'Create Account' you will automatically be signed on with your username.</li>
                 </ul>
             </blockquote>
+
+            <h4> Frequently Asked Questions </h4>
+            <ul>
+                <li>What information is saved on my user profile?</li>
+                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+            </ul>
+
+            <div noink on-click="_toggle_faq" id="secondary-help-section" style="color:pink">
+                <template is="dom-if" if="[[faq_show]]">
+                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
+    
+                        </template>
+                <template is="dom-if" if="[[!faq_show]]">
+                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
+                        </template>
+                <iron-collapse>
+                    <div style="color:pink"></div>
+                    <h4> Frequently Asked Questions </h4>
+                    <ul>
+                        <li>What information is saved on my user profile?</li>
+                        <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                    </ul>
+                </iron-collapse>
+
+            </div>
         </div>
+
+
         <div id="faq-container">
             <div noink on-click="_toggle_faq" id="secondary-help-section">
                 <template is="dom-if" if="[[faq_show]]">
@@ -214,8 +227,8 @@
                         <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
                     </template>
 
-                <iron-collapse id="faqCollapse">
-                    <div class=FAQs>
+                <iron-collapse id="faqCollapse" style="color:red">
+                    <div class=FAQs style="color:red">
                         <h4> Frequently Asked Questions </h4>
                         <ul>
                             <li>What information is saved on my user profile?</li>
@@ -232,11 +245,7 @@
 
     </div>
 
-
-
     <paper-divider></paper-divider>
-
-
 
     <div id="item-search-container">
         <div noink on-click="_toggle_item_search" class="help-section">
@@ -277,6 +286,12 @@
 
                 </blockquote>
 
+                <h4> Frequently Asked Questions </h4>
+                <ul>
+                    <li>What information is saved on my user profile?</li>
+                    <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                </ul>
+
             </div>
             <div id="faq-container">
                 <div noink on-click="_toggle_faq">
@@ -288,8 +303,8 @@
                                             <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
                                         </template>
                 </div>
-                <iron-collapse id="faqCollapse">
-                    <div class=FAQs>
+                <iron-collapse id="faqCollapse" style="color:yellow;">
+                    <div class=FAQs style="color: yellow;">
                         <h4> Frequently Asked Questions </h4>
                         <ul>
                             <li>What information is saved on my user profile?</li>
@@ -304,8 +319,6 @@
 
         </iron-collapse>
     </div>
-
-
 
     <paper-divider></paper-divider>
 
@@ -358,31 +371,37 @@
                     </ul>
 
                 </blockquote>
-            </div>
-            <div id="faq-container">
-                <div noink on-click="_toggle_faq" id="secondary-help-section">
-                    <template is="dom-if" if="[[faq_show]]">
-                        <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
 
+                <h4> Frequently Asked Questions </h4>
+                <ul>
+                    <li>What information is saved on my user profile?</li>
+                    <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                </ul>
+            </div>
+    </div>
+    <div id="faq-container">
+        <div noink on-click="_toggle_faq" id="secondary-help-section">
+            <template is="dom-if" if="[[faq_show]]">
+                        <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
                     </template>
-                    <template is="dom-if" if="[[!faq_show]]">
+            <template is="dom-if" if="[[!faq_show]]">
                         <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
                     </template>
 
-                    <iron-collapse id="faqCollapse">
-                        <div class=FAQs>
-                            <h4> Frequently Asked Questions </h4>
-                            <ul>
-                                <li>What information is saved on my user profile?</li>
-                                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                            </ul>
-                        </div>
-
-                    </iron-collapse>
+            <iron-collapse id="faqCollapse" style="color:green">
+                <div class=FAQs style="color:green">
+                    <h4> Frequently Asked Questions </h4>
+                    <ul>
+                        <li>What information is saved on my user profile?</li>
+                        <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                    </ul>
                 </div>
-            </div>
 
-        </iron-collapse>
+            </iron-collapse>
+        </div>
+    </div>
+
+    </iron-collapse>
 
 
     </div>
