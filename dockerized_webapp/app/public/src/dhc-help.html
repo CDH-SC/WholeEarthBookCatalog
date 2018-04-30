@@ -39,17 +39,6 @@
                         margin-left: 10%;
                     }
 
-                    #menu-wrapper {
-                        width: 60%;
-                        height: 7%;
-                    
-                        border: 2px solid black;
-                    } 
-
-                    .menu-item {
-                        background-color: purple;
-                    }
-
                     #help-message {
                         margin-top: 20px;
                         font-size: 14px;
@@ -64,20 +53,17 @@
 
                     #account-setup-container {
                         width: 100%;
-                        /*background-color: red; */
                         margin-bottom: -2%;
                     }
 
                     #item-search-container {
                         width: 100%;
-                       /* background-color: yellow; */
                        margin-top: -2%;
                        margin-bottom: -2%;
                     }
 
                     #user-account-container {
                         width: 100%;
-                       /* background-color: blue; */
                        margin-top: -2%
                     }
 
@@ -127,10 +113,6 @@
                         
                         margin-top: 0px;
                         width: 8%
-                    }
-
-                    paper-submenu {
-                        background-color: green;
                     }
 
                     polymer-dropdown-menu {
@@ -192,52 +174,13 @@
 
             <h4> Frequently Asked Questions </h4>
             <ul>
-                <li>What information is saved on my user profile?</li>
-                <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                <li>Can I only set up one account?</li>
+                <p> No, it is possible to have an unlimited number of accounts. We only ask that you use one at a time.</p>
+                <li>Is the password encrypted?</li>
+                <p>Yes, the password is encrypted through the SHA-256 hash algorithm. We do this through the Crypto JS library.</p>
             </ul>
 
-            <div noink on-click="_toggle_faq" id="secondary-help-section" style="color:pink">
-                <template is="dom-if" if="[[faq_show]]">
-                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-    
-                        </template>
-                <template is="dom-if" if="[[!faq_show]]">
-                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                        </template>
-                <iron-collapse>
-                    <div style="color:pink"></div>
-                    <h4> Frequently Asked Questions </h4>
-                    <ul>
-                        <li>What information is saved on my user profile?</li>
-                        <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                    </ul>
-                </iron-collapse>
 
-            </div>
-        </div>
-
-
-        <div id="faq-container">
-            <div noink on-click="_toggle_faq" id="secondary-help-section">
-                <template is="dom-if" if="[[faq_show]]">
-                        <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-
-                    </template>
-                <template is="dom-if" if="[[!faq_show]]">
-                        <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                    </template>
-
-                <iron-collapse id="faqCollapse" style="color:red">
-                    <div class=FAQs style="color:red">
-                        <h4> Frequently Asked Questions </h4>
-                        <ul>
-                            <li>What information is saved on my user profile?</li>
-                            <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                        </ul>
-                    </div>
-
-                </iron-collapse>
-            </div>
         </div>
 
 
@@ -271,6 +214,7 @@
 
                     <ul>
                         <li> Items returned will primarily be books, or editions. Each will also contain information on authors, publishers, and the place of places in which the edition is published. </li>
+                        <li>The Advanced Search feature allows users to specify their searches through any of the given fields.</li>
                         <li> To view more information on an edition, click 'View Full Profile' to view additional authors, publishers, and locations in which the edition was published. </li>
                         <br>
                         <li>Clicking the 'Graph' tab above the search results will lead to a complete display of your search results. From this graph, you will also be able to view the relationships between your search results. </li>
@@ -288,34 +232,13 @@
 
                 <h4> Frequently Asked Questions </h4>
                 <ul>
-                    <li>What information is saved on my user profile?</li>
-                    <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                    <li>Where will my saved queries go?</li>
+                    <p> Any saved queries will be stored on your user profile. You can save a query by selecting the corresponding option on the tab bar.</p>
+                    <li>Is there a limit to how many fields can be added on 'Advanced Search'?</li>
+                    <p>There is no limit, but trust that a user would only require a maximum of 10-12 fields for a single advanced search.</p>
                 </ul>
 
             </div>
-            <div id="faq-container">
-                <div noink on-click="_toggle_faq">
-                    <template is="dom-if" if="[[faq_show]]">
-                                            <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-                    
-                                        </template>
-                    <template is="dom-if" if="[[!faq_show]]">
-                                            <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                                        </template>
-                </div>
-                <iron-collapse id="faqCollapse" style="color:yellow;">
-                    <div class=FAQs style="color: yellow;">
-                        <h4> Frequently Asked Questions </h4>
-                        <ul>
-                            <li>What information is saved on my user profile?</li>
-                            <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                        </ul>
-                    </div>
-
-                </iron-collapse>
-
-            </div>
-
 
         </iron-collapse>
     </div>
@@ -376,30 +299,12 @@
                 <ul>
                     <li>What information is saved on my user profile?</li>
                     <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
+                    <li> Is it possible to search items directly from the 'Recently Searched' or 'Saved Searched' sections?</li>
+                    <p> While it's not possible at the moment, you will be able to do this with future site developments.</p>
                 </ul>
             </div>
     </div>
-    <div id="faq-container">
-        <div noink on-click="_toggle_faq" id="secondary-help-section">
-            <template is="dom-if" if="[[faq_show]]">
-                        <iron-icon icon = "expand-less" style = "margin-left:10%"></iron-icon> <strong> Frequently Asked Questions </strong>
-                    </template>
-            <template is="dom-if" if="[[!faq_show]]">
-                        <iron-icon icon = "expand-more" style = "margin-left:10%"></iron-icon>
-                    </template>
 
-            <iron-collapse id="faqCollapse" style="color:green">
-                <div class=FAQs style="color:green">
-                    <h4> Frequently Asked Questions </h4>
-                    <ul>
-                        <li>What information is saved on my user profile?</li>
-                        <p> Along with the information you used to start this profile, all queries and titles that have been saved or 'favorited' will also be stored.</p>
-                    </ul>
-                </div>
-
-            </iron-collapse>
-        </div>
-    </div>
 
     </iron-collapse>
 
