@@ -168,7 +168,7 @@ neo4jDriver.constructQuery = function(data) {
                     addbookYear += " OR ";
                 }
                 addbookYear += qstrings.advancedEditionYear;
-                addbookYear = addbookYear.replace('{ date_re }', '\".*' + data.editions[i].date + '.*\"');
+                addbookYear = addbookYear.replace('{ date_re }',  data.editions[i].date );
                 addBook += addbookYear;
             }
             query += addBook;

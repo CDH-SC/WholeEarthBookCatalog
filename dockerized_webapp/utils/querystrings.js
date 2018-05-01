@@ -87,7 +87,7 @@ qstrings.advancedEditionTitle = ' b.title =~ { title_re } ';
 
 qstrings.advancedEditionISBN = ' { isbn_re } IN b.IBSN ';
 
-qstrings.advancedEditionYear = ' b.date =~ { date_re } ';
+qstrings.advancedEditionYear = ' b.date = { date_re } ';
 
 qstrings.withCollectFirst = `
 WITH
