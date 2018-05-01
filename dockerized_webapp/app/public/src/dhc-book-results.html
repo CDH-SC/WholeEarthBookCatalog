@@ -248,7 +248,7 @@
             </div>
 
             <template is="dom-if" if="{{!isList}}">
-                <dhc-graph-view records="{{searchData.records}}" is-visible="[[!isList]]"></dhc-graph-view>
+                <dhc-graph-view records="{{searchData.records}}" is-hidden="[[isList]]"></dhc-graph-view>
             </template>
 
 
@@ -327,7 +327,7 @@
                     // 
                     isList: {
                         type: Boolean,
-                        value: true,
+                        value: true
                     },
                     needTimeout: {
                         type: Boolean,
@@ -382,11 +382,14 @@
 
             // Toggles graph view
             _showGraph() {
+                console.log("SETTING LIST TO FALSE")
+
                 this.set("isList", false);
             }
 
             // Toggles list view
             _showList() {
+                console.log("SETTING LIST TO TRUE")
                 this.set("isList", true);                
             }
 
