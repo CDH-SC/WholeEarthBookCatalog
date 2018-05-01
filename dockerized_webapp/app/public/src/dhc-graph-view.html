@@ -40,13 +40,14 @@
             static get is() {
                 return 'dhc-graph-view';
             }
+            static get observers() {
+                return [
+                    '_hiddenChanged(isHidden)',
+                    '_recordsChanged(records)'
+                ]
+            }
             static get properties() {
                 return {
-                    // If we're in graph view used to trigger generations.
-                    isVisible: {
-                        type: Boolean,
-                        observer: "_visibleObserver"
-                    },
                     // Unmassaged Records from backend
                     records: {
                         type: Array
@@ -82,20 +83,27 @@
                 super.ready();
             }
 
-            _visibleObserver() {
-                console.log("VISIBLE:", this.isVisible);
-                if (this.isVisible) {
+            _recordsChanged(records) {
+                console.log("RECORD CHANGED !!!!! HELLO ", records);
+                this._clearGraph();
+                this.set("nodes", []);
+                this.set("edges", []);
+                if(records !== undefined && records.length > 0) {
+                    console.log("********************** Graph visible");
                     this._massageData();
                     this._genGraph();
                 }
-                else {
-                    console.log("CLEARING GRAPH");
-                    this._clearGraph();
-                }
+            }
+
+            _hiddenChanged(value) {
+                console.log(value);
+                console.log("******************* HIDDEN:", this.isHidden);
+
             }
 
             _clearGraph() {
-                d3.select(this.$.container).remove();
+                console.log("clearing graph");
+                d3.select(this.$.container).selectAll("*").remove();
             }
 
             _massageData() {
@@ -229,6 +237,7 @@
                     );
 
                 const svg = container.append('g')
+                .attr('id', 'wrappersvg')
                 .attr('width', width)
                     .attr('height', height)
                     .style('background', "#333333")
@@ -384,7 +393,7 @@
 
             _getLabelShort(text) {
                 if (text.length > 10) {
-                    return text.slice(-10) + "..."
+                    return text.slice(10) + "..."
                 }
                 else {
                     return text;
