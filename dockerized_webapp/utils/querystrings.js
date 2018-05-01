@@ -85,9 +85,9 @@ qstrings.advancedPlace = ' plc.name =~ { plcname_re } ';
 
 qstrings.advancedEditionTitle = ' b.title =~ { title_re } ';
 
-qstrings.advancedEditionISBN = ' OR { isbn_re } IN b.IBSN ';
+qstrings.advancedEditionISBN = ' { isbn_re } IN b.IBSN ';
 
-qstrings.advancedEditionYear = ' OR b.year =~ { year_re } ';
+qstrings.advancedEditionYear = ' b.date =~ { date_re } ';
 
 qstrings.withCollectFirst = `
 WITH

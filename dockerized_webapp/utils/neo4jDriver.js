@@ -60,7 +60,7 @@ neo4jDriver.advancedQuery = function(data) {
         if ( !typeof(data.editions[i].title) === "string" ) {
             pass = false;
         }
-        if (!typeof(data.editions[i].year) === "number") {
+        if (!typeof(data.editions[i].year) === "string") {
             pass = false;
         }
     }
@@ -144,19 +144,31 @@ neo4jDriver.constructQuery = function(data) {
         
         for (var i = 0; i < data.editions.length; i++) {
             var addBook = "";
+            var yes = false;
             if (data.editions[i].title != null) {
                 var addbookTitle = qstrings.advancedEditionTitle;
-                addbookTitle = addbookTitle.replace('{ title_re }', '\"(?i).*' + data.editions[i].title + '.*\"');
+                addbookTitle = addbookTitle.replace('{ title_re }', '\".*' + data.editions[i].title + '.*\"');
                 addBook += addbookTitle;
+                yes = true;
             }
+
             if (data.editions[i].isbn != null) {
-                var addbookISBN = qstrings.advancedEditionISBN;
+                var addbookISBN = "";
+                if (yes == true) {
+                    addbookISBN += " OR ";
+                }
+                addbookISBN += qstrings.advancedEditionISBN;
                 addbookISBN = addbookISBN.replace('{ isbn_re }', '\"(?i).*' + data.editions[i].isbn + '.*\"')
                 addBook += addbookISBN;
+                yes = true;
             }
-            if (data.editions[i].year != null) {
-                var addbookYear = qstrings.advancedEditionYear;
-                addbookYear = addbookYear.replace('{ year_re }', '\"(?i).*' + data.editions[i].year + '.*\"');
+            if (data.editions[i].date != null) {
+                var addbookYear = "";
+                if ( yes == true ) {
+                    addbookYear += " OR ";
+                }
+                addbookYear += qstrings.advancedEditionYear;
+                addbookYear = addbookYear.replace('{ date_re }', '\".*' + data.editions[i].date + '.*\"');
                 addBook += addbookYear;
             }
             query += addBook;
