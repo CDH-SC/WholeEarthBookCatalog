@@ -7,8 +7,8 @@
 "use strict";
 
 var tags = require("./marcMaps");
-var qstrings = require("./utils/querystrings");
-var neo4j = require("./utils/neo4jDriver");
+var qstrings = require("./utils/query-strings");
+var neo4j = require("./utils/neo4j-driver");
 var format = require("string-format");
 var rp = require("request-promise");
 var xmljs = require("xml-js");

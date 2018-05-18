@@ -1,6 +1,6 @@
 var controlParser = {};
 
-var lib = require('./parser_Lib');
+var lib = require('./parser-lib');
 
 var Add = lib.Add;
 var LookupInTable = lib.LookupInTable;

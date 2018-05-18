@@ -2,9 +2,9 @@ var parseTools = {};
 
 var through = require('through2');
 
-var leaderParser = require('./parser_Leader');
-var controlParser = require('./parser_Control');
-var dataParser = require('./parser_Data');
+var leaderParser = require('./parser-leader');
+var controlParser = require('./parser-control');
+var dataParser = require('./parser-data');
 
 function ParseMARC(marc21) {
     var newObject = {};

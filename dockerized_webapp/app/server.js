@@ -11,9 +11,9 @@ var express = require("express");
 var bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
 var json2csv = require("json2csv").Parser;
-var mongo = require("./utils/mongoDriver.js");
-var neo4j = require("./utils/neo4jDriver.js");
-var qstrings = require("./utils/querystrings.js");
+var mongo = require("./utils/mongo-driver.js");
+var neo4j = require("./utils/neo4j-driver.js");
+var qstrings = require("./utils/query-strings.js");
 var ObjectId = require("mongodb").ObjectId;
 
 var port = 80;
