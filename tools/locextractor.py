@@ -14,6 +14,12 @@ def csvWriter(data, fname, delimeter, quotechar):
         for line in data:
             csv_writer.writerow(line)
 
+def csvReader(fname, delimiter, quotechar):
+    
+    with open(fname, 'r', newline='') as csv_file:
+        csv_reader = csv,reader(csvfile, delimter=delimiter, quotechar=quotechar)
+        
+#TODO handle deduplication of data and nodeID's 
 def nodeExtractor(data,key,nodeID):
     keys = nodes[key]['keys']
     extracted = []
