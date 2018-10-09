@@ -8,6 +8,7 @@ from langid import classify
 from pathlib import Path
 from multiprocessing import cpu_count
 from multiprocessing import Process
+from nlp.datacleaning import cleanData
 
 
 class LocExtractor():
@@ -38,11 +39,21 @@ class LocExtractor():
             extracted = []
             for value in keys:
                 try:
+                    
+                    #Clean data for deduping 
+
+                    # If items are in a list
+                    if (isinstance(line[value], list)):
+                        for i in range(len(line[value])):
+                            line[value][i] = cleanData(line[value][i])
+                            
+                        line[value] = '›'.join(line[value])
+
+                    else:
+                        line[value] = cleanData(line[value])
+
                     #If value is one we associate with an ID number
                     if value in id_nodes:
-                        #Check if item is a list. TODO Add list support
-                        if (isinstance(line[value], list)):
-                            line[value] = '›'.join(line[value])
                         #Check if we've seen value before so we don't end up with duplicate values that have different IDs
                         if line[value] in self.used_IDs:
                             extracted.append(self.used_IDs[line[value]])
@@ -188,8 +199,11 @@ if __name__ == "__main__":
     for p in processes:
         p.join()
 
-    #TODO Clean this up
-    extractor = LocExtractor()
-    languages = extractLang()
-    lang_name = save_dir / "language_rel_batch.csv"
-    extractor.csvWriter(fname=lang_name,data=languages,delimiter=args.d,quotechar=args.q)
+    def extractLangs():
+        #TODO Clean this up
+        extractor = LocExtractor()
+        languages = extractLang()
+        lang_name = save_dir / "language_rel_batch.csv"
+        extractor.csvWriter(fname=lang_name,data=languages,delimiter=args.d,quotechar=args.q)
+    
+    #extractLangs()
