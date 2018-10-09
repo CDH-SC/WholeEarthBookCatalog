@@ -3,7 +3,10 @@ import argparse
 import csv
 import glob
 import json
+import re
+from langid import classify
 from pathlib import Path
+from multiprocessing import cpu_count
 from multiprocessing import Process
 
 
@@ -39,7 +42,7 @@ class LocExtractor():
                     if value in id_nodes:
                         #Check if item is a list. TODO Add list support
                         if (isinstance(line[value], list)):
-                            line[value] = ' '.join(line[value])
+                            line[value] = '›'.join(line[value])
                         #Check if we've seen value before so we don't end up with duplicate values that have different IDs
                         if line[value] in self.used_IDs:
                             extracted.append(self.used_IDs[line[value]])
@@ -48,6 +51,15 @@ class LocExtractor():
                             extracted.append(self.current_ID)
                             self.used_IDs[line[value]] = self.current_ID
                             self.current_ID += 1
+
+                    #Some basic regex to strip out non-year values in editionDate field
+                    if value == "editionDate":
+                        try:
+                            years = re.findall(r'[0-9]{4}', line[value])
+                            years = "›".join(years)
+                            line[value] = years 
+                        except:
+                                line[value] = "Unknown"
 
                     extracted.append(line[value])
 
@@ -72,6 +84,7 @@ class LocExtractor():
             yield [n1[0],n2[0],label] 
 
 
+
 def extractNode(key):
     extractor = LocExtractor()
     if args.all:
@@ -93,7 +106,21 @@ def extractRel(key):
                label=relations[key]['label'],nodes=nodes,delimiter=args.d,quotechar=args.q),
                fname=relations[key]['fname'],delimiter=args.d,quotechar=args.q)
 
-                 
+#Some basic language detection
+def extractLang():
+    extractor = LocExtractor()
+    lang_support = save_dir / "supported_languages.csv"
+    lang_name = save_dir / "language_rel_batch.csv"
+    for lines in extractor.csvReader(fname=nodes["Edition"]['fname'], delimiter=args.d,quotechar=args.q):
+        editionTitle = lines[2]
+        language = classify(editionTitle)
+        if (language[1] > -10.0):
+            language = "Unknown"
+        else:
+            language = language[0]
+        
+        yield [language, lines[0], "LANGUAGE"] 
+        
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(prog='locextract.py', description="Converts LOC dataset into CSV that is parsable by Neo4j", usage="./locextract -b /batch/file/path -e /extracted/file/path -q quotechar -d delimiter -s startbatch -f endbatch")
@@ -160,3 +187,9 @@ if __name__ == "__main__":
         p.start()
     for p in processes:
         p.join()
+
+    #TODO Clean this up
+    extractor = LocExtractor()
+    languages = extractLang()
+    lang_name = save_dir / "language_rel_batch.csv"
+    extractor.csvWriter(fname=lang_name,data=languages,delimiter=args.d,quotechar=args.q)
