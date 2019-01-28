@@ -4,7 +4,7 @@ import csv
 import glob
 import json
 import re
-from langid import classify
+#from langid import classify
 from pathlib import Path
 from multiprocessing import cpu_count
 from multiprocessing import Process
@@ -12,9 +12,9 @@ from nlp.datacleaning import cleanData
 
 
 class LocExtractor():
-    def __init__(self):
+    def __init__(self,current_ID=0):
         self.used_IDs = {}
-        self.current_ID = 0
+        self.current_ID = current_ID
 
     def csvWriter(self,data, fname, delimiter, quotechar):
         
@@ -79,7 +79,7 @@ class LocExtractor():
                         extracted.append(self.current_ID)
                         self.current_ID += 1
                     extracted.append("unknown")
-            extracted.append(key)
+            extracted.append(key)  
             yield extracted
              
     def relExtractor(self,keys,label,nodes, delimiter, quotechar):
@@ -97,7 +97,12 @@ class LocExtractor():
 
 
 def extractNode(key):
-    extractor = LocExtractor()
+    if args.n:
+            extractor = LocExtractor(current_ID = nodes[key]['start'])
+            delimiter = '\t'
+    else:
+            extractor = LocExtractor()
+            delimiter = args.d
     if args.all:
         batches = ["batch{}.json".format(x) for x in range(0,118)]
     elif args.s and args.f:
@@ -108,14 +113,18 @@ def extractNode(key):
         batch = Path(args.b) / batch
         with open(str(batch),'r') as f:
             data = json.load(f)
-            extractor.csvWriter(extractor.nodeExtractor(data=data,nodes=nodes,key=key),fname=nodes[key]['fname'],delimiter=args.d,quotechar=args.q)  
+            extractor.csvWriter(extractor.nodeExtractor(data=data,nodes=nodes,key=key),fname=nodes[key]['fname'],delimiter=delimiter,quotechar=args.q)  
 
 
 def extractRel(key):
+    if args.n:
+            delimiter = '\t'
+    else:
+            delimiter = args.d
     extractor = LocExtractor()
     extractor.csvWriter(extractor.relExtractor(keys=relations[key]['nodes'],
-               label=relations[key]['label'],nodes=nodes,delimiter=args.d,quotechar=args.q),
-               fname=relations[key]['fname'],delimiter=args.d,quotechar=args.q)
+               label=relations[key]['label'],nodes=nodes,delimiter=delimiter,quotechar=args.q),
+               fname=relations[key]['fname'],delimiter=delimiter,quotechar=args.q)
 
 #Some basic language detection
 def extractLang():
@@ -142,6 +151,8 @@ if __name__ == "__main__":
     parser.add_argument("-d", default="|", help='Specifiy delimiter')
     parser.add_argument("-s", default=0, help='Specify start batch')
     parser.add_argument("-f", default=0, help='Specify finish batch')
+    parser.add_argument("-n", action='store_true')
+
     args = parser.parse_args()
 
     save_dir = Path(args.e)
@@ -150,18 +161,22 @@ if __name__ == "__main__":
     nodes = { 'Place': {
                         'fname': save_dir / "place_batch.csv", 
                         'keys': ["place"],
+                         'start': 0 
                         },
             'Edition': {
                         'fname': save_dir/ "edition_batch.csv", 
                         'keys': ["editionISBN","editionTitle","editionDate"],
+                        'start' : 10000000
                         },
             'Publisher': {
                         'fname':save_dir / "publisher_batch.csv", 
                         'keys': ["publisher"],
+                        'start': 20000000
                         },
             'Person': {
                         'fname': save_dir / "person_batch.csv", 
                         'keys': ["person"],
+                        'start': 30000000
                         },
             }
 
@@ -170,17 +185,17 @@ if __name__ == "__main__":
             'PlaceR' : {
                         'fname': save_dir / "place_rel_batch.csv", 
                         'nodes': ["Edition","Place"],
-                        'label': "PUBLISHED_IN"
+                        'label': ""
                         },
             'WroteR': {
                         'fname': save_dir / "wrote_rel_batch.csv", 
                         'nodes': ["Person","Edition"],
-                        'label': "WROTE"
+                        'label': ""
                         },
             'PublishedR': {
                             'fname': save_dir / "published_rel_batch.csv",
                             'nodes': ["Publisher","Edition"],
-                            'label': "PUBLISHED"
+                            'label': ""
                         }
             }  
 
