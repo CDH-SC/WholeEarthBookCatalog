@@ -1,0 +1,170 @@
+history show
+history
+abbrevs = pd.read_csv('abbrevs.csv',delimiter='\t')
+import pandas as pd
+abbrevs = pd.read_csv('abbrevs.csv',delimiter='\t')
+abbrevs = abbresv.values.tolist()
+abbrevs = abbrevs.values.tolist()
+abbrevs
+us = ['United States','USA','U.S.','U.S.A.']
+us = ['United States','USA','U.S.','U.S.A.','US']
+united_states = [["{},{}".format(x,y)] for x in us for y in z for z in abbrevs]
+united_states = []
+for x in abbrevs:
+    for y in x:
+        for z in us:
+            united_states.append("{},{}".format(y,z))
+unted_states
+united_states
+united_states = []
+for x in abbrevs:
+    for y in x:
+        curr = []
+        for z in us:
+            curr.append("{},{}".format(y,z))
+        united_states.append(curr)
+united_states
+united_states = []
+for x in abbrevs:
+    for y in x:
+        curr = []
+        for z in us:
+            curr.append("{}, {}".format(y,z))
+        united_states.append(curr)
+united_states
+for x in abbrevs:
+    curr = []
+    for y in x:
+        for z in us:
+            curr.append("{}, {}".format(y,z))
+    united_states.append(curr)
+unted_states
+united_states
+abbrevs
+united_states
+united_states = []
+for x in abbrevs:
+    curr = []
+    for y in x:
+        for z in us:
+            curr.append("{}, {}".format(y.strip(),z))
+    united_states.append(curr)
+united_states
+abbrevs
+for index,value in abbrevs:
+    abbrevs[index][0] = abbrevs[index][0].strip()
+for index,value in enumerate(abbrevs):
+    abbrevs[index][0] = abbrevs[index][0].strip()
+abbrevs
+united_states
+new_list = [x + y for x,y in zip(abbrevs,united_states)]
+new_list
+abbrevs_df = pd.DataFrame(new_list)
+abbrevs_df
+abbrevs_df.to_csv('state_abbrevs.csv',delimiter='\t')
+abbrevs_df.to_csv('state_abbrevs.csv',sep='\t')
+cat state_abbrevs.csv
+abbrevs_df.to_list()
+abbrevs_df.tolist()
+abbrevs_df.values.tolist()
+abbrevs_df.values.tolist()[0]
+abbrevs_df.values.tolist()[0][2]
+places = pd.read_csv('place_batch.csv',names=['place_id','place_name','label'],usecols=['place_id','place_name'],delimiter='\t')
+ls
+cat commands.py
+ls
+cat alpha_sort.py
+ls
+abbrevs
+abbrevs_df
+abbrevs_df.values.tolist()
+abbrevs = abbrevs_df.values.tolist()
+abbrevs
+cat commands.py
+for state in abbrevs:
+    places[places['place_name'].map(lambda x: x.endswith(tuple(state)))]['place_name'].apply(lambda x: " ".join(x.split(' ')[:len(x.split(' '))-1] + [state[2]]))
+import numpy as np
+places = places.replace(np.nan, '', regex=True)
+for state in abbrevs:
+    places[places['place_name'].map(lambda x: x.endswith(tuple(state)))]['place_name'].apply(lambda x: " ".join(x.split(' ')[:len(x.split(' '))-1] + [state[2]]))
+ls
+vim abbrevs.csv
+vim state_abbrevs.csv
+vim abbrevs.csv
+united_states
+len(united_states)
+ls
+cat abbrevs.csv
+vim state_abbrevs.csv
+ls
+united_states
+len(abbrevs)
+abbrevs = pd.read_csv('abbrevs.csv',delimiter='\t')
+abbrevs
+ls
+vim abbrevs.csv
+vim
+vim abbrevs.csv
+abbrevs = pd.read_csv('abbrevs.csv',delimiter='\t')
+abbrevs
+vim abbrevs.csv
+abbrevs = pd.read_csv('abbrevs.csv',delimiter='\t')
+abbrevs
+vim abbrevs.csv
+abbrevs = pd.read_csv('abbrevs.csv',delimiter='\t',header=None)
+abbrevs
+united_states = []
+for x in abbrevs:
+    curr = []
+    for y in x:
+        for z in us:
+            curr.append("{}, {}".format(y.strip(),z))
+    united_states.append(curr)
+abbrevs
+abbrevs = abbrevs.values.tolist()
+abbrevs
+for x in abbrevs:
+    curr = []
+    for y in x:
+        for z in us:
+            curr.append("{}, {}".format(y.strip(),z))
+    united_states.append(curr)
+united_states = []
+for x in abbrevs:
+    curr = []
+    for y in x:
+        for z in us:
+            curr.append("{}, {}".format(y.strip(),z))
+    united_states.append(curr)
+united_states
+import pickle
+with open('usa.pickle','wb') as handle:
+    pickle.dumps(united_states,handle)
+with open('usa.pickle','wb') as handle:
+    pickle.dumps(united_states,handle,protcol=pickle.HIGHESTPROTOCOL)
+cat alpha_sort.py
+with open('usa.pickle','wb') as handle:
+    pickle.dump(united_states,handle,protocol=pickle.HIGHEST_PROTOCOL)
+ls
+united_states
+ls
+ls
+cd ..
+ls
+mv cleaned_data/usa.pickle tools
+cd t
+cd tools
+ls
+vim locextractor.py
+united_states
+us_dict ={}
+for x in united_states:
+    value = x[0]
+    for y in x[1:]:
+        us_dict[y] = value
+us_dict
+with open('usa.pickle','wb') as handle:
+    pickle.dump(us_dict,handle,protocol=pickle.HIGHEST_PROTOCOL)
+ls
+vim locextractor.py
+history show

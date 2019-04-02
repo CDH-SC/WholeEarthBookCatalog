@@ -2,13 +2,8 @@
 import argparse
 import csv
 import glob
-import hashlib
 import json
-import pickle
 import re
-import string
-import sys
-import unicodedata
 #from langid import classify
 from pathlib import Path
 from multiprocessing import cpu_count
@@ -20,7 +15,6 @@ class LocExtractor():
     def __init__(self,current_ID=0):
         self.used_IDs = {}
         self.current_ID = current_ID
-        self.clean = {}
 
     def csvWriter(self,data, fname, delimiter, quotechar):
         
@@ -57,31 +51,6 @@ class LocExtractor():
 
                     else:
                         line[value] = cleanData(line[value])
-
-                    # Check if punctuation is what differentiates strings
-
-                    cleaned_val = "".join(l for l in line[value] if l not in string.punctuation).lower()
-                    cleaned_val = ' '.join(cleaned_val.split())
-                    if cleaned_val in self.clean:
-                        line[value] = self.clean[cleaned_val]
-                    else:
-                        self.clean[cleaned_val] = line[value]
-
-                    # Check against place aliases 
-                    if value == 'place':
-                        curr = line[value].split(" ")
-                        if len(curr) > 1:
-                            if ", ".join([curr[-2],curr[-1]]) in place_dict:
-                                curr_state = ", ".join([curr[-2],curr[-1]])
-                                del curr[-2]
-                                del curr[-1]
-                                curr = ", ".join(curr)
-                                line[value] = ", ".join([curr,place_dict[curr_state]])
-                            elif curr[-1] in place_dict:
-                                line[value] = ", ".join([" ".join(curr[:len(curr)-1]),place_dict[curr[-1]]])
-
-                        elif line[value] in place_dict:
-                            line[value] = place_dict[line[value]]
 
                     #If value is one we associate with an ID number
                     if value in id_nodes:
@@ -237,9 +206,6 @@ if __name__ == "__main__":
             }  
 
     #Spawn a new process for every key for an easy 4X performance boost
-
-    with open('/home/n4user/json/cleaned_data/binary/place_abbrevs.pickle','rb') as handle:
-        place_dict = pickle.load(handle)
     processes = [Process(target=extractNode, args=(key,)) for key in nodes.keys()]
     for p in processes:
         p.start()
