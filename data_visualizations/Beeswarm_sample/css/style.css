@@ -1,0 +1,42 @@
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.cells path {
+  fill: none;
+  pointer-events: all;
+}
+
+.cells :hover circle {
+  fill: red;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+table {
+  border-collapse: collapse;
+  border: 2px black solid;
+  font: 12px sans-serif;
+  margin: 0px auto;            
+}
+
+td, th {
+   border: 1px black solid;
+   padding: 5px;
+}
+
+th {
+   font-weight: bold;
+}

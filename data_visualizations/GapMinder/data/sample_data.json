@@ -1,0 +1,79 @@
+[
+    {
+	"countries": [
+            {
+                "continent": "Europe",
+                "country": "Germany",
+                "editions": 2,
+                "publishers": 2,
+                "authors": 2 
+            },
+	    {
+                "continent": "North America",
+                "country": "USA",
+                "editions": 20,
+                "publishers": 5,
+                "authors": 6
+            }
+	],
+            "year": "1900"
+    },
+    {
+	"countries": [
+            {
+                "continent": "Europe",
+                "country": "Germany",
+                "editions": 20,
+                "publishers": 4,
+                "authors": 19
+            },
+            {
+                "continent": "North America",
+                "country": "USA",
+                "editions": 12,
+                "publishers": 4,
+                "authors":4
+            }
+	],
+            "year": "1920"
+    },
+    {
+	"countries": [
+            {
+                "continent": "Europe",
+                "country": "Germany",
+                "editions": 5,
+                "publishers": 4,
+                "authors": 8
+            },
+	    {
+                "continent": "North America",
+                "country": "USA",
+                "editions": 9,
+                "publishers": 5,
+                "authors": 8
+            }
+	],
+            "year": "1940"
+    },
+    {
+	"countries": [
+            {
+                "continent": "Europe",
+                "country": "Germany",
+                "editions": 5,
+                "publishers": 4,
+                "authors": 8
+            },
+	    {
+                "continent": "North America",
+                "country": "USA",
+                "editions": 5,
+                "publishers": 4,
+                "authors": 4
+            }
+	],
+            "year": "1960"
+    }
+]
+

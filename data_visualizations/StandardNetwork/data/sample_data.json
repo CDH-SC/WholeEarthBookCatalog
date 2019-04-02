@@ -1,0 +1,18 @@
+{	
+	"nodes": [
+		{"id": 1, "name": "Vasco", "ISBN": "", "year": "", "type": "Person"},
+		{"id": 2, "name": "A Cool Story", "ISBN": "12345", "year": "2019", "type": "Edition"},
+		{"id": 3, "name": "CDH", "ISBN": "", "year": "", "type": "Publisher"},
+		{"id": 4, "name": "Columbia, SC", "ISBN": "", "year": "", "type": "Place"},
+		{"id": 5, "name": "Samyu", "ISBN": "", "year": "", "type": "Person"},
+		{"id": 6, "name": "A Lame Story", "ISBN": "666", "year": "2021", "type": "Edition"}
+	],
+	"links": [
+		{"source": 1, "target": 2},
+		{"source": 3, "target": 2},
+		{"source": 2, "target": 4},
+		{"source": 5, "target": 6},
+		{"source": 3, "target": 6},
+		{"source": 6, "target": 4}
+	]
+}
