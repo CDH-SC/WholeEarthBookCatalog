@@ -141,7 +141,7 @@ class LocExtractor():
             yield [n1[0],n2[0],label] 
 
 
-
+# Extract all nodes
 def extractNode(key):
     if args.n:
             extractor = LocExtractor(current_ID = nodes[key]['start'])
@@ -160,7 +160,7 @@ def extractNode(key):
             data = json.load(f)
             extractor.csvWriter(extractor.nodeExtractor(data=data,nodes=nodes,key=key),fname=nodes[key]['fname'],delimiter=delimiter,quotechar=args.q)  
 
-
+# Extract all relationships between nodes
 def extractRel(key):
     if args.n:
             delimiter = '\t'
