@@ -15,6 +15,7 @@ from multiprocessing import cpu_count
 from multiprocessing import Process
 from nlp.datacleaning import cleanData
 from pdb import set_trace as bp
+import os
 
 
 class LocExtractor():
@@ -244,8 +245,8 @@ if __name__ == "__main__":
             }  
 
     #Spawn a new process for every key for an easy 4X performance boost
-
-    with open('/home/n4user/json/cleaned_data/binary/place_abbrevs.pickle','rb') as handle:
+    abbrevs_dir = '{}/binary/place_abbrevs.pickle'.format(os.environ['WEBC_DIR'])
+    with open(abbrevs_dir,'rb') as handle:
         place_dict = pickle.load(handle)
     processes = [Process(target=extractNode, args=(key,)) for key in nodes.keys()]
     for p in processes:
