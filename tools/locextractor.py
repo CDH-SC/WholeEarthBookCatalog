@@ -14,6 +14,7 @@ from pathlib import Path
 from multiprocessing import cpu_count
 from multiprocessing import Process
 from nlp.datacleaning import cleanData
+from pdb import set_trace as bp
 
 
 class LocExtractor():
@@ -69,20 +70,27 @@ class LocExtractor():
 
                     # Check against place aliases 
                     if value == 'place':
-                        curr = line[value].split(" ")
-                        if len(curr) > 1:
-                            if ", ".join([curr[-2],curr[-1]]) in place_dict:
-                                curr_state = ", ".join([curr[-2],curr[-1]])
-                                del curr[-2]
-                                del curr[-1]
-                                curr = ", ".join(curr)
-                                line[value] = ", ".join([curr,place_dict[curr_state]])
-                            elif curr[-1] in place_dict:
-                                line[value] = ", ".join([" ".join(curr[:len(curr)-1]),place_dict[curr[-1]]])
+                        curr = line[value].split(',')
+                        curr = [x.strip() for x in curr]
+                        if len(curr) > 2: 
+                            if ', '.join([curr[-3],curr[-2],curr[-1]]) in place_dict:
+                                curr = ", ".join(curr[:-3] + [place_dict[", ".join([curr[-3],curr[-2],curr[-1]])]])
+                                line[value] = curr 
+                            elif ', '.join([curr[-2],curr[-1]]) in place_dict:
+                                curr = ", ".join(curr[:-2] + [place_dict[", ".join([curr[-2],curr[-1]])]])
+                                line[value] = curr 
+                        elif len(curr) == 2:
+                            if curr[-1] in place_dict:
+                                curr = ", ".join(curr[:-1] + [place_dict[curr[-1]]])
+                                line[value] = curr 
 
-                        elif line[value] in place_dict:
-                            line[value] = place_dict[line[value]]
-
+                        elif ', '.join(curr) in place_dict and curr[0] != '':
+                            line[value] = place_dict[', '.join(curr)]
+                       
+                        elif curr[0] == '':
+                            line[value] = None
+                        elif curr[0] in place_dict:
+                            line[value] = place_dict[curr[0]]
                     #If value is one we associate with an ID number
                     if value in id_nodes:
                         #Check if we've seen value before so we don't end up with duplicate values that have different IDs
@@ -145,7 +153,6 @@ def extractNode(key):
     elif args.s and args.f:
         batches = ["batch{}.json".format(x) for x in range(int(args.s),int(args.f)+1)]
     
-    # Load each batch individually. Takes a lot less ram. 
     for batch in batches:
         batch = Path(args.b) / batch
         with open(str(batch),'r') as f:
@@ -188,7 +195,7 @@ if __name__ == "__main__":
     parser.add_argument("-d", default="|", help='Specifiy delimiter')
     parser.add_argument("-s", default=0, help='Specify start batch')
     parser.add_argument("-f", default=0, help='Specify finish batch')
-    parser.add_argument("-n", action='store_true')
+    parser.add_argument("-n", action='store_true', help='SNAP Mode')
 
     args = parser.parse_args()
 

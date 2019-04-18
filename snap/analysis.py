@@ -1,4 +1,5 @@
 import snap
+import os, sys
 import csv
 from collections import defaultdict
 
@@ -51,9 +52,9 @@ def printOutput(communities, people, places, pubs, ranks, prefix):
     printHelp(people, prefix+"people.txt", "(Person)", 0)
     printHelp(places, prefix+"places.txt", "(Place)", 0)
     printHelp(pubs, prefix+"pubs.txt", "(Publisher)", 0)
-    printHelp(people, prefix+"uniqpeople.txt", "(Person)", 1)
-    printHelp(places, prefix+"uniqplaces.txt", "(Place)", 1)
-    printHelp(pubs, prefix+"uniqpubs.txt", "(Publisher)", 1)
+    #printHelp(people, prefix+"upeople.txt", "(Person)", 1)
+    #printHelp(places, prefix+"uplaces.txt", "(Place)", 1)
+    #printHelp(pubs, prefix+"upubs.txt", "(Publisher)", 1)
     printHelp(ranks, prefix+"ranks.txt", " ", 2) 
 
 
@@ -79,5 +80,11 @@ def printHelp(listo, filename, splitter, opt):
         f.close()
     print("Printed to " + filename + ", size of " + str(len(listo)))
 
+name = sys.argv[1]
+path = "15to1700stest/" + name
+os.mkdir(path, 0755)
+listo = []
+for i in range(2, len(sys.argv)):
+    listo.append(int(i))
 
-relatedNodes("15to1700community.txt", "15to1700ranks.txt", [36174101], "15to1700stest/")
+relatedNodes("15to1700community.txt", "15to1700ranks.txt", listo, "15to1700stest/" + name + "/" + name)
