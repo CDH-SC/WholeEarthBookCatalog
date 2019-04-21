@@ -1,5 +1,7 @@
 from jellyfish import jaro_distance
 import numpy as np
+
+# POC for getting a matrix jaro distance
 def distance(i, j):
     global feature_dict
     return 1 - jaro_distance(feature_dict[i], feature_dict[j])

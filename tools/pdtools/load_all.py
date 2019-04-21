@@ -12,6 +12,8 @@ def split(x):
             return int(x)
         except:
             return x
+
+## No longer necessary with new data extractor script 
 def saveDF():
     person_batch_dir = '{}/data/csv/{}/person_batch.csv'.format(os.environ['WEBC_DIR',os.environ['DATA_VER']])
     publisher_batch_dir = '{}/data/csv/{}/place_batch.csv'.format(os.environ['WEBC_DIR'],os.environ['DATA_VER'])

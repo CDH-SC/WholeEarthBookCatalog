@@ -14,6 +14,7 @@ data_ver =os.environ['DATA_VER']
 
 def loadData(n):
     with open("{}/data//json/{}/batch{}.json".format(webc_dir,data_ver,n),"r") as handle:
+        # Iterate over batch n, pulling out relevant information and cleaning each value
         data = json.load(handle)
         places = set()
         persons = set()
@@ -21,7 +22,6 @@ def loadData(n):
         isbns = set()
         ret_data = []
         for row in data:
-           
             place = cleanData(row.get('place'))
             isbn = cleanData(row.get('editionISBN'))
             editionName = cleanData(row.get('editionName'))
@@ -38,6 +38,7 @@ def loadData(n):
 
 
 def indexData(data):
+    # Re-index data based on global dictionaries 
     return [data[0],place_dict[data[0]],data[1],person_dict[data[1]],data[2],publisher_dict[data[2]],data[3],data[4],isbn_dict[data[4]],data[5]]
 
 def enum_list(conn,data,counter,data_dict):
@@ -57,11 +58,11 @@ if __name__ == "__main__":
     persons =[]
     publishers = []
     isbns = []
-    #pool = Pool(initializer=init, initargs=(pl_dict,pl_counter,pe_dict,pe_counter,pu_dict,pu_counter,e_dict,e_counter,))
-    #batches = [['/home/n4user/json/',x] for x in list(range(118))]
     ret_data = []
 
     start_time = time()
+    # Get rows to be loaded into Pandas along with individual
+    # lists of unique elements
     for rd,pl,pe,pu,ib in pool.map(loadData, range(20)):
         ret_data += rd
         places += pl
@@ -75,7 +76,9 @@ if __name__ == "__main__":
     person_dict = {}
     isbn_dict = {}
 
-    counter = 0
+
+    # Convert each of these lists into dictionaries with ID values
+    # Removes all exact duplicates
     p1_conn, c1_conn = Pipe()
     p1 = Process(target=enum_list, args=(c1_conn,places,0,place_dict))
     p2_conn, c2_conn = Pipe()
@@ -110,6 +113,7 @@ if __name__ == "__main__":
     pool = Pool() 
     indexed_list = []
     start_time = time()
+    # Re-index the inital list-of-lists
     indexed_list += pool.map(indexData, ret_data)
     print("Re-indexing took: {}".format(time() - start_time))
     start_time = time()
@@ -117,12 +121,16 @@ if __name__ == "__main__":
     del person_dict
     del isbn_dict
     del publisher_dict
+    del ret_data
     pool.close()
     pool.terminate()
     pool.join()
     print("Deleting data took: {}".format(time() - start_time))
 
     start_time = time()
+    # Load data into Pandas Dataframe
     df = pd.DataFrame(indexed_list,columns=['Place_Name','Place_ID','Person_Name','Person_ID','Publisher_Name','Publisher_ID','Edition_Name','ISBN','Edition_ID','Date'])
     print("Constructing DF took {}".format(time() - start_time))
+
+    # Save to HDF5 file format
     #df.to_hdf('{}/data/binary/{}/loc_20.h5'.format(webc_dir,data_ver), key='df', mode='w')
