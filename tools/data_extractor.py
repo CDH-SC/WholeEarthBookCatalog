@@ -126,7 +126,7 @@ if __name__ == "__main__":
     persons = {}
     publishers = {}
     ISBNs = {}
-    b_numbers = 117
+    b_numbers = 20
     #ret_data = np.empty(dtype=object,shape=(b_numbers*100000,10))
 
     start_time = time()

@@ -13,14 +13,13 @@ def cleanData(data,field_type):
         return "None"
     try:
         old_data = data
+        punctuations = string.punctuation.replace(")","")
+        punctuations += "[]"
         if type(data) == list:
             del data
             curr = []
             for data in old_data:
                 " ".join(data.split())
-                data = data.replace("[","")
-                data = data.replace("]","")
-                punctuations = string.punctuation
                 if data[len(data)-3:len(data)] == "...":
                     data = data[:len(data)-3]
                 if data[len(data)-1] in punctuations:
@@ -31,9 +30,6 @@ def cleanData(data,field_type):
 
         else:
             " ".join(data.split())
-            data = data.replace("[","")
-            data = data.replace("]","")
-            punctuations = string.punctuation
             if len(data) >= 4:
                 if data[len(data)-3:len(data)] == "...":
                     data = data[:len(data)-3]
@@ -61,7 +57,8 @@ def cleanData(data,field_type):
         return data
 
 def cleanPuncs(data):
-        table = str.maketrans(dict.fromkeys(string.punctuation))
+        punctuations = string.punctuation + "[]"
+        table = str.maketrans(dict.fromkeys(punctuations))
         data = data.translate(table)
         data = ' '.join(data.split())
         return data.lower()
@@ -78,3 +75,7 @@ def cleanDate(date):
         date = "None"
 
     return date
+
+def extractPlace(data):
+    addr = re.search(r'{(.*?)}',data).group(1) 
+    data = data.split(",")
