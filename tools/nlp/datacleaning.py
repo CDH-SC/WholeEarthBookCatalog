@@ -1,5 +1,6 @@
 import string
 import re
+
 def removePuncs(old_data):
     cleaned_data = defaultdict(list)
     for key,text in old_data:
@@ -7,12 +8,12 @@ def removePuncs(old_data):
 
     return cleaned_data
 
-def cleanData(data):
+def cleanData(data,field_type):
     if data == None:
         return "None"
     try:
+        old_data = data
         if type(data) == list:
-            old_data = data
             del data
             curr = []
             for data in old_data:
@@ -41,10 +42,29 @@ def cleanData(data):
                     data = data[:len(data)-1]
             data = data.strip()
 
+        if field_type == "Person":
+            data = (data,cleanPuncs(data)) 
+        elif field_type == "Date":
+            data = cleanDate(data)
+        elif field_type == "Place":
+            data = (data,cleanPuncs(data)) 
+        elif field_type == "Publisher":
+            data = (data,cleanPuncs(data)) 
+        elif field_type == "ISBN":
+            data = (data,cleanPuncs(data)) 
+
+        #if field_type == "Place":
+        #    print("BEFORE CLEAN: {} AFTER CLEAN: {}".format(old_data,data))
+        return data
+    except Exception as e:
+        print(e)
         return data
 
-    except:
-        return data
+def cleanPuncs(data):
+        table = str.maketrans(dict.fromkeys(string.punctuation))
+        data = data.translate(table)
+        data = ' '.join(data.split())
+        return data.lower()
 
 def cleanDate(date):
     try:

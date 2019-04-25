@@ -1,0 +1,2643 @@
+11   ***   24379510: Excvd. H. Stephanus 
+11   ***   21758088: Apud Io. Rossium 
+11   ***   21758090: Impensis Caspari Heiden ... 
+11   ***   21758091: Bei Christian Egenolphen im Jenner ... 
+11   ***   21758097: Apud Petrum Le Grand 
+11   ***   27001270: Typis Egenolphi Emmelij, impensis Petri Kopffij 
+11   ***   20972041: apud Fabium, & August. Zopinos, fratres 
+11   ***   21758519: Typis Constantini Pisarri ... 
+11   ***   21758520: Typis, & impensis Nicolai Pezzanae 
+11   ***   27531417: Apud Gualterum Scottum 
+11   ***   27513961: Sumptib. Ludovici Billaine ... et Joannis Du Puis ... 
+11   ***   21234544: Printed by T. Roycroft for the author 
+11   ***   20972453: Apud Iacobum Montium & Carolum Zenerum 
+11   ***   20448177: Venundantur Lugduni apud Scipionem de Gabiano in vico Mercuriali sub signo fontis 
+11   ***   21758950: Excudebat Henricus Petrus 
+11   ***   20710531: Sumpt. Andreae Brugiotti ... 
+11   ***   24711761: Per me Franciscum Siluam, impensa dominorum Alberti Bruni, auctoris operis & Baldasaris de Gabiano ... 
+11   ***   27002046: Apud Franciscum et Gasparem Bindonum & fratres 
+11   ***   28312787: Ex Typographia Josephi de Urrutia 
+11   ***   28312789: Balleoniana 
+11   ***   21759366: Excudebat Ioseph Maria Porcelli ... 
+11   ***   21759376: Typis Bartholomaei Soliani impressoris ducalis 
+11   ***   21759379: Typis Pauli Frambotti Bibliop. 
+11   ***   20973079: I. Mareschal al's Roland 
+11   ***   20973279: Typis Reuerendae Camerae Apostolicae ; sumptibus Iosephi Corui, & Bartholomaei Lupardi, impressorum cameralium 
+11   ***   23856911: Typis Salvatoris & Joannis Dominici Marescandoli 
+11   ***   21759803: In officina Henrici Stephani ... 
+11   ***   21759804: Per Andr. Cratandrum, et Joan. Bebelium 
+11   ***   21759810: Typis Joseph Mariae Porcelli, bibliopolae 
+11   ***   21759824: Per Franciscum Bolzettam 
+11   ***   21497830: S. Gryphius 
+11   ***   21760228: Apvd Franciscvm Ivstvm 
+11   ***   21760233: Apud Guillelmum Cavelier ... 
+11   ***   21760238: Printed for A. Bettesworth and C. Hitch ... and W. Innys and R. Manby ... 
+11   ***   25428349: Sumtibus A. Haude et I.C. Speneri ... 
+11   ***   21760243: Apud Sebastianum Coleti ... 
+11   ***   21760247: Ajpud Guillelmum Cavelier ... 
+11   ***   21760250: Apud Felicem Muscam ... 
+11   ***   21236009: Ex officina P. Pernae 
+11   ***   20711748: Iacobus Mazochius excudebat 
+11   ***   27003213: Apud Antonium Bladum impressorem cameralem ... 
+11   ***   27175997: In officina haeredum Lucaeantonij Iuntae Florentini 
+11   ***   25692691: Nella Stamperia Coleti 
+11   ***   21236378: Printed for W. and J. Innys 
+11   ***   21760683: Typis Seminarii, Apud Joannem Manfrè 
+11   ***   26741552: Apud Haeredes Nicolai Beuilaquae 
+11   ***   20450157: Gregorii de Gregoriis excussere 
+11   ***   20404031: Guillermus Le Signerre 
+11   ***   23324100: Giovanni Antonio or Giovanni Giacomo da Legnano 
+11   ***   21236795: Apud Paulum Manutium, Aldus f. 
+11   ***   27784644: Printed for Thomas Iones and Iohn Marriott 
+11   ***   22370183: A. Paganius Paganinus characteribus elegantissimis accuratissime imprimebat 
+11   ***   20712802: Typis Antonii Zattae 
+11   ***   23334345: Ex typographia Thomae Richardi ... 
+11   ***   21761545: Apud Gul. Rouillium ... 
+11   ***   21761546: Ex officina Christiani Wecheli ... 
+11   ***   21761548: Apud Christianum Wechelum ... 
+11   ***   20713270: Apud Iacob de Burgofranco 
+11   ***   26347591: In edibus Philippi Pincij, Mantuani 
+11   ***   23072792: Ex Typographia Societatis 
+11   ***   21237991: apud Guillelmum Cavelier, patrem 
+11   ***   21237992: Printed by H.P. for C. Rivington etc 
+11   ***   27613272: Apud viduam Ioannis Colizij, impensis Ioan. Theobaldi Schönvvetteri 
+11   ***   23073188: Apud Horatium Saluianum & Caesarem Caesaris 
+11   ***   25694638: Apud Io. Iacobum Carlinum & Antonium Pacem : ex officina Horatii Saluiani 
+11   ***   27267510: Apud Franciscum Franciscium, Senensem 
+11   ***   27051151: Venundatur apud Ioannem Bernerum, bibliopolam Francofurtensem 
+11   ***   22811089: Sumpt. Petri Borde, Joan. & Petri Arnaud 
+11   ***   22811151: None 
+11   ***   21238358: apud B. Turrisanum, in Aldina bibliotheca 
+11   ***   21238503: Are to be sold by Ni. Alsop ... 
+11   ***   24646381: Sumptibus N. Bvon 
+11   ***   25695381: Apud Philippum Mey 
+11   ***   23598261: Apud Bartholomaeum Caesanum 
+11   ***   22287922: per Adolphum Josephum Ebell 
+11   ***   22550131: Typis Reverendae Camerae Apostolicae 
+11   ***   22550133: Typis ac impensis heredum Pauli Frambotti bibliopolae 
+11   ***   21763710: Ex typographia seminarii, Apud Jo. Manfre ... 
+11   ***   21763711: Ex typographia Josephi Coronae 
+11   ***   20715148: apud Gulielmum Cauellat 
+11   ***   20098691: Michael Furter 
+11   ***   29366042: Chez René Guignard ... 
+11   ***   27531053: Apud Hieronymum Ortega et Filios Ibarra 
+11   ***   27531054: Ex typographia Bartholomaei Zannetti 
+11   ***   21758942: Apud Claudium Morellum ... 
+11   ***   28055387: ex officina Stellæ Iondani & Ziletti 
+11   ***   21764038: Excudebat, G.H. & G.D. sumptibus Johan. VVilliams, Georg. VVest, Amos Curteyne & Johan. Crosley 
+11   ***   29366222: Typis Wechelianis, apud Haeredes Ioannis Aubrii. 
+11   ***   23419220: Apud Hęredes Melchioris Sessae 
+11   ***   28055670: apud A. Dezallier 
+11   ***   27531406: Excudebat Josephus Cominus 
+11   ***   27531409: Ex typographia Simoniana 
+11   ***   27531411: Apud Iacobum Tornerium 
+11   ***   27531414: Apud Alexandrum Benatium 
+11   ***   25951651: Ex officina Crugiana 
+11   ***   29366601: Ex typographia P. & J. Blaeu, prostant apud Wolfgang, Janssonio-Waesbergios, Boom, à Someren, & Goethals 
+11   ***   21764590: Ex typographia Remondiniana 
+11   ***   21764594: Apud J. Matth. Kaltenbrunn 
+11   ***   21764598: Impensis Jo. Baptistae Novelli ... 
+11   ***   27531770: Apud Mathiam Bonhome 
+11   ***   27531772: In D. luce templo 
+11   ***   23075393: Apud Ioannem Saurium 
+11   ***   20978263: Sumpt. Ioannis Antonij & Samuelis de Tournes 
+11   ***   22289002: Apud Guillielmum Leimarium 
+11   ***   20716197: Printed by T.W. for D. Midwinter 
+11   ***   28056237: Perachon & Cramer 
+11   ***   27007776: Apud Ioannem de Gara 
+11   ***   27045688: Ex officina typographica Matthiae Beckeri, sumptibus Ioannis Berneri 
+11   ***   21765002: Apud Laurentium Basilium ... 
+11   ***   23987399: Apud haeredes Simonis Vincentij 
+11   ***   24911173: Ex aedibus Aldi Romani 
+11   ***   24974037: Apud Audoennum Paruum ... 
+11   ***   20717023: College de la propagande 
+11   ***   24642822: Apud Ioan. Mariam Bonellum Iuniorem 
+11   ***   27532849: Apud Ioannem Borellum vico Bellouaco sub insigni fidei Christianae 
+11   ***   27532853: Sumptibus Viduae & Haeredum Petri de la Rouiere 
+11   ***   27532859: Ex Typographia  Balleoniana 
+11   ***   21765869: Ex typographia Pauli Junchi ... 
+11   ***   20492256: Apud Ioan. Heruagium 
+11   ***   27051565: Excudebat Balthasar Hofmann, impensis Iohannis Berneri, bibliop. Francof. 
+11   ***   27533210: Sumptibus Haered. Gabr. Boissat &, & Laurentij Anisson 
+11   ***   27533212: Ex typ. Francisci Bonsignori? 
+11   ***   27533216: Apud Jo. Baptistam Pasquali 
+11   ***   27533218: Ex Typographia Reuer. Cam. Apostolicae 
+11   ***   27271118: Ex typographia Seminarii 
+11   ***   27271124: Ex Bibliotheca Aldina 
+11   ***   21278736: sumptibus Anisson, & Joann. Posuel 
+11   ***   20717685: Nella stamperia d'Antonio Zatta 
+11   ***   21803033: Per Alouisium de Tortis 
+11   ***   21766310: Apud Gulielmum Gazellum 
+11   ***   21766311: Typis Nicolai Hoffmanni, impensis Ionae Rhodii 
+11   ***   23863556: Pour Iaques Choüet 
+11   ***   20455734: J. Murray etc 
+11   ***   21504357: Per Bartholomeo detto l'Imperatore. 
+11   ***   23863776: Cura & impensis Roberti Foulis, typis Roberti Urie & soc.; etc., etc 
+11   ***   23516329: Sumptibus Rochi Deville & L. Chalmette 
+11   ***   27272098: Prostant in officina Paltheniana Francofurtensi 
+11   ***   20718522: In Aedibus Populi Romani apud Paulum Manutium 
+11   ***   25961510: Opera Francisci Fradin, impensis vero Aymonis de Porta 
+11   ***   20456665: Printed by W. Godbid, for W. Shrowsbury 
+11   ***   22553880: ex vnitorum societate 
+11   ***   20456941: J. Churchill 
+11   ***   23078494: Apud Guillelmum Foquel 
+11   ***   23114031: Apud Vincentium Portonarium 
+11   ***   28011825: Bontio 
+11   ***   20981570: Apud Ioannem Frellonium 
+11   ***   21768046: Ex officina Haffniensi Petri Hauboldi ... 
+11   ***   23079005: Presso F. Franceschi 
+11   ***   23865572: Ex officina typographica Wolffgangi Richteri, impensis M. Leonh. Burckii 
+11   ***   21768476: Apud viduam Mathvrini dv Pvis ... 
+11   ***   21768478: In officina L.B. apud Joannem Crozier ... 
+11   ***   22817119: Apud Sebast. Honoratum 
+11   ***   20958779: sumptibus Venantii Monaldini 
+11   ***   26749329: Typis Regiae Celsitudinis apud Antonium Mariam Albizzini 
+11   ***   21768690: Impressum per Benedictum Hectoris 
+11   ***   27798040: In Aldi Romani academia 
+11   ***   23866141: Ex officina typographica Romani Beati, impensis Nicolai Bassaei, bibliopolae 
+11   ***   20720716: excudebat H. Stephanus 
+11   ***   27536571: Vaeneunt Antuerpiae sub scuto Basiliensi Gregorio Bontio 
+11   ***   23080217: sumptibus Antonii Bertier 
+11   ***   23080220: Apud Petrvm Craesbeeck Regium Typographum 
+11   ***   27536864: Per Joannem Frobenium diligenter excuse 
+11   ***   27274721: Typis Io. Baptistae Ferronij 
+11   ***   27536867: Per Bonetum Locatellum presbyterum mandato et sumptibus heredum quondam nobilis viri domini Octauiani Scoti Modoetiensis 
+11   ***   24129027: Apud Thomam Ballionum 
+11   ***   21769766: Typis Cominianis ... 
+11   ***   25439999: A spese di Modesto Fenzo, stampatore in Venezia 
+11   ***   24915937: Apud Sebastianum Cramoisy, viâ Iacobaeâ, sub Ciconiis 
+11   ***   20983953: J. Variscus 
+11   ***   23605460: Vincentius de Portonarijs de Tridino de Monte Ferrato 
+11   ***   27013560: Sumptibus Andreae de Peregrinis, bibliopolae ... 
+11   ***   22295179: Apud Aldum 
+11   ***   20958869: sumptibus Petri Borde, Joannis & Petri Arnaud 
+11   ***   26990641: Apud Sebast. Barptol. Honorati 
+11   ***   21771466: ... Sumptibus I. Vitt. 
+11   ***   21771468: Sumptibus Remondinianis ... 
+11   ***   21771471: Sumptibus Anisson & Posuel 
+11   ***   21771472: Apud Donatum Donati 
+11   ***   21771475: Apud Petrum Bartolum 
+11   ***   21771478: Typis haeredvm Franci. Baba 
+11   ***   21771484: Typis Seminarii, Apud Joannem Manfrè ... 
+11   ***   21760232: Apud Thomam Bettinelli 
+11   ***   27069213: Apud Carolum Pectinarium 
+11   ***   20216917: Ex officina Damiani Zenari 
+11   ***   23082580: Apud Theodorum Baumium ... 
+11   ***   21771886: Apud Sebastianum Coleli ... 
+11   ***   24131714: Apud Collegium Sorbonae 
+11   ***   21804065: Apud Carolam Guillard sub sole aureo, & Gulielmum Desboys sub cruce alba, Via ad diuum Iacobum 
+11   ***   20986164: Pavlvs Manvtivs Aldi f. 
+11   ***   23869771: In officina Caroli Perier ... 
+11   ***   23869772: In aedibus Rouillij ... 
+11   ***   21248844: Ex Officina Plantiniana, apud Franciscum Raphelengium 
+11   ***   21248847: apud Guliel. Rouil. 
+11   ***   20462422: Apud Petrum Fischerum 
+11   ***   20462423: Apud Aegidium Regazolam & Dominicum Caualcalupum Socios 
+11   ***   20462424: Apud Iacobum Keruer ... 
+11   ***   21773172: Printed by John Streater, and are to be sold by George Sawbridge ... 
+11   ***   23870508: Ex typographia Leonardi Venturini 
+11   ***   27278474: Typis Ioannis Rubei 
+11   ***   27484019: Sub signo Sapientiae, apud Laurentium Marchesinum & Socios 
+11   ***   27484027: Apud Haeredem Hieronymi Scoti 
+11   ***   20784378: ex officina Iosephi Clug 
+11   ***   24133315: Impressum ... apud Nicolaum Bassaeum 
+11   ***   27924739: Ex typographia Octanij Beltrani 
+11   ***   25649124: Ex officina Henricpetrina 
+11   ***   20409039: Paolo Manuzio 
+11   ***   27924744: Sumptibus Francisci de Sousa, & Antonij Leite Pereyra 
+11   ***   20463585: apud I.M. de Viottis 
+11   ***   20668448: sumpt. Anissoniorum, Joan. Posuel, & Claudii Rigaud 
+11   ***   21512400: None 
+11   ***   27279602: Apud Cornelium Sutorium, sumptibus auctoris & Hartmanni Palthenij 
+11   ***   23507264: Sumptibus & typis Samuelis Chouët 
+11   ***   25081220: Ex officina Iacobi Tornerij 
+11   ***   23609644: E collegio Musarum Paltheniano 
+11   ***   28066105: Printed at S. Omers by Thomas Gevbels 
+11   ***   27279692: Apud Iosephum Rossetum 
+11   ***   26493426: In officina Q. Philip. Tinghi 
+11   ***   21774868: Apud Paulum et Isaacum Vaillant 
+11   ***   21774871: Excvdendvm cvrabat Gerardvs Morrhivs Campensis ... 
+11   ***   21774873: Ex typographia Jo. Baptistae Conzatti ... 
+11   ***   23872133: Sumptibus Phil. Tinghi, Florentini 
+11   ***   25430819: Excudebat Didacus à Cussio 
+11   ***   23085896: Ex Officina Paltheniana : sumtibus heredum Ionae Rhodii 
+11   ***   23085900: Ex aedibus Adae Petri 
+11   ***   23085901: Impensis Ant. Gryphii 
+11   ***   27528008: Apud Claudium Cayne 
+11   ***   25911455: Giovanni Giolito and Gerardo Zeglio 
+11   ***   22037516: ex typographia Societatis 
+11   ***   25445658: Apud Hieronymum Drouart ... 
+11   ***   28591516: Apud Aldi Filios 
+11   ***   24659399: Vaenundantur à Iacobo du Puys ... 
+11   ***   25299895: Impensis Jeremiae Schrey et Henrici Johann Meyeri 
+11   ***   20465253: Appresso Gabriel Giolito de' Ferrari 
+11   ***   21753374: Ex officina ... Henrici Stephani ... 
+11   ***   24135525: Apud Laurentium Pasq., typographum ... 
+11   ***   21753379: Ex officina Rob. Steph. ... 
+11   ***   23611293: Apud haeredem Damiani Zenari 
+11   ***   20319248: In officina Q. Philip. Tinghi, apud Simphorianum Beraud et Stephanum Michaëlem 
+11   ***   21252285: In aedibus Aldi et Andreae Soceri 
+11   ***   23333935: S. de Colines 
+11   ***   24135982: Sumptibus Joachimi Wildij, bibliop. Rostoch. 
+11   ***   20990286: typis Johannis Baskerville 
+11   ***   20466036: Typis Zachariae Lehmanni, impensis Zachariae Schureri 
+11   ***   21252675: Printed for William Crooke at the Green-Dragon without Temple-Bar 
+11   ***   21252676: In aedibus Aldi et Andreae Asulani soceri 
+11   ***   21252695: Sumptibus Johanis Parvi et Francisci Regnault 
+11   ***   21630068: Apud F. Leonard, typographum regis 
+11   ***   27047736: Per Theobaldum Payen, nomine et impensis D. Iacobi de Giunta 
+11   ***   24950587: Opera & impensa Philippi bibliopolae 
+11   ***   24485607: Ex officina Iohannis Oporini 
+11   ***   20728942: Stampata in Venetia per Nicolo de Bascarini Bresciano 
+11   ***   27544710: Typis Francisci Sauij ... 
+11   ***   23350460: Apud Antonium Bladum, impressorem ... 
+11   ***   26086617: Impressum Lugduni in edibus Ioannis Moylin alias de Cambray, sumptu honesti viri Vincentij de Portonarijs de Tridino de Monteferrato 
+11   ***   20800082: Ex officina Cratoniana 
+11   ***   25448139: Ex officina Conradi Badij ... 
+11   ***   27545346: Apud Principem, iuxta Romanam supputationem 
+11   ***   24137555: Typis Wolffgangi Richteri, sumptibus Iohannis Bassaei, bibliopolae ... 
+11   ***   27453516: Sumptibus J.A. Cramer & Perachon 
+11   ***   27545668: Apud Petrum & Iacobum Chouët 
+11   ***   27545670: Apud P. Fr. Didot juniorem ... 
+11   ***   25081881: Typis Rev. Camerae Apostolicae 
+11   ***   27807926: Excudebant Thomas Buck & Rogerus Daniel 
+11   ***   21516514: excvdebat Ioannes Barbovs 
+11   ***   23613830: In collegio Musarum Paltheniano 
+11   ***   27546017: Apud Ioannem Billaine, Simeonem Piget, Frederic Leonard ... 
+11   ***   26497448: Apud Carolam Guillard, & Guilielmum Desboys, sub sole aureo in vico Iacobaeo 
+11   ***   27284042: Ex Typographia Pinelliana 
+11   ***   20468346: Printed by Nicholas Okes for Simon Waterson 
+11   ***   25169355: Apud Bartholomaeum Macaeum ... 
+11   ***   20730710: Apud G. Laemarium 
+11   ***   20730711: Apud haeredes Arnoldi Birckmanni 
+11   ***   26497987: Apud Hugonem & haeredes Aemonis à Porta 
+11   ***   21255109: Typis I.-N. Stoltzenbergeri: sumptibus I. Berneri 
+11   ***   24663155: Apud Ant. Perez de Soto 
+11   ***   23352436: Printed for E. Brewster 
+11   ***   21779635: Apvd Io. Bebelivm et Mich. Isingrinivm 
+11   ***   21779641: Per gli eredi de Viuiano Soliani ... 
+11   ***   23090387: Apud haeredes Christiani Egenolphi 
+11   ***   21255526: Typis Iacobi Foilleti 
+11   ***   21255527: Apud Petrum Santandreanum 
+11   ***   27547204: Apud Dionisium-Joannem Aumont ... et Paulum-Dionisium Brocas ... 
+11   ***   27547206: Apud Ioannem Henault ... 
+11   ***   27547209: Apud Michaëlem Sonnium, sub scuto Basiliensi, via Iacobaea 
+11   ***   27547212: Apud Hieronymum Bartholum 
+11   ***   27547213: Apud Baltassarem Constantinum ... 
+11   ***   27547218: Apud Ioannem Gryphium 
+11   ***   27547219: Apud Bartholomeum Sermartellium 
+11   ***   27547221: Ex typographia Dominici Basae 
+11   ***   22443102: Apud Ludouicum Pesnot 
+11   ***   23421910: Comin da Trino 
+11   ***   24139667: Ex officina typographica Egenolphi Emmelij 
+11   ***   20207521: Durch Gerwinum Calenium vnd Johan Quentels Erben 
+11   ***   27547562: Ex typographia Bernabò, & Lazzarini 
+11   ***   27547563: Apud Cominum de Tridinum Montisferrati 
+11   ***   27547565: Apud Fran. Gryphium 
+11   ***   24663984: Apud Io. Baptistam Somaschum & fratres 
+11   ***   21780427: per Sebastianvm Henricpetri 
+11   ***   20207630: G. B. Costantini 
+11   ***   21256341: J. Sacon 
+11   ***   24402073: Apud fratres de Tournes 
+11   ***   27965809: Apud Vicentium Valgrisium 
+11   ***   27547910: Apud Hieronymum de Marnef, sub pelicano, Monte D. Hilarij 
+11   ***   27547912: Excudebat Ioan. Mich. Briolus ... 
+11   ***   24664406: Apud Ioan. Baptistam Somaschum 
+11   ***   29383166: Appresso Tommaso Bettinelli 
+11   ***   29383173: Ex typographia L.F. Delatour ... 
+11   ***   29383174: En casa de Pedro y Iuan Bellero 
+11   ***   24664613: Typis Wechelianis apud Claudium Marnium & heredes Iohannis Aubrii 
+11   ***   29383353: Ex officina Roberti Stephani, typographi regii, regiis typis 
+11   ***   29383354: Robert Estienne 
+11   ***   25451516: Excudebat Stephanus Paulinus 
+11   ***   24141139: Impressum ... opere et impensa Georgii de Rusconibus 
+11   ***   21257575: Ex Typographia Balleoniana 
+11   ***   21257581: Apud Chr. Egenolphum 
+11   ***   24581778: Apud Nicolaum Petit et Hectorem Penet ... 
+11   ***   21257770: Apud Gabríelem Buon, in clauso Brunello, sub signo D. Claudij 
+11   ***   20733576: Ex typographia Michaëlis Escribano 
+11   ***   24928212: Ex typographia R. Cam. Apost. 
+11   ***   21718359: In aedibus Aldi et Andreae soceri 
+11   ***   22831150: Presso G. M. Porcelli 
+11   ***   25452677: Ex aedibus Quentelianis 
+11   ***   22307122: None 
+11   ***   27288207: Ex officina Torrentiniana 
+11   ***   23094018: J. Girin, &. B. Riviere 
+11   ***   23880484: Apud Andream Binghium ... 
+11   ***   25814082: Typis Sac. Congregationis de Propag. Fide 
+11   ***   27551047: Typis & expensis Roberti Molli 
+11   ***   23356757: Ex typographia Benedicti Gessari 
+11   ***   25191804: Ex officina typis Nicolai Hoffmanni, sumptibus Ionae Rohdij 
+11   ***   23094705: Apud Iosephum Cacchium 
+11   ***   23619411: Apud Michaelem Sonnium ... 
+11   ***   21260312: Ex Typographia Vaticana 
+11   ***   27660637: Per dominum Franciscum Garonum de Liburno de Monteferrato 
+11   ***   22309091: T. Amaulry 
+11   ***   24668561: Excudebat Ioannes Baptista à Terranoua 
+11   ***   27552218: Apud Franciscum Ziletum 
+11   ***   24668968: Apud Nicolaum Episcopium iuniorem 
+11   ***   21413250: Apud Germanum Rose 
+11   ***   22571835: Ex officina Iordani Ziletii 
+11   ***   22530570: ex officina Laurentii Torrentini 
+11   ***   21194586: Appresso Gabriel Giolito de Ferrari, et Fratelli 
+11   ***   27552900: Apud Ioannem Salis 
+11   ***   27552903: Ex Typographia Reu. Cam. Apost. 
+11   ***   25455801: Cura et studio Collegii Musarum Nouenarum Paltheniani, quod est in nobili Francofurto 
+11   ***   26504403: Apud Gratiosum Perchacinum 
+11   ***   23096643: Heirs of Luca Antonio Giunta, and others 
+11   ***   25980354: Per Ioannem Oporinum, & Episcopios fratres 
+11   ***   27553254: Apud Aegidium Beysium ... 
+11   ***   27553267: Typis Camerae Apostolicae 
+11   ***   22942324: Sigmund. Feirabendt 
+11   ***   20213511: Apud Iacobum Giunta 
+11   ***   27553604: Ab Jacobo Huguetan eiusdem ciuitatis bibliopola ... 
+11   ***   27553614: Typis Iacobi Zegeri 
+11   ***   27553616: Ex Typographia Reu. Cam. Apost 
+11   ***   27553620: Apud Balthasarem de Cartulariis : impensis Hieronymi Lilii Veneti 
+11   ***   27553627: Sumptibus Philippi Borde, Laurentii Arnaud, Petri Borde, et Guill. Barbier. 
+11   ***   27553628: Apud Bartholomaeum Fontanam 
+11   ***   24670091: Apud Altobellum Salicatium 
+11   ***   20213862: Apud Octauianum Scotum 
+11   ***   23359631: Typis Camilli Caualli e expensis Iacobi Pieri ... 
+11   ***   27553971: Prodit e Collegio Paltheniano, quod est in nobili Francofurto 
+11   ***   27029722: Pierre Roussin 
+11   ***   21786849: L. & H. Declaustre 
+11   ***   20950661: By Wynkyn de Worde ... 
+11   ***   24932760: Sumptibus Roberti Fouët, via Iacobaea, sub insigni Temporis & Occasionis 
+11   ***   26437717: Sumptibus Andreae Brugiotti 
+11   ***   23197487: Apud Aloysium Zannettum 
+11   ***   27816708: In aedib. Aldi 
+11   ***   22505603: Vaenundātur   ab eodem I. Badio Ascēsio   et I. Paruo, bibliopolis Academiae Parrhisiensis 
+11   ***   20214573: Apud Iuntas 
+11   ***   20214574: Apud Lucam Antonium Iuntam 
+11   ***   22251307: Apud Ioan. Michaelem & Io. Franciscum fratres de Cauallerijs 
+11   ***   20214663: Apud Adrianum Beys viâ Iacobaeâ, sub signo liliorum 
+11   ***   20214668: A Romano Morin 
+11   ***   20214670: Apud Vincentium Sertenas ... 
+11   ***   28272797: Chez Gregoire Bonte a l'escu de Basle, imprimez en latin, francois, & flameng 
+11   ***   25083386: Nicolaus Paruus & Hector Penet consortes excudebant Lugduni 
+11   ***   27966984: Per Alexandro di Bindoni 
+11   ***   23360719: Ioan. Barthol. Astensis impensam fecit 
+11   ***   22312181: Apud And. Cratandrum 
+11   ***   27555085: Sumptibus Claudii Landri 
+11   ***   20215381: Apud Claudium Cheuallonium 
+11   ***   24671926: Ex Typographia Reuer. Cam. Apost. 
+11   ***   24559230: Ex typographia Societatis 
+11   ***   26507184: Apud Io. Iacobum Carlinum 
+11   ***   20215746: Ex officina Enguilberti Marnefij 
+11   ***   20215749: Apud Bartholomaeum Vincentium 
+11   ***   23297862: Ad candentis Salamandrae insigne 
+11   ***   26245248: Apud Hieronymum Polum 
+11   ***   27280026: Sumptibus haeredum Doctoris Zachariae Palthenij, typis Hartmanni Palthenij 
+11   ***   22313217: Typis Sacrae Congregationis de Propaganda Fide 
+11   ***   20216432: Apud Seb. Gryphium 
+11   ***   21413662: By my Ian van Tournes 
+11   ***   28080841: Apud Samuelem De Tournes 
+11   ***   21195252: Per gli eredi Cassiani stampatori episc. 
+11   ***   20008016: Ex Hier. Commelini typographio 
+11   ***   20216788: E Collegio Musarum Paltheniano 
+11   ***   20216792: None 
+11   ***   20216804: Apud Franciscum Laurentinum, de Turino 
+11   ***   24209927: Per Iacobum Saccon 
+11   ***   20741313: Apud C. Plantinum 
+11   ***   23887483: Per Ioannem Moylin alias de Cambray 
+11   ***   26852316: Ex officina typographica Pauli Iacobi 
+11   ***   24149854: Apud Franciscum Bolzettam 
+11   ***   24412035: Iean Gregoire 
+11   ***   22314958: Sumptibus Michaelis Pezelij ... 
+11   ***   23363630: R. Bentley, etc 
+11   ***   23101526: Impensis Christophori Olffen excudebat Joh. Matth. Kempffer 
+11   ***   25985564: Impresse Lugd'. opera Francisci Fradin, impensis vero Aymonis deporta ... 
+11   ***   27582065: Typis & sumptibus Hieronymi Maynardi in platea Montis Citatorii 
+11   ***   23364303: Sumtibus sic b. Balth Schmidii haeredum 
+11   ***   27558636: Apud viduam Claudii Thiboust, et Petrum Esclassan ... 
+11   ***   20218684: Apud Maturinum Dupuys 
+11   ***   21005333: H. Beys 
+11   ***   25199742: Ex officina typographica Iohannis Kollitz, impensis Petri Kopffij 
+11   ***   27620477: In calchographia Jacobo Myt 
+11   ***   22316289: Petri Pernae typographi opera ac studio 
+11   ***   22316290: Petri Pernae typographi opera ac stvdio 
+11   ***   23904496: Sumptibus Francisci Boschij 
+11   ***   20219521: typis Hieronymi Commelini 
+11   ***   20219640: Ex academiae celeberrimae typographeo 
+11   ***   23889658: Apud Ioan. Tornaesium, typogr. regium 
+11   ***   21195736: Apud Lucium Spinedam 
+11   ***   23103305: Excudebat Ioh. Iacobus Genathius ... 
+11   ***   27297672: Apud Iametium Mettayer, & Petrum L'Huiller, typographos ... 
+11   ***   21195266: excudebat Henr. Stephanus 
+11   ***   26965163: Ex officina Nicolai Bassaei impensis Sigismundi Feyrabend 
+11   ***   22600644: nidpas ʼal-yede L. Zosmans 
+11   ***   26773862: Apud Ioannem Crespin 
+11   ***   26773871: Mandato et expensis Georgij de Rusconibus in edibus eiusdem 
+11   ***   26773875: In aedibus Guilielmi de Fontaneto Montisferrati 
+11   ***   23890299: Apud Iacobum Leoncinum 
+11   ***   26511884: Apud Ioannem Birkmannum & Theodorum Boumium 
+11   ***   26511887: Apud Iacobum Giuncti ... 
+11   ***   29366041: Apud Joannem Vignon 
+11   ***   23729952: typis Seminarii apud J. Manfrè 
+11   ***   21007158: Per H. Frobenio et N. Episcopio 
+11   ***   27298848: Fabius Falconius excudebat 
+11   ***   27560995: Apud Ioann. Libert ... 
+11   ***   25769945: Excudebat Mathaeus Guaita 
+11   ***   21374030: Jacquenod père & Rusand 
+11   ***   20483401: Apud Fratres de Tournes 
+11   ***   26774895: Ex Typographia Reverendae Camerae Apostolicae 
+11   ***   23367034: Apud Ioannem Lodoicum 
+11   ***   27561340: Apud Hieronymum de Marnef & Gulielmum Cauellat, sub pelicano, Monte D. Hilarij 
+11   ***   27561343: Excudebat Henr. Steph. ex cuius etiam epigrammatis Graecis & Latinis aliquot caeteris adiecta sunt 
+11   ***   27561346: Apud Carolam Guillard, viduam Claudij Cheuallonij, & Gulielmum Desboys, sub sole aureo, in via diui Iacobi 
+11   ***   27561347: Apud Michaelem Sonnium, viâ Iacobaeâ sub scuto Basiliensi 
+11   ***   20970753: Apud Ioannem Frobenium 
+11   ***   26875847: Vincent. de Portonaris 
+11   ***   27561716: Apud Joannem Barbou, collegii typographum 
+11   ***   29366228: Printed for the author, and sold by T. Astley ... 
+11   ***   27562036: Sumptibus Joannis Antonii Pezzana 
+11   ***   27562068: Apud Dominicum Lazaronum 
+11   ***   23892104: Apud Andreae Wecheli heredes, Claudium Marnium & Ioan. Aubrium 
+11   ***   22113651: Ex Officina Paltheniana 
+11   ***   27300027: Apud Antonium Hierat 
+11   ***   21815109: E Typographia Regia 
+11   ***   25727257: Balthasar Arnoullet 
+11   ***   21756367: Sumptibus Remondinianis 
+11   ***   21771467: Ex typographia Remondiniana ... 
+11   ***   27715954: Typis Nicolai Hofmanni, Impensis Iohannis Iacobi Porsii 
+11   ***   25044870: Apud Philippum Albert 
+11   ***   27531398: Sumpt. haeredis Nicolai Pezzana 
+11   ***   23140787: Ex typographia Iosephi Monaldi 
+11   ***   21972251: None 
+11   ***   27531418: Apud Io. Antonium Remondinum 
+11   ***   25990060: Ex officina Hieronymi Bartoli 
+11   ***   23893031: Typis Wolffgangi Richteri, sumptibus Ioh. Theobal. Schônvvetteri 
+11   ***   23686667: V Jana Gozefa Diesbacha 
+11   ***   20977848: Sumptibus Blasij Deuersin 
+11   ***   21533909: Apud Iordanum Ziletum 
+11   ***   21283715: ex officina Simonis Colinæi 
+11   ***   22582598: Printed for E. Curll at the Dial and Bible, J. Pemberton, at the Buck and Sun, both against St. Dunstan's Church in Fleetstreet, and W. Taylor at the Ship in Pater-noster-row 
+11   ***   27007204: Apud Georgium Variscum & socios 
+11   ***   21753376: M. Petrus Vidouęus ..., Ioannis Parui ... 
+11   ***   21414846: Per I. Tacuinũ 
+11   ***   27497769: Excudebat ... Claudius Seruanius 
+11   ***   22772432: Excudebat Franciscus de Portonarijs 
+11   ***   20486266: Ex Officinâ Typographicâ Societatis Bibliopolarum 
+11   ***   27444265: Per fidelissimum in arte calcographie magistrum Iacobum Mareschal 
+11   ***   23632156: Typographia Regia 
+11   ***   20748643: R. de Ninville 
+11   ***   23686919: Bey Martin Lechlern 
+11   ***   20486803: Printed for M.M. Gabriel Bedel, and T. Collins and are to be sold at their shop at the middle-Temple-Gate 
+11   ***   22584058: apud Franciscum Baba 
+11   ***   25236979: Apud Michaelem Tramezinum 
+11   ***   21764595: Apud Gulielmum Cavelier ... 
+11   ***   27531764: Apud Gerardum Greuenbruch 
+11   ***   21764599: Verlegts Daniel Pietsch ... 
+11   ***   27925035: Apud Bernardum Iuntam, Ioan. Bapt. Ciottum & socios. 
+11   ***   27925037: Apud Io. Baptistam & Io. Bernardum Sessam 
+11   ***   27925038: Apud Joannem Wechelum 
+11   ***   27925042: Ex officina typographica Sigismundi Latomi 
+11   ***   27925043: Apud. Mich. Ising. 
+11   ***   25992521: Typis, & sumptibus eiusdem Sac. Congreg. 
+11   ***   21273930: Per Joannem Besicken Alemanum 
+11   ***   21273935: Printed for J. Wilcox etc 
+11   ***   27619229: Apud Joannem-Baptistam Delespine ... 
+11   ***   27619232: Ex officina Petri Brubacchij 
+11   ***   22847109: apud C. Ammoniũ 
+11   ***   25992931: Ex typographia Rocchi Bernabò 
+11   ***   24420770: Impens. Io. Andr. Rudigeri 
+11   ***   20226508: Apud Ioannem Roscium 
+11   ***   27881565: Apud Dionysium de la Noüe ... 
+11   ***   20489070: Apud O. Paruum 
+11   ***   22062013: Apvd E. Ceruicornum 
+11   ***   23905810: Apud Hugonem à Porta & Antonium Vincentium 
+11   ***   26780994: Apud Ioannem Baptistam Hugolinum 
+11   ***   21808695: Par I. de Strada, et T. Gverin 
+11   ***   27305304: Apud Paulum Manitium Aldi F. in aedibus populi Romani 
+11   ***   25470345: Apud Andream Gesnerum F. 
+11   ***   23731108: Sumptibus Petri Ketteler, bibliopolae ... 
+11   ***   23163142: Ex typographia Lucae Antonij Fusci 
+11   ***   25994935: Apud Ioannem Bebelium 
+11   ***   21538857: None 
+11   ***   23898201: Apud haeredem Damiani Zenarij 
+11   ***   23898203: Apud Michaëlem Sonnium ... 
+11   ***   25471120: Apud officinas Arti Taberniel & Antoniae Ramirez viduae 
+11   ***   27454271: Sumptibus J.A. Cramer & P. Perachon 
+11   ***   27488664: Vincent de Portonariis 
+11   ***   27226533: Apud Andreae Wecheli heredes, Claudium Marnium & Io. Aubrium 
+11   ***   23119614: Ex typographia Raymundiana 
+11   ***   20753109: Venundantur ab S. Gueynard, al's Pineti 
+11   ***   27568892: Chez Martial Barbou ... 
+11   ***   24685459: Impressa ... per Philippum Pincium Mantuanum 
+11   ***   24685549: Excudebat Robertus Mollus 
+11   ***   20753486: apud Seb. Gryphivm 
+11   ***   22850673: Ex officina typographica Francis. Bassaei, impensis Sigismundi Feyrabends 
+11   ***   28081436: Chez Franç. Grasset et comp. 
+11   ***   22851153: Excudebat Stephanus Gamonetus 
+11   ***   21186869: Apud Martinum Iuuenem ... 
+11   ***   27488878: Appresso Ventura de Saluador 
+11   ***   27488887: Ex typographia Reu. Camerae Apostolicae 
+11   ***   27488888: Ex typographia Iosephi Bottarij 
+11   ***   25304357: Apud heredes Iacobi Giuntae 
+11   ***   27570005: Sumptibus & Typis Ioannis Bringeri 
+11   ***   27570008: None 
+11   ***   23900013: Per ... Iacobum Saccon 
+11   ***   25735570: Venundantur Lugd'. a Jacobo Giunti in vico Mercuriali 
+11   ***   25998003: Officina Damiani Zenarij 
+11   ***   27309018: Ex Typograph. R. Camerae Apost. 
+11   ***   27309020: Sumpt. Laurentii Arnaud, & Petri Borde. 
+11   ***   24573784: Apud Michaelem Demenium 
+11   ***   26522829: Excudente Ioanne Rubrio sub auspicio Mercurii, in uia S. Mammoli 
+11   ***   25392027: Apud Vascosanum, uia Iacobaea ad insigne Fontis 
+11   ***   29366044: Apud Petrum Landry 
+11   ***   27571912: In aedibus Francisci Sesalli 
+11   ***   21547305: typis Pauli Frambotti 
+11   ***   25474975: In aedibus academicis excudebant Robertus et Andreas Foulis ... 
+11   ***   24688770: Ad signum iurisconsulti Bartolomeo Rubini 
+11   ***   25304777: Apud Nicolaum Niuellium ... 
+11   ***   27620465: Excudebat Iohannes Saurius 
+11   ***   27620470: Apud Ant. Vincentium 
+11   ***   20586282: Vincentius de Portonariis 
+11   ***   20757257: Per Iohannem Schöffer 
+11   ***   24165178: Apud Brogiollum 
+11   ***   26524518: Apud Christianum VVechelum ... 
+11   ***   27573164: Chez Jacques Farne, imrimeur-libraire ... 
+11   ***   20759261: Apud Ioannem Gymnicum, sub Monocerote 
+11   ***   25436015: Ex officinâ Ioan. Maire 
+11   ***   26000668: In sole aureo vici Sorbonici per Udalricum Gering et Magistrum Bertholdum Renbolt 
+11   ***   21020066: Printed by B. Alsop and T. Favvcet ... 
+11   ***   21806516: Excudebat Henricus Stephanus 
+11   ***   27533217: Ex Typographia Leonardi Venturini 
+11   ***   21204458: Antonius Perez de Soto 
+11   ***   27725063: Apud Guliel. Rouillium 
+11   ***   27175135: Apud Gasparem Bindonum 
+11   ***   21544822: In Collegio eiusdem Societatis 
+11   ***   22552558: Ex typographia Fentiana, sumptibus praefati Monasterii 
+11   ***   25691201: Sumtibus Matthaei Birckneri, bibliop. Ien. & Helmst. 
+11   ***   24780801: Apud Michaelem Iulianum ... 
+11   ***   20758612: Apud viduam Margaritam Anglada & Andraeam Laurentium 
+11   ***   23380286: Aldo Manuzio, figlio 
+11   ***   25215344: Ex typographia Andreae Phaei 
+11   ***   25739777: Typis Andreae Wecheli 
+11   ***   27050690: Ad signum seminantis 
+11   ***   21752960: Apud Gulielmum Rouillium ... 
+11   ***   21110923: Apud Gulielmum Rouillium 
+11   ***   23380837: Dominicus Lilius excudebat 
+11   ***   20497315: In aedib. Aldi, et Andreae Asulani soceri 
+11   ***   24429483: Apud Sebastianum Cramoisy, regis & reginae architypographum, et Gabrielem Cramoisy ... 
+11   ***   23164417: Ex Typographia Hieronymi Mainardi 
+11   ***   24429899: Apud Ioannem Andream Valuassorem 
+11   ***   23381384: Apud Gualterium Scotum 
+11   ***   27577249: Chez la veuve de Jean Barbou ... 
+11   ***   26002973: Apud Iacob. Antonium Somaschum 
+11   ***   26789415: Ex Typographia Joannis Bazachij, sumptibus Andreae Viani 
+11   ***   27575867: Chez Etienne Cormier, imprimeur-libraire ... 
+11   ***   27575868: Chez Jacques Roux, imprimeur de monsiegneur l'evêque du clergé & du college ... 
+11   ***   27051618: Bei Christian Egenolffs Erben 
+11   ***   24430405: Apud Sebastianum Cramoisy, regis ac reginae architypographum, et Gabrielem Cramoisy ... 
+11   ***   27303979: Ex typis Iacobi Dragondelli 
+11   ***   20760621: Apud Io. Heruagium 
+11   ***   23119969: sumptibus L. Jennisii 
+11   ***   27576555: Getruckt zu Wormbs durch Hans Meiel 
+11   ***   26790159: In aedibus Societatis Iesu 
+11   ***   21547306: sumptibus Iosephi & Petri Vilort 
+11   ***   23120306: Aurelius Pincius Venetus ... imprimebat 
+11   ***   23906759: Sumptibus Ioannis Hermanni Widerhold 
+11   ***   22596171: Apud viduam Simonis Benard ... 
+11   ***   21809883: Presso il Marchesani ed erede Merlo; a spese di F. Brunelli 
+11   ***   20237124: F. Rossi 
+11   ***   27708569: Ex officina Iacobi du Puys, è regione collegij Cameracensis, sub insigni Samaritanae 
+11   ***   24955860: Apud Iac. de Franciscis 
+11   ***   26004656: Impresse Lugduni per Jacobum Marechal al's Rolant 
+11   ***   20849182: Luca Antonio Giunta 
+11   ***   20436430: A. Bulison 
+11   ***   23907673: Apud Hieronymum Scotum 
+11   ***   23907674: Sumptibus Laurentii Arnaud, Petri Borde, Ioan. & Petri Arnaud 
+11   ***   22859448: per Henricvm Petri 
+11   ***   23645922: Sumptibus Anisson & Joannis Posuel 
+11   ***   21286743: Apvd Ioannem Valdervm 
+11   ***   21548927: apud Carolam Guillard 
+11   ***   20368727: ex officina R. Rescij 
+11   ***   25481413: Constantin Fradin 
+11   ***   25567969: Apud Paulum Bladum, impressorem ... 
+11   ***   22598097: In aedibus Hieronymi Vietoris & Ioannis Singrenii 
+11   ***   23122421: Marcus Scipio 
+11   ***   26979265: Typis Wechelianis, sumptibus heredum Ioannis Aubrii 
+11   ***   25830240: Apud M. Valentinum 
+11   ***   25482330: Typis Philippi Mariae Mancini 
+11   ***   20936893: typis Academicis 
+11   ***   27349895: Nidpas be-vet Y. Ḳelner 
+11   ***   27055273: Excudebat Josephus Cominus ... 
+11   ***   25482454: De l'imprimerie de Jacob Stoer 
+11   ***   27579701: Nella stamperia Baglioni 
+11   ***   24434063: Apud Fridericum Leonardum ... 
+11   ***   27490569: Sumptibus Ioannis Antonii Huguetan & Guillielmi Barbier 
+11   ***   27580038: Appresso Giouan Maria Bonelli 
+11   ***   27580041: Par Galiot du Pré ... 
+11   ***   23385758: Excudebant Godofridus & Marcellus Beringi, fratres 
+11   ***   20764561: In aedibus Francisci Bindoni & Maphei Pasini 
+11   ***   27580368: Appresso Gabriel Giolito de Ferrari et fratelli 
+11   ***   24172741: Sumptibus N. & V. Rispoli 
+11   ***   20941202: N. Deville 
+11   ***   20765175: Printed by R. Bishop, and are to be sold by Fr. Bowman in Oxford 
+11   ***   23386759: Ex officina Sigismundi Latomi 
+11   ***   23648958: Sumptibus Fratrum de Tournes 
+11   ***   24697615: Ex typographia Secundini Roncalioli, apud Saluatorem Castaldum 
+11   ***   23649237: In aedibus Ioannis Baptistae à Terranoua 
+11   ***   27044443: Apud Franciscum Moschenium 
+11   ***   24607263: None 
+11   ***   20766019: In casa de' figliuoli di Aldo 
+11   ***   27582067: Veneunt Lugduni per Stephanum Maillet in vico Mercuriali moram trahentem 
+11   ***   20500416: Printed for Jacob Tonson, at the Judges-Head in Chancery-Lane, near Fleetstreet 
+11   ***   20500417: Printed by Ann Godbid, and John Playford, for Samuel Carr, at the Kings-Head in St. Paul's church-yard 
+11   ***   23387897: Apud Nicolaum Morettum 
+11   ***   27582398: Venundantur Lugduni a Jacobo Giunti in vico Mercuriali 
+11   ***   27582399: Ex typographia S. Michaëlis ad Ripam 
+11   ***   27582403: Apud Baretium Baretium 
+11   ***   27582404: Ex officina Io. Petri Brigonci 
+11   ***   27582410: Typis & sumptibus Leoni & Mainardi typographorum cameralium 
+11   ***   27582740: Apud Antonium Fulgonium 
+11   ***   28107068: ex typographia olim Frambotti, nunc Jo. Baptistæ Conzatti 
+11   ***   23296739: Apud Andream à Portonariis 
+11   ***   24961449: Excudebant haeredes Ioannis Cratonis 
+11   ***   21029306: Ex typographia Francisci Alberti Tani 
+11   ***   27583070: Ex officina Godefridi et Marcelli Beringorurum Fratrum 
+11   ***   27583071: Ex typographia Iacobi Stoer 
+11   ***   27583073: Ex officina typographica Michaëlis Vascosani, uia Iacobaea ad insigne fontis 
+11   ***   27583079: Apud Gabrielem De Tournes et Filios 
+11   ***   27583080: In typographia regia excudebat Sebastianus Mabre-Cramoisy, regis typographus, & regiae typographiae director 
+11   ***   27583081: Per Balthasarem Lasium, & Thomam Platterum 
+11   ***   27583082: Studio et impensis Ant. Aug. Renouard : typis P. Didot natu majoris 
+11   ***   27583083: Typis viduae Antonii Urbani Coustelier ... 
+11   ***   21911828: None 
+11   ***   24699689: Ex impressione repraesentabat Leonardus Torrentinus 
+11   ***   27583415: Typis Celsitudinis, Apud Tartinium & Franchium 
+11   ***   27583420: Sumptibus Fratrum Duplain 
+11   ***   27583422: Ex typographio Manniano 
+11   ***   27583424: Apud Dionysium Thierry ... 
+11   ***   27583428: Apud Ioan. Tornaesium et Guil. Gazeium 
+11   ***   24869733: Imp. Johannes Adami Pleneri 
+11   ***   27725384: Impensis Lazari Zetzneri bibliopolae 
+11   ***   27583743: Apud Simonem Benard ... 
+11   ***   27583744: Apud Antonium Molin ... 
+11   ***   24438196: Sumptibus Marci-Michaelis Bousquet & sociorum 
+11   ***   24176174: ex officina Nicolai Kalt, episcopi Constant. typographi ordinarij 
+11   ***   24738748: Io. Gryphius excudebat 
+11   ***   23651977: Apud Franciscum de Franciscis, Senensem 
+11   ***   23640209: En la boutique de Iean Droz ... 
+11   ***   23389917: En la Oficina de la viuda de M. Fernandez, imprenta 
+11   ***   20707261: Apud Sebastianum Chappelet, via Iacobaea, ad insigne Oliuae 
+11   ***   23914482: Sumpt. Joannis-Antonij Huguetan & soc. 
+11   ***   21031034: None 
+11   ***   25487709: Typis J. Barbou ... 
+11   ***   21555920: svmptibvs Io. Pavli Gellii, ad signvm navis 
+11   ***   26012386: Gio. Giacomo Rossi le stampa alla Pace in Roma alli insegna di Parigi 
+11   ***   24963888: Apud Nicolaum Polum 
+11   ***   25226179: Apud Haeredes Simonis Vincentij 
+11   ***   20769905: Apud B. Vincentium 
+11   ***   24964291: Apud Laurentium Pasquatum 
+11   ***   22163294: Apud Ioannem Variscum et socios 
+11   ***   21032283: typis H. Galleri, ære Johan-Theodori de Bry 
+11   ***   21294629: Sumptibus Ludovici Prost ... 
+11   ***   27586087: Apresso Gabriel Giolito de'Ferrari 
+11   ***   27586088: Diligenter impressi per magistrum Angelum Britanicum, Brixie 
+11   ***   22117646: Sumptibus L. Anisson 
+11   ***   25621769: Impensis Claudii Marnii haeredum, Ioannis & Andreae Marnii & consort. 
+11   ***   20770698: In edibus Petri Liechtenstein, impensis Ioannis Oswalt 
+11   ***   23916535: apud Andreem Cloucquium 
+11   ***   24702992: Iacobus Giunti 
+11   ***   24703000: In officina Iacobi Moderne 
+11   ***   21588969: Appresso P. Lancellotti 
+11   ***   22606121: In der orientalischen Buchdrukerey 
+11   ***   27062582: Impensis D. Michaelis Tramezini Veneti ... 
+11   ***   25752107: Typis Wechelianis, sumptibus Clementis Schleichij & Petri de Zetter 
+11   ***   23655007: Ex typographia Io. Baptistae Rubei 
+11   ***   27062996: Impensis Domini Michaelis Tramezini Veneti ... 
+11   ***   21295877: Sumpt. viduae Petri Pütz & filii ... 
+11   ***   25228093: Apud Ioannem Variscum & Socios 
+11   ***   23131000: Apud haeredes Iacobi Iunctae 
+11   ***   24966157: Typis Ioannis Anard 
+11   ***   23153188: In officina Birckmannica, sumtibus Arnoldi Mylij 
+11   ***   23867283: Apud Samvelem de Torunes 
+11   ***   27587902: Ex officina VVolfgangi Hofmanni 
+11   ***   24652012: Sumptibus Laurentij Durand 
+11   ***   23488370: Prostant apud Marium Nicolj 
+11   ***   25875406: Vincenti de Portonarijs 
+11   ***   22991823: Sumptibus Bertanorum 
+11   ***   27588343: apud Joannem Jacobum Komarek, Bohemum typographum ... 
+11   ***   25229130: Apud Haeredes Iacobi Giuntae 
+11   ***   21034880: stanno et sumtibus Ioan. Nicolai Andraeae 
+11   ***   27498592: Ex officina Roberti Stephani typograpgi sic regij 
+11   ***   27588635: Typis Longhi, impressoris archiepiscopalis 
+11   ***   27588636: Per Eusebium Episcopium, et Nicolai fratris haeredes 
+11   ***   27588639: Apud Ioann. Tornaesium 
+11   ***   27588640: Apud Sebastianum Cramoisy ... et Gabrielem Cramoisy 
+11   ***   25753669: Impensis ipsius auctoris 
+11   ***   20772978: Apud N. Foersterum 
+11   ***   20772980: Apud Dominicum Farreum 
+11   ***   24695828: Typis Petri Marin 
+11   ***   23690945: apud Antonium Fulgonium 
+11   ***   20733591: Apud Cominum de Tridino Montisferrati 
+11   ***   27588928: In aedibus academicis excudebant Robertus et Andreas Foulis 
+11   ***   27588932: Ex typographiâ Jos. Barbou ... 
+11   ***   27588936: Apud viduam Cl. Rigaud, & Philip. Bordes ... 
+11   ***   27588939: Apud Petrum Lamy ... 
+11   ***   27588943: Apud Ioannem Iost ... 
+11   ***   24443235: Ex Vnitorum Societate 
+11   ***   22773494: Ex officina Roberti Stephani typographi regii 
+11   ***   28016377: Printed for Matthew Lownes 
+11   ***   27589236: Apud Guillelmum Laemartium 
+11   ***   27589237: Apud Petrum Valfray ... 
+11   ***   27589239: Apud viduam Joan. Bapt. Guillimin ... 
+11   ***   27589252: Chez Etienne Cormier ... 
+11   ***   27589536: Francesco Bindoni & Mapheo Pasini 
+11   ***   27589550: Johan Loersfelt 
+11   ***   27065420: Apud Antonium Pinellum, impressorem ... 
+11   ***   23428964: Apud C. Stephanum 
+11   ***   25089212: Ex officina Ioan. Baptist. Somaschi 
+11   ***   25230939: Apud filios Laurentii Torrentini tipografi ducalis 
+11   ***   20982396: Apud Paulum Manutium, Aldi f. 
+11   ***   24338740: Sumptibus Ioannis-Antonij Huguetan & Marci-Antonij Rauaud 
+11   ***   21672757: N. Pezzana 
+11   ***   21561380: Per Antonium du Ry, impensis Iacobi q. Francisci de Giunta et sociorum 
+11   ***   21561381: Ab Iacobo Huguetano eiusdem ciuitatis bibliopola... 
+11   ***   22304884: Impressa ... per Iacobum Mazocchium 
+11   ***   24707262: Excudebat Nicolaus Hoffmannus, impensis Petri Kopffij 
+11   ***   20775272: V. Luchinus bibliopola Romanus excudebat 
+11   ***   27328961: In edibus Quentell perfaustus 
+11   ***   27533593: Typis Francisci Ferrofini 
+11   ***   27591167: Typis Zachariae Lehmanni 
+11   ***   25494100: Apud Gulielmum Merlin ... & Gulielmum Desboys ... ac Sebastianum Niuellium ... 
+11   ***   25494184: Apud Petrum Quentell. 
+11   ***   24183551: Apud Godefridum & Marcellum Beringos fratres 
+11   ***   26542927: Apud Dominicum & Cornelium de Nicholinis 
+11   ***   22671359: Apresso Gabriel Giolito de' Ferrari 
+11   ***   28115928: A. Vignon 
+11   ***   20698771: ex typographia Francisci Mov̈cke 
+11   ***   22348850: apud Jo. Baptistom Recurti 
+11   ***   20094567: Janus-Verlag 
+11   ***   22002726: Excudebat Claudius Seruanius 
+11   ***   22287489: Sumpt. Iacobi Cardon & Petri Cauellat 
+11   ***   20514762: In aedibus F. Minitii Calvi 
+11   ***   23123632: Apud Damianum Zenarum 
+11   ***   24971314: Apud Michaëlem Sonnium, via Iacobaea, sub Scuto Basilensi 
+11   ***   26992452: Apud Haeredes Aloisij Zannetti 
+11   ***   23923005: In aedibus Ioan. Antonii & fratrum de Sabio, sic instante Ioan. Baptista de Pederzanis Brixiensi 
+11   ***   21563781: Per li figliuoli del qu: Z. A. Pinelli, stampatori ducali 
+11   ***   24447450: Sumptibus fratr. Anissoniorum & Joannis Posuel 
+11   ***   22874608: Ex typographia Andraeae Phaei 
+11   ***   20720728: Printed for A. & J. Churchill 
+11   ***   22612536: Ex officina Iuntarum 
+11   ***   22612542: Bi-defus Shelomoh Zalman Apṭrud be-vet Yohan Ḳelnir 
+11   ***   22612983: Apud Martinum Juvenem 
+11   ***   24710388: Ex officina Ioan. Baptistae Somaschi 
+11   ***   23167561: Vendantur in edibus Ascensianis & Ioannis Parui 
+11   ***   21755073: Printed for B. Cowse, and W. Innys ... 
+11   ***   28235714: Apud Bartholomaeum Honoratum, sub vase aureo 
+11   ***   21827214: Freres Duplain 
+11   ***   21827220: sumptibus Joannis Gravier, et nepotis 
+11   ***   23662350: Apud Sebastianum Combi 
+11   ***   23036617: T. Longman etc 
+11   ***   27595423: De l'imprimerie de Jacques-François Collombat ... 
+11   ***   27536865: Per Johannem Frobenium ... 
+11   ***   20967489: apud Cominum de Tridino Montisferrati 
+11   ***   27333661: Apud Ioannam Iacobi Iuntae F. 
+11   ***   26575754: Apud Ioannem Baptistam Subtilem 
+11   ***   21042505: Apud haeredes Iacobi Iuntae 
+11   ***   25063451: Sumptibus Iohannis Berneri, bibliopolae 
+11   ***   20803680: Apud Eustathium Vignon 
+11   ***   26547921: Ex officina Francisci Laurentini de Turino 
+11   ***   25761647: Ex Regio Typographaeo 
+11   ***   21043355: Ex officina Frobeniana 
+11   ***   25702092: Apud Nicolaum Hernelinum 
+11   ***   23430197: Apud Lazarum Scorigium 
+11   ***   27603627: Typis & expensis Philippi Rubei 
+11   ***   25964275: Ex typographia Caroli Zeneri 
+11   ***   27597800: Chez P. de Bresche, & I. de Laize de Bresche ... 
+11   ***   27624631: Ex typographio Henrici ab Haestens. ; impensis Iohannis Orlers, And. Cloucq, & Ioh. Maire 
+11   ***   28236303: Apud Ioannem Foulerum Anglum 
+11   ***   24984940: Excudebat Aegidius Regazola 
+11   ***   21568757: Apud Michaëlem Sonnium, via Iacobaea, sub Scuto Basiliensi 
+11   ***   29345892: Apud Io. Baptistam Ciottum 
+11   ***   25239051: Sumptibus Georgii Fickwirti 
+11   ***   26995351: Ex typographia Ioannis Rossij 
+11   ***   28149042: Sumptibus Adriani Vlacq 
+11   ***   23666575: Ex regia officina Caroli Porsile 
+11   ***   25501620: Apud Ioannem Saurium, impensis Ioannis Spies 
+11   ***   21831940: Apud Guerilios 
+11   ***   25239855: Apud Geruinum Calenium & haeredes Iohannis Quentel 
+11   ***   25003442: Impensis Lazari Zetzneri, bibliopolae 
+11   ***   25502494: Apud Paullum Frambottum 
+11   ***   20783973: è typographiâ Fratris regis natu proximi 
+11   ***   27599831: Veneunt Lugd'. apud Jacobum Giuncti 
+11   ***   27599832: Apud Jacobum Giunctam 
+11   ***   27599834: Apud Andreae Wecheli heredes Claudium Marnium & Ioann. Aubrium 
+11   ***   23256652: Stamperia, e a spese di G. Muzio erede di Michele-Luigi 
+11   ***   27599843: Excudebat Ioannes Paulus Suganappus 
+11   ***   23929919: Apud Fabium & August. Zoppinos, fratres 
+11   ***   26620112: Apud Antonium Bladum Impres. Cameralem 
+11   ***   27600149: In aedibus haeredum Aldi et Andreae soceri 
+11   ***   27600151: Typis Conr. Waldkirchii : Impensis Episcopianorum 
+11   ***   27600153: J. Giunta 
+11   ***   27600154: Apud Nicolaum Petit 
+11   ***   27600156: Apud Paulum Zanfrettum 
+11   ***   27600157: Ex Typographia Francisci Zinghi & Josephi Monaldi 
+11   ***   27600237: Compagnie des libraires? 
+11   ***   24785147: Per Thomam Guarinum 
+11   ***   27600484: Sumptibus Iacobi Prost 
+11   ***   28586258: Excusum praeclarum hoc opus in aedibus Laurentij Hilarij, sumptu honesti viri Vincentij de Portonarijs, de Tridino, de Monteferrato 
+11   ***   28586265: Apud Ludouicum Elzeuirium 
+11   ***   21047185: Jacques Giunta 
+11   ***   27076514: Apud Erasmum Simeonem 
+11   ***   25309518: Apud Ioannem Baptistam Sessam & fratres 
+11   ***   27600860: Apud Christophorum Thomasinum 
+11   ***   20785163: Apud Socios Aquilae Renouantis 
+11   ***   25134801: Apud Symphorianum Beraudum 
+11   ***   22096163: ex typographio J.B. Pasqualii 
+11   ***   22620564: P. & C. Rigavd 
+11   ***   20809491: Sumpt. P. Borde, L. Arnaud et P. Borde 
+11   ***   21047998: Apud Nicolaum Episcopium Iuniorem 
+11   ***   21048020: Apud Baltassarem Constantinum ad signum diui Georgii 
+11   ***   23669595: In officina literaria Paltheniani collegij, quod est in nobili Francofurto 
+11   ***   26553299: Typis Bernardi Albini 
+11   ***   26399183: Apud Aldi filios : Expensis uero nobilis uiri Domini Federici de Turrisanis eorum auunculi 
+11   ***   24456594: Apud Horatium Saluianum 
+11   ***   20786712: Et excusae in officina haeredum Georgii Rhau 
+11   ***   22621981: T. and T. Longman 
+11   ***   21049291: Apud Ioan. Gryphium 
+11   ***   27625475: Per Agostino Carattoni ... 
+11   ***   27603101: Per Henricum Petri et Petrum Pernam 
+11   ***   21676332: Impr. d'A. Casaletti 
+11   ***   26030517: Apud Hier. Frobenium et Nic. Episcopium 
+11   ***   20787771: Ex Regio typographeo 
+11   ***   27603629: Excudebatur pro majore & juratis Hastingiae 
+11   ***   27101320: Ex officina typographica Balthasaris Aulaeandri, sumptibus verò Ioannis Berneri, bibliop. Francof. 
+11   ***   27834738: Sumptibus Antonij Hierati 
+11   ***   26555300: Excudebat Petrus Lassus, sumptibus Claudij Curlet, Sabaudiensis bibliopolae ... 
+11   ***   24785736: Typis Wolffgangi Hoffmanni, impensis Petri Hauboldi 
+11   ***   25506771: Ex officina typographica Iohannis Bringeri, sumptibus Iohannis Berneri 
+11   ***   21508961: Chez Pierre de Bats ... 
+11   ***   26817663: Ad Salamandrae, Apud Sennetonios fratres 
+11   ***   21050539: Apud Guilielmum Antonium 
+11   ***   21050543: Apud Geruasium Mallot 
+11   ***   20788515: typis Jacobi & Gulielmi Duncan 
+11   ***   26970333: Apud Ioan. Gymnicum ... 
+11   ***   24993879: Excudebat Petrus Horst 
+11   ***   21837213: apud Ioannem Pillehotte 
+11   ***   23147979: Per Dominicum Lilium et fratres, impensis ... Domini Melchioris Sessa 
+11   ***   22410088: Apud Gulielmum Desboys sub Sole Aureo, via Iacobaea 
+11   ***   25405363: Apud Geruuinum Calenium, & haeredes Ioannis Quentelij 
+11   ***   25769539: Chez Desray, libraire ... 
+11   ***   27496828: Sumptibus Haeredum Joannis Gottofredi Schönwetteri 
+11   ***   27582063: Apud Ioannem Saurium, impensis Petri Kopffij 
+11   ***   21421680: Impressum opera & impensa I. Grieninger 
+11   ***   21421687: Imprime par G. Balsarin 
+11   ***   25769706: Apud Paulum Bladum, impressorem cameralem 
+11   ***   24436395: Apud Ludouicum Alectorium, & haeredes Iacobi Soteris 
+11   ***   25921889: Apud Claudium Fremy ... 
+11   ***   24721532: Apud Matthaeum Valentinum 
+11   ***   21071089: I. L. Berewout 
+11   ***   28130101: Typis Seminarii Palafoxiani 
+11   ***   25770913: Apud Paulum Bladum Impressorem Cameralem 
+11   ***   23935941: Apud haeredes Iohannis Quentelij & Geruuinum Calenium 
+11   ***   27451255: Johem de Amerbach et Johem froben de Hammelburg Basilee impressioni ... 
+11   ***   24198608: Sumptibus Ioannis Pillehotte ... 
+11   ***   22625782: Anisson & Posuel 
+11   ***   23412233: Apud Viduam A. de Harsy 
+11   ***   20528806: ex Regio typographeo G. Bodoni 
+11   ***   27606877: Apud Franciscum Sauium ... 
+11   ***   27606881: Sumptibus Societatis Typographicae Librorum Officij Ecclesiastici, iussu regis constitutae 
+11   ***   27606888: Sumptibus Ioannis du Bray ... 
+11   ***   27606893: apud viduam Claudii Thiboust et Petrum Esclassan ... 
+11   ***   25771886: Apud Jeremiam Schrey 
+11   ***   27606896: Apud Joannem Gesselin ... 
+11   ***   23412731: Apud Claudium Morellum, via Iacobaea, ad insigne Fontis 
+11   ***   23412806: Ad salamandrae, apud Clementem Baudin 
+11   ***   27607209: Sumptibus Iacobi Cardon & Petri Cauellat 
+11   ***   27607210: Ex typographia Jacobi Vincent ... 
+11   ***   27607211: Apud Sebastianum Cramoisy ... & Garielem Cramoisy ... 
+11   ***   27607216: Apud Carolum-Petrum Berton ... 
+11   ***   27607221: apud Gerbrandum Scagen 
+11   ***   27607222: Apud Thomam Soubron, & Moysen des Prez 
+11   ***   22846667: Typis S.C. de Propag. Fide 
+11   ***   27713803: Ex officina typographica Matthaei Beckeri ; impensis Ioan. Theobaldi Schoenvvetteri 
+11   ***   27582739: Apud Theodorum Baumium, sub signo Arboris 
+11   ***   24725136: Apud Ioannem Baptistam à Porta 
+11   ***   20531073: Printed by H. Woodfall; sold by W. Sandby etc 
+11   ***   25773980: Printed for T. Woodward and J. Peele, and sold by J. Osborn ... 
+11   ***   22995272: Josephum Bettinelli 
+11   ***   25774078: In Aedibus Populi Romani 
+11   ***   25616765: Impressum Lugduni per honestum virum Johannem Marion 
+11   ***   24463774: In edibus ... impressoris Antonij du Ry ... 
+11   ***   20007357: A. Leroy 
+11   ***   20007440: Bruyset ainé & c. 
+11   ***   23153187: Apud Godefridum Kempensem 
+11   ***   28133995: exofficina N. A. Tinassii 
+11   ***   28133997: Apud viduam et heredes D. Ioachimi Ibarrae ... 
+11   ***   24714737: Ex officina Daminani Zenari 
+11   ***   22104953: ex Officina salvioniana 
+11   ***   23677924: Apud Ioannem Kinchium ... 
+11   ***   26561746: Apud Bernardum Iuntam, Io. Bapt. Ciottum & socios 
+11   ***   20794810: Apud haeredes P. Dehuchini 
+11   ***   24989124: Apud Nicolaum Claudet 
+11   ***   20008438: Bernuset 
+11   ***   20008712: Apud Sebast. Honoratum ... 
+11   ***   20008754: Cambridge University Press 
+11   ***   24203365: Mandato et expensis ... Luce Antonij de Giunta ... 
+11   ***   26840431: Apud haeredes Alexandri Gryphij 
+11   ***   25514813: Apud Iacobum de Strada et Thomam Guerinum 
+11   ***   27726327: Appresso Gabriel Giolito De' Ferrari 
+11   ***   23680031: ex typographia Raymundiana 
+11   ***   25252930: Apud Iacobum Giuntam 
+11   ***   25777338: Impensa Michaelis Tramezini, mercatoris ... 
+11   ***   21965171: Apud Henrichum Petrum 
+11   ***   22777435: F. de Franceschis et al. apud Hieronymum Polum 
+11   ***   23418432: Typis Wechelianis, apud haeredes Ioannis Aubrii 
+11   ***   22558987: Apud A.J. Dugour et Durand 
+11   ***   27583429: Apud Gaasbekios 
+11   ***   25777836: Ex officina Dominici Guerrei, & Ioan. Baptistae fratrum 
+11   ***   20534969: apud Georgium Variscum 
+11   ***   21059289: E typographia regia 
+11   ***   23156469: Per Eusebium Episcopium & Nicolai frat. haeredes 
+11   ***   23156470: Apud Heredes Bircknerianos? 
+11   ***   23869770: apud A. Pinellum 
+11   ***   27059207: In aedibus Petri Liechtenstein Germani 
+11   ***   27613266: Apud Petrum Dusinellum, sumptibus Michaelangeli Sermartellij B.F. 
+11   ***   27613271: Ex officina typographica Nicolai Hoffmanni, impensis Petri Kopffij 
+11   ***   20535444: ex Regio typographeo 
+11   ***   20535447: F. Andreola 
+11   ***   23681215: Apud haered. Colinij 
+11   ***   23157008: Per Eusebium Episcopium & Nicolai fr. haeredes 
+11   ***   23943746: Ex officina Thomae Thomae celeberrimae Academiae Cantabrigiensis Typographi 
+11   ***   25180618: Apud Jodocum Kalcovium 
+11   ***   26565597: Apud Ioa. Mariam Scotum 
+11   ***   24992783: Apud Florauantem Pratum 
+11   ***   23419957: Ex typographia Dominici Maccarani 
+11   ***   23214626: Sumptibus & typis Wilhelmi Metternich, bibliop. ... 
+11   ***   23682481: Typis Antonii de Rubeis ... 
+11   ***   27583746: Apud Petrum Bassaleam 
+11   ***   25255625: None 
+11   ***   20799323: Per I. Oporinum 
+11   ***   24207200: Per magistrum Jacobum de Phortzheim ... 
+11   ***   24993667: Haeredes Eustathii Vignon? 
+11   ***   24207324: Apud Alexandrum Benacium 
+11   ***   22634482: Excudebat A. Foulis 
+11   ***   26828971: Impensis Symonis Vincentij, arte et industria Anthonij du Ry ... 
+11   ***   27627556: Sumptibus Joannis König 
+11   ***   27627559: Sumptibus Gaspari Meturas, viâ Iacobeâ, sub signo Sanctissimae Trinitatis, prope Mathurinenses 
+11   ***   20013292: Apud Haeredes L. A. Juntae 
+11   ***   23038951: Roncalioli haeredum typis 
+11   ***   20013459: Durch Donatum Richtzenhan 
+11   ***   27615774: Apud Gabrielem Giolitum de Ferrarijs 
+11   ***   27615779: Apud Bartholomaeum Grasssum 
+11   ***   27615780: Apud Theodorum Baumium sub signo Arboris 
+11   ***   27615781: Apud Ioan. Wecheli viduam ; sumtib. Petri Fischeri 
+11   ***   27615782: A. Vincent. i.e. Vincentius de Portonariis 
+11   ***   23945776: Apud Antonium Schouten 
+11   ***   22550134: Typis Petri Mariae Frambotti bibliopolae 
+11   ***   27616071: Apud Ioannem Gymnicum sub Monocerote 
+11   ***   27616072: Venundantur Lugd'. per Jacobum Giuncti 
+11   ***   27616073: Venundantur Lugd'. apud Jacobum Giuncti in vico Mercuriali 
+11   ***   27616075: Jacques-François Giunta 
+11   ***   27616078: In officina Ioannis Lufftij 
+11   ***   24994700: Excudebat Guilielmus Antonius 
+11   ***   22635587: Typis Joh. Henrici Deckeri ... 
+11   ***   25257451: Apud Hieronymum Gormontium ... 
+11   ***   21849787: Apud Sebastianum Niuellium, sub Ciconiis, via Iacobaea 
+11   ***   28101841: Apud F. Montalant, bibliopolam ... 
+11   ***   20768397: Sumptibus I. Kalcovii 
+11   ***   20768398: Apud haeredem Hieronymi Scoti 
+11   ***   27600470: Ex officina typographica Wolffgangi Richteti ; sumptibus heredum Nicolai Bassaei 
+11   ***   27455569: Ex officina typographica Wolfgangi Richteri, curantibus Rulandiis 
+11   ***   27617641: Apud Iohannem Roigny, via ad D. Iacobum, sub basilico & quatuor elementis 
+11   ***   27617642: Apud Audoënum Paruum, sub Lilo aureo, via ad diuu  Iacobum 
+11   ***   27617646: Apud Thomam Moette ... 
+11   ***   27617647: Apud Geruasium Alliot ... 
+11   ***   25782822: Apud Jer. Schrey & J.C. Hartmannum 
+11   ***   28250263: typis J. Baptistae Pasquali 
+11   ***   27617941: Apud Ioannem Saurium, impensis Theobaldi Schönvvetteri 
+11   ***   23947967: Per Aurelium Pincium Venetum impressa, sumptibus vero Petri de Dominicis, bibliopole Neap., et sociorum 
+11   ***   22899468: Excudebat Mathias Cance 
+11   ***   22899475: Ad Candentis Salamandrae insigne 
+11   ***   21764596: Apud Antonium Bortoli 
+11   ***   25783241: Impensis Joh. Gotofr. Conradi 
+11   ***   23987869: typis & sumptibus Johannis Nicolai Andreæ 
+11   ***   28236297: Printed for Hawes, Clarke, and Collins at the Red-Lion in Pater-Noster-Row 
+11   ***   22113653: Ex Officina Paltheniana, sumptibus Ioannis Spiessii 
+11   ***   23686658: Ex typographia Francisci Bizzarrini Komarek 
+11   ***   26570291: Apud viduam Ioannis Gymnici ... 
+11   ***   27619228: Typis Seminarii apud Joannem Manfrè 
+11   ***   27619230: Sumptibus Fratrum Barbou ... 
+11   ***   23163188: Apud Georgium Angelerium 
+11   ***   27715649: Impensis Jacobi de Giunta ac sociorum 
+11   ***   27881873: Excudebat Dionysius Harcaeus 
+11   ***   27881874: Dion. Harsaeus? 
+11   ***   27881875: Excudebat Petrus Fradin 
+11   ***   27881876: Excudebat Dionysius Harsaeus 
+11   ***   26046886: Printed for J. Dodsley ... and Messrs. Richardson and Urquhart ... 
+11   ***   27619855: Chez J. Jombert ... 
+11   ***   27882190: Apresso Stefano de Paulini in Roma 
+11   ***   27620171: Apud Iacobum Vitalem 
+11   ***   27620173: Apud Gualtherum Fabricium & Ioannem Gymnicum, sub Monocerote 
+11   ***   24998881: Apud Guerraeos fratres 
+11   ***   27547561: Apud Andream Muschium 
+11   ***   27882492: Typis M. Georgij Mulleri 
+11   ***   26273965: Apud Ioannem Foucherium ... 
+11   ***   23688265: Typis Mannianis 
+11   ***   27620461: Apud Franciscum Pelliparium & Franciscum Bonatum 
+11   ***   27620463: Apud Hieronymum Bartolum 
+11   ***   27620478: Apud Nicolaum Paruum 
+11   ***   24531786: In aedibvs palatinis, typis Bodonianis 
+11   ***   27620769: Veneunt Lugduni apud Jacobum Giuncti 
+11   ***   27620771: Ex Typographia Nicolai Angeli Tinassij Impressoris Cameralis 
+11   ***   23426646: Per Beringos fratres 
+11   ***   24475243: Apud Michaelem Bonellum 
+11   ***   26347437: Apud Balthasarem de Cartulariis Perusinum 
+11   ***   21468107: Chez J.B. Coignard 
+11   ***   24737497: Impensis Mezlerianis 
+11   ***   23827413: Typis Bernabo 
+11   ***   24570175: Per li figliuoli del qu. Z. Antonio Pinelli, stampatori ducali 
+11   ***   27883411: Excudebant Godefridus & Marcellus Beringi fratres 
+11   ***   23427016: Per Henrichum Petrum 
+11   ***   22210899: typis Sac. congreg. de propag. fide 
+11   ***   20543497: Printed by T. Wood, for J. & J. Knapton etc 
+11   ***   29288792: Ex officina Ioan. Vincentij & Io. Francisci fratrum de Cauallerijs 
+11   ***   22640768: Ex typographia Gulielmi Faciotti 
+11   ***   27715953: Sumptibus Ioannis Iacobi Porsii, typis vero Nicolai Hoffmanni 
+11   ***   20806097: Apud. I. Mazochium 
+11   ***   27453883: In calcographia Francisci Bindonis, et Maphei Pasini, Socijs ... 
+11   ***   22641258: Ex typographia Andreae Poletti 
+11   ***   22641260: Typis Andreae Poleti 
+11   ***   25000809: Excudebat Ioannes à Bostillo 
+11   ***   23428198: Excudebant fratres Palearini ... 
+11   ***   22117647: Typis Tartini & Franchi 
+11   ***   22117648: Apud Marcum Amadorum 
+11   ***   22117649: Sumptibus Jo. Friderici Gleditschii, bibliopol. 
+11   ***   24214964: Impensa heredum ... Octauiani Scoti ac sociorum 
+11   ***   27729141: Apud Ioan. Baptistam Hugolinum 
+11   ***   26574338: Apud VVolfggangum Endterum, bibliopolam Noribergens. 
+11   ***   24566777: Apud Ioannem Ferdinandum 
+11   ***   22118080: In edibus Aurelij Pincij 
+11   ***   22642684: Prostant venales Londini, apud Gul. Sandby ... et Cantabrigiae, apud G. Thurlbourn & J. Woodyer 
+11   ***   21686962: None 
+11   ***   22118878: None 
+11   ***   25002761: Typis Matthiae Beckeri 
+11   ***   24740704: Ex officina Reginaldi Calderij, & Claudij eius filij 
+11   ***   25265016: Impressum Lugduni Iacobus Giunta 
+11   ***   21424974: chez Jean Viret ... 
+11   ***   27624630: Excudebant Fratres Palearini 
+11   ***   27613269: In aedibus populi Romani apud Georgium Ferrarium 
+11   ***   25265358: Apud Io. Franciscum Valvasensem 
+11   ***   26313946: Impressum fuit per magistros Johannes, Amorbachium, Peter, et Fröben collegas 
+11   ***   22644121: Apud Laurentium Sonnium ... 
+11   ***   27624887: Per Ioannem Heruagium & Berhardum Brand 
+11   ***   27624888: Ex typographia Jo. Baptistae Bernabò, & Josephi Lazzarini 
+11   ***   27624890: Per Henrichum Petri 
+11   ***   27624891: Ex officina typographia Nicolai Bassaei 
+11   ***   27585443: Appresso Gabriel Giolito ... 
+11   ***   25527782: Apud Ioannem de Roigny ... 
+11   ***   21857797: Apud Ioannem Billaine ... 
+11   ***   23692833: Apud Io. Baptistam Vismaram 
+11   ***   27625182: Typis Caspari Rötelij ; prostat apud Iodocum Kalcouium 
+11   ***   27625189: Apud Michaelem Parmenterium & Ioan. Franciscum de Gabiano 
+11   ***   27625191: Apud Francisc. Laurentinum de Tuinro i.e. Turino 
+11   ***   23168805: Apud Iacobum Giuncti 
+11   ***   23693102: Apud Io. Dominicum Tarinum 
+11   ***   27625465: Por Ioan de Barrera Impressor de la vniuersidad 
+11   ***   26493272: Apud Antonium de Harsy 
+11   ***   25226402: Apud Damianum Zenarium & Hieronymum Francinum 
+11   ***   27454637: A Petro Vngre & Anthonio Doulcet ... 
+11   ***   26840442: Apud Audoenum Paruum ... 
+11   ***   27585771: Appresso Gariel sic Giolito de'Ferrari et fratelli 
+11   ***   25532328: Apud Ascanium & Hieronymum Donangelos 
+11   ***   24536106: Apud Ioannem Huguetan. 
+11   ***   22692463: In edibus Philippi Pincij Mantuani ad instantiam D. Ioan. Bartholomei de Gabiano, ciuis Astensis 
+11   ***   27627564: Sumptibus Sebast. Combi, & Ioan: La Noù 
+11   ***   27627565: Apud viduam Claudii de Hansy, sacri Ordinis Praedicatorum bibliopolae ... 
+11   ***   26668381: Ex officina Marci de Maria Salernitani bibliopolae Neapolitani 
+11   ***   27627568: Oliva Pauli Stephani 
+11   ***   26755764: Ex officina Georgii Grierson ... 
+11   ***   20811901: Impensis Corn. Crownfield, ... & Jacobi Knapton, ... ad insigne coronae in Coemeterio D. Pauli 
+11   ***   22646963: Printed by W. Bulmer and Co., for J. Wright 
+11   ***   26318899: Opera Francisci Fradin impressoris non infimi 
+11   ***   24744436: In edibus  Aurelij Pincij Veneti impresse sic 
+11   ***   27464998: Printed by A.M. and are to be sold by Will. Sheares ... 
+11   ***   28152612: Printed for D. Browne ... C. Davis ... A. Millar ... S. Baker ..., and John Whiston ... 
+11   ***   23085899: Apud Ioan. Tornaesium et Gul. Gazeium 
+11   ***   26579977: Apud Thomam Vileranium 
+11   ***   24745069: None 
+11   ***   24745071: None 
+11   ***   25007428: Apud haeredes Aloysij Valuassoris & Io. Dominicum Michaelem 
+11   ***   23434715: Per Jacobum Thanner impressus 
+11   ***   25794199: Apud Iacobum Chouët 
+11   ***   26056363: Apud Gasparem Trechsel 
+11   ***   24483536: Apud VVilhelmum Lutzenkirchen 
+11   ***   25532339: Apud Dominicum Basam 
+11   ***   26843251: Apud Joannem Mariam Salvioni Typographum Vaticanum 
+11   ***   20551860: Appresso S. Galignani & Girolamo Porro 
+11   ***   25532763: Apud Georgium Ferarium 
+11   ***   24746691: Apud Io. Antonium & Iacobum de Franciscis 
+11   ***   20552494: Typis reuerendae Camerae apostolicae 
+11   ***   20769910: None 
+11   ***   22780475: Ex impressione Baptiste de Tortis 
+11   ***   23698804: Sumptibus itemq́ue typis chalcographicis Ludovici Regis 
+11   ***   27455381: Printed by R.Y. for the partners of the Irish stocke 
+11   ***   27455387: Printed by I.L. for R. Allot 
+11   ***   27368992: Ex typographia Antonij Pinelli 
+11   ***   23961146: Typis Petri-Mariae de Montibus 
+11   ***   26320575: Typis & sumptibus Joh. Jacobi GenathI 
+11   ***   26320594: Apud Petrum Lassum 
+11   ***   21602062: P. Rigaud 
+11   ***   21602132: Apud Gabrielem & Claudium Martin ... 
+11   ***   25272216: Typis Wechelianis apud haeredes Ioannis Aubrii 
+11   ***   24747961: Excudebat Paulus Stephanus 
+11   ***   27631732: Ẓ. Denaʼra 
+11   ***   24748425: Seb. Gryphius Germ. excud. 
+11   ***   27107753: Veneunt apud Galeotum a Prato ... 
+11   ***   26583530: Apud Zachariam Palthenium D. 
+11   ***   21602844: Nákladem G. Scribonia z Horssowa 
+11   ***   24486629: Apud haeredes Thomae Iunta & Franciscum Baba 
+11   ***   27370407: Apud Antonium Bellonum 
+11   ***   26059823: Apud Fabium et Augustinum Zopinos fratres 
+11   ***   21865719: Thomas Amaulry 
+11   ***   25797996: Typis E. & J.R. Thurnisiorum, fratrum 
+11   ***   21079415: Sumptibus Samuelis Chouët 
+11   ***   23438808: Per Bernardino de Bindoni milanese, ad instantia de m. Marchio Sessa 
+11   ***   22652696: Printed by W. Bentley, sold by John Williams 
+11   ***   22914939: Apud haeredes Iacobi Giunctae 
+11   ***   22300322: apud Martinum Hallervord, typis Joannis Andreæ 
+11   ***   25012387: Impensis & literis Augustini Ferberi 
+11   ***   21867063: M. Schurerius 
+11   ***   27569947: Pour Samuel Crespin 
+11   ***   27897055: Apud Simphorianum Beraud 
+11   ***   27543431: Ex typographiâ Thiboust ... 
+11   ***   24751486: Apud Franciscum Fournier ... 
+11   ***   25275850: Impensis Jeremiae Schrey & Joh. Christoph. Hartmanni 
+11   ***   22654599: Per Baptistam de Tortis 
+11   ***   24751818: Novissimis typis Josephi Nicolai de Martiis ... 
+11   ***   25013973: Sumptibus Ionae Rosae imprimebat Ioann. Bringer 
+11   ***   23179140: E typographia Steph. Preuosteau. in Collegio Cameracensi 
+11   ***   23179141: ex typographia P. Marin 
+11   ***   23179142: Ex officina Ioan. Baptistae Somaschi Papien. 
+11   ***   24752037: Apud Sebastianum Niuellium ... 
+11   ***   20295801: Apud Ioan. Ant. de Nicolinis de Sabio, sumptu & requisitione D. Melchioris Sessae 
+11   ***   23704156: Venundantur Lugduni a Stephano Gueynard prope sanctum Anthonium 
+11   ***   20558582: prostat in Officina Rengeriana 
+11   ***   26850185: Ex officina Dominici Guerraei & Io. Baptistae, fratrum 
+11   ***   21732856: apud heredes A. Wecheli, C. Marnium, & I. Aubrium 
+11   ***   21753371: apud Guliel. Rouillium. ... 
+11   ***   21066893: Typis academicis 
+11   ***   26063950: Impensis Domini Ioannis de Ferrarijs alias de Iolitis ac Domini Gerardi de Zeijs ... 
+11   ***   26063963: Sumptibus Ioannis Antonij Huguetan & Guillielmi Barbier 
+11   ***   20115433: Be-vet Yohan Ḳelnir 
+11   ***   24529144: Apud Casparem Trechsel 
+11   ***   20821569: Sumptibus Perachon & Cramer 
+11   ***   26326598: Apud Hieronymum Frobenium et Nicolaum Episcopium 
+11   ***   26233126: Apud Petrum Bouchierium ... 
+11   ***   23443790: Petrus Fradin excudebat 
+11   ***   26327436: Petrus Roburius 
+11   ***   22657441: In Officina Frobeniana 
+11   ***   22657442: Apud Fredericum Leonard 
+11   ***   22236643: Apud Carolam Guillard viduam Claudii Cheuallonii sub sole aureo & Gulielmum Desbois sub cruce alba in vico Iacobaeo 
+11   ***   22395672: in Pingui gallina per Arnoldum Birckman 
+11   ***   20298644: Per haeredes Philippi Iuntae 
+11   ***   23444525: Por Ioam de Barreyra ... 
+11   ***   26852897: Ex officina Paltheniana, cura & sumtibus Petri Fischeri 
+11   ***   25280040: Sumptibus Iohannis Pressii 
+11   ***   25804417: Apud Iohannem Birckmannum & Theodorum Baumium 
+11   ***   25804797: Apud Martinum Lechlerum, expensis haeredum Chri. Egenolphi 
+11   ***   25018407: De L'imprimerie de Michel Georges, marchand libraire ... 
+11   ***   22659394: Printed by R. H. for W. Freeman 
+11   ***   25971472: Impressa per ... Dionysium Harseum 
+11   ***   25019241: Apud Lucianum Pasinum & Marcum Amadorum, socios 
+11   ***   25544097: Apud Paulum de Dianis 
+11   ***   21611994: apud F. Gonzagam 
+11   ***   25806336: Excudebat Jacobus Berion 
+11   ***   20301341: Venundantur Lugduni apud Jacobum Giuncti in vico Mercuriali 
+11   ***   26593018: Sumptibus Laurentij Anisson 
+11   ***   25544505: Excudebat Ioannes Pederius 
+11   ***   22612096: Apud Petrum Bertanum 
+11   ***   26364919: Apud Franciscum Laurentinum de Turino 
+11   ***   26364925: Excudebat Theodosius Rihelius 
+11   ***   26364926: Opera & impensa Ioannis Soteris 
+11   ***   26364928: Apud Thomam Volffium 
+11   ***   26855618: Ex typographia Io. Dominici Roncalioli 
+11   ***   24496752: Apud Sebastianum Cramoisy, & Sebast. Mabre-Cramoisy, typographos regios ... 
+11   ***   20728943: Per Paulo Gherardo 
+11   ***   25807674: Impensis haeredum Sigis. Feyerabendij 
+11   ***   23186329: Per Bonetum Locatellum presbyterum 
+11   ***   20827039: Henri Estiene 
+11   ***   26332096: Sumptibus Petri Landry 
+11   ***   25283588: Typis Petri M. Framb. ... 
+11   ***   23710836: Apud Iacobum Villery ... 
+11   ***   23525250: Apud Iacobum Zegers 
+11   ***   24704915: None 
+11   ***   24442773: Vaenundantur Galeoto à Prato bibliopolae vniuersitatis addicto sic 
+11   ***   27381595: Sumptibus Altobelli Boni 
+11   ***   27381607: Apud Tomasinum 
+11   ***   26857438: Apud Abrahamum Pacard ... 
+11   ***   27588623: Ex officina Vascosani 
+11   ***   27588626: E typōthē en Basileia par' Ierōnymō frobeniō kai Nikolaō Episkopiō 
+11   ***   27588628: Excudebat Joannes Zempel 
+11   ***   22925497: Apud Ioannem Bonadeum 
+11   ***   21253500: In aedibus Aldi 
+11   ***   21774192: Apud Carolum Stephanum ... 
+11   ***   23712378: Apud Mamertum Patissonium, in officina Rob. Stephani 
+11   ***   24760970: Ad signum Concordiae Andrea Muschio? 
+11   ***   21091026: Apud Carolam Guillard viduam Claudij Cheuallonij, sub sole aureo, & Gulielmum Desbois sub cruce alba, in via diui Iacobi 
+11   ***   20828909: Ex Typographia Hieronymi Blageart 
+11   ***   24236949: Sumptibus Ioannis Antonii Huguetan & Marci Antonii Ravaud 
+11   ***   20510926: typis Iosephi Manni 
+11   ***   23438201: Ex Typographia Stelliolae, ad Portam Regalem 
+11   ***   20979889: extat apud Clementem Bergerum civitatis judicem & bibliopolam, typis Johan. Matthaei 
+11   ***   27264800: Typis Johannis Pillehotte 
+11   ***   27907809: Impressum per Albertinum De Lissona Vercellensem 
+11   ***   26859340: Ex Typographia Rev. Cam. Apostol. 
+11   ***   27588931: Sumptibus Hieronymi Drouart ... 
+11   ***   26073010: In aedibus populi Romani, apud Georgium Ferrarium 
+11   ***   22665154: Imprimebat Matthaeus VValack 
+11   ***   22927384: Presso P.A. Berno 
+11   ***   27561699: Apud Andream Cloucquium, sub signo angeli coronati 
+11   ***   26597588: Simon Vincent 
+11   ***   20368889: In officina Isingriniana 
+11   ***   27908630: Typis Couret de Villeneuve, Regis Typographi 
+11   ***   25622976: In aedibus Antonij Bladi 
+11   ***   27384902: Apud Ioannem de Canoua 
+11   ***   23190716: Apud Niccolaum Pezzana 
+11   ***   27561707: Ad signum putei 
+11   ***   26860976: Gedrukt bey Gottlieb Friderich Jenisch 
+11   ***   25550353: Apud Sebastianum Martellinum 
+11   ***   24880419: Sumptibus Jo. Antonii Pezzana 
+11   ***   22664679: Apud Paulum Manutium, Aldi filium 
+11   ***   27308571: Prostat apud Iohannem Andream & Wolfgangi Endteri Iunioris heredes 
+11   ***   25317394: Apud Matthiam Bonhomme ... 
+11   ***   25623832: Damiano Zenaro Ad Candentis Salamandrae insignie 
+11   ***   25807144: Typis Iacobi Gaffari 
+11   ***   27545671: Sumptibus Venantii Monaldini 
+11   ***   25551302: Impressum fuit per magistros Joannes Amorbachium, Peter et Froben collegas 
+11   ***   20570683: Impensis Michaelis Tramezini 
+11   ***   20570697: Excudebat I. Pullonus impensis honest viri Vincentij de Portonarijs ... 
+11   ***   26365818: Apud Petrum Longum 
+11   ***   25551583: Excudebat Martinus Lescuyer 
+11   ***   22273737: Apud Sessas 
+11   ***   27552972: Apud Ioannem Antonium Bertanum 
+11   ***   25027806: W. Vorsterman 
+11   ***   25814473: Typis Sac. Congr. de Propag. Fide 
+11   ***   27727574: Pour Iean Arnaud 
+11   ***   27589544: Ex officina Michaëlis Cortellini 
+11   ***   26338938: A Philippo Pincio, Mantuano, impressa 
+11   ***   22140996: Typis Io. Baptistae Ferronij : Sumptibus Turrini 
+11   ***   21096173: Printed for J.J. and P. Knapton, D. Midwinter and A. Ward, A. Bettesworth and C. Hitch, J. Pemberton, J. Osborn and T. Longman, C. Rivington, F. Clay, J. Batley, R. Hett, and T. Hatchet 
+11   ***   29222724: Bei Johann Gottlob Pech, Buchhändler 
+11   ***   23455561: Sumtibus Christoph. Gottl. Nicolai 
+11   ***   25814867: Typis Sacrae Congreg. de Propaganda Fide 
+11   ***   27500634: Apud Ioannem Simonium, aere Antonii Cervonis 
+11   ***   23456130: Impensis Georgii Fickvvirthi & Sebastiani Rohneri 
+11   ***   21883470: Printed for A. Miller and T. Cadell 
+11   ***   24505110: Apud Cominum de Tridino ... 
+11   ***   20572955: None 
+11   ***   25029425: Durch die Erben Johann Quentels vnd Gerwinum Calenium 
+11   ***   27210826: Ex officina Marnefiorum fratrum, sub Pelicano 
+11   ***   23457006: Ex officina Roberti Stephani 
+11   ***   27720941: F. Sansouini iussu 
+11   ***   20573589: Impressum per Nicolaum de Bascarinis 
+11   ***   27483230: Apud Haeredem Bartholomaei Zannetti 
+11   ***   27127297: Excudebat ... Petrus Bartolus typographus 
+11   ***   21473209: De l'impr. de Iulien du Clos, pour B. Iochault 
+11   ***   23195243: Excudebat Petrus de la Rouiere 
+11   ***   23195247: Impressum Lugduni in calcographia ... Johannis Crespin 
+11   ***   23981731: Apud haeredes Vincentij Valgrisij 
+11   ***   20573931: Per Nicolaum de Benedictis 
+11   ***   22210902: typis Sac. congregationis de propag. fide 
+11   ***   20574304: Apud Batholomaeum Grassium 
+11   ***   22210911: typis S. congreg. de propaganda fide 
+11   ***   23982237: Apud Samuelem Crispinum 
+11   ***   26104527: Apud Antonium de Arsy 
+11   ***   22409624: In edibus ... Io. de Platea, impensss sic ... Simonis Vincentij, bibleopole sic ... 
+11   ***   22409640: Apud Vincentium Valgrisium 
+11   ***   25405581: Ex officina Michaelis Vascosani ... 
+11   ***   21099450: J. M. Bruyset 
+11   ***   25290464: Apud Iohannem Wolffium, sumptibus Henrici Kröneri, bibliopolae 
+11   ***   23196999: Typis Conr. VValdkirchii 
+11   ***   27109739: Apud Iosephum Pelusium 
+11   ***   21329349: Typis G. Facciotti 
+11   ***   24770996: Apud Carolum Stephanum, typographum ... 
+11   ***   27392558: Tp. Tʻovmas Vanandetsʻu 
+11   ***   21363386: None 
+11   ***   28158429: apud G. Martin 
+11   ***   21626067: Apud Michaelem Isingrinium 
+11   ***   20577508: C. Egenolphus 
+11   ***   24772088: Per Udalricum Gering et Magistrum Bertholdum Rembolt ... 
+11   ***   25820819: Ex Officina Secundini Roncalioli 
+11   ***   23003157: apvd I. Libertvm 
+11   ***   22937850: Printed by J. Tonson 
+11   ***   20578690: Svmptibvs I. De Vecchiis, Bibliopolae svb Signo Crvcis Avreae 
+11   ***   25297290: Arte & industria ... Mathie Bonhome, chalcographi 
+11   ***   25580992: Apud Andream Bingium ... 
+11   ***   23462555: Ex Typographia Iosephi Corui & Bartholomei Lupardi Impressorum Cameralium Vaticanorumque 
+11   ***   20316915: Per Iohannem Angelum Scinzenzeler ad impensas Ioan. Iaco. et fratrum de Lignano 
+11   ***   26346231: Apud Ioannem Pillehotte 
+11   ***   24619824: Sumptibus Leonardi Chouët & socij 
+11   ***   26608840: Apud Hadrianum Beys ... 
+11   ***   23987434: Apud Gulielmum Rovillium ... 
+11   ***   24511779: Apud Io. Dominicum Tarinum & Baretium de Baretijs 
+11   ***   23201107: Ex typographia ... Aegidij Longhi 
+11   ***   27547203: Apud Joannem Barbou ... 
+11   ***   27535806: None 
+11   ***   26793839: Impressa ... Mediolani per Joan. Angelum Scinzenzeler : impensis nobilium mercatorum Jo. Jacobi et fratrum De Lignano 
+11   ***   20579810: Apud H. Polum 
+11   ***   24707333: Sumptibus ... Vincentij de Portonarijs de Tridino de Monte Ferrato ac Iacobi Giunte, Florentini, excusa ... Lugduni apud Ioannem Moylin alias de Cambray 
+11   ***   20579992: Ex officina Damiani Zenarij 
+11   ***   24512196: Iu sic aedibus Francisci Bindonei & Maphei Pasinei 
+11   ***   24512199: Impens. Rulandiorum & Nicolai Rhodij 
+11   ***   25822941: Typis Roberti Molli 
+11   ***   20580461: Apud S. Crispinvm 
+11   ***   20580462: Apud A. Valançol, typographum 
+11   ***   21105308: In aedibus L. Vicentini et L. Perusini 
+11   ***   25823911: In officina Quenteliana 
+11   ***   25562038: Ex typographia Pauli de Dianis 
+11   ***   25562050: Ex typographia Io. Baptistae Subtilis 
+11   ***   23202775: Impressum ... apud Nicolaum Bassaeum et Sigismundum Feyrabend 
+11   ***   21630083: Mandato expensis M. Sessa, per J. Pentium de Luecho 
+11   ***   23989447: Apud L. Auancium 
+11   ***   23153890: Typis Wechelianis 
+11   ***   25562470: Sumptibus Christiani Hermdsdorffs 
+11   ***   27547557: Apud Io. Griffium 
+11   ***   27547558: Apud Ioannem Barilettum 
+11   ***   25824862: Typis Aegidij Longhi 
+11   ***   23465726: Apud Paulum Vgolinum 
+11   ***   23178554: apud Gulielmum Rouillium 
+11   ***   28184467: Excudebat Joann. Hayes ..., impensis Edvardi Story ... 
+11   ***   20844552: sumptibus fratrum de Tournes 
+11   ***   20582414: Imprimebat J. P. Andreae 
+11   ***   23466101: Typis Cratonianis ; impensis Ioannis Ruhelij 
+11   ***   21631445: In Aedibus palatinis, typis Bodonianis 
+11   ***   21631450: Apud Andream Arriuabenum, ad signum putei 
+11   ***   26612407: Apud Io. Baptistam Combum 
+11   ***   20321243: apud Franciscum Zanettum & Bartholomæum Tosium socios 
+11   ***   22820221: Apud Cominum de Tridino, Montisferrati 
+11   ***   27137751: Ex officina typographica Nicolai Bassai 
+11   ***   23467787: Typis Gulielmi Facciotti 
+11   ***   25302849: Typis Seminarii 
+11   ***   26351762: In edibus Philippi Pincij, Mantuani, impressa 
+11   ***   23730435: Typis Iosephi Piccini 
+11   ***   27924741: Apud Ioan. Dominicum Tarinum 
+11   ***   25538275: Ex typographia Vincentij Accolti ... 
+11   ***   27925041: Johann Bebel 
+11   ***   27925044: Sumpt. haeredum Cramer & fratrum Philbert 
+11   ***   23468789: Per Melchiorem Sessam 
+11   ***   22944582: Apud Hieronymum Zenarum & fratres 
+11   ***   27925350: Typis Iohannis Friderici Vveissii 
+11   ***   27925354: Apud Seth Viottum ... 
+11   ***   27925355: Apud Bernardinum Ziletum & fratres 
+11   ***   27925361: Typis ac sumptibus Vvilhelmi Friessem ... 
+11   ***   20688712: Apud Laurentium Basilium 
+11   ***   25283902: Jean Bonhomme, Jean Petit, Thielman Kerver 
+11   ***   24517630: Vincent de Portonaris 
+11   ***   26090514: Apud Antonium Bladum Asulanum 
+11   ***   21634185: Impressum per Bernardinum Vercellensem iussu A. Torresano de Assula 
+11   ***   27925662: Apud Ioannem Saurium impensis 
+11   ***   27925664: Ex officina Wolfgangi Richteri 
+11   ***   27925666: Ex officina Iunctarum 
+11   ***   27925667: Apud heredes Iacobi Iunctae 
+11   ***   20585658: Ex typographia Balleoniana 
+11   ***   20585985: Ex typographia P. Bartoli 
+11   ***   20585987: Apud C. Vitalem 
+11   ***   21634615: Tot die Collacie broeders 
+11   ***   23469719: Excudebat Cominus de Tridino 
+11   ***   23469804: Typis et sumptibus Johanni Friderici Weissii, typograph. Francofurt. 
+11   ***   27926307: Typis Ioannis Bringeri, Impensis Ioannis Berneri 
+11   ***   25042749: Apud Vincentium Florinum 
+11   ***   23048936: Opera & impensa Philippi de Giunta ... 
+11   ***   26877970: Apud HH. i.e haeredes Io. Dominici Tarini 
+11   ***   27140324: Apud Io. Andream Valuassorem, cognomine Guadagninum 
+11   ***   22010557: Apud P. Balleonium 
+11   ***   23136605: Vaeneunt apud Vincentium Portonarium 
+11   ***   20586923: None 
+11   ***   20586927: Apud B. Rauerium 
+11   ***   22691434: Impresso con licencia de los superiores 
+11   ***   22946520: Stamparia de A. Tamo 
+11   ***   23470824: Typis & sumpt. Joh. Friderici Weissii 
+11   ***   27927334: Apud Haered. Seb. Gryphii 
+11   ***   26616746: Sumptibus Ioannis Antonii & Samuëlis de Tournes 
+11   ***   26106704: Apud Franciscum Fabrum, Lugdunensem 
+11   ***   20849770: typis A. Pazzoni & P. Montii 
+11   ***   24519804: Apud fratres Deville 
+11   ***   24752321: In edibus Aurelij Pincij Veneti impressa 
+11   ***   24782132: Prodeunt e nobilis Francofurti Paltheniana Zacharias Palthenius 
+11   ***   21112175: Apud Felicem Valgrisium 
+11   ***   20850158: ex Regia typographia 
+11   ***   25568778: Impensis honesti viri Georgij Mittelhuss 
+11   ***   25306815: Apud Laurentium Torrentinum 
+11   ***   27504931: Appresso Pietro de la Place 
+11   ***   23734143: De l'impr. de P. Roussin 
+11   ***   23996302: Apud haeredes Iacobi Juntae 
+11   ***   23996306: Apud Hęredes Io. Antonij Bertani 
+11   ***   24520628: Per Dionysium de Harsy impensis vero honesti viri Symonis Vincentij Mercatoris 
+11   ***   23472194: Apud Augustinum Disserolium 
+11   ***   20588648: Jacques Maréschal for Simon Vincent 
+11   ***   27928950: Typis academicis, sumptibus autem Corn. Crownfield ... 
+11   ***   20589300: in typographia regía, vulgò de la Gazeta 
+11   ***   20589350: sumptibus Godefridi Schonwetteri viduae et haered. 
+11   ***   22686624: Apud Sebastianum Coleti 
+11   ***   23529318: sumptibvs Horatii Boissat, & Georgii Remevs 
+11   ***   24332118: Printed for Benjamin Crayle at the Lamb in Fleetstreet, next White-Fryers-Gate, and John Fish nigh the Fountain-Tavern in the Strand 
+11   ***   21376129: Apud A. Wechelum 
+11   ***   26881230: Apud Guilielmum Chaudiere ... 
+11   ***   22917668: Typis Bartholomaei Lupardi ... 
+11   ***   22949156: Ex typographia Tarquinij Longhi 
+11   ***   23735653: Appresso G. Rouillio 
+11   ***   23473849: Sumptibus Casparis Wächtler, bibliop. 
+11   ***   27143953: Apud Philippum Albertum 
+11   ***   26194612: In typographio Paleariniano 
+11   ***   22997073: Per Albertinum de Lisona Vercellensem 
+11   ***   24785144: Apud Ioannem Birckmannum & Theodorum Baumium 
+11   ***   23048938: Sumptibus Aubriorum & Clementis Schleichii 
+11   ***   26981105: Ex officina Cyriaci Iacobi 
+11   ***   23092673: sumpt. haered. G. Boissat, & Lavrent. Anisson 
+11   ***   23212893: Ex typographia Hugonis Denoüally 
+11   ***   27623491: Presso Roberto Meglietti 
+11   ***   27145355: Apud haeredes Aloysij Valuassoris & Ioan. Dominicum Michaelem 
+11   ***   27669825: Apud Ioannem Tornaesium ... 
+11   ***   27669826: Apud Gulielmum Cavellat ... 
+11   ***   27670468: Apud Franciscum Laurentinum 
+11   ***   22689934: Apud haeredes Petri Ricciardi 
+11   ***   27670750: Apud Andraeam Muschio. 
+11   ***   27670753: Ex officina Carolae Guillard ... 
+11   ***   23738607: In Officina Birckmannica sumptibus Arnoldi Mylij 
+11   ***   23738611: Apud Petrum Horst 
+11   ***   28195143: F. Rigollet 
+11   ***   24525342: Excudebat Michaël Morelli 
+11   ***   22690438: Apud Iacobum Sarzinam 
+11   ***   20855580: Apud Ioannem Gymnicum 
+11   ***   24263572: Durch Maternum Cholinum 
+11   ***   22166745: In officina A. Petri, impensis I. Koberger, Nurenbergensiū ciuis, bibliopolae 
+11   ***   28016375: For A. Bettesworth etc 
+11   ***   25310374: Ex officina Claudij Cheuallonij, sub Sole aureo in via ad diuum Iacobum 
+11   ***   25312596: Apud Petrum Pernam 
+11   ***   25312601: Impensis Jeremiae Schrey 
+11   ***   20594014: sumptibus P. Rigavd 
+11   ***   26361365: Apud F. Minitium Caluum 
+11   ***   24035943: Apud G. Rouillium excvdebat P. Rolletivs 
+11   ***   23293978: Apud Franciscum Metternich, bibliopolam ... 
+11   ***   26151535: Sumptib. Laurentij Arnaud, Petri Borde, Joannis & Petri Arnaud 
+11   ***   23215784: Ex typographia Lazari Scorigij 
+11   ***   25313076: Editum Norembergae per Gregorium Haloandrum : munificentia ac liberalitate ampliss. Ordinis ibidem 
+11   ***   26886003: Ex officina Cornelij Sutorij, sumptibus Ionae Rhodij, bibliopolae 
+11   ***   24789382: Apud Ioannem Houzé ... 
+11   ***   23216900: Typis Aegidij Longi ... 
+11   ***   25576241: Camillo & Rutilio Borgominieri fratelli 
+11   ***   27149252: Apud Iulium Somaschum 
+11   ***   22656530: J.Tonson 
+11   ***   26363076: Ueneunt hec opuscula nunquam excusa, Lugduni in vico mercurialis in edibus honesti viri Gilberti de Uilliers ... 
+11   ***   27506224: Ex officina Heruagiana 
+11   ***   22431093: Apud Jacobum Giuncti 
+11   ***   24004034: Impensis Pauli Güntheri Pfotenhauers, bibliop. Coburg. 
+11   ***   25052802: In officina Barthol. Vincentij 
+11   ***   27149956: Per Iohannem Grüninger 
+11   ***   22955702: G. Chavnod 
+11   ***   26694226: Apud Franciscum Comitem 
+11   ***   23268307: Sumptibus Caroli Porsile, regij typographi 
+11   ***   20559532: apud Ioannem Roigny 
+11   ***   25839879: Sumptibus Thomae Fritsch, bibliop. lipsiensus 
+11   ***   23006257: Sumptibus Horatij Cardon 
+11   ***   27387990: Apud Lucianum Pasinum & socios 
+11   ***   27412942: Apud Iunctas 
+11   ***   29772351: Per honestum virum Iacobum Myt 
+11   ***   21216567: Excudebat Eustath. Vignon Atrebat. 
+11   ***   25316003: Typis Sac. Cong. de Prop. Fide 
+11   ***   26364924: Ex officina Sanctandreana 
+11   ***   26889333: Ad insigne Salamandrae 
+11   ***   23743665: Per Conrad. Waldkirch. 
+11   ***   22695268: J. Vallarsi 
+11   ***   26889874: Apud Stephanum Gamonetum 
+11   ***   25808079: Uldericus Scinzenzeler? 
+11   ***   25250466: Apud Nicolaum Beuilaquam 
+11   ***   26365812: Ex Typographia Seth Vioti 
+11   ***   26365814: Ex Typographia Guerraea 
+11   ***   26365815: Apud Aegidium Beysium, sub insigni albi lilij, via Iacobaea 
+11   ***   22788082: Comin de Trino? 
+11   ***   22010958: Fran. Rhodus excudebat 
+11   ***   22434348: Ex Officina Damiani Zenari 
+11   ***   24531785: Excudebat J. Cominus 
+11   ***   25842519: In officina Q. Philip. Tinghi. Apud Simphorianum Beraud, et Stephanum Michaëlem 
+11   ***   23483357: Ex Typographia Camerae Apostolicae 
+11   ***   24007687: Gregorio de' Gregori 
+11   ***   27153428: Ex officina Antonij Hierati ... 
+11   ***   21124194: Apud Camillum Patauinum 
+11   ***   26283542: Apud Carolam Guillard viduam Claudii Cheuallonii, & Guilelmum Desboys ... 
+11   ***   24270009: Apud Ioannem Guerilium & Io. Ant. Finatium 
+11   ***   24794429: Venundantur Lugduni ab Jacobo Huguetan ... 
+11   ***   24008233: Apud Thomam & Joannem Buck ... 
+11   ***   20778619: Ex officina Simonis Colinaei 
+11   ***   22482607: apud Matthiam Bonhomme 
+11   ***   29775961: Ex officinia Damiani Zenari 
+11   ***   29775965: Excudebat Henricus Stephanus, illustris viri Huldrichi Fuggeri typographus 
+11   ***   22173964: Ex officina Henrici Stephani 
+11   ***   23222616: Ex typographia haeredum Roncalioli 
+11   ***   20601464: By Hillebrant Iacobsz, vvoonende aende Marcs 
+11   ***   21125834: Excudebat Ioannes Saurius 
+11   ***   21388555: Apvd B. Caesanum 
+11   ***   21388559: P. Quentel suis impensis excudebat 
+11   ***   27588933: Sumptib. Ioan. Bapt. Deuenet ... 
+11   ***   24272499: Printed by T. N. for J. Martyn, Printer to the R. Society, at the Bell in S. Pauls Church-yard, and a little without Temple-Bar 
+11   ***   20602500: Apud Sebastianum de Honoratis 
+11   ***   24272596: Apud Gulielmum Iulianum ... 
+11   ***   21827777: Presso Domenico Maria Manni 
+11   ***   20473181: Printed by W. Wilkins, and sold by J. Peele, at Locke's-Head in Pater-noster-Row, and N. Blandford at the London-Gazette, Charing-Cross 
+11   ***   20865109: Apud Carolum Stephanum Typographum Regium 
+11   ***   23014938: Sumptibus Antonii Servant 
+11   ***   25583869: Apud Ioannem Boium : Expensis Iacobi Facchetti 
+11   ***   25846057: Apud Haeredes Iacobi Iunctae 
+11   ***   21651863: apud A. Fulgonium 
+11   ***   23749025: Apud Ant. Gryphium 
+11   ***   26108353: Typis Francisci Honophri ... 
+11   ***   25059789: E Paltheniana, sumtibus Iohnae Rhodii 
+11   ***   23224892: Typis Hieronymi Fasulo 
+11   ***   25584380: Apud Georgium Ferrarium 
+11   ***   23749521: Apud haeredes Ioannis Gymnici, sub Monocerote 
+11   ***   23749523: svmtibvs Christoph. Gottl.. Nicolai 
+11   ***   29778879: Anchora Ioannis Crispini 
+11   ***   23487492: Typis regiae celsitudinis apud Jo. Cajetanum Tartinium & Sanctem Franchium 
+11   ***   29778950: Ex Officina Iac. Antonij Somacschi 
+11   ***   21303485: In officina Birckmannica, sumptibus Arnoldi Mylij 
+11   ***   21914740: Printed by J. D. for A. and J. Churchill; etc., etc 
+11   ***   25584797: Apud Wilh. Metternich, bibliop. 
+11   ***   22963366: Apud Dominicum Nicolinum 
+11   ***   26633404: Impressa in officina Comini de Tridino, impensis ... Petri de Dominicis, mercatoris librorum Neapoli 
+11   ***   22963423: Apud haered. And. Cratandri 
+11   ***   23783131: A Georgio Arriuabeno castigatissime impressum 
+11   ***   23749932: Excudebant haeredes Eustathii Vignon & Iacobus Stoer. 
+11   ***   27944293: By Thomas Purfoot and William Pounsonbie 
+11   ***   21128706: Apud Bernardum Albinum 
+11   ***   21128707: Apvd Baltassarem Constantinum ad signum diui Georgii 
+11   ***   21128708: Thomas Guarin? 
+11   ***   23007520: Prostat apud Christ. Fried. Vossium et filium 
+11   ***   23226185: Ex Academie celeberrimae typographeo 
+11   ***   21129115: Impressvm et finitvm in officina I. Guntheri 
+11   ***   27490572: Ex typographia Io. Petri Collinij 
+11   ***   25323555: Apud Carolam Guillard, uiduam Claudij Cheuallonij, sub sole aureo, & Gulielmum Desbois, sub cruce alba, in uia diui Iacobi 
+11   ***   24624181: Ex officina Iordani Ziletti 
+11   ***   24799564: Sumptibus Ludouici Regis 
+11   ***   24799576: Per Hieronymum Gemusaeum 
+11   ***   20867570: Apud Aloisium Zannettum 
+11   ***   21392041: Francesco Minizio Calvo 
+11   ***   26415569: Apud Ioan. de Tournes & Iacob. de la Pierre 
+11   ***   23227210: Typis Caroli Porpora & Io. Dominici Petriboni 
+11   ***   23619408: Printed for Jacob Tonson, at Shakespear's Head over-against Katharine-Street in the Strand 
+11   ***   24013842: Ex officina Erasmiana apud Vicentium Vaugris, prope horologium Diui Marci 
+11   ***   21172739: Impressum Lugduni per Anthonium Du Ry 
+11   ***   24013844: Apud Iulium Accoltum 
+11   ***   24800427: Typis Petri-Mariae Montii 
+11   ***   20868321: Apud Gulielmum Cauellat, sub Pingui Gallina, ex aduerso collegij Cameracensis 
+11   ***   25849123: Impresse per solertem calcographum Dionysum Harseum 
+11   ***   23227793: Typis Nicolai Monaco 
+11   ***   24014400: Apud Nicolaum Edoardum 
+11   ***   24014485: Apud Cominum de Tridino 
+11   ***   22179669: per Hieronymum Höltzel 
+11   ***   20299084: In aedibus Manutianis 
+11   ***   21131410: Apud Guilielmum Rouilium 
+11   ***   25063657: Excudebat Christianus Wechelus, sub scuto Basileiensi, in uico Iacobaeo 
+11   ***   22442306: Ex officina Petri Pernae 
+11   ***   23626119: Apud Ioannem Kinckium ... 
+11   ***   23228949: Ex typographia Ioannis Baptistae Natolini 
+11   ***   24341905: Apud Haeredem Damiani Zenarij 
+11   ***   25057687: Excudebat Ioannes Saurius, impensis Petri Kopffii 
+11   ***   25232270: In typographia ... calcographi Dionysij de Barsy 
+11   ***   21132012: Apud Gualtherum Fabricium, & Ioannem Gymnicum, sub Monocerote 
+11   ***   24802158: Apud Ioannem Baptistam Somaschum 
+11   ***   26899417: Excudebant heredes Eustathij Vignon 
+11   ***   21394396: Cussa apud Iacob de Burgo Franco 
+11   ***   27501831: Ex officina typographica Nicolai Hoffmanni, sumtibus Ioann. Spiessij & Ioan. Ludouici Bitschij 
+11   ***   25529069: Typis Johannis Baskerville 
+11   ***   25326805: Typis, & sumptibus Francisci Benzi 
+11   ***   25064813: Ex officina Dominici Basae 
+11   ***   23491969: Typis & sumptibus Leonardi Venturini 
+11   ***   26638087: Apud Aurelium Pincium, Venetum, excussum ad instantiam ... Augustini de Bottis, bibliopolae Neapolitani 
+11   ***   26900384: Apud Haeredes Melchioris Sessae 
+11   ***   21395590: Apud Hugonem à Porta. 
+11   ***   26376342: Appresso Girolamo Concordia 
+11   ***   20736868: R. et A. Foulis 
+11   ***   23492900: Per Conradum VValdkirch 
+11   ***   27949558: impensis Jeremiae Schrey & Heredum Henr. Joh. Meyeri 
+11   ***   27949559: Impensis Jeremiae Schrey & Heredum Henrici Johannis Meyeri 
+11   ***   21395978: Apud Antonium Bladum Asulanum ... 
+11   ***   26376811: Apud Georgium de Caballis 
+11   ***   26376951: Ad Candentis Salamandrae insigne D. Zenaro? 
+11   ***   23493389: Sumptibus Philippi Borde, Laurentii Arnaud, & Claudii Rigaud ... 
+11   ***   23493400: Apud Haeredes Petri Dehuchini 
+11   ***   24017915: Ex typo. Alberti Pazzoni & Pauli Montii 
+11   ***   23493721: Apud Ioannem Birckmannum & Wernerum Richwinum 
+11   ***   27950206: Printed by Robert Walde-graue for T. Man and T. Gubbins 
+11   ***   21396764: Excudebant haeredes Georgij Rhaw 
+11   ***   21396765: Ex officina typographica Viti Creutzer sumptibus Conradi Rhüel 
+11   ***   21658942: Apud H. Guffericum 
+11   ***   25066844: Apud haeredes Lucaeantonij Iuntae Florentini 
+11   ***   21134752: Bertanorum sumptibus 
+11   ***   24018480: Typis Io. Baptistae Pasquati 
+11   ***   23494216: Apud Ioannem Birckmannum & Wernerum Richvuinum 
+11   ***   23494405: Ex officina Matthaei Beckeri, sumptibus Pauli Helvvichii 
+11   ***   21397479: Ex bibliopolio Hafniensi, Danielis Paulli, Regii librarii 
+11   ***   23494949: Apud haeredes Joannis Garcia Infanzon 
+11   ***   20440153: Printed for S. Austen ... 
+11   ***   24799995: Ex officina Heruagiana, per Eusebium Episcopium 
+11   ***   21660175: Typis Vaticanis 
+11   ***   24019603: Typis Antonij Casamarae 
+11   ***   20874510: Excudebat C. Wechelus 
+11   ***   25979787: Opera Francisci Fradin, impensis vero Aymonis de Porta ... 
+11   ***   21398957: opera Iacobi Myt 
+11   ***   21398960: Ex officina Carolae Guillard 
+11   ***   21398962: Apud Carolam Guillard 
+11   ***   24020572: Printed by John Macock for Giles Calvert 
+11   ***   20874880: Apud G. Antonium 
+11   ***   23496852: None 
+11   ***   23183774: Sumptibus Joannis Antonij Chouet 
+11   ***   24807872: Venundantur Lugdu. ab Gilberto de Villiers ... 
+11   ***   23235060: Apud Dominicum Lilium 
+11   ***   27552897: Ex Typographia Reuerendae Camerae Apost. 
+11   ***   27694069: Ex Officina Typographica Andreae Viani 
+11   ***   24996797: Imprimebat Laurentius Seuberlich 
+11   ***   24284150: In edibus ... bibliopole Iacobi Houys ... 
+11   ***   26373298: Apud Nicolaum Beuilacquam & socios 
+11   ***   27692097: Typis Caspari Bertschii impressa 
+11   ***   21400746: P. Stephanus 
+11   ***   23497953: Typis Agnelli Cirillo 
+11   ***   27692409: Apud Ioan. Bapt. Somascum 
+11   ***   24284582: Apvd S. Gryphivm 
+11   ***   26381764: Solertia Stephani de Basignana ... in officina Bernardi Lescuyer ... 
+11   ***   25450727: Per gli eredi degni impressori Camerali e Vescovili 
+11   ***   27692748: Apud Camillum Francischinum 
+11   ***   27692752: Apud viduam Ioannis Gymnici, sub Monocerote 
+11   ***   27692754: Sumptibus Angeli Patessij & Sociorum 
+11   ***   27692755: Apud Iacobum Sansouinum Iuniorem 
+11   ***   27692757: Apud Arnoldum Quentelium 
+11   ***   25071507: Apud Ioannem Osmarinum Giliotum 
+11   ***   27693098: Apud Aegidium Beys, via Iacobęa, ad insigne Lilij albi 
+11   ***   24547518: Petit & Penet 
+11   ***   20091106: Apud Io. Antonium Bertanum 
+11   ***   20091124: Ex typographia regia 
+11   ***   20091126: Humius 
+11   ***   27431236: Ex officina Plantiniana, apud Franciscum Raphelengium 
+11   ***   20877658: Apud Simonem Colinaeum 
+11   ***   27693406: Apud Oliuarium Bouynard sic Vniuersitatis bibliothecarium & bibliopolam 
+11   ***   27693407: Apud Ambrosium Brillard sub scuto anchorae 
+11   ***   27693410: Coloniae Agrippinae 
+11   ***   24023591: Apud Thom. Buck ... 
+11   ***   24023593: Apud Adamum Petri 
+11   ***   22450742: Typis Societatis 
+11   ***   27693746: Apud Petrum Quentell 
+11   ***   22713306: excvdebat Henrichvs Petri 
+11   ***   27553276: Ex Typographia Reu. Cam. Apostolicae 
+11   ***   25913418: Typis Petri Ioannis Calenzani ... 
+11   ***   24024162: C. Cambiagivs 
+11   ***   22975771: V. Lvchinvs excvdeb 
+11   ***   27694370: Sub scuto Coloniensi apud Ioannem & Franciscum Frellaeos fratres 
+11   ***   27694371: Venduntur Lugduni a Guillelmo Boulle in Vico Mercuriali 
+11   ***   25335104: Iacobus Fabrianus excudebat 
+11   ***   27432343: Typis Nicolai Tebaldini 
+11   ***   21665386: Apud Antonium Bladum 
+11   ***   29530087: Ex typographia Marescandoli 
+11   ***   23762998: Ex officina Iacobi Gaffari 
+11   ***   22976596: Apud Poncetum Le Preux ... 
+11   ***   23500944: Apud Ioannem de VVinghe, bibliop. iurat. ... 
+11   ***   24811834: Chez Florent-Q, rue Pet-en-Gueule, au Soufflet 
+11   ***   22976940: per P. Pernam 
+11   ***   23763474: apud P. Balleonium 
+11   ***   24550082: Excudebat Iacobus Stoer 
+11   ***   20093791: By Johan Redman for Robert Redman 
+11   ***   21666658: Ex officina I. Oporini 
+11   ***   27553617: Apud Petrum Oliverium, propè S. Marcellum in via Cursus 
+11   ***   21142532: Apud Haeredes Iacobi Iuntae 
+11   ***   25074704: Ex Typographia Rev. Camerae Apostolicae 
+11   ***   23240255: Typis Caroboli & Pomeati soc. 
+11   ***   21667527: Sumptibus L. Regis 
+11   ***   23240400: Ex officina Zachariae Lehmanni, sumptibus Pauli Helwichii 
+11   ***   20356903: Per Io. Antonium & fratres de Sabio 
+11   ***   22160032: sumptibus Gilberti et Gaufridi de Marnef 
+11   ***   26648746: In officina Iuntarum 
+11   ***   27947051: Gedruckt bey Hermann Redlichen 
+11   ***   26891182: Apud Joh. Georg. Schwänderum 
+11   ***   22978890: Ex bibliotheca Io. Angeli Ruffinelli 
+11   ***   21406090: Zacharias Palthenius? 
+11   ***   21930477: J. Gravier 
+11   ***   24551963: Apud Marcum Amadorum & socios 
+11   ***   26911277: Apud Ioannem Variscum & socios 
+11   ***   23460698: Impensis Aegidii Vogelii 
+11   ***   23534442: Apud Andream Bingium bibliopolam ... 
+11   ***   20620663: Excvdebat I. Le Prevx 
+11   ***   26912165: Ex typographia Mairesse 
+11   ***   22980012: Typis GeorgI Deckeri, universitatis typographi 
+11   ***   28222915: None 
+11   ***   22193713: None 
+11   ***   21357215: In typographaria officina Ioannis Crespini 
+11   ***   27436767: Typis hh. Dominici Barberij 
+11   ***   29009867: Printed for T. Davies in Russel-Street, Covent-Garden 
+11   ***   24539485: Apud Simonem Bénard, viâ Jacobeâ è regione Collegii Claromontani Soc. Jesu 
+11   ***   23504954: Typis Francisci Sauij, typographi ... 
+11   ***   27175015: Ad instantiam Hieronymi Bordonij & Petri Martyris Locarni 
+11   ***   23505333: Apud Antonium Gryphium 
+11   ***   22981149: Ex bibliotheca Marci Antonij Muretti & Iacobi Brianzij 
+11   ***   26651167: Ex officina Ioannis Bogardi ... 
+11   ***   27175541: Ex officina Marci de Maria Salernitani, bibliopola Neapolitani 
+11   ***   21408445: Getruckt in der Keyserlichen Statt Augspurg durch Heynrichen Steyner, vollendet am VII. Tag Decembris im MDXXXI Iar. 
+11   ***   24554538: Ex officina Ioannis Oporini 
+11   ***   26389842: Etypōthē en Rōmē dia Frankiskou Zanetou 
+11   ***   22719837: A Philippo Pincio Mantuano 
+11   ***   21147011: Apud Manrcum sic Antonium Vlmum 
+11   ***   21147012: Apud haeredes Gulielmi Rouillii 
+11   ***   23932145: Sumpt. Petri Chevalier ... 
+11   ***   24190220: Frobenianis excusi typis 
+11   ***   27439106: Typis Leonardi Venturini 
+11   ***   22954513: Apud Petrum de la Rouiere 
+11   ***   26914872: Apud Petrum de Castro 
+11   ***   25079938: Ex officina Ludouici Auantij 
+11   ***   22982816: Apud Nathanaelem Vincentium 
+11   ***   27600475: Francis. Bindonus excudebat 
+11   ***   23555465: Antoine Blanchard 
+11   ***   29345889: Apud Fed. Morellum, typographum regium, via Iacobaea, ad insigne Fontis 
+11   ***   22983404: Ex officina typographica Ioannis Saurii, impensis Eliae Willeri 
+11   ***   22983413: Ex officina Stellae 
+11   ***   20214570: Apud Adrianum Beys viâ Iacobaeâ 
+11   ***   20214576: Apud Adrianum Beys viâ Iacobaeâ sub signo liliorum 
+11   ***   22983492: Typis GeorgI DeckerI ... sumptibus Henricpetrinorum 
+11   ***   24059402: Sebastianus Gryphius Germanus excudebat 
+11   ***   26130181: Printed for Thomas Brewster ... 
+11   ***   21411646: Expensis M. de Cordoua, bibliopolæ 
+11   ***   21673793: Bouchard & Gravier 
+11   ***   21673830: Typis Johannis Hayes ... 
+11   ***   20625345: in aedib.  Aldi 
+11   ***   25868250: Sumptibus & impensis autoris ... 
+11   ***   26916849: Apud Ioan. Variscum & socios 
+11   ***   23853676: Apud Gryphium 
+11   ***   20433288: Excudebat Ioannes Pullonus, impensis ... Vincentij de Portonarijs ... 
+11   ***   24820053: Ad signum iurisconsulti 
+11   ***   27965801: Compagnie des libraries de Lyon 
+11   ***   27965802: Apud Guerreos fratres & socios 
+11   ***   27965804: Impensis authoris 
+11   ***   21150365: apvd Valerivm Dorcivm Brixiensem, 
+11   ***   27966115: In officina haeredum Christiani Egenolphi 
+11   ***   27966118: In officina Gasparis Trechsel 
+11   ***   27966119: Societas Aquilae Renouantis 
+11   ***   27966121: Typis Iacobi Zegers 
+11   ***   27966122: Per Sebastianum Henripetri 
+11   ***   27966123: 1538 mense Septembri Petrus Quentel excudebat 
+11   ***   21150419: Apud Franciscum Fabrum 
+11   ***   25289058: Excudebat Henricus Ludouici ab Haestens 
+11   ***   26917881: Apud Marcum Variscum 
+11   ***   21412873: Impressas per M. Sessam & P. de Rauanis socios 
+11   ***   21412877: Apud Ioan. Tornaesium 
+11   ***   21151182: Printed by Felix Kyngston for William Barret 
+11   ***   22724324: Per Magistrum Bernardinum de Geraldis 
+11   ***   25345896: Ex typographia Gexiniana 
+11   ***   20431952: Printed for C. Wilkinson 
+11   ***   21151702: Per Georgium Regnault 
+11   ***   21151703: Alexander Minutianus 
+11   ***   21151704: Apud Hugonem à Porta 
+11   ***   28229786: in aedibvs Aldi et Andreae soceri 
+11   ***   24297776: Haeredes Georgij Rhau excudebant 
+11   ***   21414465: Apud I. Tornæsium & G. Gazeium 
+11   ***   21414475: Ex officina J. Oporini 
+11   ***   24035944: Apud G. Rouillium Excvdebat P. Rolletivs 
+11   ***   20628579: A. Tavpinart 
+11   ***   21677194: In aedibus Rouillij, via Iacobaea, sub signo Concordiae 
+11   ***   27968868: Typis Bartholomaei Bonfadini, & Titi Diani 
+11   ***   21677607: Printed for G. Strahan, A. Bettesworth, J. Tonson, B. Lintot, B. Motte, and D. Browne 
+11   ***   23250574: Apud Ioannem Gymnicum ... 
+11   ***   24561442: Ex typis Iacobi Wyt ... 
+11   ***   25327240: Sumptibus Nicolai & Vincentii Rispoli 
+11   ***   24803009: Apud Aldi filios 
+11   ***   24409830: Printed for G. Smith ... and sold by J. Brotherton ... 
+11   ***   22989395: A Philippo Pincio Mantuano, expensis D. Giuntini de Giunta Florentini 
+11   ***   27912834: Apud Mich. Isingrinium 
+11   ***   22989468: Sumptibus Domini Anielli Sancti Viti 
+11   ***   20368240: Apud Bologninum Zalterium & Guerreos fratres, vnanimes socios 
+11   ***   24562644: Crespin 
+11   ***   27708566: Apud Matthiam Valentinum 
+11   ***   27708567: Apud Franciscum Bindonum 
+11   ***   27708568: Apud Petrum Mariam Bertanum 
+11   ***   20368576: None 
+11   ***   29019340: In aedibus Philippi Iuntae 
+11   ***   29019343: Apud Ionnem à Canoua 
+11   ***   20368737: Ex officina Iohannis Legat 
+11   ***   29019537: Excudebat Andreas à Portonariis 
+11   ***   29019545: Sub signo Angeli Raphaelis 
+11   ***   29019546: Apud Antonium Warin, via Jacobeâ, sub signo S. Scapularis 
+11   ***   29019547: Apud Antonium Vvarin, viâ Jacobeâ, propè Fontem Sancti Severini, sub signo Sancti Scapularii 
+11   ***   29019548: Apud Johann Gvilielmum Meyerum 
+11   ***   27708856: Apud Arnoldum & Carolum les Angeliers fratres ... 
+11   ***   27708857: Antoine Vincent 
+11   ***   27708858: Apud Andream Wechelum 
+11   ***   27708859: Veneunt Reginaldo Calderino ... 
+11   ***   26900390: Jean Crespin 
+11   ***   20368899: Apvd Io. Frob. 
+11   ***   20368903: None 
+11   ***   20215743: Apud haeredes Iacobi Giuntae 
+11   ***   20369046: M. Orry 
+11   ***   24563369: Per Robertum VVinter 
+11   ***   21417665: Per Io. Antonium de Nicolinis de Sabio, sumptu & requisitione D. Melchioris Sessae 
+11   ***   20213858: In officina Luce Antonij Junte Florentini 
+11   ***   27075209: Venundantur Lugduni a Stephano Gueynard ... 
+11   ***   20213860: Impressum Venetijs per Augustinum de Zannis 
+11   ***   22990694: Ex typographia Sebastiani Martellini 
+11   ***   26398603: Ad signum Iurisconsulti 
+11   ***   20893617: Printed by E. Owen; and sold by J. Walthoe 
+11   ***   21417990: Chez les freres Reycends 
+11   ***   22728720: B. Vincent 
+11   ***   23323391: N. Bevilacqva 
+11   ***   23515352: Ex typographia Pauli Monetae ; sumptibus Iosephi Corvi bibliopolae 
+11   ***   23515353: Sumptibus haeredum Iacobi Antonij Bagnuli 
+11   ***   20369720: Ex officina Rob. Stephani 
+11   ***   21156163: Apud Christianum Egenolphum 
+11   ***   27709789: Excudebat Iohannes de Tournes 
+11   ***   27709798: Ex Officina Typographica Nicolai Bassai 
+11   ***   28036541: Appresso Gualtero Scotto 
+11   ***   23515870: In calchographia Johannis Thome 
+11   ***   21680997: Per Simonem de Luere ... 
+11   ***   27710386: Sumpt. Ioannis Ant. & Samuel. De Tournes 
+11   ***   23516328: Apud Fratres Deville 
+11   ***   22968537: Apud haered. Iacobi Giuntae 
+11   ***   22205978: Ex officina Iacobi Stoerij 
+11   ***   22992491: Apud Johann. Georg. Schwänderum 
+11   ***   22662762: Apud Io. Bapt. Ciottum ... 
+11   ***   28235421: Apud Ioannem Variscum, haeredes Melchioris Sessae, et Franciscum Calegaris 
+11   ***   28235422: Apud haeredes Melchioris Sessae, Ioannem Variscum, et socios 
+11   ***   26376628: Apud Ioan. Pillehotte, sub signo nominis Iesu 
+11   ***   23516963: Apud Secundinum Roncaliolum 
+11   ***   26400587: Excudebat Ioannes Nouesianus 
+11   ***   28235710: Ex aedibus nostris Peter Quentel 
+11   ***   28235715: Apud Mamertum Patissonium, typographum regium 
+11   ***   28235717: Typis F. Muguet 
+11   ***   20633616: C.C. Immig 
+11   ***   26401072: Ex officina Petri Bartoli, sumptibus Io. Baptistae Vismarae 
+11   ***   26682500: Apud haeredes Bartholomaei Rubini 
+11   ***   24672731: Apud Guerraeos fratres & socios 
+11   ***   24566658: Apud Michaëlem Vascosanum ... & Galeotum à Prato ... 
+11   ***   27490564: Ex typographia Pauli Monti ... 
+11   ***   21159068: Apud Antonium Bladum, impressorem cameralem 
+11   ***   21421278: Ex Typographia Reuerendae Camerae Apostolicae 
+11   ***   21421280: Typis Reuerendae Camerae Apostolicae 
+11   ***   26376805: Apud Anselmum Giaccarellum 
+11   ***   22994544: Ad candentis salamandrae insigne 
+11   ***   27189166: Ad candentis salamandrae insigne Giovanni Farri e fratelli 
+11   ***   27600226: Apud Gulielmum Desboys ... 
+11   ***   27600227: Apud Fratres Vaillant & Prevost 
+11   ***   27600232: A Philippo Pincio Mantuano impressa 
+11   ***   27600234: Excudebant Egidius Regazola & Dominicus Caualcalupus Socij 
+11   ***   23781513: Per Mich. Isingrinium 
+11   ***   23781514: Apud Ioannem Bebelium et Mich. Isingrinium 
+11   ***   23781517: ex typographia Baretiana 
+11   ***   23781518: Apud haeredes Nic. Beuilaquae 
+11   ***   23781519: Apud Iacobum Stoer 
+11   ***   23781521: Ex Officina Paltheniana, sumtibus Ionæ Rhodii, successoris P. Fisch 
+11   ***   27713796: Apud Ioannem Richerium ... 
+11   ***   22995270: Apud Ioannem Baptistam Bussottum 
+11   ***   21422477: Sumptibus Iosephi Corvi bibliopolae 
+11   ***   23493388: Apud Iordanum Zilettum 
+11   ***   23782008: Nicolaus Bevilaqua 
+11   ***   22209152: Apud Episcopium Iuniorem 
+11   ***   25879240: Per Joannem Moylin alias Cambray impressorum solertissimo sic impressa 
+11   ***   25092908: Ex typographia Baptistae Pellizarij 
+11   ***   23782389: ex typographia Dominici Antonii Herculis, sumptibus Vincentii de Romanis 
+11   ***   25547003: Ex officina Marc'antonij Muretti 
+11   ***   27715052: In officina Hug. à Porta ; sumptibus fratrum De Gabiano 
+11   ***   27715053: Apud Franciscum Fabrum Lugdunensem 
+11   ***   27600471: Sumptib. Ioannis-Antonii Huguetan & Marci-Antonii Rauaud. 
+11   ***   23275105: Apud Guliel. Rouillium ... 
+11   ***   27715338: Apud Franciscum Fabrum Lugdun. 
+11   ***   27715344: Apud Franciscum Rampazetum 
+11   ***   25880389: Vincentii de Portonariis 
+11   ***   22472553: Ex officina typographica Nicolai Bassaei 
+11   ***   22472554: Vaenundantur à Galeoto Pratensi 
+11   ***   27600553: Appresso Gabriel Giolito de'Ferrari e fratelli 
+11   ***   27600554: Appresso Gabriel Giolito de Ferrari e fratelli 
+11   ***   27715650: Apud Mathiam Bonhomme 
+11   ***   27715651: Apud Marcum Antonium Zalterium 
+11   ***   27715654: Ex Typographia Octauij Beltrani 
+11   ***   27715656: Ex Officina Typographica Nicolai Bassaei 
+11   ***   27715657: Laurentius Pasquatus excudebat 
+11   ***   22997260: Apud Faelicem Caesarettum 
+11   ***   22210900: typis Sac congregationis de propag. fide 
+11   ***   22210903: typis Sac. congregationis de propaganda fide 
+11   ***   22210908: typis Sacrae congreg. de propaganda fide 
+11   ***   22210909: typis Sac. congreg. de prop. fide 
+11   ***   27715948: Apud Paulum Gadaldinum & fratres 
+11   ***   27715952: Apud Io. Varronem & Manfredum Morellum 
+11   ***   27453889: Ex typographia Reverendae Camerae Apostolicae, apud Nicolaum Angelum Tinassium 
+11   ***   27513261: Vincentius de Portonariis de Tridino de Monte Ferrato 
+11   ***   24760753: Sumptibus authoris, in officina Schleichiana typis Hummianis 
+11   ***   20877497: Excvdebat Henricvs Petrvs ... 
+11   ***   25881264: Ex typographia Bartholomaei Bonfadini & Titi Diani 
+11   ***   27454263: En casa de Juan Cromberger 
+11   ***   27454272: Ex typographia Lucae Laurentii 
+11   ***   23013177: Apud Turrinum 
+11   ***   24570811: Sumptibus Petri Ketteler ... 
+11   ***   23522435: Typis & impensis Georgii Ernesti Winckleri ... 
+11   ***   24236599: apud Josephum Rosa 
+11   ***   27455028: Printed by John Legatt and are to be sold by Iames Boler ... 
+11   ***   20639332: Printed for W. Shropshire and B. Dod 
+11   ***   26930807: Michele Tramezzino 
+11   ***   29027968: Apud haeredes Andreae Wecheli, Claud. Marnium & Ioan. Aubrium 
+11   ***   29027972: Typis Wechelianis, apud Claudium Marnium & haeredes Ioahnnis Aubrii 
+11   ***   22998885: ex officina D. Zenarij 
+11   ***   25547412: Ex typographia Vincentij Accolti 
+11   ***   22640774: Apud Franciscum Gonzagam 
+11   ***   21426516: Apud Viduam Francisci Renauld, via Iacobaea sub insigni Elephantis 
+11   ***   26639783: Apud Bartholomaeum Sermartellium 
+11   ***   21222163: Printed for Fielding and Walker, Pater-Noster Row 
+11   ***   27469929: Impressum impensis Georgij Stuchs ex Sultzpach ciuis Nurmbergensis 
+11   ***   20435747: Apud Ioannem Wechelum & Petrum Fischerum consortes 
+11   ***   23262035: Typis & sumptibus Angeli Bernabò 
+11   ***   20116524: M. Bonhome 
+11   ***   20116597: Be-vet Y. Ḳelner 
+11   ***   22475950: Apud Damianum Zenarium 
+11   ***   20378853: Apud Franciscum Zilettum 
+11   ***   20116949: Apud A. Cratandrum 
+11   ***   26670700: Apud Ioannem Antonium Salernitanum 
+11   ***   26408606: Sumptibus Venantii Monaldini, bibliopolae ... 
+11   ***   23525129: Apud Bologninum Zalterium 
+11   ***   26408733: Apud Ludouicum Auantium 
+11   ***   24573771: Sumptibus Petri Rauaud ... 
+11   ***   22214658: Typis A. de Rubeis 
+11   ***   25067180: Chez Durand & Labalte, imprimeurs ... 
+11   ***   21965168: In officina Iacobi Stoer & Franc. Fabrj Lugdunensis 
+11   ***   26409194: Apud Vincentium Accoltum 
+11   ***   25098688: Excudebat Baltazar Bellerus 
+11   ***   23494417: Sumptibus Philippi Tinghi Florentini 
+11   ***   27513962: Apud Antonium Warin ... 
+11   ***   23526034: Apud Audoënum Paruum 
+11   ***   25361162: Apud haeredes Gulielmi Rouillij 
+11   ***   20380584: Vaenūdantur apud Frãciscû Regnault 
+11   ***   27720930: Apud Ioannem Baptistam Bertonum 
+11   ***   27720931: Impensis Ludovici Regis 
+11   ***   27720933: Typis Joannis Zempel apud Montem Jordanum 
+11   ***   27720934: Typis Felicis Caroli Mosca; expensis Cajetani Elia 
+11   ***   27720936: Typis Joannis Zempel prope Montem Jordanum 
+11   ***   27720940: Aldi filii 
+11   ***   21745206: Par Antoyne du Ry 
+11   ***   27721247: Apud Guillelmum Leimarium 
+11   ***   27721251: Apud Joannem Generosum Salomoni 
+11   ***   27721253: Ex typographia Reverendae Camerae Apostolicae 
+11   ***   27721255: Venundantur Lugd. in vico Mercuriali per Jacobum Giuncti 
+11   ***   21575993: Appresso Gabriel Giolito de'Ferrari 
+11   ***   26935002: Excudebat Ioannes Maria à Terranoua, expensis Benedicti Boyerij bibliopolae 
+11   ***   27721546: Apud Petrum Mariam Bertannm i.e. Bertanum 
+11   ***   27721561: Presso Altobello Salicato 
+11   ***   25100129: Ex officina Cramosiana 
+11   ***   24575848: Apud Franciscum Franciscium Senensem 
+11   ***   24575889: Apud Hipp. Salvianum 
+11   ***   23330542: Excudebat Iohannes Saurius, impensis Iohannis Theobaldi Schönvvetteri 
+11   ***   25624668: Ex typographia Aloysij Zanetti 
+11   ***   21146401: Ex officinâ Jacobi Tonson, & Johannis Watts 
+11   ***   23756840: Typis Iosephi Roselli 
+11   ***   25887146: Excudebat Blasius Guido 
+11   ***   23319567: Prostant apud Faustum Amidei bibliopolam ... et in typographia Generosi Salomoni ... 
+11   ***   26935771: Apud Mauricium Roy & Ludouicum Pesnot 
+11   ***   23790317: Ex Regia Typographia Aegidij Longhi 
+11   ***   27722514: Johann Knoblouch? 
+11   ***   24376822: apud I.G. Vierlingivm 
+11   ***   25652498: Per Eusebium Episcopium et Nicolai fratris haeredes 
+11   ***   23528961: Sumptibus authoris 
+11   ***   25888399: Lucantonio Giunta 
+11   ***   27985568: Thypis sic Alexandri Benatii 
+11   ***   25888440: Sumptibus Viduae Arnoldi Hierati ... 
+11   ***   26674932: Sumptibus Iacobi Anelli de Maria bibliopolae Neapolitani 
+11   ***   21759378: Apud Vincentium Accoltum ... 
+11   ***   26054066: Ex aedibus Andreae Cratandri 
+11   ***   21694377: apud haeredes Arnoldi Birckmanni 
+11   ***   27461572: Apud Aurelium Pincium 
+11   ***   25888815: Excudebat ... Dionysius Harseus 
+11   ***   25364659: Ex officina Roberti Stephani ... 
+11   ***   23005483: ex typographia Balleonii 
+11   ***   25810745: Ex typographia Honophrii Sauii 
+11   ***   26413944: Impressa per Ioannem Moylin alias de Chambray 
+11   ***   25889951: Typis regiis 
+11   ***   27200711: Excudebat Balthasard Arnoullet, vna cum haeredibus Ioannis Barbous 
+11   ***   25365892: Apud Simonem Colineum 
+11   ***   25628045: Ad Salamandrae, apud Claudium Sennetonium 
+11   ***   25890345: Apud Ant. Bladum Impr. Cam. 
+11   ***   27725385: Typis Wolffgangi Richteri 
+11   ***   27725388: Veneunt Lud'. apd' Jacobum Giuncti 
+11   ***   27725389: Ex oficina Nicolai Petit et Hectoris Penet 
+11   ***   27725394: Apud Ioannem de Albertis 
+11   ***   27725396: Apud Ioannem Garnerium 
+11   ***   27670467: Apud Paulum Mirallietum, sub insigni diui Pauli 
+11   ***   23793397: Ex typographia haeredum Tarquinij Longhi 
+11   ***   27725699: Impressa Lugd'. per Benedictum Bonnyn ; impensis vero ... Jacobi .q. Francisci de Giunta et  sociorum Florentini 
+11   ***   27725700: Apud Franciscum Portinarium de Tridino, ad insigne S. Ioannis Baptistae 
+11   ***   27725701: Apud Iacobum Fabrianum 
+11   ***   27725702: Apud Bernardum Grassum 
+11   ***   23058426: T. Longman,etc 
+11   ***   22220816: Apud Poncetum Le Preux, sub insigni Lupi, via ad D. Iacobum 
+11   ***   24318004: Apud Franciscum Honophrium ... 
+11   ***   27965805: Apud Guerreros fratres & socios 
+11   ***   21747799: Apud Arnoldum Leers 
+11   ***   23794260: Printed for S. Ballard etc 
+11   ***   21173109: Veneunt Lugduni apud Stephanum Malleorum ... 
+11   ***   21173110: Venundantur Lugd'. apud Jacobum Giuncti 
+11   ***   26154175: Ex officina Iordani Ziletti ... 
+11   ***   26641281: Impressum Mediolani per Joannem Angelum Scinzenzeler 
+11   ***   21660559: Colophon: apud Hier. Frobenivm et Nic. Episcopium 
+11   ***   21960224: Apud Guliel. Rouillium, sub scuto Veneto 
+11   ***   21960225: Excudebat Iohannes Arnoldus 
+11   ***   21698171: Ex Officina Niuelliana 
+11   ***   26941227: Sumptibus Thomae Henrici Hauensteini 
+11   ***   21960617: Aere Venantii Monaldinii, bibliopolae ; typis Zempelianis 
+11   ***   21960618: Ex Officina Paltheniana ; sumtibus Petri Fischeri 
+11   ***   21005339: Apud I. Kinckivm 
+11   ***   27034668: Apud Aurelium Pincium ... impressa 
+11   ***   22752992: Impens. S. Feyrabendij 
+11   ***   29699817: Jacques François Joseph Saly 
+11   ***   21698968: Impressum per Gulielmum de Fontaneto 
+11   ***   25231844: Ex officina Eusebij Episcopij 
+11   ***   21354911: None 
+11   ***   23534097: Typis Dominici-Antonii & Nicolai Parrino 
+11   ***   23272258: Per Philippum Pincium, Mantuanum 
+11   ***   25066071: Apud Nicolaum de Bascarinis 
+11   ***   21311323: Ex Typogr. J. Antonii Pezzana 
+11   ***   27729137: Ad signum Putei 
+11   ***   27729140: Apud Dominicum de Portonarijs 
+11   ***   20651253: Per Johannem Angelum Scinzenzeler 
+11   ***   27729143: Apud haeredes Simonis Vincentii 
+11   ***   25107863: Impensis domini Ioannis de Ferrarijs alias de Iolitis ac domini Gilardi de Zeis ... 
+11   ***   29040132: Ex officina Christiani Wolffii, typis Joannis Andreae 
+11   ***   21175934: Apud Theobaldum Paganum 
+11   ***   23273346: apvd Ivntas 
+11   ***   21438341: Apud Andream Wechelum ... 
+11   ***   29040556: Chez Guillaume Behourt ... 
+11   ***   23535661: In aedibus Aldi & Andreae Asulani soceri 
+11   ***   23011396: Apud Georgium Coruinum, impensis Hieronymi Feyrabend 
+11   ***   27468068: Sumpt. Chouet, G. de Tournes, Cramer, Perachon, Ritter & S. de Tournes 
+11   ***   27297158: Ad signum Concordiae Andrea Muschio 
+11   ***   23536089: A. Bell etc 
+11   ***   23536092: Leigh and Sotheby 
+11   ***   26403454: Nicolò Bevilacqua 
+11   ***   20214579: Apud Adrianum Beys vià Iacobaeâ 
+11   ***   28255177: Ex typographio Paleariniano 
+11   ***   23274661: Ex officina Carolae Guillardae, sub Sole aureo, via ad diuum Iacobum 
+11   ***   27468432: Sumptibus Gaumianis 
+11   ***   21439998: Vincentivs de Portonariis 
+11   ***   21442823: Apud Eligium Gibierium 
+11   ***   23537251: Apud Johannis Adolphi viduam Norimbergae 
+11   ***   24055385: Expensis Iohannis Mariae Terranouae & Iacobi Arcarij 
+11   ***   25372453: Apud Bart. Vincentium ... 
+11   ***   23799643: Apud Sebastianum Gryphium 
+11   ***   23275377: Opera Magistri Ioannis de Channei 
+11   ***   21440401: S. de Luere 
+11   ***   26683441: Impensis Marci de Maria & Ioannis Dominici de Gallis 
+11   ***   25025560: Printed by R. Everingham for R. Bentley ... and Dan. Brown ... 
+11   ***   20392116: Per G.M. Bonelli 
+11   ***   22273056: Sumptibus Joannis Petri Zubrodt 
+11   ***   25110774: Litteris Remondinianis 
+11   ***   25637269: Bey Johann. Wilhelm. Friessem 
+11   ***   22010957: Apud Gulielmum Merlin ... & Gulielmum Desboys ..., ac Sebastianum Niuellium ... 
+11   ***   27470296: Impensis viduae & haeredum B. Petri Martelli 
+11   ***   27470299: Apud Haeredes Joannis Mariae Bonelli 
+11   ***   25020395: Apud Bertanos 
+11   ***   26860659: Typis Felicis Mosca 
+11   ***   25897720: Apud Antonium Bladum Impressorem Cameralem 
+11   ***   21179151: Ex officina Ioannis Baptistae Somaschi 
+11   ***   23014334: Sumpt. Laur. Arnaud et Petri Borde 
+11   ***   24108351: Impensis Rulandiorum, typis Joannis Görlini 
+11   ***   23015364: Excudebat Seruatius Sassenus sibi & haeredibus Arnoldi Birckmanni 
+11   ***   21443234: Apud haeredes Petri Rauani & socios 
+11   ***   27533587: Typis Dominici Antonii Herculis in via Parionis 
+11   ***   26947777: Typis Nicolai Hoffmanni, sumptibus Petri Kopffij 
+11   ***   21180744: Impensa D. Michaelis Tramezinij mercatoris & ciuis 
+11   ***   29351350: Sumptibus Horatii Cardon 
+11   ***   22273464: None 
+11   ***   23802667: Sumptib. Laurentij Anisson & soc. 
+11   ***   20572603: Apud T. Baumium 
+11   ***   23802760: Ad candentis salamandrae insignae sic 
+11   ***   26424439: Impensis Joh. Syberti Heyll, bibliop. Mog. 
+11   ***   21181566: Apud Hieronymum Bordonium & Petrum Martyrem Locarnum, socios 
+11   ***   27197974: Excudebat Balthasard Arnoullet, vna cū Haeredibus Ioannis Barbous 
+11   ***   24328052: Apud Liechtenstein 
+11   ***   22755199: Printed by H. Ranlet, Exeter, for Thomas and Andrews, E. Larkin and J. West, Boston 
+11   ***   21182367: Apud Nicolaum Pezzana 
+11   ***   23541819: None 
+11   ***   23890281: Apud Petrum Zangrium 
+11   ***   21428099: Ex officina Zunneriana, typis J. Andreæ 
+11   ***   23409713: Ioan. Gryphius excudebat 
+11   ***   27429259: Ex typographia S. Michaelis ad Ripam per Octavium Puccinelli 
+11   ***   24066463: Apud I. Birckmannum 
+11   ***   21749509: Printed for R. Ware, R. and B. Wellington, J. Brindley, C. Corbett, and R. New 
+11   ***   21749510: Per Bernardinum Venetum 
+11   ***   26688251: Ad signum Concordiae 
+11   ***   21181585: Apud Iacobum Cornettum 
+11   ***   23018355: Impressum ... apud Franciscum Bassaeum, impensis Nicolai Bassaei Fr. 
+11   ***   25600605: Nella stamperia di Govanni de Simone 
+11   ***   20397232: per Georgivm Corvinvm, Sigismvndvm Feirabent & hæredes Vuigandi Galli 
+11   ***   20651250: Impresse pro Ionāne Petit Ambrosio Girault 
+11   ***   20397464: Coimpresse diligentia W. Hopylij, impensis W. Bretton? 
+11   ***   20438965: Per Ioannem Oporinum 
+11   ***   22494956: Printed for Tho. Flesher and Edward Evets 
+11   ***   21708814: Impressum ductu Ioannis Haselberg de Aia, biblipolae 
+11   ***   25641035: Nella stamperìa di Cesare Sartorj ... 
+11   ***   27547220: Ex officina typographica Martini Lechleri 
+11   ***   21184832: Apud haeredes Melchioris Sessae 
+11   ***   26342646: Typis Josephi Manni ... 
+11   ***   23545008: Apud Christoforum Zane 
+11   ***   20923670: in aedibvs Aldi, et Andreae Asvlani soceri 
+11   ***   20834635: Ex officina typographica Hyacinthi Pittante 
+11   ***   26953353: De l'imprimerie de François Huby ... 
+11   ***   27215524: Apud Carolam Guillard uiduam Claudij Cheuallonij ... & Gulielmum Des bois ... 
+11   ***   24332115: Printed  for John Leigh at the sign of the Blew-Bell by Flying-horse-Court in Fleet-street 
+11   ***   24502600: Apud Geruuinum Calenium, & haeredes Iohannis Quentelij 
+11   ***   21881189: Si stampano e si vendono in Roma da Gio. Iacomo de Rossi alla Pace con priuilegio del Sommo Pontefice 
+11   ***   21973098: Printed by H.S. Woodfall for J. Dodsley, in Pall-Mall 
+11   ***   23881092: Presso a Francesco de' Franceschi sanese 
+11   ***   27113657: Sumptibus Iacobi Siverts, bibliopolae Spirensis 
+11   ***   22759655: G.B. Porta 
+11   ***   24594801: None 
+11   ***   27692094: Per Antonium Bladum Impressorem Cameralem 
+11   ***   26429818: Excudebat Philippus Gamonetus 
+11   ***   26954262: Par Iean de Tournes 
+11   ***   23546504: Printed by T.R. & N.T. for James Magnes and Richard Bentley 
+11   ***   25595001: Apud I. Henault ... 
+11   ***   24070956: Symon Vincent 
+11   ***   25119676: Per Marc' Ant. Bellone 
+11   ***   24071112: Gedruckt bey Georg Sengenwalden 
+11   ***   23061003: Typis & sumptibus Hieronymi Albrizzi 
+11   ***   23955517: Ex typographia Petri Thomasij 
+11   ***   25766601: Per Ioannem Angelum Scinzenzeler 
+11   ***   23547161: Apud Nicolaum Nasum, typographum, expensis Stephani Abbatis 
+11   ***   20925896: Apud S. Colinaeum 
+11   ***   22760911: Apud Gulielmum Facciottum 
+11   ***   25120273: Aurelius Priscius? 
+11   ***   21531925: ex officina Henricpetrina 
+11   ***   20401792: A. Vincent 
+11   ***   20139756: Sumptibus L.A. de Giunta; impressum in aedibus G. de Rusconibus 
+11   ***   20139867: Ex typographia Bartholomei Bonfadini & Titi Diani 
+11   ***   24596342: Apud Constantinum Münich 
+11   ***   20139919: Apud Antonium Vincentium 
+11   ***   20402273: apud Nicolaum Pezzana 
+11   ***   27561345: Apud Ioannem Roygni ... 
+11   ***   22668008: Sumptibus Samuelis Crispini 
+11   ***   24334755: Sumptibus Horatij Boissat & Georgij Remeus 
+11   ***   21189339: Ioannis Saurij typis 
+11   ***   27480867: De l'imprimerie de Ch. Tutot ... 
+11   ***   24859776: Apud Iacobum Keruer, via Iacobaea sub signo Vnicornis 
+11   ***   27481254: Typis Josephi Barbou ... 
+11   ***   27481256: Typis viduae B. Belleri, typographi Jurati 
+11   ***   29054196: Typis ac sumptibus Josephi ab Oleo, bibliopolae Parmensis sub signo Pacis per Hippolytum & Franciscum Mariam fratres de Rosatis 
+11   ***   22762881: Apud Nicolaum Beuilacquam 
+11   ***   23549330: Typis Iulij Borzaghi 
+11   ***   23811859: Societas Aquilae Renovantis 
+11   ***   23105185: Apud Baretium de Baretijs 
+11   ***   25384905: Apud Gulielmum Rouillium sub scuto Veneto 
+11   ***   23549898: J. Bebell 
+11   ***   23673198: Apud Ioannem Stratium ... 
+11   ***   21190904: Apud Allardum Iulianum ... 
+11   ***   27561700: Ex officinâ Hillebrandi Iacobi 
+11   ***   25385306: Per haeredes Philippi Tuntae 
+11   ***   27561703: Ex typographia Divini Officij apud haeredes Ioannes Garcia Infanzon 
+11   ***   27561706: Sub signo Diui Hieronymi 
+11   ***   27561709: Per D. Bernardinum Stagninum 
+11   ***   27482610: Prelo Richteriano, impensâ verò Conradi Nebenii 
+11   ***   26434051: Ad signum Spei 
+11   ***   22275159: typis J.J. Hennëi 
+11   ***   26958689: Apud Bartholomaeum Rubinum 
+11   ***   27483228: Ex Typographia Reu. Camerae Apostolicae 
+11   ***   27483229: Apud Andream Phaeum 
+11   ***   22668476: Impensis Bartholomei Trot 
+11   ***   24285034: H. Stephanus II 
+11   ***   27430803: In ducali typographia Ioannis Bazachij 
+11   ***   27483619: Typis Reu. Camerae Apostolicae 
+11   ***   27483626: Sumptibus Lazari Zetzneri ... 
+11   ***   27483632: Ex Typographia Nicolai Angeli Tinassij 
+11   ***   27483634: Sumptibus Ioannis-Antonii Huguetan & Marci-Antonii Rauaud 
+11   ***   26435101: Typis & expensis Alfonsi Ciaconi 
+11   ***   24600432: Apud Joh. Jacobum Flick, bibliopolam 
+11   ***   27484017: Ex Typographia Tarquinij Longi 
+11   ***   27484018: Typis & expensis Honophrij Sauij 
+11   ***   27484021: Sumptibus Leonardi Chouët 
+11   ***   20668618: sumptibus heredis Nicolai Pezzana 
+11   ***   25508583: Ex regio typographeo 
+11   ***   22188104: Printed by B. Alsop 
+11   ***   27562069: Apud Io. Dominicum 
+11   ***   21979866: ex officina Iordani Zileti 
+11   ***   22982235: Apud Philippum & Iacobum Iuntam & fratres 
+11   ***   26436860: Apud Marcum VVyon, typographum ... 
+11   ***   20571709: ex officina typographica Ioannis Saurii, impensis Francisci Nicolai Rothii 
+11   ***   21851386: Printed by J. C. for S. Speed 
+11   ***   25388566: Apud Hugonem à Porta, & Antonium Vincentium 
+11   ***   25388600: Apud Sebastianum Huré ... 
+11   ***   20389730: e Typographia regia 
+11   ***   26437250: Per Henricum Petri 
+11   ***   25913025: Sumptibus Chouet, G. de Tournes, Cramer, Perachon, Ritter, & S. de Tournes 
+11   ***   25071909: Apud Ioannem Martinellum 
+11   ***   24591315: Typis Bernabò 
+11   ***   24602516: Apud haeredes Augustini Grisei & Iosephi Piccini 
+11   ***   26906993: Apud filios L. Torentini & C. Pectinarium socios 
+11   ***   25127160: Typis Wechelianis apud haeredes Iohan. Aubrii 
+11   ***   25389338: Apud haeredes Damiani Zenarij 
+11   ***   20408864: sumptibus Dominici Custodis 
+11   ***   27486845: A spese di Modesto Fenzo stampatore in Venezia 
+11   ***   27486846: Appresso Giuseppe Bortoli 
+11   ***   27486848: Apud Sennetonios Fratres 
+11   ***   21760225: Printed for J. Wilcox ..., B. Creake ..., and John Sackfield ... 
+11   ***   20933326: Sumptibus Laurentii Anisson 
+11   ***   21457734: Apud I. Gymnicvm 
+11   ***   23817133: Apud Wilhelmum Metternich bibliop. ... 
+11   ***   27749315: Sumptibus Ioannis Baptistae Buysson 
+11   ***   27721254: Typographia Camerae Apostolicae? 
+11   ***   21195737: apud hæredes Iacobi Iuntæ 
+11   ***   21195744: Impressa Lugd'. per Mathiam Bonhome, impensis vero ... Jacobi .q. Francisci de Giunta et sociorum Florentini 
+11   ***   27487233: Venale stat opus hoc sub lilio aureo vici diui Jacobi 
+11   ***   27487234: Apud Ouidinum Parvum ... 
+11   ***   27487235: Excudebat Ioannes Pidaeius 
+11   ***   27487236: Ex officina viduae Claudij Cheuallonij ... 
+11   ***   27487241: Apud Carolam Guillard ... & Gulielmum Desbois ... 
+11   ***   27487242: In aedibus F. Minitii Calui 
+11   ***   27487255: Apud Ph. Masson ... 
+11   ***   27487256: Apud Philibertum Masson ... 
+11   ***   27487260: Apud Ioannem Maire 
+11   ***   20409486: Apud Bernardum Turrisanum, via Iacobęa, in Aldina bibliotheca 
+11   ***   23224083: Petrus Dusinellus excudebat 
+11   ***   24341830: A P. Pincio impressum 
+11   ***   27487633: Durch vleisz Johan Schoffers Buchtrucker daselbst 
+11   ***   27487637: Apud Carolum Sevestre ... 
+11   ***   27487638: Ex typographia Iacobi Mascardi 
+11   ***   27487654: Praelo typographico Richteriano, sumptibus Egenolphi Emmelii 
+11   ***   27487655: Curante Z. Palthenio 
+11   ***   20409957: Apud Gulielmum Rouillium, sub scuto Veneto 
+11   ***   21196428: Officina Salomoniana 
+11   ***   25559963: In aedibus Populi Romani 
+11   ***   25391130: Apud Michaelem Vascosanum 
+11   ***   23818419: Appresso Damiano Zenaro 
+11   ***   27488462: Opera atque ipensis honesti viri Henrici Quentell ciuis eiusdem 
+11   ***   27488477: Chez Louis Coignard ... 
+11   ***   22507794: Per Eucharium Silber alias Franck 
+11   ***   29061502: Apud Bernardum Gualtherium 
+11   ***   23630573: In officina Georgij Marescoti 
+11   ***   27300618: Ex Typographia Ducali et Patriarchali Pinelliana 
+11   ***   27488877: Impensis Wilhelmi Serlini, typis Aegidii Vogelii 
+11   ***   27488886: Apud Gugliemum Facciottum 
+11   ***   25129849: Typis Philippi Gamonet 
+11   ***   21197722: Apud Jacob de Burgo Franco 
+11   ***   27256999: Apud Vincentium Pelagallum 
+11   ***   27227197: Typis Sigismundi Latomi, impensis Vincentij Steinmeyeri 
+11   ***   23043476: Per Philippum Iuntam 
+11   ***   23032931: Sumptibus Leonardi Chouët & socii 
+11   ***   20528661: Quæ omnia impressa quidem sunt lodoci Badii Ascensii typis & opera: impensis autem nobilis & prædocti viri Hectoris Boethii Deidonani: a quo sunt & condita & edita 
+11   ***   21752001: Apud Nicolaum Buon ... 
+11   ***   23033045: Ex typographia Vaticana 
+11   ***   26470609: Sumptibus Samuelis de Tournes 
+11   ***   27489547: E typographia Ioannis Crispini 
+11   ***   25916708: Heirs of Lucantonio Giunta, and others 
+11   ***   27227543: Literis Deckerianis 
+11   ***   22931697: Ex officina Erasmiana Vincentij Valgrisij 
+11   ***   22931715: Apud Ioan. Bogardum, typog. regium 
+11   ***   26965610: Excudebantur per Matthiam Cancer in aedibus eiusdem excellentissimi domini Marini Frecciae 
+11   ***   26965621: ... apud Claudium Sennetonium 
+11   ***   23295606: Ex typographia Vrsiniana 
+11   ***   26965708: Excudebat Franciscus à Canto, expensis Benedicti Boyerij 
+11   ***   21752107: Apud Ioannem Guerilium 
+11   ***   27694057: Apud Fed. Morellum typographum regium, via Iacobaea ad insigne Fontis 
+11   ***   27694062: Ex Officina Paltheniana : sumtibus Ionae Rhodii successoris P. Fisch. 
+11   ***   21985304: In aedibus I. Parui ex officina P. Vidouaei calcographi 
+11   ***   26966062: Apud Nicolaum de Bottis 
+11   ***   28014656: Printed by John Haviland for Raphe Mabb 
+11   ***   23820440: Sumptibus Iosephi Corbi 
+11   ***   24083014: ... apud Aegidium & Iacobum Huguetan, fratres 
+11   ***   23558772: Apud Anthonium de Harsy 
+11   ***   27490964: Apud Franciscum de Portonariis 
+11   ***   27490965: Apud Ioannem Bazachium 
+11   ***   27490967: Apud Georgium de Caballis ad instantiam Francisci de Portonariis de Tridino 
+11   ***   27490968: In officina Q. Philip Tinghi apud Simphorianum Beraud et Stephanum Michaëlem 
+11   ***   25655987: Per Io. Antonium et fratres de Sabio, sumptu & requisitione D. Melchioris Sessae 
+11   ***   26966929: Apud Iosephum Cacchium & Socium 
+11   ***   27606885: Ex Officinâ Joan. Hayes, celeberrimae academiae typographi : Impensis H. Dickinson & R. Green, bibliopol. Cantab. 
+11   ***   27606887: Apud Antonium Dezallier ... 
+11   ***   26967162: Apud Titum & Paulum de Dians sic 
+11   ***   27606894: Apud Saillant & Nyon ... 
+11   ***   20397951: Sumptibus Petri Rigaud ... 
+11   ***   26967387: Officina Isingriniana 
+11   ***   25132557: Andreas Muschius excudebat 
+11   ***   21986864: Getruckt zu Franckfurt am Mayn, bey Wolffgang Richtern 
+11   ***   26705458: Excudebat Esaias Le Preux 
+11   ***   24608332: Joannes Moylin alias de Chambray excudebat 
+11   ***   24361653: Presso Giammichele Briolo e li fratelli Reycends 
+11   ***   27230127: Impresse Lugduni per Antonium du Ry ... 
+11   ***   21987257: P.Æ. Le Mercier 
+11   ***   20676554: Apud Ioan. Tornaesium typogr. reg. Lugd. 
+11   ***   20414443: Dalla Stamperia Locatelli 
+11   ***   21446675: apud P. et A. Meisttos fratres 
+11   ***   22537308: Sold by Payne and son; etc., etc. 
+11   ***   27102602: Venundatur apud Iohannem Bernerum, bibliopolam Francofurtensem 
+11   ***   23689551: Apud haeredes Antonij Bladij, impressores ... 
+11   ***   24082364: Apud Christophorum Zanettum 
+11   ***   24745776: Ex typographia Generosi Salomoni 
+11   ***   26649377: Apud Ioannem Mariam Bonellum 
+11   ***   21638251: In Aedibvs Aldi et Andreae Asvlani Soceri 
+11   ***   21202538: Ex typ. Johannis Gatti, sumptibus Remondianis 
+11   ***   27582736: Ad candentis Salamandrȩ insigne 
+11   ***   22513496: apud G. Leimarium 
+11   ***   27582741: Ex Typographia Ioannis Rubei 
+11   ***   27582742: In aedibus Franc. Sexalli 
+11   ***   25397200: Apud Nicolaum Beuilaqua 
+11   ***   25659361: Stampata in Roma appresso Giouanni Osmarino Gigliotto 1583 et ristampata in Milano per Francesco Paganello 
+11   ***   27582747: Veneunt Lugd' apud Jacobum Giuncti in vico Mercuriali 
+11   ***   25397454: Apud Gysbertum Sybonis 
+11   ***   25335526: In edibus Aurelij Pintij Veneti 
+11   ***   21203351: Apud Thomam Guarinum 
+11   ***   24349610: Litteris Godofr. Aug. Stopffelii 
+11   ***   25136053: Sumptibus Petri Borde, Joannis & Petri Arnaud 
+11   ***   24087517: Apud Iacobum Rezé ... 
+11   ***   26165755: Apud Hieronymum Frouam 
+11   ***   26446829: Apud Ioannem et Franciscum Frellonios fratres 
+11   ***   27233345: In officina Antonij du Ry 
+11   ***   25398513: Ex officina Rob. Stephani ... 
+11   ***   23039249: Ex officina typographica Wolffgangi Richteri, sumptibus Conradi Meulii 
+11   ***   26613865: Ex regia typographia Aegidij Longi 
+11   ***   25204627: In edibus Philippi Pincij Mantuani impresse 
+11   ***   29530092: Typis Generosi Salomoni 
+11   ***   24088544: Apud Hieronymum & Ioannem Zenarios 
+11   ***   20942891: in aedib. Novae academiae Bocchianae 
+11   ***   24310879: Printed by W. Stansby for R. Higginbotham ... 
+11   ***   23588217: Apud Dominici Rubini 
+11   ***   25531498: Apud Alexandrum Gardanum & Franciscum Coattinum, socios 
+11   ***   27496826: Apud Michalem de Roigny ... 
+11   ***   27496827: Ex officina Chalcographica Nicolai Hoffmanni 
+11   ***   20943295: Impensis Domini Ioannis de Ferrarijs alias de Iolitis ac Domini Girardi de Zeijs predicti loci 
+11   ***   27302021: Ex officina Ioannis Bazachij 
+11   ***   21206150: Impressi opera et impensa Jacobi de Phortzheim 
+11   ***   21753372: Apud Hieronymum Bartolum ad instantiam Io. Bap. Turlini ... 
+11   ***   20944094: None 
+11   ***   21753383: Apud Andream Arriuabenum 
+11   ***   21753387: Printed for F. Noble ... 
+11   ***   26449285: Conradi eifridi 
+11   ***   22015565: Apud Iacobum Chouet 
+11   ***   21206549: Apud haeredes Ioannis Rossij 
+11   ***   23195242: Impressum fuit Lugd'. in edibus Joannis Crespin calcographi 
+11   ***   27040024: Typis Jo. Baptistae Conzatti 
+11   ***   21468897: Printed for Jacob Tonson; and are to be sold by Robert Knaplock, at the Angel and Crown in St. Paul's church-yard 
+11   ***   29333481: Apud Haeredes Georgij Rhau 
+11   ***   22779895: Ioannes Gymnicus excudebat 
+11   ***   23828480: Apud Gabrielem de Tournes & Filios 
+11   ***   22627330: sumptibus Marci-Michaelis Bousquet, & soc. bibliop. & typograph. 
+11   ***   20792323: Bey W. Lützenkirchen 
+11   ***   26579053: Apud Isaiam Le Preux 
+11   ***   20296248: impensis Gerardi Morrhij & Ioannis Petri 
+11   ***   24353446: Ex Typographia Sacrae Congregationis de Propaganda Fide 
+11   ***   23488993: Iacobus Giunta 
+11   ***   24353779: Apud Franciscum Caballum 
+11   ***   23545005: Ex officina Eusebij Episcopij et Nicolai fratris haeredum 
+11   ***   23545006: Ex Typographia Bartholomaei Lupardi Impressoris Cameralis & Vaticani 
+11   ***   24244066: Ex typographia haeredum Augustini Grisei & Iosephi Piccini 
+11   ***   24616066: Impensis Geruini Calenij & haeredum Iohannis Quentelij 
+11   ***   21098367: Apud Paulum Balleonium 
+11   ***   21994931: Cura & sumptibus Societatis litteratae 
+11   ***   22781483: Apud Dominicum Nicolinum, & socios 
+11   ***   23632498: Sumptib. Haered. Gabr. Boissat, & Laurentii Anisson 
+11   ***   21753801: Apud Ioannem Pullonum è Tridino 
+11   ***   24616949: Excudebat Johannes Hayes ... impensis Johannis Creed, bibliopolae Cantab. 
+11   ***   24093009: Apud Vassallinum 
+11   ***   27501010: Sumptibus Jo. Friderici Gleditschii 
+11   ***   25444357: Bapt. de Tortis 
+11   ***   26714838: Apud Victorium Elianum 
+11   ***   20093742: Apud Hermannvm à Sande 
+11   ***   28549940: Apud Wilhelmum Metternich, bibliopolam, sub signo gryphi 
+11   ***   21210026: e typographia Antonii Perez de Soto 
+11   ***   20685826: Apud I. Zilettum 
+11   ***   20948232: Apud HH. Io. Dominici Tarini 
+11   ***   21210396: apud Simonem Occhi 
+11   ***   23307633: In aedibus I. Badii Ascensii 
+11   ***   21734902: Apud J. Ibarra, Catholicae Majestatis Typographum 
+11   ***   25405130: Apud Michaelem Vascosanum ... 
+11   ***   23570132: Impressa fuit per Jo. Houdouart et Benedictum Bounyn, impensis ... Jacobi q. Francisci de Giuncta Florentini ac sociorum 
+11   ***   21997418: Apud haeredes Mascardi 
+11   ***   22259623: Apud Thomam & Ioannem Bucke ... 
+11   ***   27600477: Apud Iacobum Keruer, sub duobus gallis in uia Iacobaea 
+11   ***   20949080: Apud Carolum Pesnot 
+11   ***   23571086: Printed by J.L. for Richard Whitaker ... 
+11   ***   24332119: Printed for John Leigh at the sign of the Blew Bell by Flying-Hourse Court in Fleet-street 
+11   ***   28552231: Per Benedictum Bonyn. 
+11   ***   23571512: Paulus Manutius Aldi f. 
+11   ***   20215747: Apud Andreae Wecheli heredes Claudium Marnium & Ioan. Aubrium 
+11   ***   20931539: Excudebat Iohannes Lichfield, impensis Henrici Cripps ... 
+11   ***   26193468: Typis Iosephi Comini 
+11   ***   23047792: Apud Galeotum à Prato ... 
+11   ***   27041061: Apud Antonium Manutium, Aldi filium 
+11   ***   20662254: Ex Typis regiis 
+11   ***   27504560: Ex typographia Reu. Cam. Apost. 
+11   ***   26211008: In officina Benedicti Bonnyn 
+11   ***   20434013: Excudebat Henr. Stephanus 
+11   ***   24883614: Apud Ant. Molin ... 
+11   ***   20689357: apud L. Alectorium, & hæredes I Soteris 
+11   ***   23573197: Typis Conr. Waldkirchii 
+11   ***   20023771: sumptib. Iacobi & Petri Prost 
+11   ***   24623143: Apud haeredem Nicolai Beuilaquae 
+11   ***   24098939: Natolinus typographus 
+11   ***   26982705: Apud haeredes Valerij Bonelli 
+11   ***   25148239: Apud Iacobum Antonium Somaschum 
+11   ***   24623992: Apud Societatem Concordiae 
+11   ***   21216421: apud Joh. Rudolf Thurneisen 
+11   ***   21216423: Printed by T. Bensley, for C. Elliot, T. Kay, and co. 
+11   ***   20007456: Apud haeredes Nicolai Beuilaquae 
+11   ***   21755093: Apud Conr. Vvaldkirch 
+11   ***   25162970: Apud Valuassorem 
+11   ***   21216565: apud fratres Ottonem et Petrum Thollios 
+11   ***   21216568: Excudebat Eustathius Vignon 
+11   ***   20692283: Appresso G. Discepolo 
+11   ***   27770208: I Tparani Hovhannu Pʻiatsʻean 
+11   ***   23051996: Sumptibus Antonij Hierati ... 
+11   ***   22003530: Excudebat Felix Musca 
+11   ***   26692252: Apud Ioan. Baptistam à Porta 
+11   ***   21217202: ex officina J. F. Ungeri 
+11   ***   20693275: Printed for R. Griffiths ..., and G. Woodfall ... 
+11   ***   25412052: Apud editorem via Apollinea no. 25 A.A. Renouard, typis Petri Didot ... 
+11   ***   22367007: apud Montalant 
+11   ***   27078949: Apud Nicolaum Misserinum 
+11   ***   23053026: Excudebat Thomas Bertellus 
+11   ***   25412386: Apud Georgium Variscum 
+11   ***   24888127: Apud Andreae Wecheli heredes, Claudium Marnium & Ioann. Aubrium 
+11   ***   25206941: Vincentius de Portonariis excudebatur Lugduni 
+11   ***   26461108: Apud Franciscum Sesallum 
+11   ***   24798691: Ex Officina Oporiniana 
+11   ***   20799321: Apvd E. Vignon 
+11   ***   25674945: Typis Wolffgangi Richteri, sumptibus Antonij Hummij 
+11   ***   27247832: Apud Andream Poleti ... 
+11   ***   25937280: Ex officina Ioannis Quentel 
+11   ***   24813817: Impresse iussu ac sumptibus heredum nobilis viri domini Octauiani Scoti ciuis Modoetiensis ac sociorum 
+11   ***   25150961: Ex typographia Stephani Paulini 
+11   ***   24888944: Opera ... calcographi Ioannis de Cambray alius de Moyli finis impositus est presenti operi ... in inclyta Lugduni vrbe 
+11   ***   25296275: E Collegio Musarum Nouenarum Paltheniano 
+11   ***   22267834: Apud I. Paruum 
+11   ***   22267840: Ex Officina Heruagiana per E. Episcopium 
+11   ***   22267853: In Officina Frobeniana per H. Frob., I. Heruag. & N. Episcopium 
+11   ***   29345883: Excudebat Ioannes Bringerus 
+11   ***   29345887: Impensis Godefridi Tampachii 
+11   ***   23840895: Apud Boudet, De Claustre, De Ville, & De la Roche 
+11   ***   23840898: sumpt. Philippi Borde, Lavrentii Arnavd, & Clavdii Rigavd 
+11   ***   26986654: Sumptibus Ioannis Antonij & Samuelis de Tournes 
+11   ***   27959666: Prostat apud Antonium Zatta 
+11   ***   20433075: Vaenalis est à Ponceto le Preux ... 
+11   ***   29346065: In aedibus academicis excudebant Robertus et Andreas Foulis, Academiae typographi 
+11   ***   29346072: Typis Wechelianis, apud haeredes Joannis Aubrii 
+11   ***   29346073: Johann Oporin 
+11   ***   20695323: In aedibus academicis excudebant Rob. et And. Foulis 
+11   ***   20008003: Printed by Adam Islip for John Bill 
+11   ***   23316928: Apud Ioannem Rossium 
+11   ***   21744111: ex officinâ T. M. Götzii 
+11   ***   21187685: G. S. à Bosco et G. Gueroult 
+11   ***   20226509: Apud Bernardum Iuntam & fratres 
+11   ***   25513084: Apud Iac. Antonium Somaschum 
+11   ***   25152271: Apud Bartholomaeum Zannettum 
+11   ***   25414519: Apud hh. Io. Dominici Tarini 
+11   ***   27511757: Sumptibus Petri Chouët 
+11   ***   21744782: Printed by J.B. for Sam. Smith and Benj. Walford ... and James Knapton ... 
+11   ***   25414879: Ex Officina Farrea 
+11   ***   23035505: Apud Bartholomaeum Maceum ... 
+11   ***   27512153: Ex typographiâ societatis bibliopolarum 
+11   ***   25152933: Imprimebant heredes Guil. Antonii 
+11   ***   24366554: Apud Societatem Typographiae Bononiensis 
+11   ***   24629006: Ex officina haeredum Augustini Grisei & Iosephi Piccini 
+11   ***   24629032: Cura et impensis Dominici de Rossi ... 
+11   ***   25415492: In aedibus Aldi, et Andreae Asulani Soceri 
+11   ***   23056296: Apud Clementem Baudin 
+11   ***   26464295: In Typographia F. Moucke 
+11   ***   20697265: apvd hæredes Sebast. Gryphii 
+11   ***   26221635: Ex typographia Petri Saluioni 
+11   ***   27250905: Apud Iordanum Zilettum ... 
+11   ***   23056607: Printed for J. Whiston Baker etc 
+11   ***   27250991: Sumptibus Joh. Reinholdi Dulsseckeri 
+11   ***   22794655: Apud D. Horthemels 
+11   ***   24595868: Apud Ioannem Baptistam & Ioannem Bernardum Sessam 
+11   ***   27513259: Apud D. Iacob a Burgofrancho papiensem 
+11   ***   27513263: Apud Vascosanum ... 
+11   ***   20434473: Per Magistrum Leonardum Pachel 
+11   ***   27697953: Apud Hieronymum Caualcalupum 
+11   ***   27697954: Apud Societatem Typographiae Bononien. 
+11   ***   21746384: Apud Nicolaum Beuilaquam & socios 
+11   ***   27513601: Ex officina typographica Michaelis Vascosani ... 
+11   ***   27513603: Typis Rochi Bernabò 
+11   ***   27513604: Apud Sebastianum Cramoisy ... 
+11   ***   27513605: Apud Dominicum Milochum 
+11   ***   27513608: Sumptibus Bartholomaei Alix, Bibliopolae ... 
+11   ***   27513611: Sumptibus Sebastiani Cramoisy ... et Gabrielis Cramoisy 
+11   ***   20226875: typis Conradi Waldkirchii 
+11   ***   28134887: In officina Birkcmannica, sumptibus Arnoldi Mylij 
+11   ***   27513956: Ex officina typographica Claudii Morelli ... 
+11   ***   27513965: Apud Ioannem Francesium 
+11   ***   27513966: Apud Franciscum ex Nicolao Pezzana 
+11   ***   27513968: Apnd sic Philippum Albert 
+11   ***   27513969: Apud Antonium de Sancha ... 
+11   ***   27513970: Apud Arnoldum L'Angelier ... 
+11   ***   21746942: Imprinted by Barnard Alsop, and are to be sold by Iohn Barnes ... 
+11   ***   21746943: In officina Ioannis Knoblouch 
+11   ***   21746944: Ex officina Eucharij 
+11   ***   21746945: Apud Hieronymum de Marnef, & Gulielmum Cauellat ... 
+11   ***   24892674: In officina Iacobi Myt ... 
+11   ***   21743678: None 
+11   ***   25941431: Cornelis de Zierikzee? 
+11   ***   22062012: Apvd A. Cartandrvm svmptv L. Hornken bibliopolae 
+11   ***   20698772: ex typographia Michaelis Nestenvs et Francisci Mov̈cke 
+11   ***   26466012: Apud Carolam Guillard sub sole aureo, & Gulielmum Desbois, sub cruce alba, in vico Iacobaeo 
+11   ***   23320503: Marcello Silber? 
+11   ***   23058425: Printed by H. Baldwin, for T. Longman etc 
+11   ***   22272164: By me Wynkyn de Worde 
+11   ***   23110695: Sumptibus Ioannis Kinchij ... 
+11   ***   27513607: Apud Jo. Gabrielem Hertz 
+11   ***   20445595: Impensis I.I. Foersteri 
+11   ***   27513617: Ex typographia sub signo Stellae 
+11   ***   22010541: Apud Iacobum Giunctam 
+11   ***   27567249: Ex officina Ioannis Gileti 
+11   ***   23845998: Apud Vincentium Orsini 
+11   ***   20700381: apud P. Frambottum 
+11   ***   29351190: Typis academicis, impensis Jacobi Tonson bibliopolae Londin. 
+11   ***   29351191: In aedibus Luceantonii Iuntae Florentini 
+11   ***   21749088: Ex Typographia Remondiniana 
+11   ***   22011379: Apud Haeredes Iohannis Varisci 
+11   ***   23515752: typis Petri Bruyset, sumptibus fratrum de Tournes 
+11   ***   25419690: Typis Antonij Mariotti 
+11   ***   21749940: Par la veufue Iean Ruelle ... 
+11   ***   20755725: Apvd Germanum Rose 
+11   ***   24633786: Apud Abrahamum Elzeuirium 
+11   ***   25682428: None 
+11   ***   21226025: Typis Joannis Spiessii, sumptibus Antoni Hummii 
+11   ***   24554540: Apud Minimam Societatem 
+11   ***   25158311: Typis Wechelianis apud Claudium Marnium & heredes Ioan. Aubrii 
+11   ***   22717905: Sumptibus S. Crispini 
+11   ***   22717908: Apud G. Rovillium 
+11   ***   21752523: Excudebat Joseph Raymundi 
+11   ***   26431627: Ex officinâ Marci Wyon, typographi ... 
+11   ***   26993523: Bey Jaspar von Gennep 
+11   ***   21226408: Typis Joannis Friderici Unger 
+11   ***   21752528: Per Gilbertum Devilliers 
+11   ***   27780298: Ad Salamandre̜, apud Sennetonios fratres 
+11   ***   20965050: sumptibus Horatij Cardon 
+11   ***   24373004: Printed for J. Dodsley ... and T. Walter 
+11   ***   21751663: Apud Paulum Manutium ... 
+11   ***   25422227: Apud Ioannem Dominicum Tarinum 
+11   ***   24635930: Oliua Pet. L'Huillier ... 
+11   ***   21206156: B. Sylva 
+11   ***   21752518: Per Ioannem de Cereto de Tridino alias Tacuinum ... 
+11   ***   22801114: Ex typographia haeredum Tarquinij Longi 
+11   ***   22277154: Fratelli Rossi, stampatori camerali 
+11   ***   26471509: Ex typographia Dominici Raillardi 
+11   ***   21752958: Impressa industria Joannis Moylin alias de Cambray, 
+11   ***   21752959: Expensis Petri Landry 
+11   ***   20180207: Aldus 
+11   ***   27258222: Apud Dominicum de Farris 
+11   ***   21753380: Per Antonium Blanchard 
+11   ***   20442726: Ex typographia Ferroniana 
+11   ***   28255756: Printed by Iohn Windet for Mathevv Lovvnes 
+11   ***   24509725: Tippis ac caracteribus Jacobi Berioni 
+11   ***   21757228: Apud Octauianum Scotum .d. Amadei .f. 
+11   ***   23064438: Apud Andream Cartandrum 
+11   ***   23064449: Sumptib. Phil. Borde, Laur. Arnaud & Claud. Rigaud 
+11   ***   22802388: Printed, and sold by J. Woodward, in Threadneedle street 
+11   ***   20443189: Apud Franciscum Le Feure 
+11   ***   26472691: Apud Dominicum de Portonariis 
+11   ***   23679747: Ex typographia Leniana : Apud Io. Iacobum Hertz 
+11   ***   21754425: Paganinus de Paganinis? 
+11   ***   29356650: apud Societatem Minimam 
+11   ***   29356651: Apud Marcum Antonium Bellonum 
+11   ***   21754643: Et veneunt Monspelii : Apud Stephanum Marret ... 
+11   ***   21754644: Apud J.A. Chouët & David Ritter 
+11   ***   21754650: Apud Jo. Baptistam Recurti ... 
+11   ***   21754657: Veneunt in nund. Franc. Lips. & Amst. apud Joh. P. Schmidt 
+11   ***   24769344: Ex typographia Joannis Francisci Buagni 
+11   ***   23327802: Sumptibus Caroli Giannini ... ac librorum Sanctitatis Suae provisoris ... 
+11   ***   26211502: In edibus Joannis Petit ... 
+11   ***   21755074: printed by W.R. for Jonah Browne ... 
+11   ***   21755082: Ex typographia Andreæ Poleti ... 
+11   ***   21755092: Typis Io: Francisci Buagni 
+11   ***   26473777: Ex regia typographia Egidij Longhi 
+11   ***   27522374: Apud Ioannem Baptistam Somaschum & Fratres 
+11   ***   27522375: Apud Ioannem Baptistam Somascum 
+11   ***   27131464: Apud haeredes Ioan. Antonij Bertani 
+11   ***   23590387: Ex typographia Aegidij Longi 
+11   ***   25949730: Apud Aurelium Pincium Venetum 
+11   ***   21755485: Apud Geruinum Calenium, & haeredes Quentelios ... 
+11   ***   21755498: Per Sebastianum Henricpetri 
+11   ***   21755511: Apud Bernardum Gualtherium ... 
+11   ***   21801272: Apud Federicum Morellum, in uico Bellouaco, ad insigne Mori 
+11   ***   25425794: Apud Viduam Brocas ... 
+11   ***   21755921: Per Ioannem Patauinum et Uenturinum de Ruffinellis 
+11   ***   21755924: Apud Thomam Iolly ... 
+11   ***   21755943: Apud Josephum Corona ... 
+11   ***   26998953: Apud Gioannem Barilettum 
+11   ***   21757652: Apud Maternum Cholinum 
+11   ***   23066883: Sumpt. Haer. Petri Prost, Philip. Borde, & Laurentii Arnaud 
+11   ***   23066886: Per Conr. Vvaldkirch 
+11   ***   21189700: Ex typographia Balleonii 
+11   ***   20445610: Apud Theodorum Baumium 
+11   ***   21756363: Sumptibus Philiberti Perachon 
+11   ***   20969934: Apud Audoënum Paruum ... 
+11   ***   21756377: Typis Remondinianis 
+11   ***   25164405: Excudebat Joan. Hayes ... 
+11   ***   21595599: Printed for T. Young and S. Speed 
+11   ***   21756795: Apud Lucam Bertellum ... 
+11   ***   21756798: Ex officina Andreae Wecheli 
+11   ***   21756804: Ex typographia Matthaei Bolzetta de Cadorinis 
+11   ***   20970532: Apud Guliel. Rouillium sub scuto Veneto 
+11   ***   22805611: Typis Ioannis Francisci Paci 
+11   ***   27583742: Apud J. Barbou ... 
+11   ***   22281462: Printed for B. Lintot 
+11   ***   21757240: Sumptibus Cramer & Perachon 
+11   ***   20970930: Apud Ioannem Veyrat 
+11   ***   23854774: Seb. Gryphius Lugduni excud. 
+11   ***   21757648: Per. Ioan. Ant. de Nicolinis de Sabio, expensis D. Ioan. Baptistae Pederzani 
+11   ***   21757650: Apud Franciscum de Franciscis Senensem 
+11   ***   21757659: Sumptibus Antonii Cellier ... 
+11   ***   29229026: In der Esslingerschen Buchhandlung 
+549   ***   24991875: Excudebat Christophorus Corvinus 
+549   ***   27708853: Imprimebat Christophorus Corvinus 

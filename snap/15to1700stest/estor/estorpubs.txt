@@ -1,0 +1,276 @@
+40   ***   21758078: Apud Bartholomęum Sermartellium 
+40   ***   21758079: Typis & sumptibus Wechelianorum, aud Danielem & Dauidem Aubrios & Clementem Schleichium 
+40   ***   21758082: Typis Theodorici Werlini 
+40   ***   25691006: Typis Stoesseliano-Aulicis 
+40   ***   22765380: Typis & impensis Ioh. Conradi Geysleri 
+40   ***   20973693: Apud Iohannem Heruagium 
+40   ***   23156471: Apud Heredes Bircknerianos 
+40   ***   20713940: typis et sumptibus J. Moltkenii 
+40   ***   21763289: Chez la Veuve J.P. Robert ... 
+40   ***   23336581: Apud Wolfgang Christophor. Multz 
+40   ***   23862916: Apud Joh. B. Andreae & Henr. Hort. 
+40   ***   20522238: Sumtu viduae Felgineriae 
+40   ***   21765882: Ex officina libraria Amandi Königii 
+40   ***   21766306: Apud Ioannem Birckmannum 
+40   ***   21766308: Apud Mich. Ising. 
+40   ***   21766309: Excudebat Iosias Rihelius 
+40   ***   23339546: sumptibus viduae Felgineriae 
+40   ***   23864578: Durch Georg Raben, Sigmund Feyerabend, vnd Weygand Hanen Erben 
+40   ***   26748387: Impensis Lazari Zetzneri bibliop. 
+40   ***   23604940: Apud Fridericum Hekelium, bibliopol. reg. 
+40   ***   25703345: Sumpt. Friderici Knochii, bibliop. 
+40   ***   24031552: Impensis editoris 
+40   ***   24395331: Apud Henricum Künraht sic. 
+40   ***   21775719: Apud Henricum Crebas ... 
+40   ***   24216066: Apud Io. Christianum Schroeterum 
+40   ***   25447214: Typis Idzardi Alberti 
+40   ***   27436022: Ex officina typographica And. Wecheli 
+40   ***   27528382: Durch Johann Feyerabendt in Verlegung Sigmundt Feyerabendts 
+40   ***   24400180: Imprinted by T. Snodham for Nathanaell Newbery, and are to be sold at the signe of the Star vnder S. Peters Church in Cornehill, and in Popes-head Alley 
+40   ***   23875973: In officinâ librariâ Winclerianâ 
+40   ***   23089782: Excudit Gulielmus Coulon ... 
+40   ***   27547911: Apud Johannem à Sambix 
+40   ***   26327598: Apud Io. Godofredum Rengerum 
+40   ***   26929931: Sumptibus Thomae Henrici Hauensteini ... 
+40   ***   27288678: Apud viduam Hermanni à Sande 
+40   ***   23096433: Typis Ioan. Friderici Weiss, impensis Rulandiorum 
+40   ***   21523810: Sumptibus C. Kirchneri, typis W. Moewaldi 
+40   ***   27553256: Apud Joachim Ibarra ... 
+40   ***   27553613: Sumpt. Eberhardi Zezneri, bibl. 
+40   ***   20216428: Getrucket von Johannes Grieninger 
+40   ***   22576274: Sumptibus Jo. Reinh. Dulsseckeri 
+40   ***   23362816: Sumpt. Joh. Wilh. Ammonii & Wilh. Serlini 
+40   ***   24152398: In Verlegung Iohann Conrad Emmrichs gedruckt bey Augusto Hanckwitzen 
+40   ***   21535214: Sumptibus Joh. Andr. Endteri & Wolfgangi, junioris haeredum bibliop. Noribergensium 
+40   ***   23894578: Apud Hajonem Spandaw, bibliopolam 
+40   ***   22846748: Excudebat Ioannes Spies 
+40   ***   22847195: Apud Johannem Maximilianum à Sande 
+40   ***   27226093: Federic Leonard 
+40   ***   25208222: Apud Joh. Fridericum Rudigerum, bibliopolam Norimbergensem 
+40   ***   23376651: Sumptibus Christophori Olffen, bibliopolae ... 
+40   ***   23378180: Ex officina Ritteriana 
+40   ***   23727129: Impensis Christophori ab Heyden 
+40   ***   22854545: Excudebat Martinus Lechler, impensis Sigismundi Feierabend 
+40   ***   20495485: Apud Christian. Liebezeit & Theodor. Christoph. Felginer 
+40   ***   26965333: Sumtibus Aug. Lebr. Stettin bibl. Vlm. 
+40   ***   23904602: Sumptibus Matthiae Enderi, bibliop. Ysnensis, typis Joannis Görlini 
+40   ***   22595277: By Henry Bynneman for Raufe Nevvbery ... 
+40   ***   25218303: Prostat in nobili Francofurti Paltheniana 
+40   ***   27927330: By me Iohan Byddell 
+40   ***   27490568: Impensis Rulandiorum, typis Joh. Nicolai Hummii & Joh. Gorlini 
+40   ***   23689528: Impensis Lazari Zetzneri, bibliopol. 
+40   ***   25743139: Typis Matthaei Beckeri, sumptibus Ioannis Theobaldi Schönvvetteri 
+40   ***   26794718: Durch Erasmum Kempffern in Verlegung Conrad Corthoys 
+40   ***   24698327: Ex officina Georgij Coruini 
+40   ***   24437751: Sumptibus Friderici Knochii & filii, typis Dieterici Caesaris Mulleri 
+40   ***   24175879: Sumptibus Friderici Knochii, typis Johannis Philippi Andreae 
+40   ***   23471750: In officina libraria Jo. Georgii Cottae 
+40   ***   23914314: For Ralph Newberrie 
+40   ***   25749376: Durch Sebastian Henricpetri 
+40   ***   24703188: Durch Iohann Bringern in Verlegung Ionas Rosen 
+40   ***   25447207: Apud Joh. Arcerium, bibliop. 
+40   ***   23130887: Ex aedibus Schurerianis 
+40   ***   23130999: Apud J. J. Eisfeldium 
+40   ***   23393754: Typis Johannis Philippi MülbI et Josiae Staedelii 
+40   ***   26801823: durch Nicolaum Bassaeum 
+40   ***   22869963: Nowe newly imprinted by Richarde Tottill 
+40   ***   27588923: Apud Tobiam Goebhard 
+40   ***   22870497: Imprinted by Bernard Alsop, dwelling by Saint Annes Church neere Aldersgate 
+40   ***   23909477: Typis & apud Joh. Philippum Andreae 
+40   ***   27589238: Apud Georg. Conrad. Walther 
+40   ***   24969149: Durch Johan Albinum 
+40   ***   27711039: Sumptibus Joh. Friderici Spoor ... 
+40   ***   23135959: Sumptibus Christoph. Frider. Cottae, typogr. ... 
+40   ***   21196169: Typis Iohannis Spiessii : Sumptibus verò Ioannis Iacobi Porssii 
+40   ***   23923014: Apud Franciscum Varrentrapp 
+40   ***   24185330: Apud Johannem Herebordum Klosium 
+40   ***   25595840: Durch Peter Schmid in Verlegung Sigmund Feyerabends vnd Simon Hüters 
+40   ***   20517789: Sumtibus Gottlieb Heinrici Schwartzii ... 
+40   ***   25498570: Sumtu Christiani Liebezeit 
+40   ***   23517360: Gedruckt mit Buchholtzischen Schriften 
+40   ***   25761653: Nell'Academia venetiana 
+40   ***   26810332: Durch Paul Iacobj in Verlegung Iohann Dreudels 
+40   ***   23927836: Typis & impensis Jacobi Thilonis 
+40   ***   27144034: Von Michael Höpfnern ... 
+40   ***   23867339: Durch Weygand Han vnd Georg Raben 
+40   ***   23745442: Sumptibus Johannis Reinholdi Dulsseckeri 
+40   ***   25239833: In bibliopolio heredum Lazari Zetzneri 
+40   ***   25265542: Typis Johan-Alexandri Cellii 
+40   ***   23299611: Typis & sumtibus Johannis Henrici Stokenii 
+40   ***   24479364: Sumptibus Lazari Zetzneri 
+40   ***   26814774: S. Feyerabend 
+40   ***   23867789: Impensis Sigism. Feirabendij 
+40   ***   24717788: Ex officina Petri Scheffers 
+40   ***   27603022: Gedruckt zu Zwickaw durch Jörg Gastel dess Schönspergers Diener von Augspurg 
+40   ***   23147341: Apud Sam. Tob. Hocker 
+40   ***   25247140: Typis & impensis Philiberti Brunnii 
+40   ***   27607223: Impensis Henr. Leon. Steinii 
+40   ***   23213796: Impensis Joh. Georg. Cottae 
+40   ***   24725861: Litteris Philippi Casimiri Mülleri,acad. typog. 
+40   ***   23162070: Per Vuendelinum Rihelium 
+40   ***   25777998: Apud Dominicum à Sande 
+40   ***   26678876: Apud Ioannem Schottum ... 
+40   ***   23911829: Sumptibus Friderici Spoor 
+40   ***   20014611: Printed by T.S. for Richard More ... 
+40   ***   28093183: Si vende à Dresda da George Conrado Walther, libraro di Corte 
+40   ***   26832758: Impressum ... per Ioannem Fabricium, impensis Sigismundi Feirabendi 
+40   ***   23949824: Sumptibus Christiani Hermssdorffs 
+40   ***   21328543: Apvd C. T. Lvdovicvm 
+40   ***   27882485: Durch Johan Quentel 
+40   ***   27883408: Sumptibus Johannis Naumanni 
+40   ***   21068989: Walther 
+40   ***   25001203: Typis Iohan-Alexandri Cellii 
+40   ***   27624889: Sumptibus Lazari Zetzneri bibliopol. 
+40   ***   27625178: In Gleditschens Buchhandlung 
+40   ***   25289777: Formis Schroedterianis 
+40   ***   23659037: Typis Ioannis Saurii 
+40   ***   26577159: Typis & impensis Cellianis 
+40   ***   26577165: Impensis Iohannis Berneri 
+40   ***   27365010: Typis Joh. Dav. Bauhofii atque Joh. Theoph. Franckii 
+40   ***   23433691: Typis Antonii Heinscheidtii 
+40   ***   25006806: Excudebat Iohannes Feyrabendt, impensis haeredum Sigismundi Feyrabendt 
+40   ***   27421357: Typis & sumptibus Josiae Staedelii, Senioris 
+40   ***   25009481: Apud Iohannem Feyerabend, impensis haeredum Sigismundi Feyerabend 
+40   ***   21602843: Impensis haeredum Lazari Zetzneri 
+40   ***   21031843: C. Liebezeit 
+40   ***   22653156: Bey Jeremia Dümler 
+40   ***   22999471: sumptibus heredum E. Zetzneri 
+40   ***   20295672: Apud Joan. Frid. Fleischerum 
+40   ***   23703967: Typis & sumtibus Henrici Meyeri ... 
+40   ***   27570007: Apud Balthassarum Beck 
+40   ***   22393876: excudebat Aegidius Radaeus 
+40   ***   25752603: Excudebat VVendelinus Rihelius 
+40   ***   20466037: Excudebat Antonius Bertramus ... 
+40   ***   20037430: ex officina Gothofredi Schultzen 
+40   ***   24233375: Ex officinâ Johannis Gyselaer ... 
+40   ***   26321254: Apud Christianum Schroedterum ... 
+40   ***   23711773: Sumptibus Io. Gu. Meyeri et Godof. Zimmermanni 
+40   ***   22663695: Excudebat Aegidius Radaeus ... 
+40   ***   25288631: Sumptibus Christiani Bergii 
+40   ***   25289250: Typis Johan. Alexandri Cellii 
+40   ***   22668010: Typis & sumptibus Christiani Bergenii 
+40   ***   23716819: Jmpensis Christoph ab Heyden 
+40   ***   22172002: Sumtibus Felginerianis 
+40   ***   25290876: Bey Andreas Bingen ... 
+40   ***   25291298: Sumptibus haeredum Lazari Zetzneri 
+40   ***   22958588: Apud Jo. Maximilianum a Sande 
+40   ***   23719798: Apud haeredes Ioannis Gymnici ... 
+40   ***   25292826: Apud Fridericum Hekel 
+40   ***   24771538: Prelo Gerdesiano 
+40   ***   23202046: typis & impensis J. Horrei 
+40   ***   20581296: Peter Drach 
+40   ***   22679614: None 
+40   ***   27923164: Sumptibus Joan. Davidis Zunneri 
+40   ***   28186996: Impensis T. Leigh & D. Midwinter ... 
+40   ***   24446086: Impensis Joh. Godofredi Schönwetteri 
+40   ***   20585993: Typis & sumptibus F. Spoor 
+40   ***   27199029: Edita typis Ritzschianis, sumtibus Joachimi Wilden, bibliop. Rostochiens. 
+40   ***   23996305: Apud Johannem Gyselaar, Henricum Amama, & Zachariam Taedama 
+40   ***   25320833: Impensis Johannis Dhüiringh bibliopolae 
+40   ***   23737396: Typis Josiae Rihelii, per Andream Rietschium 
+40   ***   23267725: Impensis Joh. Friderici Zeidleri 
+40   ***   24003449: Impensis Joh. Jacobi Winckleri 
+40   ***   24003458: Apud Samuelem Tobiam Hockerum 
+40   ***   24266691: Ex officina Zunnero-Jungiana 
+40   ***   27412726: Apud Io. Antonium, & Iacobum de Franciscis 
+40   ***   22169868: Durch Nicolaum Basseum 
+40   ***   22694502: Impressum per Georgium Coruinum, impensis Hieronymi Feyerabent 
+40   ***   25054688: Sumptibus Godefridi Tampachij 
+40   ***   22959872: Sumptibus heredum Eberhardi Zetzneri 
+40   ***   23224071: Apud Adrianum Heinsium, bibliopolam 
+40   ***   21913398: Chez Henry Antoine Schell 
+40   ***   24797836: Apud Johannem Godofredum Bauerum 
+40   ***   27507510: Niklaus Wolrab 
+40   ***   24536146: Sumtibus ac typis Io. Henr. Philippi Schrammii 
+40   ***   20605006: ex officina J. H. Heitzii, universit. typographi 
+40   ***   27159037: Druckts und verlegts Augustus Pankwitz 
+40   ***   21133676: I. Schottus excudebat 
+40   ***   24546583: Apud Johannem Godefredum Bauerum 
+40   ***   27203467: Impensis Joh. Davidis Zunneri 
+40   ***   27168249: Durch Nicolaum Basse, in Verlegung Siegmundt Feyerabendts 
+40   ***   27168261: Durch Johannem Schmidt, in Verlegung Sigmundt vnd Johann Feyrabends 
+40   ***   27168714: Durch Peter Schmid, in Verlegung Sigmund Feyerebends 
+40   ***   21401988: Sumptibus Erici Knochii, typis Joannis Philippi Andreae 
+40   ***   20650908: Excudebat I. Rihelius 
+40   ***   21407304: sumptibus Friderici Knochii, typis Joannis Wustii 
+40   ***   27174918: Durch Johann Feyerabendt 
+40   ***   21147189: Getruckt bei C. Egenolffen 
+40   ***   21149860: Excudebat Matthias Becker 
+40   ***   27965811: Apud Euang. Deuchinum & Io. Bapt. Pulcianum 
+40   ***   24820325: Sumptibus viduae beati Knochii & J.G. Esslingeri 
+40   ***   24821606: Sumptibus Friderici Dan. Knochii 
+40   ***   27444306: Typis Martini Rommeii 
+40   ***   27249383: Sumptibus Joachimi Wildii 
+40   ***   20302976: In der Fleischerischen Buchhandlung 
+40   ***   20522236: Sumptu Christiani Liebezeit ... 
+40   ***   23782009: Sumptibus Jacobi Gothofredi Seyler 
+40   ***   22733593: Typis Lorenzii & Schuleri ... 
+40   ***   23522444: Sumptibus Ioannis Christophori Zimmermanni et Ioannis Nicolai Gerlachii 
+40   ***   24571232: Excudebat Johann Carolus 
+40   ***   20377644: Sumtu Benjamini Schilleri 
+40   ***   24312216: Durch Erasmum Kempffern 
+40   ***   25624229: Sumptibus Fleischeri, bibliopolae 
+40   ***   22621057: Durch Franciscum Behem 
+40   ***   23005485: sumtibus J.H. Vonk van Lynden 
+40   ***   23792952: Apud Georgium Coruinum, impensis Sigismundi Feirabend 
+40   ***   22744388: Durch Nicolaum Bassaeum 
+40   ***   23268879: Sumptibus Simon. Joh. Hubneri 
+40   ***   26415063: Ex officina typographica Matthaei Beckeri, sumptibus Iohannis Theobaldi Schönvvetteri 
+40   ***   26577605: Typis Johan. Alexandri Cellij 
+40   ***   23270266: Cura & aere Rulandiorum 
+40   ***   25636416: Sumptibus Christiani Weidmanni, literis Colerianis 
+40   ***   24057636: Sumptibus Johan. Joachimi Bockenhoferi 
+40   ***   24058044: excudebat Ægidius Radæus, ordinum Frisiæ typographus 
+40   ***   27204391: In Verlegung Ernst Gohlen, Buchhändl. 
+40   ***   29044535: Typis Phil. Jac. Dannbach 
+40   ***   25680355: E libraria Breitkopfii 
+40   ***   23796572: Typis Iohannis Friderici Weissij, impensis Ioh. Reualij 
+40   ***   21398762: Ex offi. Knobloch, per G. Machærop 
+40   ***   21964623: B. Wild & J. Altheer 
+40   ***   26422307: Prelo Ephraim Gottlob Eichsfeldi ... 
+40   ***   29044533: Typis Joh. Henr. Heitzii ... 
+40   ***   21924193: apud Johannem Riewerts 
+40   ***   21708239: Apud Jacobum Horreum 
+40   ***   24856664: Typis Gysberti Lens, typographi & bibliopolae 
+40   ***   27216137: Prodit ex officina typographica Paltheniana 
+40   ***   26168189: Typis Rihelianis, per Ioannem Philippum Mülbium ... typographum 
+40   ***   27561334: Apud C. Liebezeit et T.C. Felginer 
+40   ***   20403216: Sumptibus Haered. D. Tobiae Mevii, & Elerdi Schumacheri, typis Matthaei Henckelii 
+40   ***   20404032: Apud Jacobum Bolt, bibliopolam 
+40   ***   23551332: Apud Jo. Benj. Andreae et Henr. Hort 
+40   ***   22056948: Printed by Tho. Wright 
+40   ***   21718358: Impressum ... apud Georgium Coruinum, sumptibus Sigismundi Feyerabendt & Simonis Huteri 
+40   ***   21985309: B. Took & T. Cockerill 
+40   ***   24344967: Typis Philippi Casimiri Mülleri, ... typogr. et bibliop. 
+40   ***   22251302: Getruckt durch F. Behem 
+40   ***   22251303: Durch Iuonem Schöffer 
+40   ***   27233472: Sumptibus Ottonis Reumanni 
+40   ***   24812271: De l'imprimerie de Claude Simon ... 
+40   ***   27236532: Ex officina Zunneriana 
+40   ***   24354287: Impressum ... apud Georgium Corvinum, impensis Sigismundi Feyerabend 
+40   ***   27531055: Apud Godofredum Aimmermannum 
+40   ***   24362442: Excudebat Vuendelinus Rihelius 
+40   ***   20661914: Printed by Matthew Simmons 
+40   ***   25156398: Sumtibus Georgii Hagen, typographi universitatis 
+40   ***   20752155: apud Amandum König 
+40   ***   20427994: ex officina Christiani Genschii 
+40   ***   25408731: Literis Viduae Gerdesiae 
+40   ***   25410236: Excudebat Antonius Bertramus 
+40   ***   20954065: Imprinted by R. Tottill and T. Marshe 
+40   ***   20007464: sumtu Varrentrappii et Wenneri 
+40   ***   25673530: Sumptibus Joh. Friderici Spoor, bibliop. 
+40   ***   27246820: Impensis Joachimi Wilden 
+40   ***   23315116: Ex aedibus Matthiae Schurerij 
+40   ***   27248008: Typis & sumptibus Josiae Staedelii & Joh. Friderici Spoor 
+40   ***   27610050: Apud Joannem Naumannum & Holmiae, apud Gottfried Liebezeit 
+40   ***   28035620: impensis J.G. Treuttel 
+40   ***   20696602: Apud Christianum Weidmannum, literis Johannis Coleri 
+40   ***   23580435: Apud Christ. Theoph. Ludovicum 
+40   ***   24892254: Sumptibus Societatis Caldorianae 
+40   ***   25156393: Sumptibus GeorgI Hagen, typographi universitatis 
+40   ***   21749503: Apud Georgium Coruinum, impensis Sigismundi Caroli Feyerabent 
+40   ***   25944696: Impensis Joh. Baptistae Schönwetteri 
+40   ***   25683259: Sumptibus Laur. Alberti haered. 
+40   ***   21755497: Per Ioannem Albertum 
+40   ***   23680243: Theodoricus Werlinus primùm excudit 
+40   ***   27583750: Sumptibus Viduae Joh. Mart. Schoenwetteri : typis Johannis Philippi Andreae 

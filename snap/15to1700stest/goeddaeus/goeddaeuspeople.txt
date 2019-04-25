@@ -1,0 +1,1673 @@
+11   ***   30408864: Philippe Garnier 
+11   ***   30933326: Francisco Salgado de Somoza 
+11   ***   30409280: Thomas Sydenham 
+11   ***   31195737: Phanuccius de Phanucciis 
+11   ***   30671614: Publius Rutilius Lupus 
+11   ***   30409486: Paolo Manuzio 
+11   ***   30228694: Ambrosius Aurelius Theodosius Macrobius 
+11   ***   36701001: Catholic Church. Apostolic Visitator to the Duchy of Savoy 
+11   ***   35345896: Carolus Franciscus Piaggio 
+11   ***   31196169: Matthias Stephani 
+11   ***   37487638: Statilio Pacifico 
+11   ***   30409957: Codex (Corpus juris civilis) 
+11   ***   30409968: Giovanni Cefali 
+11   ***   35915044: None 
+11   ***   35391130: Albinus 
+11   ***   30015790: Joseph Joubert 
+11   ***   33947967: Sigismondo Loffredo 
+11   ***   37488886: Catholic Church. Province of Genoa (Italy).Synod 
+11   ***   31721766: Filippo Franchi 
+11   ***   30240708: of Trebizond, George 
+11   ***   37227197: Pietro Antonio de Petra 
+11   ***   33819420: Giovanni Nevizzano 
+11   ***   36965163: Marino Freccia 
+11   ***   33033045: Silvestro Aldobrandini 
+11   ***   37227543: Johannes Thowesten 
+11   ***   33295606: Oronzio from old catalog Fighera 
+11   ***   32550131: Catholic Church. Pope (1758-1769 : Clement XIII) 
+11   ***   32287995: Pinḥas ben Pilṭa 
+11   ***   31460987: Jean Salmon Macrin 
+11   ***   31985307: Antonius de Butrio 
+11   ***   34869198: Giacomo Emiliani 
+11   ***   32247888: Francesco Corte 
+11   ***   34083014: Aymar Falcoz 
+11   ***   37490964: Rolandus a Valle 
+11   ***   37490965: Cristoforo Torniola 
+11   ***   30103607: Euclid 
+11   ***   33296739: Pedro de Dueñas 
+11   ***   36967514: Signorolus de Homodeis 
+11   ***   35132557: Francesco Vivio 
+11   ***   31986864: Johann Theodor de Bry 
+11   ***   33035505: None 
+11   ***   31987257: Louis Doissin 
+11   ***   30152269: Giambattista della Porta 
+11   ***   30414443: conte, Francesco Maria Tassi 
+11   ***   32113651: Otto Casmann 
+11   ***   36133244: Pietro Andrea Gammaro 
+11   ***   35920164: Alfonso de Tostado de Madrigal 
+11   ***   30001927: Origen 
+11   ***   36613865: Francesco Merlino Pignatelli 
+11   ***   36968880: None 
+11   ***   33039249: Conradus Lancellottus 
+11   ***   30368574: Giovanni d'Andrea 
+11   ***   31202538: Ambrogio Calepino 
+11   ***   37924739: Paolo Staibano 
+11   ***   31464813: Gandavensis Henricus 
+11   ***   32251307: Arismino Teppato 
+11   ***   30940654: Antoine Favre 
+11   ***   35659361: Archicompagnia della pietà de carcerati di Roma 
+11   ***   33300278: Pietro Corvesi 
+11   ***   31203382: Antonio Burgos 
+11   ***   30235380: Marcus Manilius 
+11   ***   34087517: François Pithou 
+11   ***   37619229: Denis-Nicolas Le Nourry 
+11   ***   30418157: Quintilian 
+11   ***   34088544: Tiberio Deciani 
+11   ***   30942891: Achille Bocchi 
+11   ***   36185930: Federico Scotti 
+11   ***   30759261: Lanfranco da Oriano 
+11   ***   37496826: None 
+11   ***   32026974: de' Tudeschi, Archbishop, Niccolò 
+11   ***   30943295: Lodovico Bolognini 
+11   ***   36435360: None 
+11   ***   30157138: Andreas Vesalius 
+11   ***   35662283: de Anania Joannes 
+11   ***   34351788: Mariano Socini 
+11   ***   37925352: None 
+11   ***   37925354: Lodovico Giunti 
+11   ***   36449285: Andreas Helvigius 
+11   ***   31808695: Jacobus Strada 
+11   ***   31206549: Paolo Maccio 
+11   ***   32255156: called Quintus Icilius, Karl Gottlieb Guischardt 
+11   ***   39333484: Johannes Galliculus 
+11   ***   33828480: Johannes Antonius Gautier 
+11   ***   30421017: Luca Pacioli 
+11   ***   36221635: Giovanni Battista Antonelli 
+11   ***   36450604: None 
+11   ***   31207766: Pierre Grégoire 
+11   ***   35152271: Jan Aureli Szydłowski 
+11   ***   34353779: Leonardo Duardo 
+11   ***   31732856: Giovan Battista Codronchi 
+11   ***   33306423: Haftarot 
+11   ***   30148259: of Emesa Heliodorus 
+11   ***   30716942: Wigle van Aytta 
+11   ***   36714838: None 
+11   ***   38549940: Eberhard Fabricius 
+11   ***   30685666: de Lorris, Guillaume 
+11   ***   31210026: Spain. Real Biblioteca 
+11   ***   30685754: Guillaume Postel 
+11   ***   30685826: Carlo Sigonio 
+11   ***   34618116: Ettore Capecelatro 
+11   ***   33569650: Hippolytus de Marsiliis 
+11   ***   30948232: Luigi Cenci 
+11   ***   31734902: Saint, presbyter of Liebana, Beatus 
+11   ***   33570119: Prospero Pasetti 
+11   ***   31547309: Alessandro degli Angeli 
+11   ***   31473209: Bertrand d' Argentré 
+11   ***   30949080: Antonius Guibertus Costanus 
+11   ***   34619342: Francesco Donati 
+11   ***   37620461: Giovanni Pietro Molignati 
+11   ***   34095803: Adriano Castellesi 
+11   ***   30455284: Ruggero Giuseppe Boscovich 
+11   ***   36193468: Giovanni Poleni 
+11   ***   35911861: None 
+11   ***   37504560: Catholic Church. Pope (1623-1644 : Urban VIII) 
+11   ***   30164727: Francesco Alunno 
+11   ***   30689357: Joannes Vasaeus 
+11   ***   30755725: Bernardino Rutilio 
+11   ***   36194612: Gioacchino Tosi 
+11   ***   33048938: Guilielmus Boekelius 
+11   ***   31329349: Alessandro Geraldini 
+11   ***   30368240: Catholic Church. Rota Romana 
+11   ***   32788082: Jacobus Machellus 
+11   ***   34623143: Octavianus Cacheranus 
+11   ***   34737497: None 
+11   ***   30692283: Girolamo dalla Corte 
+11   ***   33051996: Jodocus Stimpelius 
+11   ***   32789899: Umberto Locati 
+11   ***   32003530: Francesco Rapolla 
+11   ***   30692874: Venice (Republic : To 1797) 
+11   ***   31217202: Friedrich Jacob Roloff 
+11   ***   32210905: None 
+11   ***   30693274: père Du Cerceau 
+11   ***   30226875: Gerhard Dorn 
+11   ***   34344625: Pierre Coustau 
+11   ***   35412052: None 
+11   ***   37708854: Claudius Malleuillaeus 
+11   ***   33053026: Gianfrancesco Riva di San Nazarro 
+11   ***   35412386: Fabio de Anna 
+11   ***   30431717: Dominique de Colonia 
+11   ***   32640768: Fabiano Giustiniani 
+11   ***   33820440: Diego de Narbona 
+11   ***   37247832: Girolamo Nicoli 
+11   ***   35937280: None 
+11   ***   37490564: Giovanni Battista Spada 
+11   ***   32267834: Josse Clichtove 
+11   ***   32267840: Jean Benzius 
+11   ***   39345892: Francesco Pitigiani 
+11   ***   30433020: Friedrich Hoffmann 
+11   ***   33840898: Cesare Carena 
+11   ***   30695199: Aulus Gellius 
+11   ***   30433075: Guilielmus Cassador 
+11   ***   33316928: Battista Aimo 
+11   ***   33645922: Matías Lagúnez 
+11   ***   31744111: Johann Marquart 
+11   ***   30434013: None 
+11   ***   32269102: Jean de Coras 
+11   ***   35414879: Mario Arca 
+11   ***   34366554: de Sancto Petro Florianus 
+11   ***   30958779: François Xavier Laire 
+11   ***   35677424: Giulio Cesare Francesconi 
+11   ***   30958869: Pedro Diez Noguerol 
+11   ***   33738607: Rocco Pilorci 
+11   ***   34629006: Nic Cattaneo 
+11   ***   34629082: None 
+11   ***   30696984: Girolamo Benzoni 
+11   ***   36464295: Michael Joannis Sceriman 
+11   ***   35824862: Giovanni Pietro Massari 
+11   ***   32772432: Pierino Belli 
+11   ***   32794655: Josephus de Tertiis 
+11   ***   31746384: Alessandro Tartagni 
+11   ***   37513605: Giovanni Bernardo 
+11   ***   30435747: Barnabé Brisson 
+11   ***   30435959: Escorial. Real Biblioteca 
+11   ***   37513966: None 
+11   ***   30436430: Biagio Aldimari 
+11   ***   35155236: Antonio Massa 
+11   ***   33320503: None 
+11   ***   33424467: Christoph Hegendorph 
+11   ***   30981570: Catelliano Cotta 
+11   ***   32010958: Johannes Ferrarius 
+11   ***   33845998: Franciscus Rossi 
+11   ***   32011379: Prospero Farinacci 
+11   ***   30176555: Galen 
+11   ***   31749520: Richard Morton 
+11   ***   30438965: François Baudouin 
+11   ***   33472194: Eligio Caffarello 
+11   ***   31226009: Giambattista Morgagni 
+11   ***   31226025: Johann Georg Schenck 
+11   ***   31226408: Graf von, Karl Emerich Alexander Reviczky von Revisnye 
+11   ***   33692345: Johannes Schneidewein 
+11   ***   31751663: Matteo Corti 
+11   ***   30441086: Felino Maria Sandeo 
+11   ***   30195687: of Rome, Archbishop of Bourges, Giles 
+11   ***   30179455: António de Macedo 
+11   ***   34635930: Nicolas Callet 
+11   ***   31752521: Johannes van Meurs 
+11   ***   31752528: Antonio Gazio 
+11   ***   32801114: Giovanni Francesco Capobianco 
+11   ***   31457734: René Budel 
+11   ***   32277154: Venice (Republic, to 1797). Sindicato inquisitoriale in Terraferma 
+11   ***   31752958: Giovanni Matteo Ferrari da Grado 
+11   ***   31752960: Jean Tagault 
+11   ***   31753372: Sebastiano Paparella 
+11   ***   31753380: de Conflentia, Panthaleon 
+11   ***   30442726: Filippo Bitti 
+11   ***   33064449: Domenico Toschi 
+11   ***   37579693: Luigi Lippomano 
+11   ***   30443452: Joannes Wamesius 
+11   ***   34434063: Jan Klenck 
+11   ***   31754422: Giovanni Battista Caccialupi 
+11   ***   34113892: Diogo de Sá 
+11   ***   31754644: Giuseppe Lanzoni 
+11   ***   31754657: Cesare Magati 
+11   ***   36473777: Gregorius de Ganaverro 
+11   ***   34638879: Girolamo Menghi 
+11   ***   33590387: Diego de Mari 
+11   ***   31755485: Julius Alexandrinus 
+11   ***   30182768: Jean Imbert 
+11   ***   33066883: Agostinho Barbosa 
+11   ***   33066886: Henricus à Sverin 
+11   ***   30969934: François Douaren 
+11   ***   34786993: Jean Dromgold 
+11   ***   33853676: Niccolò Leonico Tomeo 
+11   ***   31756804: Antonio Molinetti 
+11   ***   32118878: family of printers Giunta 
+11   ***   30970532: Girolamo Giganti 
+11   ***   32281480: Bishop of Paris, Peter Lombard 
+11   ***   31809883: Jacopo Bravetti 
+11   ***   30764561: None 
+11   ***   31757650: Gabriele Cuneo 
+11   ***   38235710: None 
+11   ***   34379510: None 
+11   ***   33593084: Francisco de Toledo 
+11   ***   35428100: Catholic Church. Archdiocese of Cologne (Germany) 
+11   ***   33869967: Nicolaus Moronus 
+11   ***   30972041: Vocabularius utriusque juris 
+11   ***   31758519: Caesar Marescotti 
+11   ***   30710214: Lucius Annaeus Florus 
+11   ***   30972453: Benedetto Morando 
+11   ***   37536864: None 
+11   ***   37274721: Girolamo Boccadiferro 
+11   ***   31758940: Giovanni Braccesco 
+11   ***   31758950: of Tralles, Alexander 
+11   ***   38312789: Vincenzo Petra 
+11   ***   30973279: Giovanni Battista Scanaroli 
+11   ***   33856911: Leonardo Riccio 
+11   ***   37264800: Johann Hering 
+11   ***   31759810: Anton de Haen 
+11   ***   31759812: D Soleilhet 
+11   ***   30973524: Stefano Vanneo 
+11   ***   31497830: Antoine Du Saix 
+11   ***   35920498: None 
+11   ***   31760250: John Freind 
+11   ***   30711748: Tommaso Radini Tedeschi 
+11   ***   30187486: of Nyssa, Saint, Gregory 
+11   ***   31236146: Girolamo Rossi 
+11   ***   33857627: François-Aimé Pouget 
+11   ***   32022630: Giovanni Bona 
+11   ***   30712039: Valerius Maximus 
+11   ***   35430819: Antonio Pichardo Vinuesa 
+11   ***   37528008: None 
+11   ***   37265872: Paulus de Montepico 
+11   ***   30450157: Agostino Patrizi Piccolomini 
+11   ***   37624633: None 
+11   ***   30713270: Giovanni Francesco Quinziano Stoa 
+11   ***   33386759: Guillaume Ranchin 
+11   ***   35580992: Valerius Andreas 
+11   ***   34173264: Giovanni Francesco Sanfelice 
+11   ***   37267510: Joannes Petrutius de Monte Sperello 
+11   ***   30368889: Leonhart Fuchs 
+11   ***   33335421: None 
+11   ***   31238358: Actuarius, Joannes 
+11   ***   30983953: None 
+11   ***   30190240: Jean Robert 
+11   ***   33598261: Lodovico Carerio 
+11   ***   34122621: Tommaso Dotti 
+11   ***   30714780: Giasone dal Maino 
+11   ***   31239161: Guglielmo Gratarolo 
+11   ***   32550133: conte, Carlo Renaldini 
+11   ***   30715148: Martin Borrhaus 
+11   ***   34566777: padre, Tomás de Jesús 
+11   ***   38055670: Casimir Oudin 
+11   ***   37531402: None 
+11   ***   37531404: Giovanni Battista Verna 
+11   ***   37531409: Joannes Baptista Rotundus 
+11   ***   37531410: None 
+11   ***   37531414: Luiz de Beja Perestrello 
+11   ***   30977848: Giovanni Maria Vermiglioli 
+11   ***   37007204: Camillo Corte 
+11   ***   37531764: Cornelis Schonaeus 
+11   ***   37531765: None 
+11   ***   37531770: Homiliarius 
+11   ***   37531781: None 
+11   ***   30978263: Jacques Godefroy 
+11   ***   32289002: Auctores Latinae linguae 
+11   ***   38056237: None 
+11   ***   30454097: Francesco Zabarella 
+11   ***   33037717: Giovanni Francesco Porporato 
+11   ***   37484024: Giovanni Paolo Meli 
+11   ***   37309729: Joannes Cruceus 
+11   ***   30717023: abbé Caulier 
+11   ***   37532851: Saverio Canale 
+11   ***   35698034: Pedro Plaza y Moraza 
+11   ***   30236213: Pope, Gregory 
+11   ***   30717462: Giovanni Michele Bruto 
+11   ***   37271118: Johannes Petrus Ericus 
+11   ***   37271124: Catholic Church. Patriarchate of Venice (Italy) 
+11   ***   32552558: San Michele di Murano (Abbey : Italy) 
+11   ***   37625466: None 
+11   ***   30979888: Giovanni Francesco Balbo 
+11   ***   31504357: Luigi Dardano 
+11   ***   32470032: Giovanni Battista Possevino 
+11   ***   30718522: Lucas Paetus 
+11   ***   30456665: Cornelius Nepos 
+11   ***   31421679: d'Auvergne, Martial 
+11   ***   33340863: Samuel Stryk 
+11   ***   31768044: Caspar Bartholin 
+11   ***   30457341: Lodovico Dolce 
+11   ***   35921889: None 
+11   ***   31768476: Jean Riolan 
+11   ***   30431310: Gottlieb Mittelberger 
+11   ***   36749329: Florence (Tuscany). Rota 
+11   ***   37535806: None 
+11   ***   30941202: None 
+11   ***   31768690: Mantuanus, Baptista 
+11   ***   34961449: Paul Oderborn 
+11   ***   31815109: None 
+11   ***   30720716: None 
+11   ***   33080217: Franc̦ois Combefis 
+11   ***   31771466: Tommaso Cornelio 
+11   ***   37536865: None 
+11   ***   34129027: Marcantonio Pellegrini 
+11   ***   32818387: Bergomensis, Jacobus Philippus 
+11   ***   30196952: of Autun, Honorius 
+11   ***   30198688: Saint, Bishop of Poitiers, Hilary 
+11   ***   34915937: Appendix Codicis Theodosiani novis constitutionibus cumulatior 
+11   ***   31173110: de Bonacurso, Ubertus 
+11   ***   37013560: Giovanni Bernardino Moscatello 
+11   ***   30198342: Giulio Pace 
+11   ***   35179236: Nicasius de Voerda 
+11   ***   37580368: None 
+11   ***   35136053: Pierre François de Tonduti 
+11   ***   30199169: Johannes Trithemius 
+11   ***   33038951: Francesco Maria Prato 
+11   ***   39374708: Rinaldo Odoni 
+11   ***   33869771: Joachim Périon 
+11   ***   32602147: Council of Florence 
+11   ***   31248847: Sebastianus Austrius 
+11   ***   31248852: Lazare Rivière 
+11   ***   30462422: Ludwig Gremp von Freudenstein 
+11   ***   30462423: None 
+11   ***   30200285: Johannes Tauler 
+11   ***   30972426: Jean Millet 
+11   ***   33870508: Antonius Maria Massa 
+11   ***   32560590: Domingo Muriel 
+11   ***   30463585: Magnus, Archbishop of Uppsala, Johannes 
+11   ***   37279602: Johann Thilemann de Benignis 
+11   ***   31758088: Antonio Maria Betti 
+11   ***   33825783: Fabio Alberti 
+11   ***   37279692: Julius Caesar Mattacoda 
+11   ***   36493426: None 
+11   ***   32482607: Guillaume Rondelet 
+11   ***   30202063: Giovanni Della Casa 
+11   ***   36054066: Problemata Alexandri Aphrodisiei 
+11   ***   33626119: Erasme de Chokier 
+11   ***   33085900: None 
+11   ***   35183325: Olympia Fulvia Morata 
+11   ***   34134913: Ernst Cothmann 
+11   ***   31112175: Brunoro a Sole 
+11   ***   30465253: Orazio Toscanella 
+11   ***   34135525: Ottavio Livelli 
+11   ***   37543431: Joseph Du Baudory 
+11   ***   33611293: Petrus Enriquez 
+11   ***   39640628: Julien Tabouet 
+11   ***   30727837: Chalcenterus Didymus 
+11   ***   33869770: Ettore Felici 
+11   ***   37044443: Egidio Tomati 
+11   ***   30466036: Nicolaus Cornopaeus 
+11   ***   35184908: None 
+11   ***   37544710: Franciscus de Petris 
+11   ***   33861861: Giovanni Antonio Belloni 
+11   ***   37545346: Jacques Chichon 
+11   ***   37545668: None 
+11   ***   37545671: Mario Guarnacci 
+11   ***   30205668: Luke Wadding 
+11   ***   30730710: Denis Godefroy 
+11   ***   30730711: None 
+11   ***   30811918: Heinrich Möller 
+11   ***   33090387: Hieronymus Schurff 
+11   ***   37547204: None 
+11   ***   37547220: Toussaint Berchet 
+11   ***   30207263: Diego de Covarrubias y Leyva 
+11   ***   37547558: None 
+11   ***   37547562: Dionisio Gregorio Piacentini 
+11   ***   37547571: Giovanni Diletto Durante 
+11   ***   31780427: Theodor Zwinger 
+11   ***   37547912: Vittorio Picco 
+11   ***   37286199: Marcus Antonius Natta 
+11   ***   31257581: Hans Weiditz 
+11   ***   33092673: Angel Manrique 
+11   ***   34928212: Giovanni Maria Guanzelli 
+11   ***   35452677: Catholic Church. Legate (Germany) 
+11   ***   30594014: Christoph Clavius 
+11   ***   37812281: None 
+11   ***   35715225: Pieter Cornelis van Brederode 
+11   ***   33093911: Richard Dinoth 
+11   ***   33094018: Thomas Blanc 
+11   ***   30734739: Francesco Bocchi 
+11   ***   33958339: Claude Baduel 
+11   ***   36463342: Fabio Capece Galeota 
+11   ***   30518866: Jacopo Sannazaro 
+11   ***   37551047: Orazio Persio 
+11   ***   34429483: Ismael Boulliau 
+11   ***   30997490: Angelo Poliziano 
+11   ***   35191804: Andreas Dalner 
+11   ***   33881092: Gabriele Fiamma 
+11   ***   30550600: Pietro Bembo 
+11   ***   34405846: Cesare Rao 
+11   ***   39288792: Lodovico Morozzo 
+11   ***   31548927: Antoine Mizauld 
+11   ***   32210909: None 
+11   ***   31817725: Robert Constantin 
+11   ***   37552218: Federico Petrucci 
+11   ***   35531498: Laelius Peregrinus 
+11   ***   32571835: Giovanni Battista Ziletti 
+11   ***   30736868: Kebētos Thēbaiou pinax. Latin & Greek 
+11   ***   37552899: Genoa (Republic). Rota Causarum Executivarum 
+11   ***   34669339: Arnoul Le Ferron 
+11   ***   35455801: Lucca (Italy). Rota 
+11   ***   31774192: None 
+11   ***   30440155: Jacobus Novellus 
+11   ***   33096643: Cristoforo Porcio 
+11   ***   35980354: None 
+11   ***   37553265: Marcello Francolini 
+11   ***   37553267: None 
+11   ***   37553607: Giovanni Botta 
+11   ***   37553614: Cornelius Jansenius 
+11   ***   30213614: Théodore de Bèze 
+11   ***   30213623: Formularium instrumentorum ad usum Curiae Romanae 
+11   ***   33359631: Carlo Antonio Moccia 
+11   ***   32160032: Contra monachos proprietarios tractatus 
+11   ***   34932760: Bernard Automne 
+11   ***   37292137: Catholic Church. Patriarchate of Venice (Italy).Synod (1592) 
+11   ***   30214570: None 
+11   ***   30214576: Byzantine Empire 
+11   ***   30214579: Charles Labbé 
+11   ***   30214668: Jean Faure 
+11   ***   30214670: Adrien Poulvé 
+11   ***   34963888: Jacobus Benius 
+11   ***   30215381: Volumen parvum (Corpus juris civilis) 
+11   ***   34570811: Antonio Negusanti 
+11   ***   36507184: Giovanni Andrea De Giorgio 
+11   ***   30215747: Jacques Cujas 
+11   ***   30215748: Filippo Decio 
+11   ***   30215750: de Mugello, Dinus 
+11   ***   37293767: Catholic Church. Patriarchate of Venice (Italy).Synod (1594) 
+11   ***   36245248: Hieronymus Laurentius 
+11   ***   31730996: Cinque Ports (England) 
+11   ***   32313217: Antonio Agostino Giorgi 
+11   ***   30595084: Lorenzo Capelloni 
+11   ***   37294172: Catholic Church. Patriarchate of Venice (Italy).Synod (1653) 
+11   ***   38080841: None 
+11   ***   30217593: Reginald Pole 
+11   ***   32314958: David Runge 
+11   ***   33101526: Johann Deckherr 
+11   ***   37498592: None 
+11   ***   37558636: Pedro Juan Perpiña 
+11   ***   30218683: Theophilus 
+11   ***   30218684: Jean de Drosay 
+11   ***   31005333: Paul de Reneaulme 
+11   ***   31005339: Niccolò Cabeo 
+11   ***   35199742: Jacques Gourreau 
+11   ***   30481181: Isocrates 
+11   ***   35200244: Immanuel Tremellius 
+11   ***   30219640: John Davenant 
+11   ***   37149252: Giacomo Sbrozzi 
+11   ***   39027968: None 
+11   ***   39027972: Wolfgang Lazius 
+11   ***   31251056: Giuseppe De Rosa 
+11   ***   30220446: Diogenes Laertius 
+11   ***   30220459: Catholic Church. Pope (1769-1774 : Clement XIV) 
+11   ***   36512223: Francesco Mantica 
+11   ***   35988318: None 
+11   ***   33367012: Rinaldo Corso 
+11   ***   33367034: Conradus Ulmeus 
+11   ***   37561340: Nicephorus Callistus Xanthopulus 
+11   ***   37561706: Contra pelagianos et celestianos hyponosticon 
+11   ***   37589252: None 
+11   ***   30221978: of Aquitaine, Saint, Prosper 
+11   ***   35727257: None 
+11   ***   32431093: Matteo D'Afflitto 
+11   ***   37300618: Catholic Church. Patriarchate of Venice (Italy).Synod (1741) 
+11   ***   35990060: Marco Antonio Cucchi 
+11   ***   30485207: Juan Cristóbal Calvete de Estrella 
+11   ***   31533909: Jan Zamoyski 
+11   ***   30223545: John Duns Scotus 
+11   ***   32845284: Lodovico Beccadelli 
+11   ***   35204627: Ormanozzo Deti 
+11   ***   33469719: Odonellus Marcandillus 
+11   ***   32300322: Henning Witte 
+11   ***   30486266: James Ussher 
+11   ***   37040024: Alessandro Knips Macoppe 
+11   ***   33632156: Pierre Pitou 
+11   ***   30748643: Giovanni Pietro Maffei 
+11   ***   30486542: Abū Maʻshar 
+11   ***   33632498: Louis Jacob de Saint-Charles 
+11   ***   35992521: Giacinto Brusciotto 
+11   ***   31273930: Raffaele Maffei 
+11   ***   36516896: Lodovico Gozzadini 
+11   ***   32847109: Julius Wilhelm Zincgref 
+11   ***   37566497: Jean Philippi 
+11   ***   30226508: of Sassoferrato, Bartolo 
+11   ***   30226509: Quintiliano Mandosio 
+11   ***   34792517: Jean de Bussières 
+11   ***   33634815: Mercuriale Merlini 
+11   ***   33262035: Pedro Quesada y Pilo 
+11   ***   32344565: Domingo de Soto 
+11   ***   37368992: Adriano Negusanti 
+11   ***   30397232: Adam Reissner 
+11   ***   33131131: Giacomo Pignatelli 
+11   ***   31801272: Cornelius Valerius 
+11   ***   34485607: None 
+11   ***   31881189: Giovanni Battista Montano 
+11   ***   30753109: Petrus de Natalibus 
+11   ***   37568892: François Élie de Voyer de Paulmy d' Argenson 
+11   ***   31104325: Flaminio Rossi 
+11   ***   35272216: Nicolaus a Salis 
+11   ***   31255109: Daniel Angelocrator 
+11   ***   37570005: None 
+11   ***   33113603: Aimone Cravetta 
+11   ***   37587902: None 
+11   ***   33103305: Jacob Ludwig Saher 
+11   ***   35316003: Luigi Marracci 
+11   ***   35998003: Giuseppe Rustici 
+11   ***   30116949: Giovanni Gioviano Pontano 
+11   ***   30231110: Lorenzo Valla 
+11   ***   36522829: Girolamo Manfredi 
+11   ***   36856845: Antonio Padilla y Meneses 
+11   ***   30586927: Bologna (Italy). Rota 
+11   ***   33640209: Burgundy (County) 
+11   ***   33867283: Celestinus Mirbellus 
+11   ***   33525129: Fernando Vázquez Menchaca 
+11   ***   36524518: Antonius Cornellius 
+11   ***   30729051: Alfonso de Castro 
+11   ***   31806523: None 
+11   ***   33903795: Emanuel Costa 
+11   ***   30758428: Domenico Morelli 
+11   ***   30234249: Saint, Archbishop of Canterbury, Anselm 
+11   ***   30758612: Francisco Ferrer y Nogués 
+11   ***   32214658: Giovanni Pastrizio 
+11   ***   33904496: Giovanni Battista Odierna 
+11   ***   32780475: de Sancto Geminiano Nellus 
+11   ***   33380286: Matteo Gribaldi 
+11   ***   31253500: Giovanni Aurelio Augurelli 
+11   ***   30772980: Tobia Nonio 
+11   ***   36211008: Decisiones Capellae Tholosanae 
+11   ***   36002973: Bonifacio Ruggieri 
+11   ***   33119614: Oronzio Fighera 
+11   ***   30760621: Novus orbis regionum 
+11   ***   33119969: None 
+11   ***   31547305: Andrea Argoli 
+11   ***   33120306: Giovanni Antonio Trigona 
+11   ***   32596171: François Tarillon 
+11   ***   36004044: Egidio Bossi 
+11   ***   36365814: Ottaviano Volpelli 
+11   ***   37501831: Justus Eccardus 
+11   ***   32859448: Konrad Lykosthenes 
+11   ***   32275159: Valentin Schindler 
+11   ***   33122421: Johann Theodor Sprenger 
+11   ***   30501081: C Julius Hyginus 
+11   ***   30501083: Lilio Gregorio Giraldi 
+11   ***   30501086: Natale Conti 
+11   ***   30501093: Jacob Pontanus 
+11   ***   35482046: Antoine de Chandieu 
+11   ***   35482330: Gabriel a Sancto Vincentio 
+11   ***   37055273: Gio Antonio Volpi 
+11   ***   35482454: Antoine de La Faye 
+11   ***   37580038: Pompeo della Barba 
+11   ***   33385758: of Schussenried, Wernherus 
+11   ***   31759379: Marco Aurelio Severino 
+11   ***   30240557: Notitia dignitatum 
+11   ***   31560333: Leges Langobardorum 
+11   ***   33386498: Vaticinia de summis pontificibus 
+11   ***   31034880: Johann Buxtorf 
+11   ***   33648958: Nicolaus Garcia 
+11   ***   34697615: Giosuè Amicangelo 
+11   ***   33649237: Antonio de Quesada 
+11   ***   30503534: Giovanni Battista Lupi 
+11   ***   31997418: Leone Allacci 
+11   ***   30241718: Saint, Jerome 
+11   ***   34698327: Alberto Bruno 
+11   ***   30554819: Carlo Ruini 
+11   ***   37582064: Francesco Pandi 
+11   ***   37582400: Benedetto Pescioni 
+11   ***   30766763: William Jameson 
+11   ***   37582745: Leonardus de Portis 
+11   ***   38107068: Raffaello Savonarola 
+11   ***   30242836: Marcus Terentius Varro 
+11   ***   34699689: None 
+11   ***   37583415: Michel Angelo Tilli 
+11   ***   37583417: Christianus Lupus 
+11   ***   37583420: Stefano Fabretti 
+11   ***   37583422: Pietro Francesco Foggini 
+11   ***   37583424: Jean de Santeul 
+11   ***   30720728: Cassius Dio Cocceianus 
+11   ***   37583744: Petrus Berthault 
+11   ***   37583746: Pierre Joseph Cantel 
+11   ***   37583752: None 
+11   ***   30768020: Lorenzo Ridolfi 
+11   ***   34700437: Franceschino Corte 
+11   ***   30768397: Johannes Rosinus 
+11   ***   30768398: Girolamo Gabrielli 
+11   ***   36891182: Heinrich Temmen 
+11   ***   33389945: Sebastiano Medici 
+11   ***   36497987: Girolamo Grati 
+11   ***   35487343: None 
+11   ***   33652473: Bernardo Zamagna 
+11   ***   36273965: Decretorum libri XX 
+11   ***   30799322: Gabriele Paleotti 
+11   ***   37060437: Eugenio de Olmos Dávila 
+11   ***   37109739: Baldassarre Benedella 
+11   ***   31124194: Borgnino Cavalcani 
+11   ***   34177444: Jacobus Rick 
+11   ***   35412399: Ferdinandus Abduensis 
+11   ***   37585443: Epistles of Phalaris 
+11   ***   33915646: None 
+11   ***   34964281: Franciscus Vidua 
+11   ***   31294352: of Reims, Robert 
+11   ***   31032283: Caspar Bauhin 
+11   ***   31294629: Jules César Boulenger 
+11   ***   34702992: d'Isernia, Andrea 
+11   ***   33003157: Corpus argimensorum Romanorum 
+11   ***   37062582: Enea Falconi 
+11   ***   33654792: Sermones Thesauri novi de tempore 
+11   ***   33655007: Giovanni Battista Costa 
+11   ***   30509355: Tommaso Campanella 
+11   ***   37062996: de Roma, Paulus 
+11   ***   37063030: Achilles Personalis 
+11   ***   31295877: Pantaleon Eschenbrender 
+11   ***   32287489: Francisco Freire 
+11   ***   37721561: None 
+11   ***   37547213: Giovanni Battista da Monte 
+11   ***   37547219: Dantes Riccius 
+11   ***   30119809: Juvenal 
+11   ***   30207192: Martin Antoine Del Rio 
+11   ***   37588343: Giovanni Giusto Ciampini 
+11   ***   37588640: de Lisieux, père, Zacharie 
+11   ***   30510926: Antonio Francesco Gori 
+11   ***   33394515: Antonio Agustín 
+11   ***   37588932: Jacques Vanière 
+11   ***   37588936: Jean Blumerel 
+11   ***   37588939: Antoine Dadin de Hauteserre 
+11   ***   34443235: None 
+11   ***   37589236: Johann Scapula 
+11   ***   37589536: None 
+11   ***   37589544: Giovanni Battista Corradi 
+11   ***   37065420: Cesare Manenti 
+11   ***   30249689: Joseph Juste Scaliger 
+11   ***   30512248: Saint, Bishop of Milan, Ambrose 
+11   ***   33484309: Matthaeus Wesenbeck 
+11   ***   36541576: Giovanni Antonio Delfini 
+11   ***   37547559: None 
+11   ***   37547561: Problemata Aristotelis ac philosophorum medicorumque complurium 
+11   ***   31036871: Tiberius Catius Silius Italicus 
+11   ***   34707262: Andreas Libavius 
+11   ***   30775272: Joannes Baptista à Villalobos 
+11   ***   35231844: Francesco Porcellini 
+11   ***   33790317: Carlo Maranta 
+11   ***   35494100: René Aubert 
+11   ***   32304884: Bernardo Zane 
+11   ***   35059789: None 
+11   ***   32348850: Lorenzo Patarolo 
+11   ***   37547910: None 
+11   ***   33330542: Antonio Quetta 
+11   ***   31911828: Daniel Barbaro 
+11   ***   30514762: of Transylvania, Maximilian 
+11   ***   30252794: Saint, Bishop of Caesarea, Basil 
+11   ***   35538275: Giovanni Francesco Cremona Terzani 
+11   ***   37069213: Francesco Marzari 
+11   ***   37069486: Caspar de Rossi 
+11   ***   33923922: Marcantonio Majoragio 
+11   ***   34664613: Basilica 
+11   ***   33179141: Manuel Machicado y Rossillo 
+11   ***   37594394: None 
+11   ***   31960617: None 
+11   ***   31125834: Marcantonio Bianchi 
+11   ***   31041783: Saint, Roberto Francesco Romolo Bellarmino 
+11   ***   30979889: Amedeo Ponte 
+11   ***   30255985: Polybius 
+11   ***   33926057: Lucius Fenestella 
+11   ***   31042505: Guy de La Pape 
+11   ***   32931697: Jean Bellon 
+11   ***   33664561: Pietro Pacioni 
+11   ***   33140787: Carmine Tommaso Pascucci 
+11   ***   31568757: René Choppin 
+11   ***   34190220: Lodovicus Caelius Rhodiginus 
+11   ***   34976671: None 
+11   ***   35239051: None 
+11   ***   31388555: Giovanni Battista Benedetti 
+11   ***   31388559: the Carthusian, Denis 
+11   ***   37985862: Antoine Geuffroy 
+11   ***   30296320: of Loyola, Saint, Ignatius 
+11   ***   35501620: Peter Friderus 
+11   ***   37074525: None 
+11   ***   37041061: Miguel Tomás Taxaquet 
+11   ***   30014184: Guillaume Paradin 
+11   ***   31831940: Blasius Michalorius 
+11   ***   35239855: None 
+11   ***   33573197: Caesar Gafforus 
+11   ***   37599831: None 
+11   ***   37599834: Johann Baptist Schwartzenthaler 
+11   ***   37599836: None 
+11   ***   37599837: Johannes Reichard Scheffer 
+11   ***   37599843: Ioannes Antonius a Leo de Fortiatis 
+11   ***   36813429: Antonius de Mattheis 
+11   ***   37600156: Sylvius Spannocchius 
+11   ***   37600229: Giovanni Battista Coccini 
+11   ***   37600234: None 
+11   ***   37600235: None 
+11   ***   37600483: Franciscus Topius 
+11   ***   37600549: None 
+11   ***   37600552: None 
+11   ***   33930565: None 
+11   ***   31047185: Guillaume Durand 
+11   ***   37076514: Garzia Mastrillo 
+11   ***   30260826: Pausanias 
+11   ***   37600870: Catholic Church. Pope (1730-1740 : Clement XII) 
+11   ***   30733591: Angelo Gambiglioni 
+11   ***   32620564: Jean Béguin 
+11   ***   34447450: Mario Giurba 
+11   ***   30122144: of Naucratis Athenaeus 
+11   ***   30000119: Cornelius Tacitus 
+11   ***   34456594: Carlo Tapia 
+11   ***   30000151: Virgil 
+11   ***   37599833: None 
+11   ***   30000281: Horace 
+11   ***   32359677: None 
+11   ***   39699819: Giovanni Battista Castaldo 
+11   ***   31049291: Marco Mantova Benavides 
+11   ***   37582407: Camillo Plauzio Pezone 
+11   ***   37603627: Emmanuel Maignan 
+11   ***   30001666: Marcus Tullius Cicero 
+11   ***   30001697: Homer 
+11   ***   30001717: Aeschylus 
+11   ***   33409713: Hieronymus de Monte 
+11   ***   31050539: Everard van Bronkhorst 
+11   ***   30002017: Xenophon 
+11   ***   33672129: Giuseppe Urceoli 
+11   ***   35769945: Leonhard Jacob von Prunner 
+11   ***   30002858: Aquinas, Saint, Thomas 
+11   ***   34721532: Sforza Oddi 
+11   ***   30559532: Gabriel Dupuyherbault 
+11   ***   32624500: Epitome exactis regibus 
+11   ***   31575993: Antonio Possevino 
+11   ***   33673198: Jean de Lacroix de Chevrières 
+11   ***   33006257: Antonio Gómez 
+11   ***   31651863: a S Bartholomaeo, Paulinus 
+11   ***   37081563: Piedmont (Principality) 
+11   ***   33935941: Jakob Omphalius 
+11   ***   34198608: Jaime Cáncer 
+11   ***   32625782: Moyse Charas 
+11   ***   30528661: Hector Boece 
+11   ***   33674667: None 
+11   ***   37606877: Pietro Angelo Spera 
+11   ***   37606881: Thomas Erpenius 
+11   ***   37606885: Degory Wheare 
+11   ***   37606887: None 
+11   ***   37606892: Fulgenzio Cuniliati 
+11   ***   33412731: Nicolas Rigault 
+11   ***   37607209: Baltasar Paez 
+11   ***   37607216: None 
+11   ***   30791721: Biondo Flavio 
+11   ***   30166777: Lactantius 
+11   ***   33880484: Hermann Wesseling 
+11   ***   30267961: Pope, Innocent 
+11   ***   32627330: Giulio Capone 
+11   ***   30792323: Gaspar Ens 
+11   ***   33413880: Camillo Della Ratta 
+11   ***   37113657: Wilhelm Roding 
+11   ***   33043476: Pietro Crinito 
+11   ***   30516413: Giovanni Battista De Luca 
+11   ***   37725385: Thomas Sagittarius 
+11   ***   37725391: Lodovico Lana 
+11   ***   31827220: Scipione Gentili 
+11   ***   36560613: None 
+11   ***   34987907: None 
+11   ***   30007357: Jean Emmanuel Gilibert 
+11   ***   30007456: Giovanni Costeo 
+11   ***   33153187: Johannes Molanus 
+11   ***   32104953: Francesco Cancellieri 
+11   ***   30008003: Charles Estienne 
+11   ***   30008016: Scriptores rei rusticae 
+11   ***   33153890: None 
+11   ***   30794810: Piedmont (Principality). Senato 
+11   ***   30008438: Pierre Bertholon 
+11   ***   31611994: Andrea Brigenti 
+11   ***   30008712: Jean Baptiste Bruyerin 
+11   ***   30008792: Andrea Bacci 
+11   ***   30271494: Claudius Claudianus 
+11   ***   33094705: Giovanni Biringucci 
+11   ***   31128708: Giovanni Paolo Lancellotti 
+11   ***   30534969: Joannes Jacobus Laurentius 
+11   ***   33007520: Johann Melchior Gottlieb Beseke 
+11   ***   37613268: Vaconio Vacuna 
+11   ***   30535444: Giovanni Bernardo De Rossi 
+11   ***   30535804: Bernardino Partenio 
+11   ***   34992783: Marcello Calà 
+11   ***   31216421: Aulus Cornelius Celsus 
+11   ***   30211561: Nicolaus Steno 
+11   ***   33682481: Michael Canensius 
+11   ***   36063942: Antonino Amato 
+11   ***   33827413: Joannes Baptista De Federicis 
+11   ***   31216567: Libri feudorum 
+11   ***   34207324: Nicolò Mongiorgi 
+11   ***   30013292: Catholic Church 
+11   ***   30013459: Philipp Melanchthon 
+11   ***   33683520: Joannes Ravisius Textor 
+11   ***   35367214: Prokop Diviš 
+11   ***   30014345: Livy 
+11   ***   30014415: the Younger Pliny 
+11   ***   35280040: Liborius Hattyser 
+11   ***   33160202: Ippolito Riminaldi 
+11   ***   32309091: A Phérotée de La Croix 
+11   ***   30801207: Jean Mercier 
+11   ***   30014841: of Samosata Lucian 
+11   ***   30014932: Persius 
+11   ***   31566464: Christoph Freisleben 
+11   ***   33685324: Johann Ramus 
+11   ***   32636764: ʻAbdisho bar Berīkā 
+11   ***   37617647: Hercule Grisel 
+11   ***   30015571: Aristophanes 
+11   ***   32899468: Paride del Pozzo 
+11   ***   30015895: Terence 
+11   ***   30015946: Titus Maccius Plautus 
+11   ***   30015952: Gaius Valerius Catullus 
+11   ***   34472809: Benvenuto Stracca 
+11   ***   36570291: Pietro Niccolò Mozzi 
+11   ***   37624888: Ridolfino Venuti 
+11   ***   33686919: Heinrich Knaust 
+11   ***   37067922: None 
+11   ***   37619228: Giulio Pontedera 
+11   ***   32114379: Nicolas Caussin 
+11   ***   37881564: Adrien Augustin de Bussy de Lamet 
+11   ***   34998411: Vincenzo Carocci 
+11   ***   37882190: Giovanni Pomodoro 
+11   ***   37882492: Johann Fortmann 
+11   ***   37620772: Giuseppe Moniardo 
+11   ***   37620773: de Monte Sancti Sabini Fabianus 
+11   ***   30806097: Agathias 
+11   ***   31068467: ab Aquapendente, Fabricius 
+11   ***   33623202: Giovanni Carlo Antonelli 
+11   ***   32903723: Seraphinus de Seraphinis 
+11   ***   34738834: Teodorico Morello 
+11   ***   33428198: Paolo Paciaudi 
+11   ***   32117646: Joannes Baptista Vulpinius 
+11   ***   32117647: Giuseppe Amendolia 
+11   ***   32117648: Antonio Gabrielli 
+11   ***   30215743: Niccolò Bellone 
+11   ***   30868321: Jacques Labitte 
+11   ***   32118080: Giovanni Francesco Ozeri 
+11   ***   33690945: Ramón Diosdado Caballero 
+11   ***   30931539: Daniel Sennert 
+11   ***   36151535: Tomás Sánchez 
+11   ***   30546401: Hubert Languet 
+11   ***   31752107: Hannibal Albertinius 
+11   ***   33430197: Giovanni Antonio Lanario 
+11   ***   35265358: Antonius Matthiasaevius Caramanaeus 
+11   ***   30022652: Titus Lucretius Carus 
+11   ***   35003442: Hubert van Giffen 
+11   ***   31857786: Juan Caramuel Lobkowitz 
+11   ***   34014400: Luis Gomez 
+11   ***   31857797: Jean de Launoy 
+11   ***   33692833: Antonio Borrinio 
+11   ***   30650252: Girolamo Cardano 
+11   ***   37625181: None 
+11   ***   37625186: None 
+11   ***   37625191: None 
+11   ***   37625192: None 
+11   ***   30809491: Diego Antonio Francés de Urrutigoiti 
+11   ***   30285219: Jacopo Berengario da Carpi 
+11   ***   33168805: Pierre Jame 
+11   ***   33693102: None 
+11   ***   30006332: Suetonius 
+11   ***   37101116: Arnoult Ruzé 
+11   ***   37625463: None 
+11   ***   37625467: Carpentarius, Alexander 
+11   ***   34014485: Phanucciis Phanuccius, de 
+11   ***   33955517: Bartolomeo Scapuccini 
+11   ***   37101378: Anne Robert 
+11   ***   37600151: Zacharias Setzer 
+11   ***   30023771: Bernardo Cesi 
+11   ***   34364324: Francesco Maria Costantini 
+11   ***   37627557: Antonius Mornacius 
+11   ***   37627564: Mario Bettini 
+11   ***   35530634: Baldus Cataneus 
+11   ***   31336461: C Julius Solinus 
+11   ***   34859776: Catholic Church. Commissio ad Kalendarii Emendationem 
+11   ***   30301341: Sebastian Brant 
+11   ***   35007428: Francesco Ercolani 
+11   ***   30257705: Climacus, Saint, John 
+11   ***   31044170: da Trani, Goffredo 
+11   ***   35532339: Giuseppe Auria 
+11   ***   37487260: None 
+11   ***   30551860: Thomaso Porcacchi 
+11   ***   35532763: Gregorio Piccha 
+11   ***   33435802: None 
+11   ***   30552494: Bethlehemites 
+11   ***   37368408: Jacques François Joseph Saly 
+11   ***   32642684: None 
+11   ***   37106664: Nicolas de Clamanges 
+11   ***   34747473: Bernardino Scodobio 
+11   ***   30553178: Polydore Vergil 
+11   ***   33961146: Angelo Rodolfini 
+11   ***   36320575: Johannes Jacobus Draco 
+11   ***   36320594: Juan Rodríguez de Pisa 
+11   ***   31602132: Gabriel Martin 
+11   ***   37369342: Pietro Catena 
+11   ***   35534447: Antonius Guidus 
+11   ***   32792226: Joachim Sterck van Ringelberg 
+11   ***   34801999: Macrembolites, Eustathius 
+11   ***   31602844: Friedrich Nausea 
+11   ***   33438201: Alessandro Turamini 
+11   ***   30214573: Gerolamo Cagnolo 
+11   ***   37370407: Johann Nervius 
+11   ***   35797996: Johann Rudolf Iselin 
+11   ***   34760753: Maximilian Faust von Aschaffenburg 
+11   ***   37589728: None 
+11   ***   32914939: None 
+11   ***   31342417: Armand Jean Le Bouthillier de Rancé 
+11   ***   36850185: Receptarum sententiarum sive, ut nunc loquuntur, communium opinionum jurisconsultorum utriusque juris, tomus primus-secundus 
+11   ***   36850192: Receptarum sententiarum, sive, ut nunc loquuntur, communium opinionum jurisconsultorum utriusque juris, opus 
+11   ***   38158429: Charles Jérôme de Cisternay Du Fay 
+11   ***   32443102: Brachylogus iuris civilis 
+11   ***   34750837: None 
+11   ***   30032355: Judah ben Samuel 
+11   ***   35013196: None 
+11   ***   30389730: the Confessor, Theophanes 
+11   ***   37897055: None 
+11   ***   30032819: Desiderius Erasmus 
+11   ***   37372930: Sacrum Collegium Excellentissimorum Juris Utriusque Doctorum Civitatis Paduae 
+11   ***   32654599: Angelo degli Ubaldi 
+11   ***   34751818: Fatinellus de Fatinellis 
+11   ***   37555085: Iacobo Pinto 
+11   ***   33179140: Théodore Marcile 
+11   ***   34489944: Arnoldus Baert 
+11   ***   30295801: Henricus Glareanus 
+11   ***   32917302: Lodovico Pontano 
+11   ***   30296248: Oronce Fine 
+11   ***   32393875: Giulio Varrini 
+11   ***   30821841: Girolamo Piatti 
+11   ***   34019603: Fabio Golino 
+11   ***   30298172: Joseph Smith 
+11   ***   31871387: Juan Bautista Valenzuela Velázquez 
+11   ***   32920036: Goffredo Lanfranco Balbi 
+11   ***   30298644: Catholic Church. Province of Florence (Italy).Concilium (1517) 
+11   ***   33444525: Martín de Azpilcueta 
+11   ***   30571662: Claude-Gaspard Bachet 
+11   ***   30036869: Carlo Sebastiano Berardi 
+11   ***   30299084: Nicolas Clénard 
+11   ***   30037026: Codex Theodosianus 
+11   ***   30037239: Boethius 
+11   ***   35804417: Ravennas, Petrus 
+11   ***   36012386: Enea Vico 
+11   ***   35018407: None 
+11   ***   37116837: Francisco Sarmiento de Mendoza 
+11   ***   35544097: Girolamo Ragazzoni 
+11   ***   30871468: Tommaso Valperga di Caluso 
+11   ***   37599840: None 
+11   ***   35807144: Andrea Capano 
+11   ***   36856018: Antonio Córdoba de Lara 
+11   ***   30827040: None 
+11   ***   30827041: Certamen Homeri et Hesiodi 
+11   ***   30564988: Nicolau Eimeric 
+11   ***   35808727: Joachim Hoppers 
+11   ***   32602051: César-Guillaume de La Luzerne 
+11   ***   36376810: Benedetto Boni 
+11   ***   30216432: Joannes Mauritius 
+11   ***   37381595: Nicolaus Noalis 
+11   ***   36857438: Codex canonum ecclesiae Africanae 
+11   ***   32267773: Johann Andreas Eisenmenger 
+11   ***   37644025: None 
+11   ***   35547003: Antonio Boccapaduli 
+11   ***   33712378: None 
+11   ***   30828909: Idrīsī 
+11   ***   30042846: Andrés Cavo 
+11   ***   30697265: Bartolomeo Facio 
+11   ***   36998953: Giacomo Mandelli 
+11   ***   37250905: None 
+11   ***   37600470: Juan del Castillo Sotomayor 
+11   ***   30043594: Herman Boerhaave 
+11   ***   30216788: Simon de Praetis 
+11   ***   30216792: Henri Estienne 
+11   ***   32665154: Stephan Reich 
+11   ***   30216804: André Tiraqueau 
+11   ***   32140996: Orazio Possidoni 
+11   ***   31092791: Roger Bacon 
+11   ***   33493721: Guillaume Haneton 
+11   ***   37513263: Paolo Emili 
+11   ***   36726837: Bartolomeo Fumo 
+11   ***   32983653: of Rhodes Pseudo-Andronicus 
+11   ***   33190716: Thaddaeus Werenkus 
+11   ***   33977282: Johannes Saxonius 
+11   ***   35547412: Pompeo Ugoni 
+11   ***   31356615: Digesta 
+11   ***   30046176: Averroës 
+11   ***   37513607: Martin Du Cygne 
+11   ***   32668009: Alvaro Vaz 
+11   ***   34018480: Giacomo Caimo 
+11   ***   35814473: None 
+11   ***   30833745: Giovanni Nanni 
+11   ***   30571709: Martin Chemnitz 
+11   ***   34502600: Georg Eder 
+11   ***   30309685: Jean Barbier 
+11   ***   32144780: Juan Bernardo Díaz de Luco 
+11   ***   35814867: None 
+11   ***   32931715: Boetius Epo 
+11   ***   30834635: Francesco Rocco 
+11   ***   39348900: Pietro Ricciardi 
+11   ***   35553327: Hieronymus Giacharius 
+11   ***   31883447: Aonio Paleario 
+11   ***   30173928: Aelian 
+11   ***   30572955: Joannes Maria Monticellus 
+11   ***   37513968: Giulio Cesare Baricelli 
+11   ***   30573589: Guglielmo da Pastrengo 
+11   ***   37127297: Fabio Belloni 
+11   ***   33195245: Emilio Ferretti 
+11   ***   30573931: Gratian 
+11   ***   39261848: Trionfo di Armida 
+11   ***   31615991: Bishop of Cagliari, Lucifer 
+11   ***   34768910: Diego de Medrano 
+11   ***   32409624: Jean Masuer 
+11   ***   32409640: None 
+11   ***   33943746: Jacob Martin 
+11   ***   33720819: Giovanni Vincenzo Ondedei 
+11   ***   34668561: Juan Arce de Otálora 
+11   ***   32672312: Georg von Peurbach 
+11   ***   30313078: Maciej Kazimierz Sarbiewski 
+11   ***   33669595: Andreas Knichen 
+11   ***   36342646: Alexandrus Politus 
+11   ***   32148488: Mauro Orbini 
+11   ***   30315071: Chrysologus, Saint, Archbishop of Ravenna, Peter 
+11   ***   37429259: Michelangelo Paleoli 
+11   ***   33865572: Michael Grass 
+11   ***   33932145: Nicolás Rodríguez Hermosino 
+11   ***   34782132: Bartolomeo Bertazzoli 
+11   ***   39229026: Liebe in der Ukraine 
+11   ***   36903238: Arciconfraternita delle sagratissime spine della corona di Nostro Signore Gesù Cristo 
+11   ***   31747799: Bartolomeo Castelli 
+11   ***   33462557: Theodosius Rubeus 
+11   ***   30316915: Giacomino da San Giorgio 
+11   ***   30316916: Bartolomeo Cipolla 
+11   ***   30000202: Paolo Giovio 
+11   ***   35559963: Joannes Baptista Pontanus 
+11   ***   30841558: Archbishop of Thessalonica, Eustathius 
+11   ***   33987399: Lazare de Baïf 
+11   ***   36608840: Matthias Felisius 
+11   ***   30579671: Bernardino Ramazzini 
+11   ***   30579810: Giulio Claro 
+11   ***   30579992: Aurelio Corboli 
+11   ***   30679561: Jacopo Morelli 
+11   ***   30000400: Lucius Annaeus Seneca 
+11   ***   30580461: sieur de Beauvais, Thomas Cormier 
+11   ***   30580462: Sebastiano Guazzini 
+11   ***   31629104: Giuseppe Ricci 
+11   ***   30007440: Marc Antoine Louis Claret de Fleurieu de La Tourrette 
+11   ***   33202171: von Sachsen, Ludolf 
+11   ***   31105308: Zaccaria Ferreri 
+11   ***   35824164: Orazio Barbato 
+11   ***   35562038: Serafino Girardi 
+11   ***   35562050: Carlo Pinto 
+11   ***   33202775: None 
+11   ***   30581480: of Alexandria Appianus 
+11   ***   36086617: Fortunius García 
+11   ***   36161002: Johannes Thomas Freig 
+11   ***   30582001: Giovanni Francesco Fara 
+11   ***   38184467: Robert Sheringham 
+11   ***   30844552: Antoine Gouan 
+11   ***   33203956: José Maldonado y Pardo 
+11   ***   34529144: None 
+11   ***   37660637: Lucas Panaetius 
+11   ***   37619232: Johann Aepinus 
+11   ***   36903452: None 
+11   ***   30321243: Alfonso Chacón 
+11   ***   30000915: Aristotle 
+11   ***   37923722: Giovanni Francesco Bonavoglia 
+11   ***   32906406: Lorenzo Matheu y Sanz 
+11   ***   33729952: Niccolò Calliachi 
+11   ***   31753374: Aegineta Paulus 
+11   ***   30409103: Alberico Gentili 
+11   ***   36351762: Giacomo Negri 
+11   ***   31753378: Giovanni Francesco Colle 
+11   ***   35567969: Ottaviano Vestri Barbiani 
+11   ***   33730435: Antonio Concioli 
+11   ***   37924744: Thomé Vallasco 
+11   ***   31753383: Jean Fernel 
+11   ***   32273056: None 
+11   ***   30322702: Ludovico Maria Sinistrari 
+11   ***   31753387: Archibald Pitcairn 
+11   ***   36876366: Ferrante Gargiaria 
+11   ***   33468789: Bartolomeo Brunacci 
+11   ***   37925350: Arnoldus Clapmarius 
+11   ***   37925356: None 
+11   ***   37925361: Ewaldus Marchius 
+11   ***   33731108: Johann Pels 
+11   ***   35041873: Marcello De Mauro 
+11   ***   36090514: Giovanni Gerolamo Albani 
+11   ***   31634185: Bishop, Giannantonio Campano 
+11   ***   37925662: None 
+11   ***   37925663: None 
+11   ***   37925664: None 
+11   ***   37925666: None 
+11   ***   37925667: None 
+11   ***   30585658: Joannes Baptista Ventriglia 
+11   ***   37139283: Pedro de Soto 
+11   ***   32420761: Franciscus Niger Cyriacus 
+11   ***   30350842: Juan de Torquemada 
+11   ***   30700381: conte, Sertorio Orsato 
+11   ***   32460475: Mosaicarum et Romanarum legum collatio 
+11   ***   30585985: Filippo Massini 
+11   ***   30585987: Agnello d' Amato 
+11   ***   36353431: Gaspare Cavallini 
+11   ***   30586282: Archbishop, de' Tudeschi Niccolò 
+11   ***   31110921: de Sancto Geminiano, Dominicus 
+11   ***   31110923: Novellae constitutiones 
+11   ***   37140324: Gherardo Mazzoli de' Leazzari 
+11   ***   31749124: Johannes Werner 
+11   ***   30586923: Infortiatum 
+11   ***   32946520: Alessandro Peccana 
+11   ***   35830325: Vincenzo Mancini 
+11   ***   32160459: Giovanni Pietro Ferrari 
+11   ***   31374030: Jean-Claude Flachat 
+11   ***   30849770: Francesco Arisi 
+11   ***   34519804: Alfonso de Azevedo 
+11   ***   33209183: Padua (Italy) 
+11   ***   35568778: de Gruytrode, Jacobus 
+11   ***   30001744: Plato 
+11   ***   35569176: Rolandus Vinchelius 
+11   ***   30326451: da Pistoia, Cino 
+11   ***   31375101: Pietro Andrea Mattioli 
+11   ***   33890281: Comes Palatinus Austriacus, Franciscus Carolus Sartorius de Schwannenfeldt 
+11   ***   32423847: Joachim Hoppe 
+11   ***   32948541: Miguel Antonio Francés de Urrutigoyti 
+11   ***   30589300: Zeger Bernard van Espen 
+11   ***   30589350: Guido Panciroli 
+11   ***   31181564: Giacomo Menochio 
+11   ***   32686624: da Genova, Cappuccino, Dionigi 
+11   ***   31638251: Gaius Valerius Flaccus 
+11   ***   31376129: Jan Łasicki 
+11   ***   31114096: Johann Daniel Schoepflin 
+11   ***   36619170: Orazio Giovagnoni 
+11   ***   32949156: Giovanni Francesco De Ponte 
+11   ***   30002018: Euripides 
+11   ***   30590073: Biblioteca nazionale di Torino 
+11   ***   35571313: None 
+11   ***   33110247: Francesco Dini 
+11   ***   36620112: Catholic Church. Pope (1555-1559 : Paul IV) 
+11   ***   34785736: Jakob Ayrer 
+11   ***   30329454: Cornelius Cornelii a Lapide 
+11   ***   30547425: Regimen sanitatis Salernitanum 
+11   ***   31116345: Themistius 
+11   ***   32689934: Tranquillo Ambrosini 
+11   ***   37670752: Claude Chifflet 
+11   ***   35813357: Raimondo Cunich 
+11   ***   36884564: None 
+11   ***   37692094: Cesare Contardo 
+11   ***   34525342: Nicola Valletta 
+11   ***   35311815: Pietro Antonio Anguissola 
+11   ***   30855580: François Hotman 
+11   ***   34263572: Johann Leisentrit 
+11   ***   30593797: Marcus Minucius Felix 
+11   ***   32691167: Vincentius de Franchis 
+11   ***   37672045: Nicolaus Cisner 
+11   ***   30584006: José de Acosta 
+11   ***   31051306: Corpus historiae Byzantinae 
+11   ***   33215784: Scipione Rovito 
+11   ***   37672507: Nicolao Godinho 
+11   ***   34058182: None 
+11   ***   31676332: Dominique Magnan 
+11   ***   34789382: Nicolaus Valla 
+11   ***   36363076: Barthélemy de Salignac 
+11   ***   32644121: Franciscus de Arriba 
+11   ***   34004034: Johann Burchard Rosler 
+11   ***   34266198: Francesco Beccio 
+11   ***   30221532: Scipione Chiaramonti 
+11   ***   32955702: Vincent Tagereau 
+11   ***   37881565: None 
+11   ***   31645518: Guido Ferrari 
+11   ***   35289058: Caspar Weckerlin 
+11   ***   30001767: Plutarch 
+11   ***   30440154: Konrad Wolf 
+11   ***   33716980: de Rupescissa, Johannes 
+11   ***   36889333: Saligniacus, Goffredus 
+11   ***   33743665: Izsák L Fegyverneki 
+11   ***   30335940: Marino Ghetaldi 
+11   ***   32695268: None 
+11   ***   36365364: Bulgarus 
+11   ***   34792542: Holy Roman Empire. Kurfürstlicher Hoher Wahlkonvent, Frankfurt am Main, 1790 
+11   ***   37430803: Franciscus Palma 
+11   ***   36365815: Louis Carrion 
+11   ***   35317394: Lusitano, Amato 
+11   ***   37299833: Catholic Church. Patriarchate of Venice (Italy).Synod (1667) 
+11   ***   30337028: Johannes Scheffer 
+11   ***   32434348: Aires Pinhel 
+11   ***   34966157: Johann Lauremberg 
+11   ***   36104594: Pietro Follerio 
+11   ***   35814486: None 
+11   ***   33892104: Joannes Schonerus 
+11   ***   30765706: Digestum vetus 
+11   ***   30091106: Agostino Beró 
+11   ***   32173274: None 
+11   ***   34270620: None 
+11   ***   31649193: z Miechowa, Maciej 
+11   ***   34983656: de Imola, Joannes 
+11   ***   34591315: Giovanni Vincenzio Lucchesini 
+11   ***   39775965: None 
+11   ***   37925355: None 
+11   ***   30965050: Giovanni Pietro Sordi 
+11   ***   35290464: None 
+11   ***   37553625: Alessandro Sperelli 
+11   ***   30003907: Herodotus 
+11   ***   32960807: Pierre Goudelin 
+11   ***   34023591: Joseph Mede 
+11   ***   30340236: Mario Nizolio 
+11   ***   30602500: Rodrigo Juárez 
+11   ***   30865109: Jean Du Luc 
+11   ***   34273186: Antoine Fumée 
+11   ***   36108353: Marcantonio Savelli 
+11   ***   33630573: Hieronymus Herculanus 
+11   ***   33224892: Carlo Rota 
+11   ***   35060044: None 
+11   ***   35584380: François Suarès 
+11   ***   33749521: None 
+11   ***   39778876: Paolo Emilio Gallo 
+11   ***   39778879: None 
+11   ***   37256999: Alessandro Della Torre 
+11   ***   32963366: Nicolaus Everardi 
+11   ***   36633404: Tommaso Grammatico 
+11   ***   30866419: Secundus, Janus 
+11   ***   36634777: Giacomo Antonio Marta 
+11   ***   31392018: Carolus Stagneus 
+11   ***   31392041: Battista Casali 
+11   ***   30572603: Digestum novum 
+11   ***   30343653: de Segusio, Cardinal, Henricus 
+11   ***   32703118: Johann Oldendorp 
+11   ***   34013844: Antoine Colombet 
+11   ***   36373298: Pier Filippo Corneo 
+11   ***   37606891: de Melfi, Father Sanctorus 
+11   ***   37082680: Giacomo Antonio De Mauro 
+11   ***   36995351: Antonio Galeazzo Malvasia 
+11   ***   37422808: None 
+11   ***   31393622: Caesar Nobilis 
+11   ***   34277215: Joannes Velcurio 
+11   ***   31132012: Theodor Straitmann 
+11   ***   31394396: Sebastianus Sapia 
+11   ***   30608088: of Halicarnassus Dionysius 
+11   ***   35326805: Francesco Giuseppe De Angelis 
+11   ***   30870577: Saint, Patriarch of Constantinople, Photius 
+11   ***   36900384: None 
+11   ***   36900385: None 
+11   ***   33492900: Hippolytus à Collibus 
+11   ***   31133676: Jakob Spiegel 
+11   ***   35066071: Clemens Araneus 
+11   ***   36376951: Zanchino Ugolini 
+11   ***   33493401: Giovanni Donato Fina 
+11   ***   31752959: Jacques Houllier 
+11   ***   36901486: Lapo da Castiglionchio 
+11   ***   34017915: Vincenzo Bondeni 
+11   ***   31658942: Hans Brosamer 
+11   ***   33494216: d'Ardizzone, Jacopo 
+11   ***   30136535: Nicolas Boileau Despréaux 
+11   ***   35067180: None 
+11   ***   31397479: Hermann Grube 
+11   ***   33756840: Giovanni Battista Pisacane 
+11   ***   31303485: Franco Vergara 
+11   ***   33494949: Antonio Torres y Velasco 
+11   ***   34462076: Jeroni Pau 
+11   ***   30409039: Pace Scala 
+11   ***   36641281: None 
+11   ***   31195252: Lorenzo Penna 
+11   ***   37913770: None 
+11   ***   35331659: Andreas Anignonus 
+11   ***   37692093: Arnaud Contadis 
+11   ***   33497953: Horatius Montanus 
+11   ***   37692409: Lancelotus Conradus 
+11   ***   35336395: Pietro Francesco Zini 
+11   ***   36644144: Antonio Capece 
+11   ***   30090558: Rhodius Apollonius 
+11   ***   37692748: Antonio Maria Corasi 
+11   ***   31925583: Cyril Lucaris 
+11   ***   31753801: Antonio Musa Brasavola 
+11   ***   30090847: Catholic Church. Pope 
+11   ***   30615314: Georg Horn 
+11   ***   30877497: Achilles Pirmin Gasser 
+11   ***   30091126: of Padua, Marsilius 
+11   ***   30091127: Anaklet Reiffenstuel 
+11   ***   31401984: Guillaume Budé 
+11   ***   34285710: Bartholomaeus Frexius 
+11   ***   34626268: Gianantonio da Sangiorgio 
+11   ***   30091563: Smyrnaeus, Quintus 
+11   ***   32713306: None 
+11   ***   30091941: Bibliothèque nationale (France). Département des manuscrits 
+11   ***   34024162: Biblioteca Magliabechiana (Florence, Italy) 
+11   ***   33136605: None 
+11   ***   37694370: Sebastian Derrer 
+11   ***   34286602: Camillo Borrello 
+11   ***   37432343: Hieronymus Palma 
+11   ***   35335526: Dominik Buća 
+11   ***   39530092: Giuseppe Maria Asclepi 
+11   ***   33762998: Joannes Dexart 
+11   ***   33500944: Godescalc Rosemondt 
+11   ***   33501836: Giovanni Antonio Rossi 
+11   ***   30355301: Jan Dubravius 
+11   ***   35071507: João Vaz da Mota 
+11   ***   32976940: Publius Vegetius Renatus 
+11   ***   33763474: Lelio Altogradi 
+11   ***   37488887: Catholic Church. Archdiocese of Genoa (Italy).Synod 
+11   ***   34550082: None 
+11   ***   30093742: Johann Leib 
+11   ***   30967908: Giovanni Maria Lancisi 
+11   ***   31142532: Giovanni Battista Piotto 
+11   ***   33240255: Spanzotti Girolamo Vincenzo, 1741-1812 
+11   ***   36648279: None 
+11   ***   30356903: Peter Apian 
+11   ***   30356383: Platina 
+11   ***   36648782: Giorgio Merula 
+11   ***   32978890: Virginio Boccacci 
+11   ***   31406090: Juan Gutiérrez 
+11   ***   37620469: None 
+11   ***   36911541: Simeone Maiolo 
+11   ***   34769344: Domingo Ursaya 
+11   ***   36912165: Giuseppe Antonio Alasia 
+11   ***   32980012: Remigius Faesch 
+11   ***   32717908: Amatos Lusitano 
+11   ***   32193713: None 
+11   ***   30094567: Joseph Richter 
+11   ***   33240400: Johann Zanger 
+11   ***   35992931: José Pinto Pereira 
+11   ***   37175541: Donato Antonio Altomare 
+11   ***   30098092: Rhetorica ad Herennium 
+11   ***   33768239: Francisco Villegas 
+11   ***   32195489: Saint, Francis Xavier 
+11   ***   31755093: Nikolaus Reusner 
+11   ***   31147011: Sebastiano Monticello 
+11   ***   31754650: Domenico Agostino Alberghetti 
+11   ***   31754654: William Musgrave 
+11   ***   32982235: Barthélemy de Chasseneuz 
+11   ***   30885258: Guillaume Benoît 
+11   ***   30837661: Petrus Faber 
+11   ***   35604522: Aragon (Kingdom). Senatus 
+11   ***   31148398: d'Ancarano, Pietro 
+11   ***   31148409: Johannes Bilsten 
+11   ***   38222915: George Lily 
+11   ***   36648746: Catholic Church. Province of Florence (Italy).Concilium (1573) 
+11   ***   30007814: Pietro Vettori 
+11   ***   37725386: Melchior Kling 
+11   ***   33880373: Hieronymus Muscornus 
+11   ***   31411646: Portugal. Desembargo do Paço 
+11   ***   31673793: Jean Barbault 
+11   ***   35868250: Guillaume Sanson 
+11   ***   37966123: None 
+11   ***   30837457: Girolamo Mercuriale 
+11   ***   31412877: Willem Borluut 
+11   ***   30489070: Nicolas de Bohier 
+11   ***   31413250: Paolo Bagellardo 
+11   ***   37966984: None 
+11   ***   34172741: Giovanni Battista Mucci 
+11   ***   33547161: Domenico d' Aulisio 
+11   ***   31151702: Benedetto Vadi 
+11   ***   31151703: Claude de Seyssel 
+11   ***   30103171: Imitatio Christi 
+11   ***   35083959: None 
+11   ***   31676178: Daldianus Artemidorus 
+11   ***   31938591: Joannis Calderini consilia quibus contexta mistaque sunt responsa ... jureconsultorum clarissimorum 
+11   ***   31938592: Oldrado da Ponte 
+11   ***   30103606: Hippocrates 
+11   ***   34035943: Jean Vassès 
+11   ***   32236643: Pierre Rebuffi 
+11   ***   30628579: Jean Le Paige 
+11   ***   30244718: Eusèbe Renaudot 
+11   ***   33512310: None 
+11   ***   33512311: Pietro Amico 
+11   ***   31415660: Giovanni Battista Elisio 
+11   ***   37559687: François Vavasseur 
+11   ***   32989468: Giovanni Vincenzo d' Anna 
+11   ***   33762584: Pietro de' Crescenzi 
+11   ***   30368492: Peter Hausted 
+11   ***   37708567: Nicolas de Grouchy 
+11   ***   30368576: France. Grand conseil 
+11   ***   30368727: Gerhard Mercator 
+11   ***   30751567: Claudius Cantiuncula 
+11   ***   39019539: None 
+11   ***   39019548: Jacob Möller 
+11   ***   37708855: None 
+11   ***   37708856: Jean Constantin 
+11   ***   30368895: Gabriello Faerno 
+11   ***   30368899: Sebastian Münster 
+11   ***   30368903: Jacques-Auguste de Thou 
+11   ***   30369062: Éguinaire Baron 
+11   ***   30471762: Biblioteca nazionale marciana 
+11   ***   37709154: Antoine Leconte 
+11   ***   36398705: Alonso Hojeda de Mendoza 
+11   ***   31417990: Dominique de Blackford 
+11   ***   37305304: Francisco Vargas Mejía 
+11   ***   30445595: Esaias Pufendorfius 
+11   ***   33195243: Jacobus Lectius 
+11   ***   30369720: Robert Estienne 
+11   ***   31156163: None 
+11   ***   33515752: Giuseppe Averani 
+11   ***   33515870: None 
+11   ***   30445610: Joris Vivien 
+11   ***   30370177: Saint, Patriarch of Constantinople Nicephorus 
+11   ***   35350976: Gilles Prieele 
+11   ***   32991823: Giovanni Maria Novario 
+11   ***   30632765: Marco Girolamo Vida 
+11   ***   31756794: Gabriele Falloppio 
+11   ***   31711348: Andreas Morell 
+11   ***   38235421: Giovanni Bolognetti 
+11   ***   38235714: Claude Du Verdier 
+11   ***   38235716: None 
+11   ***   38235717: None 
+11   ***   30633616: Christian Friedrich Hunold 
+11   ***   38236006: None 
+11   ***   30109854: Jesuits 
+11   ***   31159068: Medicinensis, Pillius 
+11   ***   33780551: Bartolomeo Ricci 
+11   ***   30110808: of Clairvaux, Saint, Bernard 
+11   ***   32994544: Giacomo Filippo Porzi 
+11   ***   30970753: Ulrich Zasius 
+11   ***   37189166: Joannes Crottus 
+11   ***   35814082: None 
+11   ***   37713798: Andrés de Exea 
+11   ***   31946736: Antonio Genovesi 
+11   ***   35616765: Benedetto Barzi 
+11   ***   33177926: Juan López de Palacios Rubios 
+11   ***   36403454: Giambattista Ferreti 
+11   ***   33679747: Pietro Maria Cavina 
+11   ***   33782389: Anselmo Dandini 
+11   ***   37175135: None 
+11   ***   33783135: Giacomo Filippo Tomasini 
+11   ***   35880389: Francesco Accolti 
+11   ***   35820819: Joannes Baptista Masculus 
+11   ***   32986609: Jacopo Grifoli 
+11   ***   37715653: Cesare Fumagioli 
+11   ***   37715654: Giacomo Gallo 
+11   ***   37715655: None 
+11   ***   37715657: Girolamo Garzoni 
+11   ***   37715658: Henning Goeden 
+11   ***   32997073: Sabellico 
+11   ***   32997260: Camillo Cappucci 
+11   ***   32210899: None 
+11   ***   32210900: None 
+11   ***   32210901: None 
+11   ***   32210902: None 
+11   ***   32210903: None 
+11   ***   32210904: None 
+11   ***   32210906: None 
+11   ***   32210907: None 
+11   ***   32210908: None 
+11   ***   32210910: None 
+11   ***   32210911: None 
+11   ***   37715952: Anastasio Germonio 
+11   ***   35881264: Andrea Alferi 
+11   ***   32735976: Christophorus Longolius 
+11   ***   31163180: Giovanni Francesco Pico della Mirandola 
+11   ***   32998885: Giovanni Antonio Magini 
+11   ***   30115433: Elijah ben Ḥayyim 
+11   ***   31426516: Catholic Church. Cancellaria Apostolica 
+11   ***   36979265: Salomon Neugebauer 
+11   ***   30378518: Jean Mabillon 
+11   ***   30116418: Institutiones 
+11   ***   30116597: Shabbethai ben Joseph Bass 
+11   ***   30378853: Alessandro Stiatici 
+11   ***   35621769: Pietro Galatino 
+11   ***   33418432: Caspar Dornau 
+11   ***   36408733: Giulio Ferretti 
+11   ***   35622976: Antonio Fiordibello 
+11   ***   30753486: Conradus Lagus 
+11   ***   30380584: Consuetudines generales Bituricensis Turonensis ac Aurelianensis praesidatuum 
+11   ***   37720933: Paulinus a Sancto Josepho 
+11   ***   37720934: Luca Antonio Porzio 
+11   ***   31190509: None 
+11   ***   32478173: Paride Grassi 
+11   ***   37721250: None 
+11   ***   37721251: Catholic Church. Archdiocese of Goa.Archbishop (1750-1775 : Taveira) 
+11   ***   34575889: Bartolomeo Camerario 
+11   ***   35624668: Martino Gigli 
+11   ***   30119781: Georg Agricola 
+11   ***   33789810: Lelio Torelli 
+11   ***   31147012: Nikolaus Vigel 
+11   ***   30120272: Jean Bodin 
+11   ***   35363616: Giovanni Bertachini 
+11   ***   33681215: Ippolito Marracci 
+11   ***   33528961: Joannes Christianus Bocken 
+11   ***   37985568: Francesco Bordini 
+11   ***   35888440: Laurentius Beyerlinck 
+11   ***   33529318: Gabriel Alvarez de Velasco 
+11   ***   31758942: Joseph Du Chesne 
+11   ***   37461572: Petrus Paulus Parisius 
+11   ***   35888815: None 
+11   ***   33419220: Roberto Maranta 
+11   ***   31802670: Horapollo 
+11   ***   33005483: Bartolommeo Bersano 
+11   ***   31432998: None 
+11   ***   33268307: Giovanni Leonardo Rodoerio 
+11   ***   37200711: Enchiridion titulorum aliquot iuris 
+11   ***   35365892: Hilaire Courtois 
+11   ***   36414574: Vincenzo Fusari 
+11   ***   35890345: Marcantonio Bardi 
+11   ***   37725384: Melchior Junius 
+11   ***   37725393: Detlev Langenbeck 
+11   ***   33793397: Scipio Rendina 
+11   ***   37725695: Gregorio Magalotti 
+11   ***   37725696: Sebastiano Maffa 
+11   ***   32220803: Jacopo Alvarotti 
+11   ***   34318004: Tuscany (Grand Duchy). Rota (Siena) 
+11   ***   30648325: Etienne Forcadel 
+11   ***   31172739: Gilles de Bellemère 
+11   ***   31278839: Giuseppe Maria Carafa 
+11   ***   31173109: Baldo degli Ubaldi 
+11   ***   30710989: Johannes Stella 
+11   ***   37727574: Thomas Cormier 
+11   ***   33795454: Claude Joseph de Ferrière 
+11   ***   30387646: Joseph Lang 
+11   ***   30387715: Marcello Malpighi 
+11   ***   33545005: Joachim Mynsinger von Frundeck 
+11   ***   34582138: Giovanni Paolo Balzarano 
+11   ***   33545009: None 
+11   ***   33987869: Gottfried Ferdinand von Buckisch und Löwenfels 
+11   ***   36941597: Giovanni Battista Saminiati 
+11   ***   35822941: Pietro Giordano Orsini 
+11   ***   33796572: Paul Matthias Wehner 
+11   ***   33534442: Johannes Goddaeus 
+11   ***   30651251: de Passageriis, Rolandinus 
+11   ***   37729142: Giovanni Pietro Mangrella 
+11   ***   39040556: Jean de La Faye 
+11   ***   34993084: Gerhard Habbius 
+11   ***   38254325: Cedrenus, Georgius 
+11   ***   35011559: Christoph Ehem 
+11   ***   34322473: Juan Pedro Fontanella 
+11   ***   34889363: Aldovino Aldovini 
+11   ***   30577508: Henrichus Sellarius 
+11   ***   38255177: Giovanni Battista Audiffredi 
+11   ***   33537251: Johann Friedrich Cramer 
+11   ***   34381706: None 
+11   ***   33013177: Lodovico Postio 
+11   ***   31440401: None 
+11   ***   33013288: Jacopo Sadoleto 
+11   ***   30012699: Julius Caesar 
+11   ***   37003213: None 
+11   ***   30392116: Bernardino Corio 
+11   ***   35107863: Bartolommeo Soccini 
+11   ***   31965168: Portius Azo 
+11   ***   37470296: Karl Scharschmidt 
+11   ***   36159667: None 
+11   ***   30392570: Jan Sadeler 
+11   ***   35897720: Papal States. Sovereign (1559-1565 : Pius IV) 
+11   ***   33014334: Diego Antonio Yáñez Fajardo 
+11   ***   30799321: Theodore de Bèze 
+11   ***   30799323: Valentin Forster 
+11   ***   35692691: Pubblica società economica di Spalato 
+11   ***   37471135: Stein der Weisen 
+11   ***   33014938: Melchor Pelaez de Mieres 
+11   ***   32995272: Ludwig Engel 
+11   ***   30655909: Ars moriendi (Version beginning: Cum de praesentiis exilii miseria mortis ...) 
+11   ***   31442823: Guillaume Fournier 
+11   ***   31180744: Giovanni Stafileo 
+11   ***   35081220: Giovanni Francesco Bordini 
+11   ***   33802667: Honoré Léotardi 
+11   ***   34570175: Split (Croatia). Camera fiscal 
+11   ***   33802760: Nicolaus Festasius 
+11   ***   36424439: None 
+11   ***   34065354: Julius Obsequens 
+11   ***   34327539: Martino Garrati 
+11   ***   34327543: Andrea Barbazza 
+11   ***   35900746: Nicolás Antonio 
+11   ***   33110695: Ippolito Bonacossa 
+11   ***   34328205: None 
+11   ***   38101841: Jacques Le Long 
+11   ***   30920539: Jacques Lefèvre d'Etaples 
+11   ***   31280467: Donato Antonio de Marinis 
+11   ***   34066463: Lux mercuriorum 
+11   ***   34066464: De secretis naturae 
+11   ***   36688251: Guglielmo Rodano 
+11   ***   31183471: de Rosate, Albericus 
+11   ***   34591680: Joannes Calderini consilia quibus contexta mistaque sunt responsa ... jureconsultorum clarissimorum 
+11   ***   30397464: None 
+11   ***   31708265: Julius Pogianus 
+11   ***   30800082: Petrus Tėrmineus 
+11   ***   30397951: Vincenzio Barrali 
+11   ***   30660115: Constitutum Constantini 
+11   ***   31446675: Costanzo Varolio 
+11   ***   30538017: Francesco Torti 
+11   ***   32233233: Brocardica juris 
+11   ***   31709105: Flores legum 
+11   ***   31709109: da Cannara, Antonio 
+11   ***   37513612: George Codinus 
+11   ***   31184832: Ascanio Clementini 
+11   ***   31979866: Girolamo Maggi 
+11   ***   36165755: Giovanni Francesco Schenardi 
+11   ***   34592960: Cristoforo Castiglioni 
+11   ***   32558987: William Tazewell 
+11   ***   31447495: Pierre de Cornu 
+11   ***   35641971: Giulio Pomponio Leto 
+11   ***   37616077: Heinrich Breul 
+11   ***   31755933: Marcello Donati 
+11   ***   36953040: Laurentius de Pinu 
+11   ***   31186105: Guilielmus Accursius 
+11   ***   36953353: Julien Peleus 
+11   ***   30662254: Giacomo Antonio Raby 
+11   ***   31186869: Pierre Ayrault 
+11   ***   37490970: Fabio Torretti 
+11   ***   34070956: None 
+11   ***   30713275: Leopoldo Marco Antonio Caldani 
+11   ***   33877154: None 
+11   ***   37010884: None 
+11   ***   30132401: Andrea Alciati 
+11   ***   34595868: None 
+11   ***   32760911: Sallustius Tiberius 
+11   ***   35120273: Joannes de Amicis 
+11   ***   30139867: Lorenzo Gambara 
+11   ***   30139910: Siculus Diodorus 
+11   ***   30139919: Charles Du Moulin 
+11   ***   35475720: Matteo Bruni 
+11   ***   36843251: Collegium Caudatariorum S. R. E. Cardinalium 
+11   ***   30402273: Antonio Gobbi 
+11   ***   31485438: the Theurgist Julianus 
+11   ***   33286032: Pietro degli Ubaldi 
+11   ***   30058138: Aesop's fables 
+11   ***   30140751: Lucan 
+11   ***   31189339: Hieronymus Marilianus 
+11   ***   30403152: Heinrich Cornelius Agrippa von Nettesheim 
+11   ***   31189700: Giovanni Domenico Rinaldi 
+11   ***   37481254: Pierre-Juste Sautel 
+11   ***   37481255: Gabriel Madelenet 
+11   ***   37481256: Bertrandus de Soule 
+11   ***   39054196: Alessandro Giovio 
+11   ***   32762881: Giulio Barbarano 
+11   ***   30404031: Apicius 
+11   ***   35384905: None 
+11   ***   32763876: Claude de Battandier 
+11   ***   37482610: Clemens Timpler 
+11   ***   36434051: None 
+11   ***   32811089: Diego Ibáñez de Faria 
+11   ***   31453698: Coriolano Cippico 
+11   ***   31194544: Lorenzo Silvano 
+11   ***   37483226: Catholic Church. Pope (1724-1730 : Benedict XIII) 
+11   ***   37483228: Papal States. Sovereign (1724-1730 : Benedict XIII) 
+11   ***   37483229: Ioannes Turpinus 
+11   ***   37483230: Benedictus Tevenettus 
+11   ***   37483232: Papal States. Sovereign (1769-1774 : Clement XIV) 
+11   ***   32811151: None 
+11   ***   31192037: François Boissier de la Croix de Sauvages 
+11   ***   37483633: Giuseppe Bertacchini 
+11   ***   34602516: Stephanus Cenamius 
+11   ***   36435069: Cesare Lambertini 
+11   ***   33813722: Giovanni Domenico Gaito 
+11   ***   34600432: Jakob Masen 
+11   ***   37484017: Giovanni Luigi Riccio 
+11   ***   37484029: None 
+11   ***   35649124: None 
+11   ***   30668448: Joannes Torre 
+11   ***   30668618: Michele Angelo Bonotto 
+11   ***   31413257: Artis notariatus sive tabellionum libri duo 
+11   ***   34646381: Jacques Goutière 
+11   ***   35125572: Bernardino Alfani 
+11   ***   36436846: None 
+11   ***   33029107: Tommaso Bozio 
+11   ***   35388600: Jean-Papire Masson 
+11   ***   35913025: Giuseppe Altogradi 
+11   ***   31194586: Giacomo Moronessa 
+11   ***   37617641: von Kon̈igstein, Antonius 
+549   ***   35592379: Johann Ludwig Lang 
+549   ***   34991875: Johannes Goeddaeus 

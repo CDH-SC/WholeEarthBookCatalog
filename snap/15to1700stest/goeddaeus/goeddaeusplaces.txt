@@ -1,0 +1,331 @@
+11   ***   162: Romae 
+11   ***   286: Lyon 
+11   ***   358: Florentiae 
+11   ***   454: Frankfurt am Main 
+11   ***   483: Bergamo 
+11   ***   672: Rome 
+11   ***   7533212: Lucae? 
+11   ***   1050539: Hanouiae 
+11   ***   2713: Milan 
+11   ***   1575993: In Vinegia Venice 
+11   ***   528806: Parmae 
+11   ***   3412731: Lutetiae Paris 
+11   ***   7607221: Coloniae-Agrippinae 
+11   ***   1759801: Lugdunum 
+11   ***   3640209: On les vend à Dole 
+11   ***   874880: Hanoviae 
+11   ***   6407: Frankfurt 
+11   ***   6787: Berolini 
+11   ***   6900: Parisiis 
+11   ***   219640: Cantabrigiae 
+11   ***   4463774: Finem sumpsit hoc opus Lugduni 
+11   ***   7695: Patavii 
+11   ***   8016: Heidelberg, Germany 
+11   ***   4989124: Pontimussani 
+11   ***   8712: Lugduni 
+11   ***   2273464: Stāpata in Venetia 
+11   ***   3491969: Lucae 
+11   ***   535444: Parmae Italia 
+11   ***   7210826: Pictavii Poitiers 
+11   ***   5255625: None 
+11   ***   4207200: Impressum Basilee 
+11   ***   13292: Venetiis 
+11   ***   13459: Gedruckt zu Jhena 
+11   ***   7692097: Coburgi 
+11   ***   15260: Geneva 
+11   ***   5783241: Francofurti ad Viatrum 
+11   ***   3686667: Wytisstěná w Praze 
+11   ***   483401: Genevae 
+11   ***   7619855: Imprimez à Roüen, & se vendent a Paris 
+11   ***   101610: Geneva? 
+11   ***   7620461: Vercellis 
+11   ***   7620477: Lugd' Lyon 
+11   ***   3167561: Parrhisiis 
+11   ***   7693407: Biturigibus Bourges 
+11   ***   7625465: En Coimbra 
+11   ***   2931715: Duaci 
+11   ***   3434715: Liptzick 
+11   ***   3587171: Patauij 
+11   ***   4484068: Veneunt Ludd. i.e. Lugduni 
+11   ***   485207: En Anuers 
+11   ***   3698804: Basileae Helvet. 
+11   ***   1602844: W Starém Městě Pražském 
+11   ***   5029425: Zu Cöllen 
+11   ***   5012387: RostochI 
+11   ***   6165755: Comi 
+11   ***   486266: Dublinii 
+11   ***   558582: Halæ 
+11   ***   2131564: Franḳfurṭ de-Main 
+11   ***   1753378: Venice? 
+11   ***   6063950: Impressa in oppido Tridini ... 
+11   ***   2015565: Geneuae 
+11   ***   7595423: A Paris, rue s. Jacques 
+11   ***   821569: Coloniæ Allobrogum 
+11   ***   792323: Gedruckt zu Cöllen 
+11   ***   7113657: Spirae Nemetum 
+11   ***   3443787: Ueneunt Lugduni 
+11   ***   298208: Turonibus 
+11   ***   2395672: Vaeneunt Antuerpiae 
+11   ***   298644: Impresse in alma vrbe Florentiae ... 
+11   ***   3444525: Impresso em Coimbra 
+11   ***   37007: Bassani 
+11   ***   5018407: A Chartres 
+11   ***   827039: Genev̀e 
+11   ***   3710836: Parisis 
+11   ***   9356651: Carmagnoliae 
+11   ***   1273930: Impressus Romae 
+11   ***   1354911: Impressum in regali ciuitate Toletana 
+11   ***   7908630: Aurelianis 
+11   ***   7456: Augusta Taurinorum 
+11   ***   4668561: Salamanticae 
+11   ***   4190220: Apud ... Basileam 
+11   ***   4071112: Iena 
+11   ***   226508: Bononiae 
+11   ***   3397229: Impressa Venetijs 
+11   ***   6941227: Hannoveri & Francofurti 
+11   ***   2409624: Impressum est Lugduni ... 
+11   ***   2314958: Sedini 
+11   ***   4509725: Excussum Lugduni 
+11   ***   1363386: None 
+11   ***   115272: Verona 
+11   ***   5297290: Lugduni de nouo impressa 
+11   ***   7133135: Veenetijs sic 
+11   ***   3463165: En Oxonia 
+11   ***   6347437: Romae in Vico Pregrini 
+11   ***   5299895: Frankfurt an der Oder, Germany? 
+11   ***   6694226: Placentiae 
+11   ***   3466101: VVitebergae Wittenberg 
+11   ***   5777338: Impresse Venetiis 
+11   ***   1758090: Witebergae 
+11   ***   1758091: Zum Strazburg 
+11   ***   3535661: Venetii 
+11   ***   3156470: Francofurti et Lipsiae? 
+11   ***   3735653: Lyone 
+11   ***   316915: Impressum Madiolani sic 
+11   ***   7669827: Flexiae 
+11   ***   330944: Cologne? 
+11   ***   3900013: Impressum fuit praesens opus in ciuitate Lugduni 
+11   ***   492256: Basiliae 
+11   ***   6886003: Vrsellis 
+11   ***   2692463: Impressum Venetijs 
+11   ***   710989: Basilee 
+11   ***   3114031: Veneunt Lugdu. 
+11   ***   7149956: Impressum Argentinae 
+11   ***   5839879: Excusum Amstelodami 
+11   ***   1759803: Venalia habentur Parisijs 
+11   ***   1205091: Pavia? 
+11   ***   3048936: Florentie impressum ... 
+11   ***   5056332: Vici Aequensis 
+11   ***   601464: In s'Graven-Haghe 
+11   ***   865109: Lutetiae 
+11   ***   1129115: Prostanae 
+11   ***   1392018: Papiae 
+11   ***   1634615: Ter Goude 
+11   ***   2179669: Impressum Nurenberge 
+11   ***   3228949: Vtini 
+11   ***   6480487: Patauii 
+11   ***   1134199: Reichenau 
+11   ***   1774871: Lvteciae 
+11   ***   14838: Basileae 
+11   ***   89220: Haag 
+11   ***   4284150: Venales sunt apud ... Aureliam ... 
+11   ***   6381764: Impressum in florentissima Lugdunensi ciuitate 
+11   ***   1421680: In ciuitate Argenten̄ 
+11   ***   1401139: Lvtetiae 
+11   ***   91108: Hagae Comitis 
+11   ***   91124: Matriti 
+11   ***   91126: Prostat 
+11   ***   7693406: Aureliani Orleans 
+11   ***   8272797: On les vend en Anuers ... 
+11   ***   3887483: Impressa Lugduni 
+11   ***   9530087: Lucae Italy 
+11   ***   4811834: En Westphalie 
+11   ***   880113: Salmanticae 
+11   ***   93742: Francofvrti 
+11   ***   93791: Newly imprynted at London ... 
+11   ***   6914872: Excudebatur Salmanticae 
+11   ***   1673830: Baltimori 
+11   ***   8130101: Angelopoli i.e. Puebla, Mexico 
+11   ***   7966115: Francofordiae ad Moenum 
+11   ***   1150419: Lugduni i.e. Geneva? 
+11   ***   3861861: Venetij 
+11   ***   1413662: Gheprint tot Lions 
+11   ***   7488462: Impresse Agrippine 
+11   ***   3250574: Coloniae Aprippinae 
+11   ***   4376822: Cvriae Regnitianae 
+11   ***   369720: Lutetiæ 
+11   ***   7709798: Francofurti ad Maenum 
+11   ***   107921: Brescia, Italy 
+11   ***   7710101: Franc. Frankfurt a.M. 
+11   ***   585985: Ticini 
+11   ***   2992491: Osnabrugi 
+11   ***   4566658: Venalis prostat Parisiis 
+11   ***   7489547: Atrebatii 
+11   ***   1749510: Impressum Venetiis 
+11   ***   5092908: Cremonae 
+11   ***   91040: Lutetiae Parisiorum 
+11   ***   2997073: Impressi Venetiis 
+11   ***   7715948: Mutinae Modena 
+11   ***   1424974: À Rouen 
+11   ***   2160032: Parisius 
+11   ***   115168: Lyons 
+11   ***   368727: Louanij 
+11   ***   762138: Stuttgard 
+11   ***   3383623: Francofordiae 
+11   ***   1338057: Basil 
+11   ***   1165512: Nuremberg, Germany 
+11   ***   1156163: Francoforti 
+11   ***   2990694: Maceratae 
+11   ***   4607263: None 
+11   ***   7721544: Excudebatur Lugduni 
+11   ***   1694377: Antverpae 
+11   ***   7725702: Casali Montisferrati 
+11   ***   1960225: Aurelianae Allobrogum Geneva 
+11   ***   894692: Parisii 
+11   ***   3272258: Impressum Venetijs ... 
+11   ***   651250: Parisija 
+11   ***   3275377: Impressum Auenione 
+11   ***   392116: In Vinegia 
+11   ***   213858: Venetijs 
+11   ***   2752992: Francof. ad Moenum 
+11   ***   1442823: Avrelianis i.e. Orléans 
+11   ***   5637269: Gedruckt zu Cölln 
+11   ***   4041620: Trino 
+11   ***   2431093: Lugd'. i.e. Lugduni 
+11   ***   2755199: Exeter New-Hampshire 
+11   ***   5641035: In Velletri 
+11   ***   1972251: None 
+11   ***   662254: Augustae Taurinorum 
+11   ***   4594801: None 
+11   ***   5119676: In Carmagnola 
+11   ***   3522435: Wezlariae 
+11   ***   3955517: In augusta Perusia 
+11   ***   121409: Taurini 
+11   ***   23771: Lvgdvni 
+11   ***   1195252: In Modana 
+11   ***   1195266: Genevæ? 
+11   ***   7486846: In Venzia 
+11   ***   7487234: Venundatur Parisiis 
+11   ***   1148409: Hanoviae Hanau 
+11   ***   8011825: Enveres 
+11   ***   1197722: Ticini Pavia 
+11   ***   6965708: Methymnae a Campo 
+11   ***   7490967: Venitiis 
+11   ***   1199767: Colonia 
+11   ***   1248844: Lugduni Batauorum 
+11   ***   7468432: Vlmae 
+11   ***   5397454: Leovardiae Leeuwarden 
+11   ***   4349610: Recusa Lipsiae 
+11   ***   943295: Impressum in oppido Tridini ... 
+11   ***   3043476: Impressum Florentiae 
+11   ***   1994931: Mannhemii 
+11   ***   948232: Augustae Taurinorum Turin 
+11   ***   3570132: Lugd'. 
+11   ***   4007687: Stampato in ... Venetia 
+11   ***   2724324: Impressum Papie 
+11   ***   6972059: A Limoges 
+11   ***   164415: Parisijs 
+11   ***   2598097: Viennae Pannoniae 
+11   ***   625345: Colophon: Venetiis 
+11   ***   6461108: Nouariae 
+11   ***   694882: Coloniae Allobrogum 
+11   ***   695323: Glasguae 
+11   ***   1744778: Stampata in Venetia 
+11   ***   4629933: Impressus in oppido Tridini ... 
+11   ***   1746940: Franc. i.e. Frankfurt 
+11   ***   1746943: Excussus est & emendatus Argentinę 
+11   ***   990286: Birminghamiae 
+11   ***   2010958: Apud Marpurgum 
+11   ***   5419690: Meuaniae 
+11   ***   179273: Mexico? 
+11   ***   7501010: Juxta exemplar Parisiis antehac excusum 
+11   ***   1752528: Impressum Lugduni 
+11   ***   4704915: None 
+11   ***   6211502: Apud inclytam Parisiorum Lutetiam 
+11   ***   7588935: Roterdami 
+11   ***   445610: Coloniae 
+11   ***   969938: Basilea 
+11   ***   5951651: Lipsiae et Halae 
+11   ***   1759376: Mutinae 
+11   ***   3073188: Neapolis 
+11   ***   5695381: Tarracone 
+11   ***   2287922: In Monasterio S. Galli 
+11   ***   9366042: À Paris ... 
+11   ***   1764599: Breszlau 
+11   ***   5436015: Lugdun. Batavor. 
+11   ***   3863556: A Geneue 
+11   ***   5961510: In inclyta vrbe Lugd'. Lyon 
+11   ***   7536148: Strasbourg, France? 
+11   ***   3080220: Vlyssipone 
+11   ***   426003: Milan? 
+11   ***   5702092: Colonie Agripine 
+11   ***   950661: Enprynted at London ... 
+11   ***   8066105: None 
+11   ***   2037516: Biponti 
+11   ***   4135525: Patauijs 
+11   ***   6233126: Biturigibus 
+11   ***   466036: VVitebergae 
+11   ***   730711: Coloniae Agrippinae 
+11   ***   207521: Zu Cöln 
+11   ***   7547572: Novariae 
+11   ***   207630: U' Mlezieh 
+11   ***   4402073: Coloniae, & veneunt Lugduni 
+11   ***   5450727: In Pesaro 
+11   ***   1257575: Venetis 
+11   ***   1257581: Francforti 
+11   ***   5715225: Atrebat. 
+11   ***   7553614: Louvanij 
+11   ***   7725389: Excu. Lugduni 
+11   ***   215746: Pictavis Poitiers 
+11   ***   215747: Francofurti 
+11   ***   7157745: Worms, Germany 
+11   ***   1128706: Spirae 
+11   ***   219521: Heidelbergæ 
+11   ***   6773871: Venetijs impressum 
+11   ***   6511887: Veneunt Ludduni i.e. Lugduni 
+11   ***   3367012: In Correggio 
+11   ***   221692: Lyon, France 
+11   ***   6252943: Venundantur Lugd. ... 
+11   ***   3525250: Lovanij 
+11   ***   224204: Neapoli 
+11   ***   226875: Basileæ 
+11   ***   2062013: Apvd Coloniam 
+11   ***   7567249: Monspelij 
+11   ***   1753376: Excusit Parisijs 
+11   ***   434473: Impressum Mediolani 
+11   ***   751947: Frankfurt (Oder) 
+11   ***   753109: Lugdunni 
+11   ***   7047736: Lugduni impressa 
+11   ***   757257: In vrbe Maguntina 
+11   ***   7573164: A Limoge 
+11   ***   758612: Ilerdae Lérida 
+11   ***   3915646: Lugd. 
+11   ***   7051565: Darmbstadij 
+11   ***   7051618: Zu Franckfort 
+11   ***   2530570: Florentinae 
+11   ***   3120180: Genuae 
+11   ***   214323: Basel, Switzerland 
+11   ***   214668: Venundantur Lugduni 
+11   ***   7580041: On se uend au Palais à Paris 
+11   ***   4699689: In Monte Regali 
+11   ***   7583429: Lugd. Batav. et Amstelod. 
+11   ***   4176174: Constantiæ 
+11   ***   1745206: Imprime nouuellement a Lyon 
+11   ***   3916535: Lugd- Bat. 
+11   ***   4703000: Venundantur Lugduni ... 
+11   ***   3916779: Luguduni 
+11   ***   1395590: Lugduni, 
+11   ***   1034880: Herbornæ Nassaviae 
+11   ***   7487633: Gedruckt und geendet in der loblichen Stadt Mentz 
+11   ***   7589550: Marpurg 
+11   ***   784378: Vitebergae 
+11   ***   7454263: Tenuchtitlan Mexico 
+11   ***   7532853: Aurelianae Orléans 
+11   ***   4711761: Hoc opus fuit impressum Ast 
+11   ***   5682428: None 
+11   ***   5027806: Gheprent Thantwerpen 
+11   ***   782878: Geneva, Switzerland? 
+11   ***   7076514: Panhormi 
+11   ***   6553299: Spirae Nemetum Speyer, Germany 
+549   ***   4991875: Sigenae Nassoviorum 
+549   ***   5592379: Herbornae Nassoviorum 

@@ -1,0 +1,136 @@
+40   ***   36965333: Gottfried Daniel Hoffmann 
+40   ***   31985309: Paul Aler 
+40   ***   37490568: Alessandro Trentacinque 
+40   ***   34344967: Johann Simon Seyfried 
+40   ***   37490960: None 
+40   ***   33299611: Otto Philipp Zaunschliffer 
+40   ***   31328543: Freiherr von, Johann Balthasar Wernher 
+40   ***   30427994: None 
+40   ***   33578634: Andreas Beyer 
+40   ***   33579239: Martin Geier 
+40   ***   30696602: David Mevius 
+40   ***   31749503: Hartmann Schopper 
+40   ***   30444397: of Anazarbos Dioscorides Pedanius 
+40   ***   31758082: Wilhelm Schickard 
+40   ***   33320035: Johann Hermann 
+40   ***   35691006: August Beyer 
+40   ***   37528382: None 
+40   ***   37531055: Martin Gotthelf Löscher 
+40   ***   34479364: Onofrio Panvinio 
+40   ***   33867789: None 
+40   ***   31765882: Georg Heinrich Eisenmann 
+40   ***   33864578: Sebastian Meichsner 
+40   ***   33604940: Holy Roman Empire. Emperor (1355-1378 : Charles IV) 
+40   ***   35703345: Adam Adami 
+40   ***   30198562: Martin Bucer 
+40   ***   34656711: H P Stambke 
+40   ***   30501096: Pierio Valeriano 
+40   ***   32733593: Jeremias Jacob Oberlin 
+40   ***   30203020: Vibius Sequester 
+40   ***   37365010: Wolfgang Adam Schoepf 
+40   ***   35447207: Johannes Jacobus Wissenbach 
+40   ***   33433691: Joseph Leopold Roth 
+40   ***   33096433: None 
+40   ***   31162590: Petrus Camper 
+40   ***   37553613: Georg Rittershausen 
+40   ***   31031843: Johann Klefeker 
+40   ***   30216428: Holy Roman Empire. Hofgericht (Rottweil, Germany) 
+40   ***   34152398: None 
+40   ***   37561334: Anselmo Maria Banduri 
+40   ***   33894578: Frederik Adolf van der Marck 
+40   ***   32999471: None 
+40   ***   32846748: Christoph Sturtz 
+40   ***   35208222: Johann Wilhelm Itter 
+40   ***   30466037: Philipp Marbach 
+40   ***   33904602: Andreas Christoph Schneyder 
+40   ***   30235979: Hans Ernst von Globig 
+40   ***   30423645: Johann Weyer 
+40   ***   35218303: Georgius Acacius Ennenckel 
+40   ***   35743139: Paolo Fusco 
+40   ***   33909477: Johann Georg Fleck 
+40   ***   33867339: Johann Helias Meichsner 
+40   ***   33130999: Burckhard Bardili 
+40   ***   33393754: Johann Otto Tabor 
+40   ***   36801823: Johann Georg Gödelmann 
+40   ***   37588923: Rudolph Augustin Vogel 
+40   ***   33659037: Laurentius Kirchhoff 
+40   ***   34446086: None 
+40   ***   33135959: Johann Gottlieb Breyer 
+40   ***   33135960: Christian Friedrich Georg Meister 
+40   ***   30208094: Antonio de Guevara 
+40   ***   30120837: Ramon Llull 
+40   ***   30517789: Johann Friedrich Weidler 
+40   ***   35498570: Johann Gottfried Herrichen 
+40   ***   33923014: Christian Brünings 
+40   ***   32621057: Georg Witzel 
+40   ***   35408731: Johann Wilhelm von Berger 
+40   ***   33147341: Abraham Herwart 
+40   ***   37607223: Johann Caspar Eisenschmidt 
+40   ***   34725861: Johann Jacob Herbst 
+40   ***   37610050: Magnus Gartner 
+40   ***   33689528: Simon Schardius 
+40   ***   35777998: Salomon van Til 
+40   ***   33949824: Jacob Blum 
+40   ***   31068989: Jan Křtitel Boháč 
+40   ***   31594708: Paul Wagner 
+40   ***   37624889: von Ursberg, Burchard 
+40   ***   30650908: On the method of forcefulness 
+40   ***   36321254: Konrad Samuel Schurtzfleisch 
+40   ***   31602843: Christoph Besold 
+40   ***   37111294: Johannes Theodorus Rossijn 
+40   ***   30295672: Bartolomé Cartagena 
+40   ***   32393876: Alphabet of Ben Sira. Latin & Hebrew 
+40   ***   30037430: David von der Becke 
+40   ***   30390607: Johann Albrecht Bengel 
+40   ***   30302976: Holy Roman Empire 
+40   ***   33711773: Heinrich Leonhard Schurtzfleisch 
+40   ***   32668010: Wilhelm Ludwell 
+40   ***   33716819: Georg Obrecht 
+40   ***   35290876: Noe Meurer 
+40   ***   35292826: Martin Schurig 
+40   ***   34771538: Johann Gottfried von Berger 
+40   ***   30055675: Benedictus de Spinoza 
+40   ***   33202046: Suffridus Petri 
+40   ***   32679614: Finkenritter 
+40   ***   30585993: Johannes Limnaeus 
+40   ***   33471750: Wolfgang Adam Lauterbach 
+40   ***   34266691: Heinrich von Rosenthall 
+40   ***   32172002: None 
+40   ***   32959872: Konrad Rittershausen 
+40   ***   34797836: jurist Johann Friedrich Fischer 
+40   ***   31708239: Ulrik Huber 
+40   ***   37421357: None 
+40   ***   31659732: Guido Guidi 
+40   ***   31398762: Cuthbert Tunstall 
+40   ***   31137564: Johann Rudolph Sattler 
+40   ***   34546583: Jacob Reinbold Spielmann 
+40   ***   34216066: Johann Adam Thanner 
+40   ***   30094220: Grammaticus, Saxo 
+40   ***   32847195: Friedrich Sylburg 
+40   ***   32958588: Johann Joachim von Rusdorf 
+40   ***   31755497: Otto Brunfels 
+40   ***   30101255: Pope, Pius 
+40   ***   31149860: Balthasar Mentzer 
+40   ***   37444306: Ulrich Thomas Lauterbach 
+40   ***   36662182: Pier Leone Ghezzi 
+40   ***   35615866: None 
+40   ***   33522444: Edler Herr von, Christoph Heinrich Berger 
+40   ***   30377644: Johann Albert Fabricius 
+40   ***   33156471: Johann Schilter 
+40   ***   34051582: Jacob Alting 
+40   ***   33267725: Gottfried Boenigk 
+40   ***   34058044: Joannes Drusius 
+40   ***   30650909: 2nd cent Hermogenes 
+40   ***   37883408: None 
+40   ***   33011928: Wolff Christian, Freiherr von 
+40   ***   32765380: Heinrich Bocerus 
+40   ***   36422307: Carolus Daniel Freyberg 
+40   ***   35636416: None 
+40   ***   30319248: Roberto Lancellotti 
+40   ***   33378180: Johann Georg Estor 
+40   ***   34821606: Georg Otho 
+40   ***   37216137: Pirro Mauro 
+40   ***   36168189: None 
+40   ***   30403216: Kaspar Ziegler 
+40   ***   30014611: Conrad Heresbach 
+40   ***   33551332: Johannes Christian Schütz 
