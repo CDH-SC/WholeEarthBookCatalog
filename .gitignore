@@ -20,3 +20,4 @@ dockerized_webapp/*/node_modules
 dockerized_webapp/app/public/build/
 data
 *__pycache__
+*.pyc
