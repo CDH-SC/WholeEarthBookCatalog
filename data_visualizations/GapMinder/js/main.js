@@ -20,15 +20,8 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")				
     .style("opacity", 0);
 
-//set up select 
-for(var i=1900; i<=1960; i++){
-    var select = document.getElementById("year");
-    var option = document.createElement("OPTION");
-	select.options.add(option);
-	option.text = i;
-	option.value = i;
-}
-
+// these values are taken manually from the data set
+// needs improvement so it can handle a variety of data sets
 var time = 0,
 	lastYear = 1960,
 	firstYear = 1900,
@@ -39,21 +32,34 @@ var time = 0,
 	minAuthors = 1,
 	maxAuthors = 300;
 
+//set up drop down select 
+for(var i=firstYear; i<=lastYear; i++){
+    var select = document.getElementById("year");
+    var option = document.createElement("OPTION");
+	select.options.add(option);
+	option
+	    .text = i
+	    .value = i;
+}
 
-// Scales
+// sets up scales
 var x = d3.scaleLog()
     .base(10)
     .range([0, width])
     .domain([minAuthors, maxAuthors]);
-    //console.log(x)
 var y = d3.scaleLinear()
     .range([height, 0])
     .domain([minPublishers, maxPublishers]);
 var area = d3.scaleLinear()
     .range([25*Math.PI, 1000*Math.PI])
     .domain([minEditions, maxEditions]);
-    //console.log(area)
-var continentColor = d3.scaleOrdinal(d3.schemeSet1);
+
+// set up continent colors
+var continents = ["Americas", "Asia", "Europe", "Africa", "Australia"];
+var colors = ['#FB1AB3', '#FE8401', '#FED901', '#BA0BFE', '#0B5FFE'];
+var continentColor = d3.scaleOrdinal()
+    .domain(continents)
+    .range(colors);
 
 // Labels
 var xLabel = g.append("text")
@@ -77,7 +83,6 @@ var timeLabel = g.append("text")
     .attr("opacity", "0.4")
     .attr("text-anchor", "middle")
     .text(firstYear);
-
 // X Axis
 var xAxisCall = d3.axisBottom(x)
     .ticks(4, "s");
@@ -93,15 +98,16 @@ g.append("g")
     .attr("class", "axisWhite")
     .call(yAxisCall);
 
-//console.log("before data");
+// read data from file
 d3.json("data/data.json").then(function(data){
-	//console.log("data gottt");
-	//clean data
+	// clean data, improve by cleaning saved data
 	const formattedData = data.map(function(year) {
 	  return year["countries"].filter(function(country){
+	    // returns only data that has values for every section (no empty values)
 	    var dataExists = (country.editions && country.authors && country.publishers);
 	    return dataExists;
 	  }).map(function(country){
+            // change var type to a number
 	    country.editions = +country.editions;
 	    country.authors = +country.authors;
 	    country.publishers = +country.publishers;
@@ -110,44 +116,14 @@ d3.json("data/data.json").then(function(data){
 	});
 
 	formattedData[0].forEach(function(d) { return data.country; });
+        // draw data for first year
+	update(formattedData[0], 0);	
 
-	var circles = g.selectAll("circle").data(formattedData[0],function(d){
-	  	return d.country;        
-	});
-
-	circles.enter()
-		.append("circle")
-		.attr("class", "enter")
-		.attr("fill", function(d) {
-		  return continentColor(d.continent);})
-		.merge(circles)
-		.attr("cy", function(d) { return y(d.publishers); })
-		.attr("cx", function(d) { return x(d.authors); })
-		.attr("r", function(d) {
-		  return Math.sqrt(area(d.editions) / (Math.PI)); })
-		.on("mouseover", function(d) {	
-			console.log("mouseover");	
-            		div.transition()		
-                		.duration(200)		
-                		.style("opacity", .9);		
-	                 div .html(d.continent + "<br/>"  + d.country +
-					"<br/>Editions: " + d.editions + 
-					"<br/>Authors: " + d.authors + 
-					"<br/>Publishers: " + d.publishers)	
-                		.style("left", (d3.event.pageX) + "px")		
-                		.style("top", (d3.event.pageY - 28) + "px");})
-        	.on("mouseout", function(d) {		
-            		div.transition()		
-                		.duration(500)		
-                		.style("opacity", 0);	
-        	});
-		
-
-	//set speed for update
+	// set speed for update
 	var slider = document.getElementById("myRange");
         var startButton = document.getElementById("startButton");
 
-	var interval = 100;
+	var interval = 100; 
 	var timeInterval = 1;
 
        	startButton.onclick = function(){
@@ -161,10 +137,12 @@ d3.json("data/data.json").then(function(data){
 			    	time++;
 				}else{clearInterval(setInt);}
 			}, interval);
-                        interval = (101 - slider.value);
+                        interval = (interval+1 - slider.value);
 			update(formattedData[0], time*timeInterval);
 			return;
         	}
+	// draw drop down
+
         var dropDown = document.getElementById("year");
         
 	dropDown.onclick = function(){
@@ -177,11 +155,11 @@ d3.json("data/data.json").then(function(data){
 });
 
 function update(fData, time){
-	//update data assigned to circles
+	// update data assigned to circles
 	circles = g.selectAll("circle").data(fData, function(d){
 		return d.country;
 	});
-	//redraw circles
+	// draw circles
 	circles.enter()
 		.append("circle")
 		.attr("class", "enter")
@@ -193,7 +171,8 @@ function update(fData, time){
 		.attr("r", function(d) { 
 		  	return Math.sqrt(area(d.editions) / Math.PI)
 		})
-		.on("mouseover", function(d) {	
+		// tooltip that shows values for each circle when hovered apon
+		.on("mouseover", function(d) {
             		div.transition()		
                 		.duration(200)		
                 		.style("opacity", .9);		
@@ -202,15 +181,17 @@ function update(fData, time){
 					"<br/>Authors: " + d.authors + 
 					"<br/>Publishers: " + d.publishers)
                 		.style("left", (d3.event.pageX) + "px")		
-                		.style("top", (d3.event.pageY - 28) + "px");})
+                		.style("top", (d3.event.pageY - 28) + "px");}) //IMPROVE, loose number
         	.on("mouseout", function(d) {		
             		div.transition()		
                 		.duration(500)		
                 		.style("opacity", 0);
 		});
-	//update time label
+	// update time label
 	d3.select("#tLabel")
 		.text(firstYear + time);
+
+
 	return;
 		
 }
