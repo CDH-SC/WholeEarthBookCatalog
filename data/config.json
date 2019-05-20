@@ -1,0 +1,10 @@
+{ 
+    "field_names": ["ISBN","Title"],
+    "field_definitions": {"ISBN": {"type": "String"},
+			  "Title": {"type": "String"}},
+    "output_file": "edition_dedupe_test.csv",
+    "skip_training": false,
+    "training_file": "training.json",
+    "sample_size": 150000,
+    "recal_weight": 2
+}
