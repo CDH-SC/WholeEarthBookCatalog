@@ -2,6 +2,7 @@ import snap
 import csv
 from collections import defaultdict
 
+# loadNodes: loads all nodes into dictionary for access in const time in the next step
 def loadNodes(nodes, nodefile):
   with open(nodefile,'rb') as nodefile:
     fileReader = csv.reader(nodefile, delimiter='\t')
@@ -13,7 +14,7 @@ def loadNodes(nodes, nodefile):
         nodes.update({key:value})
 #        g.AddNode(key)
 
-# This loads the graph in from the saved import that was conducted in dhc_dataimp.py
+# This loads a graph or subgraph in 
 filename = "graph/15to1700s_graph"
 nodefile = "../../../json/data/combined/combined_batch.tsv"
 rankfile = "15to1700ranks.txt"
@@ -23,12 +24,14 @@ FIn = snap.TFIn(filename)
 g = snap.TNGraph.Load(FIn)
 g = snap.ConvertGraph(snap.PUNGraph, g)
 
+# conduct community analysis on a subgraph created previously 
 CmtyV = snap.TCnComV()
 modularity = snap.CommunityCNM(g, CmtyV)
 cnt = 0
 size = 0
 commSize = defaultdict(int)
 
+# print the output, specifically including the size of the community and each node's type (for future filtering)
 for Cmty in CmtyV:
     print "Community: " + str(cnt)
     size = 0
@@ -46,6 +49,7 @@ for Cmty in CmtyV:
             size += 1
     commSize[cnt] = size
     cnt += 1
+# sort communities from largest to smallest and print to rank file
 sort = sorted(commSize, key=commSize.get, reverse=True)
 f = open(rankfile, "w")
 f.write("Ranking by Community Size\n")
