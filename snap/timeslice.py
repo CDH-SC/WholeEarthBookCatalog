@@ -81,6 +81,7 @@ filename = "graph/dhc_graph"
 FIn = snap.TFIn(filename)
 nodefile = "../../../json/data/combined/combined_batch.tsv"
 g = snap.TNGraph.Load(FIn)
+# dictionary of all nodes created 
 nodes = { }
 loadNodes(nodes, nodefile)
 nodeout = "nodeout_15to17.txt"
