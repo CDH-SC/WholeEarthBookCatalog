@@ -3,6 +3,10 @@ import os, sys
 import csv
 from collections import defaultdict
 
+# this code works using the output from community.py 
+# basically takes in file with all communities for a particular subgraph, 
+# file with the rankings of each community by size, the ids of the nodes that one aims
+# to learn about, and a prefix that will aid in file naming 
 def relatedNodes(comfile, rankfile, ids, prefix):
     communities = []
     places = [] 
@@ -27,6 +31,8 @@ def relatedNodes(comfile, rankfile, ids, prefix):
             else:
                 comFlag = False
         elif comFlag: 
+            # categorizes all lines with a node into preson, place, or publisher
+            # and adds to the appropriate list
             split = line.split("(")
             lineType = split[len(split)-1]
             if lineType == "Person)":
@@ -38,7 +44,7 @@ def relatedNodes(comfile, rankfile, ids, prefix):
             elif lineType == "Publisher)":
                 elem = (line, curr)
                 pubs.append(elem)
-
+    # print rank ordered list of communities that the IDs in question are part of 
     rankfile = open(rankfile).read().splitlines()
     for line in rankfile:
         currCom = int(line.split(": ")[0])
@@ -57,7 +63,10 @@ def printOutput(communities, people, places, pubs, ranks, prefix):
     #printHelp(pubs, prefix+"upubs.txt", "(Publisher)", 1)
     printHelp(ranks, prefix+"ranks.txt", " ", 2) 
 
-
+# printing (0, 1, or 2 specifies a type)
+# 0 for printing people/places/publishers
+# 1 for removing duplicates in printing
+# 2 for the printing of ranks 
 def printHelp(listo, filename, splitter, opt):
     if opt == 0:
         f = open(filename, "w")
