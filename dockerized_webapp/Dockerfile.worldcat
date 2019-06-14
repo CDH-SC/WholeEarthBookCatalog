@@ -1,9 +1,0 @@
-FROM node:boron
-
-WORKDIR /usr/src/app
-COPY ./utils ./utils
-COPY ./worldcat_data_acquisition/ ./
-RUN npm install
-
-ENTRYPOINT ["npm"]
-CMD ["start"]
