@@ -1,0 +1,2638 @@
+0	Hamburg	Place
+2	Firenze	Place
+3	Paris	Place
+4	Bari	Place
+5	München	Place
+6	Roma	Place
+1	Dresden	Place
+10	Haarlem	Place
+11	Breslau	Place
+12	's-Gravenhage	Place
+13	Amsterdam	Place
+15	Naarden	Place
+16	Milano	Place
+17	Padova	Place
+18	Antwerpen	Place
+19	Reichenberg	Place
+22	Bochum	Place
+26	Giessen	Place
+27	Berlin etc	Place
+28	Nürnberg	Place
+29	Karlsbad	Place
+30	Liège	Place
+32	Berlin-Friedenau	Place
+33	Mühlhausen i. Thür.	Place
+34	Gütersloh	Place
+35	Brussel	Place
+39	Stuttgart	Place
+21852	Fort Monroe, Va.	Place
+42	B.-Leipa	Place
+7	Berlin	Place
+47	Bayreuth	Place
+48	Jena	Place
+51	Voorhout	Place
+59	Ludwigshafen a. Rhein	Place
+63	Napoli	Place
+66	Bremen	Place
+68	Salzburg	Place
+73	Nijmegen	Place
+79	Groningen	Place
+80	Kortrijk	Place
+86	Amsterdam-C.	Place
+91	Le Puy-en-Velay	Place
+95	Antwerpen etc	Place
+98	Rom	Place
+103	Lochem	Place
+105	Bielefeld und Leipzig	Place
+106	Karlsbad und Leipzig	Place
+108	Torino	Place
+121	Nice	Place
+126	Hoogstraten	Place
+127	Montrouge (Seine)	Place
+129	Wien	Place
+133	Graz	Place
+134	Arnhem	Place
+135	Lons-le-Saunier	Place
+141	Ebenhausen bei München	Place
+142	Gent-Ledeberg	Place
+150	København	Place
+162	Romae	Place
+164	Torino etc	Place
+172	Nijkerk	Place
+186	Brescia	Place
+191	Toulouse	Place
+208	Bologna	Place
+211	Paris etc	Place
+216	Grenoble	Place
+220	Wormerveer	Place
+222	Den Haag	Place
+234	Alba	Place
+239	Amplepuis-Rhône, Lyon	Place
+243	Bruxelles	Place
+252	Würzburg	Place
+261	Diksmuide	Place
+262	Oldenburg (Oldb)	Place
+264	Heidelberg etc	Place
+266	Turnhout	Place
+270	Brugge	Place
+275	Weimar	Place
+276	Halle (Saale)	Place
+282	Lausanne	Place
+285	Wassenaar	Place
+286	Lyon	Place
+292	Zeist	Place
+293	Gent	Place
+49	Leiden	Place
+296	Königsberg (Pr.)	Place
+305	Rathenow	Place
+306	Kempen-Niederrhein	Place
+314	Diest	Place
+54	Utrecht	Place
+327	Potsdam	Place
+55	Göttingen	Place
+332	Assen	Place
+335	Wien etc	Place
+339	Brugge (België)	Place
+344	Innsbruck	Place
+348	Mühlacker	Place
+350	Roermond-Maaseik	Place
+371	Bussum	Place
+378	Nijkerk, Holland	Place
+418	Amsterdam etc	Place
+419	Stuttgart-O.	Place
+420	Köln	Place
+436	's-Gravenhage, Batavia	Place
+441	Schwerin (Meckl.)	Place
+442	Halle	Place
+454	Frankfurt am Main	Place
+483	Bergamo	Place
+485	Groningen, Batavia	Place
+489	Dordrecht	Place
+498	Prag etc	Place
+499	Almelo	Place
+513	Rotterdam	Place
+515	Nymwegen etc	Place
+525	Asti	Place
+527	Lier	Place
+529	Amsterdam?	Place
+530	London	Place
+533	Greifswald	Place
+539	Belgrad	Place
+555	Udine	Place
+574	Messina	Place
+576	Deinze	Place
+584	Novara	Place
+591	Tübingen	Place
+604	Venezia	Place
+609	Grenoble, Paris	Place
+615	Tilsit	Place
+623	Milano-Roma	Place
+642	Stuttgart-Berlin	Place
+654	Paris et Liége	Place
+665	Bonn	Place
+670	Prag	Place
+672	Rome	Place
+675	Zürich-Zollikon	Place
+687	Oldenzaal,bDrukkerij Twentsche courant	Place
+23	Leipzig	Place
+697	Aalten	Place
+703	Zwolle	Place
+711	Delft	Place
+717	Antwerpen etc.	Place
+728	Alphen aan den Rijn	Place
+729	Tilburg	Place
+745	Enschede	Place
+752	Bâle	Place
+756	Nordhausen	Place
+760	's-Gravenhage etc	Place
+783	Genf	Place
+813	Wittenberg	Place
+842	München und Berlin	Place
+843	Aurillac (Cantal)	Place
+864	Deventer	Place
+923	Tielt	Place
+940	Oldenburg i.O./Berlin	Place
+994	Berlin und Wien	Place
+997	München über Vetschau-Spreewald	Place
+1014	Landsbert (Warthe)	Place
+1049	Baarn	Place
+1059	Berlin-Wilmersdorf	Place
+1110	Chemnitz	Place
+198	Franeker	Place
+1264	Deerlijk België	Place
+1271	Kapellen-Antwerpen	Place
+1335	Monaco	Place
+1350	Wolfenbüttel	Place
+1351	Öhringen	Place
+1373	Berlin-Zehlendorf	Place
+1374	Torina etc	Place
+1375	Dokkum	Place
+1454	Hannover	Place
+1502	Klagenfurt	Place
+1524	Rouen	Place
+1534	Givors	Place
+1578	Heilbronn	Place
+1705	Leipzig etc	Place
+1776	Helmond	Place
+1825	Annecy	Place
+1846	St. Anna Parochie	Place
+1892	Pisa, Roma	Place
+1961	Karlsruhe i.B.	Place
+1981	Luxemburg	Place
+2055	Murnau and	Place
+90795	Chicago, Illinois	Place
+2135	München-Solln	Place
+2146	Munchen	Place
+2150	Sliedrecht	Place
+2153	München/Berlin	Place
+2167	Paris, La Colombe	Place
+2185	Karlsbad/Leipzig	Place
+2215	Melsungen	Place
+2223	Halle-Saale	Place
+2246	Halle a. S	Place
+2309	Bamberg	Place
+2371	Louvain	Place
+2422	Laren	Place
+2437	Seebruck am Chiemsee	Place
+2495	Hilversum	Place
+2615	Utrecht, etc.	Place
+2683	's-Gravehage	Place
+2720	Freiburg im Breisgau	Place
+2722	's Gravenhage	Place
+2724	Helsingfors	Place
+2733	Dresden und Leipzig	Place
+2735	Braunschweig	Place
+2742	Santpoort	Place
+2754	Milano-Messina	Place
+2769	Avranches	Place
+2781	Berlijn	Place
+2786	Aarau	Place
+465	Trani	Place
+2798	Philippsburg (Baden)	Place
+2808	Zollikon	Place
+2823	Winterthur	Place
+2828	Reichenberg, Sud.	Place
+2839	Terneuzen	Place
+2853	Genève	Place
+477	Groningen, Holland	Place
+2879	Orléans	Place
+2888	Eisenach	Place
+2907	Stuttgart-Bad Cannstatt	Place
+2914	Karlsruhe	Place
+2926	Sansoni	Place
+2939	Tournai	Place
+2944	Berlin-Grunewald	Place
+2956	Utrecht etc	Place
+2975	Meiringen	Place
+2987	Rendsburg	Place
+2996	Reichenberg/Sud.	Place
+2998	Oldenburg i O.	Place
+3006	Mouans-Sartoux	Place
+3013	Leége	Place
+3021	Villefranche-de-Rouergue	Place
+3060	Oldenburg (Oldb.)	Place
+510	Nijmegen etc	Place
+22356	Strasbourg	Place
+3082	Frankfurt a. M.	Place
+3089	St. Pölten	Place
+3092	Oldenberg i. O.	Place
+3111	Paris?	Place
+3119	Warszawa	Place
+3123	Langensalza	Place
+3138	Thuillies	Place
+3165	Posen	Place
+3178	Augsburg	Place
+3186	Würzburg-Aumühler	Place
+3196	Vienna	Place
+3198	Bienne	Place
+3224	Karlsruh-Durlach	Place
+3236	Magdeburg	Place
+3239	Eichwalde	Place
+3242	s-Gravenhage	Place
+541	Pisa	Place
+3259	Krakau	Place
+3263	Westheim bei Augsburg	Place
+3279	Wismar	Place
+3316	Woking Eng	Place
+3320	Starnberg am See	Place
+3324	Haag (Amper)	Place
+3348	Amsterdam-Z.	Place
+3354	Ulm-Donau	Place
+3359	Haarlem, Netherlands	Place
+3397	Berlin-Steglitz	Place
+3419	Lorch-Württ.	Place
+3467	Dortmund	Place
+3479	Minden (Westf.)	Place
+3483	Pesaro	Place
+3511	Coburg	Place
+3523	Nancy	Place
+3535	Bergen, Obb., Ger	Place
+3546	Berlinn	Place
+3548	Burg b.M.	Place
+3556	Berlin-Schöneberg	Place
+3558	Konstanz i. Baden	Place
+3614	Breslau?	Place
+3623	Frauenfeld	Place
+3661	Erlangen	Place
+3674	Averbode	Place
+3698	Altötting	Place
+3720	De Bilt	Place
+3723	Clermont	Place
+22469	Munster	Place
+3744	Bad Pyrmont	Place
+3746	Wiesentheid	Place
+3749	Beringen	Place
+3762	Lippstadt	Place
+3788	Münster (Westf.)	Place
+3790	Frankfurt a.M.	Place
+3806	Dresden Germany	Place
+3817	Montpellier	Place
+3823	Essen-Stelle (Ruhr)	Place
+3843	Neustadt	Place
+3865	Mainz	Place
+3883	Iserlohn	Place
+3894	München, J. F. Lehmann	Place
+3917	Offen/Baden	Place
+3933	Eindhoven	Place
+3963	Bruselles	Place
+3970	Gotha	Place
+3992	n.p	Place
+3998	Kreuztal	Place
+4023	Brussum	Place
+4040	Oude-God-Antwerpen	Place
+4061	Haag a.d. Amper	Place
+4063	Celle	Place
+4064	Warendorf	Place
+4067	's-Gravanhage	Place
+4108	Nymwegen	Place
+4113	Ludwigshafen a.Rh.	Place
+4114	Berlin, GERMANY	Place
+4117	Borgerhout-Antwerpen	Place
+4118	n. p.	Place
+4119	Lille	Place
+4134	Dessau	Place
+4150	Heidelberg-Handschuhsheim	Place
+4157	Wädenswil	Place
+4158	Turbenthal	Place
+4190	Wuppertal	Place
+4218	Reutingen	Place
+4219	München-Pasing	Place
+4226	Krefeld	Place
+4233	Kempen, Niederrhein	Place
+4243	Königsberg, Pr.	Place
+4259	Planegg	Place
+4262	Strassburg	Place
+4267	Den Dolder	Place
+4271	Gembloux	Place
+4274	Kreuztal, Westf.	Place
+4276	Essen-Steele (Ruhr)	Place
+4288	Aubier	Place
+4296	Posen, Germany	Place
+4315	Kassel	Place
+4320	Berlin-Schildow	Place
+4331	Oldenburg i. O.	Place
+4410	Görlitz	Place
+4417	Hameln	Place
+22582	Constantinople	Place
+4452	Ebenhausen	Place
+4453	Warendorf, Westf.	Place
+44433	al-Qāhirah	Place
+4456	Münster in Westfalen	Place
+4461	Moskau	Place
+4463	Mühlhausen i Thür.	Place
+4472	Planegg vor München	Place
+4546	Neudamm	Place
+44452	Ankara	Place
+44456	Istanbul	Place
+4600	Reinbek bei Hamburg	Place
+4628	Harzburg	Place
+772	Halle a.S.	Place
+4641	Weinfelden	Place
+4642	Aachen	Place
+4645	Muenchen	Place
+44465	Dimashq	Place
+44466	Baghdād	Place
+4661	Oude God	Place
+44471	Bayrūt	Place
+4685	Brüssel	Place
+4695	Weissenburg i. Bay.	Place
+4711	Deurne	Place
+44478	İzmir	Place
+4744	N.p.	Place
+4750	Kolmar im Elsass	Place
+4767	Merchtem	Place
+4769	Vorst	Place
+4783	Oostakker	Place
+799	Leuven	Place
+160	Le Puy	Place
+4836	Heerlen	Place
+4840	Steenbrugge	Place
+4843	Königsberg	Place
+4844	Fulda	Place
+4847	Berlin?	Place
+4850	Linz	Place
+4880	Rijswijk (Z.-H.)	Place
+4884	Solothurn	Place
+817	Heidelberg	Place
+4906	Rudolstadt	Place
+4922	Frankfurt-M.	Place
+825	Böhmisch-Leipa	Place
+4957	Borna-Leipzig	Place
+4965	Città di Castello	Place
+4972	Mannheim	Place
+4977	Meitingen	Place
+830	Groningen-Batavia	Place
+4990	Liebenwerda	Place
+4991	Ulm	Place
+834	Zürich und Leipzig	Place
+5031	Philippsburg, Baden	Place
+840	Berlin-Dahlem	Place
+5044	Leipzig?	Place
+5064	Boom	Place
+5065	Drachten	Place
+5073	Herrsching	Place
+5144	St Andries	Place
+858	Liége	Place
+5155	Müchen	Place
+5157	Wedel i. Holst.	Place
+5170	Dendermonde	Place
+5187	Zürich-Leipzig	Place
+5196	Barendrecht?	Place
+5209	s'Gravenhage	Place
+5217	Snits, Brandenburgh	Place
+5225	Molenbeek-Brussel	Place
+5234	St. Truiden	Place
+5248	Murnau	Place
+5263	Offenburg	Place
+5270	Gummersbach, Rheinland	Place
+5278	Mühlhausen	Place
+5285	Bad Wörishofen	Place
+5295	Damme	Place
+5307	Pressburg	Place
+5310	Esslingen a. N.	Place
+5318	Lorch/Württ.	Place
+44579	Miṣr al-Jadīdah	Place
+5351	Tongeren	Place
+5391	Paris, Éditions du Temps présent	Place
+899	Marseille	Place
+901	Zürich	Place
+5409	Erlenbach	Place
+5410	Olten, Switzerland	Place
+5418	Damas	Place
+5450	Basel, E. Birkhäuser	Place
+5455	St. Niklaas	Place
+5495	Stuttgart-N.	Place
+5510	Ausburg	Place
+5514	Horn, N.-Ö.	Place
+922	Tournai-Paris	Place
+5564	Wein	Place
+5591	Frankfurt/Main	Place
+5593	Montréal	Place
+52411	Pondicherry	Place
+5601	Bayeux	Place
+5613	Langemark	Place
+5634	Osterwieck/Harz	Place
+5636	Querfurt	Place
+5637	Horn	Place
+5673	Ninove	Place
+947	Alger	Place
+5688	Berlin, F	Place
+5696	Offenbach/M	Place
+5728	Kirchhain	Place
+5741	Freiburg i. Br.	Place
+957	Ravensburg	Place
+5751	Dietmannsried/Allgäu	Place
+961	Bern	Place
+962	Groningue, Batavia	Place
+5780	Mantes	Place
+5786	Flensburg	Place
+5801	Tübingen und Stuttgart	Place
+5822	Stutgart	Place
+5837	Mulhouse-Dornach	Place
+5838	Wolfsberg i.K.	Place
+5868	Bühl-Baden	Place
+5870	Lorch/Württ	Place
+5889	Metz	Place
+5913	Rostock	Place
+5932	Wolfratshausen bei München	Place
+5939	Wels	Place
+5942	Westheim	Place
+5947	Bad Kissingen	Place
+993	Berlin - Lichterfelde	Place
+996	Wetteren	Place
+999	Antwerpen-Brussel	Place
+6000	Pernambuco	Place
+6016	Seestadt Wismar	Place
+6029	Bukarest	Place
+6051	Offenbach-Main	Place
+1009	Bruges	Place
+6065	Konstanz	Place
+6069	Padova Italy	Place
+6078	Boxtel	Place
+6143	Wolfsberg	Place
+6155	Oldenburg i.O.	Place
+6160	Munich	Place
+1030	Berlin-Wien	Place
+44722	al-Iskandarīyah	Place
+44726	#	Place
+6226	Namur	Place
+22885	Edinburg	Place
+1041	Poitiers	Place
+6279	Aschaffenburg	Place
+6291	Budapest	Place
+6294	Neustadt a. d. Haardt	Place
+6330	Neustadt/Haardt	Place
+1055	Berlin-Lichterfelde	Place
+6348	Ueberlingen	Place
+6353	Karlsruhe a. Rh.	Place
+6369	Leuben	Place
+6381	St.-Niklaas	Place
+6407	Frankfurt	Place
+1069	Moulins	Place
+6442	Frankfurt a M.	Place
+6449	Frankfurt (M.)	Place
+22922	Marburg in Hessen	Place
+1077	Kapellen	Place
+22924	Straubing	Place
+1084	Essen	Place
+6518	Lorch	Place
+6524	Uppsala	Place
+6526	Missoula	Place
+6530	Cape Town	Place
+6533	Edinburgh	Place
+6542	New York	Place
+6544	Washington, D.C.	Place
+6553	San José de Costa Rica	Place
+6569	Cambridge, Mass	Place
+6570	Cambridge, Mass.	Place
+6571	Boston	Place
+6572	Albany	Place
+6575	Montreal	Place
+6576	Calcutta and Simla	Place
+6577	Kristiana	Place
+6584	Sydney	Place
+6587	Plieningen	Place
+6595	Batavia	Place
+6596	Washington	Place
+6598	Columbus	Place
+6599	Brooklyn	Place
+6605	Rennes	Place
+6609	Oxford	Place
+6613	Philadelphia	Place
+6619	Salem	Place
+6623	Atlanta, Ga.	Place
+6626	Rennes-Paris	Place
+6636	Calcutta	Place
+6639	New Haven, Conn.	Place
+6640	Meissen	Place
+6643	Königsberg i. Pr.	Place
+6644	Merseburg	Place
+6646	St. Louis, Mo	Place
+6658	Frederick, Md.	Place
+6660	Reading, Pa.	Place
+6661	Adelaide	Place
+6663	Brooklyn, N.Y.	Place
+6665	Shanghai	Place
+6674	Colchester	Place
+6677	Melbourne	Place
+6682	Madison, Wis.	Place
+6687	New-York	Place
+6692	London, New York	Place
+6711	St. Paul	Place
+6712	Santiago de Chile	Place
+6724	Springfield, Mass.	Place
+8953	Batavia-C.	Place
+6737	Milwaukee	Place
+6738	San Francisco	Place
+6748	Chicago	Place
+6752	Cincinnati, O.	Place
+6765	Detroit, Mich.	Place
+6771	Ottawa	Place
+6781	Leipzig und Berlin	Place
+6783	Madrid	Place
+6787	Berolini	Place
+6790	Davenport? Ia	Place
+6794	Rio de Janeiro	Place
+1133	Bruxelles-Paris	Place
+6810	Tallahassee, Fla.	Place
+6812	Königsberg i. Pr	Place
+6815	Trujillo, Peru	Place
+1137	Nijmegen-Utrecht	Place
+6826	St. Louis	Place
+1138	Halle/Saale	Place
+1140	Reutlingen	Place
+6855	Ithaca	Place
+6858	Kiel	Place
+6864	Cincinnati	Place
+6868	Kansas City, Mo.	Place
+6872	Easton, Pa.	Place
+1146	Brugge-Brussel	Place
+6887	Wellington, N.Z.	Place
+1148	Meppel	Place
+6898	Honolulu, H.T.	Place
+1151	Krailling vor München	Place
+6914	San Paolo	Place
+1153	Kaiserslautern	Place
+1155	Hoorn	Place
+6946	Colombo	Place
+6958	Charlotte, N.C	Place
+6962	Tetschen a/E.	Place
+6969	Kristiania	Place
+6970	Richmond, Va.	Place
+1163	Königsberg (Pr)	Place
+6988	Upsala	Place
+44857	Tūnis	Place
+7011	Rochester, N.Y.	Place
+7016	Honolulu	Place
+7059	Lynchburg, Va.	Place
+7079	Puerto Rico	Place
+7081	Leipzig and Berlin	Place
+7083	Manchester	Place
+7087	México	Place
+7095	Sondershausen	Place
+7111	Washington D.C.	Place
+7146	Buenos Aires	Place
+7157	Ottawa, Ont	Place
+7160	Genéve	Place
+7162	Rangoon	Place
+7170	Manchester, N.H.	Place
+1205	Bad Oeynhausen (Westf.)	Place
+7234	Louisville, Ky.	Place
+1214	Paris etc.	Place
+7296	Honolulu, Hawaii	Place
+7297	Calcutta & Simla	Place
+7298	S. Paulo	Place
+7308	Toronto	Place
+7322	Mexico	Place
+7324	Asheville, N.C.	Place
+1221	Clermont-Ferrand	Place
+7353	Tung Chou, near Peking, China	Place
+7358	Mexico, Imprenta y Fototipia de la Secretaria de Fomento	Place
+7366	Córdoba	Place
+1228	Anvers	Place
+7374	San Francisco, Cal.	Place
+7383	Washington DC	Place
+7394	Charleston, S.C.	Place
+7414	New Orleans	Place
+1238	Avignon	Place
+7431	s.l.	Place
+7457	Baton Rouge	Place
+1243	Saint-Brieuc	Place
+1245	Bilthoven	Place
+7476	Minneapolis	Place
+7486	Buenos Aires?	Place
+7498	Ottawa, Ont.	Place
+7548	Montevideo	Place
+7557	Buffalo, N.Y.	Place
+7562	Manila, P.I.	Place
+7567	Buitenzorg	Place
+7582	Waterloo, Iowa	Place
+7591	Dublin, Pa.	Place
+7600	Manila	Place
+7603	Bruxelles?	Place
+7625	Savannah	Place
+7627	Charleston	Place
+7628	Nashville	Place
+7640	Lansing, Mich.	Place
+7656	Champaign, Ill.	Place
+7673	Lethbridge, Alberta, Canada	Place
+7694	Fort Leavenworth, Kans.	Place
+7700	Georgetown, Demerara	Place
+7724	Melle in Hann.	Place
+7725	Regina	Place
+7742	Limoges	Place
+7753	Lansing	Place
+7765	Copenhagen	Place
+7766	Harrisburg	Place
+7776	Bordeaux	Place
+7782	London, New York, Bombay, Calcutta	Place
+7788	Omaha, Nebr	Place
+7818	Berne	Place
+7822	Wooster, Ohio	Place
+7825	New Haven	Place
+7831	Watford, Eng.	Place
+7840	Cambridge Eng	Place
+7845	Lima?	Place
+7852	Leide	Place
+7877	Austin, Tex.	Place
+7889	London, Eng.	Place
+7894	Habana	Place
+7896	The Hague	Place
+7915	Nassau, N.Y.	Place
+7919	Cedar Rapids, Ia.	Place
+7920	Fargo, North Dakota	Place
+7922	Stanford University, Cal.	Place
+7923	Glasgow etc	Place
+7924	Harrisburg, Pa.	Place
+7942	Plymouth Eng	Place
+7952	Cairo, Egypt	Place
+7959	Durham, N.H.	Place
+7961	Cairo	Place
+7971	Bucarest	Place
+7976	Worcester	Place
+7981	Chicago, Ill.	Place
+7996	Athens	Place
+7999	Charlottesville, Va.	Place
+8006	La Fayette, Ind	Place
+1336	Lübeck	Place
+8021	Petersburg, Va.	Place
+8028	Lisboa	Place
+8033	London etc	Place
+8047	Trenton	Place
+8053	Liverpool	Place
+8070	Hereford Eng	Place
+8079	São Paulo	Place
+8082	London, New York, Bombay, Calcutta, Madras	Place
+8084	New York city	Place
+8085	Missoula, Mont.	Place
+8088	Bahadurganj, India	Place
+8091	Union Hill	Place
+8099	United States	Place
+8104	Aberdeen	Place
+8107	Trenton, N.J.	Place
+8117	Syracuse, N.Y.	Place
+8118	Syracuse	Place
+8121	Indianapolis	Place
+8139	Puerto Bertoni	Place
+8143	Baltimore	Place
+8166	Hanoi-Haiphong	Place
+8175	Tunis	Place
+8186	Rochester	Place
+8187	Florence	Place
+8190	Fort Wayne, Ind.	Place
+8193	Chicago?	Place
+8196	Manchester Eng	Place
+8203	Albany, N.Y	Place
+8204	Burg b. M.	Place
+8205	Los Angeles, Calif.	Place
+8214	Iowa City	Place
+1369	Roeselare	Place
+1370	Gräfenhainichen	Place
+8225	S.l.	Place
+8234	Middelburg	Place
+8236	Lewiston, Me.	Place
+8240	Hanoi-Haiphong, Imprimerie d'extrême-orient	Place
+8243	Saigon	Place
+8260	Winnipeg, Canada	Place
+8265	Victoria, B.C.	Place
+8271	Kjøbenhavn	Place
+8307	Stockholm	Place
+1385	Zutphen	Place
+8320	Critchmere, Haslemere Eng	Place
+8327	Helsinki	Place
+1388	Halle a. S.	Place
+8344	Madras, Printed by the Superintendent, Govt. Press	Place
+1392	n.p.	Place
+8355	Baltimore, Md	Place
+8364	Pretoria	Place
+8377	Auckland etc	Place
+8379	Ditchling, Sussex	Place
+8385	Allahabad	Place
+8409	Moskva	Place
+8420	Pretoria? South Africa	Place
+8423	Lafayette, Ind.	Place
+8446	Philadelphia?	Place
+8447	Chichester	Place
+8449	Hartford Conn.	Place
+8459	San Juan	Place
+8466	Lima	Place
+8472	Lahore	Place
+8480	Dahlem bei Berlin	Place
+8485	San José, C.R.	Place
+8495	Brussels	Place
+8499	Malmö	Place
+8505	Provo, Utah	Place
+1418	Antwerpen, etc	Place
+8519	Hartford	Place
+8522	Veracruz	Place
+8533	Weltevreden	Place
+8535	Hanoi	Place
+8548	Columbia	Place
+8552	London, New York etc	Place
+8559	Charlottesville	Place
+8561	Yonkers, N.Y.	Place
+1427	Beyrouth	Place
+8581	Cluj	Place
+8584	Minneapolis, Minn.	Place
+8604	Cuzco	Place
+8605	Berlin und Leipzig	Place
+8630	Manchester, Eng.	Place
+8636	York Eng	Place
+8645	Syracuse, N. Y.	Place
+8646	London England	Place
+8661	St. Albans Eng	Place
+8667	Malta	Place
+8678	Genève etc	Place
+8682	Piacenza	Place
+8696	Leeds, Eng.	Place
+8703	Berkeley, Calif.	Place
+8706	New Orleans?	Place
+8715	Norman	Place
+8721	Berlin, Germany	Place
+8726	Peking	Place
+8761	Soerabaia	Place
+8764	Peking etc	Place
+8768	Harrisburg, Pa	Place
+8769	Weida i. Thür.	Place
+8775	Kaupmannahöfn	Place
+1464	Linz a. D.	Place
+8794	Montauban	Place
+8797	Warszawa etc	Place
+8798	Boston, Mass	Place
+8800	Syracuse, N.Y	Place
+8813	Poznań	Place
+8824	Cambridge, Eng	Place
+8828	Oslo	Place
+8851	La Haye	Place
+8856	Sourabaya (Java)	Place
+8857	Stuttgart, Kosmos	Place
+8865	Taihoku, Japan	Place
+8878	Cambridge, Eng.	Place
+1482	Goes	Place
+8896	Praha-Bubeneč	Place
+8906	Urbana? Ill	Place
+8909	Ashford, Kent	Place
+8916	Manchester, Eng	Place
+8923	Medan?	Place
+8939	Johannesburg	Place
+8963	Johannesburg, South Africa	Place
+8968	Singapore	Place
+8993	Edinburgh etc	Place
+9000	Washington, D.C	Place
+9002	Pairs	Place
+9003	Dublin	Place
+9005	Leipzig und Wien	Place
+9011	Bangkok	Place
+9017	Sitka	Place
+9018	Aurillac	Place
+9041	Peiping, China	Place
+9050	Prague	Place
+9053	Liege	Place
+9062	Münster i. Westf.	Place
+9065	Vermillion	Place
+9077	Port-au-Prince, Haiti	Place
+9096	Ottawa, Ill	Place
+9108	Peiping	Place
+9141	Newport, Mon. Eng	Place
+9142	Kaunas	Place
+9155	Kuala Lumpur	Place
+9163	Bangalore	Place
+9164	Madras	Place
+9166	Cambridge Eng.	Place
+9173	Bandoeng	Place
+9177	Le Caire	Place
+9188	Shanghai etc	Place
+9192	St. Albans, Eng.	Place
+9204	Burnley, Lancashire	Place
+9221	Croydon, Eng.	Place
+9228	Königsberg Pr.	Place
+9242	Porvoo	Place
+9274	Pietermaritzburg	Place
+9276	Auckland	Place
+9280	Reading Eng	Place
+1552	Düsseldorf	Place
+9316	Cardiff	Place
+9317	Nanking, China	Place
+9345	Naarden (Hollande)	Place
+9349	Johannesburg South Africa	Place
+9354	Washington, D.C. : U. S. Dept. of Agriculture, Library	Place
+1560	Wittenburg Lutherstadt	Place
+1561	Halle an der Salle	Place
+9369	Syracuse?	Place
+9376	Edmonton	Place
+9390	London?	Place
+9392	Portland, Ore,	Place
+9397	Nairobi, Kenya colony	Place
+9410	Nicosia	Place
+9422	Bogotá	Place
+9453	Sydney, N.S.W.	Place
+9473	Leiden, Holland	Place
+9484	Panama	Place
+9515	Santiago, Chile	Place
+9516	Delhi	Place
+9525	Lahore, India	Place
+9539	Oakland, Calif.	Place
+9547	Atlanta?	Place
+9593	Washington, U.S. Govt. Print. Off.	Place
+9595	Baton Rouge, La.	Place
+9596	México, D.F	Place
+9597	Nairobi	Place
+9603	New Brunswick, N.J.	Place
+9607	Torridon, Headingley, Leeds	Place
+9630	La Habana, Cuba	Place
+9632	Lund	Place
+1608	Stuttgart-Degerloch	Place
+9656	Harmondsworth, Middlesex, Eng.	Place
+9664	Rio de Janeiro, Brasil	Place
+1614	St.-Niklaas-Waas	Place
+9688	Stuttgart etc	Place
+9708	México, D.F.	Place
+9750	Nutley, Sussex, Eng.	Place
+9751	Lourenço Marques	Place
+9753	Seattle	Place
+9754	Ames, Ia.	Place
+9756	Hanover, Pa.	Place
+9760	Mount Morris, Ill.	Place
+9761	New York, N.Y.	Place
+9768	Garden City, N.Y.	Place
+9769	New Brunswick	Place
+9779	New York, London	Place
+1630	Erfurt	Place
+9783	Columbia, Mo.	Place
+9787	Lancaster, Pa.	Place
+9788	South Pasadena, Calif.	Place
+9792	Viroqua, Wis.	Place
+9793	Lexington	Place
+9807	Baltimore, Md.	Place
+9809	Hollywood	Place
+9810	Waltham, Mass.	Place
+9813	Danville, Ill.	Place
+9816	Garden City, New York	Place
+9818	Grand Rapids, Minn.	Place
+9821	Raleigh	Place
+9823	Gasport, N.Y	Place
+9832	Long Lake, Minn.	Place
+9838	Frenchtown, N.J.	Place
+9852	Stuart, Fla.	Place
+9853	Lawrence	Place
+9854	Hamilton, Ill.	Place
+9858	Montebello, Calif.	Place
+9861	Pasadena	Place
+9864	Northfield, Minn.	Place
+9873	Washington,	Place
+9875	Philadelphia, Pa.	Place
+9880	Portland, Or.	Place
+9886	Muskegon, Mich.	Place
+9888	Cynthiana, Ky.	Place
+9894	Garden City	Place
+9897	Caldwell, Id.	Place
+9898	Chapel Hill	Place
+9918	LaGrange, Ind.	Place
+9921	Peterborough, N.H.	Place
+9922	Evanston, Ill.	Place
+9923	West Hartford, Vt.	Place
+1654	Luzern	Place
+9928	Elyria, Ohio	Place
+9934	Kansas City	Place
+9936	Eau Claire, Wis.	Place
+9946	Gainesville, Fla.	Place
+9947	New York, ddaLondon	Place
+9948	Hartford, Conn.	Place
+9950	Lexington, Ky.	Place
+9957	Dunmore, Pa.	Place
+1661	Ubbergen	Place
+9986	Quincy, Ill.	Place
+9988	Dallas	Place
+9990	Coral Gables, Fla.	Place
+10010	Garden City, N.Y	Place
+10012	Dundee, Ill.	Place
+10026	Columbia, S.C.	Place
+10027	Brattleboro, Vt.	Place
+10031	La Grange, Ill.	Place
+10033	Peoria, Ill.	Place
+10038	Portland	Place
+1673	Basel	Place
+10041	Saint Paul	Place
+10048	Ojai, Calif.	Place
+10061	Emmaus, Pa.	Place
+10063	Salem, Mass.	Place
+10066	Huntington, W. Va.	Place
+10067	Goodland, Kan.	Place
+10134	New York and London	Place
+10137	Durham, N.C.	Place
+10151	Auburndale, Fla.	Place
+10153	Fort Collins, Col.	Place
+10156	Roscoe, Calif.	Place
+10157	Phoenix	Place
+10161	McAllen	Place
+10163	Meridian, Miss.	Place
+10171	Chicago, Philadelphia etc	Place
+10194	Lockport, N.Y.	Place
+10219	Babcock, Wis.	Place
+10220	Bogota, N.J.	Place
+10221	Berkeley	Place
+10228	Milwaukee, Wis.	Place
+10229	University City, Missouri	Place
+10231	Miami	Place
+10233	Redlands	Place
+10235	Des Moines	Place
+10246	San Antonio	Place
+10256	Superior, Wis.	Place
+10257	Freeport, Me	Place
+10264	Dallas?	Place
+10278	Earlysville, Va.	Place
+10298	Caldwell, Idaho	Place
+10302	Lee's Summit, Mo.	Place
+10306	Salamanca, N.Y.	Place
+10310	Reading? Pa	Place
+10311	Arkansas City, Kan.	Place
+10315	Jamestown	Place
+10317	Atlanta	Place
+10318	Omaha?	Place
+10319	Davis, Calif.	Place
+10321	Danville, Ill	Place
+10328	Ames	Place
+10381	DeWitt, Iowa	Place
+10382	Sacramento, Calif.	Place
+10384	Little Rock, Ark.	Place
+10390	Orangeburg, S.C	Place
+10391	Danville	Place
+10400	Toughkenamon, Pa.	Place
+10401	Fort Worth, Tex.	Place
+10412	Weihenstephan	Place
+1739	Gand	Place
+10439	Walnut Creek? Calif.	Place
+10447	San Diego, Calif.	Place
+10453	Lincoln	Place
+10456	Santa Barbara, Calif.	Place
+10469	Wassaic, N.Y.	Place
+10471	College Station, Tex	Place
+10478	Franklinville, N.Y.	Place
+10479	Ithaca, N.Y	Place
+10481	Fort Myers? Fla.	Place
+10482	Waseca? Minn.	Place
+10488	Philadelphia, Pa.,	Place
+1748	Issoudun	Place
+10495	Goodland, Kan	Place
+10498	Louisville, Ky	Place
+10503	Mount Vernon, N.Y.	Place
+10506	Clarksville, Tenn.	Place
+10509	Urbana, Ill.	Place
+10520	Winnipeg	Place
+10522	Tallahassee?, Fla.	Place
+10577	Hapeville, Ga.	Place
+10608	Houston, Tex.	Place
+10611	Burlington	Place
+10612	Berryville, Va.	Place
+10613	Boston?	Place
+10614	Wellesley, Mass.	Place
+10615	Pasadena, Calif.	Place
+10618	Silverton, Ohio	Place
+10624	Little Rock	Place
+10626	Newville? Pa.	Place
+10632	Forsyth? Ga.	Place
+10640	Redlands, Calif	Place
+10641	Skokie, Ill.	Place
+10644	Springfield? Ohio	Place
+10648	Evanston, Ill	Place
+10654	Fond de Lac, Wisconsin	Place
+10655	Bedford, Ohio	Place
+10656	West Englewood, N.J.	Place
+10661	Camden, S.C.	Place
+10662	Bristol, Conn.	Place
+10665	Silver Spring, Md.	Place
+10676	Watkins Glen, N.Y.	Place
+10685	Silver Springs, Md.	Place
+10713	Waltham, Mass	Place
+1786	Göppingen (Wttbg.)	Place
+1787	Einsiedeln/Köln	Place
+10726	Minneapolis, University of Minnesota Press	Place
+358	Florentiae	Place
+10774	Caruthersville, Mo.	Place
+10775	New Plymouth? Idaho	Place
+10776	Brattleboro, Vt	Place
+10787	Nashville?	Place
+10794	Corpus Christi, Tex	Place
+10799	Greenwich, Conn.	Place
+10806	Oklahoma City	Place
+10894	Princeton	Place
+1821	Brugge, Brussel	Place
+1875	Périgueux	Place
+11332	Washington, D.C.?	Place
+1898	Wedel in Holstein	Place
+11394	Jerusalem	Place
+11427	Juneau	Place
+1908	Wien-Klosterneuburg	Place
+1913	Wiesbaden	Place
+1916	Neuchâtel	Place
+1930	Budweis	Place
+89325	Habana, Cuba	Place
+1956	Würzburg-Aumühle	Place
+1965	n. p	Place
+1966	Arras	Place
+1982	Karlsbald und Leipzig	Place
+1985	Thun	Place
+1995	Hilversum, Holland	Place
+399	Lausanne etc	Place
+2011	Regensburg	Place
+12153	Washington?	Place
+12171	Beijing	Place
+12181	Taibei	Place
+12190	Xianggang	Place
+12206	China	Place
+12212	Shenyang	Place
+12216	Wuchang	Place
+12222	Nanjing	Place
+12228	Chongqing	Place
+2044	Maastricht	Place
+12303	Suzhou	Place
+12393	Shanghai?	Place
+12438	Beiping	Place
+12442	Beijng	Place
+12479	Dalian	Place
+12507	Burlington, Vt.	Place
+12510	Charleston, W. Va.	Place
+12513	Albany, N.Y.	Place
+12518	Salt Lake City, Utah	Place
+2090	Zug	Place
+12544	Norfolk, Va.	Place
+2091	Maredsous	Place
+12554	Topeka, Kan.	Place
+89477	México? D.F.	Place
+2099	Brünn	Place
+12603	St. Paul, Minn.	Place
+12638	Rahway, N.J.	Place
+12641	Terre Haute, Ind.	Place
+12654	Detroit, Mich	Place
+2109	Hallein	Place
+12678	Pittsburgh	Place
+12698	Cleveland, O.	Place
+2117	Zollikon-Zürich	Place
+12711	Rock Island, Ill.	Place
+12719	St. Louis, Mo.	Place
+12749	Nashville, Tenn.	Place
+12755	Dayton, O.	Place
+12765	Indianapolis, Ind.	Place
+2128	Turnhout (België)	Place
+2129	Mechelen	Place
+2130	Nieupoort	Place
+12804	Newark, N.J.	Place
+12808	Philadephia	Place
+12844	Cleveland, Ohio	Place
+12853	New York?	Place
+2148	Gorinchem	Place
+12891	Chicago & New York	Place
+2149	Bad Blankenburg	Place
+12901	Providence	Place
+12906	Providence, R.I.	Place
+2151	Tours	Place
+12922	Blue Island, Ill.	Place
+12933	Buffalo	Place
+12947	New York etc	Place
+12948	Augusta	Place
+12980	Ann Arbor, Mich.	Place
+13002	Detroit	Place
+13014	Omaha	Place
+13093	Omaha, Neb.	Place
+13124	Troy, N.Y.	Place
+13136	Salt Lake City	Place
+13146	Denver, Colo.	Place
+13147	Wellington	Place
+52814	Dacca	Place
+13230	Columbus, O.	Place
+13232	Coimbra	Place
+13251	Bloomington, Ill.	Place
+13271	New York City	Place
+13275	Poughkeepsie, N.Y.	Place
+13286	Boston, Mass.	Place
+13354	Washington, DC	Place
+13420	Caracas	Place
+2240	Antwerpen-Borgerhout	Place
+13456	Glasgow	Place
+2247	Antwerpen (Borgerhout)	Place
+13497	San Francisco?	Place
+13503	Saint Louis	Place
+22273	Bruxelles etc	Place
+52825	Mysore	Place
+2258	Ledeberg-Gent	Place
+13557	Dayton, O	Place
+2260	Gap	Place
+2266	Milano, Varese	Place
+13613	Paris, Nancy	Place
+13623	Chapel Hill, N.C.	Place
+13624	Burlington, Vt.?	Place
+13635	Louisville	Place
+13637	Guatemala	Place
+13649	Racine, Wis.	Place
+13658	Chicago, New York	Place
+2278	Pau (B.-P.)	Place
+13677	Tegucigalpa	Place
+13679	Temesvár	Place
+2282	Charlottenburg	Place
+2283	Königstein im Taunus	Place
+2284	Binningen	Place
+13746	Lynn, Mass.	Place
+13753	New York and Chicago	Place
+13761	Jackson	Place
+13762	Los Angeles, Cal.	Place
+13772	Pittsburg?	Place
+13816	Berne, Ind	Place
+2305	Goslar	Place
+13838	Salem, Or.	Place
+13844	Richmond	Place
+13862	St. George?	Place
+13863	Springfield, Ill.	Place
+13870	Jefferson City, Mo.	Place
+2312	Mun̈chen	Place
+13875	Richmond?	Place
+13880	Albany?	Place
+13883	Tegucigalpa, Honduras	Place
+13898	Campton, Va.	Place
+13901	Washington? D.C.	Place
+13905	Pontiac, Ill	Place
+13909	Springfield	Place
+13915	Ottawa?	Place
+13929	Hartford?	Place
+13945	Portland, Me.	Place
+13997	Worcester, Mass.	Place
+14029	Nueva York	Place
+14033	Medford, Mass.	Place
+14055	V Praze	Place
+14061	Detroit?	Place
+14100	Lwów	Place
+14101	W Krakowie	Place
+14104	V Cleveland, O.	Place
+89734	Vienna etc	Place
+14128	Saint Paul, Minn.	Place
+14138	London and New York	Place
+14142	Governor's Island, N.Y.H.	Place
+14144	San Francisco, Calif.	Place
+89739	Edinburgh & London	Place
+14160	Urbana-Champaign	Place
+14170	Jamaica, N.Y.	Place
+14186	Lansing?	Place
+2367	Neuhof (Kr. Fulda)	Place
+89750	Wien und Leipzig	Place
+14214	S.-Peterburg	Place
+2375	Offenburg/Baden	Place
+14253	Jersey City?	Place
+14259	Gaffney, S.C.	Place
+14264	Kazanʹ	Place
+14272	Buffalo?	Place
+14295	Georgetown, British Guiana	Place
+14305	Tokyo, Japan	Place
+14308	Varshava	Place
+14332	Council Bluffs, Ia.	Place
+14340	Germany	Place
+14361	Columbus, O	Place
+2394	Halle a.d. Saale	Place
+14366	Winchester, Va	Place
+14369	Tiflis	Place
+2395	Baden-Baden	Place
+14378	Port-au-Prince	Place
+14397	Kharʹkov	Place
+14405	Peterburg	Place
+14422	Norman, Okl	Place
+14426	...Brussels	Place
+46097	Brinstūn	Place
+14445	New Orleans, La.	Place
+14463	Berkeley, Cal.	Place
+14466	Quito	Place
+14475	Andover, Mass.	Place
+14481	New Rochelle, N.Y.	Place
+2423	Jauer in Niederschlesien	Place
+14558	Bloomfield, N.J.	Place
+14559	Mankato, Minn	Place
+14566	Riga	Place
+2430	Olten	Place
+14602	Halifax, N.S.	Place
+2439	Bielefeld	Place
+14682	Huntingdon, Pa.	Place
+14726	Kolozsvár	Place
+2464	Darmstadt	Place
+14840	Morristown, N.J.	Place
+14855	Memphis	Place
+14860	Copenhague	Place
+14869	Madison, Wis	Place
+14930	Montpelier	Place
+14951	Kraków	Place
+14956	Moron	Place
+14960	U Zagrebu	Place
+14966	Baltimore?	Place
+14975	Gary?	Place
+14978	Duluth, Minn.	Place
+14984	Burlington, Ia.	Place
+14992	Akron	Place
+14996	New York and	Place
+15017	Tennille	Place
+15032	Austin? Tex.	Place
+15044	Lebanon, Ohio	Place
+2509	Saint-Étienne	Place
+15057	Akron, O.	Place
+15061	Denver	Place
+15063	Minden, Neb.	Place
+15066	Summit, N.J.	Place
+15076	Norfolk?	Place
+15082	Winfield? Kan.	Place
+15089	Sewanee, Tenn	Place
+15095	Benton Harbor, Mich.	Place
+15096	Leominster, Mass.	Place
+15102	Helena, Ark.	Place
+15105	Chattanooga, Tenn.	Place
+2518	Berlin-Leipzig	Place
+15111	Marysville, Kan.	Place
+15116	Lockport, Ill.	Place
+15118	St. Marys, W. Va.	Place
+15123	New York : League to Enforce Peace	Place
+15127	Waterville, Me.	Place
+15135	Havana, Cuba	Place
+15138	Wilmington, Del	Place
+15140	Girard, Kan.	Place
+15156	Springfield, Mo.	Place
+15162	Girard, Kansas	Place
+15176	Norwood, Mass.	Place
+15178	East Longmeadow, Mass.	Place
+15179	Buxton, N.D.	Place
+15183	Dayton, Va.	Place
+15186	Montrose, Colo.	Place
+15194	Long Beach, Calif.	Place
+15195	Framingham, Mass	Place
+15205	Stockton, Cal.	Place
+15213	Cincinnati, O	Place
+15216	Ardmore, Pa.	Place
+15218	Gulfport, Miss.	Place
+15224	Davidson, N.C.	Place
+15225	Hanover	Place
+15234	Norwood, Mass	Place
+15238	Georgetown, Tex.	Place
+15240	Orange? N.J.	Place
+15258	Fayetteville, N.C.	Place
+15260	Geneva	Place
+15299	Evansville, Ind.	Place
+15300	Bay City, Mich.	Place
+15303	Omaha NE	Place
+15305	Yosemite Valley, Calif.	Place
+15309	Montgomery, Ala.	Place
+15310	Pony, Mont.	Place
+15314	Greenville, S.C.	Place
+15326	Windsor Locks, Conn.	Place
+2555	Halle (S.)	Place
+15332	Memphis, Tenn.	Place
+15333	Oakland, Calif	Place
+15338	San Jose, Calif.	Place
+2557	Stettin	Place
+15378	Girard Kan.	Place
+2568	Wageningen	Place
+15414	Minot, N.D	Place
+15425	Lansing? Mich.	Place
+15430	Deland, Florida	Place
+15438	San Antonio?	Place
+15439	Springfield?	Place
+15450	Westerville, O.	Place
+15453	Kansas	Place
+15470	Ottawa, Can.	Place
+15472	Portland, Ore	Place
+15477	Norfolk, Va	Place
+15482	Middletown, Conn.	Place
+15492	Andover	Place
+15504	Madison? Wis.	Place
+15512	North Yakima, Wash.	Place
+15517	San Francisco, Calif	Place
+15529	Jacksonville, Fla.	Place
+15531	Huntington, N.Y.	Place
+15532	Fresno, Calif.	Place
+15533	Carmel-by-the sea, Calif.	Place
+15540	Cedar Rapids, Ia.?	Place
+15542	Austin	Place
+15578	Brooklyn?	Place
+15585	Woodstock, Vt.	Place
+15587	Indianapolis?	Place
+15589	Kansas City, Mo	Place
+15611	Grass Valley, Calif.	Place
+15614	Puebla	Place
+15615	Bale, Switzerland	Place
+15637	Modesto, Calif.	Place
+15638	Cedar Rapids? Ia.	Place
+15639	Ashland, Ky.	Place
+15640	Charleston, Ill.	Place
+15708	Wichita, Kan.	Place
+15714	Burlington? Vt.	Place
+15718	Christiania	Place
+15730	Montreal?	Place
+24467	Tokyo?	Place
+15748	Montgomery, Ala	Place
+15750	Norfold, Va.	Place
+15755	Crookston, Minn.	Place
+15756	Rochester, N.Y	Place
+15774	Sausalito, Calif.	Place
+15799	Penn Yan, N.Y.	Place
+15802	Dunellen, N.J	Place
+15803	Sioux City, Ia.	Place
+15806	Kittery	Place
+15807	Lincoln, Neb.	Place
+15808	Livingston, Calif.	Place
+15813	Birmingham, Mich.	Place
+15821	Alma, Mich.	Place
+15831	Plymouth, Mass.	Place
+15835	Concord, Mass.	Place
+15850	Poth, Tex.	Place
+2642	Heide-Kalmthout	Place
+15861	San José, Costa Rica	Place
+15885	Onancock, Va	Place
+15900	Cavoretto-Torino	Place
+15909	Wolf Lake, Ind	Place
+2653	Berlin-Charlottenburg	Place
+15926	Jacksonville	Place
+15940	Des Moines, Ia.	Place
+15964	Zi-Ka-Wei-Chang-Hai	Place
+15973	Hartford? Conn.	Place
+15978	Frankfort?	Place
+15979	Lake Placid?	Place
+15983	Clarksburg, W. Va.	Place
+15997	Las Cruces, N.M.	Place
+15998	Dillon, Mont.	Place
+16002	Bella Vista, Ark	Place
+16007	Huntington Park, Cal.	Place
+16011	Alliance, O.	Place
+16014	Portland, Or	Place
+16024	Winnebago, Minn.	Place
+16025	Franklin, O.	Place
+16026	Franklin, Ohio	Place
+16027	Westerly, R.I.	Place
+16031	Linwood, N.J	Place
+16032	Littleton, N.H.	Place
+16041	Oregon City, Or.	Place
+2675	St. Gallen	Place
+16058	Milwaukee?	Place
+16059	Panamá	Place
+16060	Riverside, Calif.	Place
+16061	Chicago, Ill.?	Place
+16072	Bement, Ill.	Place
+16080	Sarajevo	Place
+16086	Łuck	Place
+16089	Grand Rapids	Place
+16102	W Warszawie	Place
+16110	Warszawa-Lwów	Place
+16151	Morelia	Place
+16162	Irvington, N.J.	Place
+16163	Wausau, Wis.	Place
+16164	Shediac? N.B	Place
+2694	Temeschburg	Place
+16168	Daylesford, Pa.	Place
+16169	Cass Lake, Minn.	Place
+16174	Stanberry, Mo.	Place
+16181	Notre Dame, Ind.	Place
+16182	Glendale, Calif	Place
+16187	Los Angeles, Calif	Place
+2698	Erlenbach-Zürich	Place
+16193	Horton, Kan	Place
+16196	Bisbee, Ariz	Place
+16198	Pine Grove, W. Va	Place
+16205	Loop City, Neb.	Place
+16209	Magnetic Springs, Ohio	Place
+16214	Godesberg bei Bonn	Place
+16216	Colorado Springs, Colorado	Place
+16218	Houston	Place
+16225	Providence?	Place
+16227	Zagreb	Place
+16230	W. Krakowie	Place
+16231	Lublin	Place
+16235	Lynchburg	Place
+16241	Cave Spring, Ga.	Place
+16250	Plymouth, Ind.	Place
+16261	Coquille, Or.	Place
+16263	Hamburgo	Place
+16265	Washington? D.C	Place
+16271	Canton	Place
+16274	Boston, New York etc	Place
+2713	Milan	Place
+16280	Rockland, Me.	Place
+16282	Frederick, Okla.	Place
+16291	Livermore, Ia.	Place
+16298	Genesee, Penna.	Place
+16300	Pittsburg, Kan.	Place
+16302	New York city, Los Angeles	Place
+16305	's-Gravenhage M	Place
+16316	Hibbing, Minn.	Place
+16318	Guatemala, C. A	Place
+16329	Dallas, Tex.	Place
+16330	Rochester, New York	Place
+2725	Gera	Place
+16361	San Diego, Calif	Place
+16362	Huntington, Ind.	Place
+16364	Harrisonburg, Va.	Place
+16382	Lwów-Poznań	Place
+16383	Kalisz	Place
+16385	Poznań etc.	Place
+16387	Oneida, N.Y.	Place
+16398	Mt. Vernon, Mo.	Place
+16405	Dayton, Ohio	Place
+16406	Greenville, O.	Place
+16411	Rock Hill, S.C.	Place
+16414	Beograd	Place
+16415	Zadar	Place
+16419	Chicago, U.S.A	Place
+16423	Union, N.J.	Place
+16438	Osijek	Place
+16440	Ženeva	Place
+16444	Bucharest	Place
+16449	Ekland, Penna.,  New York	Place
+16450	Cynthiana, Ky	Place
+16456	U Dubrovniku	Place
+16457	Tartu	Place
+16458	Ljubljana	Place
+16469	New York, N.Y.,	Place
+16479	Glendale	Place
+16480	Boelus, Neb	Place
+16489	U Zadru	Place
+16497	Auburn, Ala.	Place
+16498	Catskill?	Place
+16499	Harrison	Place
+16502	Holt Minn.	Place
+16510	U Ljubljani	Place
+16512	Sisak	Place
+16513	Wáshington	Place
+16514	V Bratislave	Place
+16516	Stamboul	Place
+16518	Roselle Park, N.J.	Place
+16519	State College, Pa.	Place
+16526	Newcastle-on-Tyne, Eng.	Place
+16529	Cawker City, Kan	Place
+16531	New York, N.Y	Place
+16533	Poughkeepsie, N.Y	Place
+16534	Phoenix, Ariz.	Place
+16539	Boonville, N.Y.	Place
+16542	Jersey City, N.J.	Place
+16551	Chengtu	Place
+16553	Montgomery?	Place
+16557	Deposit, N.Y.	Place
+16604	Knoxville	Place
+16606	Manila, P.I	Place
+16614	Cedar Rapids	Place
+16625	Norman, Okl.	Place
+16626	Tuscaloosa, Ala.	Place
+16629	St. Joseph	Place
+16630	Indianopolis	Place
+16644	Radford	Place
+16649	New York, N.Y., Los Angeles, Calif.	Place
+16663	Iowa City, Ia.	Place
+16732	Ann Arbour, Mich.	Place
+16743	Toronto, Can	Place
+16750	Casper, Wyo.	Place
+16754	Sofia	Place
+16755	Sofii︠a︡	Place
+16756	Charlotte, N.C.	Place
+16764	Canton, Ga.	Place
+16783	Boston Mass.	Place
+16793	LaCrosse, Wis.	Place
+16809	Waterford, Calif.	Place
+16810	Oakland, Md.	Place
+16812	Tryon, N.C.	Place
+16830	Rostock i. M.	Place
+16841	Glen Head, N.Y	Place
+16859	Kingsport, Tenn	Place
+16870	Salina, Kan.	Place
+16873	Wilmington, Del.	Place
+16878	New York, N.Y. etc	Place
+16907	Lake City, Fla.	Place
+16939	Chanute, Kan.	Place
+16941	Elmhurst, N.Y.	Place
+16944	Birmingham, Ala.	Place
+16961	New York City, Los Angeles	Place
+16978	Sylvania, Ohio	Place
+16995	Memphis. Tenn.	Place
+17009	Santa Fé, N.M	Place
+17010	Cambridge Mass.	Place
+17013	Santa Fé, N.M.	Place
+17016	Moscow	Place
+17017	Rigā	Place
+17018	MInneapolis	Place
+17025	Philadlphia	Place
+17050	Minneapolis, Minnesota	Place
+17052	Chicago, T.S	Place
+17066	Mt. Sterling, Ohio	Place
+17069	Southbridge, Mass.	Place
+17070	Orono, Me.	Place
+17123	Oakland airport, Calif.	Place
+17130	Dallas, Tex	Place
+17133	Scranton, Pa.	Place
+17164	Klatovy	Place
+17173	New York city, N.Y.	Place
+17194	Franklin, O., Denver, Colo.	Place
+17213	New York, S. French	Place
+17253	Los, Angeles, Calif.	Place
+17256	New York, Chicago etc	Place
+17262	Los Angles, Calif.	Place
+17271	Campbell, Calif.	Place
+17284	Whittier, Calif.	Place
+17290	Stanford University, Calif.	Place
+17311	Ann Arbor? Mich.	Place
+17312	East Aurora, N.Y.	Place
+17404	Helsingissä	Place
+17405	Lawrence, Kan., Haskell Institute	Place
+17426	Norwich, N.Y.	Place
+17452	Angwin, Calif.	Place
+17464	Columbus, Ind.	Place
+17538	New York, N. Y.	Place
+17541	St. Augustine	Place
+17581	Boston, Mass. and Los Angeles, Cal.	Place
+17595	Philippi, W. Va	Place
+17607	Tilžêje	Place
+17629	Camden, N.J.	Place
+17635	Tallinnas	Place
+17638	Santo Domingo, R.D.	Place
+17645	Mexico.	Place
+17707	Grinnell, Ia.	Place
+17708	Bronxville, N.Y.	Place
+17742	Atchison, Kan.	Place
+17759	Chiacgo	Place
+17778	New  York	Place
+17799	Springfield, Vt.	Place
+17801	Hollywod, Calif	Place
+17834	Rīgā	Place
+17851	Saint Louis, Mo.	Place
+17862	Goldsboro? N.C	Place
+17866	Franklin, 0.	Place
+17876	Dayton O.	Place
+18011	Eugene Ore	Place
+18029	Chickasha, Okla.	Place
+18051	Bruges, Belgium	Place
+18059	Osiris	Place
+18177	Zaltbommel	Place
+66073	Pāṇḍicerī	Place
+18187	London, Printed for H.M. Stationery off.	Place
+18198	Acireale	Place
+18202	Torini	Place
+18213	Lodi	Place
+18257	Los Angeles, Cal	Place
+18277	Denton, Md.	Place
+18312	Marburg	Place
+18316	Reno	Place
+18318	St. Paul?	Place
+18390	Columbia?	Place
+18399	Albuquerque, N.M.	Place
+18409	Champaign	Place
+18417	Catania	Place
+18431	Bismarck, N.D.	Place
+18432	Carson City	Place
+18444	Ripon, Wis.	Place
+18447	Barcelona	Place
+18453	Bury St. Edmund's Eng	Place
+18473	Corbeil	Place
+18481	Carson City, Nev.	Place
+18485	Chihuahua	Place
+18494	Kempten und München	Place
+18514	Olympia, Wash.	Place
+18523	Leeds	Place
+18558	Westminster	Place
+18576	Lugano	Place
+18593	Santiago	Place
+18601	St. Andrews	Place
+18621	Paderborn	Place
+18656	Williamstown, Mass.	Place
+18669	Bloomington? Ind.	Place
+18678	Hamburg und Leipzig	Place
+18702	Cedar Rapids, Iowa	Place
+18704	Berea	Place
+18713	Halle a.d.S.	Place
+18714	Valencia	Place
+18715	Greeley	Place
+18726	France	Place
+18731	Kempten	Place
+18751	Athens, Ohio	Place
+18753	Königsberg i Pr.	Place
+18761	Atlanta? Ga	Place
+18766	Chicago, U.S.A.	Place
+18767	Concord	Place
+18780	Stuttgart und Berlin	Place
+18782	Montpelier, Vt.	Place
+18802	Mons	Place
+18804	Vottem Belgium	Place
+18808	Denver, Col.	Place
+18810	Roma : E. Loescher	Place
+18813	Geneva? N.Y.	Place
+18818	Oklahoma City, Okla.	Place
+18820	Atlanta? Ga.	Place
+18836	Brunswick, Me.	Place
+18842	Galesburg, Ill.	Place
+18860	Reading	Place
+18877	Princeton, N.J.	Place
+18889	Gross-Lichterfelde	Place
+18965	Norman, Okla.	Place
+18972	New Brunswick? N.J	Place
+19018	Austin, Tex	Place
+19044	New york city	Place
+19055	New Brunswick?	Place
+19060	Bismarck? N.D.	Place
+19061	Frankfort? Ky.	Place
+19067	Le Haye	Place
+19071	Bloomington, Ind.	Place
+19088	Osterwieck/Harz und Leipzig	Place
+19115	Tulle	Place
+19122	Lansing? Mich	Place
+19125	Olympia	Place
+19127	Exeter	Place
+19166	Smyrna, Del.	Place
+19173	Dayton	Place
+19177	Boise? Id.	Place
+19179	Salem, Or	Place
+19192	Chelmsford	Place
+19193	Essex Junction, Vt.	Place
+19218	Hot Springs, Ark.	Place
+19234	Chemawa, Or.	Place
+19245	Montgomery	Place
+19262	Brattleboro	Place
+46901	Tihrān	Place
+19284	Athens, Ga.	Place
+19288	Butte?	Place
+19289	Boulder, Colo.	Place
+19301	San José	Place
+19306	San Jose de Costa Rica	Place
+19313	Yonkers-on-Hudson, N.Y.	Place
+19335	Carbondale, Ill.	Place
+19336	Carbondale	Place
+19392	Mount Hope, C.Z.	Place
+19416	Santa Fe, N.Mex.	Place
+19432	Topeka, Kan	Place
+19435	Union Hill, N.J.	Place
+19468	Columbia, S.C	Place
+19479	Bridgewater, Mass.	Place
+19496	Frankfort	Place
+19502	Waco, Tex.	Place
+19504	Annapolis?	Place
+19509	Fort Wayne	Place
+19545	Salem? Or.	Place
+19549	Fort Wayne, Ind	Place
+19552	Grand Junction	Place
+19557	Mount Hope	Place
+19564	East Lansing, Mich.	Place
+19568	Charlottesville, Va	Place
+19594	Minneapolis?	Place
+19605	Whittier, Cal.	Place
+19620	University	Place
+19624	Québec	Place
+19625	Tuskegee, Ala.	Place
+19637	Portland?	Place
+19638	Charleston?	Place
+19645	Salem? Or	Place
+19669	Tucumán	Place
+19678	London, Edinburgh & Boston	Place
+19686	Faribault, Minn.	Place
+19687	Whittier? Cal.	Place
+19688	Hongkong	Place
+19699	Albuquerque	Place
+19722	Clemson College, S.C.	Place
+19728	Bismarck? N. Dak.	Place
+19730	Bloomington, Ind	Place
+19757	Modena	Place
+19762	Pierre, S.D.	Place
+19788	San Juan, P.R.	Place
+19798	Madison, Wisc.	Place
+19881	Austin?	Place
+19919	Boulder, Col.	Place
+19953	Santa Fe	Place
+19956	Chapel Hill, N.C	Place
+19959	Saint-Blaise	Place
+19969	Red Wing, Minn.	Place
+19971	Helena, Mont.	Place
+20022	Hackensack, N.J.?	Place
+20051	Oxford?	Place
+20059	Boulder	Place
+20095	Baton Rouge?	Place
+20117	University, Va	Place
+20125	Colorado Springs, Col	Place
+20139	Harrisburg, Penna.	Place
+20151	Springfield, Ill	Place
+90744	Norfolk, Eng.,	Place
+90745	Kharʹkiv	Place
+20194	Indianapolis, Ind	Place
+20201	West Hartford	Place
+20205	Washington, Govt. print. off.	Place
+20206	Minneapolis, Minn	Place
+20209	Tucson, Ariz.	Place
+20235	Montpelier?	Place
+20267	Greely, Colo.	Place
+20268	Greeley, Colo.	Place
+20269	Greeley, Col.	Place
+20272	Norman, Ill.	Place
+20291	Lincoln, Chicago etc	Place
+20316	Salem, Ore.	Place
+20343	Charleston, W. Va	Place
+90781	Kyïv	Place
+20400	ALbany	Place
+20406	Tacoma, Wash.	Place
+20409	Salem, Oreg.	Place
+20435	De Moines	Place
+20436	Baton Rouge? La.	Place
+20462	Aurora	Place
+20486	Harrisburg?	Place
+20504	Hampton, Va.	Place
+20569	Fargo, N.D.	Place
+20571	San Juan, P. R.	Place
+20585	Institute, W. Va.	Place
+20589	Olympia, Wash	Place
+20601	Oberlin?	Place
+20603	Canton? China	Place
+90817	Cleveland Ohio	Place
+47130	Karachi	Place
+90825	Gahirē	Place
+20672	Hamtramck, Mich.	Place
+20678	Tamines	Place
+20694	Bismarck	Place
+20711	Platteville, Wis.	Place
+20724	Columbus, Ohio?	Place
+20776	Sacramento, CA	Place
+20799	Guthrie, Okla.	Place
+20815	Nueva Uork	Place
+20828	Washington, D. C.	Place
+20836	Tallahassee	Place
+20850	Colorado Springs, Col.	Place
+20864	Missouri	Place
+20872	Wellington, New Zealand	Place
+20873	Austin, Texas	Place
+20884	Sioux Falls, S.D.	Place
+20895	Bahia	Place
+20904	Stillwater, Okla.	Place
+20911	Washington, U.S. Govt. print off.	Place
+47183	Tanger	Place
+20970	Quito, Ecuador	Place
+21001	Schenectady, N.Y	Place
+21002	Schnectady, N.Y	Place
+21030	Genèva	Place
+21063	Institute, W. Virginia	Place
+21072	DeKalb, Ill.	Place
+21075	Langensalza etc	Place
+21077	Staunton, Va.	Place
+21091	Melbourne etc	Place
+21093	Capetown	Place
+21096	Bethlehem, Pa.	Place
+21125	Batavia-Centrum, Java, Netherlands India	Place
+21135	Des Moines?	Place
+21160	Auckland, N.Z	Place
+21172	Kentucky	Place
+21199	Boise?	Place
+21203	Amsterdam, Holland	Place
+21207	Peshawar City, India	Place
+21211	Eugene, Or.	Place
+21212	Tallahassee?	Place
+21214	Oklahoma City?	Place
+21247	Wetumpka, Ala.	Place
+21252	Dover	Place
+21257	Raleigh, N.C	Place
+21266	Trenton?	Place
+21278	Dover?	Place
+21286	Tallahassee, Fla	Place
+21310	Wallingford	Place
+21334	Iowa, City, Ia.	Place
+21347	Capetown, Melbourne etc	Place
+21350	State College, Pa	Place
+21360	Tallahasse, Fla	Place
+21370	Toronto?	Place
+21380	Capetown, Melbourne	Place
+21390	Pierre	Place
+21397	Wetumpka	Place
+21426	Toledo?	Place
+21460	Guthrie	Place
+21462	Long Beach	Place
+21485	Jackson, J.S. Vandiver, State Superintendent of Education	Place
+21500	Columbus? O.	Place
+21536	Frankfurt, Ky	Place
+21637	Washington : Federal Security Agency, Office of Education	Place
+21704	Frankfort, Kentucky	Place
+21820	Chatham	Place
+21823	Essen-Ruhr	Place
+21828	Letchworth, Herts, Eng.	Place
+21833	West Point, N.Y.	Place
+21847	Fort Leavenworth, Kan.	Place
+9475	Bombay	Place
+22497	Zurich	Place
+22708	Göteborg	Place
+22787	Bergen	Place
+22905	Labes	Place
+23232	Stuttgart und Leipzig	Place
+23300	Kiliae	Place
+25732	Hanoï-Haïphong	Place
+23394	Danzig	Place
+23543	Ruckerlberg bei Graz	Place
+23687	Vienne (Wien)	Place
+23741	Texas. Austin	Place
+23888	Adelaide, South Australia	Place
+23940	Lansing, Mich	Place
+23986	Portland OR	Place
+23995	Richmond, Va	Place
+23997	Quebec	Place
+24012	Königsberg in Pr.	Place
+24015	Knoxville, Tenn.	Place
+24040	Rapid City, S.D.	Place
+24041	Rapid City, S.D	Place
+24070	Sacramento?	Place
+24076	Cheyenne?	Place
+24078	New Mexico	Place
+44448	Miṣr	Place
+44450	İstanbul	Place
+24190	Wheeling	Place
+24260	Urbana	Place
+24289	Talahassee, Fla.	Place
+24308	Perth	Place
+24422	Morgantown	Place
+24462	Nashville, Tenn	Place
+24478	Niort	Place
+24493	Rapid City, S. Dak.	Place
+24563	Ottawa, Government Printing Bureau	Place
+24569	Cheyenne	Place
+24611	Washinton	Place
+24640	Cape Girardeau, Mo.	Place
+24648	Saint Louis, Mo	Place
+24672	St Petersburg	Place
+24714	Corvallis, Or	Place
+24717	Wheeling, W.Va.	Place
+24733	Saint Augustine	Place
+24742	California	Place
+24748	University, Ala	Place
+24764	Hobart	Place
+24799	University, Ala.	Place
+24816	Waterville	Place
+24829	Laramie	Place
+24849	Santiago de Chili	Place
+24910	Jackson, Miss.	Place
+24927	Fribourg	Place
+24933	Cheyenne, Wyo.	Place
+25015	Hobart, Tasmania	Place
+25098	Lincoln?	Place
+25129	Havana	Place
+25131	Tōkyō	Place
+25135	0ttawa	Place
+25164	Socorro	Place
+25216	London, etc	Place
+25274	Ottowa	Place
+25300	Rapid City, So. Dak.	Place
+25351	Frankfurt, Ky.	Place
+25355	Norman Okla	Place
+25370	Frankfort, Ky	Place
+25373	Rolla, Mo.	Place
+25405	Columbia, Mo	Place
+25422	Lawrence, Kan.	Place
+25437	Moscow, Id.	Place
+25514	Wheeling, W. Va.	Place
+25524	Liverpool, Eng.	Place
+25532	Butte	Place
+25544	Vermilion, SD	Place
+25558	Salisbury?	Place
+25574	Cordoba (Rep. Argentina)	Place
+25586	Morgantown, W. Va.	Place
+25590	Eugene, Ore.	Place
+25613	Fort Wayne, Indiana	Place
+25643	Socorro, N.M.	Place
+25647	Butte, Mont	Place
+25661	New Haven, Conn	Place
+25692	London, etc.	Place
+25764	Kristiania Oslo	Place
+25810	Phoenix, Ariz	Place
+25826	Vermillion, S.D.	Place
+25830	Printed in Vienna	Place
+25850	Seattle, Wash	Place
+25856	Urbana, Ill	Place
+25892	Grand Forks	Place
+25905	Urbana, Illinois	Place
+25908	Tasmania	Place
+25910	Sakai, Japan	Place
+25921	Comitan, Chiapas (Mexico)	Place
+25932	Lawrence, Kan	Place
+25946	Tucson	Place
+25947	Madison, Wisconsin	Place
+25986	University, Miss	Place
+26015	'S-Gravenhage	Place
+26019	Seattle, Washington	Place
+26081	Bulawayo?	Place
+26088	Rio	Place
+26093	Zomba, Nyasaland	Place
+26114	Grand Forks, N. Dak.	Place
+26116	Salisbury, Rhodesia	Place
+26134	Charlottesville, University of Va.	Place
+26147	Jackson, Miss	Place
+26150	University, Va. Charlottesville	Place
+26158	University, Va., Richmond	Place
+26167	Sacremento	Place
+26200	Bucureṣti	Place
+26211	Salisbury	Place
+26219	Butte, Mont.	Place
+26250	Rolla, Missouri	Place
+26271	Peiping (Peking)	Place
+26273	ʾs-Gravenhage	Place
+26275	University, Ala. Birmingham	Place
+26292	Tacubaya, D.F., México	Place
+26373	University, Alabama	Place
+26374	University, Miss.	Place
+26378	Vermillion, South Dakota	Place
+26385	Tananarive	Place
+26396	Macon	Place
+26413	New Plymouth, N.Z.	Place
+26437	Bourg	Place
+26452	Mâcon	Place
+26484	São-Paulo-Brasil	Place
+26486	Dar Es Salaam	Place
+26493	University, Va.	Place
+26531	Reno, Nev.	Place
+26543	Butte, Montana	Place
+26554	Rabat	Place
+26569	Lawrence, Kans.	Place
+26730	St. John's	Place
+26759	Lawrence, Kansas	Place
+26786	North Head? N.B	Place
+26795	Leningrad	Place
+26803	Bloomfield Hills, Mich	Place
+26837	Huntington, W. Va., Gentry bros, printing co.	Place
+26844	Austin? Tex	Place
+26880	Nanking	Place
+26883	Dar es Salaam	Place
+26892	Ames, Iowa?	Place
+26900	St. Johns	Place
+26912	Utrecht?	Place
+26924	Morgantown, W. Va	Place
+26937	Portland, Ore.	Place
+27014	Lawrence, Kans	Place
+27018	Harrisburg, PA.	Place
+27067	London and Glasgow	Place
+27099	St. John's Ann Arbor, Mich.	Place
+27119	Parkersburg	Place
+27134	București	Place
+27186	Salisbury, Southern Rhodesia	Place
+27203	Topeka, Kansas	Place
+27261	Laramie, Wyo.	Place
+27263	Rio de Janeiro, Brazil	Place
+27279	Grand Forks, N.D.	Place
+27309	Baton Rouge, La	Place
+27315	Tulsa, Okla.	Place
+27349	Parkersburg, W. Va.	Place
+27379	Christchurch, London etc	Place
+48272	Tetouan?	Place
+27496	Sharon, Mass.	Place
+27502	Pehpei, Chungking	Place
+27505	Pehpei	Place
+27508	Charleston, West Va.	Place
+4585	Ebenhausen b.M.	Place
+27515	University, ALa.	Place
+27524	Lawrence, Kans. :s.n.	Place
+27544	Beirut, Syria	Place
+27575	Tulsa?	Place
+27645	Paris : Impr. nationale	Place
+27652	Le Mans	Place
+27659	Laval	Place
+27732	Belo Horizonte	Place
+27735	Lourenc̜o Marques	Place
+27751	Rolla	Place
+27824	Basul	Place
+27827	Moscow, Idaho	Place
+27849	Simla?	Place
+27851	Victoria	Place
+27901	Augusta, Maine	Place
+27915	Lexington?	Place
+27927	Dehra Dun	Place
+27932	Dunedin	Place
+27970	Bloomington	Place
+28001	Freiburg	Place
+28002	Lagos	Place
+28029	Buenós Aires	Place
+28033	Lisbonne	Place
+28035	Kaduna	Place
+28060	Victoria, B.C	Place
+28095	Edmonton, Alberta	Place
+28195	Kingston	Place
+28300	Canberra	Place
+92100	Brno	Place
+92113	Zaragoza	Place
+28461	Casablanca	Place
+28658	Cairo?	Place
+92161	Mi︠u︡nkhen	Place
+92165	Parizh	Place
+28821	Praha	Place
+4831	Gubbio	Place
+29289	La Habana	Place
+29292	Freetown	Place
+29706	La Paz	Place
+4981	Deerlijk	Place
+92396	Goeppingen	Place
+30095	Tel Aviv	Place
+30096	Nyu-Yorḳ	Place
+30099	Vilna	Place
+30100	Ḳraʼḳoʼ	Place
+30101	Tel-Aviv	Place
+30106	Varshe	Place
+30108	Bene Beraḳ	Place
+30110	Varsha	Place
+30113	Yerushalayim	Place
+30127	Buenos-Ayres	Place
+30129	Buenos Ayres	Place
+30140	Nyu York	Place
+30141	Ṿarshe	Place
+30155	Nyu Yorḳ	Place
+30181	Ṿarsha	Place
+30217	Merḥavyah	Place
+30239	Melborn	Place
+30304	Warsaw	Place
+30308	Vilne	Place
+30428	Tel-Aviv?	Place
+30595	Nyu-York	Place
+30605	Kharḳoṿ	Place
+30779	Mosḳṿe	Place
+30820	Lodzsh	Place
+30823	Ṿilne	Place
+30834	Ṿilna	Place
+5197	Schiedam	Place
+31235	Yerushalem	Place
+31265	Mihalovits?	Place
+27068	Honolulu, T. H.	Place
+5245	Reichenau/Sachsen	Place
+31497	Ḥefah	Place
+92676	Houston, Tex	Place
+31790	Romi	Place
+31793	Ḳiyeṿ	Place
+31811	Weitzen	Place
+31935	Lemberg	Place
+31956	Piotrków	Place
+31965	Ṿinipeg	Place
+32320	Nu-Yorḳ	Place
+32332	Mishkolts	Place
+32373	Pietrkov	Place
+32516	Bergn-Belzn	Place
+32554	Merhavya	Place
+32589	Reḥovot	Place
+32883	Wrocłow	Place
+32886	Filadelfya	Place
+5497	Berlin-Fichtenau	Place
+33014	Nuarḳ, Nyu Dzshoyrzi	Place
+5521	Olmütz	Place
+9835	Melrose, Mass.	Place
+5575	Amersfoort	Place
+5587	Bad Wörrishofen	Place
+34351	Milano etc	Place
+34417	Kyōto-shi	Place
+9877	Durham, N.C	Place
+34541	Kyōto	Place
+34640	Taihoku	Place
+34667	Dairen?	Place
+34699	Osaka	Place
+34807	Seoul	Place
+34812	Sŏul	Place
+34814	Sŏul-si	Place
+34818	Kyŏngsŏng	Place
+34862	Kyŏngsŏng-bu	Place
+34983	Valence	Place
+34991	London, Methuen & co., ltd.	Place
+35116	London and	Place
+35147	Manchester, England	Place
+35161	Aixen-Provence	Place
+35403	Crimmitschau	Place
+35432	Toledo, O.	Place
+35462	Bristol	Place
+5923	Wolfsberg in Kärnten	Place
+35790	Jefferson City, Mo	Place
+35797	Geneva, International labour office	Place
+35806	Ginebra	Place
+35921	Montreal, Can.	Place
+9925	Canaan, N.H.	Place
+35923	Luton Eng	Place
+35944	La Paz, Bolivia	Place
+35959	Washtington	Place
+5995	Charleroi	Place
+36002	Washingtion	Place
+36136	New Delhi	Place
+6061	Nürnberg?	Place
+9955	Fort Worth, Texas	Place
+36826	Sourabaya	Place
+27984	Fayetteville, Ark. : University of Arkansas, Institute of Science and Technology	Place
+36835	Københaven	Place
+36837	Tartus	Place
+36842	Bhavnagar (Kathiawar)	Place
+36861	Hermannsburg	Place
+36878	Friburgi Brisgoviae	Place
+36882	Techny, Ill.	Place
+36896	Berlin-Britz	Place
+36901	Athēnai	Place
+36914	Berlin-Lankwitz	Place
+36922	Hamburg-Bergedorf	Place
+36926	Hyderabad	Place
+36938	Bihar	Place
+36940	Dachau	Place
+36962	Lucknow	Place
+36970	Jammu	Place
+36989	Westerville, Ohio	Place
+37001	Managua	Place
+37005	Guyaquil	Place
+37020	Emsdetten	Place
+37028	Chile	Place
+37031	Masaya	Place
+37050	Concepcion	Place
+37067	Frankfurt a. M	Place
+37082	Arnsberg	Place
+37110	Freiburg i. Br. (Germania)	Place
+37121	Mumbaī	Place
+37148	Tirupati	Place
+37149	Poona	Place
+37154	Zwickau i. Sa.	Place
+37158	Phnom-Penh	Place
+37168	Rzym	Place
+37246	Moscu	Place
+37285	Mexico, D.F.	Place
+37304	Hamburg?	Place
+37325	Lima, Perú	Place
+37350	Hollywood Cal	Place
+37354	West Los Angeles, Calif.	Place
+37365	Philadelphia etc	Place
+37385	Prescott, Ariz.	Place
+37391	Sprngfield, Ill.	Place
+37419	Boudry	Place
+37427	Barcelona etc	Place
+37469	Miami, Fla.	Place
+37500	Rio de Janeiro etc	Place
+37502	Seminole, Okl.	Place
+37507	Grosse Pointe, Mich.	Place
+37520	München etc	Place
+37536	Rosario Arg	Place
+37538	Habana?	Place
+37542	Asunción	Place
+37559	Besançon	Place
+37579	Nebraska City, Nebr.	Place
+37593	México etc	Place
+37606	Buenos Aires etc	Place
+37628	Stamford, Conn.	Place
+37637	Bethesda, Md.	Place
+37669	Pisa etc	Place
+37688	Davenport, Ia.	Place
+37705	San Antonio, Tex.	Place
+37713	Córdoba Argentina	Place
+37722	Bonneville (Haute-Savoie)	Place
+37730	Findlay, Ohio	Place
+37754	Brévannes (Seine-et-Oise)	Place
+37786	Miami, Fla	Place
+37787	Lancaster, Pa	Place
+37788	Valládolid	Place
+37794	Ciudad Trujillo	Place
+37810	Lons-le-Saunier France	Place
+37822	Port-au-Prince?	Place
+37866	Nebraska City, Neb.	Place
+37873	Rüschlikon-Zch.	Place
+37874	Tournai etc	Place
+37898	Wabash, Ind.	Place
+37921	Dubuque, Iowa	Place
+37927	Paris-Montpellier	Place
+37928	Covina, Calif.	Place
+37936	Mount Pocono, Pa.	Place
+37937	Ann Arbor, Mich	Place
+37940	West Palm Beach, Fla. etc	Place
+37961	Christchurch	Place
+37992	Governors Island, N.Y.	Place
+38017	Aarhus Denmark	Place
+38018	Toronto, Halifax	Place
+38031	Fairfield, Ala.	Place
+38044	Calexico, Calif	Place
+38047	San Gabriel, Calif.	Place
+38057	Mâcon France	Place
+53642	Peshawar	Place
+38079	Chambéry	Place
+38126	Philadelphia (etc.)	Place
+38169	Lyon, etc	Place
+38177	New Brunswick, N.J	Place
+38185	Saint-Yrieix	Place
+38193	Yellow Springs	Place
+38231	Hollywood, Calif.	Place
+38237	Barcelona-Madrid	Place
+38242	Paris, Montpellier	Place
+38289	Minnesota	Place
+38305	Sandusky, Ohio	Place
+38309	Geneva, N.Y.	Place
+38385	Rochester, Minn.	Place
+38393	Philadelphia, etc	Place
+38402	Palatine, Ill	Place
+38407	Elkhart, Ind.	Place
+38417	Davenport, Iowa	Place
+38418	Baltimore : Williams & Wilkins	Place
+10009	Franklinville, N. Y.	Place
+38512	Harmondsworth, Middlesex	Place
+38513	Salamanca	Place
+6546	Cambridge	Place
+6985	Honolulu, T.H.	Place
+44530	Kerkük	Place
+7531	Los Angeles	Place
+45425	Baghdad	Place
+7783	Yokohama	Place
+49444	Bayt al-Maqdis	Place
+49505	Sān Bāwlū (Barāzīl)	Place
+49621	Niyū Yūrk	Place
+53662	Mumbai	Place
+50328	Ḥaydar Ābād al-Dakkan	Place
+50490	Ḥarīṣā	Place
+50750	Groningen (Holland)	Place
+50757	Wáshington, D.C.	Place
+50841	Bogota	Place
+51197	Groningen etc	Place
+51217	Fayetteville, Ark	Place
+10435	Hamilton, Ga.	Place
+52279	East Pittsburgh, Pa.	Place
+51611	San Diego	Place
+52332	Banārasa	Place
+51973	Fort Monroe, Va	Place
+52232	Pretoria, South Africa	Place
+52241	Bello Horizonte	Place
+52242	Copenhagn	Place
+52265	Jamaica Plain, Mass.	Place
+52268	Flagstaff	Place
+52271	Stuggart	Place
+52276	Lisbon, Portugal	Place
+52291	Flagstaff, Ariz.	Place
+52301	Bonis Auris	Place
+52317	Lāhaura	Place
+52323	Kalakattā	Place
+52324	Lakhanaū	Place
+52333	Trivandrum	Place
+52372	Bangalore City	Place
+52482	Djakarta	Place
+52489	Jogjakarta	Place
+52614	Ahmedabad	Place
+52481	Bandung	Place
+52746	Patna	Place
+52904	Dehli	Place
+8821	Raleigh, N.C.	Place
+52938	Puṇe	Place
+53249	Cen̲n̲ai	Place
+53400	Nagpur	Place
+52688	Baroda	Place
+55762	Bambaī	Place
+31315	Varshah	Place
+10651	Bridgwater, Somerset, Eng.	Place
+57726	Maisūru	Place
+9655	Brisbane	Place
+57977	Ambala Cantt	Place
+10261	Guilford, Me.	Place
+62070	Yan kon	Place
+62074	Ranʻ kunʻ mruiʹ	Place
+62128	Pathankot	Place
+53664	Ammritasara	Place
+10483	State College, Miss.	Place
+66959	Nāgapūra	Place
+6607	Columbus, Ohio	Place
+54982	Medan	Place
+6565	Sacramento	Place
+68418	Manila?	Place
+68747	Waltair	Place
+55272	Puṇẽ	Place
+69510	Patnā	Place
+70102	Hanoi?	Place
+6703	Madison	Place
+70607	Solāpura	Place
+54746	Bombay, Thacker	Place
+6739	Hanover, N.H.	Place
+6760	St.-Pétersbourg	Place
+72374	Calcutta?	Place
+6811	Lucka	Place
+13021	Seattle, Wash.	Place
+56836	Annamalainagar	Place
+6991	Breda	Place
+79883	Darjeeling	Place
+80569	Cawnpore	Place
+13669	Zamboanga, P.I.	Place
+13693	Odessa	Place
+82164	Ratnāgirī	Place
+82165	Nāgapura	Place
+82397	Phalaṭaṇa	Place
+82416	S.l	Place
+82422	Ērōṭu	Place
+82423	Tirucci	Place
+13747	Springfield, Ohio	Place
+13861	Zamboanga?	Place
+83334	Ranʻkunʻ Mruiʹ	Place
+84217	Hyderabad-Deccan	Place
+14107	V Ljubljani	Place
+14437	Frankfort, Ky.	Place
+7285	Topeka	Place
+94593	Parizh Paris	Place
+58493	Shillona	Place
+89174	Rosslyn, Va., U.S.A.	Place
+89220	Haag	Place
+89313	Homestead, Pa.	Place
+89314	Tacubaya, D.F., Mexico	Place
+89322	Bucureşti	Place
+89324	Cartago, Costa Rica	Place
+89326	Wien-Leipzig	Place
+89351	Frauenfeld und Leipzig	Place
+89356	Hankow, China	Place
+89359	Guatemala, C.A	Place
+89362	Matanzas	Place
+89368	Neuchatel	Place
+89384	Tallinn	Place
+89385	Chungking, China	Place
+89388	Bogotá, Colombia	Place
+89389	Chungking	Place
+89425	Villeneuve-sur-Lot	Place
+89434	Sao Paulo	Place
+89859	Philadelphia ; London	Place
+89891	St. Louis, New York, etc.	Place
+89944	Kalamazoo, Mich.	Place
+89948	Cleveland, O	Place
+89969	Camp Crowder, Mo.	Place
+89970	Paterson, N.J.	Place
+89977	Grand Rapids, Mich.	Place
+89991	St. Louis, Mo. Ann Arbor, Mich.	Place
+90020	New London, N.H.	Place
+90044	Springfield, Ill., Baltimore, Md.	Place
+90083	Maitland, Fla.	Place
+90095	Philadelphia, London etc	Place
+90096	Salinas, Calif.	Place
+90116	Philadelphia and London	Place
+90122	Crawfordsville, Ind.	Place
+90136	Santa Cruz, Calif.	Place
+90153	Maywood, Ill.	Place
+90189	Berkeley, Calif. !	Place
+90213	Mountain View, Calif., Portland, Or. etc	Place
+90219	Redlands, Calif.	Place
+90224	Philadelphia, Toronto	Place
+90242	Salem, Ore	Place
+15043	Newark, N.J	Place
+90272	New York., N.Y.	Place
+90308	Beacon, N.Y.	Place
+90323	Yonkers, N.Y	Place
+90325	Red Bank, N.J.	Place
+90330	New York, Londres	Place
+15055	Flat Rock, Ind?	Place
+90345	Westfield, Mass.	Place
+90371	Gaithersburg, Md.	Place
+90379	Central Lake, Mich.	Place
+90382	Philadelphia & London	Place
+90399	San Josʹe, Calif.	Place
+7375	Tokyo	Place
+90537	San Jose, Cal	Place
+90541	Grand Encampment, Wyoming	Place
+90553	Medford? Mass.	Place
+90565	Reno, Nev	Place
+15097	Toledo	Place
+90631	Lisle, Illinois	Place
+90634	Norwich, N. Y.	Place
+90652	Katowice	Place
+90657	Yonkers-on-Hudson, N.Y., and Chicago, Ill.	Place
+90684	Leipzig,	Place
+90686	Berlin,	Place
+90687	Heidelberg,	Place
+90689	Freiburg,	Place
+90690	Geneve,	Place
+90691	Tübingen,	Place
+90693	Breslau,	Place
+90694	Halle a.S.,	Place
+90697	Erlangen,	Place
+90702	Hamburg,	Place
+90703	Marburg,	Place
+90709	Wurzburg,	Place
+90717	Giessen,	Place
+90718	Rostock,	Place
+90871	K. Polis	Place
+90900	Halle a.S.?	Place
+90916	Cleveland?	Place
+15157	Marshfield, Or.	Place
+90947	Ossiring, N.Y.	Place
+7393	Miltitz bei Leipzig	Place
+90962	Venetik	Place
+90968	Lond., N.Y.	Place
+90975	Berlin, etc.	Place
+90981	London, N.Y.	Place
+91012	Wai India	Place
+91059	(Chicago	Place
+91063	Evanston - Chicago	Place
+91095	London: Reynolds & co.	Place
+91121	Uppsala-Leipzig	Place
+91138	Bs	Place
+91139	(Unter vergleichswieser berücksichtigung der rechte der maya)	Place
+15193	Orange Bower, Calif.	Place
+91165	Saint Louis, Woodward & Tiernan Printing Co.	Place
+91170	Guilin	Place
+91175	Nanjing Shi	Place
+91176	Shanxi Sheng	Place
+91184	Nanjing?	Place
+91217	Taiwan	Place
+37061	Fiume	Place
+15223	Lebanon, O.	Place
+91355	London & New York	Place
+91393	London and Edinburgh	Place
+15235	Duluth	Place
+91437	Bangor	Place
+91495	...London	Place
+91632	Tokio	Place
+91661	Washington, Govt. Print. Off	Place
+91667	Fort Leavenworth, Kansas	Place
+91681	Washington Barracks DC	Place
+91687	Fort Leavenworth, Kan	Place
+91688	Washington Barracks, D.C.	Place
+91695	San Francisco, CA	Place
+91700	Fort Leavenworth, Kans	Place
+91748	Fort Leavenworth	Place
+91792	San Salvador	Place
+91897	Trier, Germany	Place
+91946	Eger	Place
+92016	Porto	Place
+92182	Baku	Place
+92295	Nordlingen	Place
+15409	Middletown, Ohio	Place
+59104	Migoda, Ceylon	Place
+92532	Cuenca, Ecuador	Place
+92567	Hjøffing	Place
+7447	Melbourne, London etc	Place
+92623	Kew, Surrey	Place
+92629	Rio Piedras, P.R.	Place
+92687	Tunja, Colombia	Place
+92698	Bambay	Place
+15457	Syracuse N.Y.	Place
+92793	Lérida	Place
+15475	Pittsburgh, Pa.	Place
+15481	Mankato, Minn.	Place
+92916	Offenbach am Main	Place
+92952	Puno	Place
+15505	Yorktown, Va	Place
+93364	W Budyšinje	Place
+93367	V Brně	Place
+93386	Plovdiv	Place
+93397	Bergedorf	Place
+93405	Kaunas, Spaudos fondas	Place
+93411	Novyĭ Sad	Place
+93416	V London	Place
+93423	Oegstgeest	Place
+93445	Craiova	Place
+93499	Rostov na Donu	Place
+93507	S. P-burg	Place
+93508	Shankhaĭ	Place
+93509	Petrograd	Place
+93529	Oldenbourg i. O.	Place
+93544	Pôrto	Place
+93582	Gelʹsingfors	Place
+93589	Kaapstad	Place
+93595	Vilnius	Place
+93606	Sremski Karlovci	Place
+93653	Huancayo	Place
+93660	Solln vor München	Place
+93661	Nʹi︠u︡-Īork	Place
+93670	Parizhʺ	Place
+93672	Bahía Blanca	Place
+93686	Parizhʹ	Place
+93695	Tula	Place
+93718	S. Peterburg	Place
+93765	Karlsbad-Drahowitz	Place
+93771	S.-Peterburgʺ	Place
+93772	Bromberg	Place
+93792	Paris : Éditions d'art Devambez	Place
+93822	S.-Peterburgʹ	Place
+93835	Plauen i. V	Place
+93850	Praga	Place
+93865	Minsḳ	Place
+93915	(Baden)	Place
+93921	Nʹi︠u︡ Īorkʹ	Place
+93936	Berlin, Druck u. Auslieferungsstelle	Place
+93945	Moska	Place
+93957	Biograd	Place
+94021	Kīev	Place
+94024	Parizh?	Place
+94064	Lidz	Place
+94081	St. Petersburg?	Place
+94095	Oppeln	Place
+94096	Mustér	Place
+94125	Stalinabad	Place
+94128	S.-Petersburg	Place
+94131	Lakeland	Place
+94136	Passau	Place
+94162	Uzhgorod	Place
+94163	V Berline	Place
+94176	Köln am Rhein	Place
+94207	Fredericia	Place
+94254	Wolfratshausen vor München	Place
+94261	Sevilla	Place
+94264	Glascho	Place
+94268	Lerpwl	Place
+94269	Baile Atha Cliath	Place
+94274	Baile Átha Cliath	Place
+94275	Baile Áṫa Cliaṫ	Place
+94303	Bi︠e︡lgrad	Place
+94309	V Parizhi︠e︡	Place
+94331	Córdoba República Argentina	Place
+94353	Liepzig	Place
+94364	Hoboken	Place
+94377	Nuyorḳ	Place
+94427	Trier	Place
+94435	Toruń	Place
+94442	Horgen-Zürich	Place
+94465	Gleiwitz	Place
+94469	Nottingham,Eng	Place
+94470	Nottingham, Eng	Place
+94478	Bonn a. Rhein	Place
+94480	Wernigerode am Harz	Place
+94496	Nottingham Eng	Place
+94556	Purmerend	Place
+94568	Stokkholʹm	Place
+94574	Kursk	Place
+94580	Birkenwerder b. Berlin	Place
+94594	Nʹi︠u︡-Iork	Place
+94636	Bridgetown, Barbados	Place
+94654	Wien-Mödling	Place
+94676	We Lwowie	Place
+94677	Wilno	Place
+94691	Einsiedeln	Place
+94701	Haslach i. K.	Place
+94711	So. Boston	Place
+94718	s'-Gravenhage	Place
+94721	Bolsward	Place
+94724	Bleicherode am Harz	Place
+94751	Franḳfurṭ A. M.	Place
+94758	Lvov	Place
+94771	Shikage	Place
+94801	Germantown	Place
+94828	Petrogradʺ	Place
+94879	Petrograd R.S.F.S.R.	Place
+94890	S.-Peterburg Leningrad	Place
+94902	Ṿien	Place
+94917	Plzeň?	Place
+94934	Saõ Paulo	Place
+94940	Denver?	Place
+94948	Plauen in Vogtland	Place
+94967	Macau	Place
+95008	Yas	Place
+95013	Sighet	Place
+95018	Munkács	Place
+95021	Piotrków Trybunalsḳi	Place
+95026	Lʹvov	Place
+95040	Saratov	Place
+95045	V Praze Nákl	Place
+95046	Vigo	Place
+95062	Sibiu	Place
+95098	Paarl	Place
+95105	Diessen vor München	Place
+95115	Stuttgart?	Place
+95121	Reichenau i. Sa.	Place
+95140	Sancasciano Val di Pesa	Place
+95179	Shiḳago	Place
+95186	Slutsk	Place
+95210	Brün	Place
+95257	Lima, Peru	Place
+95277	Oak Ridge, Tenn.	Place
+37799	Watertown, N.Y.	Place
+16051	Münster in Westf.	Place
+16283	Lakeland, Fla.	Place
+98186	Medford, Mass	Place
+98282	Giza	Place
+81927	Thaṇẽ	Place
+66123	Pishāwar	Place
+99345	Marianao	Place
+82171	Dili	Place
+38524	KØbenhavn	Place
+55708	Lāhaur	Place
+38565	Royapettah, Madras	Place
+38573	Los Angeles?	Place
+38587	Port-Au-Prince	Place
+38593	Brookline, Mass.	Place
+38610	Summit, N.J	Place
+38619	Gelsenkirchen	Place
+47003	Éd	Place
+7747	Concord, N.H.	Place
+90713	Munchen,	Place
+60924	India	Place
+90757	Wrocław	Place
+17420	Tulsa, Okl.	Place
+90772	Zheneva	Place
+90773	S. l.	Place
+95145	Minden i. Westf.	Place
+7867	Jefferson City	Place
+45219	I̊stanbul	Place
+90802	Bratislava	Place
+61356	Maturai	Place
+83215	Pārdī	Place
+82153	Cen̲n̲aipaṭntaṇam	Place
+6829	Cleveland	Place
+8017	Birmingham	Place
+6877	Ithaca, N.Y.	Place
+63031	Mambaʼī	Place
+63159	Poona City	Place
+63347	Djawa Timur	Place
+63361	Srinagar-Kashmir	Place
+63468	Rajkot	Place
+12703	Cincinnati, Ohio	Place
+6907	Ann Arbor	Place
+19973	Mooseheart, Ill	Place
+12739	Columbus, Ga.	Place
+12847	St. Anthony Park, Minn.	Place
+64330	Bombay?	Place
+87240	Djokjakarta	Place
+65514	Mumbayyāṃ	Place
