@@ -1,7 +1,7 @@
 from xml.dom import minidom
 
 file = minidom.parse('viaf.xml')
-print(file.toprettyxml())
+#print(file.toprettyxml())
 
 clusters = file.getElementsByTagName('VIAFCluster')
 
