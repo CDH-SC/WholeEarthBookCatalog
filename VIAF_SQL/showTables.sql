@@ -1,6 +1,6 @@
 select '---------------PERSON_TABLE----------------' As '';
-DESCRIBE person_table;
-select * from person_table limit 10;
+DESCRIBE cluster_table;
+select * from cluster_table limit 10;
 
 select '---------------ALIASES_TABLE----------------' As '';
 DESCRIBE aliases_table;

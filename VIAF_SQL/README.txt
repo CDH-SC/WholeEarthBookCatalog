@@ -2,7 +2,7 @@ VIAF_SQL
 ----vasco madrid
 
 This directory contains sql files and tsv files to start mysql viaf database
-> NOTE: using server version 5.7.27-0ubuntu0.16.04.1
+> NOTE: you must have mysql version 8 installed
 
 
 create and restart database:

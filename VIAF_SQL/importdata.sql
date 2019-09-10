@@ -1,4 +1,7 @@
-LOAD DATA LOCAL INFILE 'tables/personTable.tsv' INTO TABLE person_table IGNORE 1 ROWS;
+LOAD DATA LOCAL INFILE 'tables/small_viaf.tsv' INTO TABLE full_table IGNORE 1 ROWS;
+show warnings;
+
+LOAD DATA LOCAL INFILE 'tables/personTable.tsv' INTO TABLE cluster_table IGNORE 1 ROWS;
 show warnings;
 
 LOAD DATA LOCAL INFILE 'tables/aliasesTable.tsv' INTO TABLE aliases_table IGNORE 1 ROWS;
