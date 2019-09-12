@@ -1,9 +1,11 @@
+from multiprocessing import Pool
 from xml.dom import minidom
 
-file = minidom.parse('viaf.xml')
-#print(file.toprettyxml())
+import csv
+import mmap
+import sys
 
-clusters = file.getElementsByTagName('VIAFCluster')
+#print(file.toprettyxml())
 
 def getID(cluster):
     idNum = cluster.getElementsByTagName('viafID')[0]
@@ -132,71 +134,79 @@ def getNationality(cluster):
             # print(name.firstChild.data)
     return name
 
-count = 1
-csv = open('viaf.tsv', 'w')
-csv.write("ID\tType\tNames\tNormNames\tCoAuth\tPublishers\tISBN\tCountry\tTitles\tStartDate\tEndDate\tDateType\tNationality\n")
-for cluster in clusters:
-    
-    #print (">>>> Cluster " + str(count) + " <<<<"
-    #       "\tType: " + getType(cluster) +
-    #        "\tID: " + getID(cluster))
-    
+def xmlToTsv(xml_string):
+    cluster = minidom.parseString(xml_string)
     t = getType(cluster)
-    
-    print(t)
-    
+
     iD = getID(cluster)
-    
+
     #print("Main Headings:")
     mh = getMainHeadings(cluster)
-    
+
     #print("Main Heading Elements:")
     mhe = getMHElements(cluster)
-    
+
     #combine mh and mhe into same list names
-    
+
     names = []
     for i in mh:
         names.append(i)
     for i in mhe:
         names.append(i)
     #print(names)
-    
+
     #print("Normalized Names:")
     nn = getNormalizedNames(cluster)
     #print(nn)
     #print("Coauthors:")
     ca = getCoauthors(cluster)
-    
+
     #print("Publishers:")
     pub = getPublishers(cluster)
-    
+
     #print("ISBNS:")
     isbn = getISBNs(cluster)
-    
+
     #print("Countries:")
     country = getCountries(cluster)
-    
+
     #print(country)
-    
+
     #print("Titles:")
     titles = getTitles(cluster)
-    
+
     #print("\n")
-    
+
     birthDate = getBirthDate(cluster) # start date
     #print(birthDate)
-    
+
     deathDate = getDeathDate(cluster) # end date
     #print(deathDate)
-    
+
     dateType = getDateType(cluster)
     #print(dateType)
-    
+
     nationality = getNationality(cluster)
     #print(nationality)
-    
-    csv.write(str(iD) +"\t" + str(t) +"\t" + str(names) +"\t" + str(nn) +"\t" + str(ca) +"\t" + str(pub) + "\t" + str(isbn) + "\t" + str(country) + "\t" + str(titles) + "\t" + str(birthDate) + "\t" + str(deathDate) + "\t" + str(dateType) + "\t" + str(nationality) + "\n")
-    count= count + 1
 
-csv.close()
+    curr_row = [str(x) for x in [iD, t, names, nn, ca, pub, isbn, country, titles, birthDate, deathDate, dateType, nationality]]
+
+    return curr_row
+
+# pool = Pool()
+with open('viaf.xml', "r+b") as read_handle:
+    with open('viaf.tsv', 'w') as write_handle:
+        csv_writer = csv.writer(write_handle, delimiter="\t")
+        header = ["ID", "Type", "Names", "NormNames", "CoAuth", "Publishers", "ISBN", "Country", "Titles", "StartDate", "EndDate", "DateType", "Nationality"]
+        csv_writer.writerow(header)
+        map_file = mmap.mmap(read_handle.fileno(), 0, prot=mmap.PROT_READ)
+        chunk_data = []
+        for line in iter(map_file.readline, b""):
+            chunk_data.append(xmlToTsv(line))
+            if len(chunk_data) >= 10000:
+                csv_writer.writerows(chunk_data)
+                chunk_data = []
+
+        write_handle.close()
+    read_handle.close()
+
