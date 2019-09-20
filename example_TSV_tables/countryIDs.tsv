@@ -1,0 +1,249 @@
+ID	Type	Name	Name2
+1	Place	AF 	Afghanistan 
+2	Place	AL 	Albania 
+3	Place	DZ 	Algeria 
+4	Place	AS 	American Samoa 
+5	Place	AD 	Andorra 
+6	Place	AO 	Angola 
+7	Place	AI 	Anguilla 
+8	Place	AQ 	Antarctica 
+9	Place	AG 	Antigua and Barbuda 
+10	Place	AR 	Argentina 
+11	Place	AM 	Armenia 
+12	Place	AW 	Aruba 
+13	Place	AU 	Australia 
+14	Place	AT 	Austria 
+15	Place	AZ 	Azerbaijan 
+16	Place	BS 	Bahamas 
+17	Place	BH 	Bahrain 
+18	Place	BD 	Bangladesh 
+19	Place	BB 	Barbados 
+20	Place	BY 	Belarus 
+21	Place	BE 	Belgium 
+22	Place	BZ 	Belize 
+23	Place	BJ 	Benin 
+24	Place	BM 	Bermuda 
+25	Place	BT 	Bhutan 
+26	Place	BO 	Bolivia 
+27	Place	BQ 	Bonaire 
+28	Place	BA 	Bosnia and Herzegovina 
+29	Place	BW 	Botswana 
+30	Place	BV 	Bouvet Island 
+31	Place	BR 	Brazil 
+32	Place	IO 	British Indian Ocean Territory 
+33	Place	BN 	Brunei Darussalam 
+34	Place	BG 	Bulgaria 
+35	Place	BF 	Burkina Faso 
+36	Place	BI 	Burundi 
+37	Place	KH 	Cambodia 
+38	Place	CM 	Cameroon 
+39	Place	CA 	Canada 
+40	Place	CV 	Cape Verde 
+41	Place	KY 	Cayman Islands 
+42	Place	CF 	Central African Republic 
+43	Place	TD 	Chad 
+44	Place	CL 	Chile 
+45	Place	CN 	China 
+46	Place	CX 	Christmas Island 
+47	Place	CC 	Cocos (Keeling) Islands 
+48	Place	CO 	Colombia 
+49	Place	KM 	Comoros 
+50	Place	CG 	Congo 
+51	Place	CD 	Democratic Republic of the Congo 
+52	Place	CK 	Cook Islands 
+53	Place	CR 	Costa Rica 
+54	Place	HR 	Croatia 
+55	Place	CU 	Cuba 
+56	Place	CW 	Curacao 
+57	Place	CY 	Cyprus 
+58	Place	CZ 	Czech Republic 
+59	Place	CI 	Cote d'Ivoire 
+60	Place	DK 	Denmark 
+61	Place	DJ 	Djibouti 
+62	Place	DM 	Dominica 
+63	Place	DO 	Dominican Republic 
+64	Place	EC 	Ecuador 
+65	Place	EG 	Egypt 
+66	Place	SV 	El Salvador 
+67	Place	GQ 	Equatorial Guinea 
+68	Place	ER 	Eritrea 
+69	Place	EE 	Estonia 
+70	Place	ET 	Ethiopia 
+71	Place	FK 	Falkland Islands (Malvinas) 
+72	Place	FO 	Faroe Islands 
+73	Place	FJ 	Fiji 
+74	Place	FI 	Finland 
+75	Place	FR 	France 
+76	Place	GF 	French Guiana 
+77	Place	PF 	French Polynesia 
+78	Place	TF 	French Southern Territories 
+79	Place	GA 	Gabon 
+80	Place	GM 	Gambia 
+81	Place	GE 	Georgia 
+82	Place	DE 	Germany 
+83	Place	GH 	Ghana 
+84	Place	GI 	Gibraltar 
+85	Place	GR 	Greece 
+86	Place	GL 	Greenland 
+87	Place	GD 	Grenada 
+88	Place	GP 	Guadeloupe 
+89	Place	GU 	Guam 
+90	Place	GT 	Guatemala 
+91	Place	GG 	Guernsey 
+92	Place	GN 	Guinea 
+93	Place	GW 	Guinea-Bissau 
+94	Place	GY 	Guyana 
+95	Place	HT 	Haiti 
+96	Place	HM 	Heard Island and McDonald Islands 
+97	Place	VA 	Holy See (Vatican City State) 
+98	Place	HN 	Honduras 
+99	Place	HK 	Hong Kong 
+100	Place	HU 	Hungary 
+101	Place	IS 	Iceland 
+102	Place	IN 	India 
+103	Place	ID 	Indonesia 
+104	Place	IR 	Iran, Islamic Republic of 
+105	Place	IQ 	Iraq 
+106	Place	IE 	Ireland 
+107	Place	IM 	Isle of Man 
+108	Place	IL 	Israel 
+109	Place	IT 	Italy 
+110	Place	JM 	Jamaica 
+111	Place	JP 	Japan 
+112	Place	JE 	Jersey 
+113	Place	JO 	Jordan 
+114	Place	KZ 	Kazakhstan 
+115	Place	KE 	Kenya 
+116	Place	KI 	Kiribati 
+117	Place	KP 	Korea, Democratic People's Republic of 
+118	Place	KR 	Korea, Republic of 
+119	Place	KW 	Kuwait 
+120	Place	KG 	Kyrgyzstan 
+121	Place	LA 	Lao People's Democratic Republic 
+122	Place	LV 	Latvia 
+123	Place	LB 	Lebanon 
+124	Place	LS 	Lesotho 
+125	Place	LR 	Liberia 
+126	Place	LY 	Libya 
+127	Place	LI 	Liechtenstein 
+128	Place	LT 	Lithuania 
+129	Place	LU 	Luxembourg 
+130	Place	MO 	Macao 
+131	Place	MK 	Macedonia, the Former Yugoslav Republic of 
+132	Place	MG 	Madagascar 
+133	Place	MW 	Malawi 
+134	Place	MY 	Malaysia 
+135	Place	MV 	Maldives 
+136	Place	ML 	Mali 
+137	Place	MT 	Malta 
+138	Place	MH 	Marshall Islands 
+139	Place	MQ 	Martinique 
+140	Place	MR 	Mauritania 
+141	Place	MU 	Mauritius 
+142	Place	YT 	Mayotte 
+143	Place	MX 	Mexico 
+144	Place	FM 	Micronesia, Federated States of 
+145	Place	MD 	Moldova, Republic of 
+146	Place	MC 	Monaco 
+147	Place	MN 	Mongolia 
+148	Place	ME 	Montenegro 
+149	Place	MS 	Montserrat 
+150	Place	MA 	Morocco 
+151	Place	MZ 	Mozambique 
+152	Place	MM 	Myanmar 
+153	Place	NA 	Namibia 
+154	Place	NR 	Nauru 
+155	Place	NP 	Nepal 
+156	Place	NL 	Netherlands 
+157	Place	NC 	New Caledonia 
+158	Place	NZ 	New Zealand 
+159	Place	NI 	Nicaragua 
+160	Place	NE 	Niger 
+161	Place	NG 	Nigeria 
+162	Place	NU 	Niue 
+163	Place	NF 	Norfolk Island 
+164	Place	MP 	Northern Mariana Islands 
+165	Place	NO 	Norway 
+166	Place	OM 	Oman 
+167	Place	PK 	Pakistan 
+168	Place	PW 	Palau 
+169	Place	PS 	Palestine, State of 
+170	Place	PA 	Panama 
+171	Place	PG 	Papua New Guinea 
+172	Place	PY 	Paraguay 
+173	Place	PE 	Peru 
+174	Place	PH 	Philippines 
+175	Place	PN 	Pitcairn 
+176	Place	PL 	Poland 
+177	Place	PT 	Portugal 
+178	Place	PR 	Puerto Rico 
+179	Place	QA 	Qatar 
+180	Place	RO 	Romania 
+181	Place	RU 	Russian Federation 
+182	Place	RW 	Rwanda 
+183	Place	RE 	Reunion 
+184	Place	BL 	Saint Barthelemy 
+185	Place	SH 	Saint Helena 
+186	Place	KN 	Saint Kitts and Nevis 
+187	Place	LC 	Saint Lucia 
+188	Place	MF 	Saint Martin (French part) 
+189	Place	PM 	Saint Pierre and Miquelon 
+190	Place	VC 	Saint Vincent and the Grenadines 
+191	Place	WS 	Samoa 
+192	Place	SM 	San Marino 
+193	Place	ST 	Sao Tome and Principe 
+194	Place	SA 	Saudi Arabia 
+195	Place	SN 	Senegal 
+196	Place	RS 	Serbia 
+197	Place	SC 	Seychelles 
+198	Place	SL 	Sierra Leone 
+199	Place	SG 	Singapore 
+200	Place	SX 	Sint Maarten (Dutch part) 
+201	Place	SK 	Slovakia 
+202	Place	SI 	Slovenia 
+203	Place	SB 	Solomon Islands 
+204	Place	SO 	Somalia 
+205	Place	ZA 	South Africa 
+206	Place	GS 	South Georgia and the South Sandwich Islands 
+207	Place	SS 	South Sudan 
+208	Place	ES 	Spain 
+209	Place	LK 	Sri Lanka 
+210	Place	SD 	Sudan 
+211	Place	SR 	Suriname 
+212	Place	SJ 	Svalbard and Jan Mayen 
+213	Place	SZ 	Swaziland 
+214	Place	SE 	Sweden 
+215	Place	CH 	Switzerland 
+216	Place	SY 	Syrian Arab Republic 
+217	Place	TW 	Taiwan 
+218	Place	TJ 	Tajikistan 
+219	Place	TZ 	United Republic of Tanzania 
+220	Place	TH 	Thailand 
+221	Place	TL 	Timor-Leste 
+222	Place	TG 	Togo 
+223	Place	TK 	Tokelau 
+224	Place	TO 	Tonga 
+225	Place	TT 	Trinidad and Tobago 
+226	Place	TN 	Tunisia 
+227	Place	TR 	Turkey 
+228	Place	TM 	Turkmenistan 
+229	Place	TC 	Turks and Caicos Islands 
+230	Place	TV 	Tuvalu 
+231	Place	UG 	Uganda 
+232	Place	UA 	Ukraine 
+233	Place	AE 	United Arab Emirates 
+234	Place	GB 	United Kingdom 
+235	Place	US 	United States 
+236	Place	UM 	United States Minor Outlying Islands 
+237	Place	UY 	Uruguay 
+238	Place	UZ 	Uzbekistan 
+239	Place	VU 	Vanuatu 
+240	Place	VE 	Venezuela 
+241	Place	VN 	Viet Nam 
+242	Place	VG 	British Virgin Islands 
+243	Place	VI 	US Virgin Islands 
+244	Place	WF 	Wallis and Futuna 
+245	Place	EH 	Western Sahara 
+246	Place	YE 	Yemen 
+247	Place	ZM 	Zambia 
+248	Place	ZW 	Zimbabwe 
