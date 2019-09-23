@@ -3,6 +3,7 @@ from xml.dom import minidom
 
 import csv
 import mmap
+import time
 import sys
 
 #print(file.toprettyxml())
@@ -194,19 +195,24 @@ def xmlToTsv(xml_string):
     return curr_row
 
 # pool = Pool()
-with open('viaf.xml', "r+b") as read_handle:
-    with open('viaf.tsv', 'w') as write_handle:
+with open('/backup/viaf_download/viaf.xml', "r+b") as read_handle:
+    with open('/backup/viaf_download/viaf.tsv', 'w') as write_handle:
         csv_writer = csv.writer(write_handle, delimiter="\t")
         header = ["ID", "Type", "Names", "NormNames", "CoAuth", "Publishers", "ISBN", "Country", "Titles", "StartDate", "EndDate", "DateType", "Nationality"]
         csv_writer.writerow(header)
         map_file = mmap.mmap(read_handle.fileno(), 0, prot=mmap.PROT_READ)
         chunk_data = []
+        s_time = time.time()
         for line in iter(map_file.readline, b""):
-            chunk_data.append(xmlToTsv(line))
-            if len(chunk_data) >= 10000:
+            try:
+                curr = xmlToTsv(line)
+                chunk_data.append(curr)
+            except:
+                pass
+
+            if len(chunk_data) >= 1000:
+                print("1000 rows processing time: {}".format(time.time() - s_time))
                 csv_writer.writerows(chunk_data)
                 chunk_data = []
 
-        write_handle.close()
-    read_handle.close()
 
