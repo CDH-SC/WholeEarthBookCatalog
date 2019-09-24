@@ -7,11 +7,15 @@ import time
 from lxml import etree
 from multiprocessing import Pool
 from itertools import zip_longest
+from DivideTSVs import splitTSV
 
 def xmlToTsv(xml_strings):
       rows = []
       for xml_string in xml_strings:
-          cluster = etree.fromstring(xml_string)
+          try:
+            cluster = etree.fromstring(xml_string)
+          except:
+            continue
           cluster = etree.ElementTree(cluster)
 
           ns = {"ns": "http://viaf.org/viaf/terms#"}
@@ -139,7 +143,7 @@ def xmlToTsv(xml_strings):
           else:
               death_date = ""
 
-          rows.append([cl_type, cl_id, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality])
+          rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality])
       return rows
 from itertools import zip_longest
 
@@ -151,6 +155,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--infile', '-i', help='Infile (XML) name', required=True)
     parser.add_argument('--outfile', '-o', help='Outfile (TSV) name', required=True)
+    parser.add_argument('--split', '-s', help='Split TSV File into Nodes in this directory')
     pool = Pool()
     args = parser.parse_args()
     infile = args.infile
@@ -159,9 +164,8 @@ if __name__ == "__main__":
         with open(outfile, 'w') as write_handle:
             csv_writer = csv.writer(write_handle, delimiter="\t")
             header = ["ID", "Type", "Names", "NormNames", "CoAuth", "Publishers", "ISBN", "Country", "Titles", "StartDate", "EndDate", "DateType", "Nationality"]
-            csv_writer.writerow(header)
 
-            s_time = time.time()
+            csv_writer.writerow(header)
 
             step_size = 10000
             count = 0
@@ -169,8 +173,11 @@ if __name__ == "__main__":
             iterator = grouper(read_handle, step_size)
             for data in pool.imap(xmlToTsv, iterator):
                 count += step_size
-                print("{} processing time: {}".format(count, time.time()- s_time))
                 csv_writer.writerows(data)
+
+    if args.split:
+          split_dir = args.split
+          splitTSV(outfile, split_dir)
 
 
 
