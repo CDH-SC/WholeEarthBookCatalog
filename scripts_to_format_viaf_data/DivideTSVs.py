@@ -10,7 +10,7 @@ def loadTables(dirname):
             ["id", "normName"],
             ["id", "id_2", "coAuth"],
             ["id", "pub_id", "publisher"],
-            ["id", "isbn"],
+            ["id", "isbnid", "isbn"],
             ["id", "country_id", "country"],
             ["id", "title_id", "title"]]
 
