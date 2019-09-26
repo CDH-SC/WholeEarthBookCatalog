@@ -1,13 +1,66 @@
 import argparse
 import csv
+import DivideTSVs
 import mmap
+import os
 import sys
 import time
 
 from lxml import etree
-from multiprocessing import Pool
+from multiprocessing import Pool, Process, Queue
 from itertools import zip_longest
-from DivideTSVs import splitTSV
+from DivideTSVs import loadTables
+
+def splitTSVMem(queue):
+    dirname = q.get()
+
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
+
+    tlist, theaders, tables = loadTables(dirname)
+
+    for tname,theader in zip(tlist, theaders):
+        tables[tname].writerow(theader)
+
+    # Skip header
+
+    id_vals = { prop:id_val for prop,id_val in zip(tlist[3:], range(0, (len(tlist)*10000000), 10000000)) }
+    global_dict = {}
+
+    while True:
+        rows = q.get()
+        if rows == None:
+            break
+
+        csv_writer.writerows(rows)
+        for row in rows:
+            pid, pType = row[0:2]
+            start, end, dType, nat = row[9:13]
+            row_vals = { tname:node for tname,node in zip(tlist[1:], row[2:9]) }
+            row_vals[tlist[0]] = row_vals['aliases'][0]
+
+            for key, value in row_vals.items():
+
+                if key == "person":
+                    tables[key].writerow([pid, pType, value, start, end, dType, nat])
+
+                elif key in ["coAuthor","pub","titles","isbns","countries"]:
+                    for sub_val in value:
+
+                        # Really hacky and inefficient, I know
+                        type_string = "{}:{}".format(key, str(sub_val))
+
+                        if type_string in global_dict:
+                            tables[key].writerow([pid, global_dict[type_string], sub_val])
+
+                        else:
+                            tables[key].writerow([pid, id_vals[key], sub_val])
+                            global_dict[type_string] = id_vals[key]
+                            id_vals[key] += 1
+
+                else:
+                    for sub_val in value:
+                        tables[key].writerow([pid, sub_val])
 
 def xmlToTsv(xml_strings):
       rows = []
@@ -145,39 +198,50 @@ def xmlToTsv(xml_strings):
 
           rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality])
       return rows
-from itertools import zip_longest
 
 def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
     return zip_longest(*args, fillvalue=fillvalue)
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--infile', '-i', help='Infile (XML) name', required=True)
     parser.add_argument('--outfile', '-o', help='Outfile (TSV) name', required=True)
-    parser.add_argument('--split', '-s', help='Split TSV File into Nodes in this directory')
-    pool = Pool()
-    args = parser.parse_args()
-    infile = args.infile
+    parser.add_argument('--split', '-s', help='Split TSV File into Nodes in this directory', required=True) 
+    args = parser.parse_args() 
+    infile = args.infile 
     outfile = args.outfile
+
+    pool = Pool(os.cpu_count() - 1) 
+
     with open(infile, 'r+b') as read_handle:
+        header = ["ID", "Type", "Names", "NormNames", "CoAuth", "Publishers", "ISBN", "Country", "Titles", "StartDate", "EndDate", "DateType", "Nationality"]
+
+
         with open(outfile, 'w') as write_handle:
             csv_writer = csv.writer(write_handle, delimiter="\t")
-            header = ["ID", "Type", "Names", "NormNames", "CoAuth", "Publishers", "ISBN", "Country", "Titles", "StartDate", "EndDate", "DateType", "Nationality"]
-
             csv_writer.writerow(header)
-
-            step_size = 10000
+            step_size = 1000
             count = 0
 
             iterator = grouper(read_handle, step_size)
+            start_time = time.time()
+            q = Queue()
+            t = Process(target=splitTSVMem, args=((q),))
+            q.put(args.split)
+            t.daemon = True
+            t.start()
+
             for data in pool.imap(xmlToTsv, iterator):
                 count += step_size
                 csv_writer.writerows(data)
+                q.put(data)
 
-    if args.split:
-          split_dir = args.split
-          splitTSV(outfile, split_dir)
+            q.put(None)
+            t.join()
 
-
+        #if args.split:
+        #      split_dir = args.split
+        #      splitTSV(outfile, split_dir)
 
