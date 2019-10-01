@@ -18,7 +18,7 @@ def loadTables(dirname):
             ["id", "normName"],
             ["id", "id_2", "coAuth"],
             ["id", "pub_id", "publisher"],
-            ["id", "isbnid", "isbn"],
+            ["id", "isbn"],
             ["id", "country_id", "country"],
             ["id", "title_id", "title"]]
 
@@ -26,6 +26,12 @@ def loadTables(dirname):
 
 def splitTSVMem(queue, outfile, dirname, header):
 
+    country_codes = {}
+    with open("data/countryIDs.tsv","r") as f:
+        csv_reader = csv.reader(f, delimiter="\t")
+        country_codes = {country.strip():ID for ID,_,country,_ in csv_reader if ID != "ID"}
+
+    country_id = 300
     with open(outfile, 'w') as write_handle:
         csv_writer = csv.writer(write_handle, delimiter="\t")
         csv_writer.writerow(header)
@@ -54,8 +60,6 @@ def splitTSVMem(queue, outfile, dirname, header):
                 coauthor_hashes = row[13]
                 publisher_hashes = row[14]
                 title_hashes = row[15]
-                isbn_hashes = row[16]
-                country_hashes = row[17]
                 name = row[2][0]
 
                 tables["person"].writerow([pid, pType, name, start, end, dType, nat])
@@ -69,17 +73,22 @@ def splitTSVMem(queue, outfile, dirname, header):
                 for key, value in zip(title_hashes, titles):
                     tables["titles"].writerow([pid, key, value])
 
-                for key, value in zip(isbn_hashes, isbns):
-                    tables["isbns"].writerow([pid, key, value])
-
-                for key, value in zip(country_hashes, countries):
-                    tables["countries"].writerow([pid, key, value])
+                for isbn in isbns:
+                    tables["isbns"].writerow([pid, isbn])
 
                 for alias in row[2]:
                     tables['aliases'].writerow([pid, alias])
 
                 for normname in row[3]:
                     tables['normNames'].writerow([pid, normname])
+
+                for country in countries:
+                    c_id = country_codes.get(country, None)
+                    if c_id == None:
+                        c_id = country_id
+                        country_id += 1
+                        country_codes[country] = c_id
+                    tables['countries'].writerow([pid, c_id, country]) 
 
 
 def xmlToTsv(xml_strings):
@@ -239,13 +248,6 @@ def xmlToTsv(xml_strings):
               else:
                   title_hashes.append(CityHash64(value))
 
-          isbn_hashes = []
-          for index,value in enumerate(isbns):
-              if value == None:
-                  del isbns[index]
-              else:
-                  isbn_hashes.append(CityHash64(value))
-
           country_hashes = []
           for index,value in enumerate(countries):
               if value == None:
@@ -253,7 +255,7 @@ def xmlToTsv(xml_strings):
               else:
                   country_hashes.append(CityHash64(value))
 
-          rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality, coauthor_hashes, publisher_hashes, title_hashes, isbn_hashes, country_hashes])
+          rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality, coauthor_hashes, publisher_hashes, title_hashes])
 
       q.put(rows)
 

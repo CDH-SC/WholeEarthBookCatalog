@@ -6,4 +6,6 @@ do
 	tar zcvf /backup/data/viaf_data/compressed/viaf-${i}-split.tar.gz /backup/data/viaf_data/uncompressed/viaf-${i}-split
 	gzip -k /backup/data/viaf_data/uncompressed/viaf-${i}.tsv
 	mv /backup/data/viaf_data/uncompressed/viaf-${i}.tsv.gz /backup/data/viaf_data/compressed
+	cp ../VIAF_SQL/*sql /backup/data/viaf_data
+	cat restart.sql | mysql
 done

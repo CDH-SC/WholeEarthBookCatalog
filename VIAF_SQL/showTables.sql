@@ -1,3 +1,4 @@
+use viaf;
 select '---------------PERSON_TABLE----------------' As '';
 DESCRIBE cluster_table;
 select * from cluster_table limit 10;

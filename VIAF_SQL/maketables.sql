@@ -69,10 +69,11 @@ CREATE TABLE titles_table (
 	title VARCHAR(2000)
 );
 
+/*
 CREATE TABLE country_IDs(
 	st_country_id VARCHAR(3),
 	type CHAR(5),
 	name CHAR(2),
 	name2 VARCHAR(100)
-);
+);*/
 
