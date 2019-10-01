@@ -42,7 +42,6 @@ def splitTSVMem(queue, outfile, dirname, header):
             if rows == None:
                 break
 
-            used_ids = []
             for row in rows:
                 csv_writer.writerow(row[:13])
                 pid, pType = row[0:2]
@@ -62,29 +61,19 @@ def splitTSVMem(queue, outfile, dirname, header):
                 tables["person"].writerow([pid, pType, name, start, end, dType, nat])
 
                 for key,value in zip(coauthor_hashes, coauthors):
-                    if key not in used_ids:
-                        tables["coAuthor"].writerow([pid, key, value])
-                        used_ids.append(key)
+                    tables["coAuthor"].writerow([pid, key, value])
 
                 for key, value in zip(publisher_hashes, publishers):
-                    if key not in used_ids:
-                        tables["pub"].writerow([pid, key, value])
-                        used_ids.append(key)
+                    tables["pub"].writerow([pid, key, value])
 
                 for key, value in zip(title_hashes, titles):
-                    if key not in used_ids:
-                        tables["titles"].writerow([pid, key, value])
-                        used_ids.append(key)
+                    tables["titles"].writerow([pid, key, value])
 
                 for key, value in zip(isbn_hashes, isbns):
-                    if key not in used_ids:
-                        tables["isbns"].writerow([pid, key, value])
-                        used_ids.append(key)
+                    tables["isbns"].writerow([pid, key, value])
 
                 for key, value in zip(country_hashes, countries):
-                    if key not in used_ids:
-                        tables["countries"].writerow([pid, key, value])
-                        used_ids.append(key)
+                    tables["countries"].writerow([pid, key, value])
 
                 for alias in row[2]:
                     tables['aliases'].writerow([pid, alias])
@@ -99,7 +88,7 @@ def xmlToTsv(xml_strings):
           try:
             cluster = etree.fromstring(xml_string)
           except:
-            raise
+            continue
 
           cluster = etree.ElementTree(cluster)
 
@@ -298,7 +287,7 @@ if __name__ == "__main__":
         t.daemon = True
         t.start()
 
-        pool = Pool(os.cpu_count(), initargs=(q))
+        pool = Pool(os.cpu_count() - 1, initargs=(q))
         for res in pool.imap_unordered(xmlToTsv, iterator):
             pass
 

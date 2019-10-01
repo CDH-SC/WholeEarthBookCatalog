@@ -21,3 +21,4 @@ dockerized_webapp/app/public/build/
 data
 *__pycache__
 *.pyc
+*.out
