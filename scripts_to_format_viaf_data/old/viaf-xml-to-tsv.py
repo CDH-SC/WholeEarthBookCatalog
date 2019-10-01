@@ -6,93 +6,61 @@ import os
 import sys
 import time
 
-from cityhash import CityHash64
 from lxml import etree
 from multiprocessing import Pool, Process, Queue
 from itertools import zip_longest
+from DivideTSVs import loadTables
 
-def loadTables(dirname):
+def splitTSVMem(queue):
+    dirname = q.get()
 
-    tlist = ["person","aliases","normNames","coAuthor","pub","isbns","countries","titles"]
-    theaders = [["id","type", "name", "start", "dateType", "nationality"],
-            ["id", "names"],
-            ["id", "normName"],
-            ["id", "id_2", "coAuth"],
-            ["id", "pub_id", "publisher"],
-            ["id", "isbnid", "isbn"],
-            ["id", "country_id", "country"],
-            ["id", "title_id", "title"]]
+    if not os.path.exists(dirname):
+        os.makedirs(dirname)
 
-    return tlist, theaders, { x:csv.writer(open(os.path.join(dirname, "{}Table.tsv".format(x)), 'w'), delimiter='\t') for x in tlist }
+    tlist, theaders, tables = loadTables(dirname)
 
-def splitTSVMem(queue, outfile, dirname, header):
+    for tname,theader in zip(tlist, theaders):
+        tables[tname].writerow(theader)
 
-    with open(outfile, 'w') as write_handle:
-        csv_writer = csv.writer(write_handle, delimiter="\t")
-        csv_writer.writerow(header)
-        if not os.path.exists(dirname):
-            os.makedirs(dirname)
+    # Skip header
 
-        tlist, theaders, tables = loadTables(dirname)
+    id_vals = { prop:id_val for prop,id_val in zip(tlist[3:], range(0, (len(tlist)*10000000), 10000000)) }
+    global_dict = {}
 
-        for tname,theader in zip(tlist, theaders):
-            tables[tname].writerow(theader)
+    while True:
+        rows = q.get()
+        if rows == None:
+            break
 
-        while True:
-            rows = queue.get()
-            if rows == None:
-                break
+        csv_writer.writerows(rows)
+        for row in rows:
+            pid, pType = row[0:2]
+            start, end, dType, nat = row[9:13]
+            row_vals = { tname:node for tname,node in zip(tlist[1:], row[2:9]) }
+            row_vals[tlist[0]] = row_vals['aliases'][0]
 
-            used_ids = []
-            for row in rows:
-                csv_writer.writerow(row[:13])
-                pid, pType = row[0:2]
-                start, end, dType, nat = row[9:13]
-                coauthors = row[4]
-                publishers = row[5]
-                isbns = row[6]
-                titles = row[8]
-                countries = row[7]
-                coauthor_hashes = row[13]
-                publisher_hashes = row[14]
-                title_hashes = row[15]
-                isbn_hashes = row[16]
-                country_hashes = row[17]
-                name = row[2][0]
+            for key, value in row_vals.items():
 
-                tables["person"].writerow([pid, pType, name, start, end, dType, nat])
+                if key == "person":
+                    tables[key].writerow([pid, pType, value, start, end, dType, nat])
 
-                for key,value in zip(coauthor_hashes, coauthors):
-                    if key not in used_ids:
-                        tables["coAuthor"].writerow([pid, key, value])
-                        used_ids.append(key)
+                elif key in ["coAuthor","pub","titles","isbns","countries"]:
+                    for sub_val in value:
 
-                for key, value in zip(publisher_hashes, publishers):
-                    if key not in used_ids:
-                        tables["pub"].writerow([pid, key, value])
-                        used_ids.append(key)
+                        # Really hacky and inefficient, I know
+                        type_string = "{}:{}".format(key, str(sub_val))
 
-                for key, value in zip(title_hashes, titles):
-                    if key not in used_ids:
-                        tables["titles"].writerow([pid, key, value])
-                        used_ids.append(key)
+                        if type_string in global_dict:
+                            tables[key].writerow([pid, global_dict[type_string], sub_val])
 
-                for key, value in zip(isbn_hashes, isbns):
-                    if key not in used_ids:
-                        tables["isbns"].writerow([pid, key, value])
-                        used_ids.append(key)
+                        else:
+                            tables[key].writerow([pid, id_vals[key], sub_val])
+                            global_dict[type_string] = id_vals[key]
+                            id_vals[key] += 1
 
-                for key, value in zip(country_hashes, countries):
-                    if key not in used_ids:
-                        tables["countries"].writerow([pid, key, value])
-                        used_ids.append(key)
-
-                for alias in row[2]:
-                    tables['aliases'].writerow([pid, alias])
-
-                for normname in row[3]:
-                    tables['normNames'].writerow([pid, normname])
-
+                else:
+                    for sub_val in value:
+                        tables[key].writerow([pid, sub_val])
 
 def xmlToTsv(xml_strings):
       rows = []
@@ -101,7 +69,6 @@ def xmlToTsv(xml_strings):
             cluster = etree.fromstring(xml_string)
           except:
             continue
-
           cluster = etree.ElementTree(cluster)
 
           ns = {"ns": "http://viaf.org/viaf/terms#"}
@@ -229,45 +196,8 @@ def xmlToTsv(xml_strings):
           else:
               death_date = ""
 
-          coauthor_hashes = []
-          for index,coauth in enumerate(coauthors):
-              if coauth == None:
-                  del coauthors[index]
-              else:
-                  coauthor_hashes.append(CityHash64(coauth))
-
-
-          publisher_hashes = []
-          for index,publisher in enumerate(publishers):
-              if publisher == None:
-                  del coauthors[index]
-              else:
-                  publisher_hashes.append(CityHash64(publisher))
-
-          title_hashes = []
-          for index,value in enumerate(titles):
-              if value == None:
-                  del titles[index]
-              else:
-                  title_hashes.append(CityHash64(value))
-
-          isbn_hashes = []
-          for index,value in enumerate(isbns):
-              if value == None:
-                  del isbns[index]
-              else:
-                  isbn_hashes.append(CityHash64(value))
-
-          country_hashes = []
-          for index,value in enumerate(countries):
-              if value == None:
-                  del countries[index]
-              else:
-                  country_hashes.append(CityHash64(value))
-
-          rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality, coauthor_hashes, publisher_hashes, title_hashes, isbn_hashes, country_hashes])
-
-      q.put(rows)
+          rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality])
+      return rows
 
 def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
@@ -278,32 +208,40 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--infile', '-i', help='Infile (XML) name', required=True)
     parser.add_argument('--outfile', '-o', help='Outfile (TSV) name', required=True)
-    parser.add_argument('--split', '-s', help='Split TSV File into Nodes in this directory', required=True)
-    args = parser.parse_args()
-    infile = args.infile
+    parser.add_argument('--split', '-s', help='Split TSV File into Nodes in this directory', required=True) 
+    args = parser.parse_args() 
+    infile = args.infile 
     outfile = args.outfile
 
+    pool = Pool(os.cpu_count() - 1) 
 
     with open(infile, 'r+b') as read_handle:
         header = ["ID", "Type", "Names", "NormNames", "CoAuth", "Publishers", "ISBN", "Country", "Titles", "StartDate", "EndDate", "DateType", "Nationality"]
 
 
-        step_size = 10
-        count = 0
+        with open(outfile, 'w') as write_handle:
+            csv_writer = csv.writer(write_handle, delimiter="\t")
+            csv_writer.writerow(header)
+            step_size = 1000
+            count = 0
 
-        iterator = grouper(read_handle, step_size)
-        start_time = time.time()
-        global q
-        q = Queue()
-        t = Process(target=splitTSVMem, args=[q, outfile, args.split, header])
-        t.daemon = True
-        t.start()
+            iterator = grouper(read_handle, step_size)
+            start_time = time.time()
+            q = Queue()
+            t = Process(target=splitTSVMem, args=((q),))
+            q.put(args.split)
+            t.daemon = True
+            t.start()
 
-        pool = Pool(os.cpu_count() - 1, initargs=(q))
-        for res in pool.imap(xmlToTsv, iterator):
-            pass
+            for data in pool.imap(xmlToTsv, iterator):
+                count += step_size
+                csv_writer.writerows(data)
+                q.put(data)
 
-        q.put(None)
-        t.join()
+            q.put(None)
+            t.join()
 
+        #if args.split:
+        #      split_dir = args.split
+        #      splitTSV(outfile, split_dir)
 
