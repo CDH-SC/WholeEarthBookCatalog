@@ -1,4 +1,6 @@
 #!/bin/bash
+# Setup scripts for nodes
+# TODO use pipenv or virtuenv in the future
 sudo apt-get install -y software-properties-common 
 sudo add-apt-repository ppa:deadsnakes/ppa -y 
 sudo apt-get update

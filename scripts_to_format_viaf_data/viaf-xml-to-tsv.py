@@ -11,6 +11,7 @@ from lxml import etree
 from multiprocessing import cpu_count, Pool, Process, Queue
 from itertools import zip_longest
 
+# Load all the individual table files
 def loadTables(dirname):
 
     tlist = ["person","aliases","normNames","coAuthor","pub","isbns","countries","titles"]
@@ -25,41 +26,54 @@ def loadTables(dirname):
 
     return tlist, theaders, { x:csv.writer(open(os.path.join(dirname, "{}Table.tsv".format(x)), 'w'), delimiter='\t') for x in tlist }
 
+# Queued function that handles all of the File IO
+# All the results from XmlToTsv get sent here immediately after processing
 def splitTSVMem(queue, outfile, dirname, header):
 
+    # Construct a dictionary for country codes
     country_codes = {}
     with open("data/countryIDs.tsv","r") as f:
         csv_reader = csv.reader(f, delimiter="\t")
         country_codes = {country.strip():ID for ID,_,country,_ in csv_reader if ID != "ID"}
 
+    # Increment from 300 for all non-valid country codes in the dataset
     country_id = 300
     with open(outfile, 'w') as write_handle:
         csv_writer = csv.writer(write_handle, delimiter="\t")
         csv_writer.writerow(header)
+
+        # If the directory doesn't exist for split files, make it
         if not os.path.exists(dirname):
             os.makedirs(dirname)
+            # Hack to satisfy provisioning scripts
             os.system("touch {}/.abc".format(dirname))
 
         tlist, theaders, tables = loadTables(dirname)
 
+        # Write headers to each individual TSV
         for tname,theader in zip(tlist, theaders):
             tables[tname].writerow(theader)
 
+        # Just some performance testing 
         is_list = isinstance(queue, list)
         flag = True
 
+        # While there is still more data to be recieved
         while flag:
 
+            # If list, you won't be getting any more data, so end after one loop
             if is_list:
                 flag = False
                 rows = queue
 
             else:
+                # Recieve data from queue
                 rows = queue.get()
                 if rows == None:
                     break
 
 
+            # All the data types
             for row in rows:
                 csv_writer.writerow(row[:13])
                 pid, pType = row[0:2]
@@ -76,6 +90,7 @@ def splitTSVMem(queue, outfile, dirname, header):
 
                 tables["person"].writerow([pid, pType, name, start, end, dType, nat])
 
+                # Rows look like VIAF_ID, UNIQUE_HASH NODE
                 for key,value in zip(coauthor_hashes, coauthors):
                     tables["coAuthor"].writerow([pid, key, value])
 
@@ -93,7 +108,8 @@ def splitTSVMem(queue, outfile, dirname, header):
 
                 for normname in row[3]:
                     tables['normNames'].writerow([pid, normname])
-
+                    
+                # Check if country code exists, if not, then increment from 300
                 for country in countries:
                     c_id = country_codes.get(country, None)
                     if c_id == None:
@@ -103,9 +119,10 @@ def splitTSVMem(queue, outfile, dirname, header):
                     tables['countries'].writerow([pid, c_id, country]) 
 
 
-
+# Does the actual xml to tsv conversion
 def xmlToTsv(xml_strings):
       rows = []
+      # Read in one cluster at a time
       for xml_string in xml_strings:
           try:
             cluster = etree.fromstring(xml_string)
@@ -114,6 +131,7 @@ def xmlToTsv(xml_strings):
 
           cluster = etree.ElementTree(cluster)
 
+          # TODO Remove XML namespace  
           ns = {"ns": "http://viaf.org/viaf/terms#"}
           cl_type = cluster.find('{http://viaf.org/viaf/terms#}nameType')
           if cl_type != None:
@@ -125,12 +143,14 @@ def xmlToTsv(xml_strings):
           names = []
           m_headings = cluster.findall("{http://viaf.org/viaf/terms#}mainHeadings")
 
+          # Traverse the trees for each indivudal element needed
           for element in m_headings:
               ts = ".//ns:data"
               main = element.xpath(ts, namespaces=ns)
               for data in main:
                   ts = ".//ns:text"
                   text = data.xpath(ts, namespaces=ns)
+                  # Some text fields blank for some reason
                   if len(text) > 0:
                         names.append(text[0].text)
 
@@ -239,6 +259,7 @@ def xmlToTsv(xml_strings):
           else:
               death_date = ""
 
+          # Calculate hashes for node types that need them
           coauthor_hashes = []
           for index,coauth in enumerate(coauthors):
               if coauth == None:
@@ -268,6 +289,7 @@ def xmlToTsv(xml_strings):
               else:
                   country_hashes.append(CityHash64(value))
 
+          # TODO performance tweaking. Passing a lot of data here, could probably speed this up by reducing amount
           rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality, coauthor_hashes, publisher_hashes, title_hashes])
 
       if mem:
@@ -275,12 +297,15 @@ def xmlToTsv(xml_strings):
 
       q.put(rows)
 
+# StackOverFlow fucntion for pulling data from an iterable in chunk sizes of n
 def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
     return zip_longest(*args, fillvalue=fillvalue)
 
 if __name__ == "__main__":
 
+    # Need an infile, an outfile, and a split file
+    # -m is just performance testing
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--infile', '-i', help='Infile (XML) name', required=True)
     parser.add_argument('--outfile', '-o', help='Outfile (TSV) name', required=True)
@@ -302,6 +327,7 @@ if __name__ == "__main__":
         global q
         global mem
 
+        # Hack to satisfy provisioning scripts
         p1 = subprocess.Popen(["touch","{}.abc".format(outfile)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         p1.wait()
         if p1.returncode != 0:
@@ -309,6 +335,8 @@ if __name__ == "__main__":
             print(err)
             exit(1)
 
+        # Load all data into memory, as opposed to reading it chunk by chunk
+        # Bit slower, for some reason
         if args.mem:
             data = read_handle.readlines()
             split_size = cpu_count()
@@ -324,10 +352,14 @@ if __name__ == "__main__":
 
 
         else: 
+            # How many records to send to each map function
+            # 10 - 100 seems to be the optimal size
             step_size = 10
-            count = 0
+
+            # Iterator that reads from the XML file in chunks of size step_size 
             iterator = grouper(read_handle, step_size)
-            start_time = time.time()
+            
+            # Instantiate a multiprocessing queue for each core to feed their results to
             q = Queue()
             t = Process(target=splitTSVMem, args=[q, outfile, args.split, header])
             t.daemon = True
@@ -335,6 +367,8 @@ if __name__ == "__main__":
 
                 
             mem = False
+
+            # Map all the data to the xmlToTsv function
             pool = Pool(os.cpu_count() - 1, initargs=(q, mem))
             for res in pool.imap_unordered(xmlToTsv, iterator):
                 pass
@@ -342,5 +376,6 @@ if __name__ == "__main__":
             q.put(None)
             t.join()
 
+            # Hack to satisfy provisioning scripts
             p2 = subprocess.Popen(["rm","{}/.abc".format(args.split)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             p3 = subprocess.Popen(["rm","{}.abc".format(outfile)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
