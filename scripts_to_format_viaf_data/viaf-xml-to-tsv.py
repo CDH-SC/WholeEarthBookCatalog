@@ -2,12 +2,13 @@ import argparse
 import csv
 import mmap
 import os
+import subprocess
 import sys
 import time
 
 from cityhash import CityHash64
 from lxml import etree
-from multiprocessing import Pool, Process, Queue
+from multiprocessing import cpu_count, Pool, Process, Queue
 from itertools import zip_longest
 
 def loadTables(dirname):
@@ -37,16 +38,27 @@ def splitTSVMem(queue, outfile, dirname, header):
         csv_writer.writerow(header)
         if not os.path.exists(dirname):
             os.makedirs(dirname)
+            os.system("touch {}/.abc".format(dirname))
 
         tlist, theaders, tables = loadTables(dirname)
 
         for tname,theader in zip(tlist, theaders):
             tables[tname].writerow(theader)
 
-        while True:
-            rows = queue.get()
-            if rows == None:
-                break
+        is_list = isinstance(queue, list)
+        flag = True
+
+        while flag:
+
+            if is_list:
+                flag = False
+                rows = queue
+
+            else:
+                rows = queue.get()
+                if rows == None:
+                    break
+
 
             for row in rows:
                 csv_writer.writerow(row[:13])
@@ -89,6 +101,7 @@ def splitTSVMem(queue, outfile, dirname, header):
                         country_id += 1
                         country_codes[country] = c_id
                     tables['countries'].writerow([pid, c_id, country]) 
+
 
 
 def xmlToTsv(xml_strings):
@@ -257,6 +270,9 @@ def xmlToTsv(xml_strings):
 
           rows.append([cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality, coauthor_hashes, publisher_hashes, title_hashes])
 
+      if mem:
+          return rows
+
       q.put(rows)
 
 def grouper(iterable, n, fillvalue=None):
@@ -269,6 +285,7 @@ if __name__ == "__main__":
     parser.add_argument('--infile', '-i', help='Infile (XML) name', required=True)
     parser.add_argument('--outfile', '-o', help='Outfile (TSV) name', required=True)
     parser.add_argument('--split', '-s', help='Split TSV File into Nodes in this directory', required=True)
+    parser.add_argument('--mem','-m', action='store_true', help='Load whole file into memory first')
     args = parser.parse_args()
     infile = args.infile
     outfile = args.outfile
@@ -276,24 +293,54 @@ if __name__ == "__main__":
 
     with open(infile, 'r+b') as read_handle:
         header = ["ID", "Type", "Names", "NormNames", "CoAuth", "Publishers", "ISBN", "Country", "Titles", "StartDate", "EndDate", "DateType", "Nationality"]
+        
 
 
         step_size = 10
         count = 0
 
-        iterator = grouper(read_handle, step_size)
-        start_time = time.time()
         global q
-        q = Queue()
-        t = Process(target=splitTSVMem, args=[q, outfile, args.split, header])
-        t.daemon = True
-        t.start()
+        global mem
 
-        pool = Pool(os.cpu_count() - 1, initargs=(q))
-        for res in pool.imap_unordered(xmlToTsv, iterator):
-            pass
+        p1 = subprocess.Popen(["touch","{}.abc".format(outfile)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p1.wait()
+        if p1.returncode != 0:
+            _,err = p1.communicate()
+            print(err)
+            exit(1)
 
-        q.put(None)
-        t.join()
+        if args.mem:
+            data = read_handle.readlines()
+            split_size = cpu_count()
+            chunk_size = int(len(data)/split_size)
+            total_size = len(data)
+            chunks = [data[x - chunk_size:x] for x in range(chunk_size, total_size, chunk_size)]
+            q = None
+            mem = True
+            pool = Pool(os.cpu_count(), initargs=(q, mem))
+            data = pool.map(xmlToTsv, chunks)
+            for rows in data:
+                splitTSVMem(rows, outfile, args.split, header)
 
 
+        else: 
+            step_size = 10
+            count = 0
+            iterator = grouper(read_handle, step_size)
+            start_time = time.time()
+            q = Queue()
+            t = Process(target=splitTSVMem, args=[q, outfile, args.split, header])
+            t.daemon = True
+            t.start()
+
+                
+            mem = False
+            pool = Pool(os.cpu_count() - 1, initargs=(q, mem))
+            for res in pool.imap_unordered(xmlToTsv, iterator):
+                pass
+
+            q.put(None)
+            t.join()
+
+            p2 = subprocess.Popen(["rm","{}/.abc".format(args.split)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            p3 = subprocess.Popen(["rm","{}.abc".format(outfile)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
