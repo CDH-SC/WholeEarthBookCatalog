@@ -16,7 +16,8 @@ done
 
 cd scripts_to_format_viaf_data
 # Process portion of data locally
-nohup python3 viaf-xml-to-tsv.py -i /backup/data/viaf_data/uncompressed/xml_split/viaf-04 -o /backup/data/viaf_data/transfer/viaf-out-4.tsv -s /backup/data/viaf_data/transfer/viaf-split-4 > errors.out &
+nohup python3 viaf-xml-to-tsv.py -i /backup/data/viaf_data/uncompressed/xml_split/viaf-04 -o /backup/data/viaf_data/transfer/viaf-out-4.tsv -s /backup/data/viaf_data/transfer/viaf-split-4 -c 13 > errors.out &
 
 # Run script in background that aggregates results
+cd launch_scripts
 nohup python3 join_results.py > errors.out &

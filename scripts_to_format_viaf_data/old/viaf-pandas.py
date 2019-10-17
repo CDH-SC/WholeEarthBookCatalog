@@ -1,9 +1,12 @@
 import argparse
 import asyncio
 import csv
-import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor
 import msgpack
 import mmap
+import pandas as pd
+import pyarrow as pa
+import io
 import os
 import subprocess
 import sys
@@ -83,68 +86,83 @@ def splitTSVMem(queue, outfile, dirname, header):
                 # Recieve data from queue
             rows = queue.get()
             # print("queue retrieval time: {}".format(time.time() - s_time))
-            rows = msgpack.unpackb(rows, use_list=False, raw=False)
             if rows == None:
                 flag = False
                 continue
-
-
-            # All the data types
+            
+            rows = msgpack.unpackb(rows, use_list=False, raw=False)
             for row in rows:
-                csv_writer.writerow(row[:13])
-                pid, pType = row[0:2]
-                start, end, dType, nat = row[9:13]
-                coauthors = row[4]
-                publishers = row[5]
-                isbns = row[6]
-                titles = row[8]
-                countries = row[7]
-                coauthor_hashes = row[13]
-                publisher_hashes = row[14]
-                title_hashes = row[15]
-                name = row[2][0]
+                tables["person"].writerow((row[0], row[1], row[2], row[10], row[11], row[12], row[13]))
+                tables["aliases"].writerows(row[3])
+                tables["normNames"].writerows(row[4])
+                tables["coAuthor"].writerows(row[5])
+                tables["pub"].writerows(row[6])
+                tables["isbns"].writerows(row[7])
+                tables["countries"].writerows(row[8])
+                tables["titles"].writerows(row[9])
+
+      # rows = pd.DataFrame(rows, columns=["PID","Type", "Names", "NormNames", "Coauthors", "Publishers", "ISBNS", "Countries", "Titles", "Birth_Date", "Death_Date", "Date_Type", "Nationality", "CoauthorHashes", "PublisherHashes", "TitleHashes"])
+            
+            # All the data types
+            def processData():
+                country_id = 300
+                for row in rows:
+                    csv_writer.writerow(row[:13])
+                    pid, pType = row[0:2]
+                    start, end, dType, nat = row[9:13]
+                    coauthors = row[4]
+                    publishers = row[5]
+                    isbns = row[6]
+                    titles = row[8]
+                    countries = row[7]
+                    coauthor_hashes = row[13]
+                    publisher_hashes = row[14]
+                    title_hashes = row[15]
+                    name = row[2][0]
 
 
-                # def writeRows(tname, data):
-                #    tname.writerows((data))
+                    def writeRows(tname, data):
+                        tname.writerows((data))
+                    # tables["person"].writerow((pid, pType, name, start, end, dType, nat))
 
-                tables["person"].writerow((pid, pType, name, start, end, dType, nat))
+                    # Rows look like VIAF_ID, UNIQUE_HASH NODE
+                    # Three cols
 
-                # Rows look like VIAF_ID, UNIQUE_HASH NODE
-                # Three cols
+                    # for key,value in zip(coauthor_hashes, coauthors):
+                    #    await tables["coAuthor"].writerow((pid, key, value))
+                    writeRows(tables["coAuthor"], ((pid, key, value) for key,value in zip(coauthor_hashes, coauthors)))
 
-                for key,value in zip(coauthor_hashes, coauthors):
-                    tables["coAuthor"].writerow((pid, key, value))
-                # writeRows(tables["coAuthor"], ((pid, key, value) for key,value in zip(coauthor_hashes, coauthors)))
+                    # for key,value in zip(publisher_hashes, publishers):
+                    #    await tables["pub"].writerow((pid, key, value))
+                    writeRows(tables["pub"], ((pid, key, value) for key,value in zip(publisher_hashes, publishers)))
 
-                for key,value in zip(publisher_hashes, publishers):
-                    tables["pub"].writerow((pid, key, value))
-                # writeRows(tables["pub"], ((pid, key, value) for key,value in zip(publisher_hashes, publishers)))
+                    # for key,value in zip(title_hashes, titles):
+                    #    await tables["titles"].writerow((pid, key, value))
+                    writeRows(tables["titles"], ((pid, key, value) for key,value in zip(title_hashes, titles)))
 
-                for key,value in zip(title_hashes, titles):
-                    tables["titles"].writerow((pid, key, value))
-                # writeRows(tables["titles"], ((pid, key, value) for key,value in zip(title_hashes, titles)))
+                    # for isbn in isbns:
+                    #    await tables["isbns"].writerow((pid, isbn))
+                    writeRows(tables["isbns"], (((pid, isbn) for isbn in isbns)))
 
-                for isbn in isbns:
-                    tables["isbns"].writerow((pid, isbn))
-                # writeRows(tables["isbns"], (((pid, isbn) for isbn in isbns)))
+                    # for alias in row[2]:
+                    #    await tables['aliases'].writerow((pid, alias))
+                    
+                    writeRows(tables['aliases'], ((pid, alias) for alias in row[2]))
+                    # for normname in row[3]:
+                    #    await tables['normNames'].writerow((pid, normname))
+                    writeRows(tables['normNames'], ((pid, normname) for normname in row[3]))
 
-                for alias in row[2]:
-                    tables['aliases'].writerow((pid, alias))
-                
-                # writeRows(tables['aliases'], ((pid, alias) for alias in row[2]))
-                for normname in row[3]:
-                    tables['normNames'].writerow((pid, normname))
-                # writeRows(tables['normNames'], ((pid, normname) for normname in row[3]))
-
-                # Check if country code exists, if not, then increment from 300
-                for country in countries:
-                    c_id = country_codes.get(country, None)
-                    if c_id == None:
-                        c_id = country_id
-                        country_id += 1
-                        country_codes[country] = c_id
-                        tables['countries'].writerow((pid, c_id, country)) 
+                    # Check if country code exists, if not, then increment from 300
+                    for country in countries:
+                        c_id = country_codes.get(country, None)
+                        if c_id == None:
+                            c_id = country_id
+                            country_id += 1
+                            country_codes[country] = c_id
+                            tables['countries'].writerow((pid, c_id, country)) 
+                # print("Loop Time: {}".format(time.time() - s_time))
+            # processData()
+            # asyncio.run(processData())
 
 
 # Does the actual xml to tsv conversion
@@ -178,7 +196,7 @@ def xmlToTsv(xml_strings):
               main = element.xpath(ts, namespaces=ns)
               for data in main:
                   if len(data) > 0:
-                        names.append(data)
+                        names.append((cl_id, str(CityHash64(data)), data))
 
           for section in m_headings:
               datafields = section.findall('subfield')
@@ -194,8 +212,8 @@ def xmlToTsv(xml_strings):
               ts = ".//ns:datafield//ns:normalized//text()"
               datafield = x400.xpath(ts, namespaces=ns)
               for name in datafield:
-                  if len(name) > 0:
-                        norm_names.append(name)
+                  if name != None:
+                        norm_names.append((cl_id, str(CityHash64(name)), name))
 
           coauthors = []
 
@@ -206,8 +224,8 @@ def xmlToTsv(xml_strings):
               for name in data:
                   #ts = ".//ns:text"
                   #name = field.xpath(ts, namespaces=ns)
-                  if len(name) > 0:
-                        coauthors.append(name)
+                  if name != None:
+                        coauthors.append((cl_id, str(CityHash64(name)), name))
 
           publishers = []
           pu_cl = cluster.findall('{http://viaf.org/viaf/terms#}publishers')
@@ -215,8 +233,8 @@ def xmlToTsv(xml_strings):
               ts = ".//ns:data//ns:text//text()"
               data = pub.xpath(ts, namespaces=ns)
               for name in data:
-                  if len(name) > 0:
-                        publishers.append(name)
+                  if name != None:
+                        publishers.append((cl_id, str(CityHash64(name)), name))
 
           isbns = []
           isbn_cl = cluster.xpath("//ns:ISBNs", namespaces=ns)
@@ -225,7 +243,7 @@ def xmlToTsv(xml_strings):
               data = isbn.xpath(ts, namespaces=ns)
               for name in data:
                   if len(name) > 0:
-                        isbns.append(name)
+                        isbns.append((cl_id, name))
 
           countries = []
           cou_cl = cluster.findall('{http://viaf.org/viaf/terms#}countries')
@@ -240,7 +258,8 @@ def xmlToTsv(xml_strings):
           works = cluster.xpath(".//ns:work//ns:title//text()", namespaces=ns)
           for work in works:
               if len(work) > 0:
-                  titles += [work]
+                  for title in work:
+                      titles.append((cl_id, str(CityHash64(title)), title))
 
           birth_date = cluster.xpath(".//ns:birthDate", namespaces=ns)
           death_date = cluster.xpath(".//ns:deathDate", namespaces=ns)
@@ -253,10 +272,12 @@ def xmlToTsv(xml_strings):
                   nationality = nationality[0].xpath(".//ns:text", namespaces=ns)
 
                   if len(nationality) > 0:
-                      nationality = nationality[0].text
+                      nationality = str(nationality[0].text)
 
                   else:
                       nationality = ""
+          else:
+              nationality = ""
 
           if len(date_type) > 0:
               date_type = date_type[0].text
@@ -278,44 +299,24 @@ def xmlToTsv(xml_strings):
               death_date = ""
 
           # Calculate hashes for node types that need them
-          coauthor_hashes = []
-          for index,coauth in enumerate(coauthors):
-              if coauth == None:
-                  del coauthors[index]
-              else:
-                  coauthor_hashes.append(CityHash64(coauth))
-
-
-          publisher_hashes = []
-          for index,publisher in enumerate(publishers):
-              if publisher == None:
-                  del coauthors[index]
-              else:
-                  publisher_hashes.append(CityHash64(publisher))
-
-          title_hashes = []
-          for index,value in enumerate(titles):
-              if value == None:
-                  del titles[index]
-              else:
-                  title_hashes.append(CityHash64(value))
-
-          country_hashes = []
-          for index,value in enumerate(countries):
-              if value == None:
-                  del countries[index]
-              else:
-                  country_hashes.append(CityHash64(value))
 
           # TODO performance tweaking. Passing a lot of data here, could probably speed this up by reducing amount
-          rows.append((cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality, coauthor_hashes, publisher_hashes, title_hashes))
+          # rows.append((cl_id, cl_type, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality, coauthor_hashes, publisher_hashes, title_hashes))
+          name = names[0][1]
+          rows.append((cl_id, cl_type, name, names, norm_names, coauthors, publishers, isbns, countries, titles, birth_date, death_date, date_type, nationality))
 
       if mem:
           return rows
 
+        # return rows
+      
+      # rows = pd.DataFrame(rows, columns=["PID","Type", "Names", "NormNames", "Coauthors", "Publishers", "ISBNS", "Countries", "Titles", "Birth_Date", "Death_Date", "Date_Type", "Nationality", "CoauthorHashes", "PublisherHashes", "TitleHashes"])
+      # table = pa.Table.from_pandas(rows)
+      # q.put(table)
       rows = msgpack.packb(rows, use_bin_type=True)
-      q.put(rows)
+      # q.put(rows)
       #print(current_process()._identity[0])
+      return rows
 
 # StackOverFlow fucntion for pulling data from an iterable in chunk sizes of n
 def grouper(iterable, n, fillvalue=None):
@@ -375,16 +376,16 @@ if __name__ == "__main__":
         else: 
             # How many records to send to each map function
             # 10 - 100 seems to be the optimal size
-            step_size = 100
+            step_size = 500
 
             # Iterator that reads from the XML file in chunks of size step_size 
             iterator = grouper(read_handle, step_size)
             
             # Instantiate a multiprocessing queue for each core to feed their results to
-            q = Queue()
-            t = Process(target=splitTSVMem, args=[q, outfile, args.split, header])
-            t.daemon = True
-            t.start()
+            # q = Queue()
+            # t = Process(target=splitTSVMem, args=[q, outfile, args.split, header])
+            # t.daemon = True
+            # t.start()
 
                 
             mem = False
@@ -393,19 +394,33 @@ if __name__ == "__main__":
             if args.cpus:
                 cpus = int(args.cpus)
             else:
-                cpus = os.cpu_count() - 1
+                cpus = os.cpu_count()
 
-            pool = Pool(cpus, initargs=(q, mem))
+            pool = Pool(cpus, initargs=(mem))
 
             def msgPackMe(data):
                 return msgpack.packb(data, use_bin_type=True)
 
-            for res in pool.imap_unordered(xmlToTsv, map(msgPackMe, iterator)):
-                pass
+            def writeData(tables, rows):
+                for row in rows:
+                    tables["person"].writerow((row[0], row[1], row[2], row[10], row[11], row[12], row[13]))
+                    tables["aliases"].writerows(row[3])
+                    tables["normNames"].writerows(row[4])
+                    tables["coAuthor"].writerows(row[5])
+                    tables["pub"].writerows(row[6])
+                    tables["isbns"].writerows(row[7])
+                    tables["countries"].writerows(row[8])
+                    tables["titles"].writerows(row[9])
 
-            end = msgpack.packb(None, use_bin_type=True)
-            q.put(end)
-            t.join()
+            _,_,tables = loadTables(args.split)
+            with ThreadPoolExecutor() as executor:
+                for rows in pool.imap_unordered(xmlToTsv, map(msgPackMe, iterator)):
+                    try:
+                        rows = msgpack.unpackb(rows, use_list=False, raw=False)
+                    except:
+                        print(rows)
+                    executor.submit(writeData, tables, rows)
+                    
 
             # Hack to satisfy provisioning scripts
             p2 = subprocess.Popen(["rm","{}/.abc".format(args.split)], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
