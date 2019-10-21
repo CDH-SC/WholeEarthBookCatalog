@@ -1,0 +1,15 @@
+{
+	"schema":{
+		"100":	[
+			{
+				"code": "a",
+				"name":	"FullName"
+			}
+		]},
+	"file_list":{
+			"person":{
+					"definition": ["FullName"],
+					"fname": "person.tsv"
+			}
+	}
+}
