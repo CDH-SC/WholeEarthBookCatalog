@@ -8,7 +8,6 @@ import os
 import subprocess
 import sys
 import time
-import zmq
 
 from cityhash import CityHash64
 from lxml import etree
@@ -144,6 +143,8 @@ def splitTSVMem(queue, outfile, dirname, header):
                         c_id = country_id
                         country_id += 1
                         country_codes[country] = c_id
+                        tables['countries'].writerow((pid, c_id, country)) 
+                    else:
                         tables['countries'].writerow((pid, c_id, country)) 
 
 
@@ -332,6 +333,7 @@ if __name__ == "__main__":
     parser.add_argument('--split', '-s', help='Split TSV File into Nodes in this directory', required=True)
     parser.add_argument('--mem','-m', action='store_true', help='Load whole file into memory first')
     parser.add_argument("--cpus", "-c", help="CPU Core Count Override")
+    parser.add_argument("--step", "-z", help="Chunk size for data")
     args = parser.parse_args()
     infile = args.infile
     outfile = args.outfile
@@ -375,7 +377,10 @@ if __name__ == "__main__":
         else: 
             # How many records to send to each map function
             # 10 - 100 seems to be the optimal size
-            step_size = 100
+            if args.step:
+                step_size = int(args.step)
+            else:
+                step_size = 1000
 
             # Iterator that reads from the XML file in chunks of size step_size 
             iterator = grouper(read_handle, step_size)

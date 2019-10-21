@@ -48,7 +48,6 @@ def handleErr(proc=None, fname=None):
     _,err = proc.communicate()
     print(err.decode('utf-8'))
     exit(1)
-
 # Delete all old data and create blank files and directories in their place
 for splt, tsv in zip(SPLITS, TSVS_OUT):
 
@@ -153,13 +152,12 @@ while dirs or tsvs or open_procs:
     # TODO Use asyncio instead 
     time.sleep(2)
 
-
                   
 # After FULL_TSV and FULL_SPLIT written, break files up into smaller splits and compress them
 for splt, c_splt, tsv, c_tsv, splt_size in zip(SPLITS, COMPRESSED_SPLITS, TSVS_OUT, COMPRESSED_TSVS_OUT, SPLIT_SIZES):
     if splt_size != None:
         for fname in glob.glob("{}/*".format(FULL_SPLIT)):
-            curr = subprocess.Popen("head -n {}, {} >> {}/{}".format(splt_size, fname, splt, fname), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            curr = subprocess.Popen("head -n {} {} >> {}/{}".format(splt_size, fname, splt, fname.split("/")[-1]), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             curr.wait()
             if curr.returncode != 0:
                 handleErr(curr)
