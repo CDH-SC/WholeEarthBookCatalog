@@ -31,7 +31,6 @@ def parseMarc(marc_data):
         for subfield in subfields:
             header.append(subfield["name"])
 
-    print(header)
     for row in marc_data:
 
         try:
@@ -45,13 +44,21 @@ def parseMarc(marc_data):
             search_string = ".//ns:datafield[@tag=\"{}\"]".format(datafield)
             for subfield in subfields:
                 data = row.xpath(".//ns:datafield[@tag=\"{}\"]/ns:subfield[@code=\"{}\"]/text()".format(datafield, subfield["code"]), namespaces=ns)
+
+                if subfield['name'] == "ViafID" and data:
+                    data = data.split("/")[-1]
+
                 if data:
+
                     if len(data) == 1:
                         current_row.append(data[0])
+
                     else:
                         current_row.append(data)
+
                 else:
                     current_row.append("")
+
         tsv_data.append(current_row)
 
     df = pd.DataFrame(tsv_data, columns=header)
@@ -103,7 +110,6 @@ def localQueue(q, split_dir, schema):
     
         
         for key in file_list.keys():
-            print(key)
 
             if f_count == 0:
                 rows[file_list[key]["definition"]].to_csv(os.path.join(split_dir, file_list[key]["fname"]), header="column_names", index=False)

@@ -1,0 +1,40 @@
+#!/bin/bash
+ln="0";
+rx="0";
+rb="0";
+TEMP=`getopt --long -o "l:r:o" "$@"`
+eval set -- "$TEMP"
+while true ; do
+    case "$1" in
+        -l )
+            ln=$2
+            shift 2
+        ;;
+
+        -r )
+            rx=$2
+            shift 2
+        ;;
+
+        -o )
+            rb=$3
+            shift 2
+        ;;
+
+        *)
+            break
+        ;;
+    esac 
+done;
+if [ "$ln" != "0" ]
+  then
+    sed -n -e ${ln}p $2 | while read line; do echo $line | xmllint --format - ;done | bat -
+  fi
+if [ "$rx" != "0" ]
+  then
+   rg $rx $2 | while read line; do echo $line | xmllint --format -; done | bat - 
+  fi
+if [ "$rb" != "0" ]
+  then
+     rg -o $rb $2 
+  fi

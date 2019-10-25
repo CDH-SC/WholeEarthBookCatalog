@@ -3,12 +3,13 @@
 		"100":	[
 			{
 				"code": "a",
-				"name":	"FullName"
+				"name":	"FullName",
+				"hash": "True"
 			}
 		]},
 	"file_list":{
 			"person":{
-					"definition": ["FullName"],
+					"definition": ["ViafID", "Hash", "FullName"],
 					"fname": "person.tsv"
 			}
 	}
