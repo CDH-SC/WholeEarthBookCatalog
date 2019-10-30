@@ -15,7 +15,7 @@ def loadSchema(schema_file):
     try:
         with open(schema_file, "r") as rhandle:
             schema = json.load(rhandle)
-        return schema 
+        return schema
 
     except:
         raise
@@ -40,31 +40,41 @@ def parseMarc(marc_data):
 
         row = etree.ElementTree(row)
         current_row = []
+        controlfield = ".//ns:controlfield[@tag=\"001\"]/text()"
+        controlfield = row.xpath(controlfield, namespaces=ns)[0]
+        # current_rows.append({"CF":controlfield})
+        print(controlfield)
         for datafield, subfields in schema["schema"].items():
-            search_string = ".//ns:datafield[@tag=\"{}\"]".format(datafield)
+            search_string = "ns:datafield[@tag=\"{}\"]".format(datafield)
+            # datafields = row.xpath(search_string, namespaces=ns)
             for subfield in subfields:
-                data = row.xpath(".//ns:datafield[@tag=\"{}\"]/ns:subfield[@code=\"{}\"]/text()".format(datafield, subfield["code"]), namespaces=ns)
 
-                if subfield['name'] == "ViafID" and data:
-                    data = data.split("/")[-1]
+                data = row.xpath(".//{}/ns:subfield[@code=\"{}\"]/text()".format(search_string, datafield, subfield["code"]), namespaces=ns)
+                print(data)
 
                 if data:
+                    print(data)
 
                     if len(data) == 1:
-                        current_row.append(data[0])
+                        if subfield['name'] == "ViafID":
+                            data = data[0].split("/")[-1]
+                            current_row.append([data])
+                        else:
+                            current_row.append([data])
 
                     else:
-                        current_row.append(data)
+                        current_row.append([data])
 
                 else:
                     current_row.append("")
 
+
         tsv_data.append(current_row)
 
+    print(tsv_data)
     df = pd.DataFrame(tsv_data, columns=header)
     df = pa.Table.from_pandas(df)
     q.put(df)
-
 
 def remoteQueue(q):
     return
@@ -165,7 +175,6 @@ if __name__ == "__main__":
         else:
             cpus = os.cpu_count() - 1
 
-        
         pool = mp.Pool(cpus, initargs=(q, schema))
 
         def msgPackMe(data):

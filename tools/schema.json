@@ -1,6 +1,11 @@
 {
 	"schema":{
-		"100":	[
+		"700":	[
+      {
+        "code": "1",
+        "name": "ViafID",
+        "hash": "False"
+      },
 			{
 				"code": "a",
 				"name":	"FullName",
@@ -9,7 +14,7 @@
 		]},
 	"file_list":{
 			"person":{
-					"definition": ["ViafID", "Hash", "FullName"],
+					"definition": ["ViafID","FullName"],
 					"fname": "person.tsv"
 			}
 	}
