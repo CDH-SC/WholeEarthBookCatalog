@@ -6,6 +6,8 @@ import xmltodict
 
 from collections import defaultdict
 
+# Read over xml data and convert it all into JSON
+# Resulting json will look something like {id: {tag_#: [{code: tex},...]}}
 def xmltojson(data):
     records = []
     for row in data:
@@ -26,11 +28,15 @@ def xmltojson(data):
 
     return [json.dumps(x) for x in records]
 
+
+# Grouper for iterating over json in n sized chunks
 def grouper(iterable, n, fillvalue=None):
     args = [iter(iterable)] * n
     return itertools.zip_longest(*args, fillvalue=fillvalue)
 
 if __name__ == "__main__":
+
+    # Argparse for collecing cli arguments
     parser = argparse.ArgumentParser(description="Converts XML To JSON")
     parser.add_argument("-i","--infile",help="Input XML file")
     parser.add_argument("-o","--outfile",help="Output JSON file")
