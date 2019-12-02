@@ -1,4 +1,5 @@
 import argparse
+import copy
 import csv
 import itertools
 import json
@@ -10,7 +11,9 @@ from collections import defaultdict
 
 def jsontocsv(data):
     # Precompute all tables for writing
-    records = table
+
+    # records = list(list(list(j) for j in l) for l in table)
+    records = copy.deepcopy(table)
     for row in data:
         if row == None:
             continue
@@ -20,17 +23,16 @@ def jsontocsv(data):
             if key != 'id':
                 for subrow in value:
                     if isinstance(subrow, dict):
-                        curr_row = table[table_ind[key]["t_v"]][1]
+                        curr_row = copy.deepcopy(table[table_ind[key]["t_v"]][1])
                         curr_row[0] = cid
                         curr_row[table_ind[key][subrow['@code']]] = subrow['#text']
                         records[table_ind[key]["t_v"]].append(tuple(curr_row))
                     elif isinstance(subrow[0], dict):
-                        curr_row = table[table_ind[key]["t_v"]][1]
+                        curr_row = copy.deepcopy(table[table_ind[key]["t_v"]][1])
                         curr_row[0] = cid
                         for x in subrow:
                             curr_row[table_ind[key][x['@code']]] = x['#text']
                         records[table_ind[key]["t_v"]].append(tuple(curr_row))
-
 
     records = msgpack.packb(records, use_bin_type=True)
     queue.put(records)
@@ -48,11 +50,13 @@ def writeRecords(queue, split_dir, table_ind):
         data = msgpack.unpackb(data, use_list=False, raw=False)
         if counter == 0:
             for col,handle in zip(data, write_handles):
-                handle.writerows(col)
+                handle.writerow(col[0])
+                handle.writerows(col[2:])
             counter += 1
         else:
             for col,handle in zip(data, write_handles):
-                handle.writerows(col[1:])
+                if len(col) > 2:
+                    handle.writerows(col[2:])
     
 
 def grouper(iterable, n, fillvalue=None):
@@ -84,7 +88,8 @@ if __name__ == "__main__":
     p1.start()
 
     try:
-        pool = mp.Pool(15, initargs=(queue, table, table_ind))
+        #table = tuple(tuple(tuple(j) for j in l) for l in table)
+        pool = mp.Pool(1, initargs=(queue, table, table_ind))
         with open(arguments.infile) as read_handle:
             iterator = grouper(read_handle, 100)
             for res in pool.imap(jsontocsv, iterator):
